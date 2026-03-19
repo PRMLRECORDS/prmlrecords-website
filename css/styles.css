@@ -12,11 +12,11 @@
 
 /* ── VARIABLES ─────────────────────────────────── */
 :root {
-  --red:      #E01010;
+  --red:      #FE0103;
   --red-dk:   #A00000;
-  --cream:    #F5E6C8;
+  --cream:    #F6E8C3;
   --cream-dk: #E8D4A8;
-  --charcoal: #2B2B2B;
+  --charcoal: #2E2D2D;
   --black:    #0D0D0D;
   --border:   2px solid #2B2B2B;
   --phone:    '770-686-7726';
@@ -51,6 +51,12 @@ button{cursor:pointer}
 .nav__sub .sep{color:var(--red);opacity:.4;font-size:12px}
 .nav__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav__burger span{display:block;width:24px;height:2px;background:var(--cream);transition:.3s}
+/* ── Nav Dropdown ── */
+.nl--has-drop{position:relative}
+.nl__drop{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:200px;background:var(--charcoal);border-top:2px solid var(--red);box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:300;flex-direction:column}
+.nl__drop.open{display:flex}
+.nl__drop a{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.6;padding:12px 16px;text-decoration:none;border-bottom:1px solid rgba(245,230,200,.06);transition:opacity .2s,color .2s}
+.nl__drop a:hover{opacity:1;color:var(--red)}
 .mob-menu{display:none;position:fixed;top:auto;left:0;right:0;background:var(--black);border-bottom:3px solid var(--red);flex-direction:column;padding:16px 32px;gap:12px;z-index:199;max-height:calc(100vh - 80px);overflow-y:auto}
 .mob-menu.open{display:flex}
 .mob-menu .nl{font-size:13px;opacity:.55;padding:8px 0;border-bottom:1px solid rgba(245,230,200,.07)}

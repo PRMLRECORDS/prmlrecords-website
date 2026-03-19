@@ -2,75 +2,83 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="PRML Records Shop — NFC tap cards, digital business cards, wristbands, keychains. The West End answer to Popl and Dot. Black-owned. West End Atlanta.">
-<meta property="og:title" content="Shop — PRML Records LLC">
+<meta name="description" content="PRML TAP CARD and PRML TAP KEY — premium NFC products from PRML RECORDS. One tap shares your complete digital identity. No app. No subscription. West End Atlanta.">
+<meta property="og:title" content="PRML TAP CARD &amp; TAP KEY — PRML RECORDS">
 <meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
-<title>Shop — PRML Records LLC</title>
+<title>PRML TAP CARD &amp; TAP KEY — PRML RECORDS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
 <style>
-/* ── Hero ── */
-.shop-hero{background:var(--black);padding:72px 5vw 56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;border-bottom:2px solid var(--charcoal)}
-.sh-eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
-.sh-title{font-family:'Rubik Mono One',monospace;font-size:clamp(40px,6vw,80px);color:var(--cream);letter-spacing:-2px;line-height:.9;margin-bottom:18px}
+.shop-hero{background:var(--black);padding:96px 5vw 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sh-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.sh-title{font-family:'Rubik Mono One',monospace;font-size:clamp(40px,6vw,84px);color:var(--cream);letter-spacing:-2px;line-height:.92;margin-bottom:16px}
 .sh-title span{color:var(--red)}
-.sh-body{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.8;max-width:420px}
-.vs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--charcoal)}
-.vs-card{background:var(--black);padding:20px;text-align:center}
-.vs-brand{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-.vs-brand.them{color:rgba(245,230,200,.25)}
-.vs-brand.us{color:var(--red)}
-.vs-price{font-family:'Rubik Mono One',monospace;font-size:22px;letter-spacing:-1px;margin-bottom:6px}
-.vs-price.them{color:rgba(245,230,200,.25)}
-.vs-price.us{color:var(--cream)}
-.vs-feat{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;line-height:1.6}
-.vs-feat.them{color:rgba(245,230,200,.2)}
-.vs-feat.us{color:var(--cream);opacity:.6}
-.vs-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;display:inline-block;margin-bottom:10px}
-/* ── Comparison Banner ── */
-.compare-banner{background:var(--charcoal);padding:40px 5vw;border-bottom:2px solid var(--black)}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--black);margin-top:20px}
-.cg-head{font-family:'Rubik Mono One',monospace;font-size:16px;letter-spacing:-0.5px;margin-bottom:6px}
-.cg-col{padding:24px;background:var(--charcoal)}
-.cg-col.highlight{background:rgba(224,16,16,.08);border:1px solid rgba(224,16,16,.2)}
-.cg-row{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);line-height:1.6;padding:6px 0;border-bottom:1px solid rgba(245,230,200,.05);display:flex;gap:8px;align-items:flex-start}
-.cg-check{color:var(--red);flex-shrink:0;margin-top:1px}
-.cg-x{opacity:.25;flex-shrink:0;margin-top:1px}
-/* ── Product Grid ── */
-.shop-section{padding:56px 5vw}
-.ss-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px}
-.ss-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--charcoal);letter-spacing:-1px}
-.ss-sub{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.5;max-width:520px;line-height:1.7;border-left:3px solid var(--red);padding-left:12px;margin-top:10px}
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2px;background:var(--charcoal)}
-.prod-card{background:var(--cream);display:flex;flex-direction:column;transition:.2s;position:relative}
-.prod-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(43,43,43,.18)}
-.pc-img{height:240px;background:var(--charcoal);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
-.pc-badge{position:absolute;top:12px;left:12px;background:var(--red);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px}
-.pc-body{padding:22px;flex:1;display:flex;flex-direction:column}
-.pc-cat{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
-.pc-name{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--black);letter-spacing:-0.3px;line-height:1.2;margin-bottom:8px}
-.pc-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--charcoal);opacity:.65;line-height:1.65;flex:1;margin-bottom:14px}
-.pc-compare{font-family:'Roboto Slab',serif;font-size:11px;color:var(--charcoal);opacity:.4;margin-bottom:10px;font-style:italic}
-.pc-price{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);letter-spacing:-0.5px}
-.pc-fee{font-family:'Roboto Slab',serif;font-size:10px;color:var(--charcoal);opacity:.35;margin-bottom:14px}
-.pc-btns{display:flex;gap:8px;flex-wrap:wrap}
-/* ── Digital Section ── */
-.digital-section{background:var(--black);padding:56px 5vw}
-.ds-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--cream);letter-spacing:-1px;margin-bottom:10px}
-.ds-sub{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.5;max-width:520px;line-height:1.7;border-left:3px solid var(--red);padding-left:12px;margin-bottom:32px}
-.digital-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px;background:rgba(245,230,200,.05)}
-.dg-card{background:rgba(245,230,200,.03);padding:28px;border:1px solid rgba(245,230,200,.06);transition:.2s}
-.dg-card:hover{background:rgba(224,16,16,.06);border-color:rgba(224,16,16,.2)}
-/* ── Custom CTA ── */
-.custom-cta{background:var(--red);padding:60px 5vw;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
-.cc-title{font-family:'Rubik Mono One',monospace;font-size:clamp(24px,4vw,48px);color:var(--cream);letter-spacing:-1px;margin-bottom:10px}
-.cc-sub{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--cream);opacity:.8;line-height:1.75;max-width:540px}
-@media(max-width:900px){.shop-hero{grid-template-columns:1fr}.vs-grid{grid-template-columns:1fr}.compare-grid{grid-template-columns:1fr}.custom-cta{grid-template-columns:1fr}}
+.sh-tagline{font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--cream);opacity:.6;margin-bottom:20px}
+.sh-desc{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.8;max-width:440px;margin-bottom:28px}
+.sh-visual{background:var(--charcoal);border:1px solid rgba(254,1,3,.15);padding:48px 40px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.sh-visual-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--red)}
+.sh-card-mock{width:200px;height:126px;background:var(--black);border:1px solid rgba(254,1,3,.3);display:flex;align-items:center;justify-content:center;position:relative}
+.sh-card-mock-text{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:2px}
+.sh-card-mock-chip{position:absolute;bottom:14px;right:14px;width:28px;height:20px;background:var(--red);opacity:.6;border-radius:2px}
+.how-section{background:var(--cream);padding:80px 5vw;text-align:center}
+.how-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;max-width:900px;margin:48px auto 0;position:relative}
+.how-steps::before{content:'';position:absolute;top:40px;left:16.5%;right:16.5%;height:1px;background:var(--red);opacity:.25}
+.how-step{padding:0 24px;position:relative;z-index:1}
+.how-num{width:80px;height:80px;background:var(--black);border:2px solid var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px}
+.how-word{font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3vw,36px);color:var(--charcoal);letter-spacing:-1px;margin-bottom:10px}
+.how-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.6;line-height:1.7}
+.prod-section{padding:80px 5vw;border-bottom:2px solid rgba(46,45,45,.08)}
+.prod-section.dark{background:var(--black)}
+.prod-section.light{background:var(--cream)}
+.ps-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.ps-name{font-family:'Rubik Mono One',monospace;font-size:clamp(32px,5vw,64px);letter-spacing:-2px;line-height:.95;margin-bottom:8px}
+.ps-tagline{font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;opacity:.55;margin-bottom:16px}
+.ps-desc{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;line-height:1.8;max-width:540px;margin-bottom:40px;border-left:3px solid var(--red);padding-left:16px}
+.ps-options{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:720px}
+.ps-opt{padding:36px;display:flex;flex-direction:column;gap:6px}
+.ps-opt-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+.ps-opt-price{font-family:'Rubik Mono One',monospace;font-size:48px;letter-spacing:-2px;line-height:1}
+.ps-opt-sub{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;opacity:.45;margin-bottom:20px}
+.ps-opt-promo{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;font-style:italic;margin-bottom:20px}
+.dark .ps-name{color:var(--cream)}
+.dark .ps-tagline{color:var(--cream)}
+.dark .ps-desc{color:var(--cream);opacity:.7}
+.dark .ps-opt{background:rgba(246,232,195,.04);border:1px solid rgba(246,232,195,.08)}
+.dark .ps-opt-price{color:var(--cream)}
+.dark .ps-opt-sub,.dark .ps-opt-promo{color:var(--cream)}
+.light .ps-name{color:var(--charcoal)}
+.light .ps-tagline{color:var(--charcoal)}
+.light .ps-desc{color:var(--charcoal)}
+.light .ps-opt{background:rgba(46,45,45,.04);border:1px solid rgba(46,45,45,.1)}
+.light .ps-opt-price{color:var(--red)}
+.light .ps-opt-sub,.light .ps-opt-promo{color:var(--charcoal)}
+.features-section{background:var(--charcoal);padding:80px 5vw}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;background:rgba(245,230,200,.04);margin-top:40px}
+.feat-card{background:var(--charcoal);padding:28px;border:1px solid rgba(245,230,200,.06);transition:.2s}
+.feat-card:hover{background:rgba(254,1,3,.06);border-color:rgba(254,1,3,.2)}
+.feat-title{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.feat-body{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.7}
+.use-section{background:var(--cream);padding:80px 5vw}
+.use-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:var(--charcoal);margin-top:40px}
+.use-card{background:var(--cream);padding:32px;transition:.2s}
+.use-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(46,45,45,.12)}
+.use-who{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.use-title{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--charcoal);letter-spacing:-0.5px;margin-bottom:10px}
+.use-body{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.65;line-height:1.7}
+.faq-section{background:var(--black);padding:80px 5vw}
+.faq-item{border-bottom:1px solid rgba(245,230,200,.08)}
+.faq-q{font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s;user-select:none}
+.faq-q:hover,.faq-q.open{color:var(--red)}
+.faq-q::after{content:'+';font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);transition:transform .3s}
+.faq-q.open::after{transform:rotate(45deg)}
+.faq-a{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;line-height:1.85;color:var(--cream);opacity:.6;padding:0;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-a.open{padding:0 0 20px;max-height:300px}
+@media(max-width:900px){.shop-hero{grid-template-columns:1fr;padding:72px 5vw 56px}.sh-visual{display:none}.how-steps{grid-template-columns:1fr}.how-steps::before{display:none}.ps-options{grid-template-columns:1fr}}
 </style>
-<!-- GA4 — PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
+<!-- GA4 — PRML RECORDS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -93,11 +101,18 @@
 
 <nav class="nav" id="nav">
   <div class="nav__left">
-    <a href="index.html"><img src="" id="nav-logo" style="height:36px;width:auto" alt="PRML Records"></a>
+    <a href="index.html"><img src="assets/logo.png" id="nav-logo" style="height:36px;width:auto" alt="PRML RECORDS"></a>
     <span class="nav__divider"></span>
     <div class="nav__links">
       <a href="index.html" class="nl">Home</a>
-      <a href="services.html" class="nl">Services</a>
+      <span class="nl nl--has-drop">Services
+        <span class="nl__drop">
+          <a href="services.html">All Services</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="booking.html">Book a Consultation</a>
+          <a href="contact.html">Get a Quote</a>
+        </span>
+      </span>
       <a href="products.html" class="nl active">Shop</a>
       <a href="booking.html" class="nl">Booking</a>
       <a href="contact.html" class="nl">Contact</a>
@@ -106,293 +121,144 @@
   <div class="nav__right">
     <a href="tel:7706867726" class="nav__phone">770-686-7726</a>
     <button class="cart-btn" onclick="openCart()">Cart <span class="cart-count">0</span></button>
-    <button class="nav__burger" onclick="toggleMob()">☰</button>
+    <button class="nav__burger" onclick="toggleMob()">&#9776;</button>
   </div>
 </nav>
 <div class="mob-menu" id="mob">
   <a href="index.html" onclick="closeMob()">Home</a>
   <a href="services.html" onclick="closeMob()">Services</a>
+  <a href="how-it-works.html" onclick="closeMob()">How It Works</a>
   <a href="products.html" onclick="closeMob()">Shop</a>
   <a href="booking.html" onclick="closeMob()">Booking</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
 </div>
 
-<!-- ═══ HERO: PRML vs Popl/Dot ═══ -->
-<div class="shop-hero">
+<!-- HERO -->
+<div class="shop-hero rev" id="products">
   <div>
-    <div class="sh-eyebrow">PRML Records Shop · West End Atlanta</div>
-    <div class="sh-title">Why Pay<br><span>$50</span><br>For Theirs?</div>
-    <div class="sh-body">Popl. Dot. HiHello. They sell you a plastic card and charge a monthly subscription forever. We sell you a card you actually own — no app lock-in, no subscription, no corporate middleman.<br><br>Black-owned. West End built. Built to last.</div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-      <a href="#nfc" class="btn btn--red btn--lg">Shop NFC Cards →</a>
-      <a href="services.html" class="btn btn--out">Need Custom? → Services</a>
+    <div class="sh-eye">PRML RECORDS · West End Atlanta · NFC Products</div>
+    <div class="sh-title">PRML<br><span>TAP</span><br>CARD.</div>
+    <div class="sh-tagline">One tap. Every detail.</div>
+    <div class="sh-desc">Your complete digital identity in a slim, branded card. Tap any phone — no app needed. Instant connection. No subscription. Yours forever.</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#tap-card" class="btn btn--red btn--lg">Get Yours &#8594;</a>
+      <a href="how-it-works.html" class="btn btn--out">How It Works</a>
     </div>
   </div>
-  <div>
-    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px">Head-to-Head Comparison</div>
-    <div class="vs-grid">
-      <div class="vs-card">
-        <span class="vs-label" style="background:rgba(245,230,200,.06);color:rgba(245,230,200,.3)">Popl / Dot</span>
-        <div class="vs-price them">$30–$60</div>
-        <div class="vs-feat them">Card + app subscription<br>$7–$15/mo forever<br>Their branding on your card<br>Generic plastic feel<br>No local support</div>
-      </div>
-      <div class="vs-card" style="background:rgba(224,16,16,.06);border:1px solid rgba(224,16,16,.2)">
-        <span class="vs-label" style="background:var(--red);color:var(--cream)">PRML Records</span>
-        <div class="vs-price us">$15–$35</div>
-        <div class="vs-feat us">Card you own outright<br>No monthly fees — ever<br>Your name, your brand<br>Premium NFC quality<br>West End ATL support</div>
-      </div>
-      <div class="vs-card">
-        <span class="vs-label" style="background:rgba(245,230,200,.06);color:rgba(245,230,200,.3)">HiHello</span>
-        <div class="vs-price them">$20–$40</div>
-        <div class="vs-feat them">App-dependent<br>$6–$12/mo subscription<br>Limited customization<br>Data tied to their platform<br>No physical product</div>
-      </div>
+  <div class="sh-visual">
+    <div class="sh-visual-label">PRML TAP CARD</div>
+    <div class="sh-card-mock">
+      <div class="sh-card-mock-text">PRML</div>
+      <div class="sh-card-mock-chip"></div>
+    </div>
+    <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.4;max-width:180px;text-align:center;line-height:1.6">Tap any iPhone or Android. No app required on their end.</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <div class="sh-eye" style="margin-bottom:8px">It really is this simple</div>
+  <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--charcoal);letter-spacing:-1px">Three steps.<br>That's it.</div>
+  <div class="how-steps">
+    <div class="how-step rev">
+      <div class="how-num">01</div>
+      <div class="how-word">Tap.</div>
+      <div class="how-desc">Hold your PRML TAP CARD or TAP KEY near any smartphone. No apps, no Bluetooth, no friction.</div>
+    </div>
+    <div class="how-step rev">
+      <div class="how-num">02</div>
+      <div class="how-word">Connect.</div>
+      <div class="how-desc">Their phone opens your digital profile instantly — contact info, socials, portfolio, booking link, or anything you choose.</div>
+    </div>
+    <div class="how-step rev">
+      <div class="how-num">03</div>
+      <div class="how-word">Done.</div>
+      <div class="how-desc">They save your info. You made the connection. No paper. No fumbling. No forgotten cards.</div>
     </div>
   </div>
 </div>
 
-<!-- ═══ NFC TAP CARDS — HERO PRODUCT ═══ -->
-<div id="nfc" class="shop-section" style="background:var(--cream)">
-  <div class="ss-header">
-    <div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Our Flagship Products</div>
-      <div class="ss-title">NFC Tap Cards</div>
-      <div class="ss-sub">One tap shares everything — your contact info, portfolio, social links, booking page, or anything you want. No app. No subscription. You own it.</div>
+<!-- PRML TAP CARD -->
+<div class="prod-section dark rev" id="tap-card">
+  <div class="ps-label">Flagship Product</div>
+  <div class="ps-name">PRML TAP CARD</div>
+  <div class="ps-tagline">One tap. Every detail.</div>
+  <div class="ps-desc">Your complete digital identity in a slim, branded card. Tap any phone — no app needed. Instant connection. Works on all iPhones and Android. Update your info anytime — same card, forever.</div>
+  <div class="ps-options">
+    <div class="ps-opt">
+      <div class="ps-opt-label">Single Card</div>
+      <div class="ps-opt-price">$35</div>
+      <div class="ps-opt-sub">+ $6 processing fee &middot; Ships in 3&ndash;5 days</div>
+      <div class="ps-opt-promo">First 9 customers: setup fee waived</div>
+      <a href="https://buy.stripe.com/7sY28s02p6Bw7zggrg1ZS0u" class="btn btn--red" target="_blank" rel="noopener">Get Yours &#8594;</a>
     </div>
-  </div>
-
-  <div class="prod-grid">
-
-    <div class="prod-card">
-      <div class="pc-img" style="background:var(--black)">
-        <span>📇</span>
-        <span class="pc-badge">Best Seller</span>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">NFC · Standard</div>
-        <div class="pc-name">PRML NFC Tap Card — Black</div>
-        <div class="pc-desc">Premium PVC NFC card. One tap shares your name, phone, email, social links, and any URL you choose. Works on all iPhones and Android. No app needed on their end.</div>
-        <div class="pc-compare">vs. Popl Metal ($60 + $15/mo) — same function, no subscription</div>
-        <div class="pc-price">$25</div>
-        <div class="pc-fee">+ $6 processing fee · Ships in 3–5 days</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'PRML NFC Tap Card — Black',price:'25',desc:'Premium NFC business card, Black'})">Add to Cart</button>
-          <a href="contact.html" class="btn btn--out btn--sm">Customize</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card">
-      <div class="pc-img" style="background:var(--charcoal)">
-        <span>📇</span>
-        <span class="pc-badge">NFC</span>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">NFC · Premium</div>
-        <div class="pc-name">PRML NFC Tap Card — Cream</div>
-        <div class="pc-desc">Same premium NFC card in cream/gold colorway. PRML Records branding. Load with your profile and tap to share. Looks and feels like a credit card.</div>
-        <div class="pc-compare">vs. Dot Card ($35 + $6/mo) — own it outright, forever</div>
-        <div class="pc-price">$25</div>
-        <div class="pc-fee">+ $6 processing fee · Ships in 3–5 days</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'PRML NFC Tap Card — Cream',price:'25',desc:'Premium NFC business card, Cream'})">Add to Cart</button>
-          <a href="contact.html" class="btn btn--out btn--sm">Customize</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card">
-      <div class="pc-img" style="background:var(--black)">
-        <span>💳</span>
-        <span class="pc-badge">3-Pack</span>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">NFC · Value Pack</div>
-        <div class="pc-name">NFC Tap Card 3-Pack</div>
-        <div class="pc-desc">Three NFC cards — keep one in your wallet, one at your desk, one as a backup. Each links to the same profile or set them up differently. Best value.</div>
-        <div class="pc-compare">3 cards vs. 1 Popl ($60) + subscription — you win</div>
-        <div class="pc-price">$60</div>
-        <div class="pc-fee">+ $6 processing fee · Ships in 3–5 days</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'NFC Tap Card 3-Pack',price:'60',desc:'3 premium NFC business cards'})">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card">
-      <div class="pc-img" style="background:var(--charcoal)">
-        <span>📱</span>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">NFC · Digital Only</div>
-        <div class="pc-name">Digital Business Card (No Physical Card)</div>
-        <div class="pc-desc">Just need a shareable link and QR code — no physical card? We set up your digital profile page with all your info. Share via link, QR code, or add to your phone's NFC.</div>
-        <div class="pc-compare">vs. HiHello Pro ($12/mo) — one-time fee, yours forever</div>
-        <div class="pc-price">$15</div>
-        <div class="pc-fee">+ $6 processing fee · Delivered in 24–48 hours</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'Digital Business Card Setup',price:'15',desc:'Digital profile + QR code, no physical card'})">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Feature breakdown -->
-  <div style="margin-top:32px;background:var(--charcoal);padding:28px">
-    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px">What Your PRML NFC Card Does</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.65">✅ Share name, phone, email instantly</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.65">✅ Link to Instagram, TikTok, LinkedIn</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.65">✅ Link to portfolio, menu, or booking</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.65">✅ Works without them downloading anything</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.65">✅ Update your info anytime — same card</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.65">✅ No monthly fees. Ever.</div>
+    <div class="ps-opt">
+      <div class="ps-opt-label">10-Pack</div>
+      <div class="ps-opt-price">$300</div>
+      <div class="ps-opt-sub">$30/card &middot; + $6 processing fee &middot; Ships in 5&ndash;7 days</div>
+      <div class="ps-opt-promo">Best for teams, events &amp; networking</div>
+      <a href="https://buy.stripe.com/7sY28s02p6Bw7zggrg1ZS0u" class="btn btn--out" target="_blank" rel="noopener">Order 10-Pack &#8594;</a>
     </div>
   </div>
 </div>
 
-<!-- ═══ PRML BRANDED MERCH ═══ -->
-<div id="merch" class="shop-section" style="background:var(--black)">
-  <div class="ss-header">
-    <div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Rep The West End</div>
-      <div class="ss-title" style="color:var(--cream)">PRML Records Merch</div>
-      <div class="ss-sub" style="color:var(--cream)">Official branded merchandise. Black. Cream. Red. West End, Atlanta.</div>
+<!-- PRML TAP KEY -->
+<div class="prod-section light rev" id="tap-key">
+  <div class="ps-label">Always With You</div>
+  <div class="ps-name">PRML TAP KEY</div>
+  <div class="ps-tagline">Your network. On your keys.</div>
+  <div class="ps-desc">Always with you. Always ready. Tap to share your full digital profile from the most personal item you carry. Built for the person who is always moving — never missing a connection.</div>
+  <div class="ps-options">
+    <div class="ps-opt">
+      <div class="ps-opt-label">Single Key</div>
+      <div class="ps-opt-price">$45</div>
+      <div class="ps-opt-sub">+ $6 processing fee &middot; Ships in 3&ndash;5 days</div>
+      <div class="ps-opt-promo">First 9 customers: setup fee waived</div>
+      <a href="https://buy.stripe.com/7sY28s02p6Bw7zggrg1ZS0u" class="btn btn--red" target="_blank" rel="noopener">Get Yours &#8594;</a>
     </div>
-  </div>
-
-  <div class="prod-grid" style="background:rgba(245,230,200,.05)">
-
-    <div class="prod-card" style="background:var(--charcoal)">
-      <div class="pc-img" style="background:var(--black)"><span>⌚</span></div>
-      <div class="pc-body">
-        <div class="pc-cat" style="color:var(--red)">Merch · Wearable</div>
-        <div class="pc-name" style="color:var(--cream)">PRML Records Wristband</div>
-        <div class="pc-desc" style="color:var(--cream)">Silicone wristband, black with red "PRML Records" debossed text. Wear it. Stack it. Rep West End wherever you go.</div>
-        <div class="pc-price">$5</div>
-        <div class="pc-fee" style="color:var(--cream)">+ $6 processing per order</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'PRML Records Wristband',price:'5',desc:'Black silicone PRML Records wristband'})">Add to Cart</button>
-          <button class="btn btn--out btn--sm" onclick="addToCart({name:'PRML Records Wristbands (5-pack)',price:'20',desc:'5 PRML wristbands'})">5-Pack $20</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" style="background:var(--charcoal)">
-      <div class="pc-img" style="background:var(--black)"><span>🔑</span></div>
-      <div class="pc-body">
-        <div class="pc-cat" style="color:var(--red)">Merch · Keychain</div>
-        <div class="pc-name" style="color:var(--cream)">PRML Records Keychain</div>
-        <div class="pc-desc" style="color:var(--cream)">Laser engraved acrylic keychain. Black with red PRML Records logo. Solid and clean. Carry the brand everywhere.</div>
-        <div class="pc-price">$12</div>
-        <div class="pc-fee" style="color:var(--cream)">+ $6 processing per order</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'PRML Records Keychain',price:'12',desc:'Laser engraved PRML Records keychain'})">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" style="background:var(--charcoal)">
-      <div class="pc-img" style="background:var(--black)"><span>📇</span>
-        <span class="pc-badge">NFC</span>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat" style="color:var(--red)">Merch · NFC</div>
-        <div class="pc-name" style="color:var(--cream)">PRML Records NFC Tap Card</div>
-        <div class="pc-desc" style="color:var(--cream)">The official PRML Records NFC card pre-loaded to link to our site and booking page. Give one to someone who needs to know about us.</div>
-        <div class="pc-price">$25</div>
-        <div class="pc-fee" style="color:var(--cream)">+ $6 processing per order</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'PRML Records Branded NFC Card',price:'25',desc:'Official PRML Records NFC tap card'})">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" style="background:var(--charcoal)">
-      <div class="pc-img" style="background:var(--black)"><span>📦</span>
-        <span class="pc-badge">Bundle</span>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat" style="color:var(--red)">Merch · Bundle</div>
-        <div class="pc-name" style="color:var(--cream)">PRML Merch Bundle</div>
-        <div class="pc-desc" style="color:var(--cream)">The full rep kit: 1 NFC tap card + 1 keychain + 2 wristbands. Everything you need to rep PRML Records and hand out to people who need to know.</div>
-        <div class="pc-price">$40</div>
-        <div class="pc-fee" style="color:var(--cream)">+ $6 processing · Save $7 vs. buying separate</div>
-        <div class="pc-btns">
-          <button class="btn btn--red btn--sm" onclick="addToCart({name:'PRML Merch Bundle',price:'40',desc:'NFC card + keychain + 2 wristbands'})">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ═══ DIGITAL DOWNLOADS ═══ -->
-<div id="digital" class="digital-section">
-  <div class="ds-title">Digital Downloads</div>
-  <div class="ds-sub">Music, beats, and media — instant delivery. No shipping, no wait. Yours the second you pay.</div>
-  <div class="digital-grid">
-    <div class="dg-card">
-      <div style="font-size:32px;margin-bottom:12px">🎵</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Music · SEAUX9</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:-0.3px;margin-bottom:8px">SEAUX9 Original Releases</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.5;line-height:1.6;margin-bottom:16px">High-quality WAV and MP3 downloads. Licensed for personal use. New releases added regularly.</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);margin-bottom:4px">From $1.99</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:10px;color:var(--cream);opacity:.35;margin-bottom:14px">Instant download</div>
-      <a href="contact.html" class="btn btn--red btn--sm">View Catalog</a>
-    </div>
-    <div class="dg-card">
-      <div style="font-size:32px;margin-bottom:12px">🎸</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Music · Beats</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:-0.3px;margin-bottom:8px">Beat Leases</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.5;line-height:1.6;margin-bottom:16px">Non-exclusive beat leases. MP3, WAV, and trackout stems. Instant download after purchase.</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);margin-bottom:4px">From $30</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:10px;color:var(--cream);opacity:.35;margin-bottom:14px">Non-exclusive license · Instant download</div>
-      <a href="contact.html" class="btn btn--red btn--sm">Browse Beats</a>
-    </div>
-    <div class="dg-card">
-      <div style="font-size:32px;margin-bottom:12px">🎨</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Art · Digital</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:-0.3px;margin-bottom:8px">Original Digital Art</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.5;line-height:1.6;margin-bottom:16px">High-res files for printing or digital use. Print license included. New pieces added regularly.</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);margin-bottom:4px">From $5</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:10px;color:var(--cream);opacity:.35;margin-bottom:14px">Instant download · Print license included</div>
-      <a href="contact.html" class="btn btn--red btn--sm">View Gallery</a>
+    <div class="ps-opt">
+      <div class="ps-opt-label">10-Pack</div>
+      <div class="ps-opt-price">$400</div>
+      <div class="ps-opt-sub">$40/key &middot; + $6 processing fee &middot; Ships in 5&ndash;7 days</div>
+      <div class="ps-opt-promo">Equip your team or gift to clients</div>
+      <a href="https://buy.stripe.com/7sY28s02p6Bw7zggrg1ZS0u" class="btn btn--out" target="_blank" rel="noopener">Order 10-Pack &#8594;</a>
     </div>
   </div>
 </div>
 
-<!-- ═══ CUSTOM = SERVICE CTA ═══ -->
-<div class="custom-cta">
-  <div>
-    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,230,200,.6);margin-bottom:10px">Need something with YOUR branding?</div>
-    <div class="cc-title">Custom Work<br>Is a Service.</div>
-    <div class="cc-sub">Want NFC signs with your logo? Keychains engraved with your business name? Light boxes shaped like your brand? Personalized anything? That's custom work — and it lives on our Services page. We handle everything: design, production, and delivery.</div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-      <a href="services.html" class="btn btn--cream btn--lg">See Custom Services →</a>
-      <a href="contact.html" class="btn" style="background:transparent;border:2px solid rgba(245,230,200,.4);color:var(--cream);padding:13px 22px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;text-decoration:none">Get a Quote</a>
-    </div>
-  </div>
-  <div style="background:rgba(0,0,0,.2);padding:28px;max-width:260px">
-    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,230,200,.5);margin-bottom:14px">Products = Ready to Ship</div>
-    <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.75;margin-bottom:16px">→ NFC Tap Cards<br>→ PRML Merch<br>→ Digital Downloads<br>→ Wristbands & Keychains</div>
-    <div style="border-top:1px solid rgba(245,230,200,.1);padding-top:16px;margin-top:8px">
-    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,230,200,.5);margin-bottom:14px">Services = Built for You</div>
-    <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.75">→ Custom NFC signs<br>→ Engraved keychains<br>→ 3D printed anything<br>→ Light boxes & LED signs</div>
+<!-- FEATURES -->
+<div class="features-section rev">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px">What you get</div>
+    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--cream);letter-spacing:-1px;margin-bottom:8px">Everything.<br>No exceptions.</div>
+    <div style="font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--cream);opacity:.45;max-width:500px;line-height:1.7;border-left:3px solid var(--red);padding-left:14px">Every PRML TAP CARD and TAP KEY ships complete. Nothing extra to buy.</div>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-title">Your Digital Profile</div><div class="feat-body">Name, phone, email, website, social links — everything you want to share, in one tap. We set it up for you.</div></div>
+      <div class="feat-card"><div class="feat-title">Works on Every Phone</div><div class="feat-body">All iPhones (XS and newer, no app). All Android phones. No app download required on their end. Ever.</div></div>
+      <div class="feat-card"><div class="feat-title">No Subscription — Ever</div><div class="feat-body">You own the card outright. No monthly fees. No annual renewals. No platform lock-in. Yours forever.</div></div>
+      <div class="feat-card"><div class="feat-title">Update Anytime</div><div class="feat-body">Changed your number? New Instagram? Updated your booking link? Change your profile anytime — same card, no reprint, no cost.</div></div>
+      <div class="feat-card"><div class="feat-title">PRML RECORDS Design</div><div class="feat-body">Clean, premium PRML RECORDS design. Cream and charcoal colorway. Feels like a credit card — because quality matters.</div></div>
+      <div class="feat-card"><div class="feat-title">West End ATL Support</div><div class="feat-body">Real people, real support. Not a chatbot. Call us at 770-686-7726 or email info@prmlrecords.com.</div></div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<div style="background:var(--charcoal);padding:40px 5vw;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-  <div><div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--cream);margin-bottom:4px">Stay Connected</div><div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.5">New products, releases, and West End updates.</div></div>
-  <form onsubmit="submitEmail(event)" style="display:flex;gap:0">
-    <input id="email-in" type="email" placeholder="your@email.com" required style="background:rgba(245,230,200,.06);border:none;border-bottom:2px solid rgba(245,230,200,.2);color:var(--cream);font-family:'Roboto Slab',serif;font-size:13px;padding:11px 16px;outline:none;width:220px">
-    <button id="email-btn" type="submit" style="background:var(--red);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:11px 20px;border:none;cursor:pointer">Join →</button>
-  </form>
+<!-- USE CASES -->
+<div class="use-section rev">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Who it's for</div>
+    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--charcoal);letter-spacing:-1px;margin-bottom:8px">Built for people<br>who move.</div>
+    <div style="font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--charcoal);opacity:.55;max-width:500px;line-height:1.7;border-left:3px solid var(--red);padding-left:14px">If you meet people and want them to remember you, PRML TAP is for you.</div>
+    <div class="use-grid">
+      <div class="use-card"><div class="use-who">Networking</div><div class="use-title">The Connector</div><div class="use-body">Conferences, meetups, mixers. One tap and they have everything they need to follow up. No fumbling for a card. No misread digits.</div></div>
+      <div class="use-card"><div class="use-who">Events</div><div class="use-title">The Host</div><div class="use-body">Pop-ups, markets, shows. Hand someone your TAP CARD and they're instantly at your booking page, your Instagram, your store.</div></div>
+      <div class="use-card"><div class="use-who">Creative Professionals</div><div class="use-title">The Artist</div><div class="use-body">Musicians, photographers, designers, videographers. Your portfolio, your booking form, your music — one tap away at every gig.</div></div>
+      <div class="use-card"><div class="use-who">Business Owners</div><div class="use-title">The Operator</div><div class="use-body">Restaurants, salons, contractors, consultants. Replace paper cards with something people actually keep — and that keeps working for you.</div></div>
+    </div>
+  </div>
 </div>
 
-<!-- LAUNCH PROMO — PRML RECORDS -->
+<!-- LAUNCH PROMO -->
 <section class="launch-promo" id="launch-promo">
 <style>
 .launch-promo{background:#2E2D2D;padding:80px 32px;text-align:center;position:relative;overflow:hidden}
@@ -411,18 +277,38 @@
 .launch-promo__fine{font-family:'Roboto Slab',serif;font-size:12px;color:#635D52;margin-top:20px}
 </style>
 <div class="launch-promo__eyebrow">Limited Time &#8212; Launch Offer</div>
-<h2 class="launch-promo__headline">We're launching.<br><span>You benefit.</span></h2>
-<p class="launch-promo__body">First 9 clients get setup fees waived &#8212; plus a free 30-minute consultation with every deposit.</p>
+<h2 class="launch-promo__headline">First 9 customers.<br><span>Setup fee waived.</span></h2>
+<p class="launch-promo__body">Order your PRML TAP CARD or TAP KEY now and pay zero setup fees. Plus a free 30-minute consultation with every service deposit.</p>
 <div class="launch-promo__perks">
-  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#127919;</div><div class="launch-promo__perk-title">Setup Fee Waived</div><div class="launch-promo__perk-desc">First 9 customers pay zero setup fees on any service.</div></div>
-  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#129309;</div><div class="launch-promo__perk-title">Free Consultation</div><div class="launch-promo__perk-desc">Every deposit includes a free 30-minute 1-on-1 consultation.</div></div>
-  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#128274;</div><div class="launch-promo__perk-title">Secure Your Spot</div><div class="launch-promo__perk-desc">50% deposit locks in your project and your launch pricing.</div></div>
+  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#127919;</div><div class="launch-promo__perk-title">Setup Fee Waived</div><div class="launch-promo__perk-desc">First 9 customers pay zero setup fees on any NFC product or service.</div></div>
+  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#129309;</div><div class="launch-promo__perk-title">Free Consultation</div><div class="launch-promo__perk-desc">Every service deposit includes a free 30-minute 1-on-1 consultation.</div></div>
+  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#128274;</div><div class="launch-promo__perk-title">Secure Your Spot</div><div class="launch-promo__perk-desc">Offer valid for the first 9 customers only &mdash; limited availability.</div></div>
 </div>
-<a class="launch-promo__cta" href="booking.html">Book Your Consultation &#8594;</a>
+<a class="launch-promo__cta" href="#tap-card">Order Your PRML TAP CARD &#8594;</a>
 <p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML RECORDS discretion &#183; One per client</p>
 </section>
 
-<!-- MAILING LIST SIGNUP — PRML RECORDS -->
+<!-- FAQ -->
+<div class="faq-section">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Got questions?</div>
+    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--cream);letter-spacing:-1px;margin-bottom:40px">We've got answers.</div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Does the person I tap need an app?</div><div class="faq-a">No. When you tap your PRML TAP CARD or TAP KEY to their phone, their browser opens your profile page automatically. It works on all iPhones (XS and newer) and all modern Android phones. No downloads, no friction.</div></div>
+      <div class="faq-item"><div class="faq-q">Is there a monthly fee or subscription?</div><div class="faq-a">No. You pay once and the card is yours forever. No subscriptions, no renewals, no platform fees. That's the fundamental difference between PRML TAP and services like Popl or Dot.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I update my profile after I receive the card?</div><div class="faq-a">Yes. Your digital profile can be updated anytime — new phone number, new social handle, new booking link — without reprinting the card. The NFC chip links to your profile, not to fixed data.</div></div>
+      <div class="faq-item"><div class="faq-q">What's the difference between the TAP CARD and TAP KEY?</div><div class="faq-a">The PRML TAP CARD is a standard card format — same size as a credit card, slim and clean. The PRML TAP KEY attaches to your keychain. Same NFC technology, same profile — just a different form factor for people who always have their keys but not always their wallet.</div></div>
+      <div class="faq-item"><div class="faq-q">What does "setup fee waived" mean for first 9 customers?</div><div class="faq-a">Setup includes loading your digital profile, programming the NFC chip, and configuring your landing page. For the first 9 customers, we waive that fee entirely — you only pay the product price plus the $6 processing fee.</div></div>
+      <div class="faq-item"><div class="faq-q">How long does shipping take?</div><div class="faq-a">Single cards and keys ship in 3&ndash;5 business days from Atlanta, GA. 10-packs ship in 5&ndash;7 business days. Need it faster? Contact us at 770-686-7726 and we'll do what we can.</div></div>
+    </div>
+    <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(245,230,200,.08)">
+      <div style="font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--cream);opacity:.5;margin-bottom:16px">Still have questions?</div>
+      <a href="contact.html" class="btn btn--red">Contact Us &#8594;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAILING LIST SIGNUP -->
 <section class="signup-section" id="mailing-signup">
 <style>
 .signup-section{background:#F6E8C3;padding:64px 32px;text-align:center}
@@ -448,9 +334,12 @@
   </div>
   <select class="signup-select" id="signup-interest">
     <option value="">What are you interested in? (optional)</option>
-    <option value="Music">Music</option><option value="Products">Products</option>
-    <option value="Services">Services</option><option value="Community">Community</option>
-    <option value="All of the above">All of the above</option>
+    <option value="Music &amp; Events">Music &amp; Events</option>
+    <option value="NFC Products (PRML TAP CARD / TAP KEY)">NFC Products (PRML TAP CARD / TAP KEY)</option>
+    <option value="Creative Services">Creative Services</option>
+    <option value="Brand &amp; Design">Brand &amp; Design</option>
+    <option value="Manufacturing &amp; Print">Manufacturing &amp; Print</option>
+    <option value="Everything PRML RECORDS">Everything PRML RECORDS</option>
   </select>
   <button class="signup-btn" type="submit" id="signup-submit-btn">Join the Community &#8594;</button>
 </form>
@@ -459,7 +348,7 @@
 async function submitPRMLSignup(e){
   e.preventDefault();
   var btn=document.getElementById('signup-submit-btn');
-  btn.textContent='Sending…';btn.disabled=true;
+  btn.textContent='Sending\u2026';btn.disabled=true;
   var gasUrl=typeof GAS_URL!=='undefined'?GAS_URL:'';
   var payload={action:'mailingList',name:document.getElementById('signup-name').value.trim(),email:document.getElementById('signup-email').value.trim(),interest:document.getElementById('signup-interest').value,timestamp:new Date().toISOString()};
   if(gasUrl){try{await fetch(gasUrl,{method:'POST',mode:'no-cors',body:JSON.stringify(payload),headers:{'Content-Type':'application/json'}})}catch(e){}}
@@ -468,7 +357,8 @@ async function submitPRMLSignup(e){
 }
 </script>
 </section>
-<!-- FOOTER — PRML RECORDS v3 2026 -->
+
+<!-- FOOTER -->
 <footer class="footer2">
 <style>
 .footer2{background:#2E2D2D;color:#F6E8C3;padding:64px 32px 32px}
@@ -488,7 +378,6 @@ async function submitPRMLSignup(e){
 .footer2__col h4{font-family:'Rubik Mono One',monospace;font-size:11px;color:#FE0103;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
 .footer2__col a{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;text-decoration:none;margin-bottom:8px;opacity:.8;transition:opacity .2s,color .2s}
 .footer2__col a:hover{opacity:1;color:#FE0103}
-.footer2__qr-placeholder{width:80px;height:80px;background:rgba(246,232,195,.1);border:1px dashed #635D52;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Slab',serif;font-size:9px;color:#635D52;text-align:center;line-height:1.3;padding:4px;margin-top:12px}
 .footer2__bottom{max-width:1280px;margin:0 auto;padding-top:32px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
 .footer2__values{font-family:'Rubik Mono One',monospace;font-size:12px;color:#635D52;letter-spacing:.1em;text-transform:uppercase}
 .footer2__values span{color:#FE0103}
@@ -511,24 +400,25 @@ async function submitPRMLSignup(e){
       <a href="https://youtube.com/@prmlrecords" target="_blank">YouTube</a>
       <a href="https://tiktok.com/@prmlrecords" target="_blank">TikTok</a>
     </div>
-    <div class="footer2__qr-placeholder">QR Code<br>prmlrecords.com<br>[ADD QR HERE]</div>
+    <div style="margin-top:12px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://prmlrecords.com&amp;color=2E2D2D&amp;bgcolor=F6E8C3" alt="Scan to visit PRML RECORDS" style="width:100px;height:100px;display:block"><div style="font-family:Roboto Slab,serif;font-size:10px;color:#635D52;margin-top:4px">prmlrecords.com</div></div>
   </div>
   <div class="footer2__col">
     <h4>Navigate</h4>
     <a href="index.html">Home</a><a href="blog/">Blog</a><a href="media.html">Media</a>
-    <a href="products.html">Products</a><a href="services.html">Services</a>
+    <a href="products.html">Shop</a><a href="services.html">Services</a>
   </div>
   <div class="footer2__col">
-    <h4>Services</h4>
-    <a href="booking.html">Book a Consultation</a><a href="contact.html">Request a Quote</a>
-    <a href="services.html">View Services</a><a href="nfc/index.html?type=card">NFC Business Card</a>
-    <a href="nfc/index.html?type=keychain">NFC Keychain</a>
+    <h4>Products</h4>
+    <a href="products.html#tap-card">PRML TAP CARD</a>
+    <a href="products.html#tap-key">PRML TAP KEY</a>
+    <a href="booking.html">Book a Consultation</a>
+    <a href="contact.html">Request a Quote</a>
+    <a href="how-it-works.html">How It Works</a>
   </div>
   <div class="footer2__col">
     <h4>Company</h4>
     <a href="affiliate.html">Affiliate Program</a><a href="press.html">Press</a>
     <a href="support.html">Support</a>
-    <a href="pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
     <a href="privacypolicy.html">Privacy Policy</a><a href="termsofservice.html">Terms of Service</a>
   </div>
 </div>
@@ -539,23 +429,18 @@ async function submitPRMLSignup(e){
 </div>
 </footer>
 
-<button class="cart-btn" onclick="openCart()">🛒<span class="cart-count">0</span></button>
+<button class="cart-btn" onclick="openCart()">&#128722;<span class="cart-count">0</span></button>
 <div class="cart-panel">
-  <div class="cart-header"><div class="cart-header-title">Cart</div><div class="cart-close" onclick="closeCart()">×</div></div>
+  <div class="cart-header"><div class="cart-header-title">Cart</div><div class="cart-close" onclick="closeCart()">&#215;</div></div>
   <div class="cart-items"><div class="cart-empty">Your cart is empty.</div></div>
   <div class="cart-footer">
     <div style="display:flex;justify-content:space-between;font-size:12px;opacity:.5;margin-bottom:4px"><span>Subtotal</span><span class="cart-subtotal">$0.00</span></div>
     <div style="display:flex;justify-content:space-between;margin-bottom:14px"><span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.5">Total</span><span class="cart-total" style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--red)">$0.00</span></div>
-    <button class="cart-checkout" onclick="collectAndCheckout()" disabled>Checkout →</button>
+    <button class="cart-checkout" onclick="collectAndCheckout()" disabled>Checkout &#8594;</button>
     <button class="cart-deposit" onclick="collectAndCheckout(true)" disabled style="margin-top:8px">Pay 50% Deposit</button>
   </div>
 </div>
 
 <script src="js/main.js" defer></script>
-<script>
-(function(){
-  const img = document.getElementById('nav-logo');
-  if(img) fetch('template_data.json').then(r=>r.json()).then(d=>{img.src='data:image/png;base64,'+d.logo;}).catch(()=>{});
-})();
-</script>
-</body></html>
+</body>
+</html>

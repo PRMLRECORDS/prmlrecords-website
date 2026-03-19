@@ -77,11 +77,11 @@
 
 <nav class="nav" id="nav">
   <div class="nav__left">
-    <a href="index.html"><img src="" id="nav-logo" style="height:36px;width:auto" alt="PRML Records"></a>
+    <a href="index.html"><img src="assets/logo.png" id="nav-logo" style="height:36px;width:auto" alt="PRML Records"></a>
     <span class="nav__divider"></span>
     <div class="nav__links">
       <a href="index.html" class="nl">Home</a>
-      <a href="services.html" class="nl">Services</a>
+      <span class="nl nl--has-drop">Services<span class="nl__drop"><a href="services.html">All Services</a><a href="how-it-works.html">How It Works</a><a href="booking.html">Book a Consultation</a><a href="contact.html">Get a Quote</a></span></span>
       <a href="products.html" class="nl">Products</a>
       <a href="booking.html" class="nl active">Booking</a>
       <a href="contact.html" class="nl">Contact</a>
@@ -398,9 +398,12 @@
   </div>
   <select class="signup-select" id="signup-interest">
     <option value="">What are you interested in? (optional)</option>
-    <option value="Music">Music</option><option value="Products">Products</option>
-    <option value="Services">Services</option><option value="Community">Community</option>
-    <option value="All of the above">All of the above</option>
+    <option value="Music &amp; Events">Music &amp; Events</option>
+    <option value="NFC Products (PRML TAP CARD / TAP KEY)">NFC Products (PRML TAP CARD / TAP KEY)</option>
+    <option value="Creative Services">Creative Services</option>
+    <option value="Brand &amp; Design">Brand &amp; Design</option>
+    <option value="Manufacturing &amp; Print">Manufacturing &amp; Print</option>
+    <option value="Everything PRML RECORDS">Everything PRML RECORDS</option>
   </select>
   <button class="signup-btn" type="submit" id="signup-submit-btn">Join the Community &#8594;</button>
 </form>
@@ -461,7 +464,7 @@ async function submitPRMLSignup(e){
       <a href="https://youtube.com/@prmlrecords" target="_blank">YouTube</a>
       <a href="https://tiktok.com/@prmlrecords" target="_blank">TikTok</a>
     </div>
-    <div class="footer2__qr-placeholder">QR Code<br>prmlrecords.com<br>[ADD QR HERE]</div>
+    <div style="margin-top:12px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://prmlrecords.com&amp;color=2E2D2D&amp;bgcolor=F6E8C3" alt="Scan to visit PRML RECORDS" style="width:100px;height:100px;display:block"><div style="font-family:Roboto Slab,serif;font-size:10px;color:#635D52;margin-top:4px">prmlrecords.com</div></div>
   </div>
   <div class="footer2__col">
     <h4>Navigate</h4>
@@ -471,8 +474,8 @@ async function submitPRMLSignup(e){
   <div class="footer2__col">
     <h4>Services</h4>
     <a href="booking.html">Book a Consultation</a><a href="contact.html">Request a Quote</a>
-    <a href="services.html">View Services</a><a href="nfc/index.html?type=card">NFC Business Card</a>
-    <a href="nfc/index.html?type=keychain">NFC Keychain</a>
+    <a href="services.html">View Services</a><a href="products.html#tap-card">PRML TAP CARD</a>
+    <a href="products.html#tap-key">PRML TAP KEY</a>
   </div>
   <div class="footer2__col">
     <h4>Company</h4>
@@ -515,8 +518,5 @@ async function submitBooking(e) {
   btn.disabled = false; btn.textContent = 'Submit Booking Request →';
 }
 (function(){
-  const img = document.getElementById('nav-logo');
-  if(img) fetch('template_data.json').then(r=>r.json()).then(d=>{img.src='data:image/png;base64,'+d.logo;}).catch(()=>{});
-})();
 </script>
 </body></html>

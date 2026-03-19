@@ -370,6 +370,47 @@ function goTo(id) {
 function toggleMob() { document.getElementById('mob')?.classList.toggle('open'); }
 function closeMob()  { document.getElementById('mob')?.classList.remove('open'); }
 
+/* ── Nav Dropdowns ── */
+(function initNavDropdowns() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Dropdowns: closed by default, open on hover (desktop) or tap (mobile)
+    document.querySelectorAll('.nl--has-drop').forEach(function(item) {
+      var drop = item.querySelector('.nl__drop');
+      if (!drop) return;
+      var closeTimer;
+
+      // Desktop: hover
+      item.addEventListener('mouseenter', function() {
+        clearTimeout(closeTimer);
+        document.querySelectorAll('.nl__drop').forEach(function(d) { if (d !== drop) d.classList.remove('open'); });
+        drop.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function() {
+        closeTimer = setTimeout(function() { drop.classList.remove('open'); }, 120);
+      });
+      drop.addEventListener('mouseenter', function() { clearTimeout(closeTimer); });
+      drop.addEventListener('mouseleave', function() { closeTimer = setTimeout(function() { drop.classList.remove('open'); }, 120); });
+
+      // Mobile/tap: toggle on click of parent link
+      item.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          var isOpen = drop.classList.contains('open');
+          document.querySelectorAll('.nl__drop').forEach(function(d) { d.classList.remove('open'); });
+          if (!isOpen) drop.classList.add('open');
+        }
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nl--has-drop')) {
+        document.querySelectorAll('.nl__drop').forEach(function(d) { d.classList.remove('open'); });
+      }
+    });
+  });
+})();
+
 /* ════════════════════════════════════════════════════
    SCROLL REVEAL
 ════════════════════════════════════════════════════ */

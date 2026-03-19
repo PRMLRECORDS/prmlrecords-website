@@ -2,58 +2,66 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="PRML Records LLC Services — Audio production, custom fabrication, 3D printing, photography, videography, web development, consultations, and artist booking in West End Atlanta.">
-<meta property="og:title" content="Services — PRML Records LLC">
+<meta name="description" content="PRML RECORDS Services — Digital, Print, Music, Consulting. 4 tiers of creative services for businesses, artists, and communities. West End Atlanta.">
+<meta property="og:title" content="Services — PRML RECORDS">
 <meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
-<title>Services — PRML Records LLC</title>
+<title>Services — PRML RECORDS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
 <style>
-/* Free consult counter */
 .consult-banner{background:var(--red);padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cb-msg{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--cream)}
 .cb-counter{font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px}
 .cb-sub{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.7}
 .cb-btn{background:var(--cream);color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:10px 20px;border:none;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
 .cb-btn:hover{background:var(--black);color:var(--cream)}
-/* Services grid */
+/* Tier layout */
+.tier{padding:72px 5vw;border-bottom:2px solid rgba(46,45,45,.1)}
+.tier:nth-child(odd){background:var(--cream)}
+.tier:nth-child(even){background:var(--black)}
+.tier-hd{display:flex;align-items:flex-end;gap:20px;margin-bottom:40px;flex-wrap:wrap}
+.tier-num{font-family:'Rubik Mono One',monospace;font-size:72px;color:var(--red);opacity:.15;letter-spacing:-4px;line-height:1}
+.tier-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.tier-name{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);letter-spacing:-1px;line-height:1}
+.tier:nth-child(odd) .tier-name{color:var(--charcoal)}
+.tier:nth-child(even) .tier-name{color:var(--cream)}
+/* Sub-category */
+.sub-cat{margin-bottom:40px}
+.sub-cat-title{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(254,1,3,.3)}
+.tier:nth-child(odd) .sub-cat-title{color:var(--charcoal);opacity:.5}
+.tier:nth-child(even) .sub-cat-title{color:var(--cream);opacity:.4}
+/* Service cards grid */
+.svc-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;background:rgba(46,45,45,.08)}
+.tier:nth-child(even) .svc-cards{background:rgba(245,230,200,.05)}
+.svc-card{padding:24px;transition:.2s;cursor:default}
+.tier:nth-child(odd) .svc-card{background:var(--cream)}
+.tier:nth-child(even) .svc-card{background:var(--black)}
+.svc-card:hover{background:rgba(254,1,3,.06)}
+.sc-name{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.tier:nth-child(odd) .sc-name{color:var(--charcoal)}
+.tier:nth-child(even) .sc-name{color:var(--cream)}
+.sc-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;line-height:1.65;margin-bottom:12px}
+.tier:nth-child(odd) .sc-desc{color:var(--charcoal);opacity:.55}
+.tier:nth-child(even) .sc-desc{color:var(--cream);opacity:.5}
+.sc-price{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);letter-spacing:-0.5px}
+.sc-deposit{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;margin-top:2px;margin-bottom:12px}
+.tier:nth-child(odd) .sc-deposit{color:var(--charcoal);opacity:.4}
+.tier:nth-child(even) .sc-deposit{color:var(--cream);opacity:.35}
+/* Hero */
 .svc-hero{padding:80px 5vw 48px;background:var(--black)}
 .svc-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(42px,6vw,88px);color:var(--cream);letter-spacing:-2px;line-height:.9;margin-bottom:16px}
 .svc-hero__title span{color:var(--red)}
 .svc-hero__sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--cream);opacity:.5;max-width:560px;line-height:1.7}
 .svc-note{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.4;margin-top:12px;border-left:3px solid var(--red);padding-left:14px}
-/* Category sections */
-.svc-cat{padding:64px 5vw;border-bottom:1px solid rgba(43,43,43,.15)}
-.svc-cat:nth-child(even){background:var(--black)}
-.svc-cat:nth-child(odd){background:var(--charcoal)}
-.cat-hd{display:flex;align-items:flex-end;gap:20px;margin-bottom:32px;flex-wrap:wrap}
-.cat-num{font-family:'Rubik Mono One',monospace;font-size:72px;color:var(--red);opacity:.2;letter-spacing:-4px;line-height:1}
-.cat-info{}
-.cat-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
-.cat-name{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,48px);color:var(--cream);letter-spacing:-1px;line-height:1}
-.svc-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:rgba(245,230,200,.06)}
-.svc-card{background:var(--black);padding:28px;transition:.2s;cursor:default}
-.svc-card:hover{background:rgba(224,16,16,.08)}
-.sc-icon{font-size:28px;margin-bottom:12px}
-.sc-name{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
-.sc-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.65;margin-bottom:14px}
-.sc-price{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);letter-spacing:-0.5px}
-.sc-note{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.35;margin-top:3px}
-.sc-cta{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
-/* Booking CTA section */
+/* Booking CTA */
 .booking-cta{background:var(--red);padding:64px 5vw;text-align:center}
 .bc-title{font-family:'Rubik Mono One',monospace;font-size:clamp(32px,5vw,64px);color:var(--cream);letter-spacing:-2px;margin-bottom:16px}
 .bc-sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--cream);opacity:.8;max-width:500px;margin:0 auto 28px}
-/* Courses */
-.course-card{background:var(--charcoal);padding:32px;border-top:3px solid var(--red)}
-.cc-title{font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
-.cc-name{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);margin-bottom:10px;letter-spacing:-0.5px}
-.cc-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.65;margin-bottom:16px}
 </style>
-<!-- GA4 — PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
+<!-- GA4 — PRML RECORDS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -74,45 +82,52 @@
 </head>
 <body>
 
-<!-- FREE CONSULT COUNTER BANNER -->
+<!-- CONSULT BANNER -->
 <div class="consult-banner">
   <div>
-    <div class="cb-msg">🎉 First 9 Customers — Free Consultation + Setup Fees Waived</div>
-    <div class="cb-sub">Consultation counts as deposit if you move forward · Standard pricing after first 9</div>
+    <div class="cb-msg">First 9 Customers — Setup Fees Waived + Free 30-Min Consultation</div>
+    <div class="cb-sub">Free consultation counts as credit if you move forward &middot; Standard pricing after first 9</div>
   </div>
   <div style="display:flex;align-items:center;gap:16px">
     <div>
       <div class="cb-counter" id="consult-slots">9</div>
       <div class="cb-sub">spots left</div>
     </div>
-    <a href="contact.html" class="cb-btn">Claim Free Consult →</a>
+    <a href="contact.html" class="cb-btn">Claim Free Consult &#8594;</a>
   </div>
 </div>
 
-<!-- NAV (shared) -->
+<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav__left">
-    <a href="index.html"><img src="" id="nav-logo" style="height:36px;width:auto" alt="PRML Records"></a>
+    <a href="index.html"><img src="assets/logo.png" id="nav-logo" style="height:36px;width:auto" alt="PRML RECORDS"></a>
     <span class="nav__divider"></span>
     <div class="nav__links">
       <a href="index.html" class="nl">Home</a>
-      <a href="services.html" class="nl active">Services</a>
-      <a href="product-design.html" class="nl">Products</a>
+      <span class="nl nl--has-drop active">Services
+        <span class="nl__drop">
+          <a href="services.html">All Services</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="booking.html">Book a Consultation</a>
+          <a href="contact.html">Get a Quote</a>
+        </span>
+      </span>
+      <a href="products.html" class="nl">Shop</a>
       <a href="booking.html" class="nl">Booking</a>
-      <a href="testimonials.html" class="nl">Work</a>
       <a href="contact.html" class="nl">Contact</a>
     </div>
   </div>
   <div class="nav__right">
     <a href="tel:7706867726" class="nav__phone">770-686-7726</a>
     <button class="cart-btn" onclick="openCart()">Cart <span class="cart-count">0</span></button>
-    <button class="nav__burger" onclick="toggleMob()">☰</button>
+    <button class="nav__burger" onclick="toggleMob()">&#9776;</button>
   </div>
 </nav>
 <div class="mob-menu" id="mob">
   <a href="index.html" onclick="closeMob()">Home</a>
   <a href="services.html" onclick="closeMob()">Services</a>
-  <a href="product-design.html" onclick="closeMob()">Products</a>
+  <a href="how-it-works.html" onclick="closeMob()">How It Works</a>
+  <a href="products.html" onclick="closeMob()">Shop</a>
   <a href="booking.html" onclick="closeMob()">Booking</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
 </div>
@@ -120,452 +135,414 @@
 <!-- HERO -->
 <div class="svc-hero rev">
   <div class="svc-hero__title">Every<br><span>Service</span><br>We Offer.</div>
-  <div class="svc-hero__sub">Prices shown are estimates — final pricing is confirmed after your free consultation. Custom and rush orders may vary.</div>
-  <div class="svc-note">$6 transaction fee applied to all orders · First 9 customers: setup fees waived · No local tax</div>
+  <div class="svc-hero__sub">Four tiers. Every creative need covered. Prices shown are estimates — final pricing is confirmed after your free consultation. Custom and rush orders may vary.</div>
+  <div class="svc-note">$6 transaction fee applied to all orders &middot; First 9 customers: setup fees waived &middot; 50% deposit locks in your project</div>
 </div>
 
-<!-- 1. AUDIO PRODUCTION -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">01</div>
-    <div class="cat-info">
-      <div class="cat-eye">Studio Services</div>
-      <div class="cat-name">Audio Production</div>
+<!-- TIER 1 — DIGITAL SERVICES -->
+<div class="tier rev" id="tier-1">
+  <div class="tier-hd">
+    <div class="tier-num">01</div>
+    <div>
+      <div class="tier-label">Tier 1</div>
+      <div class="tier-name">Digital Services</div>
+    </div>
+  </div>
+
+  <!-- Web Development -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Web Development</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Starter Website</div>
+        <div class="sc-desc">5 pages, responsive design, contact form, SEO basics. Perfect for new businesses and creatives ready to go online.</div>
+        <div class="sc-price">$1,500</div>
+        <div class="sc-deposit">$750 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a><a href="contact.html" class="btn btn--out btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Business Website</div>
+        <div class="sc-desc">10 pages, advanced features, custom design, analytics integration, and mobile-first build.</div>
+        <div class="sc-price">$2,500</div>
+        <div class="sc-deposit">$1,250 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a><a href="contact.html" class="btn btn--out btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">E-Commerce Website</div>
+        <div class="sc-desc">Full online store — product listings, cart, checkout, and payment processing. Ready to sell on day one.</div>
+        <div class="sc-price">$3,500</div>
+        <div class="sc-deposit">$1,750 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a><a href="contact.html" class="btn btn--out btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Landing Page</div>
+        <div class="sc-desc">Single high-converting page for campaigns, launches, or lead capture. Fast turnaround.</div>
+        <div class="sc-price">$500</div>
+        <div class="sc-deposit">$250 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Website Maintenance</div>
+        <div class="sc-desc">Monthly updates, security monitoring, backups, and content changes. Keep your site fast and current.</div>
+        <div class="sc-price">$150/month</div>
+        <div class="sc-deposit">Monthly retainer &middot; 3-month minimum</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Started</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Identity -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Brand Identity</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Logo Design</div>
+        <div class="sc-desc">Custom logo with 3 concept directions, 2 revision rounds, and final files in all formats.</div>
+        <div class="sc-price">$350</div>
+        <div class="sc-deposit">$175 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Brand Identity Starter</div>
+        <div class="sc-desc">Logo + color palette + typography guide. Everything you need to stay consistent across all channels.</div>
+        <div class="sc-price">$750</div>
+        <div class="sc-deposit">$375 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Brand Identity Full</div>
+        <div class="sc-desc">Complete brand system — logo, colors, fonts, voice guide, business card, social templates, and brand standards document.</div>
+        <div class="sc-price">$1,500</div>
+        <div class="sc-deposit">$750 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Business Card Design</div>
+        <div class="sc-desc">Print-ready business card design. Front and back. Delivered as press-ready PDF and editable file.</div>
+        <div class="sc-price">$150</div>
+        <div class="sc-deposit">$75 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Advertising -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Digital Advertising</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Social Media Ad Set</div>
+        <div class="sc-desc">5 ads sized for Instagram, Facebook, and TikTok. Copy, design, and all platform-ready exports included.</div>
+        <div class="sc-price">$300</div>
+        <div class="sc-deposit">$150 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Email Campaign Design</div>
+        <div class="sc-desc">Full email template design — header, body, CTA, and footer. Delivered as HTML and image exports.</div>
+        <div class="sc-price">$200</div>
+        <div class="sc-deposit">$100 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Digital Banner / Billboard</div>
+        <div class="sc-desc">High-impact digital display advertising. Sized for outdoor digital boards, web display, and social.</div>
+        <div class="sc-price">$150</div>
+        <div class="sc-deposit">$75 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 2 — PRINT & PHYSICAL PRODUCTION -->
+<div class="tier rev" id="tier-2">
+  <div class="tier-hd">
+    <div class="tier-num">02</div>
+    <div>
+      <div class="tier-label">Tier 2</div>
+      <div class="tier-name">Print &amp; Physical Production</div>
+    </div>
+  </div>
+
+  <!-- Print Design -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Print Design</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Flyer Design</div>
+        <div class="sc-desc">Event or promotional flyer. Print-ready PDF and social-ready JPG. Fast turnaround.</div>
+        <div class="sc-price">$100</div>
+        <div class="sc-deposit">Pay in full at booking</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Poster (24&times;36)</div>
+        <div class="sc-desc">Large-format poster design. Press-ready at 300dpi. Perfect for events, venues, and storefronts.</div>
+        <div class="sc-price">$150</div>
+        <div class="sc-deposit">Pay in full at booking</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Brochure (Trifold)</div>
+        <div class="sc-desc">Professional trifold brochure with full layout, copy flow, and print-ready export. Ideal for service businesses.</div>
+        <div class="sc-price">$200</div>
+        <div class="sc-deposit">Pay in full at booking</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Business Cards (Design)</div>
+        <div class="sc-desc">Premium business card design. Front and back. All print-ready formats delivered.</div>
+        <div class="sc-price">$125</div>
+        <div class="sc-deposit">Pay in full at booking</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NFC Products -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">NFC Products</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">PRML TAP CARD — Single</div>
+        <div class="sc-desc">Premium NFC business card. One tap shares your complete digital profile. No app required on their end. No subscription. Ever.</div>
+        <div class="sc-price">$35</div>
+        <div class="sc-deposit">+ $6 processing fee &middot; Ships 3&ndash;5 days</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-card" class="btn btn--red btn--sm">Order</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">PRML TAP CARD — 10-Pack</div>
+        <div class="sc-desc">Ten PRML TAP CARDs. Best for teams, events, and networking. $30/card — best value.</div>
+        <div class="sc-price">$300</div>
+        <div class="sc-deposit">+ $6 processing fee &middot; Ships 5&ndash;7 days</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-card" class="btn btn--red btn--sm">Order</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">PRML TAP KEY — Single</div>
+        <div class="sc-desc">NFC keychain. Your full digital profile, always on your keys. Tap and share anywhere, anytime.</div>
+        <div class="sc-price">$45</div>
+        <div class="sc-deposit">+ $6 processing fee &middot; Ships 3&ndash;5 days</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-key" class="btn btn--red btn--sm">Order</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">PRML TAP KEY — 10-Pack</div>
+        <div class="sc-desc">Ten PRML TAP KEYs. Equip your team or gift to clients. $40/key.</div>
+        <div class="sc-price">$400</div>
+        <div class="sc-deposit">+ $6 processing fee &middot; Ships 5&ndash;7 days</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-key" class="btn btn--red btn--sm">Order</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Custom NFC Setup + Landing Page</div>
+        <div class="sc-desc">Custom NFC chip programming + a branded landing page built specifically for your profile. Setup fee waived for first 9 customers.</div>
+        <div class="sc-price">$150</div>
+        <div class="sc-deposit">Waived for first 9 customers</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manufacturing -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Manufacturing</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Custom 3D Print — Small</div>
+        <div class="sc-desc">FDM printing in PLA, PETG, or ABS. Functional parts, prototypes, and artistic pieces. Small format.</div>
+        <div class="sc-price">From $25</div>
+        <div class="sc-deposit">Price by size + material</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Custom 3D Print — Large</div>
+        <div class="sc-desc">Large-format FDM printing. Perfect for display pieces, signage inserts, and production runs.</div>
+        <div class="sc-price">From $75</div>
+        <div class="sc-deposit">Price by size + material</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Laser Engraving</div>
+        <div class="sc-desc">Engrave logos, art, and text onto wood, acrylic, leather, and more. Gifts, awards, branded merch.</div>
+        <div class="sc-price">From $20</div>
+        <div class="sc-deposit">Bring your item or we source it</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Custom Signage / Lightbox</div>
+        <div class="sc-desc">Custom LED light boxes and laser-cut signage. Logo, text, or art. Perfect for shops, events, and studios.</div>
+        <div class="sc-price">From $200</div>
+        <div class="sc-deposit">Size and complexity determine price</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Sticker Design + Print Ready</div>
+        <div class="sc-desc">Custom sticker design delivered as print-ready die-cut file. Use your printer or we connect you to production.</div>
+        <div class="sc-price">$75</div>
+        <div class="sc-deposit">Pay in full at booking</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 3 — MUSIC & CONTENT -->
+<div class="tier rev" id="tier-3">
+  <div class="tier-hd">
+    <div class="tier-num">03</div>
+    <div>
+      <div class="tier-label">Tier 3</div>
+      <div class="tier-name">Music &amp; Content</div>
+    </div>
+  </div>
+
+  <!-- Music Production -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Music Production</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Beat License — Non-Exclusive</div>
+        <div class="sc-desc">MP3 lease for personal and commercial use. Perfect for independent artists and content creators.</div>
+        <div class="sc-price">$75</div>
+        <div class="sc-deposit">Pay in full at purchase</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Browse Beats</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Beat License — Exclusive</div>
+        <div class="sc-desc">Full exclusive rights — track pulled from catalog. WAV + trackout stems. Yours and only yours.</div>
+        <div class="sc-price">$350</div>
+        <div class="sc-deposit">Pay in full at purchase</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Browse Beats</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Full Track Production</div>
+        <div class="sc-desc">Original composition built for you. Studio One / FL Studio. Concept to final bounce. Includes 2 revision rounds.</div>
+        <div class="sc-price">From $500</div>
+        <div class="sc-deposit">Deposit required to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Recording Session</div>
+        <div class="sc-desc">Professional studio session in Studio One / FL Studio. Engineer included. Vocals, instruments, and voice-over.</div>
+        <div class="sc-price">From $200</div>
+        <div class="sc-deposit">Deposit required to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Mixing &amp; Mastering</div>
+        <div class="sc-desc">Studio One / DaVinci workflow. Full mix with revisions + streaming-optimized master. Delivered in all formats.</div>
+        <div class="sc-price">From $200</div>
+        <div class="sc-deposit">Deposit required to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Production -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Video Production</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Brand Video</div>
+        <div class="sc-desc">Professional brand film in DaVinci Resolve. Concept, shoot, edit, color grade, and delivery. Up to 2 minutes.</div>
+        <div class="sc-price">From $300</div>
+        <div class="sc-deposit">Deposit required to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Reel / Short Form Video</div>
+        <div class="sc-desc">Instagram Reels, TikTok, and YouTube Shorts. Optimized for each platform. Hooks, cuts, captions included.</div>
+        <div class="sc-price">$250</div>
+        <div class="sc-deposit">$125 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">YouTube Video Production</div>
+        <div class="sc-desc">Full-length YouTube production — shoot, edit, thumbnail, and description. Built for watch time and growth.</div>
+        <div class="sc-price">From $500</div>
+        <div class="sc-deposit">$250 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Color Grading Only</div>
+        <div class="sc-desc">DaVinci Resolve color grading for your existing footage. Send us your edit, get back a cinematic grade.</div>
+        <div class="sc-price">From $100</div>
+        <div class="sc-deposit">Pay in full at booking</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Creation -->
+  <div class="sub-cat">
+    <div class="sub-cat-title">Content Creation</div>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <div class="sc-name">Brand Photo Session</div>
+        <div class="sc-desc">2-hour brand photography session. Headshots, product, lifestyle. 30+ edited images delivered same week.</div>
+        <div class="sc-price">$300</div>
+        <div class="sc-deposit">$150 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="sc-name">Content Package — 10 Assets</div>
+        <div class="sc-desc">10 brand-ready content assets — mix of photo, graphic, and video. Formatted and ready for your channels.</div>
+        <div class="sc-price">$400</div>
+        <div class="sc-deposit">$200 deposit to start</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 4 — CONSULTING & STRATEGY -->
+<div class="tier rev" id="tier-4">
+  <div class="tier-hd">
+    <div class="tier-num">04</div>
+    <div>
+      <div class="tier-label">Tier 4</div>
+      <div class="tier-name">Consulting &amp; Strategy</div>
     </div>
   </div>
   <div class="svc-cards">
     <div class="svc-card">
-      <div class="sc-icon">🎙️</div>
-      <div class="sc-name">Recording Session</div>
-      <div class="sc-desc">Professional tracking in our West End studio. Experienced engineer included. Vocals, instruments, podcasts, voice-over.</div>
-      <div class="sc-price">$60/hr</div>
-      <div class="sc-note">2hr minimum recommended</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Recording Session',price:'120',desc:'2hr recording session'})">Add to Cart</button><a href="contact.html" class="btn btn--out btn--sm">Book</a></div>
+      <div class="sc-name">30-Min Strategy Session</div>
+      <div class="sc-desc">Focused strategy conversation — pick our brain, map your next move, get clear on priorities. Complimentary with any service deposit.</div>
+      <div class="sc-price">FREE</div>
+      <div class="sc-deposit">Included with any deposit &middot; First 9 customers always free</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book Now</a></div>
     </div>
     <div class="svc-card">
-      <div class="sc-icon">🎚️</div>
-      <div class="sc-name">Mixing</div>
-      <div class="sc-desc">Full mix with up to 3 revision rounds. Stems required. Delivered in all standard formats.</div>
-      <div class="sc-price">$150/track</div>
-      <div class="sc-note">Bulk pricing available</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Mixing',price:'150',desc:'Single track mix'})">Add to Cart</button></div>
+      <div class="sc-name">60-Min Brand Consultation</div>
+      <div class="sc-desc">Deep-dive brand session. Logo, voice, positioning, and audience. Walk away with actionable next steps and a written summary.</div>
+      <div class="sc-price">$150</div>
+      <div class="sc-deposit">Pay in full at booking</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a></div>
     </div>
     <div class="svc-card">
-      <div class="sc-icon">💿</div>
-      <div class="sc-name">Mastering</div>
-      <div class="sc-desc">Streaming-ready master. Loudness optimized for Spotify, Apple Music, and all platforms. Delivered in WAV + MP3.</div>
-      <div class="sc-price">$75/track</div>
-      <div class="sc-note">EP/Album packages available</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Mastering',price:'75',desc:'Single track master'})">Add to Cart</button></div>
+      <div class="sc-name">Half-Day Workshop</div>
+      <div class="sc-desc">4-hour intensive for your team or organization. Topic chosen from: brand, web, content, music, or business strategy. In-person or virtual.</div>
+      <div class="sc-price">$500</div>
+      <div class="sc-deposit">50% deposit to reserve your date</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="booking.html" class="btn btn--red btn--sm">Book</a><a href="contact.html" class="btn btn--out btn--sm">Get Quote</a></div>
     </div>
     <div class="svc-card">
-      <div class="sc-icon">🎵</div>
-      <div class="sc-name">Beat Production</div>
-      <div class="sc-desc">Custom original beats. Exclusive or non-exclusive licensing available. Hip-hop, R&B, trap, gospel, and more.</div>
-      <div class="sc-price">From $200</div>
-      <div class="sc-note">Exclusive beats from $500</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Request Beat</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🎬</div>
-      <div class="sc-name">Podcast Production</div>
-      <div class="sc-desc">Full podcast production including recording, editing, intro/outro music, and distribution setup.</div>
-      <div class="sc-price">$100/episode</div>
-      <div class="sc-note">Monthly packages available</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Podcast Production',price:'100',desc:'Single episode'})">Add to Cart</button></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">📦</div>
-      <div class="sc-name">Full Production Package</div>
-      <div class="sc-desc">Record, mix, and master. Best value for artists completing a single or EP. Includes 3 rounds of revisions.</div>
-      <div class="sc-price">$600</div>
-      <div class="sc-note">Up to 3 tracks</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Full Production Package',price:'600',desc:'Record + Mix + Master (up to 3 tracks)'})">Add to Cart</button></div>
+      <div class="sc-name">Monthly Creative Retainer</div>
+      <div class="sc-desc">Ongoing creative partnership. Monthly hours, priority scheduling, and dedicated support across any service tier. Great for growing businesses and artists.</div>
+      <div class="sc-price">$500&ndash;$2,000/mo</div>
+      <div class="sc-deposit">Scoped and priced per engagement</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="contact.html" class="btn btn--red btn--sm">Let's Talk</a></div>
     </div>
   </div>
 </div>
 
-<!-- 2. CUSTOM FABRICATION -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">02</div>
-    <div class="cat-info">
-      <div class="cat-eye">Laser & CNC</div>
-      <div class="cat-name">Custom Fabrication</div>
-    </div>
-  </div>
-  <div class="svc-card" style="background:rgba(224,16,16,.06);padding:20px;margin-bottom:16px;border-left:3px solid var(--red)">
-    <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);line-height:1.7;opacity:.8">Custom orders include a <strong>$20 setup fee</strong>. First 9 customers have this waived. Bulk orders (25+) receive automatic discounts.</div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">🪧</div>
-      <div class="sc-name">Custom Signs</div>
-      <div class="sc-desc">Laser cut and engraved signs in wood, acrylic, or MDF. Business signs, room signs, décor.</div>
-      <div class="sc-price">From $35</div>
-      <div class="sc-note">+$20 setup fee (waived for first 9)</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🔑</div>
-      <div class="sc-name">Custom Keychains</div>
-      <div class="sc-desc">Laser engraved wood or acrylic keychains. Great for merch, gifts, and brand giveaways.</div>
-      <div class="sc-price">$8–12/each</div>
-      <div class="sc-note">Bulk 25+ pricing available</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Custom Keychains (25)',price:'225',desc:'25 laser engraved keychains'})">25-Pack</button></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">💡</div>
-      <div class="sc-name">Light Boxes</div>
-      <div class="sc-desc">Custom LED light boxes with laser engraved acrylic panels. Logo, text, or custom art. Perfect for shops and events.</div>
-      <div class="sc-price">From $85</div>
-      <div class="sc-note">Size determines price</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">✂️</div>
-      <div class="sc-name">Laser Cutting</div>
-      <div class="sc-desc">Precision laser cutting for custom shapes, stencils, parts, and artistic pieces. Wood, acrylic, leather, fabric.</div>
-      <div class="sc-price">From $25</div>
-      <div class="sc-note">Material cost may apply</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🎨</div>
-      <div class="sc-name">Laser Engraving</div>
-      <div class="sc-desc">Engrave logos, art, and text onto almost any surface. Gifts, trophies, awards, products, and promotional items.</div>
-      <div class="sc-price">From $20</div>
-      <div class="sc-note">Bring your own item or we source it</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">📦</div>
-      <div class="sc-name">Bulk / Wholesale Orders</div>
-      <div class="sc-desc">Large production runs for businesses, events, and product launches. Discounts at 25, 50, and 100+ units.</div>
-      <div class="sc-price">Custom</div>
-      <div class="sc-note">Contact for bulk pricing</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- 3. 3D PRINTING -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">03</div>
-    <div class="cat-info">
-      <div class="cat-eye">Additive Manufacturing</div>
-      <div class="cat-name">3D Printing</div>
-    </div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">🖨️</div>
-      <div class="sc-name">Standard 3D Print</div>
-      <div class="sc-desc">FDM printing in PLA, PETG, or ABS. Functional parts, prototypes, models, and artistic pieces.</div>
-      <div class="sc-price">From $15</div>
-      <div class="sc-note">Price by size + material</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🏗️</div>
-      <div class="sc-name">Custom 3D Design + Print</div>
-      <div class="sc-desc">Don't have a file? We design it. Custom 3D modeling + printing for products, prototypes, and props.</div>
-      <div class="sc-price">From $50</div>
-      <div class="sc-note">Design fee + print cost</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🏭</div>
-      <div class="sc-name">Production Run</div>
-      <div class="sc-desc">Repeat prints for product launches and small-batch manufacturing. Consistent quality across all units.</div>
-      <div class="sc-price">Custom</div>
-      <div class="sc-note">Minimum 5 units</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- 4. PHOTOGRAPHY -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">04</div>
-    <div class="cat-info">
-      <div class="cat-eye">Visual Media</div>
-      <div class="cat-name">Photography</div>
-    </div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">📸</div>
-      <div class="sc-name">Artist / EPK Photos</div>
-      <div class="sc-desc">Professional artist portraits and press photos for your EPK. Delivered high-res with basic retouching.</div>
-      <div class="sc-price">$250</div>
-      <div class="sc-note">2hr session, 20+ edited images</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Artist Photography Session',price:'250',desc:'Artist/EPK photos, 2hr, 20+ edited'})">Book</button></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">💼</div>
-      <div class="sc-name">Brand Photography</div>
-      <div class="sc-desc">Full brand shoot — headshots, product, lifestyle, and location images. Perfect for websites and social media.</div>
-      <div class="sc-price">$350</div>
-      <div class="sc-note">3hr session, 40+ edited images</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Brand Photography',price:'350',desc:'Full brand shoot, 3hr, 40+ edited'})">Book</button></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🎉</div>
-      <div class="sc-name">Event Photography</div>
-      <div class="sc-desc">Full event coverage. Concerts, shows, pop-ups, launches, and community events. Delivered same week.</div>
-      <div class="sc-price">$300</div>
-      <div class="sc-note">Up to 4 hours</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Event Photography',price:'300',desc:'Event coverage up to 4 hours'})">Book</button></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">📱</div>
-      <div class="sc-name">Social Media Monthly</div>
-      <div class="sc-desc">Monthly content shoots to keep your social channels active. 4 sessions per month, 10+ images each.</div>
-      <div class="sc-price">$200/mo</div>
-      <div class="sc-note">3-month minimum</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Started</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- 5. VIDEOGRAPHY -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">05</div>
-    <div class="cat-info">
-      <div class="cat-eye">Film & Video</div>
-      <div class="cat-name">Videography</div>
-    </div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">🎬</div>
-      <div class="sc-name">Music Video</div>
-      <div class="sc-desc">Full music video production. Concept to delivery. Shooting, editing, color grading, and online delivery.</div>
-      <div class="sc-price">From $800</div>
-      <div class="sc-note">Price by concept complexity</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🏢</div>
-      <div class="sc-name">Brand / Promo Video</div>
-      <div class="sc-desc">Professional promotional videos for businesses. Perfect for websites, social media, and ads.</div>
-      <div class="sc-price">From $400</div>
-      <div class="sc-note">Up to 90 seconds</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🎤</div>
-      <div class="sc-name">Event Video Coverage</div>
-      <div class="sc-desc">Full event filming with highlight reel. Concerts, shows, weddings, and corporate events.</div>
-      <div class="sc-price">From $500</div>
-      <div class="sc-note">Includes edited highlight video</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">📲</div>
-      <div class="sc-name">Reels / Short Form</div>
-      <div class="sc-desc">Instagram Reels, TikToks, and YouTube Shorts. Optimized for each platform. Great for artists and businesses.</div>
-      <div class="sc-price">$200/video</div>
-      <div class="sc-note">Packages available</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Social Media Video',price:'200',desc:'Reel/Short form video'})">Add to Cart</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- 6. WEB DEVELOPMENT -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">06</div>
-    <div class="cat-info">
-      <div class="cat-eye">Digital Presence</div>
-      <div class="cat-name">Web Development</div>
-    </div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">💻</div>
-      <div class="sc-name">Business Website</div>
-      <div class="sc-desc">Custom responsive website. Up to 5 pages, contact form, SEO optimization, and mobile-friendly design.</div>
-      <div class="sc-price">From $500</div>
-      <div class="sc-note">+$20 setup (waived first 9)</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🛍️</div>
-      <div class="sc-name">E-Commerce / Shopify</div>
-      <div class="sc-desc">Full online store with product listings, cart, checkout, and payment processing. Ready to sell on day one.</div>
-      <div class="sc-price">From $800</div>
-      <div class="sc-note">Includes 10 products setup</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🎵</div>
-      <div class="sc-name">Artist / EPK Website</div>
-      <div class="sc-desc">Professional artist website with bio, music player, press photos, booking form, and social links.</div>
-      <div class="sc-price">From $400</div>
-      <div class="sc-note">Perfect for SEAUX9 fans</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🔧</div>
-      <div class="sc-name">Website Maintenance</div>
-      <div class="sc-desc">Monthly updates, security, backups, and content changes. Keep your site fast and current.</div>
-      <div class="sc-price">$75/mo</div>
-      <div class="sc-note">Minimum 3 months</div>
-      <div class="sc-cta"><button class="btn btn--red btn--sm" onclick="addToCart({name:'Website Maintenance (3mo)',price:'225',desc:'3 months website maintenance'})">Add to Cart</button></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">⚙️</div>
-      <div class="sc-name">Automation Setup</div>
-      <div class="sc-desc">Connect your tools. CRM, email marketing, booking systems, payment processing, and workflow automation.</div>
-      <div class="sc-price">From $200</div>
-      <div class="sc-note">Per integration</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- 7. CONSULTING -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">07</div>
-    <div class="cat-info">
-      <div class="cat-eye">Strategy & Guidance</div>
-      <div class="cat-name">Consulting</div>
-    </div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">🧠</div>
-      <div class="sc-name">Business Strategy Session</div>
-      <div class="sc-desc">1-on-1 session to map out your business goals, revenue streams, and growth strategy. Actionable takeaways guaranteed.</div>
-      <div class="sc-price">$150/hr</div>
-      <div class="sc-note">First 9 customers: FREE</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Book Free Consult</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🎤</div>
-      <div class="sc-name">Artist Development</div>
-      <div class="sc-desc">Build your artist brand from the ground up. Image, sound, social strategy, booking, and release planning.</div>
-      <div class="sc-price">$100/hr</div>
-      <div class="sc-note">Package rates available</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Started</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🏷️</div>
-      <div class="sc-name">Brand Identity Consulting</div>
-      <div class="sc-desc">Logo, colors, fonts, voice, and visual identity system. Walk away with a complete brand guide.</div>
-      <div class="sc-price">$200/session</div>
-      <div class="sc-note">Full brand package also available</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">📋</div>
-      <div class="sc-name">Business Plan Writing</div>
-      <div class="sc-desc">Complete business plan for funding, grants, and lenders. Executive summary, projections, and market analysis.</div>
-      <div class="sc-price">From $500</div>
-      <div class="sc-note">Includes 2 revision rounds</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Started</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🏆</div>
-      <div class="sc-name">Grant Writing</div>
-      <div class="sc-desc">Research, write, and submit grant applications for creative businesses, music, and community organizations.</div>
-      <div class="sc-price">From $250</div>
-      <div class="sc-note">Contingency pricing available</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- 8. COURSES & WORKSHOPS -->
-<div class="svc-cat rev">
-  <div class="cat-hd">
-    <div class="cat-num">08</div>
-    <div class="cat-info">
-      <div class="cat-eye">Education</div>
-      <div class="cat-name">Courses & Workshops</div>
-    </div>
-  </div>
-  <div class="svc-cards">
-    <div class="svc-card">
-      <div class="sc-icon">🎓</div>
-      <div class="sc-name">Music Production 101</div>
-      <div class="sc-desc">Beginner to intermediate music production. DAW basics, beat making, mixing fundamentals. In-person or virtual.</div>
-      <div class="sc-price">From $75/person</div>
-      <div class="sc-note">Group rates available</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Enroll</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🖨️</div>
-      <div class="sc-name">3D Printing Workshop</div>
-      <div class="sc-desc">Hands-on workshop covering design software, slicing, and printing. Take home what you make.</div>
-      <div class="sc-price">From $50/person</div>
-      <div class="sc-note">Materials included</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Enroll</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🌐</div>
-      <div class="sc-name">Web Dev Bootcamp</div>
-      <div class="sc-desc">Build your first website in one day. HTML, CSS, and deployment covered. No experience needed.</div>
-      <div class="sc-price">From $100/person</div>
-      <div class="sc-note">Lunch included for in-person</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Enroll</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">💼</div>
-      <div class="sc-name">Business for Creatives</div>
-      <div class="sc-desc">Practical business skills for artists and creatives. Pricing, contracts, taxes, and growing your client base.</div>
-      <div class="sc-price">From $75/person</div>
-      <div class="sc-note">Workbook included</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Enroll</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">✂️</div>
-      <div class="sc-name">Laser & CNC Workshop</div>
-      <div class="sc-desc">Learn to operate laser cutting and engraving machines. Design prep, machine operation, and finishing techniques.</div>
-      <div class="sc-price">From $60/person</div>
-      <div class="sc-note">Materials included</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Enroll</a></div>
-    </div>
-    <div class="svc-card">
-      <div class="sc-icon">🗓️</div>
-      <div class="sc-name">Private / Corporate Training</div>
-      <div class="sc-desc">Custom workshop for your team or organization. Any topic above delivered to your group at your location.</div>
-      <div class="sc-price">Custom</div>
-      <div class="sc-note">Minimum 5 participants</div>
-      <div class="sc-cta"><a href="contact.html" class="btn btn--red btn--sm">Get Quote</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- BOOKING SECTION CTA -->
+<!-- BOOKING CTA -->
 <div class="booking-cta rev">
-  <div class="bc-title">Book SEAUX9</div>
-  <div class="bc-sub">Book SEAUX9 (solo) or SEAUX9 and The Divine Sound (full band) for your event, show, or venue.</div>
-  <a href="booking.html" class="btn btn--cream btn--lg">View Booking Info →</a>
+  <div class="bc-title">Ready to Start?</div>
+  <div class="bc-sub">Your free 30-minute consultation is included with every deposit. Book now and lock in your launch pricing.</div>
+  <a href="booking.html" class="btn btn--cream btn--lg">Book Your Consultation &#8594;</a>
 </div>
 
-<!-- FOOTER (shared) -->
-<div id="email-strip" style="background:var(--red);padding:40px 5vw;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-  <div>
-    <div style="font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--cream);margin-bottom:4px">Stay Connected</div>
-    <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7">Events, new products, and community updates.</div>
-  </div>
-  <form onsubmit="submitEmail(event)" style="display:flex;gap:0">
-    <input id="email-in" type="email" placeholder="your@email.com" required
-      style="background:rgba(245,230,200,.15);border:none;border-bottom:2px solid var(--cream);color:var(--cream);font-family:'Roboto Slab',serif;font-size:13px;padding:11px 16px;outline:none;width:220px">
-    <button id="email-btn" type="submit"
-      style="background:var(--cream);color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:11px 20px;border:none;cursor:pointer">Join →</button>
-  </form>
-</div>
-
-
-<!-- LAUNCH PROMO — PRML RECORDS -->
+<!-- LAUNCH PROMO -->
 <section class="launch-promo" id="launch-promo">
 <style>
 .launch-promo{background:#2E2D2D;padding:80px 32px;text-align:center;position:relative;overflow:hidden}
@@ -595,7 +572,7 @@
 <p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML RECORDS discretion &#183; One per client</p>
 </section>
 
-<!-- MAILING LIST SIGNUP — PRML RECORDS -->
+<!-- MAILING LIST SIGNUP -->
 <section class="signup-section" id="mailing-signup">
 <style>
 .signup-section{background:#F6E8C3;padding:64px 32px;text-align:center}
@@ -621,9 +598,12 @@
   </div>
   <select class="signup-select" id="signup-interest">
     <option value="">What are you interested in? (optional)</option>
-    <option value="Music">Music</option><option value="Products">Products</option>
-    <option value="Services">Services</option><option value="Community">Community</option>
-    <option value="All of the above">All of the above</option>
+    <option value="Music &amp; Events">Music &amp; Events</option>
+    <option value="NFC Products (PRML TAP CARD / TAP KEY)">NFC Products (PRML TAP CARD / TAP KEY)</option>
+    <option value="Creative Services">Creative Services</option>
+    <option value="Brand &amp; Design">Brand &amp; Design</option>
+    <option value="Manufacturing &amp; Print">Manufacturing &amp; Print</option>
+    <option value="Everything PRML RECORDS">Everything PRML RECORDS</option>
   </select>
   <button class="signup-btn" type="submit" id="signup-submit-btn">Join the Community &#8594;</button>
 </form>
@@ -632,7 +612,7 @@
 async function submitPRMLSignup(e){
   e.preventDefault();
   var btn=document.getElementById('signup-submit-btn');
-  btn.textContent='Sending…';btn.disabled=true;
+  btn.textContent='Sending\u2026';btn.disabled=true;
   var gasUrl=typeof GAS_URL!=='undefined'?GAS_URL:'';
   var payload={action:'mailingList',name:document.getElementById('signup-name').value.trim(),email:document.getElementById('signup-email').value.trim(),interest:document.getElementById('signup-interest').value,timestamp:new Date().toISOString()};
   if(gasUrl){try{await fetch(gasUrl,{method:'POST',mode:'no-cors',body:JSON.stringify(payload),headers:{'Content-Type':'application/json'}})}catch(e){}}
@@ -641,7 +621,8 @@ async function submitPRMLSignup(e){
 }
 </script>
 </section>
-<!-- FOOTER — PRML RECORDS v3 2026 -->
+
+<!-- FOOTER -->
 <footer class="footer2">
 <style>
 .footer2{background:#2E2D2D;color:#F6E8C3;padding:64px 32px 32px}
@@ -661,7 +642,6 @@ async function submitPRMLSignup(e){
 .footer2__col h4{font-family:'Rubik Mono One',monospace;font-size:11px;color:#FE0103;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
 .footer2__col a{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;text-decoration:none;margin-bottom:8px;opacity:.8;transition:opacity .2s,color .2s}
 .footer2__col a:hover{opacity:1;color:#FE0103}
-.footer2__qr-placeholder{width:80px;height:80px;background:rgba(246,232,195,.1);border:1px dashed #635D52;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Slab',serif;font-size:9px;color:#635D52;text-align:center;line-height:1.3;padding:4px;margin-top:12px}
 .footer2__bottom{max-width:1280px;margin:0 auto;padding-top:32px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
 .footer2__values{font-family:'Rubik Mono One',monospace;font-size:12px;color:#635D52;letter-spacing:.1em;text-transform:uppercase}
 .footer2__values span{color:#FE0103}
@@ -684,24 +664,24 @@ async function submitPRMLSignup(e){
       <a href="https://youtube.com/@prmlrecords" target="_blank">YouTube</a>
       <a href="https://tiktok.com/@prmlrecords" target="_blank">TikTok</a>
     </div>
-    <div class="footer2__qr-placeholder">QR Code<br>prmlrecords.com<br>[ADD QR HERE]</div>
+    <div style="margin-top:12px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://prmlrecords.com&amp;color=2E2D2D&amp;bgcolor=F6E8C3" alt="Scan to visit PRML RECORDS" style="width:100px;height:100px;display:block"><div style="font-family:Roboto Slab,serif;font-size:10px;color:#635D52;margin-top:4px">prmlrecords.com</div></div>
   </div>
   <div class="footer2__col">
     <h4>Navigate</h4>
     <a href="index.html">Home</a><a href="blog/">Blog</a><a href="media.html">Media</a>
-    <a href="products.html">Products</a><a href="services.html">Services</a>
+    <a href="products.html">Shop</a><a href="services.html">Services</a>
   </div>
   <div class="footer2__col">
     <h4>Services</h4>
     <a href="booking.html">Book a Consultation</a><a href="contact.html">Request a Quote</a>
-    <a href="services.html">View Services</a><a href="nfc/index.html?type=card">NFC Business Card</a>
-    <a href="nfc/index.html?type=keychain">NFC Keychain</a>
+    <a href="services.html">View Services</a><a href="how-it-works.html">How It Works</a>
+    <a href="products.html#tap-card">PRML TAP CARD</a>
+    <a href="products.html#tap-key">PRML TAP KEY</a>
   </div>
   <div class="footer2__col">
     <h4>Company</h4>
     <a href="affiliate.html">Affiliate Program</a><a href="press.html">Press</a>
     <a href="support.html">Support</a>
-    <a href="pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
     <a href="privacypolicy.html">Privacy Policy</a><a href="termsofservice.html">Terms of Service</a>
   </div>
 </div>
@@ -712,34 +692,29 @@ async function submitPRMLSignup(e){
 </div>
 </footer>
 
-<button class="cart-btn" onclick="openCart()">🛒<span class="cart-count">0</span></button>
+<button class="cart-btn" onclick="openCart()">&#128722;<span class="cart-count">0</span></button>
 <div class="cart-panel">
-  <div class="cart-header"><div class="cart-header-title">Cart</div><div class="cart-close" onclick="closeCart()">×</div></div>
+  <div class="cart-header"><div class="cart-header-title">Cart</div><div class="cart-close" onclick="closeCart()">&#215;</div></div>
   <div class="cart-items"><div class="cart-empty">Your cart is empty.</div></div>
   <div class="cart-footer">
     <div style="display:flex;justify-content:space-between;font-size:12px;opacity:.5;margin-bottom:4px"><span>Subtotal</span><span class="cart-subtotal">$0.00</span></div>
     <div class="cart-fee" style="display:none;justify-content:space-between;font-size:12px;opacity:.4;margin-bottom:8px"></div>
     <div style="display:flex;justify-content:space-between;margin-bottom:14px"><span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.5">Total</span><span class="cart-total" style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--red)">$0.00</span></div>
-    <button class="cart-checkout" onclick="collectAndCheckout()" disabled>Checkout →</button>
+    <button class="cart-checkout" onclick="collectAndCheckout()" disabled>Checkout &#8594;</button>
     <button class="cart-deposit" onclick="collectAndCheckout(true)" disabled style="margin-top:8px">Pay 50% Deposit</button>
   </div>
 </div>
 
 <script src="js/main.js" defer></script>
 <script>
-// Load logo into nav
 (function(){
-  const img = document.getElementById('nav-logo');
-  if(img) {
-    fetch('template_data.json').then(r=>r.json()).then(d=>{ img.src='data:image/png;base64,'+d.logo; }).catch(()=>{});
-  }
-  // Load consult counter from GAS
   if(typeof GAS_URL !== 'undefined' && !GAS_URL.includes('PASTE_YOUR')){
     fetch(GAS_URL+'?action=getConsultCount').then(r=>r.json()).then(d=>{
-      const el = document.getElementById('consult-slots');
-      if(el && d.remaining !== undefined) el.textContent = d.remaining;
-    }).catch(()=>{});
+      var el=document.getElementById('consult-slots');
+      if(el && d.remaining !== undefined) el.textContent=d.remaining;
+    }).catch(function(){});
   }
 })();
 </script>
-</body></html>
+</body>
+</html>
