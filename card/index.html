@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRML Records | Digital Business Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&display=swap"></noscript>
+<meta name="description" content="PRML Records LLC Digital Business Card — Save contact info for Atlanta's Black-owned creative technology company.">
+<meta name="theme-color" content="#0D0D0D">
+<style>
+  :root { --charcoal:#2B2B2B; --cream:#F5E6C8; --red:#E01010; --black:#0D0D0D; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--black);
+    color:var(--cream);
+    font-family:'Roboto Slab',serif;
+    font-weight:300;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 20px;
+  }
+  .card {
+    background:var(--charcoal);
+    border-top:4px solid var(--red);
+    max-width:380px;
+    width:100%;
+    padding:36px 32px 28px;
+  }
+  .card-eyebrow {
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.65rem;
+    letter-spacing:.3em;
+    color:rgba(245,230,200,.35);
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .card-logo {
+    font-family:'Rubik Mono One',monospace;
+    font-size:2.2rem;
+    color:var(--cream);
+    line-height:1;
+    margin-bottom:4px;
+  }
+  .card-logo span { color:var(--red); }
+  .card-tagline {
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    color:rgba(245,230,200,.45);
+    text-transform:uppercase;
+    margin-bottom:28px;
+  }
+  .card-divider { border:none; border-top:1px solid rgba(245,230,200,.08); margin-bottom:24px; }
+  .card-info { margin-bottom:24px; }
+  .info-row { display:flex; gap:12px; margin-bottom:12px; align-items:flex-start; }
+  .info-label {
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.65rem;
+    letter-spacing:.15em;
+    color:rgba(245,230,200,.3);
+    text-transform:uppercase;
+    min-width:60px;
+    padding-top:2px;
+  }
+  .info-value { font-size:.88rem; color:var(--cream); }
+  .info-value a { color:var(--cream); text-decoration:none; }
+  .info-value a:hover { color:var(--red); }
+  .save-btn {
+    display:block;
+    width:100%;
+    background:var(--red);
+    color:var(--cream);
+    border:none;
+    padding:15px 24px;
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.9rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+    margin-bottom:10px;
+    text-align:center;
+    text-decoration:none;
+  }
+  .save-btn:hover { background:#c00; }
+  .site-btn {
+    display:block;
+    width:100%;
+    background:transparent;
+    color:rgba(245,230,200,.5);
+    border:1px solid rgba(245,230,200,.12);
+    padding:12px 24px;
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.8rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    margin-bottom:20px;
+  }
+  .site-btn:hover { color:var(--cream); border-color:rgba(245,230,200,.3); }
+  .social-row { display:flex; gap:16px; justify-content:center; }
+  .social-row a { color:rgba(245,230,200,.3); font-family:'Odibee Sans',sans-serif; font-size:.65rem; letter-spacing:.1em; text-decoration:none; text-transform:uppercase; }
+  .social-row a:hover { color:var(--red); }
+  .peace { text-align:center; font-size:.72rem; color:rgba(245,230,200,.18); margin-top:20px; letter-spacing:.08em; }
+</style>
+<!-- GA4 — PRML RECORDS. Replace GA_MEASUREMENT_ID with your real G-XXXXXXXXXX ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID', { page_title: document.title, page_location: window.location.href });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href], button');
+      if (!el) return;
+      gtag('event', 'button_click', { element_text: (el.textContent||'').trim().substring(0,100), element_href: el.getAttribute('href')||'', page_location: window.location.href });
+    });
+    document.addEventListener('submit', function(e) {
+      gtag('event', 'form_submit', { form_id: e.target.id||'unknown', page_location: window.location.href });
+    });
+  });
+</script>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-eyebrow">Digital Business Card</div>
+  <div class="card-logo">PRML<span>.</span>RECORDS</div>
+  <div class="card-tagline">Music · Technology · Community</div>
+  <hr class="card-divider">
+  <div class="card-info">
+    <div class="info-row">
+      <div class="info-label">Company</div>
+      <div class="info-value">PRML Records LLC</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Location</div>
+      <div class="info-value">West End, Atlanta, GA</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Email</div>
+      <div class="info-value"><a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a></div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Phone</div>
+      <div class="info-value"><a href="tel:7706867726">(770) 686-7726</a></div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Web</div>
+      <div class="info-value"><a href="https://prmlrecords.com" target="_blank">prmlrecords.com</a></div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Services</div>
+      <div class="info-value">Music · Video · Photo · Web · Design · Consulting</div>
+    </div>
+  </div>
+
+  <button class="save-btn" onclick="downloadVCard()">✊🏾 Save to Contacts</button>
+  <a href="/" class="site-btn">Visit Website</a>
+
+  <div class="social-row">
+    <a href="https://instagram.com/prmlrecords" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://facebook.com/prmlrecords" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://twitter.com/prmlrecords" target="_blank" rel="noopener">Twitter</a>
+  </div>
+  <div class="peace">Peace, freedom, justice, and equality.</div>
+</div>
+
+<script>
+function downloadVCard() {
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:PRML Records LLC
+ORG:PRML Records LLC
+TITLE:Music · Technology · Community
+TEL;TYPE=CELL:(770) 686-7726
+EMAIL:info@prmlrecords.com
+URL:https://prmlrecords.com
+ADR;TYPE=WORK:;;West End;Atlanta;GA;;USA
+NOTE:Black-owned creative technology company. Music, Video, Photography, Web Development, Design, Consulting. Atlanta, GA.
+END:VCARD`;
+
+  const blob = new Blob([vcard], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'PRML-Records.vcf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

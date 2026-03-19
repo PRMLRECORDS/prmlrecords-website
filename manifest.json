@@ -1,0 +1,26 @@
+{
+  "name": "PRML Records",
+  "short_name": "PRML",
+  "description": "Music · Technology · Community — Atlanta's Black-owned creative technology company.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#0D0D0D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "business", "productivity"],
+  "lang": "en-US"
+}

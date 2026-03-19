@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: prmlrecords
+    env: static
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+    routes:
+      - type: rewrite
+        source: /admin
+        destination: /admin/index.html
+      - type: rewrite
+        source: /blog
+        destination: /blog/index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html

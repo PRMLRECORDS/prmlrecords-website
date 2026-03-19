@@ -1,0 +1,6 @@
+# Clean URLs — no .html showing
+/admin          /admin/index.html   200
+/blog           /blog/index.html    200
+
+# All routes fall back to index for SPA-style nav
+/*              /index.html         200

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capabilities Statement | PRML Records LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;600&display=swap"></noscript>
+<style>
+  :root {
+    --charcoal: #2B2B2B;
+    --cream: #F5E6C8;
+    --red: #E01010;
+    --black: #0D0D0D;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    body { background: white; color: #0D0D0D; }
+    .nav, .print-btn { display: none !important; }
+    .hero { background: #0D0D0D !important; padding: 40px 60px 30px; }
+    .hero-logo { color: #F5E6C8; }
+    .hero-tagline { color: #E01010; }
+    section { padding: 30px 60px; }
+    .cap-grid { grid-template-columns: repeat(3, 1fr); }
+    .cap-card { border: 1px solid #ccc; background: #f9f9f9; color: #0D0D0D; }
+    .cap-card h3 { color: #0D0D0D; }
+    .naics-block, .cert-block { background: #f2f2f2; color: #0D0D0D; border-left: 4px solid #E01010; }
+    .footer-caps { background: #0D0D0D; color: #F5E6C8; padding: 20px 60px; }
+    a { color: #0D0D0D; }
+    .accent { color: #E01010; }
+    .section-label { color: #E01010; }
+    .contact-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-item { border: 1px solid #ccc; background: #f9f9f9; color: #0D0D0D; }
+    .contact-item .label { color: #666; }
+    .diffs-grid { grid-template-columns: repeat(2, 1fr); }
+    .diff-item { border-left: 3px solid #E01010; color: #0D0D0D; background: #f9f9f9; }
+  }
+
+  /* NAV */
+  .nav {
+    background: var(--black);
+    border-bottom: 1px solid rgba(245,230,200,0.1);
+    padding: 14px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand { font-family: 'Rubik Mono One', monospace; color: var(--cream); font-size: 1rem; letter-spacing: 0.05em; text-decoration: none; }
+  .nav-brand span { color: var(--red); }
+  .print-btn {
+    background: var(--red);
+    color: var(--cream);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .print-btn:hover { background: #c00; }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    border-bottom: 3px solid var(--red);
+    padding: 60px 60px 50px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+  }
+  .hero-eyebrow {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero-logo {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: var(--cream);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .hero-dba {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: rgba(245,230,200,0.6);
+    margin-bottom: 16px;
+  }
+  .hero-tagline {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .hero-meta {
+    text-align: right;
+  }
+  .hero-meta-item {
+    margin-bottom: 10px;
+  }
+  .hero-meta-label {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,230,200,0.4);
+    text-transform: uppercase;
+  }
+  .hero-meta-value {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--cream);
+  }
+
+  /* SECTIONS */
+  section { padding: 50px 60px; border-bottom: 1px solid rgba(245,230,200,0.08); }
+  .section-label {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--cream);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .section-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(245,230,200,0.75);
+    max-width: 780px;
+  }
+  .accent { color: var(--red); }
+
+  /* CAPABILITIES GRID */
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .cap-card {
+    background: var(--charcoal);
+    border-left: 3px solid var(--red);
+    padding: 20px 22px;
+  }
+  .cap-card h3 {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cap-card ul { list-style: none; }
+  .cap-card ul li {
+    font-size: 0.85rem;
+    color: rgba(245,230,200,0.65);
+    line-height: 1.7;
+    padding-left: 14px;
+    position: relative;
+  }
+  .cap-card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-size: 0.7rem;
+  }
+
+  /* NAICS */
+  .naics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .naics-block {
+    background: var(--charcoal);
+    border: 1px solid rgba(245,230,200,0.1);
+    padding: 14px 20px;
+    min-width: 220px;
+  }
+  .naics-block .code {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 1.1rem;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+  .naics-block .desc {
+    font-size: 0.8rem;
+    color: rgba(245,230,200,0.6);
+    line-height: 1.5;
+  }
+
+  /* CERTS */
+  .cert-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .cert-block {
+    background: var(--charcoal);
+    border-left: 3px solid rgba(245,230,200,0.2);
+    padding: 14px 20px;
+    min-width: 200px;
+    flex: 1;
+  }
+  .cert-block .cert-name {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    color: var(--cream);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .cert-block .cert-status {
+    font-size: 0.78rem;
+    color: rgba(245,230,200,0.5);
+  }
+  .cert-block.active { border-left-color: var(--red); }
+  .cert-block .cert-status.active-tag { color: #4caf50; }
+
+  /* DIFFERENTIATORS */
+  .diffs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .diff-item {
+    background: var(--charcoal);
+    padding: 20px 22px;
+    border-left: 3px solid var(--red);
+  }
+  .diff-num {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 2rem;
+    color: rgba(224,16,16,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .diff-title {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .diff-body {
+    font-size: 0.85rem;
+    color: rgba(245,230,200,0.6);
+    line-height: 1.65;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .contact-item {
+    background: var(--charcoal);
+    padding: 18px 20px;
+  }
+  .contact-item .label {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(245,230,200,0.4);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .contact-item .value {
+    font-size: 0.9rem;
+    color: var(--cream);
+    line-height: 1.5;
+    word-break: break-all;
+  }
+  .contact-item .value a { color: var(--cream); text-decoration: none; }
+  .contact-item .value a:hover { color: var(--red); }
+
+  /* FOOTER */
+  .footer-caps {
+    background: var(--charcoal);
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-caps .left {
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.8rem;
+    color: rgba(245,230,200,0.4);
+  }
+  .footer-caps .right {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 700px) {
+    .nav { padding: 12px 20px; }
+    .hero { padding: 36px 20px 30px; grid-template-columns: 1fr; }
+    .hero-meta { text-align: left; }
+    section { padding: 36px 20px; }
+    .footer-caps { padding: 18px 20px; }
+  }
+</style>
+<!-- GA4 — PRML RECORDS. Replace GA_MEASUREMENT_ID with your real G-XXXXXXXXXX ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID', { page_title: document.title, page_location: window.location.href });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href], button');
+      if (!el) return;
+      gtag('event', 'button_click', { element_text: (el.textContent||'').trim().substring(0,100), element_href: el.getAttribute('href')||'', page_location: window.location.href });
+    });
+    document.addEventListener('submit', function(e) {
+      gtag('event', 'form_submit', { form_id: e.target.id||'unknown', page_location: window.location.href });
+    });
+  });
+</script>
+</head>
+<body>
+
+<!-- NAV — PRML RECORDS v3 2026 -->
+<style>
+.nav2{background:#2E2D2D;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.nav2__inner{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto}
+.nav2__brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav2__brand-name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#F6E8C3;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.nav2__brand-name span{color:#FE0103}
+.nav2__links{display:flex;align-items:center;gap:4px}
+.nav2__item{position:relative}
+.nav2__link{font-family:'Odibee Sans',sans-serif;font-size:15px;color:#F6E8C3;text-decoration:none;padding:8px 14px;border-radius:4px;display:flex;align-items:center;gap:4px;white-space:nowrap;transition:background .2s,color .2s;letter-spacing:.04em}
+.nav2__link:hover,.nav2__link.active{background:#635D52;color:#F6E8C3}
+.nav2__link.active{color:#FE0103;background:rgba(254,1,3,.1)}
+.nav2__caret{font-size:10px;opacity:.7}
+.nav2__dropdown{display:none;position:absolute;top:100%;left:0;background:#2E2D2D;border:1px solid #635D52;border-radius:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:1001;overflow:hidden}
+.nav2__item:hover .nav2__dropdown{display:block}
+.nav2__drop-link{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;text-decoration:none;padding:10px 16px;border-bottom:1px solid rgba(99,93,82,.3);transition:background .15s}
+.nav2__drop-link:last-child{border-bottom:none}
+.nav2__drop-link:hover{background:#635D52}
+.nav2__phone{font-family:'Roboto Slab',serif;font-size:13px;color:#635D52}
+.nav2__phone a{color:#F6E8C3;text-decoration:none}
+.nav2__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav2__burger span{display:block;width:24px;height:2px;background:#F6E8C3;border-radius:2px}
+@media(max-width:768px){
+  .nav2__links{display:none}
+  .nav2__phone{display:none}
+  .nav2__burger{display:flex}
+  .nav2.mob-open .nav2__links{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#2E2D2D;padding:16px;gap:2px;border-bottom:2px solid #635D52}
+  .nav2.mob-open .nav2__dropdown{position:static;border:none;box-shadow:none;background:rgba(99,93,82,.2);border-radius:0;display:block;padding-left:16px}
+  .nav2__item{width:100%}
+  .nav2__link{width:100%}
+}
+</style>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html"><span class="nav2__brand-name">PRML <span>RECORDS</span></span></a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item"><a class="nav2__link" href="blog/">Blog</a></div>
+      <div class="nav2__item"><a class="nav2__link" href="media.html">Media</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="products.html">Products <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="nfc/index.html?type=card">NFC Business Card</a>
+          <a class="nav2__drop-link" href="nfc/index.html?type=keychain">NFC Keychain</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__phone">&#128222; <a href="tel:7706867726">(770) 686-7726</a></div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">Capabilities Statement</div>
+    <div class="hero-logo">PRML Records LLC</div>
+    <div class="hero-dba">DBAs: SEAUX9 &nbsp;|&nbsp; Creative UNDRGRND</div>
+    <div class="hero-tagline">Music · Technology · Community</div>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Entity Type</div>
+      <div class="hero-meta-value">Limited Liability Company</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Founded</div>
+      <div class="hero-meta-value">2019 — Atlanta, GA</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Ownership</div>
+      <div class="hero-meta-value">Black-Owned &amp; Operated</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Service Area</div>
+      <div class="hero-meta-value">Local · Regional · National</div>
+    </div>
+  </div>
+</div>
+
+<!-- CORE COMPETENCIES -->
+<section>
+  <div class="section-label">Section 01</div>
+  <div class="section-title">Core Competencies</div>
+  <p class="section-body">PRML Records LLC is a Black-owned creative technology company headquartered in the West End neighborhood of Atlanta, Georgia. We deliver integrated solutions across music production, media, technology, and community engagement — operating at the intersection of culture and innovation to serve independent artists, small businesses, nonprofits, and government entities.</p>
+
+  <div class="cap-grid">
+    <div class="cap-card">
+      <h3>Audio &amp; Music Production</h3>
+      <ul>
+        <li>Professional recording &amp; mixing</li>
+        <li>Mastering &amp; audio post-production</li>
+        <li>Podcast &amp; voice-over production</li>
+        <li>Jingle &amp; commercial audio</li>
+        <li>Music licensing &amp; distribution</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Film &amp; Video</h3>
+      <ul>
+        <li>Music video production</li>
+        <li>Short film &amp; documentary</li>
+        <li>Event videography</li>
+        <li>Corporate video &amp; promos</li>
+        <li>Video editing &amp; color grading</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Photography</h3>
+      <ul>
+        <li>Artist &amp; brand portraits</li>
+        <li>Event &amp; live performance</li>
+        <li>Product &amp; e-commerce photography</li>
+        <li>Corporate headshots</li>
+        <li>Photo editing &amp; retouching</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Web Development</h3>
+      <ul>
+        <li>Custom website design &amp; build</li>
+        <li>E-commerce &amp; Stripe integration</li>
+        <li>CMS &amp; Google Sheets backend</li>
+        <li>SEO optimization</li>
+        <li>Progressive Web App (PWA)</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Graphic &amp; Product Design</h3>
+      <ul>
+        <li>Brand identity &amp; logo design</li>
+        <li>Merchandise &amp; apparel design</li>
+        <li>3D printing &amp; prototyping</li>
+        <li>NFC-enabled smart print</li>
+        <li>Packaging &amp; label design</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Business &amp; Creative Consulting</h3>
+      <ul>
+        <li>Business formation &amp; strategy</li>
+        <li>Grant research &amp; writing support</li>
+        <li>Marketing &amp; growth planning</li>
+        <li>Artist development</li>
+        <li>Community programming design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NAICS CODES -->
+<section>
+  <div class="section-label">Section 02</div>
+  <div class="section-title">NAICS Codes</div>
+  <p class="section-body">PRML Records LLC operates across the following North American Industry Classification System (NAICS) codes, reflecting the full breadth of our creative and technology services.</p>
+  <div class="naics-row">
+    <div class="naics-block"><div class="code">518210</div><div class="desc">Computing Infrastructure &amp; Data Processing</div></div>
+    <div class="naics-block"><div class="code">512110</div><div class="desc">Motion Picture &amp; Video Production</div></div>
+    <div class="naics-block"><div class="code">512250</div><div class="desc">Sound Recording Industries</div></div>
+    <div class="naics-block"><div class="code">711510</div><div class="desc">Independent Artists, Writers &amp; Performers</div></div>
+    <div class="naics-block"><div class="code">541430</div><div class="desc">Graphic Design Services</div></div>
+    <div class="naics-block"><div class="code">541511</div><div class="desc">Custom Computer Programming</div></div>
+    <div class="naics-block"><div class="code">323111</div><div class="desc">Commercial Printing</div></div>
+    <div class="naics-block"><div class="code">315990</div><div class="desc">Apparel Accessories &amp; Manufacturing</div></div>
+    <div class="naics-block"><div class="code">561499</div><div class="desc">All Other Business Support Services</div></div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section>
+  <div class="section-label">Section 03</div>
+  <div class="section-title">Differentiators</div>
+  <p class="section-body">What sets PRML Records apart from competing vendors and service providers in our market categories.</p>
+  <div class="diffs-grid">
+    <div class="diff-item">
+      <div class="diff-num">01</div>
+      <div class="diff-title">Vertically Integrated Creative Stack</div>
+      <div class="diff-body">Audio, video, photography, print, web, and consulting under one roof — eliminating the coordination friction of managing multiple vendors for creative projects.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">02</div>
+      <div class="diff-title">Community-Rooted, Culture-Forward</div>
+      <div class="diff-body">Embedded in West End Atlanta — a historically significant Black creative district. Our work centers community impact, authentic storytelling, and economic empowerment alongside commercial deliverables.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">03</div>
+      <div class="diff-title">Technology-Enabled Delivery</div>
+      <div class="diff-body">Custom-built backend systems using Google Workspace, automation pipelines, and proprietary web infrastructure allow us to deliver faster, more consistently, and at competitive price points.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">04</div>
+      <div class="diff-title">Emerging MWBE &amp; SBA-Ready</div>
+      <div class="diff-body">Actively pursuing City of Atlanta MWBE, SAM.gov, HUBZone, and SBA 8(a) certifications — positioned to fulfill small business set-aside contract requirements for government and institutional buyers.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">05</div>
+      <div class="diff-title">Founder-Led Accountability</div>
+      <div class="diff-body">Every engagement is personally overseen by the founder. No junior handoffs, no outsourced quality gaps — clients receive direct access to senior creative and strategic expertise from day one.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">06</div>
+      <div class="diff-title">Agile &amp; Responsive</div>
+      <div class="diff-body">As a growing small business we move faster than large agencies. Projects that would take weeks at a traditional firm are delivered in days, without sacrificing professional-grade quality.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="section-label">Section 04</div>
+  <div class="section-title">Certifications &amp; Registrations</div>
+  <p class="section-body">Current and in-progress certifications supporting government, institutional, and grant-funded contract eligibility.</p>
+  <div class="cert-row">
+    <div class="cert-block active">
+      <div class="cert-name">Georgia LLC — Active</div>
+      <div class="cert-status active-tag">✓ Active — Georgia Secretary of State</div>
+    </div>
+    <div class="cert-block active">
+      <div class="cert-name">EIN / FEIN</div>
+      <div class="cert-status active-tag">✓ Registered — IRS</div>
+    </div>
+    <div class="cert-block">
+      <div class="cert-name">SAM.gov Registration</div>
+      <div class="cert-status">In Progress — Federal procurement database</div>
+    </div>
+    <div class="cert-block">
+      <div class="cert-name">City of Atlanta MWBE</div>
+      <div class="cert-status">In Progress — Mayor's Office of Contract Compliance</div>
+    </div>
+    <div class="cert-block">
+      <div class="cert-name">HUBZone</div>
+      <div class="cert-status">Pending — West End address under review, maps.sba.gov</div>
+    </div>
+    <div class="cert-block">
+      <div class="cert-name">SBA 8(a)</div>
+      <div class="cert-status">Planned — Eligible after 24 months of documented revenue</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAST PERFORMANCE -->
+<section>
+  <div class="section-label">Section 05</div>
+  <div class="section-title">Past Performance &amp; Experience</div>
+  <p class="section-body">PRML Records LLC has provided creative and technology services to independent artists, local businesses, and community organizations in the Greater Atlanta metro area since 2019. Representative areas of experience include:</p>
+  <div class="cap-grid" style="margin-top:20px;">
+    <div class="cap-card">
+      <h3>Music &amp; Audio</h3>
+      <ul>
+        <li>Full-length album production</li>
+        <li>Single &amp; EP releases</li>
+        <li>Digital distribution via DSPs</li>
+        <li>Artist development consulting</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Media &amp; Visual</h3>
+      <ul>
+        <li>Music video direction &amp; production</li>
+        <li>Event photography &amp; documentation</li>
+        <li>Brand identity design packages</li>
+        <li>Social media visual content</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Technology</h3>
+      <ul>
+        <li>Business website design &amp; launch</li>
+        <li>E-commerce payment integration</li>
+        <li>Custom automation pipelines</li>
+        <li>NFC smart marketing products</li>
+      </ul>
+    </div>
+    <div class="cap-card">
+      <h3>Community Programming</h3>
+      <ul>
+        <li>Workshop design &amp; facilitation</li>
+        <li>Creative UNDRGRND events</li>
+        <li>Artist showcase coordination</li>
+        <li>Youth media programming concepts</li>
+      </ul>
+    </div>
+  </div>
+  <p class="section-body" style="margin-top:20px; font-style:italic; font-size:0.85rem;">References and project portfolios available upon request. Contact us at info@prmlrecords.com.</p>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="section-label">Section 06</div>
+  <div class="section-title">Point of Contact</div>
+  <p class="section-body">All inquiries regarding capabilities, pricing, certifications, or contract opportunities should be directed to our primary point of contact.</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="label">Company</div>
+      <div class="value">PRML Records LLC</div>
+    </div>
+    <div class="contact-item">
+      <div class="label">Location</div>
+      <div class="value">West End, Atlanta, GA</div>
+    </div>
+    <div class="contact-item">
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="label">Website</div>
+      <div class="value"><a href="https://prmlrecords.com" target="_blank">prmlrecords.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="label">Phone (text preferred)</div>
+      <div class="value"><a href="tel:7706867726">(770) 686-7726</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="label">Social</div>
+      <div class="value">@prmlrecords</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-caps">
+  <div class="left">© 2025 PRML Records LLC. All rights reserved. Atlanta, Georgia.</div>
+  <div class="right">Peace · Freedom · Justice · Equality</div>
+</div>
+
+</body>
+</html>

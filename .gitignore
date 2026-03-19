@@ -1,0 +1,23 @@
+# PRML RECORDS — .gitignore
+# Do not commit these files to GitHub
+
+# Admin panel — contains hardcoded auth, keep private
+# OPTION A: exclude entire admin folder from repo (recommended for public repos)
+admin/
+
+# Deployment utility scripts — not part of the live site
+apply-changes.js
+apply-changes.py
+
+# Reference partial files — not deployed pages
+*-partial.html
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Node
+node_modules/

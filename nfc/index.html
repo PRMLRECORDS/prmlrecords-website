@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRML Records | Welcome</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&display=swap"></noscript>
+<meta name="description" content="PRML Records LLC — Music, Technology, Community. Black-owned creative studio, Atlanta GA.">
+<meta name="theme-color" content="#0D0D0D">
+<style>
+  :root { --charcoal:#2B2B2B; --cream:#F5E6C8; --red:#E01010; --black:#0D0D0D; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    background:var(--black);
+    color:var(--cream);
+    font-family:'Roboto Slab',serif;
+    font-weight:300;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:40px 24px;
+    text-align:center;
+  }
+  .logo {
+    font-family:'Rubik Mono One',monospace;
+    font-size:clamp(2.4rem,10vw,4rem);
+    color:var(--cream);
+    letter-spacing:.04em;
+    line-height:1;
+    margin-bottom:4px;
+  }
+  .logo span { color:var(--red); }
+  .tagline {
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.85rem;
+    letter-spacing:.25em;
+    color:rgba(245,230,200,.5);
+    text-transform:uppercase;
+    margin-bottom:48px;
+  }
+  .links { display:flex; flex-direction:column; gap:12px; width:100%; max-width:320px; margin-bottom:48px; }
+  .link-btn {
+    display:block;
+    padding:16px 24px;
+    background:var(--charcoal);
+    color:var(--cream);
+    text-decoration:none;
+    font-family:'Odibee Sans',sans-serif;
+    font-size:.9rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    border-left:3px solid var(--red);
+    transition:background .2s;
+    text-align:left;
+  }
+  .link-btn:hover { background:#3a3a3a; }
+  .link-btn.primary { background:var(--red); border-left-color:transparent; color:var(--cream); text-align:center; }
+  .link-btn.primary:hover { background:#c00; }
+  .social-row { display:flex; gap:20px; justify-content:center; margin-bottom:40px; }
+  .social-row a { color:rgba(245,230,200,.4); font-family:'Odibee Sans',sans-serif; font-size:.75rem; letter-spacing:.1em; text-decoration:none; text-transform:uppercase; }
+  .social-row a:hover { color:var(--red); }
+  .peace { font-family:'Roboto Slab',serif; font-size:.75rem; color:rgba(245,230,200,.2); letter-spacing:.1em; }
+</style>
+<!-- GA4 — PRML RECORDS. Replace GA_MEASUREMENT_ID with your real G-XXXXXXXXXX ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID', { page_title: document.title, page_location: window.location.href });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href], button');
+      if (!el) return;
+      gtag('event', 'button_click', { element_text: (el.textContent||'').trim().substring(0,100), element_href: el.getAttribute('href')||'', page_location: window.location.href });
+    });
+    document.addEventListener('submit', function(e) {
+      gtag('event', 'form_submit', { form_id: e.target.id||'unknown', page_location: window.location.href });
+    });
+  });
+</script>
+</head>
+<body>
+
+<div class="logo">PRML<span>.</span></div>
+<div class="tagline">Music · Technology · Community</div>
+
+<div class="links">
+  <a href="/card/" class="link-btn primary">✊🏾 Save My Contact</a>
+  <a href="/services.html" class="link-btn">→ Services &amp; Pricing</a>
+  <a href="/booking.html" class="link-btn">→ Book a Session</a>
+  <a href="/products.html" class="link-btn">→ Shop Products</a>
+  <a href="/contact.html" class="link-btn">→ Get a Quote</a>
+  <a href="/" class="link-btn">→ Visit Full Website</a>
+</div>
+
+<div class="social-row">
+  <a href="https://instagram.com/prmlrecords" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://facebook.com/prmlrecords" target="_blank" rel="noopener">Facebook</a>
+  <a href="https://twitter.com/prmlrecords" target="_blank" rel="noopener">X / Twitter</a>
+</div>
+
+<div class="peace">Peace, freedom, justice, and equality.</div>
+
+</body>
+</html>
