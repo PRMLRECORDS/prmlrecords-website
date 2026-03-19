@@ -2,8 +2,8 @@
 # Do not commit these files to GitHub
 
 # Admin panel — contains hardcoded auth, keep private
-# OPTION A: exclude entire admin folder from repo (recommended for public repos)
 admin/
+js/admin-auth.js
 
 # Deployment utility scripts — not part of the live site
 apply-changes.js
