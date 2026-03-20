@@ -93,12 +93,44 @@ main{padding-top:96px}
 .intro--blk{color:var(--black);opacity:.75}
 
 /* ── NABLA RECORDS UTILITY — per prml-nabla-color-reference.html ── */
+/* ── NABLA PALETTES — Full Brand Guide System ─── */
+/* SOLIDS */
 @font-palette-values --nabla-solid-red{font-family:"Nabla";override-colors:0 #FE0103,1 #FE0103,2 #FE0103,3 #FE0103,4 #FE0103,5 #FE0103,6 #FE0103,7 #FE0103,8 #FE0103,9 #FE0103}
-@font-palette-values --nabla-solid-cream{font-family:"Nabla";override-colors:0 #F6E8C3,1 #F6E8C3,2 #F6E8C3,3 #F6E8C3,4 #F6E8C3,5 #F6E8C3,6 #F6E8C3,7 #F6E8C3,8 #F6E8C3,9 #F6E8C3}
 @font-palette-values --nabla-solid-charcoal{font-family:"Nabla";override-colors:0 #2E2D2D,1 #2E2D2D,2 #2E2D2D,3 #2E2D2D,4 #2E2D2D,5 #2E2D2D,6 #2E2D2D,7 #2E2D2D,8 #2E2D2D,9 #2E2D2D}
+@font-palette-values --nabla-solid-cream{font-family:"Nabla";override-colors:0 #F6E8C3,1 #F6E8C3,2 #F6E8C3,3 #F6E8C3,4 #F6E8C3,5 #F6E8C3,6 #F6E8C3,7 #F6E8C3,8 #F6E8C3,9 #F6E8C3}
+/* ALTERNATING */
+@font-palette-values --nabla-alt-red-cream{font-family:"Nabla";override-colors:0 #FE0103,1 #F6E8C3,2 #FE0103,3 #F6E8C3,4 #FE0103,5 #F6E8C3,6 #FE0103,7 #F6E8C3,8 #FE0103,9 #F6E8C3}
+@font-palette-values --nabla-alt-red-charcoal{font-family:"Nabla";override-colors:0 #FE0103,1 #2E2D2D,2 #FE0103,3 #2E2D2D,4 #FE0103,5 #2E2D2D,6 #FE0103,7 #2E2D2D,8 #FE0103,9 #2E2D2D}
+@font-palette-values --nabla-alt-cream-charcoal{font-family:"Nabla";override-colors:0 #F6E8C3,1 #2E2D2D,2 #F6E8C3,3 #2E2D2D,4 #F6E8C3,5 #2E2D2D,6 #F6E8C3,7 #2E2D2D,8 #F6E8C3,9 #2E2D2D}
+@font-palette-values --nabla-alt-red-stone{font-family:"Nabla";override-colors:0 #FE0103,1 #635D52,2 #FE0103,3 #635D52,4 #FE0103,5 #635D52,6 #FE0103,7 #635D52,8 #FE0103,9 #635D52}
+/* CYCLES */
+@font-palette-values --nabla-cycle-3a{font-family:"Nabla";override-colors:0 #FE0103,1 #F6E8C3,2 #2E2D2D,3 #FE0103,4 #F6E8C3,5 #2E2D2D,6 #FE0103,7 #F6E8C3,8 #2E2D2D,9 #FE0103}
+@font-palette-values --nabla-cycle-3b{font-family:"Nabla";override-colors:0 #FE0103,1 #2E2D2D,2 #635D52,3 #FE0103,4 #2E2D2D,5 #635D52,6 #FE0103,7 #2E2D2D,8 #635D52,9 #FE0103}
+@font-palette-values --nabla-cycle-4{font-family:"Nabla";override-colors:0 #FE0103,1 #F6E8C3,2 #2E2D2D,3 #635D52,4 #FE0103,5 #F6E8C3,6 #2E2D2D,7 #635D52,8 #FE0103,9 #F6E8C3}
+/* SPECIAL */
+@font-palette-values --nabla-heavy-red{font-family:"Nabla";override-colors:0 #FE0103,1 #FE0103,2 #FE0103,3 #FE0103,4 #2E2D2D,5 #FE0103,6 #FE0103,7 #FE0103,8 #FE0103,9 #2E2D2D}
+@font-palette-values --nabla-split-rch{font-family:"Nabla";override-colors:0 #FE0103,1 #FE0103,2 #FE0103,3 #FE0103,4 #FE0103,5 #2E2D2D,6 #2E2D2D,7 #2E2D2D,8 #2E2D2D,9 #2E2D2D}
+@font-palette-values --nabla-split-chcr{font-family:"Nabla";override-colors:0 #2E2D2D,1 #2E2D2D,2 #2E2D2D,3 #2E2D2D,4 #2E2D2D,5 #F6E8C3,6 #F6E8C3,7 #F6E8C3,8 #F6E8C3,9 #F6E8C3}
+@font-palette-values --nabla-fade-r-cr{font-family:"Nabla";override-colors:0 #FE0103,1 #FE0103,2 #FE0103,3 #635D52,4 #F6E8C3,5 #F6E8C3,6 #F6E8C3,7 #635D52,8 #FE0103,9 #FE0103}
+@font-palette-values --nabla-dark-light{font-family:"Nabla";override-colors:0 #2E2D2D,1 #2E2D2D,2 #635D52,3 #635D52,4 #F6E8C3,5 #F6E8C3,6 #635D52,7 #635D52,8 #2E2D2D,9 #2E2D2D}
+@media print{.nrec{color:#FE0103!important}}
+/* Base Nabla class — default: Solid Red (web/print default per brand guide) */
 .nrec{font-family:'Nabla',system-ui;font-palette:--nabla-solid-red;font-variation-settings:"EDPT" 100,"EHLT" 12;line-height:1}
+/* Palette modifiers — use on dark/light backgrounds as needed */
 .nrec--cream{font-palette:--nabla-solid-cream}
 .nrec--charcoal{font-palette:--nabla-solid-charcoal}
+.nrec--alt-rc{font-palette:--nabla-alt-red-cream}
+.nrec--alt-rch{font-palette:--nabla-alt-red-charcoal}
+.nrec--alt-cch{font-palette:--nabla-alt-cream-charcoal}
+.nrec--alt-rs{font-palette:--nabla-alt-red-stone}
+.nrec--cycle3a{font-palette:--nabla-cycle-3a}
+.nrec--cycle3b{font-palette:--nabla-cycle-3b}
+.nrec--cycle4{font-palette:--nabla-cycle-4}
+.nrec--heavy{font-palette:--nabla-heavy-red}
+.nrec--split-rch{font-palette:--nabla-split-rch}
+.nrec--split-chcr{font-palette:--nabla-split-chcr}
+.nrec--fade{font-palette:--nabla-fade-r-cr}
+.nrec--dark-light{font-palette:--nabla-dark-light}
 
 /* ── NAV LOGO MARK ─────────────────────────────── */
 .nav2__logo-mark{width:32px;height:32px;object-fit:contain;display:block;flex-shrink:0;filter:drop-shadow(0 0 4px rgba(254,1,3,.25))}
