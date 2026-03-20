@@ -36,7 +36,9 @@
 .hero__eye{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--charcoal);opacity:.4}
 .hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(52px,7.5vw,108px);line-height:.88;letter-spacing:-3px;color:var(--charcoal)}
 .hero__title .r{color:var(--red)}
-.hero__tag{font-family:'Nabla',cursive;font-size:clamp(20px,2.8vw,32px);color:var(--charcoal);opacity:.5}
+.hero__tag{font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:"EDPT" 100,"EHLT" 12;font-size:clamp(20px,2.8vw,32px);color:var(--red);-webkit-text-fill-color:var(--red);background:none;-webkit-background-clip:unset;opacity:1}
+/* hero RECORDS — Nabla lockup */
+.hero__title .r{font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:"EDPT" 100,"EHLT" 12;color:var(--red);background:none;-webkit-background-clip:unset;-webkit-text-fill-color:var(--red);letter-spacing:-1px}
 .hero__values{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);opacity:.8}
 .hero__desc{font-family:'Roboto Slab',serif;font-size:clamp(13px,1.4vw,16px);font-weight:300;line-height:1.85;color:var(--charcoal);opacity:.65;max-width:480px;border-left:3px solid var(--red);padding-left:20px}
 .hero__ctas{display:flex;gap:14px;flex-wrap:wrap}
@@ -201,7 +203,10 @@
 </style>
 <nav class="nav2" id="nav2">
   <div class="nav2__inner">
-    <a class="nav2__brand" href="index.html"><span class="nav2__brand-name">PRML <span>RECORDS</span></span></a>
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML Records logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
     <div class="nav2__links">
       <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
       <div class="nav2__item"><a class="nav2__link" href="blog/">Blog</a></div>
@@ -243,10 +248,10 @@
 <section class="hero" id="hero">
   <div class="hero__left">
     <div class="hero__eye rev">West End Atlanta · Est. 2019 · Black-Owned LLC</div>
-    <h1 class="hero__title rev rev-2">PRML<br><span class="r">Records</span><br>LLC</h1>
+    <h1 class="hero__title rev rev-2">PRML<br><span class="r">RECORDS</span></h1>
     <div class="hero__tag rev rev-3">Art. Community. Technology.</div>
     <div class="hero__values rev rev-3">Freedom · Justice · Equality</div>
-    <p class="hero__desc rev rev-3">Black-owned creative and technology company in West End, Atlanta. Music production, product design & manufacturing, photography, web development, and community programming — all under one roof.</p>
+    <p class="hero__desc rev rev-3">We're helping art lovers, connoisseurs, and collectors connect with phenomenal art — and giving businesses the tools they need to succeed. Supporting a network of creative and business owners in Atlanta and beyond.</p>
     <!-- LAUNCH OFFER BADGE — Option A — First 9 Customers -->
     <div class="rev rev-4" style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(254,1,3,.08);border:1px solid rgba(254,1,3,.3);border-left:3px solid #FE0103;padding:10px 16px;max-width:480px">
       <span style="font-family:'Rubik Mono One',monospace;font-size:10px;color:#FE0103;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap">LAUNCH OFFER — First 9 Only</span>
@@ -617,7 +622,7 @@ async function submitPRMLSignup(e){
 </style>
 <div class="footer2__grid">
   <div class="footer2__brand">
-    <div class="footer2__brand-name">PRML <span>RECORDS</span></div>
+    <div class="footer2__brand-name">PRML <span class="nrec" style="font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:'EDPT' 100,'EHLT' 12;color:#FE0103;-webkit-text-fill-color:#FE0103;background:none;-webkit-background-clip:unset;">RECORDS</span></div>
     <div class="footer2__tagline">Primal Energy. Primal Sound.</div>
     <div class="footer2__contact">
       <a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a><br>

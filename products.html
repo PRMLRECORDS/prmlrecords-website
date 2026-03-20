@@ -8,10 +8,22 @@
 <title>PRML TAP CARD &amp; TAP KEY — PRML RECORDS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nabla&family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nabla&family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
 <style>
+/* ── NABLA RECORDS WORD ── */
+.nabla-records{
+  font-family:'Nabla',system-ui;
+  font-optical-sizing:auto;
+  font-variation-settings:"EDPT" 100,"EHLT" 12;
+  color:#FE0103;
+  -webkit-text-fill-color:#FE0103;
+  background:none;
+  -webkit-background-clip:unset;
+}
+
+/* ── SHOP HERO ── */
 .shop-hero{background:var(--black);padding:96px 5vw 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .sh-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
 .sh-title{font-family:'Rubik Mono One',monospace;font-size:clamp(40px,6vw,84px);color:var(--cream);letter-spacing:-2px;line-height:.92;margin-bottom:16px}
@@ -23,6 +35,8 @@
 .sh-card-mock{width:200px;height:126px;background:var(--black);border:1px solid rgba(254,1,3,.3);display:flex;align-items:center;justify-content:center;position:relative}
 .sh-card-mock-text{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:2px}
 .sh-card-mock-chip{position:absolute;bottom:14px;right:14px;width:28px;height:20px;background:var(--red);opacity:.6;border-radius:2px}
+
+/* ── HOW SECTION ── */
 .how-section{background:var(--cream);padding:80px 5vw;text-align:center}
 .how-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;max-width:900px;margin:48px auto 0;position:relative}
 .how-steps::before{content:'';position:absolute;top:40px;left:16.5%;right:16.5%;height:1px;background:var(--red);opacity:.25}
@@ -30,6 +44,8 @@
 .how-num{width:80px;height:80px;background:var(--black);border:2px solid var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px}
 .how-word{font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3vw,36px);color:var(--charcoal);letter-spacing:-1px;margin-bottom:10px}
 .how-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.6;line-height:1.7}
+
+/* ── PRODUCT SECTIONS (legacy - kept for deep-link anchors) ── */
 .prod-section{padding:80px 5vw;border-bottom:2px solid rgba(46,45,45,.08)}
 .prod-section.dark{background:var(--black)}
 .prod-section.light{background:var(--cream)}
@@ -55,12 +71,46 @@
 .light .ps-opt{background:rgba(46,45,45,.04);border:1px solid rgba(46,45,45,.1)}
 .light .ps-opt-price{color:var(--red)}
 .light .ps-opt-sub,.light .ps-opt-promo{color:var(--charcoal)}
+
+/* ── SHOP GRID (3-column dot.com style) ── */
+.shop-grid-section{background:#F5F0E8;padding:80px 5vw}
+.shop-grid-section .sg-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#FE0103;margin-bottom:10px}
+.shop-grid-section .sg-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,52px);color:#2E2D2D;letter-spacing:-1.5px;line-height:1;margin-bottom:40px}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px}
+@media(max-width:900px){.shop-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.shop-grid{grid-template-columns:1fr}}
+.prod-card{background:#fff;border:1px solid rgba(46,45,45,.1);display:flex;flex-direction:column;position:relative;transition:.18s}
+.prod-card:hover{box-shadow:0 8px 32px rgba(46,45,45,.14);transform:translateY(-3px)}
+.prod-card__badge{position:absolute;top:16px;left:16px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:#FE0103;color:#fff;padding:4px 10px;z-index:2}
+.prod-card__img{background:#2E2D2D;height:220px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.prod-card__img img{width:100%;height:100%;object-fit:cover;display:block}
+.prod-card__img-placeholder{display:flex;flex-direction:column;align-items:center;gap:12px}
+.prod-card__img-placeholder .mock-card{width:120px;height:76px;background:rgba(245,240,232,.08);border:1px solid rgba(254,1,3,.3);display:flex;align-items:center;justify-content:center}
+.prod-card__img-placeholder .mock-card span{font-family:'Rubik Mono One',monospace;font-size:11px;color:#F5F0E8;letter-spacing:1px}
+.prod-card__img-placeholder .mock-chip{width:20px;height:14px;background:#FE0103;border-radius:2px;opacity:.6}
+.prod-card__body{padding:24px;display:flex;flex-direction:column;flex:1;gap:8px}
+.prod-card__tag{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#FE0103}
+.prod-card__name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#2E2D2D;letter-spacing:-.5px;line-height:1.1}
+.prod-card__tagline{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#635D52;line-height:1.6;flex:1}
+.prod-card__price-row{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.prod-card__price{font-family:'Rubik Mono One',monospace;font-size:28px;color:#2E2D2D;letter-spacing:-1px}
+.prod-card__price-sub{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:#635D52}
+.prod-card__save{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#FE0103;color:#fff;padding:3px 8px;margin-left:auto}
+.prod-card__actions{padding:0 24px 24px;display:flex;flex-direction:column;gap:8px}
+.prod-card__buy{display:block;text-align:center;font-family:'Rubik Mono One',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:#FE0103;color:#fff;border:3px solid #FE0103;padding:14px 20px;box-shadow:0 4px 16px rgba(254,1,3,.35);transition:.18s}
+.prod-card__buy:hover{background:#cc0002;border-color:#cc0002;box-shadow:0 6px 20px rgba(254,1,3,.45)}
+.prod-card__alt{display:block;text-align:center;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;background:transparent;color:#FE0103;border:2px solid rgba(254,1,3,.4);padding:10px 20px;transition:.18s}
+.prod-card__alt:hover{background:rgba(254,1,3,.06);border-color:#FE0103}
+
+/* ── FEATURES ── */
 .features-section{background:var(--charcoal);padding:80px 5vw}
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;background:rgba(245,230,200,.04);margin-top:40px}
 .feat-card{background:var(--charcoal);padding:28px;border:1px solid rgba(245,230,200,.06);transition:.2s}
 .feat-card:hover{background:rgba(254,1,3,.06);border-color:rgba(254,1,3,.2)}
 .feat-title{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
 .feat-body{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.7}
+
+/* ── USE CASES ── */
 .use-section{background:var(--cream);padding:80px 5vw}
 .use-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:var(--charcoal);margin-top:40px}
 .use-card{background:var(--cream);padding:32px;transition:.2s}
@@ -68,6 +118,8 @@
 .use-who{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .use-title{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--charcoal);letter-spacing:-0.5px;margin-bottom:10px}
 .use-body{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.65;line-height:1.7}
+
+/* ── FAQ ── */
 .faq-section{background:var(--black);padding:80px 5vw}
 .faq-item{border-bottom:1px solid rgba(245,230,200,.08)}
 .faq-q{font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s;user-select:none}
@@ -76,7 +128,32 @@
 .faq-q.open::after{transform:rotate(45deg)}
 .faq-a{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;line-height:1.85;color:var(--cream);opacity:.6;padding:0;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
 .faq-a.open{padding:0 0 20px;max-height:300px}
-@media(max-width:900px){.shop-hero{grid-template-columns:1fr;padding:72px 5vw 56px}.sh-visual{display:none}.how-steps{grid-template-columns:1fr}.how-steps::before{display:none}.ps-options{grid-template-columns:1fr}}
+
+/* ── BOUTIQUE SECTION ── */
+.boutique-section{background:#2E2D2D;padding:80px 5vw;text-align:center;position:relative;overflow:hidden}
+.boutique-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#FE0103}
+.boutique-section::after{content:'BOUTIQUE';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:'Rubik Mono One',monospace;font-size:120px;color:rgba(254,1,3,.04);letter-spacing:.1em;white-space:nowrap;pointer-events:none}
+.boutique__eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#FE0103;margin-bottom:16px}
+.boutique__headline{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,56px);color:#F5F0E8;letter-spacing:-1.5px;line-height:1.05;margin-bottom:20px}
+.boutique__headline .nabla-records{font-size:clamp(28px,5vw,56px)}
+.boutique__body{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:#F5F0E8;opacity:.7;max-width:560px;margin:0 auto 36px;line-height:1.75}
+.boutique__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:840px;margin:0 auto 40px}
+@media(max-width:700px){.boutique__grid{grid-template-columns:1fr}}
+.boutique__item{background:rgba(245,240,232,.04);border:1px solid rgba(245,240,232,.08);padding:28px;text-align:left}
+.boutique__item-icon{font-size:24px;margin-bottom:10px}
+.boutique__item-title{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#FE0103;margin-bottom:6px}
+.boutique__item-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#F5F0E8;opacity:.55;line-height:1.7}
+.boutique__notify{display:inline-flex;align-items:center;gap:10px;background:rgba(254,1,3,.08);border:1px solid rgba(254,1,3,.3);border-left:3px solid #FE0103;padding:14px 22px}
+.boutique__notify-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#FE0103}
+.boutique__notify-text{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:#F5F0E8;opacity:.7}
+
+@media(max-width:900px){
+  .shop-hero{grid-template-columns:1fr;padding:72px 5vw 56px}
+  .sh-visual{display:none}
+  .how-steps{grid-template-columns:1fr}
+  .how-steps::before{display:none}
+  .ps-options{grid-template-columns:1fr}
+}
 </style>
 <!-- GA4 — PRML RECORDS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
@@ -168,12 +245,12 @@
 <!-- HERO -->
 <div class="shop-hero rev" id="products">
   <div>
-    <div class="sh-eye">PRML RECORDS · Atlanta · NFC Products</div>
+    <div class="sh-eye">PRML <span class="nabla-records">RECORDS</span> &middot; Atlanta &middot; NFC Products</div>
     <div class="sh-title">PRML<br><span>TAP</span><br>CARD.</div>
     <div class="sh-tagline">One tap. Every detail.</div>
     <div class="sh-desc">Your complete digital identity in a slim, branded card. Tap any phone — no app needed. Instant connection. No subscription. Yours forever.</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a href="#tap-card" class="btn btn--red btn--lg">Get Yours &#8594;</a>
+      <a href="#shop-grid" class="btn btn--red btn--lg">Shop Now &#8594;</a>
       <a href="how-it-works.html" class="btn btn--out">How It Works</a>
     </div>
   </div>
@@ -210,7 +287,7 @@
   </div>
 </div>
 
-<!-- LAUNCH SPECIAL — FIRST 9 CUSTOMERS — Products Page -->
+<!-- LAUNCH SPECIAL — FIRST 9 CUSTOMERS -->
 <section style="background:#FE0103;padding:56px 5vw;text-align:center">
   <div style="max-width:760px;margin:0 auto">
     <div style="font-family:'Rubik Mono One',monospace;font-size:11px;color:#F6E8C3;letter-spacing:.2em;text-transform:uppercase;opacity:.8;margin-bottom:14px">Launch Special — First 9 Customers</div>
@@ -218,13 +295,215 @@
     <p style="font-family:'Roboto Slab',serif;font-size:clamp(15px,2vw,18px);font-weight:300;color:#F6E8C3;opacity:.92;line-height:1.7;max-width:600px;margin:0 auto 24px">We're waiving our standard setup fee for the first nine people who place an order. Every deposit comes with a free 30-minute consultation — we program your NFC chip, confirm your QR code, and make sure everything works before it ships.</p>
     <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;opacity:.75;margin-bottom:28px">50% deposit required to begin &nbsp;&middot;&nbsp; Balance due on delivery</div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="#tap-card" style="font-family:'Rubik Mono One',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#FE0103;background:#F6E8C3;text-decoration:none;padding:14px 32px;display:inline-block">ORDER NOW &#8594;</a>
+      <a href="#shop-grid" style="font-family:'Rubik Mono One',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#FE0103;background:#F6E8C3;text-decoration:none;padding:14px 32px;display:inline-block">ORDER NOW &#8594;</a>
       <a href="booking.html" style="font-family:'Rubik Mono One',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#F6E8C3;background:transparent;border:2px solid rgba(246,232,195,.6);text-decoration:none;padding:14px 32px;display:inline-block">BOOK A CONSULTATION &#8594;</a>
     </div>
   </div>
 </section>
 
-<!-- PRML TAP CARD -->
+<!-- ══ 3-COLUMN SHOP GRID ══ -->
+<section class="shop-grid-section" id="shop-grid">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="sg-label">PRML <span class="nabla-records" style="font-size:12px;letter-spacing:2px">RECORDS</span> Shop</div>
+    <div class="sg-title">Tap Products.<br>Zero Subscriptions.</div>
+    <div class="shop-grid">
+
+      <!-- TAP CARD — CHARCOAL -->
+      <div class="prod-card">
+        <div class="prod-card__badge">BEST SELLER</div>
+        <div class="prod-card__img">
+          <div class="prod-card__img-placeholder">
+            <div class="mock-card" style="background:rgba(46,45,45,.9)"><span>PRML</span></div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase">Charcoal</div>
+          </div>
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">TAP CARD</div>
+          <div class="prod-card__name">TAP CARD<br>Charcoal</div>
+          <div class="prod-card__tagline">Premium NFC card in PRML Charcoal. One tap shares your complete digital profile — no app, no subscription, no expiration.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$27.99</div>
+            <div class="prod-card__price-sub">programmed &amp; shipped</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="27.99"
+             data-name="PRML TAP CARD — Charcoal">
+            BUY NOW &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- TAP CARD — BEIGE -->
+      <div class="prod-card">
+        <div class="prod-card__img">
+          <div class="prod-card__img-placeholder">
+            <div class="mock-card" style="background:rgba(245,240,232,.15)"><span style="color:#F5F0E8">PRML</span></div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase">Beige</div>
+          </div>
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">TAP CARD</div>
+          <div class="prod-card__name">TAP CARD<br>Beige</div>
+          <div class="prod-card__tagline">Premium NFC card in PRML Beige. Clean, cream colorway — the classic PRML look that feels like a credit card.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$27.99</div>
+            <div class="prod-card__price-sub">programmed &amp; shipped</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="27.99"
+             data-name="PRML TAP CARD — Beige">
+            BUY NOW &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- TAP CARD — 10-PACK -->
+      <div class="prod-card">
+        <div class="prod-card__badge">SAVE $0 / CARD</div>
+        <div class="prod-card__img">
+          <div class="prod-card__img-placeholder">
+            <div style="display:flex;gap:-8px;position:relative;width:140px;height:80px;justify-content:center;align-items:center">
+              <div class="mock-card" style="position:absolute;left:10px;top:8px;background:rgba(46,45,45,.9);transform:rotate(-6deg)"><span style="font-size:9px">PRML</span></div>
+              <div class="mock-card" style="position:absolute;left:18px;top:4px;background:rgba(245,240,232,.12);transform:rotate(-2deg)"><span style="font-size:9px;color:#F5F0E8">PRML</span></div>
+              <div class="mock-card" style="position:absolute;left:26px;top:0;background:rgba(46,45,45,.9)"><span style="font-size:9px">PRML</span></div>
+            </div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:8px">10-Pack</div>
+          </div>
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">TAP CARD · TEAM</div>
+          <div class="prod-card__name">TAP CARD<br>10-Pack</div>
+          <div class="prod-card__tagline">Equip the whole team. Ten cards, all programmed, all shipped. Color mix confirmed during setup — perfect for events and networking.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$279.90</div>
+            <div class="prod-card__price-sub">$27.99 / card</div>
+            <div class="prod-card__save">TEAM PRICE</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="279.90"
+             data-name="PRML TAP CARD — 10-Pack">
+            BUY NOW &#8594;
+          </a>
+          <a href="booking.html" class="prod-card__alt">Ask About Bulk &#8594;</a>
+        </div>
+      </div>
+
+      <!-- TAP KEY — CHARCOAL -->
+      <div class="prod-card">
+        <div class="prod-card__img">
+          <div class="prod-card__img-placeholder">
+            <div style="width:40px;height:80px;background:rgba(46,45,45,.9);border:1px solid rgba(254,1,3,.3);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px">
+              <span style="font-family:'Rubik Mono One',monospace;font-size:8px;color:#F5F0E8;letter-spacing:1px">P</span>
+              <div style="width:16px;height:12px;background:#FE0103;border-radius:2px;opacity:.6"></div>
+            </div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:8px">Charcoal</div>
+          </div>
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">TAP KEY</div>
+          <div class="prod-card__name">TAP KEY<br>Charcoal</div>
+          <div class="prod-card__tagline">Your network, on your keys. The PRML TAP KEY in Charcoal — always with you, always ready to share your full digital profile.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$21.99</div>
+            <div class="prod-card__price-sub">programmed &amp; shipped</div>
+            <div class="prod-card__save">SAVE $6</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="21.99"
+             data-name="PRML TAP KEY — Charcoal">
+            BUY NOW &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- TAP KEY — BEIGE -->
+      <div class="prod-card">
+        <div class="prod-card__img">
+          <div class="prod-card__img-placeholder">
+            <div style="width:40px;height:80px;background:rgba(245,240,232,.12);border:1px solid rgba(254,1,3,.3);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px">
+              <span style="font-family:'Rubik Mono One',monospace;font-size:8px;color:#F5F0E8;letter-spacing:1px">P</span>
+              <div style="width:16px;height:12px;background:#FE0103;border-radius:2px;opacity:.6"></div>
+            </div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:8px">Beige</div>
+          </div>
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">TAP KEY</div>
+          <div class="prod-card__name">TAP KEY<br>Beige</div>
+          <div class="prod-card__tagline">Your network, on your keys. The PRML TAP KEY in Beige — the warm cream colorway that goes everywhere you go.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$21.99</div>
+            <div class="prod-card__price-sub">programmed &amp; shipped</div>
+            <div class="prod-card__save">SAVE $6</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="21.99"
+             data-name="PRML TAP KEY — Beige">
+            BUY NOW &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- TAP KEY — 10-PACK -->
+      <div class="prod-card">
+        <div class="prod-card__badge">SAVE $0 / KEY</div>
+        <div class="prod-card__img">
+          <div class="prod-card__img-placeholder">
+            <div style="display:flex;gap:8px;align-items:flex-end">
+              <div style="width:28px;height:60px;background:rgba(46,45,45,.9);border:1px solid rgba(254,1,3,.2);border-radius:3px"></div>
+              <div style="width:28px;height:70px;background:rgba(245,240,232,.12);border:1px solid rgba(254,1,3,.2);border-radius:3px"></div>
+              <div style="width:28px;height:55px;background:rgba(46,45,45,.9);border:1px solid rgba(254,1,3,.2);border-radius:3px"></div>
+            </div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:10px">10-Pack</div>
+          </div>
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">TAP KEY · TEAM</div>
+          <div class="prod-card__name">TAP KEY<br>10-Pack</div>
+          <div class="prod-card__tagline">Equip your crew. Ten TAP KEYs, all programmed, all ready. Gift them, distribute them, or keep a supply for your team.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$219.90</div>
+            <div class="prod-card__price-sub">$21.99 / key</div>
+            <div class="prod-card__save">TEAM PRICE</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="219.90"
+             data-name="PRML TAP KEY — 10-Pack">
+            BUY NOW &#8594;
+          </a>
+          <a href="booking.html" class="prod-card__alt">Ask About Bulk &#8594;</a>
+        </div>
+      </div>
+
+    </div><!-- end .shop-grid -->
+  </div>
+</section>
+
+<!-- PRML TAP CARD — DEEP LINK ANCHOR -->
 <div class="prod-section dark rev" id="tap-card">
   <div class="ps-label">Flagship Product</div>
   <div class="ps-name">PRML TAP CARD</div>
@@ -237,8 +516,8 @@
       <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Programmed before it ships</div>
       <div class="ps-opt-promo">First 9 customers: setup fee waived + free 30-min consultation</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-        <a href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center">Charcoal &#8594;</a>
-        <a href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center">Beige &#8594;</a>
+        <a href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="27.99" data-name="PRML TAP CARD — Charcoal">Charcoal &#8594;</a>
+        <a href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="27.99" data-name="PRML TAP CARD — Beige">Beige &#8594;</a>
       </div>
     </div>
     <div class="ps-opt">
@@ -246,12 +525,12 @@
       <div class="ps-opt-price">$279.90</div>
       <div class="ps-opt-sub">$27.99/card &middot; Ships in 5&ndash;7 days &middot; All programmed</div>
       <div class="ps-opt-promo">Best for teams, events &amp; networking &middot; Color confirmed during setup</div>
-      <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" class="btn btn--out" target="_blank" rel="noopener">Order 10-Pack &#8594;</a>
+      <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" class="btn btn--out" target="_blank" rel="noopener" data-price="279.90" data-name="PRML TAP CARD — 10-Pack">Order 10-Pack &#8594;</a>
     </div>
   </div>
 </div>
 
-<!-- PRML TAP KEY -->
+<!-- PRML TAP KEY — DEEP LINK ANCHOR -->
 <div class="prod-section light rev" id="tap-key">
   <div class="ps-label">Always With You</div>
   <div class="ps-name">PRML TAP KEY</div>
@@ -264,8 +543,8 @@
       <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Programmed before it ships</div>
       <div class="ps-opt-promo">First 9 customers: setup fee waived + free 30-min consultation</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-        <a href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center">Charcoal &#8594;</a>
-        <a href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center">Beige &#8594;</a>
+        <a href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="21.99" data-name="PRML TAP KEY — Charcoal">Charcoal &#8594;</a>
+        <a href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="21.99" data-name="PRML TAP KEY — Beige">Beige &#8594;</a>
       </div>
     </div>
     <div class="ps-opt">
@@ -273,7 +552,7 @@
       <div class="ps-opt-price">$219.90</div>
       <div class="ps-opt-sub">$21.99/key &middot; Ships in 5&ndash;7 days &middot; All programmed</div>
       <div class="ps-opt-promo">Equip your team or gift to clients &middot; Color confirmed during setup</div>
-      <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" class="btn btn--out" target="_blank" rel="noopener">Order 10-Pack &#8594;</a>
+      <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" class="btn btn--out" target="_blank" rel="noopener" data-price="219.90" data-name="PRML TAP KEY — 10-Pack">Order 10-Pack &#8594;</a>
     </div>
   </div>
 </div>
@@ -289,7 +568,7 @@
       <div class="feat-card"><div class="feat-title">Works on Every Phone</div><div class="feat-body">All iPhones (XS and newer, no app). All Android phones. No app download required on their end. Ever.</div></div>
       <div class="feat-card"><div class="feat-title">No Subscription — Ever</div><div class="feat-body">You own the card outright. No monthly fees. No annual renewals. No platform lock-in. Yours forever.</div></div>
       <div class="feat-card"><div class="feat-title">Update Anytime</div><div class="feat-body">Changed your number? New Instagram? Updated your booking link? Change your profile anytime — same card, no reprint, no cost.</div></div>
-      <div class="feat-card"><div class="feat-title">PRML RECORDS Design</div><div class="feat-body">Clean, premium PRML RECORDS design. Cream and charcoal colorway. Feels like a credit card — because quality matters.</div></div>
+      <div class="feat-card"><div class="feat-title">PRML <span class="nabla-records" style="font-size:inherit">RECORDS</span> Design</div><div class="feat-body">Clean, premium PRML RECORDS design. Cream and charcoal colorway. Feels like a credit card — because quality matters.</div></div>
       <div class="feat-card"><div class="feat-title">Atlanta-Based Support</div><div class="feat-body">Real people, real support. Not a chatbot. Call us at 770-686-7726 or email info@prmlrecords.com.</div></div>
     </div>
   </div>
@@ -336,8 +615,8 @@
   <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#129309;</div><div class="launch-promo__perk-title">Free Consultation</div><div class="launch-promo__perk-desc">Every service deposit includes a free 30-minute 1-on-1 consultation.</div></div>
   <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#128274;</div><div class="launch-promo__perk-title">Secure Your Spot</div><div class="launch-promo__perk-desc">Offer valid for the first 9 customers only &mdash; limited availability.</div></div>
 </div>
-<a class="launch-promo__cta" href="#tap-card">Order Your PRML TAP CARD &#8594;</a>
-<p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML RECORDS discretion &#183; One per client</p>
+<a class="launch-promo__cta" href="#shop-grid" data-price="" data-name="">Order Your PRML TAP CARD &#8594;</a>
+<p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML <span style="font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:'EDPT' 100,'EHLT' 12;color:#FE0103;-webkit-text-fill-color:#FE0103">RECORDS</span> discretion &#183; One per client</p>
 </section>
 
 <!-- FAQ -->
@@ -360,6 +639,37 @@
   </div>
 </div>
 
+<!-- PRML BOUTIQUE — COMING SOON -->
+<section class="boutique-section">
+  <div style="max-width:900px;margin:0 auto;position:relative;z-index:1">
+    <div class="boutique__eyebrow">PRML <span class="nabla-records" style="font-size:11px;letter-spacing:3px">RECORDS</span> Boutique</div>
+    <h2 class="boutique__headline">More drops.<br>Coming soon.</h2>
+    <p class="boutique__body">The PRML Boutique is where the brand gets physical. Apparel, limited editions, and gear built for the culture — designed in Atlanta, made for the world.</p>
+    <div class="boutique__grid">
+      <div class="boutique__item">
+        <div class="boutique__item-icon">&#128247;</div>
+        <div class="boutique__item-title">Apparel</div>
+        <div class="boutique__item-desc">PRML branded tees, hoodies, and accessories. Limited runs. Quality materials. Worn by the community.</div>
+      </div>
+      <div class="boutique__item">
+        <div class="boutique__item-icon">&#127925;</div>
+        <div class="boutique__item-title">Music Merch</div>
+        <div class="boutique__item-desc">SEAUX9 and PRML RECORDS artist merchandise. Physical media, signed editions, and collector pieces.</div>
+      </div>
+      <div class="boutique__item">
+        <div class="boutique__item-icon">&#127775;</div>
+        <div class="boutique__item-title">Limited Drops</div>
+        <div class="boutique__item-desc">Seasonal releases, event exclusives, and one-of-a-kind items. Join the list to get notified first.</div>
+      </div>
+    </div>
+    <div class="boutique__notify">
+      <div class="boutique__notify-label">NOTIFY ME</div>
+      <div class="boutique__notify-text">Join the PRML mailing list to be first when the Boutique opens.</div>
+      <a href="#mailing-signup" style="font-family:'Rubik Mono One',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:#FE0103;color:#fff;text-decoration:none;padding:10px 20px;border:3px solid #FE0103;box-shadow:0 4px 16px rgba(254,1,3,.35);white-space:nowrap;flex-shrink:0">JOIN LIST &#8594;</a>
+    </div>
+  </div>
+</section>
+
 <!-- MAILING LIST SIGNUP -->
 <section class="signup-section" id="mailing-signup">
 <style>
@@ -377,7 +687,7 @@
 .signup-confirm{display:none;font-family:'Rubik Mono One',monospace;font-size:18px;color:#2E2D2D;padding:24px;background:rgba(46,45,45,.08);border-radius:8px;border-left:4px solid #FE0103}
 .signup-confirm.show{display:block}
 </style>
-<h2>Join the PRML RECORDS Community</h2>
+<h2>Join the PRML <span style="font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:'EDPT' 100,'EHLT' 12;color:#FE0103;-webkit-text-fill-color:#FE0103">RECORDS</span> Community</h2>
 <p>Stay connected. Get updates on music, products, services, and events.</p>
 <form class="signup-form" id="prml-signup-form" onsubmit="submitPRMLSignup(event)">
   <div class="signup-row">
@@ -419,7 +729,7 @@ async function submitPRMLSignup(e){
 @media(max-width:560px){.footer2__grid{grid-template-columns:1fr}}
 .footer2__brand{display:flex;flex-direction:column;gap:12px}
 .footer2__brand-name{font-family:'Rubik Mono One',monospace;font-size:22px;color:#F6E8C3;letter-spacing:.06em}
-.footer2__brand-name span{color:#FE0103}
+.footer2__brand-name .nabla-records{font-size:22px}
 .footer2__tagline{font-family:'Roboto Slab',serif;font-size:14px;color:#635D52;font-style:italic}
 .footer2__contact{font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;line-height:1.8;opacity:.85}
 .footer2__contact a{color:#F6E8C3;text-decoration:none}
@@ -438,7 +748,7 @@ async function submitPRMLSignup(e){
 </style>
 <div class="footer2__grid">
   <div class="footer2__brand">
-    <div class="footer2__brand-name">PRML <span>RECORDS</span></div>
+    <div class="footer2__brand-name">PRML <span class="nabla-records">RECORDS</span></div>
     <div class="footer2__tagline">Primal Energy. Primal Sound.</div>
     <div class="footer2__contact">
       <a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a><br>
@@ -455,7 +765,7 @@ async function submitPRMLSignup(e){
     <div style="margin-top:12px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://prmlrecords.com&amp;color=2E2D2D&amp;bgcolor=F6E8C3" alt="Scan to visit PRML RECORDS" style="width:100px;height:100px;display:block"><div style="font-family:Roboto Slab,serif;font-size:10px;color:#635D52;margin-top:4px">prmlrecords.com</div></div>
   </div>
   <div class="footer2__col">
-    <h4>Navigate</h4>
+    <h4>Site</h4>
     <a href="index.html">Home</a><a href="blog/">Blog</a><a href="media.html">Media</a>
     <a href="products.html">Shop</a><a href="services.html">Services</a>
   </div>
@@ -479,6 +789,7 @@ async function submitPRMLSignup(e){
   <div class="footer2__values">Freedom <span>&#183;</span> Justice <span>&#183;</span> Equality</div>
   <div class="footer2__tagline-bottom">Primal Energy. Primal Sound.</div>
   <div class="footer2__copy">&#169; 2026 PRML RECORDS LLC. All rights reserved. &#183; Atlanta, GA &#183; @PRMLRECORDS</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#635D52;opacity:.5;font-style:italic;margin-top:4px">With Gratitude.</div>
 </div>
 </footer>
 

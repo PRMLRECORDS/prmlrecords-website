@@ -81,6 +81,10 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 .f-input:focus{outline:none;border-color:var(--red)}
 .f-textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(254,1,3,.2);color:var(--cream);padding:10px 14px;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;resize:vertical;min-height:80px}
 .f-textarea:focus{outline:none;border-color:var(--red)}
+.f-counter{font-size:10px;opacity:.35;text-align:right;margin-top:4px;font-family:'Roboto Slab',serif}
+.f-prefix-wrap{position:relative}
+.f-prefix-wrap .f-prefix{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red);pointer-events:none}
+.f-prefix-wrap .f-input{padding-left:26px}
 
 /* BUTTONS */
 .btn{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:10px 18px;border:none;cursor:pointer;transition:.2s;display:inline-block;text-decoration:none}
@@ -131,7 +135,39 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 .track-name{font-weight:300}
 .track-earn{font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--green)}
 
-@media(max-width:600px){.topbar-right{gap:10px}.panel{padding:20px 14px}}
+/* ── STORE EDITOR ── */
+.se-prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:32px}
+.se-prod-card{background:var(--charcoal);border-top:3px solid var(--red);padding:20px}
+.se-prod-card__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.se-prod-card__title{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);letter-spacing:-.5px}
+.se-prod-card__sku{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:rgba(254,1,3,.12);border:1px solid rgba(254,1,3,.3);color:var(--red);padding:3px 8px}
+.se-prod-card__preview-area{background:#111;border:1px solid rgba(254,1,3,.15);padding:16px;margin:12px 0;display:none}
+.se-prod-card__preview-area.show{display:block}
+.se-preview-mini{background:#fff;border:1px solid rgba(46,45,45,.15);padding:14px;display:flex;flex-direction:column;gap:6px;max-width:260px}
+.se-preview-mini__tag{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#FE0103}
+.se-preview-mini__name{font-family:'Rubik Mono One',monospace;font-size:14px;color:#2E2D2D;letter-spacing:-.5px;line-height:1.1}
+.se-preview-mini__desc{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:#635D52;line-height:1.5}
+.se-preview-mini__price{font-family:'Rubik Mono One',monospace;font-size:22px;color:#2E2D2D;letter-spacing:-1px}
+.se-preview-mini__btn{display:block;text-align:center;font-family:'Rubik Mono One',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:#FE0103;color:#fff;border:2px solid #FE0103;padding:8px;box-shadow:0 4px 16px rgba(254,1,3,.35)}
+.se-code-output{display:none;margin-top:12px}
+.se-code-output.show{display:block}
+.se-svc-tbl{width:100%;border-collapse:collapse;margin-top:16px}
+.se-svc-tbl th{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);padding:8px 10px;text-align:left;border-bottom:1px solid rgba(254,1,3,.3);background:rgba(254,1,3,.06)}
+.se-svc-tbl td{font-size:12px;font-weight:300;padding:10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
+.se-svc-tbl tr:last-child td{border-bottom:none}
+.se-svc-tbl input.f-input{padding:6px 10px;font-size:12px}
+.se-sheets-card{background:var(--charcoal);border-top:3px solid var(--red);padding:24px;margin-bottom:24px}
+.se-sheets-step{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.se-sheets-step:last-child{border-bottom:none}
+.se-sheets-step-num{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);opacity:.6;flex-shrink:0;line-height:1}
+.se-sheets-step-body{font-size:13px;font-weight:300;line-height:1.7;opacity:.75}
+.se-sheets-step-body strong{color:var(--cream);opacity:1}
+.se-conn-result{margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.04);border-left:3px solid var(--stone);font-size:12px;font-weight:300;display:none}
+.se-conn-result.show{display:block}
+.se-conn-result.success{border-left-color:var(--green);color:var(--green)}
+.se-conn-result.error{border-left-color:var(--red);color:var(--red)}
+
+@media(max-width:600px){.topbar-right{gap:10px}.panel{padding:20px 14px}.se-prod-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -171,6 +207,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
   <div class="tabs" id="tabs">
     <button class="tab active" onclick="showTab('overview')">Overview</button>
     <button class="tab" onclick="showTab('promo')">Promo Control</button>
+    <button class="tab" onclick="showTab('store-editor')">🏪 Store Editor</button>
     <button class="tab" onclick="showTab('products')">Products</button>
     <button class="tab" onclick="showTab('orders')">Orders</button>
     <button class="tab" onclick="showTab('seaux9')">SEAUX9</button>
@@ -313,6 +350,104 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div style="margin-top:14px;font-size:11px;opacity:.4;font-weight:300">Activate at: app.brevo.com → Automations → ManyChat Drip Sequence</div>
     </div>
   </div>
+
+  <!-- ══ STORE EDITOR ══ -->
+  <div class="panel" id="tab-store-editor">
+    <div class="section-title">Store Management</div>
+    <div class="section-head">🏪 Store Editor</div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:14px 18px;font-size:13px;font-weight:300;line-height:1.7;margin-bottom:28px">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:6px">How This Works</strong>
+      Edit any product below. Click <strong>PREVIEW</strong> to see a mini card mockup. Click <strong>GENERATE CODE</strong> to output the ready-to-paste HTML snippet for products.html. Nothing changes on the live site until you copy and paste the code.
+    </div>
+
+    <!-- ── PRODUCT CARDS ── -->
+    <div class="section-title" style="margin-bottom:14px">Product Cards — Edit &amp; Generate</div>
+
+    <div class="se-prod-grid" id="se-prod-grid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <!-- ── SERVICES PRICE EDITOR ── -->
+    <div class="section-title" style="margin-bottom:8px;margin-top:8px">Services Price Editor</div>
+    <div style="font-size:12px;font-weight:300;opacity:.5;margin-bottom:16px;line-height:1.6">Edit prices and descriptions below. Click <strong>GET UPDATE CODE</strong> on any row to get the HTML snippet to paste into services.html.</div>
+    <div style="overflow-x:auto;margin-bottom:32px">
+      <table class="se-svc-tbl" id="se-svc-tbl">
+        <thead>
+          <tr>
+            <th style="min-width:180px">Service Name</th>
+            <th style="min-width:120px">Price</th>
+            <th style="min-width:220px">Description (short)</th>
+            <th style="min-width:100px">Action</th>
+          </tr>
+        </thead>
+        <tbody id="se-svc-tbody">
+          <!-- Rows injected by JS -->
+        </tbody>
+      </table>
+    </div>
+    <div class="se-code-output" id="se-svc-code-output">
+      <div class="f-label">Paste into services.html (update the matching service card):</div>
+      <div class="code-block" id="se-svc-code-text" style="white-space:pre-wrap"><button class="copy-btn" onclick="copyCode('se-svc-code-text')">COPY</button></div>
+    </div>
+
+    <!-- ── GOOGLE SHEETS SYNC ── -->
+    <div class="section-title" style="margin-bottom:8px;margin-top:32px">Google Sheets Sync</div>
+    <div class="se-sheets-card">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:-.5px;margin-bottom:16px">Connect a Sheet as your price source of truth</div>
+
+      <div class="se-sheets-step">
+        <div class="se-sheets-step-num">01</div>
+        <div class="se-sheets-step-body">
+          <strong>Create your Google Sheet.</strong> Add columns: <code>product_name, price, description, stripe_link, image_url</code>. One row per product. Fill in all 6 current products.
+        </div>
+      </div>
+      <div class="se-sheets-step">
+        <div class="se-sheets-step-num">02</div>
+        <div class="se-sheets-step-body">
+          <strong>Publish as CSV.</strong> In Google Sheets: File → Share → Publish to web → select the sheet → choose CSV → click Publish. Copy the URL it gives you.
+        </div>
+      </div>
+      <div class="se-sheets-step">
+        <div class="se-sheets-step-num">03</div>
+        <div class="se-sheets-step-body">
+          <strong>Paste the URL below.</strong> Test the connection. If it returns data, products.html can be updated to auto-fetch prices from the sheet on page load — no redeployment needed for price changes.
+        </div>
+      </div>
+      <div class="se-sheets-step">
+        <div class="se-sheets-step-num">04</div>
+        <div class="se-sheets-step-body">
+          <strong>Keep the sheet published.</strong> Anyone with the URL can read it (CSV only — no edit access). Change a price in the sheet → live site reflects it within minutes.
+        </div>
+      </div>
+
+      <div style="margin-top:20px">
+        <div class="f-group">
+          <label class="f-label">Google Sheet Published CSV URL</label>
+          <input class="f-input" id="se-sheets-url" placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv">
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <button class="btn btn-red btn-sm" onclick="testSheetsConnection()">TEST CONNECTION</button>
+          <span style="font-size:11px;opacity:.4;font-weight:300">Runs a client-side fetch — checks if the URL returns valid CSV data</span>
+        </div>
+        <div class="se-conn-result" id="se-conn-result"></div>
+      </div>
+
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)">
+        <div class="f-label" style="margin-bottom:8px">Integration Status</div>
+        <div style="font-size:13px;font-weight:300;line-height:1.9;opacity:.6">
+          ☐ Sheet URL saved and tested<br>
+          ☐ products.html updated to fetch from sheet on load<br>
+          ☐ Price change tested end-to-end (update sheet → verify on site)<br>
+          ☐ Stripe prices updated to match (Stripe is the billing source — sheet is display only)
+        </div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(234,179,8,.08);border-left:3px solid var(--yellow);font-size:12px;font-weight:300;line-height:1.6">
+          <strong style="color:var(--yellow)">Note:</strong> The Google Sheet controls display prices only. The actual charge amount is set in Stripe. Always update Stripe first when changing prices — then update the sheet to match.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tab-store-editor -->
 
   <!-- ══ PRODUCTS ══ -->
   <div class="panel" id="tab-products">
@@ -620,6 +755,7 @@ function tryLogin(){
     startClock();
     loadOrders();
     loadSpots();
+    initStoreEditor();
   } else {
     document.getElementById('pw-err').style.display='block';
   }
@@ -640,6 +776,7 @@ window.onload = function(){
     startClock();
     loadOrders();
     loadSpots();
+    initStoreEditor();
   }
 };
 
@@ -711,10 +848,12 @@ function generatePriceCode(){
   const c10 = document.getElementById('card-10-price').value;
   const k10 = document.getElementById('key-10-price').value;
   const code = `In products.html, update these display prices:
-TAP CARD single:   ${cp}   (line ~236)
-TAP CARD 10-pack:  ${c10}  (line ~243)
-TAP KEY single:    ${kp}   (line ~260)
-TAP KEY 10-pack:   ${k10}  (line ~267)
+TAP CARD single:   ${cp}   (search: .ps-opt-price in #tap-card section)
+TAP CARD 10-pack:  ${c10}  (search: .ps-opt-price in #tap-card 10-pack section)
+TAP KEY single:    ${kp}   (search: .ps-opt-price in #tap-key section)
+TAP KEY 10-pack:   ${k10}  (search: .ps-opt-price in #tap-key 10-pack section)
+
+Also update prod-card__price values in the shop grid section.
 
 In Stripe dashboard, update the underlying prices at:
 dashboard.stripe.com/products`;
@@ -722,6 +861,291 @@ dashboard.stripe.com/products`;
   el.textContent = code;
   el.insertAdjacentHTML('afterbegin','<button class="copy-btn" onclick="copyCode(\'price-code-text\')">COPY</button>');
   document.getElementById('price-code-output').style.display='block';
+}
+
+// ── STORE EDITOR ─────────────────────────────────────────────
+
+const SE_PRODUCTS = [
+  {
+    id:'tap-card-charcoal',
+    sku:'TAP-CARD-CH',
+    name:'PRML TAP CARD — Charcoal',
+    tag:'TAP CARD',
+    desc:'Premium NFC card in PRML Charcoal. One tap shares your complete digital profile — no app, no subscription, no expiration.',
+    price:'27.99',
+    stripe:'https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G',
+    image:''
+  },
+  {
+    id:'tap-card-beige',
+    sku:'TAP-CARD-BG',
+    name:'PRML TAP CARD — Beige',
+    tag:'TAP CARD',
+    desc:'Premium NFC card in PRML Beige. Clean, cream colorway — the classic PRML look that feels like a credit card.',
+    price:'27.99',
+    stripe:'https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F',
+    image:''
+  },
+  {
+    id:'tap-card-10pack',
+    sku:'TAP-CARD-10',
+    name:'PRML TAP CARD — 10-Pack',
+    tag:'TAP CARD · TEAM',
+    desc:'Equip the whole team. Ten cards, all programmed, all shipped. Color mix confirmed during setup.',
+    price:'279.90',
+    stripe:'https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J',
+    image:''
+  },
+  {
+    id:'tap-key-charcoal',
+    sku:'TAP-KEY-CH',
+    name:'PRML TAP KEY — Charcoal',
+    tag:'TAP KEY',
+    desc:'Your network, on your keys. The PRML TAP KEY in Charcoal — always with you, always ready to share your full digital profile.',
+    price:'21.99',
+    stripe:'https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I',
+    image:''
+  },
+  {
+    id:'tap-key-beige',
+    sku:'TAP-KEY-BG',
+    name:'PRML TAP KEY — Beige',
+    tag:'TAP KEY',
+    desc:'Your network, on your keys. The PRML TAP KEY in Beige — the warm cream colorway that goes everywhere you go.',
+    price:'21.99',
+    stripe:'https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H',
+    image:''
+  },
+  {
+    id:'tap-key-10pack',
+    sku:'TAP-KEY-10',
+    name:'PRML TAP KEY — 10-Pack',
+    tag:'TAP KEY · TEAM',
+    desc:'Equip your crew. Ten TAP KEYs, all programmed, all ready. Gift them, distribute them, or keep a supply for your team.',
+    price:'219.90',
+    stripe:'https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K',
+    image:''
+  }
+];
+
+const SE_SERVICES = [
+  {name:'Starter Website',price:'$1,500',desc:'Five pages built mobile-first — customers find you, contact you, trust you.'},
+  {name:'Business Website',price:'$2,500',desc:'A full custom site built to scale with your business — analytics, advanced features, and a design that converts.'},
+  {name:'E-Commerce Website',price:'$3,500',desc:'A complete online store — products, cart, checkout, and payments — built and ready to generate revenue.'},
+  {name:'Landing Page',price:'$500',desc:'One page. One goal. Maximum response. Built for campaigns, launches, and lead capture.'},
+  {name:'Website Maintenance',price:'$200/month',desc:'Monthly updates, backups, and content changes — your site stays fast and current.'},
+  {name:'Logo Design',price:'$500',desc:'A custom mark that makes people remember your name — three directions, two revision rounds.'},
+  {name:'Brand Identity Starter',price:'$750',desc:'Logo, color palette, and typography guide — the foundation that keeps your brand consistent.'},
+  {name:'Brand Identity Full',price:'$1,500',desc:'Your complete brand system. Logo, colors, fonts, voice, business card, social templates, and a standards doc.'},
+  {name:'Business Card Design',price:'$150',desc:'Front and back, press-ready, in every format you need to print anywhere.'},
+  {name:'Social Media Ad Set',price:'$300',desc:'Five ads, ready to run. Stop the scroll on Instagram, Facebook, and TikTok.'},
+  {name:'Email Campaign Design',price:'$200',desc:'An email people actually open and act on. Full template delivered as HTML and image exports.'},
+  {name:'Digital Banner / Billboard',price:'$150',desc:'High-impact display creative sized for outdoor digital boards, web, and social.'},
+  {name:'Flyer Design',price:'$100',desc:'A fast-turnaround flyer that works at 300dpi and on every screen.'},
+  {name:'Poster (24×36)',price:'$150',desc:'A press-ready poster that commands attention at events, venues, and storefronts.'},
+  {name:'Brochure (Trifold)',price:'$200',desc:'A professional trifold that reads well, looks exceptional, and prints flawlessly.'},
+  {name:'Business Cards (Design)',price:'$125',desc:'Premium front-and-back design delivered in every print-ready format you need.'},
+  {name:'PRML TAP CARD — Single',price:'$27.99',desc:'One tap. They have everything — your link, your contact, your story.'},
+  {name:'PRML TAP CARD — 10-Pack',price:'$279.90',desc:'Ten cards, ten first impressions — all programmed, all shipped.'},
+  {name:'PRML TAP KEY — Single',price:'$21.99',desc:'Always with you. Always ready. Your full digital profile on your keychain.'},
+  {name:'PRML TAP KEY — 10-Pack',price:'$219.90',desc:'Ten TAP KEYs for the team that\'s always moving.'},
+  {name:'Custom NFC Setup + Landing Page',price:'$150',desc:'Custom chip programming plus a branded landing page — configured before it ships.'},
+  {name:'Custom 3D Print — Small',price:'From $25',desc:'FDM printing in PLA, PETG, or ABS — functional parts, prototypes, artistic pieces.'},
+  {name:'Custom 3D Print — Large',price:'From $75',desc:'Large-format FDM for display pieces, signage inserts, event props, and production runs.'},
+  {name:'Laser Engraving',price:'From $20',desc:'Logo, art, or text precision-engraved onto wood, acrylic, leather, and more.'}
+];
+
+function initStoreEditor(){
+  buildProductCards();
+  buildServiceTable();
+}
+
+function buildProductCards(){
+  const grid = document.getElementById('se-prod-grid');
+  if(!grid) return;
+  grid.innerHTML = SE_PRODUCTS.map((p,i) => `
+    <div class="se-prod-card" id="se-card-${p.id}">
+      <div class="se-prod-card__header">
+        <div class="se-prod-card__title">${p.name.replace('PRML ','')}</div>
+        <div class="se-prod-card__sku">${p.sku}</div>
+      </div>
+
+      <div class="f-group">
+        <label class="f-label">Product Name <span id="se-name-count-${i}" class="f-counter" style="display:inline;float:right">0/60</span></label>
+        <input class="f-input" id="se-name-${i}" maxlength="60" value="${escHtml(p.name)}"
+          oninput="document.getElementById('se-name-count-${i}').textContent=this.value.length+'/60';updateSEPreview(${i})">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Short Description <span id="se-desc-count-${i}" class="f-counter" style="display:inline;float:right">0/120</span></label>
+        <textarea class="f-textarea" id="se-desc-${i}" maxlength="120" rows="3"
+          oninput="document.getElementById('se-desc-count-${i}').textContent=this.value.length+'/120';updateSEPreview(${i})">${escHtml(p.desc)}</textarea>
+      </div>
+      <div class="f-group">
+        <label class="f-label">Price</label>
+        <div class="f-prefix-wrap">
+          <span class="f-prefix">$</span>
+          <input class="f-input" id="se-price-${i}" type="number" step="0.01" min="0" value="${p.price}"
+            oninput="updateSEPreview(${i})">
+        </div>
+      </div>
+      <div class="f-group">
+        <label class="f-label">Stripe Payment Link</label>
+        <input class="f-input" id="se-stripe-${i}" type="url" value="${escHtml(p.stripe)}" placeholder="https://buy.stripe.com/...">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Image URL (optional)</label>
+        <input class="f-input" id="se-img-${i}" type="url" value="${escHtml(p.image)}" placeholder="https://prmlrecords.com/assets/..."
+          oninput="updateSEPreview(${i})">
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+        <button class="btn btn-out btn-sm" onclick="toggleSEPreview(${i})">PREVIEW</button>
+        <button class="btn btn-red btn-sm" onclick="generateSECode(${i})">GENERATE CODE</button>
+      </div>
+
+      <div class="se-prod-card__preview-area" id="se-preview-${i}">
+        <div class="f-label" style="margin-bottom:8px">Mini Card Preview</div>
+        <div class="se-preview-mini" id="se-preview-mini-${i}">
+          <div class="se-preview-mini__tag" id="se-pm-tag-${i}">${escHtml(p.tag)}</div>
+          <div class="se-preview-mini__name" id="se-pm-name-${i}">${escHtml(p.name.replace('PRML ',''))}</div>
+          <div class="se-preview-mini__desc" id="se-pm-desc-${i}">${escHtml(p.desc)}</div>
+          <div class="se-preview-mini__price" id="se-pm-price-${i}">$${p.price}</div>
+          <div class="se-preview-mini__btn">BUY NOW →</div>
+        </div>
+      </div>
+
+      <div class="se-code-output" id="se-code-out-${i}">
+        <div class="f-label">Paste into products.html (replace matching prod-card):</div>
+        <div class="code-block" id="se-code-text-${i}" style="white-space:pre-wrap;font-size:11px"><button class="copy-btn" onclick="copyCode('se-code-text-${i}')">COPY</button></div>
+      </div>
+    </div>
+  `).join('');
+
+  // init counters
+  SE_PRODUCTS.forEach((_,i)=>{
+    const n = document.getElementById('se-name-'+i);
+    const d = document.getElementById('se-desc-'+i);
+    if(n) document.getElementById('se-name-count-'+i).textContent = n.value.length+'/60';
+    if(d) document.getElementById('se-desc-count-'+i).textContent = d.value.length+'/120';
+  });
+}
+
+function escHtml(s){
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toggleSEPreview(i){
+  const el = document.getElementById('se-preview-'+i);
+  if(!el) return;
+  el.classList.toggle('show');
+  updateSEPreview(i);
+}
+
+function updateSEPreview(i){
+  const n = (document.getElementById('se-name-'+i)||{}).value||'';
+  const d = (document.getElementById('se-desc-'+i)||{}).value||'';
+  const p = (document.getElementById('se-price-'+i)||{}).value||'';
+  const nm = document.getElementById('se-pm-name-'+i);
+  const dm = document.getElementById('se-pm-desc-'+i);
+  const pm = document.getElementById('se-pm-price-'+i);
+  if(nm) nm.textContent = n.replace('PRML ','');
+  if(dm) dm.textContent = d;
+  if(pm) pm.textContent = '$'+p;
+}
+
+function generateSECode(i){
+  const prod = SE_PRODUCTS[i];
+  const name = (document.getElementById('se-name-'+i)||{}).value || prod.name;
+  const desc = (document.getElementById('se-desc-'+i)||{}).value || prod.desc;
+  const price = (document.getElementById('se-price-'+i)||{}).value || prod.price;
+  const stripe = (document.getElementById('se-stripe-'+i)||{}).value || prod.stripe;
+  const img = (document.getElementById('se-img-'+i)||{}).value || '';
+  const tag = prod.tag;
+  const displayName = name.replace(/^PRML /, '').replace(' — ', '<br>');
+
+  const imgHtml = img
+    ? `<img src="${img}" alt="${name}" style="width:100%;height:100%;object-fit:cover;display:block">`
+    : `<div class="prod-card__img-placeholder"><div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(245,240,232,.4);text-transform:uppercase">${tag}</div></div>`;
+
+  const code = `<!-- ${name} -->
+<div class="prod-card">
+  <div class="prod-card__img">
+    ${imgHtml}
+  </div>
+  <div class="prod-card__body">
+    <div class="prod-card__tag">${tag}</div>
+    <div class="prod-card__name">${displayName}</div>
+    <div class="prod-card__tagline">${desc}</div>
+    <div class="prod-card__price-row">
+      <div class="prod-card__price">$${price}</div>
+      <div class="prod-card__price-sub">programmed &amp; shipped</div>
+    </div>
+  </div>
+  <div class="prod-card__actions">
+    <a href="${stripe}"
+       class="prod-card__buy"
+       target="_blank" rel="noopener"
+       data-price="${price}"
+       data-name="${name}">
+      BUY NOW &rarr;
+    </a>
+  </div>
+</div>`;
+
+  const el = document.getElementById('se-code-text-'+i);
+  if(!el) return;
+  el.textContent = code;
+  el.insertAdjacentHTML('afterbegin','<button class="copy-btn" onclick="copyCode(\'se-code-text-'+i+'\')">COPY</button>');
+  document.getElementById('se-code-out-'+i).classList.add('show');
+}
+
+function buildServiceTable(){
+  const tbody = document.getElementById('se-svc-tbody');
+  if(!tbody) return;
+  tbody.innerHTML = SE_SERVICES.map((s,i)=>`
+    <tr>
+      <td style="font-weight:300">${escHtml(s.name)}</td>
+      <td><input class="f-input" id="svc-price-${i}" value="${escHtml(s.price)}" style="padding:6px 10px;font-size:12px;min-width:100px"></td>
+      <td><input class="f-input" id="svc-desc-${i}" value="${escHtml(s.desc)}" style="padding:6px 10px;font-size:12px;min-width:200px"></td>
+      <td><button class="btn btn-out btn-sm" onclick="generateSvcCode(${i},'${escHtml(s.name)}')">GET CODE</button></td>
+    </tr>
+  `).join('');
+}
+
+function generateSvcCode(i, originalName){
+  const price = (document.getElementById('svc-price-'+i)||{}).value||'';
+  const desc = (document.getElementById('svc-desc-'+i)||{}).value||'';
+  const code = `<!-- Find the service card with sc-name = "${originalName}" in services.html and replace the sc-price and sc-desc values: -->
+
+<div class="svc-card">
+  <div class="sc-name">${originalName}</div>
+  <div class="sc-desc">${desc}</div>
+  <div class="sc-price">${price}</div>
+  <!-- sc-deposit line stays unchanged unless you want to update it -->
+</div>`;
+  const el = document.getElementById('se-svc-code-text');
+  el.textContent = code;
+  el.insertAdjacentHTML('afterbegin','<button class="copy-btn" onclick="copyCode(\'se-svc-code-text\')">COPY</button>');
+  document.getElementById('se-svc-code-output').classList.add('show');
+  document.getElementById('se-svc-code-output').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+async function testSheetsConnection(){
+  const url = (document.getElementById('se-sheets-url')||{}).value||'';
+  const res = document.getElementById('se-conn-result');
+  if(!url){ res.className='se-conn-result show error'; res.textContent='Paste a URL first.'; return; }
+  res.className='se-conn-result show'; res.textContent='Testing connection…';
+  try{
+    const r = await fetch(url, {mode:'cors'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const text = await r.text();
+    const rows = text.trim().split('\n').length;
+    res.className='se-conn-result show success';
+    res.textContent = `Connection successful. ${rows} row(s) returned. Your sheet is reachable and returning data.`;
+  } catch(e){
+    res.className='se-conn-result show error';
+    res.textContent = `Connection failed: ${e.message}. Check that the sheet is published as CSV and the URL is correct. If the sheet is on a different domain, CORS may block the test — try opening the URL directly in a browser tab.`;
+  }
 }
 
 // ── ORDERS ────────────────────────────────────────────────────

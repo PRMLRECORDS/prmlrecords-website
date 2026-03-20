@@ -1,0 +1,119 @@
+{
+  "_meta": {
+    "source": "PRML Records Master Product Catalog",
+    "lastUpdated": "2026-03-20",
+    "version": "1.0",
+    "note": "This file is the source of truth for product data. Edit here OR in the Google Sheets Master Hub. Changes here deploy instantly on next page load."
+  },
+  "products": [
+    {
+      "id": "TAP-CARD-BLK",
+      "name": "PRML TAP CARD",
+      "variant": "Charcoal",
+      "shortDesc": "Premium NFC business card in Primal Charcoal. One tap shares your complete digital identity.",
+      "fullDesc": "The PRML TAP CARD in Primal Charcoal. No app. No subscription. One tap connects instantly on any iPhone or Android. Set your profile once — update it anytime.",
+      "price": 27.99,
+      "comparePrice": null,
+      "currency": "USD",
+      "stripeLink": "https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G",
+      "imageUrl": "/assets/products/tap-card-charcoal.png",
+      "badge": null,
+      "status": "active",
+      "category": "nfc-card",
+      "sku": "plink_1TCtSyIEvKUNtDqe"
+    },
+    {
+      "id": "TAP-CARD-BEI",
+      "name": "PRML TAP CARD",
+      "variant": "Beige",
+      "shortDesc": "Premium NFC business card in Primal Beige. One tap shares your complete digital identity.",
+      "fullDesc": "The PRML TAP CARD in Primal Beige. No app. No subscription. One tap connects instantly on any iPhone or Android. Set your profile once — update it anytime.",
+      "price": 27.99,
+      "comparePrice": null,
+      "currency": "USD",
+      "stripeLink": "https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F",
+      "imageUrl": "/assets/products/tap-card-beige.png",
+      "badge": null,
+      "status": "active",
+      "category": "nfc-card",
+      "sku": "plink_1TCtSxIEvKUNtDqe"
+    },
+    {
+      "id": "TAP-CARD-10PK",
+      "name": "PRML TAP CARD",
+      "variant": "10-Pack (Any Color)",
+      "shortDesc": "10 PRML TAP CARDs for your team. Mix colors. Setup included.",
+      "fullDesc": "Ten PRML TAP CARDs — mix Charcoal and Beige. Perfect for teams, events, and corporate gifting. Setup for all 10 profiles included.",
+      "price": 279.90,
+      "comparePrice": 299.90,
+      "currency": "USD",
+      "stripeLink": "https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J",
+      "imageUrl": "/assets/products/tap-card-10pack.png",
+      "badge": "SAVE $20",
+      "status": "active",
+      "category": "nfc-card",
+      "sku": "plink_1TCtT8IEvKUNtDqe"
+    },
+    {
+      "id": "TAP-KEY-BLK",
+      "name": "PRML TAP KEY",
+      "variant": "Charcoal",
+      "shortDesc": "Premium NFC keychain in Primal Charcoal. Your network on your keys.",
+      "fullDesc": "The PRML TAP KEY in Primal Charcoal. Clip it to your keys. One tap from your keyring. Same instant connection — now always in your pocket.",
+      "price": 21.99,
+      "comparePrice": null,
+      "currency": "USD",
+      "stripeLink": "https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I",
+      "imageUrl": "/assets/products/tap-key-charcoal.png",
+      "badge": null,
+      "status": "active",
+      "category": "nfc-keychain",
+      "sku": "plink_1TCtT6IEvKUNtDqe"
+    },
+    {
+      "id": "TAP-KEY-BEI",
+      "name": "PRML TAP KEY",
+      "variant": "Beige",
+      "shortDesc": "Premium NFC keychain in Primal Beige. Your network on your keys.",
+      "fullDesc": "The PRML TAP KEY in Primal Beige. Clip it to your keys. One tap from your keyring. Same instant connection — now always in your pocket.",
+      "price": 21.99,
+      "comparePrice": null,
+      "currency": "USD",
+      "stripeLink": "https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H",
+      "imageUrl": "/assets/products/tap-key-beige.png",
+      "badge": null,
+      "status": "active",
+      "category": "nfc-keychain",
+      "sku": "plink_1TCtSzIEvKUNtDqe"
+    },
+    {
+      "id": "TAP-KEY-10PK",
+      "name": "PRML TAP KEY",
+      "variant": "10-Pack (Any Color)",
+      "shortDesc": "10 PRML TAP KEYs for your team. Mix colors. Setup included.",
+      "fullDesc": "Ten PRML TAP KEYs — mix Charcoal and Beige. Perfect for teams, events, and corporate gifting. Setup for all 10 profiles included.",
+      "price": 219.90,
+      "comparePrice": 239.90,
+      "currency": "USD",
+      "stripeLink": "https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K",
+      "imageUrl": "/assets/products/tap-key-10pack.png",
+      "badge": "SAVE $20",
+      "status": "active",
+      "category": "nfc-keychain",
+      "sku": "plink_1TCtT9IEvKUNtDqe"
+    }
+  ],
+  "boutique": {
+    "status": "coming-soon",
+    "headline": "PRML Boutique",
+    "subhead": "Curated goods from creators we believe in.",
+    "copy": "Art. Apparel. Tech. Hand-selected products from independent Atlanta creators and PRML partner brands. Coming soon.",
+    "ctaText": "Join the waitlist",
+    "ctaLink": "#waitlist"
+  },
+  "sheetsSync": {
+    "enabled": false,
+    "publishedCsvUrl": "",
+    "note": "Paste your Google Sheets published CSV URL here. When enabled, prices load from the sheet and override this file."
+  }
+}
