@@ -2,47 +2,491 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Affiliate Program — PRML RECORDS LLC</title>
-<meta name="description" content="Earn with PRML RECORDS. Join the affiliate program and earn commissions on referrals for services and products.">
+<title>Affiliate Program — Earn with PRML RECORDS</title>
+<meta name="description" content="Earn 15–25% commission on every PRML Records sale you refer. TAP CARDs, TAP KEYs, and services. Free to join. No BS.">
+<meta property="og:title" content="PRML Records Affiliate Program — Earn With Every Tap">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/notify.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');</script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#F6E8C3;color:#2E2D2D;font-family:'Roboto Slab',Georgia,serif}
-.page-hero{background:#2E2D2D;padding:80px 32px;text-align:center;border-bottom:4px solid #FE0103}
-.page-hero h1{font-family:'Rubik Mono One',monospace;font-size:clamp(32px,6vw,60px);color:#F6E8C3;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
-.page-hero h1 span{color:#FE0103}
-.page-hero p{font-family:'Roboto Slab',serif;font-size:18px;color:#F6E8C3;opacity:.8;max-width:600px;margin:0 auto}
-.content{padding:80px 32px;max-width:800px;margin:0 auto}
-.content h2{font-family:'Rubik Mono One',monospace;font-size:28px;color:#2E2D2D;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
-.content p{font-family:'Roboto Slab',serif;font-size:16px;color:#635D52;line-height:1.7;margin-bottom:24px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#FE0103;color:#fff;font-family:'Rubik Mono One',monospace;font-size:14px;text-decoration:none;padding:14px 32px;border-radius:6px;letter-spacing:.06em;text-transform:uppercase}
-.btn:hover{background:#cc0002}
+/* ── AFFILIATE PAGE ── */
+:root{--red:#FE0103;--black:#2E2D2D;--cream:#F5F0E8;--beige:#F6E8C3;--stone:#635D52}
+
+/* HERO */
+.aff-hero{background:var(--black);padding:120px 5vw 80px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--red)}
+.aff-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(254,1,3,.06) 0%,transparent 70%);pointer-events:none}
+.aff-eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.aff-h1{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,7vw,80px);color:var(--cream);letter-spacing:-3px;line-height:.88;margin-bottom:16px}
+.aff-h1 span{color:var(--red)}
+.aff-sub{font-family:'Roboto Slab',serif;font-size:clamp(15px,2vw,18px);font-weight:300;color:var(--cream);opacity:.6;max-width:560px;margin:0 auto 40px;line-height:1.8}
+.aff-hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;padding:16px 36px;text-decoration:none;border:3px solid var(--red);font-weight:700;transition:all .18s;box-shadow:0 4px 20px rgba(254,1,3,.3)}
+.aff-hero-cta:hover{background:transparent;color:var(--red)}
+
+/* PROOF ROW */
+.proof-row{background:rgba(255,255,255,.03);border-top:1px solid rgba(254,1,3,.1);border-bottom:1px solid rgba(254,1,3,.1);padding:20px 5vw;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.proof-stat{text-align:center}
+.proof-num{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);letter-spacing:-1px}
+.proof-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-top:2px}
+
+/* SECTION TITLE */
+.sec-head{padding:72px 5vw 48px;text-align:center;background:var(--beige)}
+.sec-head h2{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,48px);color:var(--black);letter-spacing:-1.5px;margin-bottom:10px}
+.sec-head p{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--stone);max-width:520px;margin:0 auto;line-height:1.8}
+
+/* HOW IT WORKS */
+.hiw{background:var(--beige);padding:0 5vw 80px}
+.hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:960px;margin:0 auto}
+.hiw-step{background:#fff;padding:40px 28px;text-align:center;border:1px solid rgba(46,45,45,.08)}
+.hiw-num{width:64px;height:64px;background:var(--black);color:var(--red);font-family:'Rubik Mono One',monospace;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;letter-spacing:-1px}
+.hiw-title{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--black);letter-spacing:-0.5px;margin-bottom:8px}
+.hiw-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--stone);line-height:1.7}
+
+/* TIER CARDS */
+.tiers-section{background:var(--black);padding:80px 5vw}
+.tiers-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,48px);color:var(--cream);letter-spacing:-1.5px;text-align:center;margin-bottom:10px}
+.tiers-sub{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);text-align:center;margin-bottom:48px}
+.tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1000px;margin:0 auto 48px}
+.tier-card{background:rgba(255,255,255,.03);border:1px solid rgba(245,240,232,.06);padding:36px 28px;display:flex;flex-direction:column;gap:0;position:relative}
+.tier-card.featured{border-color:rgba(254,1,3,.35);background:rgba(254,1,3,.04)}
+.tier-badge{position:absolute;top:-1px;left:-1px;right:-1px;background:var(--red);padding:6px;text-align:center;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#fff;font-weight:700}
+.tier-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px;margin-top:32px}
+.tier-name{font-family:'Rubik Mono One',monospace;font-size:26px;color:var(--cream);letter-spacing:-1px;margin-bottom:4px}
+.tier-who{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.4;margin-bottom:24px;font-style:italic}
+.tier-rate{font-family:'Rubik Mono One',monospace;font-size:48px;color:var(--red);letter-spacing:-2px;line-height:1;margin-bottom:4px}
+.tier-rate-sub{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-bottom:24px}
+.tier-divider{border:none;border-top:1px solid rgba(245,240,232,.06);margin:16px 0}
+.tier-feature{display:flex;align-items:flex-start;gap:10px;padding:5px 0;font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.5}
+.tier-feature-dot{width:16px;height:16px;background:rgba(254,1,3,.2);border:1px solid rgba(254,1,3,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:var(--red);margin-top:1px}
+.tier-cta{margin-top:auto;padding-top:24px}
+.tier-btn{display:block;text-align:center;padding:12px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-weight:700;transition:all .18s}
+.tier-btn--outline{border:2px solid rgba(245,240,232,.2);color:var(--cream)}
+.tier-btn--outline:hover{border-color:var(--red);color:var(--red)}
+.tier-btn--red{background:var(--red);color:#fff;border:2px solid var(--red)}
+.tier-btn--red:hover{background:transparent;color:var(--red)}
+
+/* EARNINGS CALC */
+.calc-section{background:var(--beige);padding:80px 5vw}
+.calc-wrap{max-width:680px;margin:0 auto;background:#fff;border:1px solid rgba(46,45,45,.1);padding:40px 36px}
+.calc-title{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--black);letter-spacing:-0.5px;margin-bottom:6px}
+.calc-sub{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--stone);margin-bottom:28px}
+.calc-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.calc-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--black);opacity:.5;min-width:140px}
+.calc-input{flex:1;border:2px solid rgba(46,45,45,.12);background:var(--beige);font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--black);padding:10px 14px;outline:none;transition:border .18s;min-width:80px}
+.calc-input:focus{border-color:var(--red)}
+.calc-result{background:var(--black);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:8px}
+.calc-result-label{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.5}
+.calc-result-amount{font-family:'Rubik Mono One',monospace;font-size:40px;color:var(--red);letter-spacing:-2px}
+.calc-result-sub{font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.3;margin-top:2px}
+
+/* PRODUCTS TABLE */
+.products-section{background:var(--black);padding:80px 5vw}
+.prod-table-wrap{max-width:800px;margin:0 auto;overflow-x:auto}
+.prod-table{width:100%;border-collapse:collapse}
+.prod-table th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);padding:12px 16px;text-align:left;border-bottom:1px solid rgba(254,1,3,.2)}
+.prod-table td{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.75;padding:14px 16px;border-bottom:1px solid rgba(245,240,232,.04)}
+.prod-table td:first-child{opacity:1;font-weight:700}
+.prod-table td.red{color:var(--red);opacity:1;font-family:'Rubik Mono One',monospace;font-size:14px}
+.prod-table tr:hover td{background:rgba(255,255,255,.02)}
+
+/* FAQ */
+.faq-section{background:var(--beige);padding:80px 5vw}
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(46,45,45,.1);padding:20px 0}
+.faq-q{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--black);letter-spacing:-0.3px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-q::after{content:'+';font-size:20px;color:var(--red);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--stone);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s,padding .2s}
+.faq-item.open .faq-a{max-height:400px;padding-top:12px}
+
+/* SIGNUP FORM */
+.signup-section{background:var(--black);padding:80px 5vw;text-align:center}
+.signup-wrap{max-width:640px;margin:0 auto}
+.signup-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,52px);color:var(--cream);letter-spacing:-2px;line-height:.9;margin-bottom:12px}
+.signup-title span{color:var(--red)}
+.signup-sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.5;margin-bottom:36px;line-height:1.7}
+.signup-form{text-align:left;display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:flex;flex-direction:column;gap:5px}
+.form-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,.05);border:2px solid rgba(245,240,232,.1);color:var(--cream);font-family:'Roboto Slab',Georgia,serif;font-size:14px;padding:12px 14px;outline:none;transition:border .18s;width:100%;-webkit-appearance:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:rgba(254,1,3,.5)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(245,240,232,.25)}
+.form-select option{background:var(--black);color:var(--cream)}
+.form-textarea{resize:vertical;min-height:80px}
+.signup-btn{background:var(--red);color:#fff;border:3px solid var(--red);font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;padding:16px;cursor:pointer;font-weight:700;transition:all .18s;width:100%;margin-top:8px}
+.signup-btn:hover{background:transparent;color:var(--red)}
+.signup-success{display:none;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.3);padding:24px;text-align:center}
+.signup-success p{font-family:'Roboto Slab',serif;font-size:15px;color:#4ade80;line-height:1.7}
+.signup-fine{font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.25;margin-top:12px;text-align:center}
+
+@media(max-width:768px){
+  .tiers-grid,.hiw-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .proof-row{gap:20px}
+}
 </style>
 </head>
 <body>
-<nav class="nav2" id="nav2" style="background:#2E2D2D;position:sticky;top:0;z-index:1000">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto">
-    <a href="index.html" style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F6E8C3;text-decoration:none;text-transform:uppercase;letter-spacing:.06em">PRML <span style="color:#FE0103">RECORDS</span></a>
-    <a href="index.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;text-decoration:none">&#8592; Home</a>
+
+<!-- NAV -->
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML Records logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links" id="navLinks">
+      <a class="nav2__link" href="products.html">Shop</a>
+      <a class="nav2__link" href="services.html">Services</a>
+      <a class="nav2__link" href="booking.html">Book</a>
+      <a class="nav2__link" href="contact.html">Contact</a>
+    </div>
+    <button class="nav2__burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-<div class="page-hero">
-  <h1>Affiliate <span>Program</span></h1>
-  <p>Partner with PRML RECORDS. Earn commissions on every referral.</p>
+
+<!-- HERO -->
+<section class="aff-hero">
+  <div class="aff-eyebrow">PRML RECORDS — AFFILIATE PROGRAM</div>
+  <h1 class="aff-h1">EARN WITH<br>EVERY <span>TAP.</span></h1>
+  <p class="aff-sub">Share PRML products and earn 15–25% on every sale. Products that sell themselves. A program that pays you for it.</p>
+  <a class="aff-hero-cta" href="#apply">APPLY NOW — IT'S FREE &#8594;</a>
+</section>
+
+<!-- PROOF ROW -->
+<div class="proof-row" style="background:var(--black)">
+  <div class="proof-stat"><div class="proof-num">15%</div><div class="proof-label">Starting commission</div></div>
+  <div class="proof-stat"><div class="proof-num">$42</div><div class="proof-label">Max per 10-pack sale</div></div>
+  <div class="proof-stat"><div class="proof-num">30</div><div class="proof-label">Day cookie window</div></div>
+  <div class="proof-stat"><div class="proof-num">$0</div><div class="proof-label">Cost to join</div></div>
+  <div class="proof-stat"><div class="proof-num">3</div><div class="proof-label">Tiers to grow into</div></div>
 </div>
-<div class="content">
-  <h2>Coming Soon</h2>
-  <p>The PRML RECORDS affiliate program is being built. Partners will earn commissions on referrals for services, NFC products, and more.</p>
-  <p>Interested in partnering with PRML RECORDS? Reach out now — we'll add you to the early list.</p>
-  <a class="btn" href="contact.html">Contact Us to Partner &#8594;</a>
+
+<!-- HOW IT WORKS -->
+<div class="sec-head">
+  <h2>How it works</h2>
+  <p>Three steps. No tech skills needed. Works in person, online, or anywhere.</p>
 </div>
-<footer style="background:#2E2D2D;color:#F6E8C3;padding:40px 32px;text-align:center">
-  <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:#635D52;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Freedom · Justice · Equality</div>
-  <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#635D52;font-style:italic;margin-bottom:8px">Primal Energy. Primal Sound.</div>
-  <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#635D52;opacity:.7">© 2026 PRML RECORDS LLC. All rights reserved.</div>
+<section class="hiw">
+  <div class="hiw-grid">
+    <div class="hiw-step">
+      <div class="hiw-num">01</div>
+      <div class="hiw-title">Sign Up</div>
+      <p class="hiw-desc">Fill out the form below. Free. We review and send your unique affiliate link within 24 hours.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">02</div>
+      <div class="hiw-title">Share Your Link</div>
+      <p class="hiw-desc">Put it in your bio, your emails, your texts. Hand someone a TAP CARD and send them to buy their own.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">03</div>
+      <div class="hiw-title">Get Paid</div>
+      <p class="hiw-desc">Someone buys through your link — you earn. Monthly payouts. Minimum $25. No cap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIER CARDS -->
+<section class="tiers-section">
+  <h2 class="tiers-title">Pick your tier</h2>
+  <div class="tiers-sub">Start at Community. Grow into Ambassador.</div>
+  <div class="tiers-grid">
+
+    <!-- Tier 1 -->
+    <div class="tier-card">
+      <div class="tier-label">Tier 1</div>
+      <div class="tier-name">Community</div>
+      <div class="tier-who">Anyone — instant approval</div>
+      <div class="tier-rate">15%</div>
+      <div class="tier-rate-sub">Commission per sale</div>
+      <hr class="tier-divider">
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Unique affiliate link</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>30-day cookie window</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Monthly payouts ($25 min)</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Email + social copy templates</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>PayPal / Venmo / ACH payout</div>
+      <div class="tier-cta"><a class="tier-btn tier-btn--outline" href="#apply">Apply Free</a></div>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="tier-card featured">
+      <div class="tier-badge">MOST POPULAR</div>
+      <div class="tier-label">Tier 2</div>
+      <div class="tier-name">Partner</div>
+      <div class="tier-who">5+ sales OR approved creator</div>
+      <div class="tier-rate">20%</div>
+      <div class="tier-rate-sub">Commission per sale</div>
+      <hr class="tier-divider">
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Everything in Community</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>60-day cookie window</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Custom 5% discount code for your audience</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>PRML Partner badge</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Branded content kit</div>
+      <div class="tier-cta"><a class="tier-btn tier-btn--red" href="#apply">Apply & Grow</a></div>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="tier-card">
+      <div class="tier-label">Tier 3</div>
+      <div class="tier-name">Ambassador</div>
+      <div class="tier-who">Invite only — apply below</div>
+      <div class="tier-rate">25%</div>
+      <div class="tier-rate-sub">Commission + bonuses</div>
+      <hr class="tier-divider">
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Everything in Partner</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>90-day cookie window</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>10% audience discount code</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Gifted product sample</div>
+      <div class="tier-feature"><div class="tier-feature-dot">✓</div>Custom landing page at prmlrecords.com/[you]</div>
+      <div class="tier-cta"><a class="tier-btn tier-btn--outline" href="#apply">Request Invite</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- EARNINGS TABLE -->
+<section class="products-section">
+  <h2 class="tiers-title" style="margin-bottom:10px">What you earn</h2>
+  <div class="tiers-sub">Per sale, by tier</div>
+  <div class="prod-table-wrap">
+    <table class="prod-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Sale Price</th>
+          <th>Tier 1 (15%)</th>
+          <th>Tier 2 (20%)</th>
+          <th>Tier 3 (25%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TAP CARD (single)</td><td>$27.99</td><td class="red">$4.20</td><td class="red">$5.60</td><td class="red">$7.00</td></tr>
+        <tr><td>TAP CARD Custom</td><td>$54.99</td><td class="red">$8.25</td><td class="red">$11.00</td><td class="red">$13.75</td></tr>
+        <tr><td>TAP CARD 10-Pack</td><td>$279.99</td><td class="red">$42.00</td><td class="red">$56.00</td><td class="red">$70.00</td></tr>
+        <tr><td>TAP KEY (single)</td><td>$21.99</td><td class="red">$3.30</td><td class="red">$4.40</td><td class="red">$5.50</td></tr>
+        <tr><td>TAP KEY 10-Pack</td><td>$219.99</td><td class="red">$33.00</td><td class="red">$44.00</td><td class="red">$55.00</td></tr>
+        <tr><td>Services (avg)</td><td>$500+</td><td class="red">$75+</td><td class="red">$100+</td><td class="red">$125+</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EARNINGS CALCULATOR -->
+<section class="calc-section">
+  <div style="text-align:center;margin-bottom:40px">
+    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,44px);color:var(--black);letter-spacing:-1.5px;margin-bottom:8px">Calculate your earnings</h2>
+    <p style="font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--stone)">Estimate based on your network and share rate</p>
+  </div>
+  <div class="calc-wrap">
+    <div class="calc-title">Earnings Estimator</div>
+    <p class="calc-sub">Adjust the sliders to see your potential monthly income.</p>
+    <div class="calc-row">
+      <span class="calc-label">Referrals/month</span>
+      <input class="calc-input" type="number" id="calc-refs" value="10" min="1" max="1000">
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Avg product</span>
+      <select class="calc-input form-select" id="calc-product" style="background:var(--beige)">
+        <option value="27.99">TAP CARD — $27.99</option>
+        <option value="21.99">TAP KEY — $21.99</option>
+        <option value="54.99">Custom TAP CARD — $54.99</option>
+        <option value="279.99">TAP CARD 10-Pack — $279.99</option>
+        <option value="219.99">TAP KEY 10-Pack — $219.99</option>
+      </select>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Conversion rate</span>
+      <input class="calc-input" type="number" id="calc-conv" value="20" min="1" max="100" style="max-width:80px">
+      <span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--stone)">%</span>
+    </div>
+    <div class="calc-result">
+      <div>
+        <div class="calc-result-label">Estimated Monthly Earnings</div>
+        <div class="calc-result-amount" id="calc-output">$8.40</div>
+        <div class="calc-result-sub">At Tier 1 (15%). Tier 2 earns 33% more.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div style="text-align:center;margin-bottom:48px">
+    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,44px);color:var(--black);letter-spacing:-1.5px;margin-bottom:8px">Questions answered</h2>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <div class="faq-q">When do I get paid?</div>
+      <div class="faq-a">Monthly — on the 1st of each month for the previous month's commissions. Minimum payout is $25. Payout via PayPal, Venmo, or ACH bank transfer.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if someone returns their order?</div>
+      <div class="faq-a">If a customer returns within the 30-day window, the commission for that order is reversed. Exchanges for a different color don't affect your commission.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I use a discount code AND earn commission?</div>
+      <div class="faq-a">Yes. Tier 2 Partners and Tier 3 Ambassadors get a personal discount code for their audience. Commission is calculated on the discounted price. Giving your audience a deal often increases conversion — you earn less per sale but more total sales.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a limit to what I can earn?</div>
+      <div class="faq-a">No cap. Send 1 sale or 1,000. Commission applies to every qualifying purchase tracked through your link within the cookie window.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a website or large following?</div>
+      <div class="faq-a">No. In-person referrals count. Text your link to someone who buys — that's a commission. You can earn without any social presence at all.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I have to disclose the affiliate relationship?</div>
+      <div class="faq-a">Yes — FTC rules require this. Something simple like "affiliate link" or "I earn a commission if you buy" is all you need. We include compliant disclosure language in your resource kit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I promote on paid ads?</div>
+      <div class="faq-a">You can run paid ads — but you may NOT bid on PRML-branded keywords (e.g., "PRML Records", "PRML TAP CARD"). Violations result in immediate account termination.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I move to a higher tier?</div>
+      <div class="faq-a">Tier 2 (Partner) is automatic once you hit 5 sales in 60 days — you'll receive an email with your upgrade and new commission rate. Tier 3 (Ambassador) requires an application and approval. Apply in the form below.</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY FORM -->
+<section class="signup-section" id="apply">
+  <div class="signup-wrap">
+    <h2 class="signup-title">READY TO<br><span>GET PAID?</span></h2>
+    <p class="signup-sub">Fill out the form below. We review within 24 hours and send your affiliate link, resources, and first-steps guide.</p>
+    <form class="signup-form" id="affiliateForm" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">First & Last Name *</label>
+          <input class="form-input" type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address *</label>
+          <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Primary Platform</label>
+          <select class="form-select" name="platform">
+            <option value="">Select platform</option>
+            <option>Instagram</option>
+            <option>TikTok</option>
+            <option>Facebook</option>
+            <option>Twitter / X</option>
+            <option>YouTube</option>
+            <option>Email List</option>
+            <option>In-Person / Word of Mouth</option>
+            <option>LinkedIn</option>
+            <option>Website / Blog</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Audience Size (approx)</label>
+          <select class="form-select" name="audience">
+            <option value="">Select range</option>
+            <option>Under 500</option>
+            <option>500 – 2,000</option>
+            <option>2,000 – 10,000</option>
+            <option>10,000 – 50,000</option>
+            <option>50,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Which tier are you applying for?</label>
+        <select class="form-select" name="tier">
+          <option>Community (Tier 1) — 15% commission</option>
+          <option>Partner (Tier 2) — 20% commission</option>
+          <option>Ambassador (Tier 3) — 25% commission + invite</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Why PRML? How will you promote? (optional)</label>
+        <textarea class="form-textarea" name="notes" placeholder="Tell us about your audience and how you'd share PRML products..."></textarea>
+      </div>
+      <button class="signup-btn" type="submit">SUBMIT APPLICATION &#8594;</button>
+      <p class="signup-fine">We review every application within 24 hours. You'll receive your affiliate link and resource kit by email.</p>
+    </form>
+    <div class="signup-success" id="affiliateSuccess">
+      <p>&#10003; Application received. We'll review and send your affiliate link within 24 hours.<br>Check your inbox — resources incoming.<br><br>With Gratitude. — PRML Records</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--black);border-top:1px solid rgba(254,1,3,.1);color:var(--cream);padding:40px 5vw;text-align:center">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">PRML RECORDS LLC</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.25;margin-bottom:4px">Freedom · Justice · Equality — Primal Energy. Primal Sound.</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:10px;color:var(--cream);opacity:.2">© 2026 PRML RECORDS LLC · Atlanta, GA</div>
 </footer>
+
+<script src="js/main.js" defer></script>
+<script>
+// Earnings calculator
+(function(){
+  var refs = document.getElementById('calc-refs');
+  var prod = document.getElementById('calc-product');
+  var conv = document.getElementById('calc-conv');
+  var out  = document.getElementById('calc-output');
+  function calc(){
+    var r = parseInt(refs.value)||0;
+    var p = parseFloat(prod.value)||0;
+    var c = (parseInt(conv.value)||0)/100;
+    var earn = r * c * p * 0.15;
+    out.textContent = '$' + earn.toFixed(2);
+  }
+  [refs,prod,conv].forEach(function(el){ el.addEventListener('input', calc); });
+  calc();
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = q.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+// Affiliate form submit
+document.getElementById('affiliateForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('button[type=submit]');
+  btn.textContent = 'SUBMITTING...';
+  btn.disabled = true;
+  var data = {
+    action: 'affiliate_application',
+    name: form.name.value,
+    email: form.email.value,
+    platform: form.platform.value,
+    audience: form.audience.value,
+    tier: form.tier.value,
+    notes: form.notes.value,
+    ts: new Date().toISOString()
+  };
+  if(window.gtag) gtag('event','affiliate_apply',{tier:form.tier.value, platform:form.platform.value});
+  fetch('https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec',{
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }).finally(function(){
+    form.style.display = 'none';
+    document.getElementById('affiliateSuccess').style.display = 'block';
+  });
+});
+</script>
 </body>
 </html>

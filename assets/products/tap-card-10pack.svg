@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    <filter id="card-shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bg-dark)"/>
+
+  <!-- Grid -->
+  <g opacity="0.05">
+    <line x1="0" y1="100" x2="600" y2="100" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="600" y2="200" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="0" y1="300" x2="600" y2="300" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="150" y1="0" x2="150" y2="400" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="300" y1="0" x2="300" y2="400" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="450" y1="0" x2="450" y2="400" stroke="#FE0103" stroke-width="0.5"/>
+  </g>
+
+  <!-- Red accent -->
+  <rect x="0" y="0" width="4" height="400" fill="#FE0103" opacity="0.8"/>
+
+  <!-- Stacked cards effect — back cards -->
+  <g filter="url(#card-shadow)">
+    <!-- Card 3 (back-most, offset beige) -->
+    <rect x="128" y="68" width="340" height="204" rx="14" fill="#EDD9A3" opacity="0.5"/>
+    <!-- Card 2 (middle, charcoal) -->
+    <rect x="118" y="78" width="340" height="204" rx="14" fill="#3a3939" opacity="0.8"/>
+    <!-- Card 1 (front, charcoal) -->
+    <rect x="108" y="88" width="340" height="204" rx="14" fill="#2E2D2D"/>
+    <rect x="108" y="88" width="340" height="204" rx="14" fill="none" stroke="#FE0103" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- NFC on front card -->
+  <g transform="translate(402,180)" opacity="0.65">
+    <path d="M0,0 Q16,-24 0,-48" fill="none" stroke="#FE0103" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-8,0 Q12,-24 -8,-48" fill="none" stroke="#FE0103" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M-16,0 Q8,-24 -16,-48" fill="none" stroke="#FE0103" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    <circle cx="0" cy="0" r="3" fill="#FE0103"/>
+  </g>
+
+  <!-- Text on front card -->
+  <text x="130" y="140" font-family="'Courier New', monospace" font-size="10" font-weight="700" fill="#FE0103" letter-spacing="4">PRML RECORDS</text>
+  <text x="130" y="228" font-family="'Courier New', monospace" font-size="24" font-weight="700" fill="#F5F0E8" letter-spacing="1">TAP CARD</text>
+  <text x="130" y="250" font-family="'Courier New', monospace" font-size="9" fill="#F5F0E8" letter-spacing="2" opacity="0.45">10-PACK — ANY COLOR</text>
+
+  <!-- 10x badge -->
+  <rect x="380" y="48" width="90" height="36" rx="4" fill="#FE0103"/>
+  <text x="425" y="71" font-family="'Courier New', monospace" font-size="18" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="0">10×</text>
+
+  <!-- SAVE badge -->
+  <rect x="108" y="308" width="90" height="26" rx="3" fill="#FE0103" opacity="0.9"/>
+  <text x="153" y="326" font-family="'Courier New', monospace" font-size="10" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="2">SAVE $20</text>
+
+  <!-- Bottom label -->
+  <text x="300" y="385" font-family="'Courier New', monospace" font-size="9" fill="#F5F0E8" letter-spacing="4" opacity="0.25" text-anchor="middle">TEAM. EVENTS. CORPORATE.</text>
+</svg>

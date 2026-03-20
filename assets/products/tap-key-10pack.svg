@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    <filter id="key-shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bg-dark)"/>
+
+  <!-- Grid -->
+  <g opacity="0.05">
+    <line x1="0" y1="100" x2="600" y2="100" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="600" y2="200" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="0" y1="300" x2="600" y2="300" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="150" y1="0" x2="150" y2="400" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="300" y1="0" x2="300" y2="400" stroke="#FE0103" stroke-width="0.5"/>
+    <line x1="450" y1="0" x2="450" y2="400" stroke="#FE0103" stroke-width="0.5"/>
+  </g>
+
+  <rect x="0" y="0" width="4" height="400" fill="#FE0103" opacity="0.8"/>
+
+  <!-- Stacked fobs (back to front) -->
+  <g filter="url(#key-shadow)">
+    <!-- Fob 3 beige back-right -->
+    <rect x="212" y="88" width="200" height="150" rx="22" fill="#EDD9A3" opacity="0.45"/>
+    <circle cx="312" cy="88" r="18" fill="#e8d8a8" opacity="0.4"/>
+    <!-- Fob 2 charcoal mid -->
+    <rect x="204" y="96" width="200" height="150" rx="22" fill="#3a3939" opacity="0.8"/>
+    <circle cx="304" cy="96" r="18" fill="#2a2a2a" opacity="0.8"/>
+    <!-- Fob 1 front charcoal -->
+    <rect x="195" y="104" width="200" height="150" rx="22" fill="#2E2D2D"/>
+    <rect x="195" y="104" width="200" height="150" rx="22" fill="none" stroke="#FE0103" stroke-width="1" opacity="0.35"/>
+    <circle cx="295" cy="104" r="18" fill="#1a1a1a"/>
+    <circle cx="295" cy="104" r="11" fill="#1a1a1a"/>
+    <!-- Rings -->
+    <circle cx="295" cy="78" r="16" fill="none" stroke="#635D52" stroke-width="4" opacity="0.7"/>
+    <circle cx="212" cy="72" r="12" fill="none" stroke="#635D52" stroke-width="3" opacity="0.3"/>
+    <circle cx="320" cy="68" r="14" fill="none" stroke="#b8a870" stroke-width="3" opacity="0.25"/>
+  </g>
+
+  <!-- NFC on front fob -->
+  <g transform="translate(318,178)" opacity="0.65">
+    <path d="M0,0 Q14,-20 0,-40" fill="none" stroke="#FE0103" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-8,0 Q10,-20 -8,-40" fill="none" stroke="#FE0103" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M-16,0 Q6,-20 -16,-40" fill="none" stroke="#FE0103" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    <circle cx="0" cy="0" r="3" fill="#FE0103"/>
+  </g>
+
+  <!-- Text -->
+  <text x="295" y="148" font-family="'Courier New', monospace" font-size="9" font-weight="700" fill="#FE0103" letter-spacing="3" text-anchor="middle">PRML RECORDS</text>
+  <text x="295" y="228" font-family="'Courier New', monospace" font-size="22" font-weight="700" fill="#F5F0E8" letter-spacing="1" text-anchor="middle">TAP KEY</text>
+  <text x="295" y="248" font-family="'Courier New', monospace" font-size="8" fill="#F5F0E8" letter-spacing="2" opacity="0.45" text-anchor="middle">10-PACK — ANY COLOR</text>
+
+  <!-- 10x badge -->
+  <rect x="396" y="48" width="80" height="32" rx="4" fill="#FE0103"/>
+  <text x="436" y="70" font-family="'Courier New', monospace" font-size="16" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="0">10×</text>
+
+  <!-- SAVE badge -->
+  <rect x="195" y="270" width="86" height="24" rx="3" fill="#FE0103" opacity="0.9"/>
+  <text x="238" y="287" font-family="'Courier New', monospace" font-size="9" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="2">SAVE $20</text>
+
+  <text x="300" y="390" font-family="'Courier New', monospace" font-size="9" fill="#F5F0E8" letter-spacing="4" opacity="0.25" text-anchor="middle">TEAM. EVENTS. CORPORATE.</text>
+</svg>

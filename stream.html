@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEAUX9 — Stream Now | PRML RECORDS</title>
+<meta name="description" content="Stream SEAUX9 music free on PRML RECORDS. New tracks, exclusive drops, and live sessions from Atlanta's SEAUX9. Powered by PRML.">
+<meta property="og:title" content="SEAUX9 — Stream Now | PRML RECORDS">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nabla&family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nabla&family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/notify.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');</script>
+<style>
+/* ── STREAM PAGE ── */
+.stream-hero{background:var(--black);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5vw 80px;position:relative;overflow:hidden}
+.stream-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(254,1,3,.08) 0%,transparent 70%);pointer-events:none}
+
+/* Animated waveform lines */
+.waveform{position:absolute;bottom:0;left:0;right:0;height:120px;overflow:hidden;opacity:.15}
+.waveform svg{width:100%;height:100%}
+
+.stream-eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.stream-eyebrow::before,.stream-eyebrow::after{content:'';flex:1;height:1px;background:var(--red);opacity:.3;max-width:60px}
+
+.stream-artist{font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:"EDPT" 100,"EHLT" 12;font-size:clamp(64px,14vw,160px);color:var(--red);-webkit-text-fill-color:var(--red);background:none;-webkit-background-clip:unset;line-height:.85;letter-spacing:-4px;margin-bottom:12px}
+
+.stream-label{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-bottom:32px}
+
+.stream-tagline{font-family:'Rubik Mono One',monospace;font-size:clamp(16px,3vw,24px);color:var(--cream);letter-spacing:-0.5px;margin-bottom:12px;opacity:.85}
+.stream-sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.45;max-width:520px;line-height:1.8;margin:0 auto 48px}
+
+/* Coming Soon badge */
+.stream-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(254,1,3,.1);border:1px solid rgba(254,1,3,.3);padding:8px 20px;margin-bottom:40px}
+.stream-badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse-dot 1.5s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.stream-badge-text{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red)}
+
+/* Notify form — dark override */
+.stream-hero .notify-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(254,1,3,.2);max-width:480px;margin:0 auto}
+
+/* Platforms row */
+.stream-platforms{margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px}
+.stream-platform-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--cream);opacity:.3;width:100%;text-align:center;margin-bottom:4px}
+.stream-platform{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.25;text-decoration:none;transition:opacity .18s;border:1px solid rgba(245,240,232,.08);padding:6px 14px}
+.stream-platform:hover{opacity:.6}
+
+/* Stats preview */
+.stream-stats{display:flex;gap:48px;justify-content:center;margin-bottom:48px;flex-wrap:wrap}
+.stream-stat{text-align:center}
+.stream-stat-num{font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);letter-spacing:-1px}
+.stream-stat-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.35;margin-top:4px}
+
+/* Nav override for this page */
+.nav2{background:transparent!important;position:fixed!important;top:0;left:0;right:0;z-index:1000}
+
+@media(max-width:600px){
+  .stream-stats{gap:28px}
+  .stream-hero{padding:100px 5vw 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML Records logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links" id="navLinks">
+      <a class="nav2__link" href="products.html">Shop</a>
+      <a class="nav2__link" href="services.html">Services</a>
+      <a class="nav2__link" href="booking.html">Book</a>
+      <a class="nav2__link" href="index.html">Home</a>
+    </div>
+    <button class="nav2__burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- STREAM HERO -->
+<section class="stream-hero">
+
+  <!-- Waveform decoration -->
+  <div class="waveform">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 Q60,20 120,60 Q180,100 240,60 Q300,20 360,60 Q420,100 480,60 Q540,20 600,60 Q660,100 720,60 Q780,20 840,60 Q900,100 960,60 Q1020,20 1080,60 Q1140,100 1200,60 Q1260,20 1320,60 Q1380,100 1440,60 L1440,120 L0,120 Z" fill="#FE0103"/>
+    </svg>
+  </div>
+
+  <div class="stream-eyebrow">PRML RECORDS PRESENTS</div>
+
+  <div class="stream-artist">SEAUX9</div>
+  <div class="stream-label">Atlanta, GA — Independent Artist</div>
+
+  <div class="stream-stats">
+    <div class="stream-stat">
+      <div class="stream-stat-num">1.1M+</div>
+      <div class="stream-stat-label">Total Streams</div>
+    </div>
+    <div class="stream-stat">
+      <div class="stream-stat-num">3+</div>
+      <div class="stream-stat-label">Releases</div>
+    </div>
+    <div class="stream-stat">
+      <div class="stream-stat-num">ATL</div>
+      <div class="stream-stat-label">Base City</div>
+    </div>
+  </div>
+
+  <div class="stream-badge">
+    <span class="stream-badge-dot"></span>
+    <span class="stream-badge-text">Streaming Hub — Coming Soon</span>
+  </div>
+
+  <p class="stream-tagline">Free streaming. Exclusive drops. No app needed.</p>
+  <p class="stream-sub">The full SEAUX9 streaming experience launches soon — listen free, watch behind-the-scenes content, and get first access to new releases and merch drops.</p>
+
+  <!-- NOTIFY FORM -->
+  <div data-notify-form data-page="SEAUX9 Streaming"></div>
+
+  <!-- Platform links -->
+  <div class="stream-platforms">
+    <div class="stream-platform-label">Stream now on</div>
+    <a class="stream-platform" href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a>
+    <a class="stream-platform" href="https://music.apple.com" target="_blank" rel="noopener">Apple Music</a>
+    <a class="stream-platform" href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a>
+    <a class="stream-platform" href="https://tidal.com" target="_blank" rel="noopener">Tidal</a>
+    <a class="stream-platform" href="https://soundcloud.com" target="_blank" rel="noopener">SoundCloud</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--black);border-top:1px solid rgba(254,1,3,.1);color:var(--cream);padding:40px 5vw;text-align:center">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">PRML RECORDS</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.3">© 2026 PRML RECORDS LLC. Atlanta, GA.</div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/notify.js" defer></script>
+</body>
+</html>
