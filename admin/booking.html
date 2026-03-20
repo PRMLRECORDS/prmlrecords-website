@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking Manager — PRML Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin.css">
+<style>
+.booking-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--charcoal);margin-bottom:24px}
+.bs-card{background:var(--black);padding:20px;text-align:center}
+.bs-n{font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--red);letter-spacing:-1px}
+.bs-l{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-top:4px}
+.booking-table{width:100%;border-collapse:collapse;margin-top:20px}
+.booking-table th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;text-align:left;padding:10px 14px;border-bottom:1px solid rgba(245,230,200,.08);background:var(--black)}
+.booking-table td{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);padding:12px 14px;border-bottom:1px solid rgba(245,230,200,.05);vertical-align:top}
+.booking-table tr:hover td{background:rgba(245,230,200,.02)}
+.status-badge{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px}
+.status-new{background:rgba(224,16,16,.15);color:var(--red)}
+.status-confirmed{background:rgba(0,200,100,.12);color:#00c864}
+.status-paid{background:rgba(0,150,255,.12);color:#0096ff}
+.status-completed{background:rgba(245,230,200,.1);color:var(--cream);opacity:.6}
+.status-cancelled{background:rgba(100,100,100,.2);color:rgba(245,230,200,.3)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:12px}
+.cal-day{background:var(--black);padding:8px;min-height:60px;position:relative}
+.cal-day-num{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);opacity:.3}
+.cal-event{font-family:'Roboto Slab',serif;font-size:10px;background:rgba(224,16,16,.2);color:var(--red);padding:2px 6px;margin-top:4px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-day.today .cal-day-num{color:var(--red);opacity:1}
+.cal-day.has-event{background:rgba(224,16,16,.04)}
+</style>
+</head>
+<body>
+<div id="auth-wall" style="display:none;position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center">
+  <div style="background:var(--charcoal);padding:40px;max-width:360px;width:100%;border-top:4px solid var(--red)">
+    <div style="font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--red);margin-bottom:20px">Admin Access</div>
+    <input id="pw-in" type="password" placeholder="Password" style="background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:var(--cream);font-family:'Roboto Slab',serif;font-size:14px;padding:11px 14px;width:100%;outline:none;margin-bottom:12px">
+    <button onclick="checkPw()" style="background:var(--red);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 24px;border:none;cursor:pointer;width:100%">Enter →</button>
+  </div>
+</div>
+
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo"><a href="../index.html">PRML</a></div>
+    <nav class="sidebar-nav">
+      <a href="index.html">Dashboard</a>
+      <a href="booking.html" class="active">🎤 Booking</a>
+      <a href="invoice.html">Invoice</a>
+      <a href="blog.html">Blog</a>
+      <a href="goals.html">Goals</a>
+      <a href="grants.html">Grants</a>
+      <a href="social.html">Social Hub</a>
+      <a href="documents.html">Documents</a>
+      <a href="strategy.html">Strategy</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="product-scanner.html">Products</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div style="padding:16px;font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.25;line-height:1.6">prmlrecords.com/admin</div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-page-title">🎤 Booking Manager</div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-admin" onclick="loadBookings()">↻ Refresh</button>
+        <button class="btn-admin btn-red" onclick="showNewBooking()">+ Add Booking</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="booking-stats">
+      <div class="bs-card"><div class="bs-n" id="stat-new">—</div><div class="bs-l">New Requests</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-confirmed">—</div><div class="bs-l">Confirmed</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-month">—</div><div class="bs-l">This Month</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-revenue">—</div><div class="bs-l">Est. Revenue</div></div>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="admin-card" style="margin-bottom:20px">
+      <div class="card-header">
+        <div class="card-title">📅 Upcoming Bookings Calendar</div>
+        <div id="cal-month" style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin-bottom:4px">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">SUN</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">MON</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">TUE</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">WED</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">THU</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">FRI</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;text-align:center;padding:8px">SAT</div>
+      </div>
+      <div id="cal-grid" class="cal-grid"></div>
+    </div>
+
+    <!-- Bookings Table -->
+    <div class="admin-card">
+      <div class="card-header">
+        <div class="card-title">All Booking Requests</div>
+        <select id="status-filter" onchange="filterBookings()" style="background:rgba(245,230,200,.06);border:1px solid rgba(245,230,200,.12);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;padding:6px 12px;text-transform:uppercase">
+          <option value="">All Statuses</option>
+          <option value="New">New</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Paid">Deposit Paid</option>
+          <option value="Completed">Completed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div id="bookings-wrap" style="overflow-x:auto">
+        <div id="bookings-loading" style="padding:32px;font-family:'Roboto Slab',serif;font-size:14px;color:var(--cream);opacity:.4;text-align:center">Loading bookings from Google Sheet...</div>
+        <table class="booking-table" id="bookings-tbl" style="display:none">
+          <thead>
+            <tr>
+              <th>Date</th><th>Artist</th><th>Name / Org</th><th>Event Type</th><th>Event Date</th><th>Location</th><th>Budget</th><th>Status</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-body"></tbody>
+        </table>
+        <div id="bookings-empty" style="display:none;padding:32px;text-align:center;font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream);opacity:.4">No bookings yet. Requests from your booking page will appear here.</div>
+      </div>
+    </div>
+
+    <!-- Quick Add Booking -->
+    <div class="admin-card" id="new-booking-form" style="display:none;margin-top:20px">
+      <div class="card-header"><div class="card-title">+ Add / Log Booking</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div><label class="field-label">Artist</label>
+          <select id="nb-artist" class="field-input"><option>SEAUX9 (Solo)</option><option>SEAUX9 and The Divine Sound (Full Band)</option></select></div>
+        <div><label class="field-label">Client Name</label><input id="nb-name" class="field-input" type="text" placeholder="Client or org name"></div>
+        <div><label class="field-label">Email</label><input id="nb-email" class="field-input" type="email" placeholder="client@email.com"></div>
+        <div><label class="field-label">Phone</label><input id="nb-phone" class="field-input" type="tel" placeholder="770-000-0000"></div>
+        <div><label class="field-label">Event Date</label><input id="nb-date" class="field-input" type="date"></div>
+        <div><label class="field-label">Event Type</label><input id="nb-type" class="field-input" type="text" placeholder="Concert, private party..."></div>
+        <div><label class="field-label">Venue / Location</label><input id="nb-location" class="field-input" type="text" placeholder="Atlanta, GA"></div>
+        <div><label class="field-label">Fee Agreed</label><input id="nb-fee" class="field-input" type="text" placeholder="$500"></div>
+        <div><label class="field-label">Deposit Status</label>
+          <select id="nb-deposit" class="field-input"><option>Not Paid</option><option>50% Deposit Paid</option><option>Paid in Full</option></select></div>
+        <div><label class="field-label">Status</label>
+          <select id="nb-status" class="field-input"><option>New</option><option>Confirmed</option><option>Deposit Paid</option><option>Completed</option><option>Cancelled</option></select></div>
+      </div>
+      <div><label class="field-label">Notes</label><textarea id="nb-notes" class="field-input" style="resize:vertical;min-height:80px" placeholder="Rider notes, special requirements, contacts..."></textarea></div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button class="btn-admin btn-red" onclick="saveBooking()">Save Booking</button>
+        <button class="btn-admin" onclick="document.getElementById('new-booking-form').style.display='none'">Cancel</button>
+      </div>
+      <div id="nb-ok" style="display:none;margin-top:12px;color:var(--red);font-family:'Roboto Slab',serif;font-size:13px">✅ Booking saved to Google Sheet!</div>
+    </div>
+
+    <!-- Booking Tips -->
+    <div class="admin-card" style="margin-top:20px;background:rgba(224,16,16,.04);border:1px solid rgba(224,16,16,.12)">
+      <div class="card-header"><div class="card-title" style="color:var(--red)">💡 Booking Strategy Tips</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Get More SEAUX9 Bookings</div>
+          <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
+            • Post performance clips every week — Instagram Reels get the most reach<br>
+            • Create an EPK (Electronic Press Kit) — we can build this in the Blog or Documents section<br>
+            • Target Atlanta event venues directly via email/DM outreach<br>
+            • List on GigSalad, Gigmasters, and The Bash for additional discovery<br>
+            • Offer a free 15-minute set at community events to build local buzz
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Booking Follow-Up System</div>
+          <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
+            • Follow up within 2 hours of a new request — speed wins bookings<br>
+            • Use the Invoice tool to send a formal quote same-day<br>
+            • Send deposit link via Stripe immediately when confirmed<br>
+            • 7 days before: confirm all logistics, rider, and parking<br>
+            • After the show: send a thank you + ask for a Google review
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/admin-auth.js"></script>
+<script src="../js/main.js"></script>
+<script>
+let allBookings = [];
+
+function showNewBooking() {
+  document.getElementById('new-booking-form').style.display = 'block';
+  document.getElementById('new-booking-form').scrollIntoView({behavior:'smooth'});
+}
+
+async function saveBooking() {
+  const data = {
+    type: 'INQUIRY',
+    source: 'Admin Booking Manager',
+    ts: new Date().toISOString(),
+    artist: document.getElementById('nb-artist').value,
+    name: document.getElementById('nb-name').value,
+    email: document.getElementById('nb-email').value,
+    phone: document.getElementById('nb-phone').value,
+    event_date: document.getElementById('nb-date').value,
+    event_type: document.getElementById('nb-type').value,
+    venue_location: document.getElementById('nb-location').value,
+    fee: document.getElementById('nb-fee').value,
+    deposit_status: document.getElementById('nb-deposit').value,
+    status: document.getElementById('nb-status').value,
+    details: document.getElementById('nb-notes').value,
+    service: 'Artist Booking: ' + document.getElementById('nb-artist').value
+  };
+
+  const gasUrl = localStorage.getItem('prml_gas_url') || (typeof GAS_URL !== 'undefined' ? GAS_URL : '');
+  if (gasUrl && !gasUrl.includes('PASTE_YOUR')) {
+    await fetch(gasUrl, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(()=>{});
+  }
+  document.getElementById('nb-ok').style.display = 'block';
+  setTimeout(() => { document.getElementById('new-booking-form').style.display = 'none'; loadBookings(); }, 1500);
+}
+
+async function loadBookings() {
+  const gasUrl = localStorage.getItem('prml_gas_url') || (typeof GAS_URL !== 'undefined' ? GAS_URL : '');
+  document.getElementById('bookings-loading').style.display = 'block';
+  document.getElementById('bookings-tbl').style.display = 'none';
+
+  if (!gasUrl || gasUrl.includes('PASTE_YOUR')) {
+    document.getElementById('bookings-loading').textContent = 'Connect your Apps Script URL in Settings to see bookings.';
+    renderSampleBookings();
+    return;
+  }
+
+  try {
+    const r = await fetch(gasUrl + '?action=getBookings');
+    const d = await r.json();
+    allBookings = d.bookings || [];
+    renderBookings(allBookings);
+  } catch(e) {
+    renderSampleBookings();
+  }
+}
+
+function renderSampleBookings() {
+  allBookings = [
+    {date:'2025-06-01',artist:'SEAUX9 (Solo)',name:'Trap & Soul Lounge',email:'booking@lounge.com',phone:'404-555-0101',event_type:'Concert',event_date:'2025-07-04',venue_location:'Atlanta, GA',budget:'$500-$1,000',status:'Confirmed'},
+    {date:'2025-06-03',artist:'SEAUX9 and The Divine Sound (Full Band)',name:'Atlanta Cultural Center',email:'events@acc.org',phone:'678-555-0202',event_type:'Festival',event_date:'2025-08-15',venue_location:'Atlanta, GA',budget:'$1,000-$2,500',status:'New'},
+    {date:'2025-06-05',artist:'SEAUX9 (Solo)',name:'Taylor & Johnson Wedding',email:'bride@gmail.com',phone:'770-555-0303',event_type:'Wedding Reception',event_date:'2025-09-20',venue_location:'Marietta, GA',budget:'$500-$1,000',status:'New'},
+  ];
+  renderBookings(allBookings);
+}
+
+function renderBookings(bookings) {
+  document.getElementById('bookings-loading').style.display = 'none';
+  const tbody = document.getElementById('bookings-body');
+
+  const newCount = bookings.filter(b => b.status === 'New' || !b.status).length;
+  const confirmedCount = bookings.filter(b => b.status === 'Confirmed').length;
+  const now = new Date();
+  const monthCount = bookings.filter(b => {
+    const d = new Date(b.event_date);
+    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+  }).length;
+
+  document.getElementById('stat-new').textContent = newCount;
+  document.getElementById('stat-confirmed').textContent = confirmedCount;
+  document.getElementById('stat-month').textContent = monthCount;
+  document.getElementById('stat-revenue').textContent = bookings.length * 650 > 0 ? '$' + (bookings.filter(b=>b.status==='Confirmed'||b.status==='Paid').length * 650).toLocaleString() : '$0';
+
+  if (!bookings.length) {
+    document.getElementById('bookings-empty').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('bookings-tbl').style.display = 'table';
+  tbody.innerHTML = bookings.map((b,i) => `
+    <tr>
+      <td style="opacity:.5;font-size:11px">${b.date || '—'}</td>
+      <td><span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">${(b.artist||'').split(' ').slice(0,1).join(' ')}</span></td>
+      <td><div style="font-weight:400">${b.name || '—'}</div><div style="font-size:11px;opacity:.4">${b.email || ''}</div></td>
+      <td>${b.event_type || '—'}</td>
+      <td style="color:var(--red);font-family:'Rubik Mono One',monospace;font-size:13px">${b.event_date || '—'}</td>
+      <td style="opacity:.6">${b.venue_location || '—'}</td>
+      <td style="opacity:.6">${b.budget || '—'}</td>
+      <td><span class="status-badge status-${(b.status||'new').toLowerCase().replace(' ','')}">${b.status || 'New'}</span></td>
+      <td>
+        <button onclick="updateStatus(${i},'Confirmed')" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;background:rgba(0,200,100,.12);color:#00c864;border:none;padding:4px 10px;cursor:pointer;margin-right:4px">✓ Confirm</button>
+        <button onclick="updateStatus(${i},'Completed')" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;background:rgba(245,230,200,.08);color:var(--cream);border:none;padding:4px 10px;cursor:pointer">Done</button>
+      </td>
+    </tr>`).join('');
+
+  renderCalendar(bookings);
+}
+
+function filterBookings() {
+  const val = document.getElementById('status-filter').value;
+  const filtered = val ? allBookings.filter(b => (b.status||'New') === val) : allBookings;
+  renderBookings(filtered);
+}
+
+function updateStatus(idx, status) {
+  allBookings[idx].status = status;
+  renderBookings(allBookings);
+  // TODO: push update to GAS
+}
+
+function renderCalendar(bookings) {
+  const now = new Date();
+  document.getElementById('cal-month').textContent = now.toLocaleString('default',{month:'long',year:'numeric'});
+  const firstDay = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+  const grid = document.getElementById('cal-grid');
+  
+  const bookingMap = {};
+  bookings.forEach(b => {
+    if (b.event_date) {
+      const d = new Date(b.event_date);
+      if (d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()) {
+        const day = d.getDate();
+        if (!bookingMap[day]) bookingMap[day] = [];
+        bookingMap[day].push(b);
+      }
+    }
+  });
+
+  let html = '';
+  for (let i = 0; i < firstDay; i++) html += '<div class="cal-day" style="opacity:.2"></div>';
+  for (let d = 1; d <= daysInMonth; d++) {
+    const isToday = d === now.getDate();
+    const events = bookingMap[d] || [];
+    html += `<div class="cal-day${isToday?' today':''}${events.length?' has-event':''}">
+      <div class="cal-day-num">${d}</div>
+      ${events.map(e => `<span class="cal-event">${(e.artist||'').split(' ')[0]}</span>`).join('')}
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+
+document.addEventListener('DOMContentLoaded', () => { loadBookings(); });
+</script>
+</body></html>

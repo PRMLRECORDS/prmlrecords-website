@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation | PRML Records Admin</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230D0D0D'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23E01010' font-family='Arial'%3E📋%3C/text%3E%3C/svg%3E">
+<style>
+:root{--red:#E01010;--cream:#F5E6C8;--cream-dk:#E8D4A8;--charcoal:#2B2B2B;--black:#0D0D0D}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--charcoal);font-family:'Georgia',serif;font-size:15px;line-height:1.8}
+a{color:var(--red)}
+code{font-family:monospace;background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px;font-size:13px}
+pre{background:var(--charcoal);color:var(--cream);padding:20px;overflow-x:auto;font-family:monospace;font-size:13px;line-height:1.6;margin:16px 0;border-left:4px solid var(--red)}
+.wrap{max-width:900px;margin:0 auto;padding:40px 28px}
+h1{font-family:Arial Black,sans-serif;font-size:clamp(28px,4vw,48px);color:var(--red);letter-spacing:-1px;margin-bottom:8px;line-height:1}
+h2{font-family:Arial Black,sans-serif;font-size:24px;color:var(--charcoal);margin:52px 0 16px;padding-top:52px;border-top:3px solid var(--red)}
+h3{font-family:Arial,sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin:32px 0 12px}
+p{margin-bottom:16px;opacity:.85}
+ul,ol{margin:12px 0 20px 24px}
+li{margin-bottom:8px;opacity:.85}
+.tip{background:rgba(224,16,16,.07);border-left:4px solid var(--red);padding:16px 20px;margin:20px 0;font-size:14px}
+.warn{background:rgba(234,179,8,.1);border-left:4px solid #eab308;padding:16px 20px;margin:20px 0;font-size:14px}
+.step{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px;background:var(--cream-dk);padding:16px 20px}
+.step-num{font-family:Arial Black,sans-serif;font-size:24px;color:var(--red);flex-shrink:0;min-width:36px;line-height:1}
+.step-body{flex:1}
+.toc{background:var(--charcoal);padding:28px 32px;margin-bottom:40px}
+.toc-title{font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:4px;color:var(--red);margin-bottom:14px}
+.toc a{display:block;font-family:Arial,sans-serif;font-size:13px;color:var(--cream);opacity:.6;padding:4px 0;border-bottom:1px solid rgba(245,230,200,.07);transition:.2s}
+.toc a:hover{opacity:1;color:var(--red)}
+.nav-strip{background:var(--black);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.nav-strip-title{font-family:Arial Black,sans-serif;font-size:16px;color:var(--cream)}
+.nav-strip-title span{color:var(--red)}
+.nav-strip a{font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--red);padding:6px 14px;border:1px solid var(--red);transition:.2s}
+.nav-strip a:hover{background:var(--red);color:var(--cream)}
+</style>
+</head>
+<body>
+<div class="nav-strip">
+  <div class="nav-strip-title">PRML <span>Admin</span> — Docs</div>
+  <div style="display:flex;gap:10px">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="email-branding-guide.html">Email Guide</a>
+    <a href="../index.html" target="_blank">View Site</a>
+  </div>
+</div>
+
+<div class="wrap">
+<h1>PRML Records<br>Complete Setup Guide</h1>
+<p style="font-size:16px;opacity:.6">Written for non-developers. Plain English only.<br>Your live setup: Render.com + GitHub + Google Apps Script · Sheet ID: 10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA</p>
+
+<div class="toc">
+  <div class="toc-title">Table of Contents</div>
+  <a href="#hosting">1. Uploading & Hosting Your Website (Netlify)</a>
+  <a href="#domain">2. Connecting Your Domain (Namecheap)</a>
+  <a href="#sheets">3. Setting Up Google Sheets as Your Database</a>
+  <a href="#apps-script">4. Google Apps Script — Contact Form & Lead Capture</a>
+  <a href="#daily">5. Daily Update Guide (Adding Content)</a>
+  <a href="#admin">6. Admin Dashboard Guide</a>
+  <a href="#stripe">7. Stripe Payment Setup</a>
+  <a href="#troubleshoot">8. Troubleshooting</a>
+  <a href="#workflow">9. How It All Works Together</a>
+  <a href="#email">10. Email Branding Reference</a>
+</div>
+
+<h2 id="hosting">1. Your Hosting Setup (Already Live)</h2>
+<div class="tip"><strong>✅ This is already done.</strong> Your site is live at <strong>www.prmlrecords.com</strong> and <strong>prmlrecords.onrender.com</strong>. This section is reference only.</div>
+
+<p>Your stack:</p>
+<ul>
+  <li><strong>Code lives in:</strong> GitHub repo <code>PRMLRECORDS/prmlrecords-website</code></li>
+  <li><strong>Hosting:</strong> Render.com (free static site, name: <code>prmlrecords</code>)</li>
+  <li><strong>Domain:</strong> prmlrecords.com on Namecheap</li>
+  <li><strong>DNS:</strong> www CNAME → <code>prmlrecords-website.onrender.com</code> · @ redirect → https://www.prmlrecords.com</li>
+</ul>
+
+<h3>How to Push an Update</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Edit any file in your prml-site folder on your computer using a code editor (VS Code is free and recommended)</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Open Terminal (Mac) or Command Prompt (Windows). Navigate to your project folder:<br><code>cd path/to/prmlrecords-website</code></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Commit and push your changes:<pre>git add .
+git commit -m "Brief description of what you changed"
+git push</pre></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body">Render detects the push and automatically re-deploys. Your site updates within 60–90 seconds. You can watch it at <a href="https://dashboard.render.com" target="_blank">dashboard.render.com</a></div></div>
+
+<div class="tip"><strong>No Terminal?</strong> You can also edit files directly in GitHub's web interface (github.com → your repo → click a file → pencil icon to edit → Commit changes). Render still auto-deploys.</div>
+
+<h2 id="domain">2. Domain & DNS (Already Configured)</h2>
+<div class="tip"><strong>✅ Already done.</strong> DNS is live. No changes needed unless something breaks.</div>
+<ul>
+  <li><strong>www.prmlrecords.com</strong> → CNAME → prmlrecords-website.onrender.com</li>
+  <li><strong>prmlrecords.com</strong> (@) → URL redirect → https://www.prmlrecords.com</li>
+  <li>SSL/HTTPS is handled automatically by Render</li>
+</ul>
+<p>If you ever need to check DNS settings: Namecheap → Domain List → Manage → Advanced DNS.</p>
+
+<h2 id="sheets">3. Setting Up Google Sheets as Your Database</h2>
+<p>Your website can pull live content from a Google Sheet. This is how you update testimonials, products, FAQ, and prices without touching code.</p>
+
+<h3>Step A: Create The Sheet</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Go to <a href="https://sheets.google.com" target="_blank">sheets.google.com</a> → Click the + to create a new spreadsheet → Name it "PRML Records CMS"</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Create 4 tabs</strong> (click the + at the bottom of the sheet): Name them exactly as: <code>Testimonials</code>, <code>Products</code>, <code>FAQ</code>, <code>Services</code></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Testimonials tab — add these column headers in row 1:</strong><br><code>name</code> | <code>role</code> | <code>text</code> | <code>rating</code> | <code>approved</code> | <code>date</code></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Products tab — add these headers:</strong><br><code>name</code> | <code>category</code> | <code>price</code> | <code>description</code> | <code>imageurl</code> | <code>active</code></div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>FAQ tab — add these headers:</strong><br><code>question</code> | <code>answer</code> | <code>category</code> | <code>active</code></div></div>
+
+<h3>Step B: Get Your Sheet ID and API Key</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Sheet ID:</strong> Look at your sheet's URL. It looks like: docs.google.com/spreadsheets/d/<strong>1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms</strong>/edit — the bold part is your Sheet ID. Copy it.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Make the sheet public (read only):</strong> Click Share → change "General access" from "Restricted" to "Anyone with the link" → set to "Viewer" → Done</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Get a Google API Key:</strong> Go to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> → Create a project → Enable "Google Sheets API" → Credentials → Create Credentials → API Key → Copy the key</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Update js/sheets-fetcher.js:</strong> Open the file in a text editor, find the lines at the top and replace the placeholder values:
+<pre>const SHEET_ID = 'PASTE_YOUR_SHEET_ID_HERE';
+const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
+
+<h2 id="apps-script">4. Google Apps Script — Contact Form & Lead Capture</h2>
+<p>This makes your contact form send data directly to a Google Sheet AND email you every time someone submits. Completely free.</p>
+
+<div class="step"><div class="step-num">1</div><div class="step-body">Go to <a href="https://script.google.com" target="_blank">script.google.com</a> → Click "+ New Project"</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Delete all the code in the editor and paste this entire block:
+<pre>function doPost(e) {
+  var ss = SpreadsheetApp.openById('10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA');
+  var data = JSON.parse(e.postData.contents);
+  
+  if (data.type === 'INQUIRY') {
+    var sh = ss.getSheetByName('Leads');
+    if (!sh) sh = ss.insertSheet('Leads');
+    if (sh.getLastRow() === 0) {
+      sh.appendRow(['Date','Name','Email','Phone','Business',
+                    'Service','Budget','Timeline','Details','Source']);
+    }
+    sh.appendRow([data.ts, data.name, data.email, data.phone,
+                  data.business, data.service, data.budget,
+                  data.timeline, data.details, data.source]);
+    
+    MailApp.sendEmail({
+      to: 'info@prmlrecords.com',
+      subject: 'New Lead: ' + data.service,
+      body: 'Name: ' + data.name + '\nEmail: ' + data.email + 
+            '\nPhone: ' + data.phone + '\nService: ' + data.service +
+            '\n\n' + data.details
+    });
+  }
+  
+  if (data.type === 'EMAIL') {
+    var sh = ss.getSheetByName('Email List');
+    if (!sh) sh = ss.insertSheet('Email List');
+    sh.appendRow([data.ts, data.email]);
+  }
+  
+  if (data.type === 'ORDER') {
+    var sh = ss.getSheetByName('Orders');
+    if (!sh) sh = ss.insertSheet('Orders');
+    sh.appendRow([data.ts, data.items, data.total, data.amount,
+                  data.depositOnly ? 'Deposit' : 'Full']);
+  }
+  
+  return ContentService
+    .createTextOutput(JSON.stringify({status: 'ok'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Replace <code>YOUR_SHEET_ID_HERE</code> in line 2 with your actual Sheet ID from Step 3 above.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Deploy it:</strong> Click "Deploy" (top right) → New Deployment → Type: Web app → Execute as: Me → Who has access: Anyone → Deploy → Copy the URL it gives you</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>Update js/main.js:</strong> Open the file, find this line and replace the placeholder:
+<pre>const GAS_URL = 'https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';</pre></div></div>
+<div class="step"><div class="step-num">6</div><div class="step-body">Re-upload your site to Netlify. Now every form submission goes to your Google Sheet and emails you at hello@prmlrecords.com.</div></div>
+
+<div class="tip">Every time you make a change to your Apps Script code, you need to create a new deployment. Go to Deploy → Manage Deployments → Edit → Save new version → Deploy. Then copy the new URL into main.js.</div>
+
+<h2 id="daily">5. Daily Update Guide</h2>
+
+<h3>Adding or Approving Testimonials</h3>
+<ol>
+  <li>Open your "PRML Records CMS" Google Sheet</li>
+  <li>Click the "Testimonials" tab</li>
+  <li>Add a new row. Fill in: name, role (like "Small Business Owner · Atlanta"), the review text, rating (1-5), and the date</li>
+  <li>In the "approved" column, type <code>TRUE</code> (all caps) when you're ready for it to appear on the website</li>
+  <li>Refresh testimonials.html — the review appears automatically</li>
+  <li>To hide a review later: change approved from TRUE to FALSE</li>
+</ol>
+
+<h3>Adding or Updating Products</h3>
+<ol>
+  <li>Go to the "Products" tab</li>
+  <li>Add a new row with all columns filled</li>
+  <li>For the category column — use EXACTLY one of these (spelling matters): Signs, Keychains, Light Boxes, 3D Printing, Laser Cutting, Laser Engraving, Laser Edging, Sound, Film, Photography, Web Dev, Consulting</li>
+  <li>For the price column: numbers only, no $ sign. Example: 35 not $35</li>
+  <li>Set active to TRUE to show it, FALSE to hide it</li>
+</ol>
+
+<h3>Getting Image URLs for Products</h3>
+<ol>
+  <li>Upload your product photo to Google Drive</li>
+  <li>Right-click the file → Share → change to "Anyone with the link" → Copy link</li>
+  <li>Your link looks like: drive.google.com/file/d/<strong>FILE_ID</strong>/view</li>
+  <li>Change it to: <code>https://drive.google.com/uc?id=FILE_ID</code></li>
+  <li>Paste this URL into the imageurl column in your sheet</li>
+</ol>
+
+<h3>Changing Prices</h3>
+<p>Find the product in your Products tab. Click the price cell. Type the new number (no $ sign). Press Enter. The website updates automatically when someone visits the page.</p>
+
+<h2 id="admin">6. Admin Dashboard Guide</h2>
+<p>The admin dashboard is at: <strong>yoursite.com/admin/dashboard.html</strong> — it is NOT linked from any public page.</p>
+<ul>
+  <li>Default password: <code>PRMLadmin2025</code> — change this before going live</li>
+  <li>To change the password: Open admin/dashboard.html in a text editor → Find the line <code>const ADMIN_PW = 'PRMLadmin2025'</code> → Change the text inside the quotes</li>
+  <li>The dashboard shows you the Google Sheet column map so you know which columns do what</li>
+  <li>The dashboard has quick links to all documentation and your live site</li>
+  <li>Keep the admin URL private — do not link to it anywhere public</li>
+</ul>
+
+<h2 id="stripe">7. Stripe Payment Setup</h2>
+<p>Stripe is how customers pay for services online. It handles all the credit card processing securely.</p>
+
+<h3>Creating Your Stripe Account</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Go to <a href="https://stripe.com" target="_blank">stripe.com</a> → Create account → Complete business verification with your LLC info</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">In your Stripe dashboard → go to Payment Links → Create Payment Link</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Set up a "Custom amount" payment link — this lets the cart total be passed through. Name it "PRML Records Payment"</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body">Copy the Payment Link URL (looks like: buy.stripe.com/xxxx)</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body">Open js/main.js → Find this line → Replace the placeholder URL:
+<pre>const stripeUrl = `https://buy.stripe.com/YOUR_PAYMENT_LINK`;</pre></div></div>
+
+<h3>Testing Payments</h3>
+<ul>
+  <li>In Stripe dashboard, toggle to "Test mode" (switch in top left)</li>
+  <li>Use test card: 4242 4242 4242 4242, any future date, any 3-digit CVC</li>
+  <li>Test purchases appear in your Stripe test dashboard</li>
+  <li>When ready to go live, toggle back to "Live mode" in Stripe</li>
+</ul>
+
+<div class="warn"><strong>Important:</strong> Never share your Stripe secret key. The payment link URL is safe to include in your code. The secret key (starts with sk_) must NEVER appear in website code.</div>
+
+<h2 id="troubleshoot">8. Troubleshooting</h2>
+
+<h3>Testimonials Not Appearing</h3>
+<ul>
+  <li>Check that the "approved" column says <code>TRUE</code> (all caps, no spaces)</li>
+  <li>Check that Google Sheets API key is correct in js/sheets-fetcher.js</li>
+  <li>Check that the Sheet ID is correct</li>
+  <li>Check that the sheet is set to "Anyone with the link can view"</li>
+  <li>Open browser developer tools (F12) → Console tab → look for red error messages</li>
+</ul>
+
+<h3>Images Not Showing Up</h3>
+<ul>
+  <li>Make sure the Google Drive file is shared as "Anyone with the link"</li>
+  <li>Make sure the URL format is: <code>https://drive.google.com/uc?id=FILE_ID</code> — NOT the share link</li>
+  <li>Try opening the image URL directly in your browser to test it</li>
+</ul>
+
+<h3>Contact Form Not Sending</h3>
+<ul>
+  <li>Check that GAS_URL in js/main.js is your actual deployed Apps Script URL</li>
+  <li>Make sure you deployed the Apps Script as a Web App with "Anyone" access</li>
+  <li>Try deploying a new version in Apps Script and updating the URL</li>
+</ul>
+
+<h3>Stripe Checkout Not Working</h3>
+<ul>
+  <li>Check that the Stripe payment link URL is correct in js/main.js</li>
+  <li>Make sure you're using a Live mode payment link (not test) when you go live</li>
+  <li>Test with the test card: 4242 4242 4242 4242</li>
+</ul>
+
+<h3>Site Looks Different After Update</h3>
+<ul>
+  <li>Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)</li>
+  <li>Try opening in a different browser or incognito window</li>
+  <li>If still wrong, wait 5 minutes for Netlify CDN to update</li>
+</ul>
+
+<h2 id="workflow">9. How It All Works Together</h2>
+<pre>
+YOU (Google Sheet)
+       ↓
+  You add a testimonial and set approved = TRUE
+       ↓
+GOOGLE SHEETS API
+       ↓
+  Website fetches the data using your API key
+       ↓
+TESTIMONIALS PAGE
+       ↓
+  Only shows rows where approved = TRUE
+       ↓
+VISITOR
+       ↓
+  Fills out contact form on contact.html
+       ↓
+APPS SCRIPT (Google)
+       ↓
+  Saves their info to "Leads" tab in your Google Sheet
+  Emails you at hello@prmlrecords.com
+       ↓
+YOU
+       ↓
+  You see the email, call or reply within 24 hours
+  You close the deal
+</pre>
+
+<h2 id="email">10. Email Branding Reference</h2>
+<p>For complete email branding setup including custom @prmlrecords.com email addresses, email signatures, BIMI logo setup, and email templates — see the dedicated guide:</p>
+<p><a href="email-branding-guide.html" style="font-size:18px">→ Open Email Branding Guide</a></p>
+<div class="tip"><strong>Quick Setup for Email:</strong> Fastest way to get professional email is Google Workspace ($6/month) — gives you @prmlrecords.com email with Gmail, Google Calendar, Drive, and Meet. Go to workspace.google.com and follow the setup wizard.</div>
+</div>
+</body></html>

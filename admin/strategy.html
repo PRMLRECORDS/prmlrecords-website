@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strategic Guidance — PRML Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin.css">
+<style>
+.strategy-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--charcoal);margin-bottom:24px}
+.sg-card{background:var(--black);padding:28px}
+.sg-icon{font-size:28px;margin-bottom:10px}
+.sg-title{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.sg-name{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--cream);letter-spacing:-0.5px;margin-bottom:10px}
+.sg-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.7;margin-bottom:16px}
+.sg-tags{display:flex;gap:6px;flex-wrap:wrap}
+.sg-tag{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px}
+.tag-easy{background:rgba(0,200,100,.12);color:#00c864}
+.tag-med{background:rgba(255,200,0,.12);color:#ffc800}
+.tag-hard{background:rgba(224,16,16,.12);color:var(--red)}
+.tag-now{background:rgba(224,16,16,.2);color:var(--red)}
+.tag-soon{background:rgba(245,230,200,.1);color:var(--cream)}
+.tag-later{background:rgba(100,100,100,.2);color:rgba(245,230,200,.4)}
+/* AI Chat */
+.ai-chat{background:var(--black);border:1px solid rgba(245,230,200,.08);display:flex;flex-direction:column;height:400px}
+.ai-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.ai-msg{max-width:85%;padding:12px 16px;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;line-height:1.7}
+.ai-msg.user{background:rgba(224,16,16,.12);color:var(--cream);align-self:flex-end;border-radius:0}
+.ai-msg.assistant{background:rgba(245,230,200,.06);color:var(--cream);align-self:flex-start}
+.ai-msg.thinking{opacity:.4;font-style:italic}
+.ai-input-row{display:flex;gap:0;border-top:1px solid rgba(245,230,200,.08)}
+.ai-input{flex:1;background:rgba(245,230,200,.04);border:none;color:var(--cream);font-family:'Roboto Slab',serif;font-size:13px;padding:14px 16px;outline:none}
+.ai-send{background:var(--red);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:14px 20px;border:none;cursor:pointer}
+/* Roadmap */
+.roadmap-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(245,230,200,.06);align-items:flex-start}
+.rr-phase{font-family:'Rubik Mono One',monospace;font-size:11px;color:var(--red);min-width:60px;padding-top:2px}
+.rr-content{flex:1}
+.rr-title{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);margin-bottom:4px}
+.rr-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.65}
+.rr-status{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;padding:3px 10px;align-self:flex-start;margin-top:2px;white-space:nowrap}
+/* Decision tree */
+.decision-card{background:rgba(224,16,16,.06);border:1px solid rgba(224,16,16,.15);padding:20px;margin-bottom:12px}
+.dc-q{font-family:'Rubik Mono One',monospace;font-size:15px;color:var(--red);margin-bottom:12px;letter-spacing:-0.3px}
+.dc-options{display:flex;gap:10px;flex-wrap:wrap}
+.dc-opt{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);background:rgba(245,230,200,.06);border:1px solid rgba(245,230,200,.1);padding:10px 16px;cursor:pointer;transition:.2s}
+.dc-opt:hover{background:rgba(224,16,16,.1);border-color:var(--red)}
+@media(max-width:768px){.strategy-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo"><a href="../index.html">PRML</a></div>
+    <nav class="sidebar-nav">
+      <a href="index.html">Dashboard</a>
+      <a href="booking.html">🎤 Booking</a>
+      <a href="invoice.html">Invoice</a>
+      <a href="blog.html">Blog</a>
+      <a href="goals.html">Goals</a>
+      <a href="grants.html">Grants</a>
+      <a href="social.html">Social Hub</a>
+      <a href="documents.html">Documents</a>
+      <a href="strategy.html" class="active">Strategy</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="product-scanner.html">Products</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-page-title">🧭 Strategic Guidance</div>
+    </div>
+
+    <!-- AI Strategy Chat -->
+    <div class="admin-card" style="margin-bottom:24px">
+      <div class="card-header">
+        <div class="card-title">🤖 Ask Claude — Business Strategy</div>
+        <span style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.4">Powered by Claude AI</span>
+      </div>
+      <div class="ai-chat">
+        <div class="ai-messages" id="ai-msgs">
+          <div class="ai-msg assistant">Hey! I'm your PRML Records strategy assistant. I know your business — Black-owned creative and tech company in West End Atlanta, doing music, fabrication, 3D printing, photography, web dev, and consulting.<br><br>Ask me anything: how to get more bookings for SEAUX9, which grant to apply for first, how to launch the digital download store, or what to build next. I'm here to help you grow.</div>
+        </div>
+        <div class="ai-input-row">
+          <input class="ai-input" id="ai-input" type="text" placeholder="Ask a strategy question... e.g. 'How do I get more bookings for SEAUX9?'" onkeydown="if(event.key==='Enter')sendStrategy()">
+          <button class="ai-send" onclick="sendStrategy()">Ask →</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+        <button onclick="quickAsk('How do I get more bookings for SEAUX9 and the band?')" style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.6;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:6px 14px;cursor:pointer">🎤 More Seaux9 bookings</button>
+        <button onclick="quickAsk('What should I focus on next for PRML Records business growth?')" style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.6;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:6px 14px;cursor:pointer">📈 What to focus on next</button>
+        <button onclick="quickAsk('Walk me through how to launch a digital music download store step by step')" style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.6;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:6px 14px;cursor:pointer">🎵 Launch digital downloads</button>
+        <button onclick="quickAsk('What grants should PRML Records apply for first and why?')" style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.6;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:6px 14px;cursor:pointer">🏆 Which grant to apply for</button>
+        <button onclick="quickAsk('How do I price my services competitively in Atlanta? Am I charging too little?')" style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.6;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:6px 14px;cursor:pointer">💰 Am I pricing right?</button>
+        <button onclick="quickAsk('Should I focus on NFC products, music production, or web development to grow revenue fastest?')" style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.6;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:6px 14px;cursor:pointer">🚀 Highest ROI service?</button>
+      </div>
+    </div>
+
+    <!-- Future Opportunities -->
+    <div class="admin-card" style="margin-bottom:24px">
+      <div class="card-header"><div class="card-title">💡 Future Opportunities — Ideas We've Discussed</div></div>
+      <div class="strategy-grid">
+
+        <div class="sg-card">
+          <div class="sg-icon">🎵</div>
+          <div class="sg-title">Digital Revenue</div>
+          <div class="sg-name">Digital Download Store</div>
+          <div class="sg-desc">Sell music, beats, art, and video content instantly. Passive income 24/7. Beat licensing alone can be $500–$5k/month for active producers.</div>
+          <div class="sg-tags"><span class="sg-tag tag-med">Medium effort</span><span class="sg-tag tag-now">Do Now</span><span class="sg-tag" style="background:rgba(0,200,100,.1);color:#00c864">High ROI</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">🏭</div>
+          <div class="sg-title">Product Line</div>
+          <div class="sg-name">NFC Product Line Expansion</div>
+          <div class="sg-desc">Your brochure already covers automotive, real estate, restaurant, and events. Target ONE industry with a focused outreach campaign and build case studies.</div>
+          <div class="sg-tags"><span class="sg-tag tag-easy">Easier</span><span class="sg-tag tag-now">Do Now</span><span class="sg-tag" style="background:rgba(0,200,100,.1);color:#00c864">High ROI</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">📚</div>
+          <div class="sg-title">Education</div>
+          <div class="sg-name">Online Courses & Workshops</div>
+          <div class="sg-desc">Music production, 3D printing, web dev, and business courses. Teachable or Gumroad. One course created = passive income forever. $97–$497/student.</div>
+          <div class="sg-tags"><span class="sg-tag tag-med">Medium effort</span><span class="sg-tag tag-soon">3–6 months</span><span class="sg-tag" style="background:rgba(0,200,100,.1);color:#00c864">Scalable</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">🏢</div>
+          <div class="sg-title">Community Space</div>
+          <div class="sg-name">Creative UNDRGRND Studio Membership</div>
+          <div class="sg-desc">Monthly membership to access studio, equipment, events, and workspace. $50–$150/month × 50 members = $2,500–$7,500 MRR. West End community anchor.</div>
+          <div class="sg-tags"><span class="sg-tag tag-hard">More complex</span><span class="sg-tag tag-later">6–12 months</span><span class="sg-tag" style="background:rgba(0,150,255,.1);color:#0096ff">Community</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">🎤</div>
+          <div class="sg-title">Artist Growth</div>
+          <div class="sg-name">SEAUX9 Booking Push</div>
+          <div class="sg-desc">EPK, GigSalad listing, Instagram performance clips weekly, and direct venue outreach. Goal: 2–4 bookings/month at $500–$1,500 each = $1k–$6k/month.</div>
+          <div class="sg-tags"><span class="sg-tag tag-easy">Easier</span><span class="sg-tag tag-now">Do Now</span><span class="sg-tag" style="background:rgba(245,230,200,.1);color:var(--cream)">High Impact</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">🤝</div>
+          <div class="sg-title">B2B Revenue</div>
+          <div class="sg-name">Business Retainer Packages</div>
+          <div class="sg-desc">Monthly social media, content, web maintenance, and NFC product restocking packages for local businesses. $300–$800/month recurring. Predictable income.</div>
+          <div class="sg-tags"><span class="sg-tag tag-med">Medium effort</span><span class="sg-tag tag-soon">1–3 months</span><span class="sg-tag" style="background:rgba(0,200,100,.1);color:#00c864">Recurring $$</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">🏆</div>
+          <div class="sg-title">Grants & Funding</div>
+          <div class="sg-name">Creative Business Grant Strategy</div>
+          <div class="sg-desc">Georgia SBDC, City of Atlanta Small Biz, NEA, and MWBE certification. MWBE cert opens city contracts and grants. Get MWBE first — everything flows from there.</div>
+          <div class="sg-tags"><span class="sg-tag tag-med">Medium effort</span><span class="sg-tag tag-now">Start Now</span><span class="sg-tag" style="background:rgba(0,150,255,.1);color:#0096ff">Free Money</span></div>
+        </div>
+
+        <div class="sg-card">
+          <div class="sg-icon">📱</div>
+          <div class="sg-title">Tech Product</div>
+          <div class="sg-name">PRML Records Mobile App</div>
+          <div class="sg-desc">Music player, NFC product manager, booking, and community. Native app for Android and iOS. React Native build possible. Long-term brand anchor.</div>
+          <div class="sg-tags"><span class="sg-tag tag-hard">Complex</span><span class="sg-tag tag-later">12+ months</span><span class="sg-tag" style="background:rgba(0,150,255,.1);color:#0096ff">Brand Equity</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Decision Trees -->
+    <div class="admin-card" style="margin-bottom:24px">
+      <div class="card-header"><div class="card-title">🌳 Decision Trees — What to Do When</div></div>
+
+      <div class="decision-card">
+        <div class="dc-q">You have 10 free hours this week. What do you focus on?</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
+          <strong style="color:var(--red)">If you need revenue NOW:</strong> Reach out to 10 local businesses about NFC signs + follow up on any open quotes.<br>
+          <strong style="color:var(--red)">If you want bookings:</strong> Post a performance clip on IG, update your EPK, and message 5 Atlanta venues directly.<br>
+          <strong style="color:var(--red)">If you want passive income:</strong> Record one beat, upload it to a lease platform (BeatStars/AirBit), and create the digital download section.<br>
+          <strong style="color:var(--red)">If you're building for the future:</strong> Write one blog post, create a workshop outline, and apply for the MWBE certification.
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="dc-q">A client wants a quote. What do you charge?</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
+          <strong style="color:var(--red)">Custom product:</strong> Material cost × 3 + $20 setup + $6 processing. Never below your time × $25/hr.<br>
+          <strong style="color:var(--red)">Service:</strong> Listed rate on site. If they push back, hold your price — discount signals low confidence.<br>
+          <strong style="color:var(--red)">First 9 customers:</strong> Waive the setup fee only. Everything else is full price.<br>
+          <strong style="color:var(--red)">Consulting:</strong> $150/hr or package. Consultation counts as deposit if they move forward.
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="dc-q">You want to market PRML Records. Where do you spend your time?</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
+          <strong style="color:var(--red)">Instagram:</strong> Best ROI for visual products (NFC signs, light boxes, keychains) and SEAUX9 performance clips. Post 3×/week minimum.<br>
+          <strong style="color:var(--red)">Google Business:</strong> Critical for local service discovery. Keep it updated. Ask every happy customer to leave a review.<br>
+          <strong style="color:var(--red)">LinkedIn:</strong> For B2B — consultants, real estate agents, dealerships. Best channel for retainer clients.<br>
+          <strong style="color:var(--red)">TikTok/Reels:</strong> Behind-the-scenes of 3D printing, laser work, and recording sessions. These go viral fast in maker communities.
+        </div>
+      </div>
+    </div>
+
+    <!-- 90-Day Roadmap -->
+    <div class="admin-card">
+      <div class="card-header"><div class="card-title">🗺️ 90-Day Roadmap — Recommended Priorities</div></div>
+      <div>
+        <div class="roadmap-row">
+          <div class="rr-phase">NOW<br>Wk 1–2</div>
+          <div class="rr-content">
+            <div class="rr-title">Foundation & Quick Wins</div>
+            <div class="rr-desc">Deploy this website update · Add Stripe key in Settings · Test contact form and lead capture · Post first Instagram content using social hub · Set up Google Business profile · Begin MWBE certification application</div>
+          </div>
+          <span class="rr-status" style="background:rgba(224,16,16,.15);color:var(--red)">In Progress</span>
+        </div>
+        <div class="roadmap-row">
+          <div class="rr-phase">SOON<br>Wk 3–6</div>
+          <div class="rr-content">
+            <div class="rr-title">Revenue Activation</div>
+            <div class="rr-desc">Contact 20 local businesses about NFC products · Get first 3 paying custom orders · Post SEAUX9 performance clip weekly · Create EPK and list on GigSalad · Submit first grant application · Launch digital download with at least 3 products</div>
+          </div>
+          <span class="rr-status" style="background:rgba(255,200,0,.1);color:#ffc800">Upcoming</span>
+        </div>
+        <div class="roadmap-row">
+          <div class="rr-phase">BUILD<br>Mo 2–3</div>
+          <div class="rr-content">
+            <div class="rr-title">Systems & Scale</div>
+            <div class="rr-desc">First monthly retainer client · 2+ bookings on calendar · Blog with 5 published posts · Workshop or course outline complete · 50+ email list subscribers · Analyze first 90 days of analytics and adjust</div>
+          </div>
+          <span class="rr-status" style="background:rgba(100,100,100,.2);color:rgba(245,230,200,.4)">Planning</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/admin-auth.js"></script>
+<script>
+let chatHistory = [];
+const PRML_CONTEXT = `You are the strategic business advisor for PRML Records LLC. Here is what you know about the business:
+
+PRML Records LLC is a Black-owned creative and technology company in West End, Atlanta, Georgia. Founded 2019.
+DBAs: SEAUX9 (music), Creative UNDRGRND (community/events).
+Phone: 770-686-7726. Website: prmlrecords.com.
+Tagline: Music. Technology. Community.
+Brand: Charcoal #2B2B2B, Cream #F5E6C8, Red #E01010, Black #0D0D0D.
+Values: Peace, Freedom, Justice, Equality.
+
+SERVICES: Audio production ($60/hr recording, $150 mixing, $75 mastering), Custom fabrication (laser cutting/engraving, keychains, signs, light boxes), 3D printing, Photography ($250–$350), Videography ($200–$800), Web development ($500+), Consulting ($150/hr), Courses & workshops.
+PRODUCTS: NFC business signs, custom keychains, light boxes, LED signs, 3D printed products, digital business cards, wristbands, digital downloads.
+PRICING: +$20 setup fee on custom orders, +$6 transaction fee, no local tax. First 9 customers: free consultation + setup fees waived.
+ARTISTS: SEAUX9 (solo, $500+), SEAUX9 and The Divine Sound (full band, $1,500+).
+
+Current tech stack: GitHub → Render.com (static hosting), Google Sheets CMS, Apps Script backend, Stripe payments.
+
+Respond as a knowledgeable, direct business advisor who understands both the creative industry and Black entrepreneurship in Atlanta. Give specific, actionable advice. Be encouraging but honest. Format responses clearly.`;
+
+async function sendStrategy() {
+  const input = document.getElementById('ai-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  addMessage('user', msg);
+  addMessage('assistant', '...', true);
+
+  chatHistory.push({ role: 'user', content: msg });
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: PRML_CONTEXT,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || 'Something went wrong. Try again.';
+    chatHistory.push({ role: 'assistant', content: reply });
+    removeThinking();
+    addMessage('assistant', reply);
+  } catch(e) {
+    removeThinking();
+    addMessage('assistant', 'API call failed. Make sure you\'re connected. Error: ' + e.message);
+  }
+}
+
+function quickAsk(q) {
+  document.getElementById('ai-input').value = q;
+  sendStrategy();
+}
+
+function addMessage(role, text, thinking=false) {
+  const msgs = document.getElementById('ai-msgs');
+  const div = document.createElement('div');
+  div.className = 'ai-msg ' + role + (thinking ? ' thinking' : '');
+  div.dataset.thinking = thinking ? '1' : '';
+  div.innerHTML = text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeThinking() {
+  document.querySelectorAll('[data-thinking="1"]').forEach(el => el.remove());
+}
+</script>
+</body></html>

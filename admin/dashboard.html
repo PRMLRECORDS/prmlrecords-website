@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | PRML Records LLC</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230D0D0D'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23E01010' font-family='Arial'%3E🔐%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+body{background:var(--black)}
+.login-screen{position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:24px}
+.login-box{background:var(--charcoal);padding:52px;border-top:4px solid var(--red);width:100%;max-width:440px}
+.login-title{font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);letter-spacing:-0.5px;margin-bottom:6px}
+.login-sub{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.45;margin-bottom:28px;line-height:1.6}
+.dash{display:none;padding:20px;min-height:100vh}
+.dash.visible{display:block}
+.dash-header{background:var(--black);border-bottom:3px solid var(--red);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;margin:-20px -20px 28px;position:sticky;top:0;z-index:100}
+.dash-title{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--cream)}
+.dash-title span{color:var(--red)}
+.logout{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);cursor:pointer;transition:.2s;background:none;border:none}
+.logout:hover{color:var(--cream)}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;background:var(--charcoal);border:2px solid var(--charcoal);margin-bottom:20px}
+.dash-card{background:var(--charcoal);padding:28px;border-top:3px solid var(--red)}
+.dash-card__title{font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.dash-card__body{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.7;margin-bottom:16px}
+.dash-status{display:flex;align-items:center;gap:8px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot--green{background:#22c55e}
+.dot--red{background:var(--red)}
+.dot--yellow{background:#eab308}
+.sheet-map{width:100%;border-collapse:collapse;margin-top:8px}
+.sheet-map th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);padding:8px 12px;text-align:left;border-bottom:1px solid rgba(224,16,16,.3);background:rgba(224,16,16,.08)}
+.sheet-map td{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.7;padding:10px 12px;border-bottom:1px solid rgba(245,230,200,.05);vertical-align:top}
+.sheet-map code{font-family:monospace;font-size:11px;background:rgba(224,16,16,.15);color:var(--red);padding:2px 6px}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="login-screen">
+  <div class="login-box">
+    <div class="login-title">Admin Access</div>
+    <div class="login-sub">This page is for PRML Records team members only. Enter the admin password to continue.</div>
+    <div class="fg" style="margin-bottom:20px">
+      <label>Password</label>
+      <input type="password" id="pw-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')tryLogin()">
+    </div>
+    <button class="f-submit" onclick="tryLogin()">Enter Dashboard →</button>
+    <div id="pw-err" style="display:none;margin-top:12px;font-family:'Roboto Slab',serif;font-size:13px;color:var(--red)">Incorrect password. Try again or call 770-686-7726.</div>
+    <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.3;margin-top:16px;line-height:1.6">Default password: PRMLadmin2025 — Change this in admin/dashboard.html line ~120 before going live.</p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash" id="dash">
+  <div class="dash-header">
+    <div>
+      <div class="dash-title">PRML <span>Admin</span></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--cream);opacity:.3;text-transform:uppercase">Dashboard · Not linked from public site</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px">
+      <a href="../index.html" class="btn btn--out-cream btn--sm" style="font-size:9px">View Site →</a>
+      <button class="logout" onclick="logout()">Log Out ×</button>
+    </div>
+  </div>
+
+  <!-- STATUS -->
+  <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+    <div class="dash-card">
+      <div class="dash-card__title">System Status</div>
+      <div class="dash-status"><div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Website: Live at www.prmlrecords.com</span></div>
+      <div class="dash-status" id="sheets-status"><div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Google Sheets: Checking...</span></div>
+      <div class="dash-status" id="stripe-status"><div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Stripe: Not configured</span></div>
+      <div class="dash-status" id="gas-status"><div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Apps Script: Not configured</span></div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card__title">Quick Links</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="../index.html" target="_blank" class="btn btn--red btn--sm" style="justify-content:center">View Homepage</a>
+        <a href="../testimonials.html" target="_blank" class="btn btn--out-cream btn--sm" style="justify-content:center">View Testimonials</a>
+        <a href="invoice.html" class="btn btn--red btn--sm" style="justify-content:center">Invoice Generator ✦</a>
+        <a href="product-scanner.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Product Scanner ✦</a>
+        <a href="documentation.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Docs & Deploy Guide</a>
+        <a href="email-branding-guide.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Email Branding</a>
+      </div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card__title">Contact Info</div>
+      <div class="dash-card__body">
+      Phone: <a href="tel:7706867726" style="color:var(--red)">770-686-7726</a><br>
+      Alerts go to: info@prmlrecords.com<br>
+      Sheet ID: 10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA<br>
+      Hosting: Render.com (prmlrecords)<br>
+      Repo: PRMLRECORDS/prmlrecords-website
+    </div>
+    </div>
+  
+  <!-- NEW TOOLS -->
+  <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-bottom:16px">
+    <div class="dash-card" style="border-top-color:var(--red);background:rgba(224,16,16,.06)">
+      <div class="dash-card__title">✦ Invoice Generator</div>
+      <div class="dash-card__body">Paste a brain dump → AI parses line items → builds invoice → emails customer → logs to Sheet. $6 Stripe fee auto-added.</div>
+      <a href="invoice.html" class="btn btn--red btn--sm" style="display:flex;justify-content:center;margin-top:8px">Open Invoice Generator →</a>
+    </div>
+    <div class="dash-card" style="border-top-color:var(--red);background:rgba(224,16,16,.06)">
+      <div class="dash-card__title">✦ Product Scanner</div>
+      <div class="dash-card__body">Drop product photos → AI tags them with name, category, price, description → push directly to your Google Sheet Products tab.</div>
+      <a href="product-scanner.html" class="btn btn--red btn--sm" style="display:flex;justify-content:center;margin-top:8px">Open Product Scanner →</a>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card__title">New Product Categories</div>
+      <div class="dash-card__body" style="font-size:12px;line-height:1.9">
+        ✉️ Event Invitations · $75+<br>
+        🖨️ Digital Invitations · $75+<br>
+        📬 Postcards · $50/25-pack<br>
+        🎨 Stickers · $25/25-pack<br>
+        🎵 Album Artwork · $150+<br>
+        💿 CD Duplication · $5/each
+      </div>
+    </div>
+  </div>
+
+  <!-- SHEET COLUMN MAP -->
+  <div class="dash-card" style="margin-bottom:16px;background:var(--charcoal);border-top:3px solid var(--red);padding:32px">
+    <div class="dash-card__title">Google Sheets Column Map</div>
+    <div class="dash-card__body">This shows exactly which columns in your Google Sheet control what appears on the website. Your Sheet needs 4 tabs: <code>Testimonials</code>, <code>Products</code>, <code>FAQ</code>, <code>Services</code>.</div>
+    
+    <div style="margin-bottom:24px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Testimonials Tab</div>
+      <table class="sheet-map">
+        <tr><th>Column</th><th>What It Does</th><th>Example Value</th></tr>
+        <tr><td><code>name</code></td><td>Reviewer's name</td><td>Marcus T.</td></tr>
+        <tr><td><code>role</code></td><td>Their title / description</td><td>Small Business Owner · Atlanta</td></tr>
+        <tr><td><code>text</code></td><td>The review text</td><td>PRML did an amazing job...</td></tr>
+        <tr><td><code>rating</code></td><td>Star rating (1–5)</td><td>5</td></tr>
+        <tr><td><code>approved</code></td><td>⚠️ MUST be TRUE to show on site</td><td>TRUE or FALSE</td></tr>
+        <tr><td><code>date</code></td><td>Date of review (optional)</td><td>2025-01-15</td></tr>
+      </table>
+    </div>
+    
+    <div style="margin-bottom:24px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Products Tab</div>
+      <table class="sheet-map">
+        <tr><th>Column</th><th>What It Does</th><th>Example Value</th></tr>
+        <tr><td><code>name</code></td><td>Product name</td><td>Custom Sign</td></tr>
+        <tr><td><code>category</code></td><td>Which page it appears on</td><td>Signs, Keychains, Light Boxes, 3D Printing, Laser Cutting, Laser Engraving, Laser Edging, <strong style="color:var(--red)">Stickers, Invitations, Postcards, Album Artwork, CD Duplication</strong>, Sound, Film, Photography, Web Dev, Consulting</td></tr>
+        <tr><td><code>price</code></td><td>Starting price (number only)</td><td>35</td></tr>
+        <tr><td><code>description</code></td><td>Short description shown on card</td><td>Laser-engraved business signs...</td></tr>
+        <tr><td><code>imageurl</code></td><td>Link to product photo (Google Drive or hosted image)</td><td>https://drive.google.com/uc?id=YOUR_FILE_ID</td></tr>
+        <tr><td><code>active</code></td><td>Set FALSE to hide without deleting</td><td>TRUE or FALSE</td></tr>
+      </table>
+    </div>
+    
+
+    <div style="margin-bottom:24px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Invoices Tab (auto-created by Invoice Generator)</div>
+      <table class="sheet-map">
+        <tr><th>Column</th><th>What It Does</th></tr>
+        <tr><td><code>Invoice #</code></td><td>Auto-generated unique ID (INV-XXXXXX)</td></tr>
+        <tr><td><code>Customer</code></td><td>Customer name</td></tr>
+        <tr><td><code>Email</code></td><td>Where the invoice was sent</td></tr>
+        <tr><td><code>Items</code></td><td>Line items summary</td></tr>
+        <tr><td><code>Total</code></td><td>Full total including $6 Stripe fee</td></tr>
+        <tr><td><code>Amount Due</code></td><td>What they owe now (full, deposit, or custom)</td></tr>
+        <tr><td><code>Status</code></td><td>Sent / Paid / Overdue — update manually</td></tr>
+      </table>
+    </div>
+
+    <div style="margin-bottom:24px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">FAQ Tab</div>
+      <table class="sheet-map">
+        <tr><th>Column</th><th>What It Does</th><th>Example Value</th></tr>
+        <tr><td><code>question</code></td><td>The FAQ question</td><td>What materials can you engrave?</td></tr>
+        <tr><td><code>answer</code></td><td>The full answer text</td><td>We work with wood, acrylic...</td></tr>
+        <tr><td><code>category</code></td><td>Groups FAQs by topic</td><td>General, Payments, Products, Studio</td></tr>
+        <tr><td><code>active</code></td><td>Set FALSE to hide</td><td>TRUE or FALSE</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- INSTRUCTIONS PANEL -->
+  <div class="dash-card" style="background:var(--charcoal);border-top:3px solid var(--red);padding:32px;margin-bottom:16px">
+    <div class="dash-card__title">Daily Update Cheatsheet</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Add A Testimonial</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Go to the Testimonials tab<br>3. Add a new row with name, role, text, rating<br>4. Set <code style="background:rgba(224,16,16,.2);color:var(--red);padding:1px 5px">approved</code> to TRUE when ready to show<br>5. Refresh testimonials.html — it auto-updates</div>
+      </div>
+      <div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Add A Product</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Go to the Products tab<br>3. Add a new row — fill all columns<br>4. Set category to match the page<br>5. Set active to TRUE<br>6. Refresh the page — auto-updates</div>
+      </div>
+      <div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Change A Price</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Find the product in Products tab<br>3. Edit the price column (numbers only, no $)<br>4. Save — site updates automatically</div>
+      </div>
+      <div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Hide Something</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Find the row in the right tab<br>2. Change the <code style="background:rgba(224,16,16,.2);color:var(--red);padding:1px 5px">active</code> or <code style="background:rgba(224,16,16,.2);color:var(--red);padding:1px 5px">approved</code> column to FALSE<br>3. It disappears from the site immediately</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.25;text-align:center;padding:20px">PRML Records LLC Admin · Not linked from public navigation · Keep URL private</div>
+</div>
+
+<script>
+// ── CHANGE THIS PASSWORD before going live ──
+const ADMIN_PW = 'PRMLadmin2025';
+
+function tryLogin() {
+  const pw = document.getElementById('pw-input').value;
+  if (pw === ADMIN_PW) {
+    sessionStorage.setItem('prml_admin', '1');
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dash').classList.add('visible');
+    checkStatus();
+  } else {
+    document.getElementById('pw-err').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('prml_admin');
+  location.reload();
+}
+
+function checkStatus() {
+  // Check if Apps Script URL is configured (loaded from main.js on same page)
+  // Load main.js to detect GAS_URL
+  fetch('../js/main.js')
+    .then(r => r.text())
+    .then(src => {
+      const gasMatch   = src.match(/const GAS_URL\s*=\s*'([^']+)'/);
+      const sheetMatch = src.match(/const SHEET_ID\s*=\s*'([^']+)'/);
+
+      const gasUrl   = gasMatch   ? gasMatch[1]   : '';
+      const sheetId  = sheetMatch ? sheetMatch[1] : '';
+
+      const gasOk    = gasUrl   && !gasUrl.includes('PASTE_YOUR');
+      const sheetOk  = sheetId  && !sheetId.includes('PASTE_YOUR');
+
+      document.getElementById('gas-status').innerHTML = gasOk
+        ? '<div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Apps Script: Connected ✓</span>'
+        : '<div class="dot dot--red"></div><span style="color:var(--cream);opacity:.7">Apps Script: Paste URL in js/main.js line 19 → commit → push</span>';
+
+      document.getElementById('sheets-status').innerHTML = sheetOk
+        ? '<div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Sheet ID: Wired in ✓ (10hOO67u...)</span>'
+        : '<div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Sheet ID: Check js/sheets-fetcher.js</span>';
+
+      document.getElementById('stripe-status').innerHTML =
+        '<div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Stripe: Paste link in js/main.js line 20 when ready</span>';
+    })
+    .catch(() => {
+      document.getElementById('gas-status').innerHTML =
+        '<div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Status check unavailable on this device</span>';
+    });
+}
+
+// Auto-login if session active
+if (sessionStorage.getItem('prml_admin') === '1') {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('dash').classList.add('visible');
+  checkStatus();
+}
+
+document.getElementById('pw-input')?.addEventListener('keydown', e => {
+  if (e.key === 'Enter') tryLogin();
+});
+</script>
+</body></html>

@@ -1,0 +1,54 @@
+PRML Records — Google Sheets Tab Setup Guide
+=====================================================
+
+SHEET ID: 10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA
+(Already exists — you just need to create these tabs)
+
+HOW TO CREATE TABS:
+Right-click the + button at the bottom → Rename sheet → add columns in row 1
+
+TAB: Posts
+Columns: post_id | title | slug | content | excerpt | image | date | author | category | published | seo_title | seo_desc
+Notes: published must be TRUE (all caps) to show on website
+AI Formula (col N): =IF(B2<>"", "Write 3 social captions for: "&B2, "")
+
+TAB: Live Services
+Columns: ID | Category | Service | Description | Price | Offer Copy | Active
+Notes: Active must be TRUE to show on website
+AI Formula (col F): =IF(C2<>"", "Write benefit-focused offer for: "&C2, "")
+
+TAB: 90DayGoals
+Columns: id | goal | category | target | progress | milestones | status | calendar_id
+Notes: status options: In Progress / Not Started / Blocked / Complete
+progress: 0-100
+
+TAB: Grants
+Columns: id | name | funder | deadline | amount | status | notes | next_steps
+Notes: status options: Not Started / Researching / In Progress / Submitted / Awarded / Rejected
+AI Formula (col H): =IF(A2<>"", "Generate next action steps for grant: "&A2&" from "&B2, "")
+
+TAB: Leads
+Columns: Date | Name | Email | Phone | Business | Service | Budget | Timeline | Message | Source | Status
+AI Formula (col L): =IF(C2<>"", "Rate this lead Hot/Warm/Cold based on: Service: "&F2&" Budget: "&G2, "")
+
+TAB: Social Queue
+Columns: Date Added | Platform | Content | Image | Scheduled Date | Status | Post ID
+Notes: Platform options: ig / fb / x / li
+
+TAB: Invoices
+Columns: Date | Invoice # | Customer | Email | Phone | Business | Items | Subtotal | Stripe Fee | Total | Amount Due | Pay Type | Due Date | Notes | Status
+
+TAB: Products
+Columns: Date Added | name | category | price | description | imageurl | active
+
+TAB: Email List
+Columns: Date | Email | Source
+
+TAB: Orders
+Columns: Date | Name | Email | Items | Total | Type | Status
+
+HOW TO ADD GPT FOR SHEETS (Free AI Formulas):
+1. Go to gptforsheets.com → Install the Google Sheets extension
+2. Add your OpenAI API key in the extension settings
+3. Now the =GPT() formula works in any cell
+4. Example: =GPT("Write 3 Instagram captions for: "&B2)

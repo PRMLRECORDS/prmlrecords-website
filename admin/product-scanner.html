@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Scanner | PRML Records Admin</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap');
+:root{--red:#E01010;--cream:#F5E6C8;--cdk:#E8D4A8;--charcoal:#2B2B2B;--black:#0D0D0D}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;font-weight:300;min-height:100vh}
+.login{position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;z-index:1000}
+.login-box{background:var(--charcoal);padding:48px;border-top:4px solid var(--red);width:min(420px,90vw)}
+.login-title{font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);margin-bottom:6px}
+.login-sub{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-bottom:28px}
+.nav{background:var(--black);border-bottom:3px solid var(--red);padding:0 32px;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.nav-title{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--cream)}
+.nav-title span{color:var(--red)}
+.nav-links{display:flex;gap:10px}
+.nav-links a{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);padding:7px 14px;border:1px solid rgba(224,16,16,.35);transition:.2s;text-decoration:none}
+.nav-links a:hover{background:var(--red);color:var(--cream);border-color:var(--red)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px}
+.page-title{font-family:'Rubik Mono One',monospace;font-size:36px;color:var(--red);letter-spacing:-1px;margin-bottom:8px}
+.page-sub{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--cream);opacity:.5;margin-bottom:32px;line-height:1.7;max-width:600px}
+/* UPLOAD ZONE */
+.upload-zone{border:2px dashed rgba(224,16,16,.4);padding:48px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:28px;position:relative}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--red);background:rgba(224,16,16,.05)}
+.upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.uz-icon{font-size:40px;margin-bottom:12px;opacity:.6}
+.uz-title{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);margin-bottom:6px}
+.uz-sub{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.4}
+/* QUEUE */
+.queue-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.queue-title{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red)}
+.scan-btn{padding:11px 24px;background:var(--red);color:var(--cream);border:none;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:8px}
+.scan-btn:hover{background:#A00000}
+.scan-btn:disabled{opacity:.4;cursor:not-allowed}
+.queue{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:28px}
+.q-card{background:var(--charcoal);position:relative;overflow:hidden}
+.q-card img{width:100%;height:150px;object-fit:cover;display:block}
+.q-card .q-name{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.5;padding:8px 10px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-del{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.7);border:none;color:var(--red);font-size:16px;cursor:pointer;width:24px;height:24px;display:flex;align-items:center;justify-content:center;line-height:1}
+.q-status{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.8);padding:5px 8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.q-status.scanning{color:#eab308}.q-status.done{color:#22c55e}.q-status.err{color:var(--red)}
+/* RESULTS */
+.results-header{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.results-table{width:100%;border-collapse:collapse;background:var(--charcoal);margin-bottom:24px}
+.results-table th{background:var(--black);color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:11px 14px;text-align:left}
+.results-table td{padding:12px 14px;border-bottom:1px solid rgba(245,230,200,.06);vertical-align:top}
+.results-table tr:last-child td{border-bottom:none}
+.results-table td input,
+.results-table td select{background:rgba(245,230,200,.06);border:1px solid rgba(245,230,200,.12);color:var(--cream);font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;padding:6px 10px;width:100%;outline:none;transition:border-color .2s}
+.results-table td input:focus,
+.results-table td select:focus{border-color:var(--red)}
+.results-table td select option{background:var(--charcoal)}
+.thumb{width:52px;height:52px;object-fit:cover}
+.tag-chip{display:inline-block;background:rgba(224,16,16,.15);color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;padding:3px 8px;margin:2px}
+/* ACTION BAR */
+.action-bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px 0;border-top:1px solid rgba(245,230,200,.07)}
+.btn{padding:12px 22px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.2s;border:none}
+.btn-red{background:var(--red);color:var(--cream)}.btn-red:hover{background:#A00000}
+.btn-out{background:transparent;color:var(--cream);border:1px solid rgba(245,230,200,.2)}.btn-out:hover{border-color:var(--red);color:var(--red)}
+.status{padding:11px 14px;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;line-height:1.6;margin-top:12px;display:none}
+.status-ok{background:rgba(34,197,94,.1);border-left:3px solid #22c55e;color:#86efac}
+.status-err{background:rgba(224,16,16,.1);border-left:3px solid var(--red);color:#fca5a5}
+.status-info{background:rgba(245,230,200,.06);border-left:3px solid rgba(245,230,200,.2);color:var(--cream);opacity:.8}
+/* MOCKUP SECTION */
+.mockup-section{background:var(--charcoal);padding:28px;border-top:3px solid var(--red);margin-top:28px}
+.section-title{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--red);margin-bottom:8px}
+.section-sub{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.55;margin-bottom:20px;line-height:1.7}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tool-card{background:rgba(245,230,200,.04);padding:20px;border:1px solid rgba(245,230,200,.08);transition:.2s}
+.tool-card:hover{border-color:var(--red)}
+.tool-name{font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);margin-bottom:6px}
+.tool-tag{display:inline-block;background:rgba(224,16,16,.15);color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;padding:2px 7px;margin-bottom:8px}
+.tool-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.55;line-height:1.6;margin-bottom:12px}
+.tool-link{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);text-decoration:none;transition:.2s}
+.tool-link:hover{color:var(--cream)}
+.spinner{width:14px;height:14px;border:2px solid rgba(245,230,200,.3);border-top-color:var(--cream);border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.input{background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:var(--cream);font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;padding:11px 14px;width:100%;outline:none;transition:border-color .2s}
+.input:focus{border-color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login-screen">
+  <div class="login-box">
+    <div class="login-title">Product Scanner</div>
+    <div class="login-sub">PRML Records Admin</div>
+    <div style="margin-bottom:16px">
+      <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Password</label>
+      <input type="password" class="input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()">
+    </div>
+    <button onclick="tryLogin()" style="width:100%;padding:14px;background:var(--red);color:var(--cream);border:none;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer">Enter →</button>
+    <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+<nav class="nav">
+  <div class="nav-title">PRML <span>Scanner</span></div>
+  <div class="nav-links">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="invoice.html">Invoice</a>
+    <a href="documentation.html">Docs</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-title">Product Scanner</div>
+  <div class="page-sub">Drop product photos here. AI identifies each item, generates a name, category, description, and suggested price — then you can push everything to your Google Sheet with one click.</div>
+
+  <!-- UPLOAD ZONE -->
+  <div class="upload-zone" id="drop-zone">
+    <input type="file" id="file-input" accept="image/*" multiple onchange="handleFiles(this.files)">
+    <div class="uz-icon">📸</div>
+    <div class="uz-title">Drop product photos here</div>
+    <div class="uz-sub">Or click to browse · JPG, PNG, WEBP · Multiple files OK</div>
+  </div>
+
+  <!-- IMAGE QUEUE -->
+  <div id="queue-wrap" style="display:none">
+    <div class="queue-header">
+      <div class="queue-title" id="queue-count">0 images queued</div>
+      <button class="scan-btn" id="scan-btn" onclick="scanAll()">
+        <span id="scan-label">✦ Scan All with AI</span>
+        <div class="spinner" id="scan-spinner" style="display:none"></div>
+      </button>
+    </div>
+    <div class="queue" id="queue"></div>
+  </div>
+
+  <!-- RESULTS TABLE -->
+  <div id="results-wrap" style="display:none">
+    <div class="results-header">Scanned Products — Review & Edit Before Saving</div>
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th style="width:64px">Photo</th>
+          <th>Product Name</th>
+          <th style="width:160px">Category</th>
+          <th style="width:90px">Price ($)</th>
+          <th>Description</th>
+          <th style="width:40px"></th>
+        </tr>
+      </thead>
+      <tbody id="results-body"></tbody>
+    </table>
+
+    <div class="action-bar">
+      <button class="btn btn-red" onclick="pushToSheet()">Push All to Google Sheet →</button>
+      <button class="btn btn-out" onclick="exportCSV()">Download as CSV</button>
+      <button class="btn btn-out" onclick="clearAll()">Clear & Start Over</button>
+    </div>
+    <div class="status" id="push-status"></div>
+  </div>
+
+  <!-- MOCKUP TOOLS -->
+  <div class="mockup-section">
+    <div class="section-title">Product Mockup Tools</div>
+    <div class="section-sub">Free tools to turn your product photos into professional mockups for the website. Upload your design, place it on a realistic product photo, download and use.</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-name">Canva Mockups</div>
+        <div class="tool-tag">Free</div>
+        <div class="tool-desc">Mockup templates for signs, keychains, tote bags, t-shirts, mugs, phone cases. Drag your design onto the product. One-click export.</div>
+        <a class="tool-link" href="https://www.canva.com/create/mockups/" target="_blank">Open Canva Mockups →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Placeit by Envato</div>
+        <div class="tool-tag">Free + Paid</div>
+        <div class="tool-desc">Best for album artwork mockups, CD cases, stickers, apparel, and phone cases. Free tier available. Photorealistic results.</div>
+        <a class="tool-link" href="https://placeit.net/c/mockups" target="_blank">Open Placeit →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Adobe Express</div>
+        <div class="tool-tag">Free Tier</div>
+        <div class="tool-desc">Quick mockups, product photo editing, background removal, and brand template creation. Free with Adobe account.</div>
+        <a class="tool-link" href="https://www.adobe.com/express/create/mockup" target="_blank">Open Adobe Express →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Smartmockups</div>
+        <div class="tool-tag">Free</div>
+        <div class="tool-desc">Good for stickers, postcards, invitations, CDs, and business cards. Upload your artwork, instant photorealistic mockup.</div>
+        <a class="tool-link" href="https://smartmockups.com" target="_blank">Open Smartmockups →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Mockup World</div>
+        <div class="tool-tag">100% Free</div>
+        <div class="tool-desc">Completely free Photoshop mockup files. Download PSD templates for signs, prints, keychains, phone cases, and more.</div>
+        <a class="tool-link" href="https://www.mockupworld.co" target="_blank">Open Mockup World →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Remove.bg</div>
+        <div class="tool-tag">Free</div>
+        <div class="tool-desc">Remove background from any product photo in seconds. Essential step before placing your product on a mockup background.</div>
+        <a class="tool-link" href="https://remove.bg" target="_blank">Open Remove.bg →</a>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding:16px;background:rgba(224,16,16,.08);border-left:3px solid var(--red)">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Recommended Workflow</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.8">
+        1. Take or find a photo of the product → 2. Remove.bg to clean background → 3. Canva or Placeit to create mockup → 4. Upload mockup to Google Drive → 5. Get shareable link → 6. Drop image here to scan → AI tags it → Push to Sheet → Appears on website
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+const ADMIN_PW = 'PRMLadmin2025';
+const GAS_URL  = 'https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';
+const SHEET_ID = '10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA';
+
+const CATEGORIES = [
+  'Signs','Keychains','Light Boxes','3D Printing',
+  'Laser Cutting','Laser Engraving','Laser Edging',
+  'Stickers','Invitations','Postcards','Album Artwork',
+  'CD Duplication','Merch','Photography','Sound','Film',
+  'Web Dev','Consulting','Other'
+];
+
+function tryLogin(){
+  if(document.getElementById('pw').value===ADMIN_PW){
+    sessionStorage.setItem('prml_admin','1');
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+  } else {
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw').value='';
+  }
+}
+if(sessionStorage.getItem('prml_admin')==='1'){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+document.getElementById('pw')?.addEventListener('keydown',e=>{ if(e.key==='Enter') tryLogin(); });
+
+/* ── DRAG/DROP ── */
+const dz = document.getElementById('drop-zone');
+dz.addEventListener('dragover',e=>{ e.preventDefault(); dz.classList.add('drag'); });
+dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
+dz.addEventListener('drop',e=>{ e.preventDefault(); dz.classList.remove('drag'); handleFiles(e.dataTransfer.files); });
+
+/* ── IMAGE QUEUE ── */
+let imageQueue = []; // [{id, file, dataUrl, status}]
+let scannedResults = []; // [{id, dataUrl, name, category, price, description}]
+
+function handleFiles(files){
+  Array.from(files).forEach(file=>{
+    if(!file.type.startsWith('image/')) return;
+    const id = Date.now()+Math.random();
+    const reader = new FileReader();
+    reader.onload = e=>{
+      imageQueue.push({ id, file, dataUrl: e.target.result, status: 'queued' });
+      renderQueue();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderQueue(){
+  const wrap = document.getElementById('queue-wrap');
+  const qel  = document.getElementById('queue');
+  const cnt  = document.getElementById('queue-count');
+  if(imageQueue.length===0){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  cnt.textContent = imageQueue.length + ' image'+(imageQueue.length!==1?'s':'')+' queued';
+  qel.innerHTML = imageQueue.map(img=>`
+    <div class="q-card" id="qc-${img.id}">
+      <img src="${img.dataUrl}" alt="${img.file.name}">
+      <div class="q-name">${img.file.name}</div>
+      <button class="q-del" onclick="removeQueued(${img.id})">×</button>
+      ${img.status!=='queued'?`<div class="q-status ${img.status}">${img.status}</div>`:''}
+    </div>`).join('');
+}
+
+function removeQueued(id){
+  imageQueue = imageQueue.filter(i=>i.id!==id);
+  renderQueue();
+}
+
+/* ── AI SCAN ── */
+async function scanAll(){
+  if(imageQueue.length===0){ alert('Add images first.'); return; }
+  const btn = document.getElementById('scan-btn');
+  const lbl = document.getElementById('scan-label');
+  const spn = document.getElementById('scan-spinner');
+  btn.disabled=true; lbl.style.display='none'; spn.style.display='block';
+
+  for(const img of imageQueue){
+    updateQueueStatus(img.id,'scanning');
+    try {
+      const result = await scanImage(img);
+      scannedResults.push({ id: img.id, dataUrl: img.dataUrl, ...result });
+      updateQueueStatus(img.id,'done');
+    } catch(e){
+      console.error('Scan error:',e);
+      scannedResults.push({ id: img.id, dataUrl: img.dataUrl, name: img.file.name.replace(/\.[^.]+$/,''), category:'Other', price:0, description:'Could not auto-scan — fill in manually.' });
+      updateQueueStatus(img.id,'err');
+    }
+  }
+
+  btn.disabled=false; lbl.style.display='block'; spn.style.display='none';
+  renderResults();
+}
+
+function updateQueueStatus(id, status){
+  const card = document.getElementById('qc-'+id);
+  if(!card) return;
+  const existing = card.querySelector('.q-status');
+  if(existing) existing.remove();
+  const div = document.createElement('div');
+  div.className='q-status '+status;
+  div.textContent = status;
+  card.appendChild(div);
+}
+
+async function scanImage(img){
+  // Get base64 without data URL prefix
+  const b64 = img.dataUrl.split(',')[1];
+  const mtype = img.file.type||'image/jpeg';
+
+  const prompt = `You are a product tagger for PRML Records LLC, a Black-owned creative and tech company in West End Atlanta.
+
+Look at this product image and return ONLY valid JSON with no markdown:
+{
+  "name": "Short product name (2-5 words, title case)",
+  "category": "Best matching category from: Signs, Keychains, Light Boxes, 3D Printing, Laser Cutting, Laser Engraving, Stickers, Invitations, Postcards, Album Artwork, CD Duplication, Merch, Photography, Sound, Film, Web Dev, Consulting, Other",
+  "price": suggested_starting_price_as_number,
+  "description": "1-2 sentence product description for website listing",
+  "tags": ["tag1","tag2","tag3"]
+}
+
+Price guidelines: Signs $35-150, Keychains $8-12ea, Light Boxes $85-200, Stickers $25/pack, Invitations $75-200, Album Artwork $150-400, CDs $3-8ea, Postcards $50-150/pack`;
+
+  const res = await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:500,
+      messages:[{
+        role:'user',
+        content:[
+          { type:'image', source:{ type:'base64', media_type:mtype, data:b64 } },
+          { type:'text', text:prompt }
+        ]
+      }]
+    })
+  });
+
+  const data = await res.json();
+  const text = (data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
+  return JSON.parse(text);
+}
+
+function renderResults(){
+  const wrap = document.getElementById('results-wrap');
+  const body = document.getElementById('results-body');
+  if(scannedResults.length===0){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+
+  const catOptions = CATEGORIES.map(c=>`<option value="${c}">${c}</option>`).join('');
+
+  body.innerHTML = scannedResults.map((r,i)=>`
+    <tr id="row-${i}">
+      <td><img class="thumb" src="${r.dataUrl}" alt="${r.name}"></td>
+      <td><input type="text" value="${r.name||''}" onchange="updateResult(${i},'name',this.value)"></td>
+      <td>
+        <select onchange="updateResult(${i},'category',this.value)">
+          ${CATEGORIES.map(c=>`<option value="${c}"${c===r.category?' selected':''}>${c}</option>`).join('')}
+        </select>
+      </td>
+      <td><input type="number" value="${r.price||0}" min="0" step="0.01" onchange="updateResult(${i},'price',parseFloat(this.value))"></td>
+      <td><input type="text" value="${r.description||''}" onchange="updateResult(${i},'description',this.value)"></td>
+      <td><button onclick="removeResult(${i})" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:18px">×</button></td>
+    </tr>`).join('');
+}
+
+function updateResult(i, key, val){ scannedResults[i][key]=val; }
+function removeResult(i){ scannedResults.splice(i,1); renderResults(); }
+
+/* ── PUSH TO SHEET ── */
+async function pushToSheet(){
+  if(scannedResults.length===0){ alert('Nothing to push.'); return; }
+  const sta = document.getElementById('push-status');
+  const btn = document.querySelector('.btn-red');
+  btn.disabled=true; btn.textContent='Pushing...';
+  sta.style.display='none';
+
+  const rows = scannedResults.map(r=>({
+    type:'PRODUCT',
+    ts:new Date().toISOString(),
+    name:r.name,
+    category:r.category,
+    price:r.price,
+    description:r.description,
+    active:'TRUE',
+    imageurl:'(upload to Drive and paste URL here)'
+  }));
+
+  if(!GAS_URL||GAS_URL.includes('PASTE_YOUR')){
+    sta.style.display='block';
+    sta.className='status status-info';
+    sta.textContent='Apps Script not connected yet. Download as CSV to import manually to your Sheet.';
+    btn.disabled=false; btn.textContent='Push All to Google Sheet →';
+    return;
+  }
+
+  try {
+    for(const row of rows){
+      await fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(row)});
+    }
+    sta.style.display='block';
+    sta.className='status status-ok';
+    sta.textContent='✓ '+rows.length+' products pushed to your Google Sheet. Open the sheet to add image URLs and set prices.';
+  } catch(e){
+    sta.style.display='block';
+    sta.className='status status-err';
+    sta.textContent='Push failed. Download as CSV instead.';
+  }
+  btn.disabled=false; btn.textContent='Push All to Google Sheet →';
+}
+
+/* ── CSV EXPORT ── */
+function exportCSV(){
+  if(scannedResults.length===0){ alert('No results to export.'); return; }
+  const headers = ['name','category','price','description','active','imageurl'];
+  const rows = scannedResults.map(r=>[
+    `"${(r.name||'').replace(/"/g,'""')}"`,
+    `"${r.category||''}"`,
+    r.price||0,
+    `"${(r.description||'').replace(/"/g,'""')}"`,
+    'TRUE',
+    '""'
+  ].join(','));
+  const csv = [headers.join(','),...rows].join('\n');
+  const blob = new Blob([csv],{type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'prml-products-'+Date.now()+'.csv';
+  a.click();
+}
+
+function clearAll(){ imageQueue=[]; scannedResults=[]; renderQueue(); renderResults(); document.getElementById('file-input').value=''; }
+</script>
+</body></html>

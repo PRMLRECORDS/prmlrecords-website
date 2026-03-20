@@ -1,8 +1,6 @@
 # PRML RECORDS — .gitignore
 # Do not commit these files to GitHub
 
-# Admin panel — contains hardcoded auth, keep private
-admin/
 js/admin-auth.js
 
 # Deployment utility scripts — not part of the live site

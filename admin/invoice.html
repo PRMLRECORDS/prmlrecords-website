@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invoice Generator | PRML Records Admin</title>
+<style>
+:root{
+  --red:#E01010;--cream:#F5E6C8;--cdk:#E8D4A8;--charcoal:#2B2B2B;--black:#0D0D0D;
+  --font-title:'Rubik Mono One',monospace;--font-ui:'Odibee Sans',sans-serif;
+  --font-body:'Roboto Slab',serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--cream);font-family:var(--font-body);font-weight:300;min-height:100vh}
+a{color:var(--red)}
+/* LOGIN */
+.login{position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;z-index:1000}
+.login-box{background:var(--charcoal);padding:48px;border-top:4px solid var(--red);width:min(420px,90vw)}
+.login-title{font-family:var(--font-title);font-size:28px;color:var(--red);margin-bottom:6px}
+.login-sub{font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-bottom:28px}
+/* NAV */
+.nav{background:var(--black);border-bottom:3px solid var(--red);padding:0 32px;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.nav-title{font-family:var(--font-title);font-size:18px;color:var(--cream)}
+.nav-title span{color:var(--red)}
+.nav-links{display:flex;gap:10px}
+.nav-links a{font-family:var(--font-ui);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);padding:7px 14px;border:1px solid rgba(224,16,16,.35);transition:.2s;cursor:pointer}
+.nav-links a:hover{background:var(--red);color:var(--cream);border-color:var(--red)}
+/* LAYOUT */
+.app{display:grid;grid-template-columns:1fr 420px;min-height:calc(100vh - 54px);gap:0}
+.left{padding:28px 32px;border-right:2px solid rgba(245,230,200,.07)}
+.right{background:var(--charcoal);padding:24px;overflow-y:auto}
+/* INPUTS */
+.section-label{font-family:var(--font-ui);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+.input,textarea,select{background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:var(--cream);font-family:var(--font-body);font-size:13px;font-weight:300;padding:11px 14px;width:100%;outline:none;transition:border-color .2s}
+.input:focus,textarea:focus,select:focus{border-color:var(--red)}
+textarea{resize:vertical;min-height:120px;line-height:1.7}
+select option{background:var(--charcoal);color:var(--cream)}
+.field{margin-bottom:16px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+/* AI PARSE BUTTON */
+.ai-btn{width:100%;padding:14px;background:var(--red);color:var(--cream);border:none;font-family:var(--font-ui);font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:10px}
+.ai-btn:hover{background:#A00000}
+.ai-btn:disabled{opacity:.5;cursor:not-allowed}
+/* CART */
+.cart-title{font-family:var(--font-title);font-size:20px;color:var(--red);margin-bottom:16px}
+.cart-empty{font-family:var(--font-body);font-size:13px;color:var(--cream);opacity:.35;padding:24px 0;text-align:center}
+.line-item{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(245,230,200,.07)}
+.li-main{flex:1}
+.li-name{font-family:var(--font-ui);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);margin-bottom:3px}
+.li-desc{font-family:var(--font-body);font-size:12px;color:var(--cream);opacity:.45;line-height:1.5}
+.li-price{font-family:var(--font-title);font-size:16px;color:var(--red);white-space:nowrap}
+.li-del{font-family:var(--font-ui);font-size:9px;letter-spacing:2px;color:var(--cream);opacity:.25;cursor:pointer;transition:.2s;margin-top:4px;background:none;border:none}
+.li-del:hover{opacity:.8;color:var(--red)}
+.add-line{display:grid;grid-template-columns:1fr 90px auto;gap:8px;margin:14px 0}
+.add-line input{padding:9px 12px;font-size:12px}
+.add-btn{padding:9px 14px;background:rgba(224,16,16,.15);border:1px solid var(--red);color:var(--red);font-family:var(--font-ui);font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;white-space:nowrap}
+.add-btn:hover{background:var(--red);color:var(--cream)}
+/* FEE NOTE */
+.fee-note{font-family:var(--font-body);font-size:11px;color:var(--cream);opacity:.4;line-height:1.6;padding:8px 12px;border-left:2px solid rgba(224,16,16,.3);margin:10px 0}
+/* TOTALS */
+.totals{padding:14px 0;margin-top:4px}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(245,230,200,.06)}
+.total-row:last-child{border-bottom:none;padding-top:12px}
+.total-label{font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.5}
+.total-label.grand{color:var(--cream);opacity:1}
+.total-val{font-family:var(--font-title);font-size:14px;color:var(--cream)}
+.total-val.grand{font-size:22px;color:var(--red)}
+/* CUSTOMER */
+.cust-section{margin:16px 0;padding:16px;background:rgba(245,230,200,.04);border-top:2px solid var(--red)}
+/* ACTION BUTTONS */
+.action-strip{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.act-btn{padding:13px 18px;font-family:var(--font-ui);font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.2s;border:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.act-btn--full{background:var(--red);color:var(--cream)}
+.act-btn--full:hover{background:#A00000}
+.act-btn--out{background:transparent;color:var(--cream);border:1px solid rgba(245,230,200,.2)}
+.act-btn--out:hover{border-color:var(--red);color:var(--red)}
+.act-btn:disabled{opacity:.4;cursor:not-allowed}
+/* STATUS MESSAGES */
+.status{padding:11px 14px;font-family:var(--font-body);font-size:13px;font-weight:300;line-height:1.6;margin-top:10px;display:none}
+.status--ok{background:rgba(34,197,94,.1);border-left:3px solid #22c55e;color:#86efac}
+.status--err{background:rgba(224,16,16,.1);border-left:3px solid var(--red);color:#fca5a5}
+.status--info{background:rgba(245,230,200,.06);border-left:3px solid rgba(245,230,200,.3);color:var(--cream);opacity:.8}
+/* INVOICE PREVIEW */
+.preview-btn{font-family:var(--font-ui);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);cursor:pointer;background:none;border:none;margin-top:6px;opacity:.7;transition:.2s}
+.preview-btn:hover{opacity:1}
+/* INVOICE MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-inner{background:white;width:min(760px,95vw);max-height:90vh;overflow-y:auto;position:relative}
+.modal-close{position:sticky;top:0;right:0;background:var(--charcoal);color:var(--red);border:none;font-family:var(--font-ui);font-size:10px;letter-spacing:3px;padding:10px 18px;cursor:pointer;width:100%;text-align:right}
+/* INVOICE TEMPLATE (light) */
+#invoice-tpl{padding:48px;font-family:Georgia,serif;font-size:14px;color:#1a1a1a;line-height:1.7}
+.inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:24px;border-bottom:3px solid #E01010}
+.inv-company{font-family:'Arial Black',sans-serif;font-size:24px;color:#E01010;letter-spacing:-0.5px}
+.inv-tagline{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#2B2B2B;opacity:.5;margin-top:3px}
+.inv-meta{text-align:right}
+.inv-meta .inv-num{font-family:'Arial Black',sans-serif;font-size:20px;color:#2B2B2B}
+.inv-meta .inv-date{font-size:12px;color:#666;margin-top:4px}
+.inv-meta .inv-due{font-size:12px;font-weight:bold;color:#E01010;margin-top:2px}
+.inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:32px}
+.party-label{font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#E01010;margin-bottom:8px}
+.party-name{font-weight:700;font-size:15px;color:#1a1a1a}
+.party-detail{font-size:12px;color:#555;line-height:1.8}
+.inv-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+.inv-table th{background:#0D0D0D;color:#E01010;font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;padding:10px 14px;text-align:left}
+.inv-table td{padding:12px 14px;border-bottom:1px solid #f0e8d5;vertical-align:top;font-size:13px;color:#2B2B2B}
+.inv-table tr:last-child td{border-bottom:none}
+.inv-totals{float:right;width:260px;margin-bottom:32px}
+.inv-total-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0e8d5;font-size:13px}
+.inv-total-row.grand{border-bottom:none;padding-top:10px;font-weight:700;font-size:18px;color:#E01010}
+.inv-footer{clear:both;border-top:2px solid #f0e8d5;padding-top:20px;font-size:11px;color:#888;line-height:1.8}
+.inv-footer .inv-note{font-size:13px;color:#2B2B2B;margin-bottom:12px;font-style:italic}
+.inv-pay-badge{display:inline-block;background:#E01010;color:white;font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:2px;padding:6px 16px;margin-top:10px}
+/* LOADING SPINNER */
+.spinner{width:16px;height:16px;border:2px solid rgba(245,230,200,.3);border-top-color:var(--cream);border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.app{grid-template-columns:1fr}.right{border-top:2px solid rgba(245,230,200,.1)}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login-screen">
+  <div class="login-box">
+    <div class="login-title">Invoice Generator</div>
+    <div class="login-sub">PRML Records Admin</div>
+    <div class="field"><label class="section-label">Password</label>
+      <input type="password" class="input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()">
+    </div>
+    <button class="ai-btn" onclick="tryLogin()">Enter →</button>
+    <div id="pw-err" style="display:none;margin-top:10px;font-family:var(--font-body);font-size:12px;color:var(--red)">Wrong password.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+
+<nav class="nav">
+  <div class="nav-title">PRML <span>Invoice</span></div>
+  <div class="nav-links">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="product-scanner.html">Product Scanner</a>
+    <a href="../contact.html" target="_blank">Public Site</a>
+  </div>
+</nav>
+
+<div class="app">
+
+  <!-- LEFT: INPUT PANEL -->
+  <div class="left">
+
+    <!-- BRAIN DUMP -->
+    <div class="field">
+      <label class="section-label">Brain Dump → AI Invoice</label>
+      <textarea id="brain-dump" placeholder="Just describe the job however you want. Example:&#10;&#10;Marcus needs 50 custom keychains with his barber logo engraved, he wants them in wood. Also a custom light box with his shop name. He said budget around $400. Need by next Friday.&#10;&#10;AI will extract line items, prices, and details automatically."></textarea>
+      <button class="ai-btn" id="parse-btn" onclick="parseBrainDump()" style="margin-top:10px">
+        <span id="parse-label">✦ Parse with AI → Add to Cart</span>
+        <div class="spinner" id="parse-spinner" style="display:none"></div>
+      </button>
+      <div class="status status--info" id="parse-status"></div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin:20px 0;opacity:.3">
+      <div style="flex:1;height:1px;background:var(--cream)"></div>
+      <div style="font-family:var(--font-ui);font-size:9px;letter-spacing:3px">OR ADD MANUALLY</div>
+      <div style="flex:1;height:1px;background:var(--cream)"></div>
+    </div>
+
+    <!-- MANUAL LINE ITEM -->
+    <div class="field">
+      <label class="section-label">Add Line Item</label>
+      <div class="add-line">
+        <input type="text" class="input" id="li-name" placeholder="Item name">
+        <input type="number" class="input" id="li-price" placeholder="$0.00" min="0" step="0.01">
+        <button class="add-btn" onclick="addManualLine()">+ Add</button>
+      </div>
+      <input type="text" class="input" id="li-desc" placeholder="Description (optional)" style="margin-bottom:0">
+    </div>
+
+    <!-- CUSTOMER INFO -->
+    <div class="field">
+      <label class="section-label">Customer Info</label>
+      <div class="field-row">
+        <input type="text" class="input" id="cust-name" placeholder="Full name *">
+        <input type="email" class="input" id="cust-email" placeholder="Email address *">
+      </div>
+      <div class="field-row">
+        <input type="tel" class="input" id="cust-phone" placeholder="Phone (optional)">
+        <input type="text" class="input" id="cust-biz" placeholder="Business name (optional)">
+      </div>
+    </div>
+
+    <!-- INVOICE OPTIONS -->
+    <div class="field">
+      <label class="section-label">Invoice Options</label>
+      <div class="field-row">
+        <div>
+          <label class="section-label" style="font-size:8px">Payment Type</label>
+          <select class="input" id="pay-type">
+            <option value="full">Full Payment</option>
+            <option value="deposit">50% Deposit</option>
+            <option value="custom">Custom Amount</option>
+          </select>
+        </div>
+        <div>
+          <label class="section-label" style="font-size:8px">Due Date</label>
+          <input type="date" class="input" id="due-date">
+        </div>
+      </div>
+      <div id="custom-amt-row" style="display:none">
+        <label class="section-label" style="font-size:8px">Custom Payment Amount ($)</label>
+        <input type="number" class="input" id="custom-amt" placeholder="Enter amount" min="0" step="0.01">
+      </div>
+      <div style="margin-top:10px">
+        <label class="section-label" style="font-size:8px">Notes / Terms</label>
+        <textarea class="input" id="inv-notes" style="min-height:60px" placeholder="Payment due within 7 days. 50% deposit required to confirm project. Questions? Call 770-686-7726."></textarea>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: CART + INVOICE PREVIEW -->
+  <div class="right">
+    <div class="cart-title">Cart</div>
+
+    <div id="cart-items"><div class="cart-empty">No items yet.</div></div>
+
+    <!-- MANUAL ADD ROW (condensed) -->
+    <div class="fee-note" id="fee-note" style="display:none">
+      💳 $6.00 Stripe transaction fee added automatically.
+    </div>
+
+    <div class="totals" id="totals" style="display:none">
+      <div class="total-row">
+        <span class="total-label">Subtotal</span>
+        <span class="total-val" id="t-sub">$0.00</span>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Stripe Fee</span>
+        <span class="total-val" id="t-fee">$6.00</span>
+      </div>
+      <div class="total-row">
+        <span class="total-label grand">Total</span>
+        <span class="total-val grand" id="t-total">$0.00</span>
+      </div>
+      <div class="total-row" id="deposit-row" style="display:none">
+        <span class="total-label">Amount Due Now</span>
+        <span class="total-val" id="t-due" style="color:var(--red)">$0.00</span>
+      </div>
+    </div>
+
+    <div class="cust-section">
+      <div style="font-family:var(--font-ui);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Customer</div>
+      <div id="cust-preview" style="font-family:var(--font-body);font-size:13px;color:var(--cream);opacity:.5;font-style:italic">Fill in customer info on the left.</div>
+    </div>
+
+    <div class="action-strip">
+      <button class="act-btn act-btn--out preview-btn" onclick="previewInvoice()" style="font-size:9px;letter-spacing:3px;padding:10px">Preview Invoice</button>
+      <button class="act-btn act-btn--full" id="send-btn" onclick="sendInvoice()">Send Invoice + Request Payment →</button>
+      <button class="act-btn act-btn--out" id="stripe-btn" onclick="openStripe()">Open Stripe Payment Link</button>
+      <button class="act-btn act-btn--out" id="log-btn" onclick="logToSheet()">Save to Google Sheet Only</button>
+    </div>
+    <div class="status" id="action-status"></div>
+    <div style="margin-top:16px;font-family:var(--font-ui);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.2;line-height:1.8">
+      Sending invoice emails requires Apps Script to be connected.<br>
+      See admin/documentation.html for setup.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- INVOICE PREVIEW MODAL -->
+<div class="modal" id="inv-modal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal()">Close Preview ×</button>
+    <div id="invoice-tpl"></div>
+  </div>
+</div>
+
+<script>
+/* ── CONFIG ── */
+const ADMIN_PW  = 'PRMLadmin2025';  // change to match your dashboard password
+const GAS_URL   = 'https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';
+const STRIPE_URL= 'PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE';
+const SHEET_ID  = '10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA';
+const STRIPE_FEE= 6.00;
+
+/* ── AUTH ── */
+function tryLogin(){
+  if(document.getElementById('pw').value===ADMIN_PW){
+    sessionStorage.setItem('prml_admin','1');
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    initApp();
+  } else {
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw').value='';
+  }
+}
+if(sessionStorage.getItem('prml_admin')==='1'){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+document.getElementById('pw')?.addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
+
+/* ── CART STATE ── */
+let cart = [];
+
+function addToCart(name, price, desc=''){
+  cart.push({id:Date.now()+Math.random(), name, price:parseFloat(price)||0, desc});
+  renderCart();
+}
+
+function removeItem(id){
+  cart = cart.filter(i=>i.id!==id);
+  renderCart();
+}
+
+function renderCart(){
+  const el = document.getElementById('cart-items');
+  const totEl = document.getElementById('totals');
+  const feeEl = document.getElementById('fee-note');
+  if(cart.length===0){
+    el.innerHTML='<div class="cart-empty">No items yet.</div>';
+    totEl.style.display='none';
+    feeEl.style.display='none';
+    return;
+  }
+  el.innerHTML = cart.map(i=>`
+    <div class="line-item">
+      <div class="li-main">
+        <div class="li-name">${i.name}</div>
+        ${i.desc?`<div class="li-desc">${i.desc}</div>`:''}
+      </div>
+      <div>
+        <div class="li-price">$${i.price.toFixed(2)}</div>
+        <button class="li-del" onclick="removeItem(${i.id})">Remove ×</button>
+      </div>
+    </div>`).join('');
+  
+  const sub = cart.reduce((s,i)=>s+i.price,0);
+  const total = sub + STRIPE_FEE;
+  document.getElementById('t-sub').textContent   = '$'+sub.toFixed(2);
+  document.getElementById('t-total').textContent = '$'+total.toFixed(2);
+  document.getElementById('t-fee').textContent   = '$'+STRIPE_FEE.toFixed(2);
+  totEl.style.display='block';
+  feeEl.style.display='block';
+  updateDueAmount();
+  updateCustPreview();
+}
+
+function updateDueAmount(){
+  const sub   = cart.reduce((s,i)=>s+i.price,0);
+  const total = sub + STRIPE_FEE;
+  const type  = document.getElementById('pay-type').value;
+  const dRow  = document.getElementById('deposit-row');
+  const dVal  = document.getElementById('t-due');
+  if(type==='full'){ dRow.style.display='none'; return; }
+  dRow.style.display='flex';
+  let due = type==='deposit' ? total*0.5
+    : parseFloat(document.getElementById('custom-amt').value)||0;
+  dVal.textContent = '$'+due.toFixed(2);
+}
+
+function updateCustPreview(){
+  const n=document.getElementById('cust-name').value;
+  const e=document.getElementById('cust-email').value;
+  const b=document.getElementById('cust-biz').value;
+  const el=document.getElementById('cust-preview');
+  el.style.fontStyle='normal';
+  el.style.opacity='1';
+  el.innerHTML = n ? `<strong style="color:var(--cream)">${n}</strong>${b?' · '+b:''}<br><span style="opacity:.5;font-size:12px">${e||'No email yet'}</span>` : '<span style="opacity:.4;font-style:italic">Fill in customer info on the left.</span>';
+}
+
+/* ── PAY TYPE TOGGLE ── */
+document.getElementById('pay-type').addEventListener('change',function(){
+  document.getElementById('custom-amt-row').style.display=this.value==='custom'?'block':'none';
+  updateDueAmount();
+});
+
+/* ── INPUT LISTENERS ── */
+['cust-name','cust-email','cust-biz','cust-phone'].forEach(id=>{
+  document.getElementById(id)?.addEventListener('input',updateCustPreview);
+});
+document.getElementById('custom-amt')?.addEventListener('input',updateDueAmount);
+
+/* ── MANUAL ADD ── */
+function addManualLine(){
+  const name  = document.getElementById('li-name').value.trim();
+  const price = document.getElementById('li-price').value;
+  const desc  = document.getElementById('li-desc').value.trim();
+  if(!name||!price){ alert('Enter item name and price.'); return; }
+  addToCart(name, price, desc);
+  document.getElementById('li-name').value='';
+  document.getElementById('li-price').value='';
+  document.getElementById('li-desc').value='';
+}
+
+/* ── AI BRAIN DUMP PARSER ── */
+async function parseBrainDump(){
+  const dump = document.getElementById('brain-dump').value.trim();
+  if(!dump){ alert('Paste a description first.'); return; }
+
+  const btn = document.getElementById('parse-btn');
+  const lbl = document.getElementById('parse-label');
+  const spn = document.getElementById('parse-spinner');
+  const sta = document.getElementById('parse-status');
+
+  btn.disabled=true; lbl.style.display='none'; spn.style.display='block';
+  sta.style.display='none';
+
+  const prompt = `You are a billing assistant for PRML Records LLC, a Black-owned creative and tech company in West End Atlanta.
+
+Parse this job description into invoice line items. Extract: item name, price (if mentioned), quantity, description.
+
+If price isn't stated, estimate a fair price based on these rates:
+- Custom keychains (laser): $8-12/each, bulk 10+ discount
+- Custom signs (laser): $35-150 depending on size
+- Light boxes: $85-200
+- 3D prints: $15-50 per piece  
+- Recording session: $60/hr
+- Music video: $800+
+- Photography session: $150-350
+- Website: $500-1500
+- Consulting: $75-150/hr
+- Stickers: $25 for pack of 25
+- Invitations/postcards: $2-5 each
+- Album artwork design: $150-400
+- CD duplication: $3-8/each
+- Event invitations (digital): $75-200 per design
+
+Note: Stripe adds a $6 flat fee automatically — do NOT include it in line items.
+
+Return ONLY valid JSON, no markdown, no explanation:
+{
+  "customer": {"name": "", "email": "", "phone": "", "business": ""},
+  "items": [{"name": "", "price": 0, "qty": 1, "desc": ""}],
+  "notes": "",
+  "suggested_due_days": 7
+}
+
+Job description:
+${dump}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.[0]?.text||'';
+    let parsed;
+    try {
+      const clean = text.replace(/```json|```/g,'').trim();
+      parsed = JSON.parse(clean);
+    } catch(e){ throw new Error('AI returned unexpected format. Try rephrasing.'); }
+
+    // Fill customer fields if extracted
+    if(parsed.customer?.name)  document.getElementById('cust-name').value  = parsed.customer.name;
+    if(parsed.customer?.email) document.getElementById('cust-email').value = parsed.customer.email;
+    if(parsed.customer?.phone) document.getElementById('cust-phone').value = parsed.customer.phone;
+    if(parsed.customer?.business) document.getElementById('cust-biz').value = parsed.customer.business;
+
+    // Add items to cart
+    let added = 0;
+    (parsed.items||[]).forEach(item=>{
+      if(item.name && item.price>0){
+        const qty = parseInt(item.qty)||1;
+        const total = item.price * qty;
+        const desc = qty>1 ? `Qty: ${qty} × $${item.price.toFixed(2)}${item.desc?' · '+item.desc:''}` : item.desc;
+        addToCart(item.name, total, desc);
+        added++;
+      }
+    });
+
+    // Set notes if provided
+    if(parsed.notes) document.getElementById('inv-notes').value = parsed.notes;
+
+    // Set due date
+    if(parsed.suggested_due_days){
+      const d = new Date(); d.setDate(d.getDate()+parsed.suggested_due_days);
+      document.getElementById('due-date').value = d.toISOString().split('T')[0];
+    }
+
+    sta.style.display='block';
+    sta.className='status status--ok';
+    sta.textContent = `✓ Added ${added} item${added!==1?'s':''} to cart. Review and adjust prices as needed.`;
+
+    updateCustPreview();
+
+  } catch(err){
+    sta.style.display='block';
+    sta.className='status status--err';
+    sta.textContent = 'Error: '+err.message;
+  }
+
+  btn.disabled=false; lbl.style.display='flex'; spn.style.display='none';
+}
+
+/* ── BUILD INVOICE DATA ── */
+function buildInvoiceData(){
+  const name   = document.getElementById('cust-name').value.trim();
+  const email  = document.getElementById('cust-email').value.trim();
+  const phone  = document.getElementById('cust-phone').value.trim();
+  const biz    = document.getElementById('cust-biz').value.trim();
+  const notes  = document.getElementById('inv-notes').value.trim();
+  const type   = document.getElementById('pay-type').value;
+  const due    = document.getElementById('due-date').value;
+  const sub    = cart.reduce((s,i)=>s+i.price,0);
+  const total  = sub + STRIPE_FEE;
+  let amount   = total;
+  if(type==='deposit') amount = total*0.5;
+  if(type==='custom')  amount = parseFloat(document.getElementById('custom-amt').value)||total;
+
+  const inv_num = 'INV-'+Date.now().toString().slice(-6);
+  const today   = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const dueStr  = due ? new Date(due+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) : 'Upon receipt';
+
+  return { name, email, phone, biz, notes, type, sub, total, amount, inv_num, today, dueStr, items:cart };
+}
+
+/* ── INVOICE HTML TEMPLATE ── */
+function buildInvoiceHTML(d){
+  const rows = d.items.map(i=>`
+    <tr>
+      <td><strong>${i.name}</strong>${i.desc?'<br><span style="color:#888;font-size:12px">'+i.desc+'</span>':''}</td>
+      <td style="text-align:right">$${i.price.toFixed(2)}</td>
+    </tr>`).join('');
+
+  const payLabel = d.type==='full'?'Full Payment':d.type==='deposit'?'50% Deposit':'Custom Amount';
+
+  return `
+<div id="invoice-tpl" style="padding:48px;font-family:Georgia,serif;font-size:14px;color:#1a1a1a;line-height:1.7">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:24px;border-bottom:3px solid #E01010">
+    <div>
+      <div style="font-family:'Arial Black',sans-serif;font-size:26px;color:#E01010;letter-spacing:-0.5px">PRML Records LLC</div>
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#555;margin-top:3px">West End · Atlanta · Georgia</div>
+      <div style="font-size:12px;color:#555;margin-top:6px;line-height:1.7">
+        770-686-7726<br>info@prmlrecords.com<br>www.prmlrecords.com
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:3px;color:#E01010;margin-bottom:4px">Invoice</div>
+      <div style="font-family:'Arial Black',sans-serif;font-size:22px;color:#2B2B2B">${d.inv_num}</div>
+      <div style="font-size:12px;color:#666;margin-top:6px">Issued: ${d.today}</div>
+      <div style="font-size:12px;font-weight:bold;color:#E01010">Due: ${d.dueStr}</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:32px">
+    <div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#E01010;margin-bottom:8px">Bill To</div>
+      <div style="font-weight:700;font-size:15px">${d.name||'—'}</div>
+      ${d.biz?`<div style="font-size:13px;color:#555">${d.biz}</div>`:''}
+      ${d.email?`<div style="font-size:12px;color:#555">${d.email}</div>`:''}
+      ${d.phone?`<div style="font-size:12px;color:#555">${d.phone}</div>`:''}
+    </div>
+    <div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#E01010;margin-bottom:8px">From</div>
+      <div style="font-weight:700;font-size:15px">PRML Records LLC</div>
+      <div style="font-size:12px;color:#555;line-height:1.8">West End, Atlanta, Georgia<br>770-686-7726<br>info@prmlrecords.com</div>
+    </div>
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
+    <thead>
+      <tr>
+        <th style="background:#0D0D0D;color:#E01010;font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;padding:10px 14px;text-align:left">Service / Item</th>
+        <th style="background:#0D0D0D;color:#E01010;font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;padding:10px 14px;text-align:right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>${rows}</tbody>
+    <tbody>
+      <tr>
+        <td style="padding:10px 14px;border-top:1px solid #e5d9c0;font-size:12px;color:#888">Stripe transaction fee</td>
+        <td style="padding:10px 14px;border-top:1px solid #e5d9c0;text-align:right;font-size:12px;color:#888">$${STRIPE_FEE.toFixed(2)}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="float:right;width:260px;margin-bottom:32px">
+    <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0e8d5;font-size:13px">
+      <span>Subtotal</span><span>$${d.sub.toFixed(2)}</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0e8d5;font-size:13px">
+      <span>Stripe Fee</span><span>$${STRIPE_FEE.toFixed(2)}</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:10px 0;font-weight:700;font-size:18px;color:#E01010">
+      <span>Total</span><span>$${d.total.toFixed(2)}</span>
+    </div>
+    ${d.type!=='full'?`
+    <div style="display:flex;justify-content:space-between;padding:8px 0;background:#fdf5e8;padding:8px 12px;margin-top:4px">
+      <span style="font-size:13px;font-weight:bold">${payLabel}</span>
+      <span style="font-size:16px;font-weight:bold;color:#E01010">$${d.amount.toFixed(2)}</span>
+    </div>`:''}
+  </div>
+
+  <div style="clear:both;border-top:2px solid #f0e8d5;padding-top:20px">
+    ${d.notes?`<p style="font-size:13px;color:#2B2B2B;margin-bottom:12px;font-style:italic">${d.notes}</p>`:''}
+    <p style="font-size:11px;color:#888;line-height:1.8">
+      PRML Records LLC · West End, Atlanta, Georgia · 770-686-7726 · info@prmlrecords.com<br>
+      Peace · Freedom · Justice · Equality · Black-owned since 2019
+    </p>
+  </div>
+</div>`;
+}
+
+/* ── PREVIEW ── */
+function previewInvoice(){
+  if(cart.length===0){ alert('Add items to cart first.'); return; }
+  const d = buildInvoiceData();
+  document.getElementById('inv-modal').innerHTML =
+    `<div class="modal-inner">
+      <button class="modal-close" onclick="closeModal()">Close Preview × &nbsp; (Print: Ctrl+P)</button>
+      ${buildInvoiceHTML(d)}
+    </div>`;
+  document.getElementById('inv-modal').classList.add('open');
+}
+function closeModal(){ document.getElementById('inv-modal').classList.remove('open'); }
+
+/* ── SEND INVOICE ── */
+async function sendInvoice(){
+  if(cart.length===0){ alert('Add items to cart first.'); return; }
+  const name  = document.getElementById('cust-name').value.trim();
+  const email = document.getElementById('cust-email').value.trim();
+  if(!name||!email){ alert('Customer name and email are required to send an invoice.'); return; }
+
+  const btn = document.getElementById('send-btn');
+  btn.disabled=true; btn.textContent='Sending...';
+
+  const d   = buildInvoiceData();
+  const html = buildInvoiceHTML(d);
+
+  const payload = {
+    type: 'INVOICE',
+    ts:   new Date().toISOString(),
+    invoice_num: d.inv_num,
+    customer_name:  d.name,
+    customer_email: d.email,
+    customer_phone: d.phone,
+    customer_biz:   d.biz,
+    items: d.items.map(i=>i.name+' — $'+i.price.toFixed(2)).join('\n'),
+    subtotal:   d.sub.toFixed(2),
+    stripe_fee: STRIPE_FEE.toFixed(2),
+    total:      d.total.toFixed(2),
+    amount_due: d.amount.toFixed(2),
+    pay_type:   d.type,
+    due_date:   d.dueStr,
+    notes:      d.notes,
+    invoice_html: html,
+    stripe_url: STRIPE_URL.includes('PASTE_YOUR') ? '' : STRIPE_URL
+  };
+
+  const sta = document.getElementById('action-status');
+
+  if(!GAS_URL||GAS_URL.includes('PASTE_YOUR')){
+    sta.style.display='block';
+    sta.className='status status--info';
+    sta.textContent='Invoice built (Apps Script not connected — once connected, this will email the invoice to '+email+' and log to your Sheet automatically).';
+    previewInvoice();
+    btn.disabled=false; btn.textContent='Send Invoice + Request Payment →';
+    return;
+  }
+
+  try {
+    await fetch(GAS_URL,{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    sta.style.display='block';
+    sta.className='status status--ok';
+    sta.textContent='✓ Invoice #'+d.inv_num+' sent to '+email+' and logged to your sheet.';
+  } catch(e){
+    sta.style.display='block';
+    sta.className='status status--err';
+    sta.textContent='Send failed. Try logging to sheet instead, or email manually.';
+  }
+  btn.disabled=false; btn.textContent='Send Invoice + Request Payment →';
+}
+
+/* ── STRIPE LINK ── */
+function openStripe(){
+  if(STRIPE_URL&&!STRIPE_URL.includes('PASTE_YOUR')){
+    window.open(STRIPE_URL,'_blank');
+  } else {
+    alert('Stripe not configured yet.\n\nPaste your Stripe Payment Link URL in the STRIPE_URL variable at the top of admin/invoice.html.');
+  }
+}
+
+/* ── LOG TO SHEET ONLY ── */
+async function logToSheet(){
+  if(cart.length===0){ alert('Add items first.'); return; }
+  const d = buildInvoiceData();
+  const sta = document.getElementById('action-status');
+  const btn = document.getElementById('log-btn');
+  btn.disabled=true; btn.textContent='Saving...';
+
+  const payload = {
+    type:'INVOICE',
+    ts: new Date().toISOString(),
+    invoice_num: d.inv_num,
+    customer_name:  d.name||'—',
+    customer_email: d.email||'—',
+    items: d.items.map(i=>i.name+' $'+i.price.toFixed(2)).join(' | '),
+    total: d.total.toFixed(2),
+    amount_due: d.amount.toFixed(2),
+    pay_type: d.type,
+    notes: d.notes
+  };
+
+  if(GAS_URL&&!GAS_URL.includes('PASTE_YOUR')){
+    try {
+      await fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      sta.style.display='block'; sta.className='status status--ok';
+      sta.textContent='✓ Invoice #'+d.inv_num+' logged to Google Sheet.';
+    } catch(e){
+      sta.style.display='block'; sta.className='status status--err';
+      sta.textContent='Save failed. Check Apps Script connection.';
+    }
+  } else {
+    sta.style.display='block'; sta.className='status status--info';
+    sta.textContent='Sheet not connected yet. Invoice #'+d.inv_num+' — Total: $'+d.total.toFixed(2);
+  }
+  btn.disabled=false; btn.textContent='Save to Google Sheet Only';
+}
+
+function initApp(){
+  // Set default due date to 7 days from now
+  const d = new Date(); d.setDate(d.getDate()+7);
+  document.getElementById('due-date').value = d.toISOString().split('T')[0];
+}
+if(sessionStorage.getItem('prml_admin')==='1') initApp();
+</script>
+</body></html>

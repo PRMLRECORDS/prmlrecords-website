@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRML Command Console</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#FE0103;--charcoal:#2E2D2D;--cream:#F6E8C3;--stone:#635D52;
+  --green:#22c55e;--yellow:#eab308;--blue:#3b82f6;--bg:#1a1918;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--cream);font-family:'Roboto Slab',serif;min-height:100vh}
+
+/* LOGIN */
+.login-wrap{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999}
+.login-box{background:var(--charcoal);padding:48px;border-top:4px solid var(--red);width:100%;max-width:400px}
+.login-title{font-family:'Rubik Mono One',monospace;font-size:26px;color:var(--red);letter-spacing:-0.5px;margin-bottom:4px}
+.login-sub{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;opacity:.4;margin-bottom:28px}
+.login-box input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:12px 14px;font-family:'Roboto Slab',serif;font-size:14px;margin-bottom:14px}
+.login-box input:focus{outline:none;border-color:var(--red)}
+.btn-full{width:100%;background:var(--red);color:var(--cream);border:none;padding:14px;font-family:'Rubik Mono One',monospace;font-size:12px;letter-spacing:.1em;cursor:pointer;text-transform:uppercase}
+.btn-full:hover{opacity:.85}
+.login-err{font-size:12px;color:var(--red);margin-top:10px;display:none}
+
+/* LAYOUT */
+.console{display:none}
+.console.active{display:block}
+.topbar{background:var(--charcoal);border-bottom:3px solid var(--red);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.topbar-brand{font-family:'Rubik Mono One',monospace;font-size:18px;letter-spacing:-0.5px}
+.topbar-brand span{color:var(--red)}
+.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-badge{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;background:rgba(254,1,3,.15);border:1px solid rgba(254,1,3,.4);padding:4px 10px;color:var(--red)}
+.topbar-time{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;opacity:.4}
+.btn-logout{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;background:none;border:none;color:var(--red);cursor:pointer;opacity:.6}
+.btn-logout:hover{opacity:1}
+
+/* TABS */
+.tabs{display:flex;background:var(--charcoal);border-bottom:2px solid rgba(254,1,3,.2);overflow-x:auto}
+.tab{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:14px 20px;cursor:pointer;color:var(--cream);opacity:.4;white-space:nowrap;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px}
+.tab.active,.tab:hover{opacity:1;color:var(--red);border-bottom-color:var(--red)}
+
+/* PANELS */
+.panel{display:none;padding:28px 24px;max-width:1200px}
+.panel.active{display:block}
+.section-title{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.section-head{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);margin-bottom:20px;letter-spacing:-0.5px}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-bottom:24px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px;margin-bottom:24px}
+.card{background:var(--charcoal);padding:24px;border-top:3px solid var(--red)}
+.card--green{border-top-color:var(--green)}
+.card--yellow{border-top-color:var(--yellow)}
+.card--blue{border-top-color:var(--blue)}
+.card-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.5;margin-bottom:8px}
+.card-val{font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px;margin-bottom:4px}
+.card-sub{font-size:11px;font-weight:300;opacity:.45;line-height:1.5}
+
+/* STATUS DOT */
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.dot-g{background:var(--green)}.dot-r{background:var(--red)}.dot-y{background:var(--yellow)}
+.status-row{display:flex;align-items:center;gap:8px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+
+/* CONTROLS */
+.ctrl-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.ctrl-row:last-child{border-bottom:none}
+.ctrl-label{font-size:13px;font-weight:300}
+.ctrl-sub{font-size:11px;opacity:.4;margin-top:3px}
+.toggle{position:relative;display:inline-block;width:44px;height:24px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:rgba(255,255,255,.15);cursor:pointer;border-radius:24px;transition:.3s}
+.toggle-slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:var(--cream);border-radius:50%;transition:.3s}
+input:checked+.toggle-slider{background:var(--red)}
+input:checked+.toggle-slider:before{transform:translateX(20px)}
+
+/* FORM ELEMENTS */
+.f-group{margin-bottom:16px}
+.f-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.5;display:block;margin-bottom:6px}
+.f-input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(254,1,3,.2);color:var(--cream);padding:10px 14px;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300}
+.f-input:focus{outline:none;border-color:var(--red)}
+.f-textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(254,1,3,.2);color:var(--cream);padding:10px 14px;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;resize:vertical;min-height:80px}
+.f-textarea:focus{outline:none;border-color:var(--red)}
+
+/* BUTTONS */
+.btn{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:10px 18px;border:none;cursor:pointer;transition:.2s;display:inline-block;text-decoration:none}
+.btn-red{background:var(--red);color:var(--cream)}
+.btn-red:hover{opacity:.85}
+.btn-out{background:transparent;border:1px solid rgba(254,1,3,.5);color:var(--red)}
+.btn-out:hover{background:rgba(254,1,3,.1)}
+.btn-green{background:var(--green);color:#000}
+.btn-green:hover{opacity:.85}
+.btn-sm{font-size:8px;padding:6px 12px}
+
+/* CODE BLOCK */
+.code-block{background:#111;border-left:3px solid var(--red);padding:14px;font-family:monospace;font-size:12px;color:var(--cream);opacity:.8;overflow-x:auto;white-space:pre;margin-top:8px;position:relative}
+.copy-btn{position:absolute;top:8px;right:8px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;background:rgba(254,1,3,.2);border:none;color:var(--red);padding:4px 8px;cursor:pointer}
+.copy-btn:hover{background:var(--red);color:var(--cream)}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);padding:10px 12px;text-align:left;border-bottom:1px solid rgba(254,1,3,.3);background:rgba(254,1,3,.06)}
+.tbl td{font-size:12px;font-weight:300;padding:12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+
+/* LINK PILL */
+.link-pill{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;background:rgba(254,1,3,.12);border:1px solid rgba(254,1,3,.3);color:var(--red);padding:3px 8px;text-decoration:none;white-space:nowrap}
+.link-pill:hover{background:var(--red);color:var(--cream)}
+
+/* QUICK LINK GRID */
+.ql-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:24px}
+.ql{display:block;background:var(--charcoal);padding:16px;text-decoration:none;border-left:2px solid rgba(254,1,3,.3);transition:.2s}
+.ql:hover{border-left-color:var(--red);background:rgba(254,1,3,.06)}
+.ql-title{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.ql-sub{font-size:11px;font-weight:300;opacity:.4}
+
+/* ORDER LOG */
+.order-form{background:var(--charcoal);padding:24px;border-top:3px solid var(--green);margin-bottom:16px}
+#order-list .order-item{background:var(--charcoal);padding:16px;border-left:3px solid var(--stone);margin-bottom:2px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+#order-list .order-item.fulfilled{border-left-color:var(--green)}
+.order-meta{font-size:12px;font-weight:300;opacity:.6;margin-top:4px}
+.badge{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.badge-pending{background:rgba(234,179,8,.15);color:var(--yellow)}
+.badge-fulfilled{background:rgba(34,197,94,.15);color:var(--green)}
+
+/* SEAUX9 */
+.royalty-bar{background:var(--charcoal);padding:0;overflow:hidden;margin-bottom:2px}
+.royalty-bar-inner{height:4px;background:var(--red)}
+.track-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.track-row:last-child{border-bottom:none}
+.track-name{font-weight:300}
+.track-earn{font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--green)}
+
+@media(max-width:600px){.topbar-right{gap:10px}.panel{padding:20px 14px}}
+</style>
+</head>
+<body>
+
+<!-- ───── LOGIN ───── -->
+<div class="login-wrap" id="login-wrap">
+  <div class="login-box">
+    <div class="login-title">Command Console</div>
+    <div class="login-sub">PRML Records LLC — Restricted Access</div>
+    <input type="password" id="pw" placeholder="Enter access code" onkeydown="if(event.key==='Enter')tryLogin()">
+    <button class="btn-full" onclick="tryLogin()">ENTER →</button>
+    <div class="login-err" id="pw-err">Access denied. Check your code.</div>
+    <div style="font-size:11px;opacity:.25;margin-top:16px;font-weight:300;line-height:1.6">
+      FLY clearance active. Set your password in console.html line ~300.<br>
+      Default: <code style="opacity:.6">PRMLfounderadminDCJ369</code>
+    </div>
+  </div>
+</div>
+
+<!-- ───── CONSOLE ───── -->
+<div class="console" id="console">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>
+      <div class="topbar-brand">PRML <span>Console</span></div>
+      <div style="font-size:10px;opacity:.3;letter-spacing:2px;font-family:'Odibee Sans',sans-serif;text-transform:uppercase">Command Center · FLY Executive Access</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge">LIVE</div>
+      <div class="topbar-time" id="live-time"></div>
+      <button class="btn-logout" onclick="logout()">LOG OUT</button>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" onclick="showTab('overview')">Overview</button>
+    <button class="tab" onclick="showTab('promo')">Promo Control</button>
+    <button class="tab" onclick="showTab('products')">Products</button>
+    <button class="tab" onclick="showTab('orders')">Orders</button>
+    <button class="tab" onclick="showTab('seaux9')">SEAUX9</button>
+    <button class="tab" onclick="showTab('links')">Quick Links</button>
+    <button class="tab" onclick="showTab('settings')">Settings</button>
+  </div>
+
+  <!-- ══ OVERVIEW ══ -->
+  <div class="panel active" id="tab-overview">
+    <div class="section-title">Command Center</div>
+    <div class="section-head">System Overview</div>
+
+    <div class="grid-3">
+      <div class="card card--green">
+        <div class="card-label">Products Active</div>
+        <div class="card-val">2</div>
+        <div class="card-sub">TAP CARD · TAP KEY</div>
+      </div>
+      <div class="card card--green">
+        <div class="card-label">Payment Links</div>
+        <div class="card-val">6</div>
+        <div class="card-sub">4 singles + 2 ten-packs</div>
+      </div>
+      <div class="card card--yellow">
+        <div class="card-label">Launch Spots</div>
+        <div class="card-val" id="ov-spots">9</div>
+        <div class="card-sub" id="ov-spots-sub">First 9 — setup fee waived</div>
+      </div>
+      <div class="card">
+        <div class="card-label">SEAUX9 Earnings</div>
+        <div class="card-val">$231</div>
+        <div class="card-sub">6,519 rows · Apr 2019–Dec 2025</div>
+      </div>
+      <div class="card card--green">
+        <div class="card-label">SEAUX9 Streams</div>
+        <div class="card-val">1.28M</div>
+        <div class="card-sub">27 platforms · 40+ countries</div>
+      </div>
+      <div class="card card--blue">
+        <div class="card-label">Site</div>
+        <div class="card-val" style="font-size:16px;margin-top:4px">LIVE</div>
+        <div class="card-sub">prmlrecords.com · Render + CF</div>
+      </div>
+    </div>
+
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
+      <div class="section-title">System Status</div>
+      <div class="status-row"><span class="dot dot-g"></span>Site deployment (Render)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Stripe payment links (6 active)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Google Analytics GA4 (G-2PNH2XTRDK)</div>
+      <div class="status-row"><span class="dot dot-y"></span>Zapier automations (to be built — 3 zaps)</div>
+      <div class="status-row"><span class="dot dot-y"></span>ManyChat widget (configured — not yet live)</div>
+      <div class="status-row"><span class="dot dot-r"></span>Brevo drip (3-email sequence — needs activation)</div>
+    </div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">FLY — Copilot Brief</strong>
+      This console operates independently. All critical controls are here — promo toggles, payment links, order log, SEAUX9 data, and site settings.
+      To deploy changes to the live site: edit the HTML files in <code>04_WEBSITE/prmlrecords.com/v3_current/prml-site/</code> and push via Render or Cloudflare.
+      Emergency contact: info@prmlrecords.com · (770) 686-7726
+    </div>
+  </div>
+
+  <!-- ══ PROMO CONTROL ══ -->
+  <div class="panel" id="tab-promo">
+    <div class="section-title">Marketing</div>
+    <div class="section-head">Promo Control</div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label">Launch Badge (Homepage)</div>
+        <div class="ctrl-row">
+          <div><div class="ctrl-label">Show launch badge on hero</div><div class="ctrl-sub">Red inline badge above CTA buttons</div></div>
+          <label class="toggle"><input type="checkbox" id="tog-badge" checked onchange="updatePromoPreview()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="ctrl-row">
+          <div><div class="ctrl-label">Show promo on Products page</div><div class="ctrl-sub">Red full-width "First 9" section</div></div>
+          <label class="toggle"><input type="checkbox" id="tog-products" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="ctrl-row">
+          <div><div class="ctrl-label">Show promo on Services page</div><div class="ctrl-sub">Cream promo band between hero and Tier 1</div></div>
+          <label class="toggle"><input type="checkbox" id="tog-services" checked><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Spots Counter</div>
+        <div style="margin-bottom:16px">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:48px;color:var(--red);text-align:center;line-height:1" id="spots-display">9</div>
+          <div style="text-align:center;font-size:11px;opacity:.4;margin-top:4px">spots remaining</div>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button class="btn btn-out btn-sm" onclick="adjustSpots(-1)">− Spot Used</button>
+          <button class="btn btn-out btn-sm" onclick="adjustSpots(1)">+ Add Back</button>
+        </div>
+        <div style="margin-top:12px;font-size:11px;opacity:.4;text-align:center;font-weight:300">Updates display. To update site copy, use "Get Code" below.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-label" style="margin-bottom:14px">Promo Badge Copy — Edit &amp; Generate Code</div>
+      <div class="grid" style="margin-bottom:0">
+        <div>
+          <div class="f-group">
+            <label class="f-label">Badge Label</label>
+            <input class="f-input" id="badge-label" value="LAUNCH OFFER — First 9 Only" oninput="updatePromoPreview()">
+          </div>
+          <div class="f-group">
+            <label class="f-label">Badge Body Text</label>
+            <input class="f-input" id="badge-body" value="Setup fees waived. Free 30-min consultation with every deposit." oninput="updatePromoPreview()">
+          </div>
+          <div class="f-group">
+            <label class="f-label">Badge CTA Link Text</label>
+            <input class="f-input" id="badge-cta" value="GET YOURS →" oninput="updatePromoPreview()">
+          </div>
+        </div>
+        <div>
+          <div class="f-label">Live Preview</div>
+          <div id="badge-preview" style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(254,1,3,.08);border:1px solid rgba(254,1,3,.3);border-left:3px solid #FE0103;padding:10px 16px;max-width:100%;margin-top:6px">
+            <span id="prev-label" style="font-family:'Rubik Mono One',monospace;font-size:10px;color:#FE0103;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap">LAUNCH OFFER — First 9 Only</span>
+            <span id="prev-body" style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#2E2D2D;opacity:.75;line-height:1.4">Setup fees waived. Free 30-min consultation with every deposit.</span>
+            <span id="prev-cta" style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:.1em;color:#FE0103;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(254,1,3,.4)">GET YOURS →</span>
+          </div>
+          <div style="margin-top:14px">
+            <button class="btn btn-red btn-sm" onclick="generateBadgeCode()">GENERATE CODE</button>
+          </div>
+        </div>
+      </div>
+      <div id="badge-code-output" style="display:none;margin-top:14px">
+        <div class="f-label">Paste into index.html (replace existing badge div):</div>
+        <div class="code-block" id="badge-code-text"><button class="copy-btn" onclick="copyCode('badge-code-text')">COPY</button></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Brevo Email Drip — Status</div>
+      <div class="ctrl-row"><div><div class="ctrl-label">Email 1 (Day 0 — Welcome)</div><div class="ctrl-sub">"Your link. One tap. We'll set it all up."</div></div><span class="badge badge-pending">NOT LIVE</span></div>
+      <div class="ctrl-row"><div><div class="ctrl-label">Email 2 (Day 3 — Social Proof)</div><div class="ctrl-sub">"What people say after their first tap"</div></div><span class="badge badge-pending">NOT LIVE</span></div>
+      <div class="ctrl-row"><div><div class="ctrl-label">Email 3 (Day 7 — Offer)</div><div class="ctrl-sub">"Last call — setup fees waived for first 9"</div></div><span class="badge badge-pending">NOT LIVE</span></div>
+      <div style="margin-top:14px;font-size:11px;opacity:.4;font-weight:300">Activate at: app.brevo.com → Automations → ManyChat Drip Sequence</div>
+    </div>
+  </div>
+
+  <!-- ══ PRODUCTS ══ -->
+  <div class="panel" id="tab-products">
+    <div class="section-title">Store</div>
+    <div class="section-head">Products &amp; Payment Links</div>
+
+    <div style="overflow-x:auto;margin-bottom:24px">
+    <table class="tbl">
+      <thead><tr><th>Product</th><th>Color</th><th>Price</th><th>Type</th><th>Payment Link</th><th>Stripe ID</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>PRML TAP CARD</strong></td><td>Charcoal</td><td>$27.99</td><td>Single</td>
+          <td><a class="link-pill" href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G" target="_blank">OPEN →</a>
+          <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G')">COPY</button></td>
+          <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtSyIEvKUNtDqe</td>
+        </tr>
+        <tr>
+          <td><strong>PRML TAP CARD</strong></td><td>Beige</td><td>$27.99</td><td>Single</td>
+          <td><a class="link-pill" href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F" target="_blank">OPEN →</a>
+          <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F')">COPY</button></td>
+          <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtSxIEvKUNtDqe</td>
+        </tr>
+        <tr>
+          <td><strong>PRML TAP CARD</strong></td><td>Any (10-Pack)</td><td>$279.90</td><td>10-Pack</td>
+          <td><a class="link-pill" href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" target="_blank">OPEN →</a>
+          <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J')">COPY</button></td>
+          <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtT8IEvKUNtDqe</td>
+        </tr>
+        <tr>
+          <td><strong>PRML TAP KEY</strong></td><td>Charcoal</td><td>$21.99</td><td>Single</td>
+          <td><a class="link-pill" href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I" target="_blank">OPEN →</a>
+          <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I')">COPY</button></td>
+          <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtT6IEvKUNtDqe</td>
+        </tr>
+        <tr>
+          <td><strong>PRML TAP KEY</strong></td><td>Beige</td><td>$21.99</td><td>Single</td>
+          <td><a class="link-pill" href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H" target="_blank">OPEN →</a>
+          <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H')">COPY</button></td>
+          <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtSzIEvKUNtDqe</td>
+        </tr>
+        <tr>
+          <td><strong>PRML TAP KEY</strong></td><td>Any (10-Pack)</td><td>$219.90</td><td>10-Pack</td>
+          <td><a class="link-pill" href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" target="_blank">OPEN →</a>
+          <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K')">COPY</button></td>
+          <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtT9IEvKUNtDqe</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label">Price Override — Generate Code</div>
+        <div class="f-group">
+          <label class="f-label">TAP CARD Price</label>
+          <input class="f-input" id="card-price" value="$27.99">
+        </div>
+        <div class="f-group">
+          <label class="f-label">TAP KEY Price</label>
+          <input class="f-input" id="key-price" value="$21.99">
+        </div>
+        <div class="f-group">
+          <label class="f-label">TAP CARD 10-Pack</label>
+          <input class="f-input" id="card-10-price" value="$279.90">
+        </div>
+        <div class="f-group">
+          <label class="f-label">TAP KEY 10-Pack</label>
+          <input class="f-input" id="key-10-price" value="$219.90">
+        </div>
+        <button class="btn btn-red btn-sm" onclick="generatePriceCode()">GET PRICE UPDATE CODE</button>
+        <div id="price-code-output" style="display:none;margin-top:12px">
+          <div class="f-label">Update these values in products.html:</div>
+          <div class="code-block" id="price-code-text"><button class="copy-btn" onclick="copyCode('price-code-text')">COPY</button></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Stripe Direct Links</div>
+        <div class="ctrl-row"><div class="ctrl-label">Dashboard</div><a class="link-pill" href="https://dashboard.stripe.com" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Products</div><a class="link-pill" href="https://dashboard.stripe.com/products" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Payment Links</div><a class="link-pill" href="https://dashboard.stripe.com/payment-links" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Balance</div><a class="link-pill" href="https://dashboard.stripe.com/balance" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Customers</div><a class="link-pill" href="https://dashboard.stripe.com/customers" target="_blank">OPEN →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ORDERS ══ -->
+  <div class="panel" id="tab-orders">
+    <div class="section-title">Fulfillment</div>
+    <div class="section-head">Order Log</div>
+
+    <div class="order-form">
+      <div class="f-label" style="margin-bottom:14px">Log New Order</div>
+      <div class="grid" style="margin-bottom:12px">
+        <div>
+          <div class="f-group"><label class="f-label">Customer Name</label><input class="f-input" id="o-name" placeholder="Full name"></div>
+          <div class="f-group"><label class="f-label">Email</label><input class="f-input" id="o-email" placeholder="email@example.com"></div>
+          <div class="f-group"><label class="f-label">Phone</label><input class="f-input" id="o-phone" placeholder="(xxx) xxx-xxxx"></div>
+        </div>
+        <div>
+          <div class="f-group"><label class="f-label">Product</label>
+            <select class="f-input" id="o-product">
+              <option>PRML TAP CARD — Charcoal</option>
+              <option>PRML TAP CARD — Beige</option>
+              <option>PRML TAP KEY — Charcoal</option>
+              <option>PRML TAP KEY — Beige</option>
+              <option>PRML TAP CARD — 10-Pack</option>
+              <option>PRML TAP KEY — 10-Pack</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label">Amount Paid</label><input class="f-input" id="o-amount" placeholder="$27.99"></div>
+          <div class="f-group"><label class="f-label">Notes (NFC URL, setup info)</label><input class="f-input" id="o-notes" placeholder="Tap destination URL or notes"></div>
+        </div>
+      </div>
+      <button class="btn btn-green" onclick="addOrder()">LOG ORDER</button>
+    </div>
+
+    <div id="order-list"></div>
+    <div id="order-empty" style="padding:24px;opacity:.4;font-size:13px;font-weight:300">No orders logged yet. Use the form above to track incoming orders.</div>
+    <div style="margin-top:12px"><button class="btn btn-out btn-sm" onclick="exportOrders()">EXPORT CSV</button></div>
+  </div>
+
+  <!-- ══ SEAUX9 ══ -->
+  <div class="panel" id="tab-seaux9">
+    <div class="section-title">Record Label</div>
+    <div class="section-head">SEAUX9 Dashboard</div>
+
+    <div class="grid-3" style="margin-bottom:24px">
+      <div class="card card--green"><div class="card-label">Total Earnings</div><div class="card-val">$231.05</div><div class="card-sub">Apr 2019 – Dec 2025</div></div>
+      <div class="card card--green"><div class="card-label">Total Streams</div><div class="card-val">1.28M</div><div class="card-sub">27 platforms · 40+ countries</div></div>
+      <div class="card"><div class="card-label">Report Rows</div><div class="card-val">6,519</div><div class="card-sub">Last report: Mar 2, 2026</div></div>
+      <div class="card card--yellow"><div class="card-label">Peak Month</div><div class="card-val" style="font-size:18px;margin-top:4px">Nov 2021</div><div class="card-sub">$47.65 — NFT drop</div></div>
+      <div class="card"><div class="card-label">Top Platform</div><div class="card-val" style="font-size:18px;margin-top:4px">Spotify</div><div class="card-sub">$46.99 earned</div></div>
+      <div class="card card--blue"><div class="card-label">NFT Revenue</div><div class="card-val">$51.23</div><div class="card-sub">22% of total · Sellouts</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Top Tracks by Earnings</div>
+        <div class="track-row"><div><div class="track-name">Field Nxtez</div><div style="font-size:11px;opacity:.4">2 streams (NFT)</div></div><div class="track-earn">$51.23</div></div>
+        <div class="track-row"><div><div class="track-name">Ssh9</div><div style="font-size:11px;opacity:.4">6,808 streams</div></div><div class="track-earn">$15.93</div></div>
+        <div class="track-row"><div><div class="track-name">No Assistz</div><div style="font-size:11px;opacity:.4">6,323 streams</div></div><div class="track-earn">$15.46</div></div>
+        <div class="track-row"><div><div class="track-name">Solid Goldz</div><div style="font-size:11px;opacity:.4">5,453 streams</div></div><div class="track-earn">$14.25</div></div>
+        <div class="track-row"><div><div class="track-name">The Higher Statez ⚠️</div><div style="font-size:11px;opacity:.4">1,142,168 streams</div></div><div class="track-earn">$11.72</div></div>
+        <div class="track-row"><div><div class="track-name">Index</div><div style="font-size:11px;opacity:.4">3,986 streams</div></div><div class="track-earn">$11.25</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Platform Breakdown</div>
+        <div class="track-row"><div>Spotify</div><div class="track-earn">$46.99</div></div>
+        <div class="track-row"><div>Sellouts NFT (Primary)</div><div class="track-earn">$46.40</div></div>
+        <div class="track-row"><div>DistroKid Referral</div><div class="track-earn" style="color:var(--yellow)">$40.00*</div></div>
+        <div class="track-row"><div>Apple Music</div><div class="track-earn">$35.08</div></div>
+        <div class="track-row"><div>iTunes</div><div class="track-earn">$18.51</div></div>
+        <div class="track-row"><div>YouTube (Ads)</div><div class="track-earn">$17.51</div></div>
+        <div style="font-size:10px;opacity:.3;margin-top:10px;font-weight:300">* Non-performance referral credit</div>
+      </div>
+    </div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;margin-bottom:16px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">⚠️ Anomaly: Rate Compression</div>
+      <div style="font-size:13px;font-weight:300;line-height:1.7">
+        "The Higher Statez" — 1,142,168 streams → $11.72 = <strong>$0.00001/stream</strong>.<br>
+        Standard Spotify rate is ~$0.003–0.005. Majority of streams likely from TikTok/social packs at near-zero rates.<br>
+        <strong>Action:</strong> Audit DistroKid dashboard for stream source breakdown.
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Quick Actions</div>
+        <div class="ctrl-row"><div class="ctrl-label">Full Analysis Report</div><a class="link-pill" href="file:///C:/Users/User/Desktop/PRML_STUDIO/08_STREAMING/SEAUX9/analysis/SEAUX9_Royalty_Analysis_v1.0_20260319.md" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Team Document</div><a class="link-pill" href="file:///C:/Users/User/Desktop/PRML_STUDIO/08_STREAMING/SEAUX9/team/SEAUX9_RecordLabel_Team_v1.0_20260319.md" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">DistroKid</div><a class="link-pill" href="https://distrokid.com/dashboard" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Spotify for Artists</div><a class="link-pill" href="https://artists.spotify.com" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Apple Music for Artists</div><a class="link-pill" href="https://artists.apple.com" target="_blank">OPEN →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Next Actions</div>
+        <div style="font-size:13px;font-weight:300;line-height:2">
+          ☐ Audit "The Higher Statez" stream source<br>
+          ☐ Confirm ASCAP/BMI PRO registration<br>
+          ☐ Pitch 9TATEZ to Spotify editorial<br>
+          ☐ Set up monthly royalty auto-pull<br>
+          ☐ Explore Foundation/Zora for next NFT<br>
+          ☐ Formalize PRML–SEAUX9 deal memo
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ QUICK LINKS ══ -->
+  <div class="panel" id="tab-links">
+    <div class="section-title">Navigation</div>
+    <div class="section-head">Quick Links</div>
+
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin-bottom:10px">Admin Pages</div>
+    <div class="ql-grid">
+      <a class="ql" href="index.html"><div class="ql-title">Dashboard</div><div class="ql-sub">Admin home</div></a>
+      <a class="ql" href="booking.html"><div class="ql-title">Booking</div><div class="ql-sub">Consultation requests</div></a>
+      <a class="ql" href="blog.html"><div class="ql-title">Blog</div><div class="ql-sub">Post manager</div></a>
+      <a class="ql" href="invoice.html"><div class="ql-title">Invoice</div><div class="ql-sub">Generate invoices</div></a>
+      <a class="ql" href="analytics.html"><div class="ql-title">Analytics</div><div class="ql-sub">GA4 overview</div></a>
+      <a class="ql" href="goals.html"><div class="ql-title">Goals</div><div class="ql-sub">Business objectives</div></a>
+      <a class="ql" href="social.html"><div class="ql-title">Social</div><div class="ql-sub">Content planner</div></a>
+      <a class="ql" href="strategy.html"><div class="ql-title">Strategy</div><div class="ql-sub">Brand strategy</div></a>
+      <a class="ql" href="settings.html"><div class="ql-title">Settings</div><div class="ql-sub">Site config</div></a>
+    </div>
+
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin-bottom:10px">Site Pages</div>
+    <div class="ql-grid">
+      <a class="ql" href="../index.html" target="_blank"><div class="ql-title">Homepage ↗</div><div class="ql-sub">prmlrecords.com</div></a>
+      <a class="ql" href="../products.html" target="_blank"><div class="ql-title">Products ↗</div><div class="ql-sub">TAP CARD / TAP KEY</div></a>
+      <a class="ql" href="../services.html" target="_blank"><div class="ql-title">Services ↗</div><div class="ql-sub">All service tiers</div></a>
+      <a class="ql" href="../booking.html" target="_blank"><div class="ql-title">Booking ↗</div><div class="ql-sub">Consultation form</div></a>
+      <a class="ql" href="../contact.html" target="_blank"><div class="ql-title">Contact ↗</div><div class="ql-sub">Contact page</div></a>
+    </div>
+
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin-bottom:10px">External Platforms</div>
+    <div class="ql-grid">
+      <a class="ql" href="https://dashboard.stripe.com" target="_blank"><div class="ql-title">Stripe ↗</div><div class="ql-sub">Payments & products</div></a>
+      <a class="ql" href="https://app.hubspot.com" target="_blank"><div class="ql-title">HubSpot ↗</div><div class="ql-sub">CRM & contacts</div></a>
+      <a class="ql" href="https://app.brevo.com" target="_blank"><div class="ql-title">Brevo ↗</div><div class="ql-sub">Email marketing</div></a>
+      <a class="ql" href="https://zapier.com/app/zaps" target="_blank"><div class="ql-title">Zapier ↗</div><div class="ql-sub">Automation zaps</div></a>
+      <a class="ql" href="https://manychat.com" target="_blank"><div class="ql-title">ManyChat ↗</div><div class="ql-sub">Chat widget</div></a>
+      <a class="ql" href="https://analytics.google.com" target="_blank"><div class="ql-title">GA4 ↗</div><div class="ql-sub">G-2PNH2XTRDK</div></a>
+      <a class="ql" href="https://distrokid.com/dashboard" target="_blank"><div class="ql-title">DistroKid ↗</div><div class="ql-sub">SEAUX9 distribution</div></a>
+      <a class="ql" href="https://render.com/dashboard" target="_blank"><div class="ql-title">Render ↗</div><div class="ql-sub">Site deployment</div></a>
+      <a class="ql" href="https://dash.cloudflare.com" target="_blank"><div class="ql-title">Cloudflare ↗</div><div class="ql-sub">DNS & CDN</div></a>
+    </div>
+  </div>
+
+  <!-- ══ SETTINGS ══ -->
+  <div class="panel" id="tab-settings">
+    <div class="section-title">Configuration</div>
+    <div class="section-head">Site Settings</div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Console Access</div>
+        <div class="f-group">
+          <label class="f-label">Change Access Code</label>
+          <input class="f-input" id="new-pw" type="password" placeholder="New access code">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Confirm Access Code</label>
+          <input class="f-input" id="confirm-pw" type="password" placeholder="Confirm code">
+        </div>
+        <button class="btn btn-red btn-sm" onclick="changePw()">UPDATE CODE</button>
+        <div id="pw-msg" style="font-size:12px;margin-top:10px;display:none"></div>
+        <div style="font-size:11px;opacity:.35;margin-top:14px;font-weight:300;line-height:1.6">
+          Access code stored locally in browser.<br>
+          To make permanent: update DEFAULT_PW in console.html
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Site Info</div>
+        <div class="ctrl-row"><div class="ctrl-label">GA4 Tag</div><code style="font-size:11px;opacity:.5">G-2PNH2XTRDK</code></div>
+        <div class="ctrl-row"><div class="ctrl-label">Site URL</div><code style="font-size:11px;opacity:.5">prmlrecords.com</code></div>
+        <div class="ctrl-row"><div class="ctrl-label">Email</div><code style="font-size:11px;opacity:.5">info@prmlrecords.com</code></div>
+        <div class="ctrl-row"><div class="ctrl-label">Phone</div><code style="font-size:11px;opacity:.5">(770) 686-7726</code></div>
+        <div class="ctrl-row"><div class="ctrl-label">Host</div><code style="font-size:11px;opacity:.5">Render + Cloudflare CDN</code></div>
+        <div class="ctrl-row"><div class="ctrl-label">Stack</div><code style="font-size:11px;opacity:.5">HTML / CSS / JS (static)</code></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Brand Colors</div>
+        <div class="ctrl-row"><div class="ctrl-label">Primal Beige</div><code style="font-size:11px;opacity:.5">#F6E8C3</code><span style="display:inline-block;width:14px;height:14px;background:#F6E8C3;border:1px solid rgba(255,255,255,.2);margin-left:8px;vertical-align:middle"></span></div>
+        <div class="ctrl-row"><div class="ctrl-label">Primal Charcoal</div><code style="font-size:11px;opacity:.5">#2E2D2D</code><span style="display:inline-block;width:14px;height:14px;background:#2E2D2D;border:1px solid rgba(255,255,255,.2);margin-left:8px;vertical-align:middle"></span></div>
+        <div class="ctrl-row"><div class="ctrl-label">Primal Red</div><code style="font-size:11px;opacity:.5">#FE0103</code><span style="display:inline-block;width:14px;height:14px;background:#FE0103;margin-left:8px;vertical-align:middle"></span></div>
+        <div class="ctrl-row"><div class="ctrl-label">Primal Stone</div><code style="font-size:11px;opacity:.5">#635D52</code><span style="display:inline-block;width:14px;height:14px;background:#635D52;margin-left:8px;vertical-align:middle"></span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label" style="margin-bottom:14px">Emergency Procedures</div>
+        <div style="font-size:13px;font-weight:300;line-height:2">
+          <strong>Take site down:</strong> Render → Suspend service<br>
+          <strong>Disable payments:</strong> Stripe → Disable payment links<br>
+          <strong>Clear promo:</strong> Edit index.html, remove badge div<br>
+          <strong>Change price:</strong> Stripe → Edit product price<br>
+          <strong>Redirect domain:</strong> Cloudflare → DNS → A record<br>
+          <strong>Rollback:</strong> Render → Deploys → Rollback to prior
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end console -->
+
+<script>
+// ── ACCESS CONTROL ──────────────────────────────────────────────
+// FLY: Change default password here (line ~300 area):
+const DEFAULT_PW = 'PRMLfounderadminDCJ369';
+
+function tryLogin(){
+  const stored = localStorage.getItem('prml_console_pw') || DEFAULT_PW;
+  const input = document.getElementById('pw').value;
+  if(input === stored){
+    document.getElementById('login-wrap').style.display='none';
+    document.getElementById('console').classList.add('active');
+    localStorage.setItem('prml_authed','1');
+    startClock();
+    loadOrders();
+    loadSpots();
+  } else {
+    document.getElementById('pw-err').style.display='block';
+  }
+}
+
+function logout(){
+  localStorage.removeItem('prml_authed');
+  document.getElementById('login-wrap').style.display='flex';
+  document.getElementById('console').classList.remove('active');
+  document.getElementById('pw').value='';
+}
+
+// Auto-auth if session active
+window.onload = function(){
+  if(localStorage.getItem('prml_authed')){
+    document.getElementById('login-wrap').style.display='none';
+    document.getElementById('console').classList.add('active');
+    startClock();
+    loadOrders();
+    loadSpots();
+  }
+};
+
+// ── CLOCK ──────────────────────────────────────────────────────
+function startClock(){
+  function tick(){
+    const now = new Date();
+    document.getElementById('live-time').textContent =
+      now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})
+      + ' · ' + now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+  }
+  tick();
+  setInterval(tick, 30000);
+}
+
+// ── TABS ──────────────────────────────────────────────────────
+function showTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── PROMO CONTROLS ────────────────────────────────────────────
+let spots = 9;
+
+function loadSpots(){
+  const s = localStorage.getItem('prml_spots');
+  if(s !== null){ spots = parseInt(s); }
+  document.getElementById('spots-display').textContent = spots;
+  document.getElementById('ov-spots').textContent = spots;
+  document.getElementById('ov-spots-sub').textContent =
+    spots > 0 ? 'First 9 — setup fee waived' : 'CLOSED — All spots filled';
+}
+
+function adjustSpots(n){
+  spots = Math.max(0, Math.min(9, spots+n));
+  localStorage.setItem('prml_spots', spots);
+  document.getElementById('spots-display').textContent = spots;
+  document.getElementById('ov-spots').textContent = spots;
+  document.getElementById('ov-spots-sub').textContent =
+    spots > 0 ? 'First 9 — setup fee waived' : 'CLOSED — All spots filled';
+}
+
+function updatePromoPreview(){
+  document.getElementById('prev-label').textContent = document.getElementById('badge-label').value;
+  document.getElementById('prev-body').textContent = document.getElementById('badge-body').value;
+  document.getElementById('prev-cta').textContent = document.getElementById('badge-cta').value;
+}
+
+function generateBadgeCode(){
+  const label = document.getElementById('badge-label').value;
+  const body = document.getElementById('badge-body').value;
+  const cta = document.getElementById('badge-cta').value;
+  const code = `<div class="rev rev-4" style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(254,1,3,.08);border:1px solid rgba(254,1,3,.3);border-left:3px solid #FE0103;padding:10px 16px;max-width:480px">
+  <span style="font-family:'Rubik Mono One',monospace;font-size:10px;color:#FE0103;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap">${label}</span>
+  <span style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#2E2D2D;opacity:.75;line-height:1.4">${body}</span>
+  <a href="products.html#tap-card" style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:.1em;color:#FE0103;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(254,1,3,.4)">${cta}</a>
+</div>`;
+  const el = document.getElementById('badge-code-text');
+  el.textContent = code;
+  el.insertAdjacentHTML('afterbegin','<button class="copy-btn" onclick="copyCode(\'badge-code-text\')">COPY</button>');
+  document.getElementById('badge-code-output').style.display='block';
+}
+
+function generatePriceCode(){
+  const cp = document.getElementById('card-price').value;
+  const kp = document.getElementById('key-price').value;
+  const c10 = document.getElementById('card-10-price').value;
+  const k10 = document.getElementById('key-10-price').value;
+  const code = `In products.html, update these display prices:
+TAP CARD single:   ${cp}   (line ~236)
+TAP CARD 10-pack:  ${c10}  (line ~243)
+TAP KEY single:    ${kp}   (line ~260)
+TAP KEY 10-pack:   ${k10}  (line ~267)
+
+In Stripe dashboard, update the underlying prices at:
+dashboard.stripe.com/products`;
+  const el = document.getElementById('price-code-text');
+  el.textContent = code;
+  el.insertAdjacentHTML('afterbegin','<button class="copy-btn" onclick="copyCode(\'price-code-text\')">COPY</button>');
+  document.getElementById('price-code-output').style.display='block';
+}
+
+// ── ORDERS ────────────────────────────────────────────────────
+let orders = [];
+
+function loadOrders(){
+  const stored = localStorage.getItem('prml_orders');
+  if(stored) orders = JSON.parse(stored);
+  renderOrders();
+}
+
+function addOrder(){
+  const name = document.getElementById('o-name').value.trim();
+  const email = document.getElementById('o-email').value.trim();
+  if(!name){ alert('Customer name required'); return; }
+  const order = {
+    id: Date.now(),
+    date: new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),
+    name, email,
+    phone: document.getElementById('o-phone').value,
+    product: document.getElementById('o-product').value,
+    amount: document.getElementById('o-amount').value,
+    notes: document.getElementById('o-notes').value,
+    status: 'pending'
+  };
+  orders.unshift(order);
+  localStorage.setItem('prml_orders', JSON.stringify(orders));
+  renderOrders();
+  ['o-name','o-email','o-phone','o-amount','o-notes'].forEach(id=>document.getElementById(id).value='');
+}
+
+function toggleFulfill(id){
+  const o = orders.find(x=>x.id===id);
+  if(o) o.status = o.status==='fulfilled'?'pending':'fulfilled';
+  localStorage.setItem('prml_orders', JSON.stringify(orders));
+  renderOrders();
+}
+
+function deleteOrder(id){
+  if(!confirm('Delete this order?')) return;
+  orders = orders.filter(x=>x.id!==id);
+  localStorage.setItem('prml_orders', JSON.stringify(orders));
+  renderOrders();
+}
+
+function renderOrders(){
+  const list = document.getElementById('order-list');
+  const empty = document.getElementById('order-empty');
+  if(!orders.length){ list.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  list.innerHTML = orders.map(o=>`
+    <div class="order-item ${o.status==='fulfilled'?'fulfilled':''}">
+      <div>
+        <div style="font-weight:300;font-size:13px"><strong>${o.name}</strong> — ${o.product}</div>
+        <div class="order-meta">${o.date} · ${o.email} · ${o.phone} · ${o.amount}</div>
+        ${o.notes?`<div class="order-meta" style="margin-top:4px;opacity:.5">${o.notes}</div>`:''}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex-shrink:0">
+        <span class="badge ${o.status==='fulfilled'?'badge-fulfilled':'badge-pending'}">${o.status}</span>
+        <button class="btn btn-out btn-sm" onclick="toggleFulfill(${o.id})">${o.status==='fulfilled'?'UNMARK':'MARK DONE'}</button>
+        <button class="btn btn-out btn-sm" onclick="deleteOrder(${o.id})" style="border-color:rgba(254,1,3,.3)">DELETE</button>
+      </div>
+    </div>`).join('');
+}
+
+function exportOrders(){
+  if(!orders.length){ alert('No orders to export'); return; }
+  const headers = ['Date','Name','Email','Phone','Product','Amount','Notes','Status'];
+  const rows = orders.map(o=>[o.date,o.name,o.email,o.phone,o.product,o.amount,o.notes,o.status].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','),...rows].join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = 'PRML_Orders_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+}
+
+// ── UTILITIES ────────────────────────────────────────────────
+function copyText(text){
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = event.target;
+    const orig = btn.textContent;
+    btn.textContent = 'COPIED!';
+    setTimeout(()=>btn.textContent=orig, 1500);
+  });
+}
+
+function copyCode(id){
+  const el = document.getElementById(id);
+  const text = el.textContent.replace(/^COPY\n?/,'').trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = el.querySelector('.copy-btn');
+    if(btn){ btn.textContent='COPIED!'; setTimeout(()=>btn.textContent='COPY',1500); }
+  });
+}
+
+function changePw(){
+  const np = document.getElementById('new-pw').value;
+  const cp = document.getElementById('confirm-pw').value;
+  const msg = document.getElementById('pw-msg');
+  if(!np){ msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Enter a new code.'; return; }
+  if(np!==cp){ msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Codes do not match.'; return; }
+  localStorage.setItem('prml_console_pw', np);
+  msg.style.display='block'; msg.style.color='var(--green)'; msg.textContent='Access code updated.';
+  document.getElementById('new-pw').value='';
+  document.getElementById('confirm-pw').value='';
+}
+</script>
+</body>
+</html>

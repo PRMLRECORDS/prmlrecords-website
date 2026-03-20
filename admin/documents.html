@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Document Repository — PRML Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin.css">
+<style>
+.doc-cat-tabs{display:flex;gap:0;overflow-x:auto;border-bottom:2px solid var(--charcoal);margin-bottom:24px}
+.dct{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;padding:13px 18px;border:none;background:transparent;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s}
+.dct.active{opacity:1;color:var(--red);border-bottom-color:var(--red)}
+.doc-section{display:none}
+.doc-section.active{display:block}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;background:var(--charcoal)}
+.doc-card{background:var(--black);padding:24px;display:flex;flex-direction:column;transition:.2s}
+.doc-card:hover{background:rgba(224,16,16,.06)}
+.dc-type{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.dc-name{font-family:'Rubik Mono One',monospace;font-size:15px;color:var(--cream);letter-spacing:-0.3px;margin-bottom:8px;line-height:1.2}
+.dc-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.5;line-height:1.6;flex:1;margin-bottom:16px}
+.dc-actions{display:flex;gap:8px;flex-wrap:wrap}
+.dc-btn{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;border:none;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+.dc-btn-view{background:var(--red);color:var(--cream)}
+.dc-btn-view:hover{background:var(--charcoal)}
+.dc-btn-dl{background:rgba(245,230,200,.08);color:var(--cream)}
+.dc-btn-dl:hover{background:rgba(245,230,200,.15)}
+.dc-meta{font-family:'Roboto Slab',serif;font-size:10px;color:var(--cream);opacity:.25;margin-top:8px}
+.dc-status{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:2px 8px;margin-bottom:8px;display:inline-block}
+.status-ready{background:rgba(0,200,100,.12);color:#00c864}
+.status-draft{background:rgba(255,200,0,.1);color:#ffc800}
+.status-todo{background:rgba(100,100,100,.2);color:rgba(245,230,200,.4)}
+/* Upload area */
+.upload-zone{border:2px dashed rgba(245,230,200,.12);padding:32px;text-align:center;cursor:pointer;transition:.2s;margin-bottom:20px}
+.upload-zone:hover{border-color:var(--red);background:rgba(224,16,16,.04)}
+</style>
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo"><a href="../index.html">PRML</a></div>
+    <nav class="sidebar-nav">
+      <a href="index.html">Dashboard</a>
+      <a href="booking.html">🎤 Booking</a>
+      <a href="invoice.html">Invoice</a>
+      <a href="blog.html">Blog</a>
+      <a href="goals.html">Goals</a>
+      <a href="grants.html">Grants</a>
+      <a href="social.html">Social Hub</a>
+      <a href="documents.html" class="active">Documents</a>
+      <a href="strategy.html">Strategy</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="product-scanner.html">Products</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-page-title">📁 Document Repository</div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-admin btn-red" onclick="document.getElementById('upload-modal').style.display='flex'">+ Upload Doc</button>
+      </div>
+    </div>
+
+    <div style="background:rgba(224,16,16,.08);border-left:4px solid var(--red);padding:14px 18px;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);line-height:1.7;margin-bottom:20px">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:6px">📋 Document Status</strong>
+      Documents marked <span style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;background:rgba(0,200,100,.12);color:#00c864;padding:2px 8px">READY</span> are available for download and client presentation. 
+      Documents marked <span style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;background:rgba(255,200,0,.1);color:#ffc800;padding:2px 8px">DRAFT</span> need brand colors/fonts updated. Upload finalized versions above.
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="doc-cat-tabs">
+      <button class="dct active" onclick="showDocCat('all')">All Documents</button>
+      <button class="dct" onclick="showDocCat('contracts')">Contracts</button>
+      <button class="dct" onclick="showDocCat('agreements')">Agreements</button>
+      <button class="dct" onclick="showDocCat('marketing')">Marketing</button>
+      <button class="dct" onclick="showDocCat('brand')">Brand & Identity</button>
+      <button class="dct" onclick="showDocCat('press')">Press Kits</button>
+      <button class="dct" onclick="showDocCat('guides')">Guides</button>
+      <button class="dct" onclick="showDocCat('finance')">Finance</button>
+    </div>
+
+    <!-- ALL docs section -->
+    <div id="doc-all" class="doc-section active">
+      <div class="doc-grid" id="doc-grid-main"></div>
+    </div>
+
+    <!-- Individual category sections (filtered views) -->
+    <div id="doc-contracts" class="doc-section"></div>
+    <div id="doc-agreements" class="doc-section"></div>
+    <div id="doc-marketing" class="doc-section"></div>
+    <div id="doc-brand" class="doc-section"></div>
+    <div id="doc-press" class="doc-section"></div>
+    <div id="doc-guides" class="doc-section"></div>
+    <div id="doc-finance" class="doc-section"></div>
+
+    <!-- Storage note -->
+    <div style="margin-top:24px;padding:16px;background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.06);font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.5;line-height:1.7">
+      💾 Documents are stored in this browser's local storage and in your GitHub repository under <code>/docs/</code>. 
+      To make documents publicly accessible and downloadable from the website, upload them to your GitHub repo and they'll be available at <code>prmlrecords.com/docs/filename.pdf</code>.
+      For large files, use Google Drive with a shareable link.
+    </div>
+  </main>
+</div>
+
+<!-- Upload Modal -->
+<div id="upload-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;padding:20px">
+  <div style="background:var(--charcoal);padding:36px;max-width:480px;width:100%;border-top:4px solid var(--red)">
+    <div style="font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--red);margin-bottom:20px">Upload Document</div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div><label class="field-label">Document Name *</label><input id="up-name" class="field-input" type="text" placeholder="e.g. Audio Production Contract v2"></div>
+      <div><label class="field-label">Category *</label>
+        <select id="up-cat" class="field-input">
+          <option value="contracts">Contract</option>
+          <option value="agreements">Agreement</option>
+          <option value="marketing">Marketing</option>
+          <option value="brand">Brand & Identity</option>
+          <option value="press">Press Kit</option>
+          <option value="guides">Guide</option>
+          <option value="finance">Finance</option>
+        </select>
+      </div>
+      <div><label class="field-label">Description</label><input id="up-desc" class="field-input" type="text" placeholder="Brief description of this document"></div>
+      <div><label class="field-label">File URL (Google Drive, Dropbox, etc.)</label><input id="up-url" class="field-input" type="url" placeholder="https://drive.google.com/..."></div>
+      <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.4;line-height:1.6">
+        Tip: Upload to Google Drive → right-click → Get link → Anyone with link can view → paste URL above.
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:20px">
+      <button onclick="saveDocument()" style="background:var(--red);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 20px;border:none;cursor:pointer">Save Document</button>
+      <button onclick="document.getElementById('upload-modal').style.display='none'" style="background:rgba(245,230,200,.08);color:var(--cream);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 20px;border:none;cursor:pointer">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/admin-auth.js"></script>
+<script>
+const DEFAULT_DOCS = [
+  {id:'contract-audio',name:'Audio Production Contract',cat:'contracts',desc:'Standard audio production agreement covering studio sessions, mixing, mastering, and delivery. Client rights, payment terms, and revision policy included.',status:'draft',icon:'🎙️',type:'Contract'},
+  {id:'contract-fab',name:'Custom Fabrication Contract',cat:'contracts',desc:'Agreement for laser cutting, engraving, 3D printing, and custom product orders. Covers design approval, production timeline, and payment terms.',status:'draft',icon:'⚙️',type:'Contract'},
+  {id:'contract-web',name:'Web Development Contract',cat:'contracts',desc:'Web design and development agreement with scope of work, timeline, revision rounds, hosting handoff, and payment milestones.',status:'draft',icon:'💻',type:'Contract'},
+  {id:'contract-photo',name:'Photography Contract',cat:'contracts',desc:'Photography services agreement covering usage rights, delivery timeline, raw file policy, and cancellation terms.',status:'draft',icon:'📸',type:'Contract'},
+  {id:'contract-video',name:'Videography Contract',cat:'contracts',desc:'Video production contract covering shoot, edit, revisions, delivery format, and usage licensing.',status:'draft',icon:'🎬',type:'Contract'},
+  {id:'agreement-consult',name:'Consultation Agreement',cat:'agreements',desc:'Consultation services agreement. Covers hourly rate, session scope, confidentiality, and consultation-as-deposit policy.',status:'draft',icon:'🤝',type:'Agreement'},
+  {id:'agreement-booking',name:'Artist Booking Agreement',cat:'agreements',desc:'Performance booking contract for SEAUX9 and The Divine Sound. Includes deposit policy, rider requirements, cancellation terms, and day-of expectations.',status:'draft',icon:'🎤',type:'Agreement'},
+  {id:'agreement-license',name:'Music License Agreement',cat:'agreements',desc:'Beat lease and music licensing agreement. Covers non-exclusive and exclusive licensing terms, usage rights, and royalty splits.',status:'draft',icon:'🎵',type:'Agreement'},
+  {id:'agreement-nda',name:'NDA — Non-Disclosure Agreement',cat:'agreements',desc:'Standard NDA for client projects, business consultations, and sensitive creative work.',status:'draft',icon:'🔒',type:'Agreement'},
+  {id:'brochure',name:'PRML Records Product Brochure',cat:'marketing',desc:'Full product and NFC marketing materials brochure. Covers all industries — automotive, real estate, restaurant, events, and more.',status:'ready',icon:'📋',type:'Brochure',url:'../admin/PRML_Records_Brochure_v5.pptx'},
+  {id:'email-guide',name:'Email Branding Guide',cat:'brand',desc:'Email signature design, templates, and brand standards for all PRML Records communications.',status:'ready',icon:'📧',type:'Guide',url:'email-branding-guide.html'},
+  {id:'brand-guide',name:'Brand Identity Guide',cat:'brand',desc:'Complete PRML Records brand standards — colors, fonts, logo usage, tone of voice, and visual guidelines.',status:'draft',icon:'🎨',type:'Guide'},
+  {id:'press-seaux9',name:'SEAUX9 Artist Press Kit',cat:'press',desc:'EPK for SEAUX9 solo artist. Bio, photos, press clips, performance history, and booking contact.',status:'draft',icon:'⭐',type:'Press Kit'},
+  {id:'press-divine',name:'SEAUX9 & The Divine Sound EPK',cat:'press',desc:'Electronic press kit for the full band. Bio, member roster, genres, performance highlights, and booking info.',status:'draft',icon:'🎸',type:'Press Kit'},
+  {id:'guide-iphone',name:'iPhone Shortcuts Guide',cat:'guides',desc:'How to use iPhone Shortcuts to send leads, log orders, and update Google Sheets on the go.',status:'ready',icon:'📱',type:'Guide',url:'IPHONE-SHORTCUTS-GUIDE.md'},
+  {id:'guide-sheets',name:'Google Sheets Setup Guide',cat:'guides',desc:'Complete guide to setting up your Google Sheets CMS — all tabs, column formats, and Apps Script integration.',status:'ready',icon:'📊',type:'Guide',url:'SHEETS-SETUP-GUIDE.txt'},
+  {id:'guide-deploy',name:'Website Deployment Guide',cat:'guides',desc:'Step-by-step guide to deploying the PRML Records website on GitHub + Render.com.',status:'ready',icon:'🚀',type:'Guide',url:'README-DEPLOY.md'},
+  {id:'invoice-template',name:'Invoice Template',cat:'finance',desc:'Branded PRML Records invoice template. Covers labor, materials, setup fees, and payment terms.',status:'draft',icon:'💰',type:'Template'},
+  {id:'price-list',name:'Full Price List',cat:'finance',desc:'Complete internal pricing guide for all services and products. Includes cost structure, markup, and discount policy.',status:'draft',icon:'💲',type:'Internal Doc'},
+];
+
+function loadDocs() {
+  let stored = [];
+  try { stored = JSON.parse(localStorage.getItem('prml_docs') || '[]'); } catch(e) {}
+  const all = [...DEFAULT_DOCS, ...stored];
+  renderDocs(all);
+}
+
+function renderDocs(docs) {
+  const grid = document.getElementById('doc-grid-main');
+  grid.innerHTML = docs.map(doc => renderDocCard(doc)).join('');
+
+  // Render filtered sections
+  ['contracts','agreements','marketing','brand','press','guides','finance'].forEach(cat => {
+    const el = document.getElementById('doc-' + cat);
+    if (el) {
+      const filtered = docs.filter(d => d.cat === cat);
+      el.innerHTML = filtered.length
+        ? '<div class="doc-grid">' + filtered.map(renderDocCard).join('') + '</div>'
+        : '<div style="padding:40px;text-align:center;font-family:\'Roboto Slab\',serif;font-size:13px;color:var(--cream);opacity:.4">No documents in this category yet.</div>';
+    }
+  });
+}
+
+function renderDocCard(doc) {
+  const statusClass = doc.status === 'ready' ? 'status-ready' : doc.status === 'draft' ? 'status-draft' : 'status-todo';
+  const statusLabel = doc.status === 'ready' ? 'Ready' : doc.status === 'draft' ? 'Needs Update' : 'Not Started';
+  const viewBtn = doc.url
+    ? `<a class="dc-btn dc-btn-view" href="${doc.url}" target="_blank">View →</a>`
+    : `<button class="dc-btn dc-btn-view" onclick="requestDoc('${doc.id}')">View →</button>`;
+
+  return `
+    <div class="doc-card">
+      <div style="font-size:24px;margin-bottom:10px">${doc.icon || '📄'}</div>
+      <div class="dc-type">${doc.type || 'Document'}</div>
+      <span class="dc-status ${statusClass}">${statusLabel}</span>
+      <div class="dc-name">${doc.name}</div>
+      <div class="dc-desc">${doc.desc}</div>
+      <div class="dc-actions">
+        ${viewBtn}
+        ${doc.url ? `<a class="dc-btn dc-btn-dl" href="${doc.url}" download>⬇ Download</a>` : ''}
+        <button class="dc-btn dc-btn-dl" onclick="presentDoc('${doc.id}')">📋 Present</button>
+      </div>
+    </div>`;
+}
+
+function showDocCat(cat) {
+  document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.dct').forEach(b => b.classList.remove('active'));
+  document.getElementById('doc-' + cat).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+function requestDoc(id) {
+  const doc = DEFAULT_DOCS.find(d => d.id === id);
+  alert(`"${doc?.name}" needs to be updated with PRML brand colors and fonts, then uploaded.\n\nSteps:\n1. Open the document in its original format\n2. Update colors to: Black #0D0D0D, Charcoal #2B2B2B, Red #E01010, Cream #F5E6C8\n3. Update fonts to match brand typography\n4. Upload to Google Drive and paste link via the Upload button above\n\nOr ask Claude to regenerate it with correct branding in a new conversation.`);
+}
+
+function presentDoc(id) {
+  const doc = DEFAULT_DOCS.find(d => d.id === id) || {};
+  if (doc.url) { window.open(doc.url, '_blank'); return; }
+  alert(`Presentation mode for "${doc.name}":\n\nOnce this document is uploaded, it will open full-screen in your browser for client presentations.\n\nTo enable: click "Upload Doc", paste the Google Drive link, and save.`);
+}
+
+function saveDocument() {
+  const name = document.getElementById('up-name').value.trim();
+  const cat = document.getElementById('up-cat').value;
+  const desc = document.getElementById('up-desc').value.trim();
+  const url = document.getElementById('up-url').value.trim();
+  if (!name) { alert('Document name is required'); return; }
+
+  let stored = [];
+  try { stored = JSON.parse(localStorage.getItem('prml_docs') || '[]'); } catch(e) {}
+  stored.push({ id:'custom-'+Date.now(), name, cat, desc, url, status:'ready', icon:'📄', type: cat.charAt(0).toUpperCase()+cat.slice(1) });
+  localStorage.setItem('prml_docs', JSON.stringify(stored));
+
+  document.getElementById('upload-modal').style.display = 'none';
+  loadDocs();
+}
+
+document.addEventListener('DOMContentLoaded', loadDocs);
+</script>
+</body></html>
