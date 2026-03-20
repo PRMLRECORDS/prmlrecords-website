@@ -6,9 +6,9 @@
 <title>Customer Support | PRML Records LLC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;600&display=swap"></noscript>
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;600&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
 <meta name="description" content="Customer support for PRML Records LLC. Get help with orders, projects, and general inquiries.">
 <meta name="theme-color" content="#0D0D0D">
 <!-- GA4 — PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
@@ -31,15 +31,44 @@
 </script>
 </head>
 <body>
-<nav class="navbar">
-  <a href="/" class="nav-logo">PRML<span>.</span></a>
-  <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-  <ul class="nav-links">
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/products.html">Products</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-    <li><a href="/booking.html" class="btn-nav">Book Now</a></li>
-  </ul>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML Records logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
 </nav>
 
 <section style="padding:80px 40px 30px; max-width:800px; margin:0 auto;">
@@ -158,7 +187,7 @@
   <select class="signup-select" id="signup-interest">
     <option value="">What are you interested in? (optional)</option>
     <option value="Music &amp; Events">Music &amp; Events</option>
-    <option value="NFC Products (PRML TAP CARD / TAP KEY)">NFC Products (PRML TAP CARD / TAP KEY)</option>
+    <option value="NFC Products (PRML TAP CARD / TAP KEYCHAIN)">NFC Products (PRML TAP CARD / TAP KEYCHAIN)</option>
     <option value="Creative Services">Creative Services</option>
     <option value="Brand &amp; Design">Brand &amp; Design</option>
     <option value="Manufacturing &amp; Print">Manufacturing &amp; Print</option>
@@ -234,7 +263,7 @@ async function submitPRMLSignup(e){
     <h4>Services</h4>
     <a href="booking.html">Book a Consultation</a><a href="contact.html">Request a Quote</a>
     <a href="services.html">View Services</a><a href="products.html#tap-card">PRML TAP CARD</a>
-    <a href="products.html#tap-key">PRML TAP KEY</a>
+    <a href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
   </div>
   <div class="footer2__col">
     <h4>Company</h4>
@@ -251,6 +280,6 @@ async function submitPRMLSignup(e){
   <div class="footer2__copy">&#169; 2026 PRML RECORDS LLC. All rights reserved. &#183; Atlanta, GA &#183; @PRMLRECORDS</div>
 </div>
 </footer>
-<script src="/js/main.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

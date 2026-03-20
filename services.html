@@ -8,8 +8,8 @@
 <title>Services — PRML RECORDS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
 <style>
 .consult-banner{background:var(--red);padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -97,40 +97,45 @@
   </div>
 </div>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav__left">
-    <a href="index.html"><img src="assets/logo.png" id="nav-logo" style="height:36px;width:auto" alt="PRML RECORDS"></a>
-    <span class="nav__divider"></span>
-    <div class="nav__links">
-      <a href="index.html" class="nl">Home</a>
-      <span class="nl nl--has-drop active">Services
-        <span class="nl__drop">
-          <a href="services.html">All Services</a>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="booking.html">Book a Consultation</a>
-          <a href="contact.html">Get a Quote</a>
-        </span>
-      </span>
-      <a href="products.html" class="nl">Shop</a>
-      <a href="booking.html" class="nl">Booking</a>
-      <a href="contact.html" class="nl">Contact</a>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML Records logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="nav__right">
-    <a href="tel:7706867726" class="nav__phone">770-686-7726</a>
-    <button class="cart-btn" onclick="openCart()">Cart <span class="cart-count">0</span></button>
-    <button class="nav__burger" onclick="toggleMob()">&#9776;</button>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
   </div>
 </nav>
-<div class="mob-menu" id="mob">
-  <a href="index.html" onclick="closeMob()">Home</a>
-  <a href="services.html" onclick="closeMob()">Services</a>
-  <a href="how-it-works.html" onclick="closeMob()">How It Works</a>
-  <a href="products.html" onclick="closeMob()">Shop</a>
-  <a href="booking.html" onclick="closeMob()">Booking</a>
-  <a href="contact.html" onclick="closeMob()">Contact</a>
-</div>
 
 <!-- HERO -->
 <div class="svc-hero rev">
@@ -340,18 +345,18 @@
         <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-card" class="btn btn--red btn--sm">Order</a></div>
       </div>
       <div class="svc-card">
-        <div class="sc-name">PRML TAP KEY — Single</div>
+        <div class="sc-name">PRML TAP KEYCHAIN — Single</div>
         <div class="sc-desc">Always with you. Always ready. Your full digital profile on your keychain — tap and share anywhere, with anyone, without reaching for your wallet.</div>
         <div class="sc-price">$21.99</div>
         <div class="sc-deposit">Ships 3&ndash;5 days &middot; Programmed before it ships</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-key" class="btn btn--red btn--sm">Order</a></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-keychain" class="btn btn--red btn--sm">Order</a></div>
       </div>
       <div class="svc-card">
-        <div class="sc-name">PRML TAP KEY — 10-Pack</div>
-        <div class="sc-desc">Your whole crew, connected. Ten TAP KEYs for the team that's always moving — gift them, equip them, never miss a connection.</div>
+        <div class="sc-name">PRML TAP KEYCHAIN — 10-Pack</div>
+        <div class="sc-desc">Your whole crew, connected. Ten TAP KEYCHAINs for the team that's always moving — gift them, equip them, never miss a connection.</div>
         <div class="sc-price">$219.90</div>
         <div class="sc-deposit">$21.99/key &middot; Ships 5&ndash;7 days &middot; All programmed</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-key" class="btn btn--red btn--sm">Order</a></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="products.html#tap-keychain" class="btn btn--red btn--sm">Order</a></div>
       </div>
       <div class="svc-card">
         <div class="sc-name">Custom NFC Setup + Landing Page</div>
@@ -620,7 +625,7 @@
   <select class="signup-select" id="signup-interest">
     <option value="">What are you interested in? (optional)</option>
     <option value="Music &amp; Events">Music &amp; Events</option>
-    <option value="NFC Products (PRML TAP CARD / TAP KEY)">NFC Products (PRML TAP CARD / TAP KEY)</option>
+    <option value="NFC Products (PRML TAP CARD / TAP KEYCHAIN)">NFC Products (PRML TAP CARD / TAP KEYCHAIN)</option>
     <option value="Creative Services">Creative Services</option>
     <option value="Brand &amp; Design">Brand &amp; Design</option>
     <option value="Manufacturing &amp; Print">Manufacturing &amp; Print</option>
@@ -697,7 +702,7 @@ async function submitPRMLSignup(e){
     <a href="booking.html">Book a Consultation</a><a href="contact.html">Request a Quote</a>
     <a href="services.html">View Services</a><a href="how-it-works.html">How It Works</a>
     <a href="products.html#tap-card">PRML TAP CARD</a>
-    <a href="products.html#tap-key">PRML TAP KEY</a>
+    <a href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
   </div>
   <div class="footer2__col">
     <h4>Company</h4>

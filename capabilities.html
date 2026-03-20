@@ -376,13 +376,10 @@
 .nav2__drop-link{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F6E8C3;text-decoration:none;padding:10px 16px;border-bottom:1px solid rgba(99,93,82,.3);transition:background .15s}
 .nav2__drop-link:last-child{border-bottom:none}
 .nav2__drop-link:hover{background:#635D52}
-.nav2__phone{font-family:'Roboto Slab',serif;font-size:13px;color:#635D52}
-.nav2__phone a{color:#F6E8C3;text-decoration:none}
 .nav2__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
 .nav2__burger span{display:block;width:24px;height:2px;background:#F6E8C3;border-radius:2px}
 @media(max-width:768px){
   .nav2__links{display:none}
-  .nav2__phone{display:none}
   .nav2__burger{display:flex}
   .nav2.mob-open .nav2__links{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#2E2D2D;padding:16px;gap:2px;border-bottom:2px solid #635D52}
   .nav2.mob-open .nav2__dropdown{position:static;border:none;box-shadow:none;background:rgba(99,93,82,.2);border-radius:0;display:block;padding-left:16px}
@@ -395,13 +392,11 @@
     <a class="nav2__brand" href="index.html"><img src="assets/logo.svg" alt="PRML Records" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'"><span class="nav2__brand-name">PRML <span class="nrec" style="font-family:'Nabla',system-ui;font-optical-sizing:auto;font-variation-settings:'EDPT' 100,'EHLT' 12;color:#FE0103;-webkit-text-fill-color:#FE0103;background:none;-webkit-background-clip:unset;">RECORDS</span></span></a>
     <div class="nav2__links">
       <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
-      <div class="nav2__item"><a class="nav2__link" href="blog/">Blog</a></div>
-      <div class="nav2__item"><a class="nav2__link" href="media.html">Media</a></div>
       <div class="nav2__item">
-        <a class="nav2__link" href="products.html">Products <span class="nav2__caret">&#9662;</span></a>
+        <a class="nav2__link" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
         <div class="nav2__dropdown">
           <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
-          <a class="nav2__drop-link" href="products.html#tap-key">PRML TAP KEY</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
         </div>
       </div>
       <div class="nav2__item">
@@ -415,6 +410,8 @@
       <div class="nav2__item">
         <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
         <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
           <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
           <a class="nav2__drop-link" href="press.html">Press</a>
           <a class="nav2__drop-link" href="support.html">Support</a>
@@ -422,7 +419,6 @@
         </div>
       </div>
     </div>
-    <div class="nav2__phone">&#128222; <a href="tel:7706867726">(770) 686-7726</a></div>
     <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
   </div>
 </nav>

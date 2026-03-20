@@ -6,28 +6,142 @@
 <title>Order Confirmed | PRML Records LLC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&display=swap"></noscript>
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&family=Nabla&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400&family=Nabla&display=swap"></noscript>
+<link rel="stylesheet" href="../css/styles.css">
 <meta name="theme-color" content="#0D0D0D">
 <style>
-  .confirm-hero { text-align:center; padding:80px 40px 50px; }
-  .confirm-icon { font-size:3rem; margin-bottom:16px; }
-  .confirm-hero h1 { font-family:'Rubik Mono One',monospace; font-size:clamp(1.8rem,4vw,2.6rem); color:#F5E6C8; margin-bottom:12px; }
-  .confirm-hero p { color:rgba(245,230,200,.65); font-size:.95rem; max-width:520px; margin:0 auto; line-height:1.7; }
-  .next-steps { max-width:700px; margin:0 auto; padding:0 40px 60px; }
-  .steps-title { font-family:'Odibee Sans',sans-serif; font-size:.75rem; letter-spacing:.25em; color:#E01010; text-transform:uppercase; margin-bottom:16px; }
-  .step-item { background:#2B2B2B; border-left:3px solid #E01010; padding:18px 22px; margin-bottom:10px; display:flex; gap:16px; align-items:flex-start; }
-  .step-num { font-family:'Rubik Mono One',monospace; font-size:1.2rem; color:rgba(224,16,16,.4); min-width:28px; }
-  .step-text h3 { font-family:'Odibee Sans',sans-serif; font-size:.85rem; letter-spacing:.06em; color:#F5E6C8; text-transform:uppercase; margin-bottom:4px; }
-  .step-text p { font-size:.83rem; color:rgba(245,230,200,.55); line-height:1.6; }
-  .resources { max-width:700px; margin:0 auto; padding:0 40px 60px; }
-  .resources h2 { font-family:'Rubik Mono One',monospace; font-size:1.2rem; color:#F5E6C8; margin-bottom:20px; }
-  .resource-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
-  .resource-card { background:#2B2B2B; padding:18px; text-decoration:none; display:block; }
-  .resource-card:hover { background:#333; }
-  .resource-card .rc-label { font-family:'Odibee Sans',sans-serif; font-size:.7rem; letter-spacing:.15em; color:#E01010; text-transform:uppercase; margin-bottom:6px; }
-  .resource-card .rc-title { font-size:.88rem; color:#F5E6C8; line-height:1.5; }
+  /* ── Confirm Hero ── */
+  .confirm-hero {
+    text-align: center;
+    padding: 120px 40px 80px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .confirm-icon {
+    font-size: 3.5rem;
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .confirm-hero h1 {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #F5E6C8;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+  .confirm-hero p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    color: rgba(245,230,200,.6);
+    font-size: clamp(0.88rem, 1.2vw, 1rem);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ── Next Steps ── */
+  .next-steps {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+  .steps-title {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #E01010;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px 28px;
+    margin-bottom: 2px;
+    background: rgba(245,230,200,.03);
+    border-left: 2px solid #E01010;
+    transition: background .2s;
+  }
+  .step-item:hover {
+    background: rgba(245,230,200,.06);
+  }
+  .step-num {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 1.4rem;
+    color: rgba(224,16,16,.25);
+    min-width: 32px;
+    line-height: 1.2;
+  }
+  .step-text h3 {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: #F5E6C8;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .step-text p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 0.84rem;
+    color: rgba(245,230,200,.5);
+    line-height: 1.7;
+  }
+
+  /* ── Resources ── */
+  .resources {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+  .resources h2 {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 1rem;
+    color: #F5E6C8;
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2px;
+  }
+  .resource-card {
+    background: rgba(245,230,200,.03);
+    padding: 24px;
+    text-decoration: none;
+    display: block;
+    transition: background .2s;
+  }
+  .resource-card:hover {
+    background: rgba(245,230,200,.07);
+  }
+  .resource-card .rc-label {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #E01010;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .resource-card .rc-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 0.88rem;
+    color: #F5E6C8;
+    line-height: 1.5;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .confirm-hero { padding: 100px 24px 60px; }
+    .next-steps, .resources { padding-left: 24px; padding-right: 24px; }
+    .step-item { padding: 20px; gap: 16px; }
+  }
 </style>
 <!-- GA4 — PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
@@ -49,23 +163,56 @@
 </script>
 </head>
 <body>
-<nav class="navbar">
-  <a href="/" class="nav-logo">PRML<span>.</span></a>
-  <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-  <ul class="nav-links">
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/products.html">Products</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-    <li><a href="/booking.html" class="btn-nav">Book Now</a></li>
-  </ul>
+
+<!-- NAV2 — PRML RECORDS -->
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="PRML Records logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="../index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="../products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="../products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="../products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="../services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="../booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="../contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="../services.html">View Services</a>
+          <a class="nav2__drop-link" href="../how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="../blog/">Blog</a>
+          <a class="nav2__drop-link" href="../media.html">Media</a>
+          <a class="nav2__drop-link" href="../affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="../press.html">Press</a>
+          <a class="nav2__drop-link" href="../support.html">Support</a>
+          <a class="nav2__drop-link" href="../pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
 </nav>
 
+<!-- CONFIRM HERO -->
 <div class="confirm-hero">
-  <div class="confirm-icon">✊🏾</div>
+  <div class="confirm-icon">&#9994;&#127998;</div>
   <h1>You're confirmed.</h1>
-  <p>Your order is in. We appreciate your support of a Black-owned Atlanta business. A confirmation email is on its way — check your inbox (and spam folder just in case).</p>
+  <p>Your order is in. We appreciate your support of a Black-owned Atlanta business. A confirmation email is on its way &mdash; check your inbox (and spam folder just in case).</p>
 </div>
 
+<!-- NEXT STEPS -->
 <div class="next-steps">
   <div class="steps-title">What Happens Next</div>
   <div class="step-item">
@@ -91,22 +238,23 @@
   </div>
 </div>
 
+<!-- RESOURCES -->
 <div class="resources">
   <h2>While You Wait</h2>
   <div class="resource-grid">
-    <a href="/services.html" class="resource-card">
+    <a href="../services.html" class="resource-card">
       <div class="rc-label">Explore</div>
       <div class="rc-title">View All Services</div>
     </a>
-    <a href="/card/" class="resource-card">
+    <a href="../card/" class="resource-card">
       <div class="rc-label">Save</div>
       <div class="rc-title">Download Our Contact Card</div>
     </a>
-    <a href="/faq.html" class="resource-card">
+    <a href="../faq.html" class="resource-card">
       <div class="rc-label">Learn</div>
       <div class="rc-title">Frequently Asked Questions</div>
     </a>
-    <a href="/contact.html" class="resource-card">
+    <a href="../contact.html" class="resource-card">
       <div class="rc-label">Questions?</div>
       <div class="rc-title">Contact Us Directly</div>
     </a>
@@ -140,7 +288,7 @@
   <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#129309;</div><div class="launch-promo__perk-title">Free Consultation</div><div class="launch-promo__perk-desc">Every deposit includes a free 30-minute 1-on-1 consultation.</div></div>
   <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#128274;</div><div class="launch-promo__perk-title">Secure Your Spot</div><div class="launch-promo__perk-desc">50% deposit locks in your project and your launch pricing.</div></div>
 </div>
-<a class="launch-promo__cta" href="booking.html">Book Your Consultation &#8594;</a>
+<a class="launch-promo__cta" href="../booking.html">Book Your Consultation &#8594;</a>
 <p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML RECORDS discretion &#183; One per client</p>
 </section>
 
@@ -171,7 +319,7 @@
   <select class="signup-select" id="signup-interest">
     <option value="">What are you interested in? (optional)</option>
     <option value="Music &amp; Events">Music &amp; Events</option>
-    <option value="NFC Products (PRML TAP CARD / TAP KEY)">NFC Products (PRML TAP CARD / TAP KEY)</option>
+    <option value="NFC Products (PRML TAP CARD / TAP KEYCHAIN)">NFC Products (PRML TAP CARD / TAP KEYCHAIN)</option>
     <option value="Creative Services">Creative Services</option>
     <option value="Brand &amp; Design">Brand &amp; Design</option>
     <option value="Manufacturing &amp; Print">Manufacturing &amp; Print</option>
@@ -184,7 +332,7 @@
 async function submitPRMLSignup(e){
   e.preventDefault();
   var btn=document.getElementById('signup-submit-btn');
-  btn.textContent='Sending…';btn.disabled=true;
+  btn.textContent='Sending\u2026';btn.disabled=true;
   var gasUrl=typeof GAS_URL!=='undefined'?GAS_URL:'';
   var payload={action:'mailingList',name:document.getElementById('signup-name').value.trim(),email:document.getElementById('signup-email').value.trim(),interest:document.getElementById('signup-interest').value,timestamp:new Date().toISOString()};
   if(gasUrl){try{await fetch(gasUrl,{method:'POST',mode:'no-cors',body:JSON.stringify(payload),headers:{'Content-Type':'application/json'}})}catch(e){}}
@@ -193,6 +341,7 @@ async function submitPRMLSignup(e){
 }
 </script>
 </section>
+
 <!-- FOOTER — PRML RECORDS v3 2026 -->
 <footer class="footer2">
 <style>
@@ -240,22 +389,22 @@ async function submitPRMLSignup(e){
   </div>
   <div class="footer2__col">
     <h4>Navigate</h4>
-    <a href="index.html">Home</a><a href="blog/">Blog</a><a href="media.html">Media</a>
-    <a href="products.html">Products</a><a href="services.html">Services</a>
+    <a href="../index.html">Home</a><a href="../blog/">Blog</a><a href="../media.html">Media</a>
+    <a href="../products.html">Products</a><a href="../services.html">Services</a>
   </div>
   <div class="footer2__col">
     <h4>Services</h4>
-    <a href="booking.html">Book a Consultation</a><a href="contact.html">Request a Quote</a>
-    <a href="services.html">View Services</a><a href="products.html#tap-card">PRML TAP CARD</a>
-    <a href="products.html#tap-key">PRML TAP KEY</a>
+    <a href="../booking.html">Book a Consultation</a><a href="../contact.html">Request a Quote</a>
+    <a href="../services.html">View Services</a><a href="../products.html#tap-card">PRML TAP CARD</a>
+    <a href="../products.html#tap-keychain">PRML TAP KEYCHAIN</a>
   </div>
   <div class="footer2__col">
     <h4>Company</h4>
-    <a href="affiliate.html">Affiliate Program</a><a href="press.html">Press</a>
-    <a href="support.html">Support</a>
-    <a href="pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
-    <a href="privacypolicy.html">Privacy Policy</a><a href="termsofservice.html">Terms of Service</a>
-    <a href="https://namecheap.pxf.io/prmlrecords" target="_blank" rel="noopener sponsored">Get a Domain ↗</a>
+    <a href="../affiliate.html">Affiliate Program</a><a href="../press.html">Press</a>
+    <a href="../support.html">Support</a>
+    <a href="../pages/PRML_Policies_Terms_Page_2026.html">Policies &amp; Terms</a>
+    <a href="../privacypolicy.html">Privacy Policy</a><a href="../termsofservice.html">Terms of Service</a>
+    <a href="https://namecheap.pxf.io/prmlrecords" target="_blank" rel="noopener sponsored">Get a Domain &#8599;</a>
   </div>
 </div>
 <div class="footer2__bottom">
@@ -264,6 +413,6 @@ async function submitPRMLSignup(e){
   <div class="footer2__copy">&#169; 2026 PRML RECORDS LLC. All rights reserved. &#183; Atlanta, GA &#183; @PRMLRECORDS</div>
 </div>
 </footer>
-<script src="/js/main.js" defer></script>
+<script src="../js/main.js" defer></script>
 </body>
 </html>

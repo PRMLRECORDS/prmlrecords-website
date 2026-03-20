@@ -16,14 +16,14 @@
         "hook": "Stop handing out cards people throw away.",
         "who": "For networkers, creatives, entrepreneurs, and anyone serious about not being forgotten.",
         "result": "One tap and your complete profile is on their phone — forever.",
-        "urgency": "Launch pricing — $27.99 while stock lasts."
+        "urgency": "Launch pricing — $29.99 while stock lasts."
       },
-      "price": 27.99,
+      "price": 29.99,
       "comparePrice": 39.99,
       "currency": "USD",
       "stripeLink": "https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G",
       "imageUrl": "/assets/products/tap-card-charcoal.svg",
-      "badge": "SAVE $12",
+      "badge": "SAVE $10",
       "status": "active",
       "category": "nfc-card",
       "sku": "plink_1TCtSyIEvKUNtDqe"
@@ -38,14 +38,14 @@
         "hook": "Stop handing out cards people throw away.",
         "who": "For networkers, creatives, entrepreneurs, and anyone serious about not being forgotten.",
         "result": "One tap and your complete profile is on their phone — forever.",
-        "urgency": "Launch pricing — $27.99 while stock lasts."
+        "urgency": "Launch pricing — $29.99 while stock lasts."
       },
-      "price": 27.99,
+      "price": 29.99,
       "comparePrice": 39.99,
       "currency": "USD",
       "stripeLink": "https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F",
       "imageUrl": "/assets/products/tap-card-beige.svg",
-      "badge": "SAVE $12",
+      "badge": "SAVE $10",
       "status": "active",
       "category": "nfc-card",
       "sku": "plink_1TCtSxIEvKUNtDqe"
@@ -77,15 +77,15 @@
       "name": "PRML TAP CARD",
       "variant": "10-Pack (Any Color)",
       "shortDesc": "Equip your entire team. 10 TAP CARDs, mix colors, profiles set up for everyone.",
-      "fullDesc": "Ten TAP CARDs — mix Charcoal and Beige however you want. Perfect for teams, events, conferences, and corporate gifting. Full profile setup included for all 10. That's 10 people showing up like pros, every time. At $27.99 each that would be $279.90 — you pay $279.99 and get the setup free. Best value for teams.",
+      "fullDesc": "Ten TAP CARDs — mix Charcoal and Beige however you want. Perfect for teams, events, conferences, and corporate gifting. Full profile setup included for all 10. That's 10 people showing up like pros, every time. At $29.99 each that would be $279.90 — you pay $279.99 and get the setup free. Best value for teams.",
       "hormozi": {
         "hook": "One person with a TAP CARD stands out. A whole team? Unstoppable.",
         "who": "For companies, agencies, event organizers, and team leads who don't do mediocre.",
         "result": "10 people connected, branded, and never forgotten. Setup included.",
         "urgency": "Save $120 off individual pricing. Setup free. Ship in 3–5 days."
       },
-      "price": 279.99,
-      "comparePrice": 399.90,
+      "price": 249.99,
+      "comparePrice": 299.90,
       "currency": "USD",
       "stripeLink": "https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J",
       "imageUrl": "/assets/products/tap-card-10pack.svg",
@@ -95,18 +95,18 @@
       "sku": "plink_1TCtT8IEvKUNtDqe"
     },
     {
-      "id": "TAP-KEY-BLK",
-      "name": "PRML TAP KEY",
+      "id": "TAP-KEYCHAIN-BLK",
+      "name": "PRML TAP KEYCHAIN",
       "variant": "Charcoal",
       "shortDesc": "Your entire network — on your keyring. One tap from your keys, every time.",
-      "fullDesc": "The TAP KEY clips right onto your keychain. You always have your keys. Now you always have your network. One tap from your keyring connects anyone to your full digital profile. No phone to unlock. No app to open. Just tap. Same technology as the TAP CARD — now always within reach.",
+      "fullDesc": "The TAP KEYCHAIN clips right onto your keychain. You always have your keys. Now you always have your network. One tap from your keyring connects anyone to your full digital profile. No phone to unlock. No app to open. Just tap. Same technology as the TAP CARD — now always within reach.",
       "hormozi": {
         "hook": "You never leave without your keys. Now you never leave without your network.",
         "who": "For people always on the move — events, shows, the street, the gym.",
         "result": "Tap from your keychain. Your full profile delivered instantly.",
-        "urgency": "Launch pricing — $21.99 while stock lasts."
+        "urgency": "Launch pricing — $19.99 while stock lasts."
       },
-      "price": 21.99,
+      "price": 19.99,
       "comparePrice": 29.99,
       "currency": "USD",
       "stripeLink": "https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I",
@@ -117,18 +117,18 @@
       "sku": "plink_1TCtT6IEvKUNtDqe"
     },
     {
-      "id": "TAP-KEY-BEI",
-      "name": "PRML TAP KEY",
+      "id": "TAP-KEYCHAIN-BEI",
+      "name": "PRML TAP KEYCHAIN",
       "variant": "Beige",
       "shortDesc": "Your entire network — on your keyring. One tap from your keys, every time.",
-      "fullDesc": "The TAP KEY clips right onto your keychain. You always have your keys. Now you always have your network. One tap from your keyring connects anyone to your full digital profile. No phone to unlock. No app to open. Just tap. Same technology as the TAP CARD — now always within reach.",
+      "fullDesc": "The TAP KEYCHAIN clips right onto your keychain. You always have your keys. Now you always have your network. One tap from your keyring connects anyone to your full digital profile. No phone to unlock. No app to open. Just tap. Same technology as the TAP CARD — now always within reach.",
       "hormozi": {
         "hook": "You never leave without your keys. Now you never leave without your network.",
         "who": "For people always on the move — events, shows, the street, the gym.",
         "result": "Tap from your keychain. Your full profile delivered instantly.",
-        "urgency": "Launch pricing — $21.99 while stock lasts."
+        "urgency": "Launch pricing — $19.99 while stock lasts."
       },
-      "price": 21.99,
+      "price": 19.99,
       "comparePrice": 29.99,
       "currency": "USD",
       "stripeLink": "https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H",
@@ -139,11 +139,11 @@
       "sku": "plink_1TCtSzIEvKUNtDqe"
     },
     {
-      "id": "TAP-KEY-10PK",
-      "name": "PRML TAP KEY",
+      "id": "TAP-KEYCHAIN-10PK",
+      "name": "PRML TAP KEYCHAIN",
       "variant": "10-Pack (Any Color)",
-      "shortDesc": "10 TAP KEYs for your crew. Mix colors. Everyone connected, everywhere.",
-      "fullDesc": "Ten TAP KEYs — mix Charcoal and Beige. Your whole team, always connected, wherever they go. Perfect for crews, brands, event staff, and corporate gifting. Full profile setup included for all 10. That's $29.99 each individually — you pay $219.99 and save $80.",
+      "shortDesc": "10 TAP KEYCHAINs for your crew. Mix colors. Everyone connected, everywhere.",
+      "fullDesc": "Ten TAP KEYCHAINs — mix Charcoal and Beige. Your whole team, always connected, wherever they go. Perfect for crews, brands, event staff, and corporate gifting. Full profile setup included for all 10. That's $29.99 each individually — you pay $219.99 and save $80.",
       "hormozi": {
         "hook": "Your team leaves events. Their connections shouldn't.",
         "who": "For teams, crews, event brands, and growing companies.",
