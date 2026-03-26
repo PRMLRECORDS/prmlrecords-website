@@ -201,10 +201,38 @@
         {"@type": "Offer", "name": "Single", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
         {"@type": "Offer", "name": "10-Pack", "price": "149.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
       ]
+    },
+    {
+      "@type": "Product",
+      "name": "PRML TAP STARTER KIT",
+      "brand": {"@type": "Brand", "name": "PRML RECORDS"},
+      "description": "Card + Keychain bundle. Both NFC products programmed with your digital profile and shipped together. Save $10.",
+      "image": "https://prmlrecords.com/assets/logo.png",
+      "url": "https://prmlrecords.com/products.html#tap-starter-kit",
+      "offers": [
+        {"@type": "Offer", "name": "Starter Kit", "price": "39.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
+      ]
     }
   ]
 }
 </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1244730814514395');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -260,13 +288,8 @@
       <a href="how-it-works.html" class="btn btn--out">How It Works</a>
     </div>
   </div>
-  <div class="sh-visual">
-    <div class="sh-visual-label">PRML TAP CARD</div>
-    <div class="sh-card-mock">
-      <div class="sh-card-mock-text">PRML</div>
-      <div class="sh-card-mock-chip"></div>
-    </div>
-    <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.4;max-width:180px;text-align:center;line-height:1.6">Tap any iPhone or Android. No app required on their end.</div>
+  <div class="sh-visual" style="background:transparent;border:none;padding:0">
+    <img src="images/nfc/tap-card-charcoal-demo.jpg" alt="PRML TAP CARD tap demo on smartphone" style="width:100%;max-width:420px;display:block;border-radius:4px" loading="eager">
   </div>
 </div>
 
@@ -318,10 +341,7 @@
       <div class="prod-card">
         <div class="prod-card__badge">BEST SELLER</div>
         <div class="prod-card__img">
-          <div class="prod-card__img-placeholder">
-            <div class="mock-card" style="background:rgba(46,45,45,.9)"><span>PRML</span></div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase">Charcoal</div>
-          </div>
+          <img src="images/nfc/tap-card-charcoal.jpg" alt="PRML TAP CARD — Charcoal, front and back" loading="lazy">
         </div>
         <div class="prod-card__body">
           <div class="prod-card__tag">TAP CARD</div>
@@ -333,7 +353,7 @@
           </div>
         </div>
         <div class="prod-card__actions">
-          <a href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G"
+          <a href="https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O"
              class="prod-card__buy"
              target="_blank" rel="noopener"
              data-price="29.99"
@@ -346,10 +366,7 @@
       <!-- TAP CARD — BEIGE -->
       <div class="prod-card">
         <div class="prod-card__img">
-          <div class="prod-card__img-placeholder">
-            <div class="mock-card" style="background:rgba(245,240,232,.15)"><span style="color:#F5F0E8">PRML</span></div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase">Beige</div>
-          </div>
+          <img src="images/nfc/tap-card-beige.jpg" alt="PRML TAP CARD — Beige, front and back" loading="lazy">
         </div>
         <div class="prod-card__body">
           <div class="prod-card__tag">TAP CARD</div>
@@ -361,7 +378,7 @@
           </div>
         </div>
         <div class="prod-card__actions">
-          <a href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F"
+          <a href="https://buy.stripe.com/cNiaEY8yVgc69Ho3Eu1ZS0P"
              class="prod-card__buy"
              target="_blank" rel="noopener"
              data-price="29.99"
@@ -375,14 +392,7 @@
       <div class="prod-card">
         <div class="prod-card__badge">SAVE $0 / CARD</div>
         <div class="prod-card__img">
-          <div class="prod-card__img-placeholder">
-            <div style="display:flex;gap:-8px;position:relative;width:140px;height:80px;justify-content:center;align-items:center">
-              <div class="mock-card" style="position:absolute;left:10px;top:8px;background:rgba(46,45,45,.9);transform:rotate(-6deg)"><span style="font-size:9px">PRML</span></div>
-              <div class="mock-card" style="position:absolute;left:18px;top:4px;background:rgba(245,240,232,.12);transform:rotate(-2deg)"><span style="font-size:9px;color:#F5F0E8">PRML</span></div>
-              <div class="mock-card" style="position:absolute;left:26px;top:0;background:rgba(46,45,45,.9)"><span style="font-size:9px">PRML</span></div>
-            </div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:8px">10-Pack</div>
-          </div>
+          <img src="images/nfc/tap-card-charcoal-demo.jpg" alt="PRML TAP CARD tap demo on phone" loading="lazy">
         </div>
         <div class="prod-card__body">
           <div class="prod-card__tag">TAP CARD · TEAM</div>
@@ -409,13 +419,7 @@
       <!-- TAP KEYCHAIN — CHARCOAL -->
       <div class="prod-card">
         <div class="prod-card__img">
-          <div class="prod-card__img-placeholder">
-            <div style="width:40px;height:80px;background:rgba(46,45,45,.9);border:1px solid rgba(254,1,3,.3);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px">
-              <span style="font-family:'Rubik Mono One',monospace;font-size:8px;color:#F5F0E8;letter-spacing:1px">P</span>
-              <div style="width:16px;height:12px;background:#FE0103;border-radius:2px;opacity:.6"></div>
-            </div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:8px">Charcoal</div>
-          </div>
+          <img src="images/nfc/tap-keychain-charcoal.jpg" alt="PRML TAP KEYCHAIN — Charcoal" loading="lazy">
         </div>
         <div class="prod-card__body">
           <div class="prod-card__tag">TAP KEYCHAIN</div>
@@ -428,7 +432,7 @@
           </div>
         </div>
         <div class="prod-card__actions">
-          <a href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I"
+          <a href="https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q"
              class="prod-card__buy"
              target="_blank" rel="noopener"
              data-price="19.99"
@@ -441,13 +445,7 @@
       <!-- TAP KEYCHAIN — BEIGE -->
       <div class="prod-card">
         <div class="prod-card__img">
-          <div class="prod-card__img-placeholder">
-            <div style="width:40px;height:80px;background:rgba(245,240,232,.12);border:1px solid rgba(254,1,3,.3);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px">
-              <span style="font-family:'Rubik Mono One',monospace;font-size:8px;color:#F5F0E8;letter-spacing:1px">P</span>
-              <div style="width:16px;height:12px;background:#FE0103;border-radius:2px;opacity:.6"></div>
-            </div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:8px">Beige</div>
-          </div>
+          <img src="images/nfc/tap-keychain.jpg" alt="PRML TAP KEYCHAIN — Beige" loading="lazy">
         </div>
         <div class="prod-card__body">
           <div class="prod-card__tag">TAP KEYCHAIN</div>
@@ -460,7 +458,7 @@
           </div>
         </div>
         <div class="prod-card__actions">
-          <a href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H"
+          <a href="https://buy.stripe.com/aFa14o2ax0d81aScb01ZS0R"
              class="prod-card__buy"
              target="_blank" rel="noopener"
              data-price="19.99"
@@ -470,18 +468,38 @@
         </div>
       </div>
 
+      <!-- TAP STARTER KIT — BUNDLE -->
+      <div class="prod-card">
+        <div class="prod-card__badge">BEST VALUE</div>
+        <div class="prod-card__img">
+          <img src="images/nfc/tap-card-charcoal.jpg" alt="PRML TAP STARTER KIT — Card + Keychain Bundle" loading="lazy">
+        </div>
+        <div class="prod-card__body">
+          <div class="prod-card__tag">STARTER KIT</div>
+          <div class="prod-card__name">TAP STARTER<br>KIT</div>
+          <div class="prod-card__tagline">Card + Keychain, one price. Get both NFC products programmed and shipped — the smartest way to start your PRML setup. Save $10 vs buying separately.</div>
+          <div class="prod-card__price-row">
+            <div class="prod-card__price">$39.99</div>
+            <div class="prod-card__price-sub">card + keychain · programmed &amp; shipped</div>
+            <div class="prod-card__save">SAVE $10</div>
+          </div>
+        </div>
+        <div class="prod-card__actions">
+          <a href="https://buy.stripe.com/8x2fZi9CZ3pkf1I1wm1ZS0S"
+             class="prod-card__buy"
+             target="_blank" rel="noopener"
+             data-price="39.99"
+             data-name="PRML TAP STARTER KIT">
+            BUY NOW &#8594;
+          </a>
+        </div>
+      </div>
+
       <!-- TAP KEYCHAIN — 10-PACK -->
       <div class="prod-card">
         <div class="prod-card__badge">SAVE $0 / KEYCHAIN</div>
         <div class="prod-card__img">
-          <div class="prod-card__img-placeholder">
-            <div style="display:flex;gap:8px;align-items:flex-end">
-              <div style="width:28px;height:60px;background:rgba(46,45,45,.9);border:1px solid rgba(254,1,3,.2);border-radius:3px"></div>
-              <div style="width:28px;height:70px;background:rgba(245,240,232,.12);border:1px solid rgba(254,1,3,.2);border-radius:3px"></div>
-              <div style="width:28px;height:55px;background:rgba(46,45,45,.9);border:1px solid rgba(254,1,3,.2);border-radius:3px"></div>
-            </div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;color:rgba(245,240,232,.3);text-transform:uppercase;margin-top:10px">10-Pack</div>
-          </div>
+          <img src="images/nfc/tap-card-beige-demo.jpg" alt="PRML TAP KEYCHAIN 10-Pack — tap demo" loading="lazy">
         </div>
         <div class="prod-card__body">
           <div class="prod-card__tag">TAP KEYCHAIN · TEAM</div>
@@ -522,8 +540,8 @@
       <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Programmed before it ships</div>
       <div class="ps-opt-promo">First 9 customers: setup fee waived + free 30-min consultation</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-        <a href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="29.99" data-name="PRML TAP CARD — Charcoal">Charcoal &#8594;</a>
-        <a href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="29.99" data-name="PRML TAP CARD — Beige">Beige &#8594;</a>
+        <a href="https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="29.99" data-name="PRML TAP CARD — Charcoal">Charcoal &#8594;</a>
+        <a href="https://buy.stripe.com/cNiaEY8yVgc69Ho3Eu1ZS0P" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="29.99" data-name="PRML TAP CARD — Beige">Beige &#8594;</a>
       </div>
     </div>
     <div class="ps-opt">
@@ -549,8 +567,8 @@
       <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Programmed before it ships</div>
       <div class="ps-opt-promo">First 9 customers: setup fee waived + free 30-min consultation</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-        <a href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="19.99" data-name="PRML TAP KEYCHAIN — Charcoal">Charcoal &#8594;</a>
-        <a href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="19.99" data-name="PRML TAP KEYCHAIN — Beige">Beige &#8594;</a>
+        <a href="https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="19.99" data-name="PRML TAP KEYCHAIN — Charcoal">Charcoal &#8594;</a>
+        <a href="https://buy.stripe.com/aFa14o2ax0d81aScb01ZS0R" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="19.99" data-name="PRML TAP KEYCHAIN — Beige">Beige &#8594;</a>
       </div>
     </div>
     <div class="ps-opt">
@@ -559,6 +577,23 @@
       <div class="ps-opt-sub">$14.99/keychain &middot; Ships in 5&ndash;7 days &middot; All programmed</div>
       <div class="ps-opt-promo">Equip your team or gift to clients &middot; Color confirmed during setup</div>
       <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" class="btn btn--out" target="_blank" rel="noopener" data-price="149.99" data-name="PRML TAP KEYCHAIN — 10-Pack">Order 10-Pack &#8594;</a>
+    </div>
+  </div>
+</div>
+
+<!-- PRML TAP STARTER KIT — DEEP LINK ANCHOR -->
+<div class="prod-section dark rev" id="tap-starter-kit">
+  <div class="ps-label">Best Value</div>
+  <div class="ps-name">TAP STARTER KIT</div>
+  <div class="ps-tagline">Card + Keychain. One price.</div>
+  <div class="ps-desc">Get the full PRML NFC experience — one TAP CARD and one TAP KEYCHAIN, both programmed with your digital profile and shipped together. Save $10 versus buying separately.</div>
+  <div class="ps-options">
+    <div class="ps-opt">
+      <div class="ps-opt-label">Starter Kit</div>
+      <div class="ps-opt-price">$39.99</div>
+      <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Both programmed before they ship</div>
+      <div class="ps-opt-promo">Save $10 vs buying separately &middot; Card + Keychain combo</div>
+      <a href="https://buy.stripe.com/8x2fZi9CZ3pkf1I1wm1ZS0S" class="btn btn--red" target="_blank" rel="noopener" data-price="39.99" data-name="PRML TAP STARTER KIT">Get the Kit &#8594;</a>
     </div>
   </div>
 </div>

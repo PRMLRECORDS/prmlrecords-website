@@ -287,7 +287,7 @@ main{padding-top:96px}
 .footer{background:var(--black);border-top:4px solid var(--red)}
 .footer__top{padding:64px 80px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(245,230,200,.07)}
 .f-brand-logo{width:52px;height:52px;object-fit:contain;margin-bottom:14px}
-.f-tagline{font-family:'Nabla',cursive;font-size:16px;color:var(--cream);opacity:.35;margin-bottom:10px}
+.f-tagline{font-family:'Nabla',cursive;font-size:16px;font-palette:--nabla-solid-cream;font-variation-settings:"EDPT" 100,"EHLT" 12;color:var(--cream);opacity:.35;margin-bottom:10px}
 .f-values{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);opacity:.7;margin-bottom:12px}
 .f-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;line-height:1.8;color:var(--cream);opacity:.3}
 .f-phone{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--red);margin-top:14px;display:block}

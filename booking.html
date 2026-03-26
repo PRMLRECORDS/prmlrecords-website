@@ -72,6 +72,23 @@
     });
   });
 </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1244730814514395');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -244,116 +261,15 @@
 <!-- BOOKING FORM -->
 <div class="booking-form-section" id="booking-form">
   <div class="bf-title">Request a Booking</div>
-  <div class="bf-sub">Fill out the form below and we'll respond within 24 hours with availability and a custom quote. Required fields marked with *.</div>
-
-  <form id="booking-frm" onsubmit="submitBooking(event)">
-    <div class="bf-grid">
-      <div class="bf-field">
-        <label class="bf-label">Your Name *</label>
-        <input class="bf-input" type="text" name="name" placeholder="Full name" required>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Email *</label>
-        <input class="bf-input" type="email" name="email" placeholder="your@email.com" required>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Phone *</label>
-        <input class="bf-input" type="tel" name="phone" placeholder="770-000-0000" required>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Organization / Venue</label>
-        <input class="bf-input" type="text" name="org" placeholder="Event or venue name">
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Artist *</label>
-        <select class="bf-input bf-select" name="artist" id="act-sel" required>
-          <option value="">Select artist...</option>
-          <option value="SEAUX9 (Solo)">SEAUX9 (Solo)</option>
-          <option value="SEAUX9 and The Divine Sound (Full Band)">SEAUX9 and The Divine Sound (Full Band)</option>
-          <option value="Either / Flexible">Either / Flexible</option>
-        </select>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Event Type *</label>
-        <select class="bf-input bf-select" name="event_type" required>
-          <option value="">Select event type...</option>
-          <option>Concert / Show</option>
-          <option>Festival</option>
-          <option>Private Party</option>
-          <option>Corporate Event</option>
-          <option>Wedding / Reception</option>
-          <option>Church / Gospel Event</option>
-          <option>Community Event</option>
-          <option>Open Mic / Feature</option>
-          <option>Virtual / Stream</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Event Date *</label>
-        <input class="bf-input" type="date" name="event_date" required>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Event Time</label>
-        <input class="bf-input" type="time" name="event_time">
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Venue City / State</label>
-        <input class="bf-input" type="text" name="venue_location" placeholder="Atlanta, GA">
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Expected Attendance</label>
-        <select class="bf-input bf-select" name="attendance">
-          <option value="">Select size...</option>
-          <option>Under 50</option>
-          <option>50–150</option>
-          <option>150–500</option>
-          <option>500–1,000</option>
-          <option>1,000+</option>
-        </select>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">Budget Range</label>
-        <select class="bf-input bf-select" name="budget">
-          <option value="">Select range...</option>
-          <option>Under $500</option>
-          <option>$500–$1,000</option>
-          <option>$1,000–$2,500</option>
-          <option>$2,500–$5,000</option>
-          <option>$5,000+</option>
-          <option>Flexible / Let's Talk</option>
-        </select>
-      </div>
-      <div class="bf-field">
-        <label class="bf-label">PA / Sound System</label>
-        <select class="bf-input bf-select" name="pa_provided">
-          <option value="">Select...</option>
-          <option>Venue provides full PA + monitor</option>
-          <option>Partial setup available</option>
-          <option>Nothing available — PRML provides</option>
-          <option>Not sure</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="bf-field" style="margin-bottom:20px">
-      <label class="bf-label">Event Details / Additional Notes</label>
-      <textarea class="bf-input bf-textarea" name="details" placeholder="Tell us about your event, any special requirements, your vision for the performance..."></textarea>
-    </div>
-
-    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-      <button type="submit" id="book-btn" class="btn btn--red btn--lg">Submit Booking Request →</button>
-      <a href="tel:7706867726" class="btn btn--out">Prefer to call? 770-686-7726</a>
-    </div>
-
-    <div id="book-ok" style="display:none;margin-top:20px;background:rgba(224,16,16,.08);border-left:4px solid var(--red);padding:16px;font-family:'Roboto Slab',serif;font-size:14px;color:var(--cream);line-height:1.7">
-      ✅ Booking request received! We'll respond within 24 hours with availability and a custom quote. You can also call 770-686-7726 to speak with us directly.
-    </div>
-    <div id="book-err" style="display:none;margin-top:20px;background:rgba(224,16,16,.15);border-left:4px solid var(--red);padding:16px;font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream)">
-      Something went wrong. Please try again or call 770-686-7726.
-    </div>
-  </form>
+  <div class="bf-sub">Fill out the form below and we'll respond within 24 hours with availability and a custom quote.</div>
+  <div style="margin-top:24px;">
+    <iframe data-tally-src="https://tally.so/embed/jaxVLQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Booking Request — PRML Records / SEAUX9" style="border:none;width:100%;"></iframe>
+  </div>
+  <div style="margin-top:20px;">
+    <a href="tel:7706867726" class="btn btn--out">Prefer to call? 770-686-7726</a>
+  </div>
 </div>
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
 <!-- FOOTER -->
 
@@ -510,29 +426,5 @@ async function submitPRMLSignup(e){
 
 <script src="js/main.js" defer></script>
 <script>
-async function submitBooking(e) {
-  e.preventDefault();
-  const form = document.getElementById('booking-frm');
-  const btn = document.getElementById('book-btn');
-  const ok = document.getElementById('book-ok');
-  const err = document.getElementById('book-err');
-  btn.disabled = true; btn.textContent = 'Sending...';
-  ok.style.display = 'none'; err.style.display = 'none';
-
-  const fd = new FormData(form);
-  const data = { type: 'INQUIRY', source: 'Booking Page', ts: new Date().toISOString() };
-  fd.forEach((v,k) => data[k] = v);
-  data.service = 'Artist Booking: ' + (data.artist || 'TBD');
-
-  if (typeof GAS_URL !== 'undefined' && !GAS_URL.includes('PASTE_YOUR')) {
-    try {
-      await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
-    } catch(ex) {}
-  }
-  ok.style.display = 'block';
-  form.reset();
-  btn.disabled = false; btn.textContent = 'Submit Booking Request →';
-}
 (function(){
-</script>
 </body></html>
