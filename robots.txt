@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-# Block admin dashboard from indexing
+# Block admin dashboards from indexing
 Disallow: /admin/
+Disallow: /PRMLfounderadminDCJ369/
 
 Sitemap: https://prmlrecords.com/sitemap.xml
