@@ -5,7 +5,7 @@
    SETUP — paste your values on these 3 lines only:
 ════════════════════════════════════════════════════ */
 
-const GAS_URL    = 'https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';        // Apps Script /exec URL
+const GAS_URL    = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';        // Apps Script /exec URL
 const STRIPE_PK  = 'pk_live_51IJPNBIEvKUNtDqenm2BfJJxvZKp5gcSpzilQq1AtgC9likIp8XJFsSZzjmo0z8M9IvwduJg34Op8D0jst1EmnjA00C3wRPaUv'; // pk_live_... or pk_test_...
 const STRIPE_URL = 'https://buy.stripe.com/7sY28s02p6Bw7zggrg1ZS0u';    // buy.stripe.com/... (fallback)
 const STRIPE_FEE = 6.00;                                      // flat $6 transaction fee
