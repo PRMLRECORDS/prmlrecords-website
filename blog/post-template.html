@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" id="meta-desc" content="PRML Records Blog">
+<meta name="description" id="meta-desc" content="PRML RECORDS Blog">
 <title id="page-title">Blog Post | PRML Records LLC</title>
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -265,7 +265,7 @@ async function loadPost(){
     if(!p){ document.getElementById('post-title').textContent='Post not found'; return; }
 
     // Update page
-    document.title = (p.seo_title || p.title) + ' | PRML Records';
+    document.title = (p.seo_title || p.title) + ' | PRML RECORDS';
     document.getElementById('meta-desc').content = p.seo_desc || p.excerpt || '';
     document.getElementById('post-cat').textContent = p.category || 'Blog';
     document.getElementById('post-title').textContent = p.title;
@@ -283,4 +283,5 @@ async function loadPost(){
 
 loadPost();
 </script>
+<script src="../js/cookie-consent.js" defer></script>
 </body></html>
