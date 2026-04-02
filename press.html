@@ -46,10 +46,72 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-<nav style="background:#2B2B2B;position:sticky;top:0;z-index:1000">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto">
-    <a href="index.html" style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5E6C8;text-decoration:none;text-transform:uppercase;letter-spacing:.06em">PRML <span style="color:#E01010">RECORDS</span></a>
-    <a href="index.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none">&#8592; Home</a>
+<!-- NAV — PRML RECORDS v3 2026 -->
+<style>
+.nav2{background:#2B2B2B;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.nav2__inner{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto}
+.nav2__brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav2__brand-name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5E6C8;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.nav2__brand-name span{color:#E01010}
+.nav2__links{display:flex;align-items:center;gap:4px}
+.nav2__item{position:relative}
+.nav2__link{font-family:'Odibee Sans',sans-serif;font-size:15px;color:#F5E6C8;text-decoration:none;padding:8px 14px;border-radius:4px;display:flex;align-items:center;gap:4px;white-space:nowrap;transition:background .2s,color .2s;letter-spacing:.04em}
+.nav2__link:hover,.nav2__link.active{background:#C4B49A;color:#F5E6C8}
+.nav2__link.active{color:#E01010;background:rgba(254,1,3,.1)}
+.nav2__caret{font-size:10px;opacity:.7}
+.nav2__dropdown{display:none;position:absolute;top:100%;left:0;background:#2B2B2B;border:1px solid #C4B49A;border-radius:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:1001;overflow:hidden}
+.nav2__item:hover .nav2__dropdown{display:block}
+.nav2__drop-link{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;padding:10px 16px;border-bottom:1px solid rgba(99,93,82,.3);transition:background .15s}
+.nav2__drop-link:last-child{border-bottom:none}
+.nav2__drop-link:hover{background:#C4B49A}
+.nav2__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav2__burger span{display:block;width:24px;height:2px;background:#F5E6C8;border-radius:2px}
+@media(max-width:768px){
+  .nav2__links{display:none}
+  .nav2__burger{display:flex}
+  .nav2.mob-open .nav2__links{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#2B2B2B;padding:16px;gap:2px;border-bottom:2px solid #C4B49A}
+  .nav2.mob-open .nav2__dropdown{position:static;border:none;box-shadow:none;background:rgba(99,93,82,.2);border-radius:0;display:block;padding-left:16px}
+  .nav2__item{width:100%}
+  .nav2__link{width:100%}
+}
+</style>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML RECORDS logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span>RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="privacypolicy.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
   </div>
 </nav>
 <div class="page-hero">
