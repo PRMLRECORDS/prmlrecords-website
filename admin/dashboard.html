@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard | PRML Records LLC</title>
+<title>The Dashboard — PRML RECORDS</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230D0D0D'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23E01010' font-family='Arial'%3E🔐%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
@@ -56,8 +56,8 @@ body{background:var(--black)}
 <div class="dash" id="dash">
   <div class="dash-header">
     <div>
-      <div class="dash-title">PRML <span>Admin</span></div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--cream);opacity:.3;text-transform:uppercase">Dashboard · Not linked from public site</div>
+      <div class="dash-title">THE <span>DASHBOARD</span></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--cream);opacity:.3;text-transform:uppercase">PRML RECORDS · Command Center · Not linked from public site</div>
     </div>
     <div style="display:flex;align-items:center;gap:20px">
       <a href="../index.html" class="btn btn--out-cream btn--sm" style="font-size:9px">View Site →</a>
@@ -96,6 +96,62 @@ body{background:var(--black)}
     </div>
     </div>
   
+  <!-- METRICS -->
+  <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:2px">
+    <div class="dash-card">
+      <div class="dash-card__title">Mailing List</div>
+      <div id="metric-ml" style="font-family:'Rubik Mono One',monospace;font-size:36px;color:var(--cream);letter-spacing:-1px;margin-bottom:6px">—</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4;margin-bottom:12px">Total subscribers in Google Sheet</div>
+      <a href="https://docs.google.com/spreadsheets/d/10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Open Sheet →</a>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card__title">Form Submissions</div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Quote Requests (Tally): <strong style="color:var(--red)" id="metric-quotes">2</strong></div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Booking Requests (Tally): <strong style="color:var(--red)" id="metric-bookings">0</strong></div>
+      </div>
+      <a href="https://tally.so/forms/44jbLr/submissions" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center;margin-bottom:6px">Quote Submissions →</a>
+      <a href="https://tally.so/forms/jaxVLQ/submissions" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Booking Submissions →</a>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card__title">Orders & Revenue</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.5;margin-bottom:12px;line-height:1.7">Live order data lives in Stripe. Check dashboard for payments, invoices, and disputes.</div>
+      <a href="https://dashboard.stripe.com/payments" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center;margin-bottom:6px">Stripe Payments →</a>
+      <a href="https://dashboard.stripe.com/invoices" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Stripe Invoices →</a>
+    </div>
+  </div>
+
+  <!-- TAP PAYMENT LINKS -->
+  <div class="dash-card" style="margin-bottom:2px">
+    <div class="dash-card__title">TAP Payment Links</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:4px">
+      <a href="https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP CARD — Charcoal ($29.99)</a>
+      <a href="https://buy.stripe.com/cNiaEY8yVgc69Ho3Eu1ZS0P" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP CARD — Cream ($29.99)</a>
+      <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP CARD — 10-Pack ($249.99)</a>
+      <a href="https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP KEYCHAIN — Charcoal ($19.99)</a>
+      <a href="https://buy.stripe.com/aFa14o2ax0d81aScb01ZS0R" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP KEYCHAIN — Cream ($19.99)</a>
+      <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP KEYCHAIN — 10-Pack ($149.99)</a>
+      <a href="https://buy.stripe.com/8x2fZi9CZ3pkf1I1wm1ZS0S" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP STARTER KIT ($39.99)</a>
+    </div>
+  </div>
+
+  <!-- PORTALS & PRESENTATIONS -->
+  <div class="dash-card" style="margin-bottom:2px">
+    <div class="dash-card__title">Portals &amp; Presentations</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:4px">
+      <a href="../PRMLfounderadminDCJ369/console.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Founder Console →</a>
+      <a href="strategy.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Strategy Dashboard →</a>
+      <a href="goals.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Goals →</a>
+      <a href="analytics.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Analytics →</a>
+      <a href="social.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Social →</a>
+      <a href="blog.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Blog Manager →</a>
+      <a href="competitors.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Competitors →</a>
+      <a href="grants.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Grants →</a>
+      <a href="settings.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Settings →</a>
+      <a href="ai.html" class="btn btn--out-cream btn--sm" style="justify-content:center">AI Tools →</a>
+    </div>
+  </div>
+
   <!-- NEW TOOLS -->
   <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-bottom:16px">
     <div class="dash-card" style="border-top-color:var(--red);background:rgba(224,16,16,.06)">
@@ -202,7 +258,7 @@ body{background:var(--black)}
     </div>
   </div>
 
-  <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.25;text-align:center;padding:20px">PRML Records LLC Admin · Not linked from public navigation · Keep URL private</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.25;text-align:center;padding:20px">The Dashboard · Not linked from public navigation · Keep URL private</div>
 </div>
 
 <script>
@@ -216,6 +272,7 @@ function tryLogin() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dash').classList.add('visible');
     checkStatus();
+    loadMetrics();
   } else {
     document.getElementById('pw-err').style.display = 'block';
     document.getElementById('pw-input').value = '';
@@ -259,11 +316,24 @@ function checkStatus() {
     });
 }
 
+function loadMetrics() {
+  const GAS = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
+  fetch(GAS + '?action=count')
+    .then(r => r.json())
+    .then(d => {
+      if (d.count !== undefined) document.getElementById('metric-ml').textContent = d.count;
+    })
+    .catch(() => {
+      document.getElementById('metric-ml').textContent = '—';
+    });
+}
+
 // Auto-login if session active
 if (sessionStorage.getItem('prml_admin') === '1') {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('dash').classList.add('visible');
   checkStatus();
+  loadMetrics();
 }
 
 document.getElementById('pw-input')?.addEventListener('keydown', e => {
