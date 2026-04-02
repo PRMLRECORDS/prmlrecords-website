@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRML RECORDS on the Atlanta Beltline. One tap connects you. NFC cards, keychains, and creative services. West End Atlanta.">
+<meta property="og:title" content="PRML RECORDS — Live on the Beltline">
+<meta property="og:description" content="You just met us. Here's everything you need. NFC products, music, services, and community — from West End Atlanta.">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<meta property="og:url" content="https://www.prmlrecords.com/beltline.html">
+<meta property="og:site_name" content="PRML RECORDS">
+<meta name="twitter:card" content="summary_large_image">
+<title>PRML RECORDS — Live on the Beltline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ── BELTLINE HERO ── */
+.bl-hero{background:var(--black);padding:72px 5vw 64px;position:relative;overflow:hidden;border-bottom:3px solid var(--red)}
+.bl-hero::before{content:'BELTLINE';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(80px,18vw,200px);color:rgba(245,230,200,.03);letter-spacing:-6px;bottom:-20px;right:-20px;line-height:1;pointer-events:none;user-select:none}
+.bl-eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.bl-title{font-family:'Rubik Mono One',monospace;font-size:clamp(42px,7vw,96px);color:var(--cream);letter-spacing:-3px;line-height:.9;margin-bottom:18px}
+.bl-title span{color:var(--red)}
+.bl-sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--cream);opacity:.55;max-width:520px;line-height:1.8;border-left:3px solid var(--red);padding-left:16px}
+
+/* ── QUICK LINKS ── */
+.bl-quick{background:var(--red);padding:24px 5vw;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.bl-quick-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-right:4px}
+.bl-qlink{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;background:rgba(0,0,0,.25);color:var(--cream);padding:9px 18px;text-decoration:none;transition:.15s;border:1px solid rgba(245,230,200,.2)}
+.bl-qlink:hover{background:var(--black);border-color:var(--black)}
+
+/* ── CARDS ── */
+.bl-section{padding:64px 5vw}
+.bl-section.dark{background:var(--black)}
+.bl-section.light{background:var(--cream)}
+.bl-section.charcoal{background:var(--charcoal)}
+.bl-section-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.bl-section-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,54px);letter-spacing:-1.5px;line-height:1;margin-bottom:16px}
+.bl-section.dark .bl-section-title{color:var(--cream)}
+.bl-section.light .bl-section-title{color:var(--charcoal)}
+.bl-section.charcoal .bl-section-title{color:var(--cream)}
+.bl-section-desc{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;line-height:1.8;max-width:600px;margin-bottom:36px}
+.bl-section.dark .bl-section-desc{color:var(--cream);opacity:.5}
+.bl-section.light .bl-section-desc{color:var(--charcoal);opacity:.6}
+.bl-section.charcoal .bl-section-desc{color:var(--cream);opacity:.5}
+
+/* ── PRODUCT GRID ── */
+.bl-products{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;background:rgba(46,45,45,.1)}
+.bl-prod{padding:32px;display:flex;flex-direction:column;gap:8px}
+.bl-section.dark .bl-prod{background:var(--charcoal)}
+.bl-section.light .bl-prod{background:var(--cream)}
+.bl-prod-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red)}
+.bl-prod-name{font-family:'Rubik Mono One',monospace;font-size:22px;letter-spacing:-0.5px;line-height:1.1}
+.bl-section.dark .bl-prod-name{color:var(--cream)}
+.bl-section.light .bl-prod-name{color:var(--charcoal)}
+.bl-prod-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;line-height:1.7;flex:1}
+.bl-section.dark .bl-prod-desc{color:var(--cream);opacity:.45}
+.bl-section.light .bl-prod-desc{color:var(--charcoal);opacity:.6}
+.bl-prod-price{font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--red);letter-spacing:-1px}
+.bl-btn{display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 24px;text-decoration:none;transition:.15s;margin-top:4px;text-align:center}
+.bl-btn-red{background:var(--red);color:var(--cream)}
+.bl-btn-red:hover{background:#a00000}
+.bl-btn-outline-light{background:transparent;color:var(--cream);border:1px solid rgba(245,230,200,.25)}
+.bl-btn-outline-light:hover{border-color:var(--red);color:var(--red)}
+.bl-btn-outline-dark{background:transparent;color:var(--charcoal);border:1px solid rgba(46,45,45,.25)}
+.bl-btn-outline-dark:hover{border-color:var(--red);color:var(--red)}
+
+/* ── SIGNUP SECTION ── */
+.bl-signup{background:var(--black);padding:72px 5vw;border-top:3px solid var(--red)}
+.bl-signup-inner{max-width:600px}
+.bl-signup-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,52px);color:var(--cream);letter-spacing:-1.5px;line-height:1;margin-bottom:12px}
+.bl-signup-title span{color:var(--red)}
+.bl-signup-sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.5;margin-bottom:32px;line-height:1.75}
+.bl-form{display:flex;flex-direction:column;gap:14px;max-width:480px}
+.bl-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.bl-form-row{grid-template-columns:1fr}}
+.bl-input{font-family:'Roboto Slab',serif;font-size:14px;padding:13px 16px;background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.12);color:var(--cream);outline:none;transition:.2s;width:100%}
+.bl-input:focus{border-color:var(--red);background:rgba(224,16,16,.06)}
+.bl-select{appearance:none;cursor:pointer}
+.bl-confirm{display:none;font-family:'Rubik Mono One',monospace;font-size:17px;color:var(--cream);padding:24px;background:rgba(224,16,16,.12);border-left:4px solid var(--red);line-height:1.4}
+.bl-confirm.show{display:block}
+.bl-confirm span{color:var(--red)}
+
+/* ── SERVICES STRIP ── */
+.bl-services{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px;background:rgba(245,230,200,.06)}
+.bl-svc{padding:24px;background:var(--charcoal)}
+.bl-svc-name{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);margin-bottom:6px}
+.bl-svc-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.4;line-height:1.6}
+
+/* ── SOURCE TAG ── */
+.bl-source-tag{display:none}
+
+@media(max-width:700px){
+  .bl-quick{gap:8px}
+  .bl-products{grid-template-columns:1fr}
+}
+</style>
+
+<!-- GA4 — PRML RECORDS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2PNH2XTRDK', { page_title: document.title, page_location: window.location.href });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href], button');
+      if (!el) return;
+      gtag('event', 'button_click', { element_text: (el.textContent||'').trim().substring(0,100), element_href: el.getAttribute('href')||'', page_location: window.location.href, campaign_source: 'beltline' });
+    });
+    document.addEventListener('submit', function(e) {
+      gtag('event', 'form_submit', { form_id: e.target.id||'unknown', page_location: window.location.href, campaign_source: 'beltline' });
+    });
+    // Auto-detect UTM source from URL
+    var params = new URLSearchParams(window.location.search);
+    var src = params.get('utm_source') || 'beltline-direct';
+    document.querySelectorAll('.bl-source-tag').forEach(function(el){ el.value = src; });
+  });
+</script>
+<!-- Meta Pixel -->
+<script>
+setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1244730814514395');fbq('track','PageView');},3000);
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML RECORDS logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="bl-hero">
+  <div class="bl-eyebrow">Atlanta Beltline &nbsp;·&nbsp; West End</div>
+  <h1 class="bl-title">YOU JUST<br>MET <span>PRML</span><br>RECORDS.</h1>
+  <p class="bl-sub">Art. Community. Technology. We make NFC products, music, and creative services. We're right here in West End. Now you know us. Stay connected.</p>
+</section>
+
+<!-- QUICK LINKS -->
+<div class="bl-quick">
+  <span class="bl-quick-label">Jump to:</span>
+  <a class="bl-qlink" href="#products">NFC Products</a>
+  <a class="bl-qlink" href="#services">Services</a>
+  <a class="bl-qlink" href="#music">Music</a>
+  <a class="bl-qlink" href="#signup">Join the List</a>
+</div>
+
+<!-- NFC PRODUCTS -->
+<section class="bl-section dark" id="products">
+  <div class="bl-section-eye">One Tap. Your Entire Brand.</div>
+  <h2 class="bl-section-title">NFC PRODUCTS</h2>
+  <p class="bl-section-desc">Premium NFC cards and keychains — custom branded, no subscriptions, no hidden fees. One tap shares everything: your links, your contact, your work. No app needed on their end.</p>
+  <div class="bl-products">
+    <div class="bl-prod">
+      <div class="bl-prod-label">Best Seller</div>
+      <div class="bl-prod-name">PRML TAP CARD</div>
+      <div class="bl-prod-desc">Credit card size. Fits in any wallet. One tap shares your full digital identity — links, contact info, portfolio, social, whatever you want. Setup included.</div>
+      <div class="bl-prod-price">$29.99</div>
+      <a class="bl-btn bl-btn-red" href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G?utm_source=beltline&utm_medium=qr&utm_campaign=beltline-activation" target="_blank" rel="noopener">Get Yours →</a>
+      <a class="bl-btn bl-btn-outline-light" href="products.html#tap-card">See All Colors</a>
+    </div>
+    <div class="bl-prod">
+      <div class="bl-prod-label">On Your Keys</div>
+      <div class="bl-prod-name">PRML TAP KEY</div>
+      <div class="bl-prod-desc">Same NFC power, on a keychain. Always on you. Tap it to any phone — iOS or Android. Custom setup included. Never lose a connection again.</div>
+      <div class="bl-prod-price">$19.99</div>
+      <a class="bl-btn bl-btn-red" href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I?utm_source=beltline&utm_medium=qr&utm_campaign=beltline-activation" target="_blank" rel="noopener">Get Yours →</a>
+      <a class="bl-btn bl-btn-outline-light" href="products.html#tap-keychain">See All Colors</a>
+    </div>
+    <div class="bl-prod">
+      <div class="bl-prod-label">Best Value</div>
+      <div class="bl-prod-name">TAP STARTER KIT</div>
+      <div class="bl-prod-desc">TAP CARD + TAP KEY + custom NFC setup + QR code landing page + full onboarding support. Everything you need, in one box. The last business card you'll ever need.</div>
+      <div class="bl-prod-price">$99</div>
+      <a class="bl-btn bl-btn-red" href="https://buy.stripe.com/fZu00k02pe3Y06Odf41ZS0N?utm_source=beltline&utm_medium=qr&utm_campaign=beltline-activation" target="_blank" rel="noopener">Get the Kit →</a>
+      <a class="bl-btn bl-btn-outline-light" href="products.html#tap-starter-kit">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="bl-section light" id="services">
+  <div class="bl-section-eye">We Build. We Create. We Deliver.</div>
+  <h2 class="bl-section-title">SERVICES</h2>
+  <p class="bl-section-desc">From websites to music production to brand design — we handle the creative and technical work so you can focus on what you do. Atlanta-based. Remote-capable.</p>
+  <div class="bl-services">
+    <div class="bl-svc">
+      <div class="bl-svc-name">Web Development</div>
+      <div class="bl-svc-desc">Custom websites, landing pages, and web apps. Fast, mobile-first, built to convert.</div>
+    </div>
+    <div class="bl-svc">
+      <div class="bl-svc-name">Brand Design</div>
+      <div class="bl-svc-desc">Logos, brand systems, print materials. Design that holds up everywhere.</div>
+    </div>
+    <div class="bl-svc">
+      <div class="bl-svc-name">Music Production</div>
+      <div class="bl-svc-desc">Beats, mixing, mastering, commercial music. Studio-quality, artist-first.</div>
+    </div>
+    <div class="bl-svc">
+      <div class="bl-svc-name">Photography &amp; Film</div>
+      <div class="bl-svc-desc">Promo photos, event coverage, music videos, social content.</div>
+    </div>
+    <div class="bl-svc">
+      <div class="bl-svc-name">NFC Manufacturing</div>
+      <div class="bl-svc-desc">Custom NFC cards, keychains, and branded hardware in bulk. Perfect for businesses and events.</div>
+    </div>
+    <div class="bl-svc">
+      <div class="bl-svc-name">Consultation</div>
+      <div class="bl-svc-desc">Creative strategy, tech roadmaps, business development. Book a 60-minute session.</div>
+    </div>
+  </div>
+  <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+    <a class="bl-btn bl-btn-red" href="contact.html?utm_source=beltline&utm_medium=qr&utm_campaign=beltline-activation">Request a Quote</a>
+    <a class="bl-btn bl-btn-outline-dark" href="booking.html?utm_source=beltline&utm_medium=qr&utm_campaign=beltline-activation">Book a Consultation</a>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="bl-section dark" id="music">
+  <div class="bl-section-eye">SEAUX9 &nbsp;·&nbsp; PRML RECORDS</div>
+  <h2 class="bl-section-title">THE MUSIC</h2>
+  <p class="bl-section-desc">SEAUX9 is the recording artist behind PRML RECORDS. 1.28 million streams. West End Atlanta. Primal Energy. Primal Sound.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <a class="bl-btn bl-btn-red" href="https://open.spotify.com/artist/SEAUX9" target="_blank" rel="noopener">Listen on Spotify</a>
+    <a class="bl-btn bl-btn-outline-light" href="media.html">Music &amp; Media</a>
+  </div>
+</section>
+
+<!-- MAILING LIST SIGNUP -->
+<section class="bl-signup" id="signup">
+  <div class="bl-signup-inner">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px">Stay Connected</div>
+    <h2 class="bl-signup-title">JOIN THE<br><span>PRML RECORDS</span><br>COMMUNITY.</h2>
+    <p class="bl-signup-sub">New music. Events. Products. Behind-the-scenes. First access for people who are actually here with us. No spam. Unsubscribe any time.</p>
+
+    <form class="bl-form" id="beltline-signup-form" onsubmit="submitBeltlineSignup(event)">
+      <div class="bl-form-row">
+        <input class="bl-input" type="text" id="bl-name" name="name" placeholder="First Name" required>
+        <input class="bl-input" type="email" id="bl-email" name="email" placeholder="Email Address" required>
+      </div>
+      <input class="bl-input" type="tel" id="bl-phone" name="phone" placeholder="Phone (optional — for SMS updates)">
+      <select class="bl-input bl-select" id="bl-interest" name="interest" required>
+        <option value="" disabled selected>What brought you here?</option>
+        <option value="music">Music &amp; Artist Community</option>
+        <option value="nfc_products">NFC Products (TAP CARD / TAP KEY)</option>
+        <option value="services">Creative Services (Web, Design, Production)</option>
+        <option value="events">Events &amp; Community</option>
+        <option value="business">Business &amp; B2B</option>
+        <option value="everything">Everything — I want it all</option>
+      </select>
+      <!-- UTM source auto-populated by JS -->
+      <input type="hidden" name="source" value="beltline" class="bl-source-tag">
+      <input type="hidden" name="utm_campaign" value="beltline-activation">
+      <button type="submit" id="bl-signup-btn" class="bl-btn bl-btn-red" style="align-self:flex-start;padding:14px 36px;font-size:11px;border:none;cursor:pointer">Join the Community &#8594;</button>
+    </form>
+
+    <div class="bl-confirm" id="bl-confirm">
+      <span>PEACE!</span> You're in. Watch your inbox — something good is coming.<br>
+      <span style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:rgba(245,230,200,.5);display:block;margin-top:8px">With Gratitude — PRML RECORDS</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" style="background:var(--charcoal);padding:36px 5vw;border-top:1px solid rgba(245,230,200,.06)">
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:.05em;margin-bottom:4px">PRML RECORDS</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.35">West End Atlanta &nbsp;·&nbsp; Art. Community. Technology.</div>
+    </div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <a href="index.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Home</a>
+      <a href="products.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Shop</a>
+      <a href="services.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Services</a>
+      <a href="contact.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Contact</a>
+      <a href="privacypolicy.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script>
+const GAS_URL_BL = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
+
+async function submitBeltlineSignup(e) {
+  e.preventDefault();
+  var btn = document.getElementById('bl-signup-btn');
+  var confirm = document.getElementById('bl-confirm');
+  var form = document.getElementById('beltline-signup-form');
+
+  btn.disabled = true;
+  btn.textContent = 'Joining...';
+
+  var params = new URLSearchParams(window.location.search);
+  var payload = {
+    type:        'BELTLINE_SIGNUP',
+    ts:          new Date().toISOString(),
+    name:        document.getElementById('bl-name').value.trim(),
+    email:       document.getElementById('bl-email').value.trim(),
+    phone:       document.getElementById('bl-phone').value.trim(),
+    interest:    document.getElementById('bl-interest').value,
+    source:      params.get('utm_source') || 'beltline-direct',
+    utm_medium:  params.get('utm_medium') || 'qr',
+    utm_campaign: params.get('utm_campaign') || 'beltline-activation',
+    page:        'beltline.html'
+  };
+
+  // Fire GA4 lead event
+  if (typeof gtag === 'function') {
+    gtag('event', 'generate_lead', {
+      event_category: 'beltline',
+      event_label: payload.interest,
+      campaign_source: payload.source
+    });
+  }
+
+  // Log to Google Sheet
+  if (GAS_URL_BL) {
+    try {
+      await fetch(GAS_URL_BL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch(err) {}
+  }
+
+  form.style.display = 'none';
+  confirm.classList.add('show');
+}
+</script>
+</body>
+</html>

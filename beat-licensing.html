@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="License beats from PRML RECORDS. Basic, Premium, and Exclusive licenses. Produced by SEAUX9. Atlanta-based. Instant delivery.">
+<meta property="og:title" content="Beat Licensing — PRML RECORDS">
+<meta property="og:description" content="License beats from SEAUX9 and PRML RECORDS. Basic MP3, Premium WAV+Stems, and Exclusive rights available. Instant delivery.">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<meta property="og:url" content="https://www.prmlrecords.com/beat-licensing.html">
+<meta property="og:site_name" content="PRML RECORDS">
+<meta name="twitter:card" content="summary_large_image">
+<title>Beat Licensing — PRML RECORDS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ── HERO ── */
+.bl-hero{background:var(--black);padding:80px 5vw 64px;border-bottom:3px solid var(--red);position:relative;overflow:hidden}
+.bl-hero::before{content:'BEATS';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(100px,22vw,260px);color:rgba(224,16,16,.04);letter-spacing:-8px;bottom:-30px;right:-10px;line-height:1;pointer-events:none;user-select:none}
+.hero-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.hero-title{font-family:'Rubik Mono One',monospace;font-size:clamp(44px,7vw,100px);color:var(--cream);letter-spacing:-3px;line-height:.9;margin-bottom:20px}
+.hero-title span{color:var(--red)}
+.hero-sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--cream);opacity:.5;max-width:560px;line-height:1.8;border-left:3px solid var(--red);padding-left:16px;margin-bottom:32px}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap}
+.hero-badge{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);background:rgba(245,230,200,.07);border:1px solid rgba(245,230,200,.12);padding:8px 16px}
+
+/* ── LICENSE TIERS ── */
+.license-section{padding:72px 5vw;background:var(--cream)}
+.license-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px}
+@media(max-width:860px){.license-grid{grid-template-columns:1fr}}
+.license-card{background:var(--cream);border:2px solid rgba(46,45,45,.1);padding:36px;display:flex;flex-direction:column;position:relative;transition:.2s}
+.license-card:hover{border-color:var(--red);transform:translateY(-3px)}
+.license-card.featured{background:var(--black);border:2px solid var(--red)}
+.lc-badge{position:absolute;top:-12px;left:24px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;background:var(--red);color:var(--cream);padding:5px 12px}
+.lc-tier{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.lc-name{font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3vw,36px);letter-spacing:-1px;line-height:1;margin-bottom:8px}
+.license-card:not(.featured) .lc-name{color:var(--black)}
+.license-card.featured .lc-name{color:var(--cream)}
+.lc-price{font-family:'Rubik Mono One',monospace;font-size:48px;color:var(--red);letter-spacing:-2px;line-height:1;margin-bottom:4px}
+.lc-price-note{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;margin-bottom:24px}
+.license-card:not(.featured) .lc-price-note{color:var(--charcoal);opacity:.45}
+.license-card.featured .lc-price-note{color:var(--cream);opacity:.4}
+.lc-features{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:9px;flex:1}
+.lc-features li{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;line-height:1.5;padding-left:18px;position:relative}
+.license-card:not(.featured) .lc-features li{color:var(--charcoal);opacity:.65}
+.license-card.featured .lc-features li{color:var(--cream);opacity:.6}
+.lc-features li::before{content:'—';position:absolute;left:0;color:var(--red);font-family:'Rubik Mono One',monospace;font-size:10px}
+.lc-cta{display:block;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:13px 24px;text-decoration:none;text-align:center;transition:.15s;border:none;cursor:pointer;width:100%}
+.lc-cta-red{background:var(--red);color:var(--cream)}
+.lc-cta-red:hover{background:#a00000}
+.lc-cta-outline{background:transparent;color:var(--charcoal);border:1.5px solid rgba(46,45,45,.2)}
+.lc-cta-outline:hover{border-color:var(--red);color:var(--red)}
+.lc-cta-outline-light{background:transparent;color:var(--cream);border:1.5px solid rgba(245,230,200,.2)}
+.lc-cta-outline-light:hover{border-color:var(--red);color:var(--red)}
+
+/* ── HOW IT WORKS ── */
+.how-section{background:var(--black);padding:72px 5vw;border-top:1px solid rgba(245,230,200,.06)}
+.how-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,52px);color:var(--cream);letter-spacing:-1.5px;margin-bottom:12px}
+.how-sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.45;max-width:540px;line-height:1.75;margin-bottom:48px}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+@media(max-width:700px){.how-steps{grid-template-columns:1fr}}
+.how-step{background:var(--charcoal);padding:32px}
+.hs-num{font-family:'Rubik Mono One',monospace;font-size:48px;color:var(--red);opacity:.5;letter-spacing:-2px;line-height:1;margin-bottom:12px}
+.hs-title{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
+.hs-desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.45;line-height:1.7}
+
+/* ── USAGE TERMS ── */
+.terms-section{background:var(--cream);padding:64px 5vw;border-top:2px solid rgba(46,45,45,.08)}
+.terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:32px;background:rgba(46,45,45,.06)}
+.term-card{background:var(--cream);padding:28px}
+.tc-tier{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.tc-name{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--black);letter-spacing:-0.5px;margin-bottom:14px}
+.tc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.tc-list li{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--charcoal);opacity:.6;line-height:1.6;padding-left:14px;position:relative}
+.tc-list li::before{content:'·';position:absolute;left:0;color:var(--red)}
+.tc-list li.no{opacity:.35;text-decoration:line-through}
+
+/* ── CUSTOM INQUIRY ── */
+.custom-section{background:var(--black);padding:72px 5vw;border-top:3px solid var(--red)}
+.cs-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,54px);color:var(--cream);letter-spacing:-1.5px;margin-bottom:12px}
+.cs-sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.45;max-width:560px;line-height:1.75;margin-bottom:32px}
+</style>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2PNH2XTRDK', { page_title: document.title, page_location: window.location.href });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href], button');
+      if (!el) return;
+      gtag('event', 'button_click', { element_text: (el.textContent||'').trim().substring(0,100), element_href: el.getAttribute('href')||'', page_location: window.location.href });
+    });
+  });
+</script>
+<!-- Meta Pixel -->
+<script>
+setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1244730814514395');fbq('track','PageView');},3000);
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML RECORDS logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link nav2__link--active" href="beat-licensing.html">Beat Licensing</a>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="bl-hero">
+  <div class="hero-eye">SEAUX9 &nbsp;·&nbsp; PRML RECORDS &nbsp;·&nbsp; Produced in West End Atlanta</div>
+  <h1 class="hero-title">BEAT<br><span>LICENSING</span></h1>
+  <p class="hero-sub">Produced by SEAUX9. Trap, R&amp;B, soul, experimental. Basic MP3 to full Exclusive rights. Instant delivery. Your music, your vision — let's build it.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">Instant Download</span>
+    <span class="hero-badge">Commercial Use Available</span>
+    <span class="hero-badge">Stems Available</span>
+    <span class="hero-badge">Exclusive Rights Available</span>
+  </div>
+</section>
+
+<!-- LICENSE TIERS -->
+<section class="license-section">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Choose Your License</div>
+  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(30px,4vw,56px);color:var(--black);letter-spacing:-1.5px;line-height:1;margin-bottom:8px">THREE TIERS.<br>ONE PRODUCER.</h2>
+  <p style="font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--charcoal);opacity:.55;max-width:540px;line-height:1.75">Pick the license that fits your project. Not sure? Start with Basic — you can always upgrade.</p>
+
+  <div class="license-grid">
+
+    <!-- BASIC -->
+    <div class="license-card">
+      <div class="lc-tier">Basic License</div>
+      <div class="lc-name">MP3 LEASE</div>
+      <div class="lc-price">$29<span style="font-size:22px">.99</span></div>
+      <div class="lc-price-note">One-time payment · Instant delivery</div>
+      <ul class="lc-features">
+        <li>MP3 file (tagged)</li>
+        <li>Up to 50,000 streams</li>
+        <li>1 music video allowed</li>
+        <li>Non-exclusive (beat stays in catalog)</li>
+        <li>Must credit: "Prod. by SEAUX9"</li>
+        <li>Free / indie / underground releases</li>
+      </ul>
+      <!-- TODO: Replace with live Stripe payment link once beat catalog is built -->
+      <a class="lc-cta lc-cta-outline" href="contact.html?subject=Basic+Beat+License" id="cta-basic">Inquire / Buy →</a>
+    </div>
+
+    <!-- PREMIUM — FEATURED -->
+    <div class="license-card featured">
+      <div class="lc-badge">Most Popular</div>
+      <div class="lc-tier">Premium License</div>
+      <div class="lc-name">WAV + STEMS</div>
+      <div class="lc-price">$99<span style="font-size:22px">.99</span></div>
+      <div class="lc-price-note">One-time payment · Instant delivery</div>
+      <ul class="lc-features">
+        <li>WAV file (untagged) + all stems</li>
+        <li>Up to 500,000 streams</li>
+        <li>Unlimited music videos</li>
+        <li>Non-exclusive (beat stays in catalog)</li>
+        <li>Must credit: "Prod. by SEAUX9"</li>
+        <li>Indie, commercial, and sync use</li>
+        <li>Radio broadcasting included</li>
+      </ul>
+      <!-- TODO: Replace with live Stripe payment link once beat catalog is built -->
+      <a class="lc-cta lc-cta-red" href="contact.html?subject=Premium+Beat+License" id="cta-premium">Inquire / Buy →</a>
+    </div>
+
+    <!-- EXCLUSIVE -->
+    <div class="license-card">
+      <div class="lc-tier">Exclusive License</div>
+      <div class="lc-name">FULL RIGHTS</div>
+      <div class="lc-price" style="font-size:36px">$299+</div>
+      <div class="lc-price-note">Custom pricing · Negotiated directly</div>
+      <ul class="lc-features">
+        <li>WAV file + all stems</li>
+        <li>Unlimited streams — no cap</li>
+        <li>Beat removed from catalog on purchase</li>
+        <li>Full exclusive rights to you</li>
+        <li>Sync licensing included</li>
+        <li>No credit required (optional)</li>
+        <li>Film, TV, advertising, major label use</li>
+      </ul>
+      <a class="lc-cta lc-cta-outline" href="contact.html?subject=Exclusive+Beat+License">Inquire for Pricing →</a>
+    </div>
+
+  </div>
+
+  <!-- COMING SOON NOTICE -->
+  <div style="margin-top:32px;background:rgba(224,16,16,.06);border-left:4px solid var(--red);padding:18px 22px;max-width:640px">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Beat Catalog Coming Soon</div>
+    <div style="font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--charcoal);opacity:.7;line-height:1.75">Full beat catalog with previews and instant checkout is in production. In the meantime, click any license above or use the inquiry form below — we'll send you previews and set up your purchase directly.</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px">The Process</div>
+  <h2 class="how-title">HOW IT WORKS</h2>
+  <p class="how-sub">Simple, fast, and transparent. You get your files immediately after payment. No middlemen. No waiting.</p>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="hs-num">01</div>
+      <div class="hs-title">Pick Your License</div>
+      <div class="hs-desc">Basic, Premium, or Exclusive. Match the license to your project scope and budget.</div>
+    </div>
+    <div class="how-step">
+      <div class="hs-num">02</div>
+      <div class="hs-title">Pay &amp; Download</div>
+      <div class="hs-desc">Secure Stripe checkout. Files delivered instantly to your email. License agreement included.</div>
+    </div>
+    <div class="how-step">
+      <div class="hs-num">03</div>
+      <div class="hs-title">Create &amp; Release</div>
+      <div class="hs-desc">Record, mix, master, and release. Credit SEAUX9 in your liner notes and you're covered.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENSE TERMS COMPARISON -->
+<section class="terms-section">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px">License Terms</div>
+  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(26px,3.5vw,48px);color:var(--black);letter-spacing:-1.5px;line-height:1">WHAT'S INCLUDED</h2>
+  <div class="terms-grid">
+    <div class="term-card">
+      <div class="tc-tier">Basic</div>
+      <div class="tc-name">MP3 Lease</div>
+      <ul class="tc-list">
+        <li>MP3 (tagged)</li>
+        <li>50k stream limit</li>
+        <li>1 music video</li>
+        <li>Producer credit required</li>
+        <li class="no">WAV file</li>
+        <li class="no">Stems</li>
+        <li class="no">Exclusive rights</li>
+      </ul>
+    </div>
+    <div class="term-card" style="border-top:3px solid var(--red)">
+      <div class="tc-tier">Premium</div>
+      <div class="tc-name">WAV + Stems</div>
+      <ul class="tc-list">
+        <li>WAV (untagged)</li>
+        <li>All stems included</li>
+        <li>500k stream limit</li>
+        <li>Unlimited music videos</li>
+        <li>Radio broadcasting</li>
+        <li>Producer credit required</li>
+        <li class="no">Exclusive rights</li>
+      </ul>
+    </div>
+    <div class="term-card">
+      <div class="tc-tier">Exclusive</div>
+      <div class="tc-name">Full Rights</div>
+      <ul class="tc-list">
+        <li>WAV (untagged)</li>
+        <li>All stems included</li>
+        <li>Unlimited streams</li>
+        <li>Unlimited music videos</li>
+        <li>Sync / film / TV / ads</li>
+        <li>Beat removed from catalog</li>
+        <li>Credit optional</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--charcoal);opacity:.4;margin-top:20px;max-width:560px;line-height:1.7">All licenses are governed by PRML RECORDS LLC standard beat license agreement, delivered with your purchase. Questions? Email <a href="mailto:info@prmlrecords.com" style="color:var(--red)">info@prmlrecords.com</a>.</p>
+</section>
+
+<!-- CUSTOM / SYNC INQUIRY -->
+<section class="custom-section">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Custom &amp; Sync</div>
+  <h2 class="cs-title">NEED SOMETHING<br>CUSTOM?</h2>
+  <p class="cs-sub">Film scores, commercial jingles, podcast beds, sync placements, or a beat made specifically for your project. Tell us what you need — we'll build it.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <a href="contact.html?subject=Custom+Music+Inquiry" class="lc-cta lc-cta-red" style="display:inline-block;width:auto;padding:13px 32px">Get a Custom Quote →</a>
+    <a href="booking.html" class="lc-cta lc-cta-outline-light" style="display:inline-block;width:auto;padding:13px 32px">Book a Session</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--charcoal);padding:36px 5vw;border-top:1px solid rgba(245,230,200,.06)">
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:.05em;margin-bottom:4px">PRML RECORDS</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.35">West End Atlanta &nbsp;·&nbsp; Art. Community. Technology.</div>
+    </div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <a href="index.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Home</a>
+      <a href="products.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Shop</a>
+      <a href="services.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Services</a>
+      <a href="contact.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Contact</a>
+      <a href="privacypolicy.html" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

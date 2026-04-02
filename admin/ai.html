@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Command Center | PRML Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin.css">
+<style>
+.ai-badge{display:inline-flex;align-items:center;gap:5px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;background:rgba(224,16,16,.12);color:var(--red);padding:3px 9px;border:1px solid rgba(224,16,16,.25)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px;background:var(--charcoal);margin-bottom:20px}
+.tool-card{background:var(--black);padding:24px}
+.tool-title{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.tool-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.45;line-height:1.6;margin-bottom:14px}
+.result-box{background:var(--charcoal);padding:16px;margin-top:12px;display:none;font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);line-height:1.75;white-space:pre-wrap}
+.result-box.visible{display:block}
+.tag-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;background:rgba(224,16,16,.1);color:var(--red);padding:4px 9px;cursor:pointer;transition:.15s;border:1px solid rgba(224,16,16,.2)}
+.tag:hover{background:rgba(224,16,16,.25)}
+.brief-wrap{background:var(--charcoal);border-top:3px solid var(--red);padding:28px;margin-bottom:20px}
+.brief-text{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--cream);line-height:1.85;white-space:pre-wrap}
+.brief-meta{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;margin-bottom:16px}
+</style>
+</head>
+<body>
+<div class="login-screen" id="login-screen">
+  <div class="login-box">
+    <div class="login-title">PRML Admin</div><div class="login-sub">Restricted Access</div>
+    <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()"></div>
+    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter →</button>
+    <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
+  </div>
+</div>
+
+<nav class="adm-nav">
+  <a class="adm-brand" href="index.html"><span>PRML <em>Admin</em></span></a>
+  <div class="adm-nav-links">
+    <a href="index.html" class="anl">Dashboard</a>
+    <a href="analytics.html" class="anl">Analytics</a>
+    <a href="social.html" class="anl">Social</a>
+    <a href="ai.html" class="anl active">✦ AI</a>
+    <a href="news.html" class="anl">News</a>
+    <a href="competitors.html" class="anl">Competitors</a>
+    <a href="goals.html" class="anl">Goals</a>
+    <a href="grants.html" class="anl">Grants</a>
+    <a href="invoice.html" class="anl">Invoice</a>
+    <a href="settings.html" class="anl anl--ext">Settings</a>
+  </div>
+</nav>
+
+<div class="adm-wrap" id="main-content" style="display:none">
+  <div class="page-hd">
+    <h1>AI Command Center</h1>
+    <p>Claude-powered tools for PRML Records — briefings, content, hashtags &amp; more</p>
+  </div>
+
+  <!-- KEY WARNING -->
+  <div id="key-warn" class="status status-err" style="display:none;margin-bottom:20px">
+    ⚠️ Anthropic API key not set. <a href="settings.html" style="color:var(--red);text-decoration:underline">Go to Settings</a> to add it — AI tools won't work without it.
+  </div>
+
+  <!-- MORNING BRIEF -->
+  <div class="brief-wrap" id="brief-section">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div>
+        <div class="sec-hd" style="border:none;margin:0;padding:0">Morning Brief</div>
+        <div class="brief-meta" id="brief-date">—</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="ai-badge">⚡ Claude</span>
+        <button class="btn btn-red btn-sm" id="brief-btn" onclick="runBrief()">Generate Brief</button>
+      </div>
+    </div>
+    <div class="brief-text" id="brief-out">Hit "Generate Brief" to get your daily PRML intelligence summary powered by Claude AI.</div>
+  </div>
+
+  <!-- TOOL GRID -->
+  <div class="sec-hd">AI Tools</div>
+  <div class="tool-grid">
+
+    <!-- HASHTAG GENERATOR -->
+    <div class="tool-card">
+      <div class="tool-title">Hashtag Generator</div>
+      <div class="tool-desc">20 optimized Instagram hashtags for any topic or post</div>
+      <div class="f-field">
+        <label class="f-label">Post Topic</label>
+        <input class="f-input" id="tag-topic" placeholder="e.g. new single release, studio session, tap keychain product..." onkeydown="if(event.key==='Enter')runHashtags()">
+      </div>
+      <button class="btn btn-red btn-sm" id="tag-btn" onclick="runHashtags()">Generate Hashtags</button>
+      <div class="result-box" id="tag-out">
+        <div class="tag-wrap" id="tag-list"></div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;color:var(--cream);opacity:.3;margin-top:10px">Click a hashtag to copy</div>
+      </div>
+    </div>
+
+    <!-- CONTENT CALENDAR -->
+    <div class="tool-card">
+      <div class="tool-title">Content Calendar</div>
+      <div class="tool-desc">7-day content plan for Instagram, TikTok &amp; YouTube</div>
+      <div class="f-field">
+        <label class="f-label">Week Focus (optional)</label>
+        <input class="f-input" id="cal-focus" placeholder="e.g. SEAUX9 release week, holiday sale, new product launch...">
+      </div>
+      <button class="btn btn-red btn-sm" id="cal-btn" onclick="runCalendar()">Generate 7-Day Plan</button>
+      <div class="result-box" id="cal-out"></div>
+    </div>
+
+    <!-- CAPTION WRITER -->
+    <div class="tool-card">
+      <div class="tool-title">Caption Writer</div>
+      <div class="tool-desc">Write an engaging caption for any post</div>
+      <div class="f-field">
+        <label class="f-label">Describe the Post</label>
+        <textarea class="f-textarea" id="cap-input" placeholder="e.g. Behind-the-scenes photo from the studio mixing SEAUX9's new track. Want a caption with a call to action to stream." style="min-height:70px"></textarea>
+      </div>
+      <button class="btn btn-red btn-sm" id="cap-btn" onclick="runCaption()">Write Caption</button>
+      <div class="result-box" id="cap-out"></div>
+    </div>
+
+    <!-- PRESS RELEASE DRAFT -->
+    <div class="tool-card">
+      <div class="tool-title">Press Release Draft</div>
+      <div class="tool-desc">First draft for any PRML Records announcement</div>
+      <div class="f-field">
+        <label class="f-label">What are you announcing?</label>
+        <textarea class="f-textarea" id="press-input" placeholder="e.g. SEAUX9 new single 'Title' dropping Friday on all platforms. Features producer X. Album coming Q3." style="min-height:70px"></textarea>
+      </div>
+      <button class="btn btn-red btn-sm" id="press-btn" onclick="runPress()">Draft Press Release</button>
+      <div class="result-box" id="press-out"></div>
+    </div>
+
+    <!-- EMAIL DRAFT -->
+    <div class="tool-card">
+      <div class="tool-title">Email / Pitch Draft</div>
+      <div class="tool-desc">Outreach emails, pitches, follow-ups</div>
+      <div class="f-field">
+        <label class="f-label">Who are you emailing &amp; why?</label>
+        <textarea class="f-textarea" id="email-input" placeholder="e.g. Pitching HipHopDX to cover SEAUX9's new single. First contact. Want professional but direct tone." style="min-height:70px"></textarea>
+      </div>
+      <button class="btn btn-red btn-sm" id="email-btn" onclick="runEmail()">Draft Email</button>
+      <div class="result-box" id="email-out"></div>
+    </div>
+
+    <!-- FREE PROMPT -->
+    <div class="tool-card">
+      <div class="tool-title">Ask Claude Anything</div>
+      <div class="tool-desc">Free-form prompt with PRML context built in</div>
+      <div class="f-field">
+        <label class="f-label">Your Question</label>
+        <textarea class="f-textarea" id="free-input" placeholder="Ask anything about strategy, marketing, music industry, legal, finance, product ideas..." style="min-height:70px"></textarea>
+      </div>
+      <button class="btn btn-red btn-sm" id="free-btn" onclick="runFree()">Ask Claude</button>
+      <div class="result-box" id="free-out"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/claude-admin.js"></script>
+<script>
+const PASS = 'PRMLp369!';
+function tryLogin() {
+  if (document.getElementById('pw').value === PASS) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+    init();
+  } else {
+    document.getElementById('pw-err').style.display = 'block';
+  }
+}
+
+function init() {
+  document.getElementById('brief-date').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  if (!ClaudeAdmin.hasKey()) {
+    document.getElementById('key-warn').style.display = 'block';
+  }
+}
+
+async function runBrief() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const btn = document.getElementById('brief-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const text = await ClaudeAdmin.morningBrief();
+    document.getElementById('brief-out').textContent = text;
+  } catch (e) {
+    document.getElementById('brief-out').textContent = '⚠️ ' + e.message;
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Regenerate');
+}
+
+async function runHashtags() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const topic = document.getElementById('tag-topic').value.trim();
+  if (!topic) { alert('Enter a topic first.'); return; }
+  const btn = document.getElementById('tag-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const tags = await ClaudeAdmin.generateHashtags(topic);
+    const wrap = document.getElementById('tag-list');
+    wrap.innerHTML = '';
+    tags.forEach(t => {
+      const tag = t.startsWith('#') ? t : '#' + t;
+      const el = document.createElement('span');
+      el.className = 'tag';
+      el.textContent = tag;
+      el.onclick = () => { navigator.clipboard.writeText(tag); el.style.background = 'rgba(34,197,94,.15)'; el.style.color = '#4ade80'; setTimeout(() => { el.style.background = ''; el.style.color = ''; }, 1200); };
+      wrap.appendChild(el);
+    });
+    document.getElementById('tag-out').classList.add('visible');
+  } catch (e) {
+    document.getElementById('tag-out').textContent = '⚠️ ' + e.message;
+    document.getElementById('tag-out').classList.add('visible');
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Generate Hashtags');
+}
+
+async function runCalendar() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const focus = document.getElementById('cal-focus').value.trim();
+  const btn = document.getElementById('cal-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const text = await ClaudeAdmin.generateContentPlan(focus);
+    const out = document.getElementById('cal-out');
+    out.textContent = text;
+    out.classList.add('visible');
+  } catch (e) {
+    const out = document.getElementById('cal-out');
+    out.textContent = '⚠️ ' + e.message;
+    out.classList.add('visible');
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Generate 7-Day Plan');
+}
+
+async function runCaption() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const desc = document.getElementById('cap-input').value.trim();
+  if (!desc) { alert('Describe the post first.'); return; }
+  const btn = document.getElementById('cap-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const text = await ClaudeAdmin.ask(
+      'You are a social media copywriter for PRML Records, an independent Atlanta music label. Write captions that are authentic, direct, and on-brand — bold, creative, no corporate fluff.',
+      `Write an Instagram caption for this post: ${desc}\n\nInclude: hook line, 2-3 sentences of body, call to action. Keep it under 150 words. No hashtags (those get added separately).`
+    );
+    const out = document.getElementById('cap-out');
+    out.textContent = text;
+    out.classList.add('visible');
+  } catch (e) {
+    const out = document.getElementById('cap-out');
+    out.textContent = '⚠️ ' + e.message;
+    out.classList.add('visible');
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Write Caption');
+}
+
+async function runPress() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const announcement = document.getElementById('press-input').value.trim();
+  if (!announcement) { alert('Describe the announcement first.'); return; }
+  const btn = document.getElementById('press-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const text = await ClaudeAdmin.ask(
+      'You are a publicist drafting press releases for PRML Records, an independent hip-hop and creative studio label based in Atlanta, GA. Founder: SEAUX9/FLY.',
+      `Draft a press release for this announcement: ${announcement}\n\nFormat: Headline, subheading, dateline (Atlanta, GA), 3 paragraphs, boilerplate about PRML Records, contact info placeholder. Professional but with energy.`,
+      { maxTokens: 900 }
+    );
+    const out = document.getElementById('press-out');
+    out.textContent = text;
+    out.classList.add('visible');
+  } catch (e) {
+    const out = document.getElementById('press-out');
+    out.textContent = '⚠️ ' + e.message;
+    out.classList.add('visible');
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Draft Press Release');
+}
+
+async function runEmail() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const context = document.getElementById('email-input').value.trim();
+  if (!context) { alert('Describe the email context first.'); return; }
+  const btn = document.getElementById('email-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const text = await ClaudeAdmin.ask(
+      'You are a music industry professional drafting outreach emails for PRML Records, an independent label in Atlanta. Tone: confident, direct, professional — not desperate or over-explaining.',
+      `Draft this email: ${context}\n\nFormat: Subject line, greeting, body (3-4 short paragraphs), sign-off. Include a clear ask. Use [NAME] for recipient placeholder.`,
+      { maxTokens: 700 }
+    );
+    const out = document.getElementById('email-out');
+    out.textContent = text;
+    out.classList.add('visible');
+  } catch (e) {
+    const out = document.getElementById('email-out');
+    out.textContent = '⚠️ ' + e.message;
+    out.classList.add('visible');
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Draft Email');
+}
+
+async function runFree() {
+  if (!ClaudeAdmin.requireKey()) return;
+  const q = document.getElementById('free-input').value.trim();
+  if (!q) { alert('Ask a question first.'); return; }
+  const btn = document.getElementById('free-btn');
+  ClaudeAdmin.setLoading(btn, true);
+  try {
+    const text = await ClaudeAdmin.ask(
+      'You are an AI advisor for PRML Records LLC, an independent music label and creative studio in Atlanta, GA owned by SEAUX9/FLY. 4 divisions: Records, Studio, Agency, Education. Be direct, tactical, and specific to the indie music industry.',
+      q,
+      { maxTokens: 1200 }
+    );
+    const out = document.getElementById('free-out');
+    out.textContent = text;
+    out.classList.add('visible');
+  } catch (e) {
+    const out = document.getElementById('free-out');
+    out.textContent = '⚠️ ' + e.message;
+    out.classList.add('visible');
+  }
+  ClaudeAdmin.setLoading(btn, false, 'Ask Claude');
+}
+</script>
+</body>
+</html>
