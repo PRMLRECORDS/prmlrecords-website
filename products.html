@@ -187,7 +187,8 @@
       "image": "https://prmlrecords.com/assets/logo.png",
       "url": "https://prmlrecords.com/products.html#tap-card",
       "offers": [
-        {"@type": "Offer", "name": "Single", "price": "29.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Single Stock", "price": "29.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Custom Single", "price": "54.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
         {"@type": "Offer", "name": "10-Pack", "price": "249.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
       ]
     },
@@ -199,7 +200,8 @@
       "image": "https://prmlrecords.com/assets/logo.png",
       "url": "https://prmlrecords.com/products.html#tap-keychain",
       "offers": [
-        {"@type": "Offer", "name": "Single", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Single Stock", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Custom Single", "price": "39.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
         {"@type": "Offer", "name": "10-Pack", "price": "149.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
       ]
     },
@@ -523,24 +525,72 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   <div class="ps-name">PRML TAP CARD</div>
   <div class="ps-tagline">One tap. Every detail.</div>
   <div class="ps-desc">Your complete digital identity in a slim, branded card. Tap any phone — no app needed. Instant connection. Works on all iPhones and Android. Update your info anytime — same card, forever.</div>
+
+  <!-- STOCK COLORS — NO SETUP FEE -->
   <div class="ps-options">
     <div class="ps-opt">
-      <div class="ps-opt-label">Single Card</div>
+      <div class="ps-opt-label">Stock Colors · No Setup Fee</div>
       <div class="ps-opt-price">$29.99</div>
-      <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Programmed before it ships</div>
-      <div class="ps-opt-promo">First 9 customers: setup fee waived + free 30-min consultation</div>
+      <div class="ps-opt-sub">Black, White, or Clear &middot; 7-day turnaround &middot; Free local pickup (Atlanta)</div>
+      <div class="ps-opt-promo">Standard QR code on back &middot; Smooth finish standard &middot; Free shipping</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
         <a href="https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="29.99" data-name="PRML TAP CARD — Charcoal">Charcoal &#8594;</a>
         <a href="https://buy.stripe.com/cNiaEY8yVgc69Ho3Eu1ZS0P" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="29.99" data-name="PRML TAP CARD — Beige">Beige &#8594;</a>
       </div>
     </div>
     <div class="ps-opt">
-      <div class="ps-opt-label">10-Pack</div>
+      <div class="ps-opt-label">10-Pack · Stock Colors</div>
       <div class="ps-opt-price">$249.99</div>
-      <div class="ps-opt-sub">$24.99/card &middot; Ships in 5&ndash;7 days &middot; All programmed</div>
+      <div class="ps-opt-sub">$24.99/card &middot; 7-day turnaround &middot; All programmed &middot; Free shipping</div>
       <div class="ps-opt-promo">Best for teams, events &amp; networking &middot; Color confirmed during setup</div>
       <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" class="btn btn--out" target="_blank" rel="noopener" data-price="249.99" data-name="PRML TAP CARD — 10-Pack">Order 10-Pack &#8594;</a>
     </div>
+  </div>
+
+  <!-- CUSTOM CARDS — PRICING TABLE -->
+  <div style="margin-top:40px;border-top:1px solid rgba(245,230,200,.12);padding-top:40px">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px">Custom Cards — Your Design, Your Colors</div>
+    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(20px,3vw,32px);color:var(--cream);letter-spacing:-1px;margin-bottom:8px">$54.99 <span style="font-size:16px;opacity:.5;font-weight:400">+ $15.99 setup</span></div>
+    <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.55;margin-bottom:24px;line-height:1.7">Minimum 1 card &middot; 7-day turnaround &middot; We beat Dot Card's 2-week lead time &middot; Free local pickup Atlanta &middot; Free shipping &middot; Stock colors: Black, White, Clear</div>
+
+    <!-- Volume Tier Table -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px;max-width:720px;margin-bottom:24px">
+      <div style="background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:20px 16px">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">1 Card</div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--cream)">$54.99</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4;margin-top:4px">+ $15.99 setup</div>
+      </div>
+      <div style="background:rgba(245,230,200,.04);border:1px solid rgba(245,230,200,.1);padding:20px 16px">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">5-Pack <span style="color:var(--cream);opacity:.5">5% off</span></div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--cream)">$52.24</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4;margin-top:4px">per card &middot; + $15.99 setup</div>
+      </div>
+      <div style="background:rgba(245,230,200,.06);border:1px solid rgba(245,230,200,.15);padding:20px 16px">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">20-Pack <span style="color:var(--cream);opacity:.5">18% off</span></div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--cream)">$45.09</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4;margin-top:4px">per card &middot; + $15.99 setup</div>
+      </div>
+      <div style="background:rgba(224,16,16,.06);border:1px solid rgba(224,16,16,.25);padding:20px 16px">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">100-Pack <span style="color:var(--cream);opacity:.5">63% off</span></div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--cream)">$20.34</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4;margin-top:4px">per card &middot; + $15.99 setup</div>
+      </div>
+    </div>
+
+    <!-- Upcharges -->
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.4;margin-bottom:12px">Optional Upgrades</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px">
+      <div style="background:rgba(245,230,200,.05);border:1px solid rgba(245,230,200,.1);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Custom Color <span style="color:var(--red)">+$5.99</span></div>
+      <div style="background:rgba(245,230,200,.05);border:1px solid rgba(245,230,200,.1);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Textured Finish <span style="color:var(--red)">+$5.99</span></div>
+      <div style="background:rgba(245,230,200,.05);border:1px solid rgba(245,230,200,.1);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Double-Sided <span style="color:var(--red)">+$5.99</span></div>
+      <div style="background:rgba(245,230,200,.05);border:1px solid rgba(245,230,200,.1);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Multicolor <span style="color:var(--red)">+$5.99</span></div>
+    </div>
+    <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.35;margin-bottom:20px;line-height:1.7">
+      Standard: QR code on back (unless double-sided selected) &middot; Stock colors: Black, White, Clear &middot; Custom colors &amp; multicolor available with upcharge &middot;
+      You provide your design files &mdash; need design help? Select &ldquo;Design Services&rdquo; in the form below &middot;
+      50% deposit required to begin &middot; Scope adjustments billed as an adjustment fee if project exceeds paid package
+    </div>
+    <a href="contact.html" class="btn btn--red">Request Custom Cards &#8594;</a>
   </div>
 </div>
 
@@ -550,24 +600,44 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   <div class="ps-name">PRML TAP KEYCHAIN</div>
   <div class="ps-tagline">Your network. On your keys.</div>
   <div class="ps-desc">Always with you. Always ready. Tap to share your full digital profile from the most personal item you carry. Built for the person who is always moving — never missing a connection.</div>
+
+  <!-- STOCK KEYCHAINS -->
   <div class="ps-options">
     <div class="ps-opt">
-      <div class="ps-opt-label">Single Keychain</div>
+      <div class="ps-opt-label">Stock Colors · Single</div>
       <div class="ps-opt-price">$19.99</div>
-      <div class="ps-opt-sub">Ships in 3&ndash;5 days &middot; Programmed before it ships</div>
-      <div class="ps-opt-promo">First 9 customers: setup fee waived + free 30-min consultation</div>
+      <div class="ps-opt-sub">Charcoal or Cream &middot; 7-day turnaround &middot; Free local pickup (Atlanta)</div>
+      <div class="ps-opt-promo">NFC programmed &middot; Optional QR code on back &middot; Free shipping</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
         <a href="https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q" class="btn btn--red" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="19.99" data-name="PRML TAP KEYCHAIN — Charcoal">Charcoal &#8594;</a>
         <a href="https://buy.stripe.com/aFa14o2ax0d81aScb01ZS0R" class="btn btn--out" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-align:center" data-price="19.99" data-name="PRML TAP KEYCHAIN — Beige">Beige &#8594;</a>
       </div>
     </div>
     <div class="ps-opt">
-      <div class="ps-opt-label">10-Pack</div>
+      <div class="ps-opt-label">10-Pack · Stock Colors</div>
       <div class="ps-opt-price">$149.99</div>
-      <div class="ps-opt-sub">$14.99/keychain &middot; Ships in 5&ndash;7 days &middot; All programmed</div>
+      <div class="ps-opt-sub">$14.99/keychain &middot; 7-day turnaround &middot; All programmed &middot; Free shipping</div>
       <div class="ps-opt-promo">Equip your team or gift to clients &middot; Color confirmed during setup</div>
       <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" class="btn btn--out" target="_blank" rel="noopener" data-price="149.99" data-name="PRML TAP KEYCHAIN — 10-Pack">Order 10-Pack &#8594;</a>
     </div>
+  </div>
+
+  <!-- CUSTOM KEYCHAINS -->
+  <div style="margin-top:40px;border-top:1px solid rgba(46,45,45,.1);padding-top:40px">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px">Custom Keychains — Any Shape, Any Color</div>
+    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(20px,3vw,32px);color:var(--charcoal);letter-spacing:-1px;margin-bottom:8px">$39.99 <span style="font-size:16px;opacity:.4;font-weight:400">+ $15.99 setup</span></div>
+    <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.6;margin-bottom:24px;line-height:1.7">3D-printed in-house &middot; Atlanta &middot; Standard shapes: Circle or Square (2.5&Prime;&times;2.5&Prime;) &middot; Smooth finish &middot; 7-day turnaround &middot; Free local pickup &middot; Free shipping</div>
+
+    <!-- Upcharges -->
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);opacity:.4;margin-bottom:12px">Optional Upgrades</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+      <div style="background:rgba(46,45,45,.05);border:1px solid rgba(46,45,45,.12);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--charcoal)">QR Code on Back <span style="color:var(--red)">+$1.00</span></div>
+      <div style="background:rgba(46,45,45,.05);border:1px solid rgba(46,45,45,.12);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--charcoal)">Custom Color <span style="color:var(--red)">+$5.99</span></div>
+      <div style="background:rgba(46,45,45,.05);border:1px solid rgba(46,45,45,.12);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--charcoal)">Multicolor <span style="color:var(--red)">+$5.99</span></div>
+      <div style="background:rgba(46,45,45,.05);border:1px solid rgba(46,45,45,.12);padding:10px 16px;font-family:'Roboto Slab',serif;font-size:12px;color:var(--charcoal)">Custom Shape <span style="color:var(--red)">+$5.99</span></div>
+    </div>
+    <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--charcoal);opacity:.4;margin-bottom:20px;line-height:1.7">Custom stock colors: Black, White, Gray, Red &middot; Custom colors &amp; multicolor available with upcharge &middot; You provide your design files — need design help? Select &ldquo;Design Services&rdquo; in the inquiry form &middot; 50% deposit required to begin &middot; Scope adjustments billed as an adjustment fee if project exceeds paid package &middot; Plant-based materials available</div>
+    <a href="contact.html" class="btn btn--red">Order Custom Keychain &#8594;</a>
   </div>
 </div>
 
