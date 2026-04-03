@@ -1,0 +1,25 @@
+{
+  "name": "prml-checkout",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@stripe/stripe-js": "^3.4.1",
+    "@stripe/react-stripe-js": "^2.7.1",
+    "stripe": "^15.7.0",
+    "airtable": "^0.12.2",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3",
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.19"
+  }
+}
