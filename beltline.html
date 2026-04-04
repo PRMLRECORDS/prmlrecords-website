@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="description" content="PRML RECORDS on the Atlanta Beltline. One tap connects you. NFC cards, keychains, and creative services. West End Atlanta.">
 <meta property="og:title" content="PRML RECORDS — Live on the Beltline">
 <meta property="og:description" content="You just met us. Here's everything you need. NFC products, music, services, and community — from West End Atlanta.">
@@ -368,5 +370,120 @@ async function submitBeltlineSignup(e) {
   confirm.classList.add('show');
 }
 </script>
+
+<!-- SUPPORT THE VIBE — Donation Section (from Stitch) -->
+<style>
+.bl-donate{background:var(--cream);padding:80px 5vw}
+.bl-donate .bl-section-title{color:var(--red)}
+.bl-donate .bl-section-desc{color:var(--charcoal);opacity:.65}
+.donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-top:40px}
+.donate-tier{background:var(--charcoal);padding:36px;position:relative;transition:background .2s}
+.donate-tier:hover{background:var(--surface-high,#2A2A2A)}
+.tier-badge{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;background:var(--red);color:var(--cream);padding:4px 10px;display:inline-block;margin-bottom:12px}
+.tier-badge.gold{background:#C5A028;color:#131313}
+.tier-badge.silver{background:#8A8A8A}
+.tier-name{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);letter-spacing:-1px;text-transform:uppercase;margin-bottom:8px}
+.tier-amount{font-family:'Odibee Sans',sans-serif;font-size:32px;color:var(--red);letter-spacing:2px;margin-bottom:12px}
+.tier-desc{font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);line-height:1.7;margin-bottom:20px}
+.tier-perks{list-style:none;padding:0;margin:0 0 20px}
+.tier-perks li{font-family:'Roboto Slab',serif;font-size:12px;color:var(--stone);padding:6px 0;border-bottom:1px solid rgba(196,180,154,.1);padding-left:14px;position:relative;line-height:1.5}
+.tier-perks li::before{content:'→';position:absolute;left:0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px}
+
+/* SPONSORS GRID */
+.bl-sponsors{background:var(--surface-low,#1B1C1C);padding:80px 5vw;border-top:4px solid var(--charcoal)}
+.bl-sponsors .bl-section-title{color:var(--cream)}
+.sponsors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px;margin-top:48px}
+.sponsor-slot{background:var(--charcoal);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:3px solid transparent;transition:.2s;min-height:120px}
+.sponsor-slot:hover{border-bottom-color:var(--red)}
+.sponsor-slot.available{border:2px dashed rgba(196,180,154,.2)}
+.sponsor-slot-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);opacity:.5;text-align:center;padding:16px}
+.sponsor-tier-label{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--stone);text-align:center;margin-top:16px;padding:0 2px}
+</style>
+
+<section class="bl-donate reveal" id="support">
+  <div class="bl-section-eye">Community · Support the Vibe</div>
+  <h2 class="bl-section-title">SUPPORT<br>THE VIBE</h2>
+  <p class="bl-section-desc" style="max-width:600px;margin-bottom:0">PRML RECORDS is a West End Atlanta institution. Your support keeps us building events, producing music, and bringing NFC technology to the community. Every dollar is fuel.</p>
+
+  <div class="donate-grid">
+    <!-- Community -->
+    <div class="donate-tier">
+      <div class="tier-badge">Community</div>
+      <div class="tier-name">Supporter</div>
+      <div class="tier-amount">$10+</div>
+      <p class="tier-desc">Every contribution fuels the movement. Your name in our digital credits and gratitude that's real.</p>
+      <ul class="tier-perks">
+        <li>Digital shout-out on socials</li>
+        <li>Beltline Vibes credits listing</li>
+        <li>Early event access</li>
+      </ul>
+      <a href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G?utm_source=beltline&utm_medium=donate&utm_campaign=community-tier" target="_blank" rel="noopener" class="bl-btn bl-btn-outline-light" style="display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 20px;text-decoration:none;color:var(--stone);border:1px solid rgba(196,180,154,.3);transition:.15s">Donate →</a>
+    </div>
+
+    <!-- Patron -->
+    <div class="donate-tier">
+      <div class="tier-badge silver">Patron</div>
+      <div class="tier-name">Patron</div>
+      <div class="tier-amount">$50+</div>
+      <p class="tier-desc">You're an insider now. Get exclusive content, invites, and a physical PRML TAP CARD as thanks.</p>
+      <ul class="tier-perks">
+        <li>Everything in Supporter</li>
+        <li>1x PRML TAP CARD (mailed)</li>
+        <li>Exclusive Discord channel access</li>
+        <li>Event VIP list</li>
+      </ul>
+      <a href="contact.html?utm_source=beltline&utm_medium=donate&utm_campaign=patron-tier" class="bl-btn bl-btn-red" style="display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 20px;background:var(--red);color:var(--cream);text-decoration:none;transition:.15s">Become a Patron →</a>
+    </div>
+
+    <!-- Sponsor -->
+    <div class="donate-tier">
+      <div class="tier-badge gold">Sponsor</div>
+      <div class="tier-name">Event Sponsor</div>
+      <div class="tier-amount">$250+</div>
+      <p class="tier-desc">Your brand on the Beltline. Logo on our lightbox, shout on our mic, and a seat at the table.</p>
+      <ul class="tier-perks">
+        <li>Everything in Patron</li>
+        <li>Logo on event lightbox display</li>
+        <li>Stage / mic mention at event</li>
+        <li>Social media feature post</li>
+        <li>Sponsor-only meet &amp; greet</li>
+      </ul>
+      <a href="contact.html?utm_source=beltline&utm_medium=donate&utm_campaign=event-sponsor" class="bl-btn bl-btn-red" style="display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:12px 20px;background:var(--red);color:var(--cream);text-decoration:none;transition:.15s">Sponsor the Event →</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR SPONSORS -->
+<section class="bl-sponsors reveal" id="sponsors">
+  <div class="bl-section-eye">Partners &amp; Supporters</div>
+  <h2 class="bl-section-title">OUR <span style="color:var(--red)">SPONSORS</span></h2>
+  <p style="font-family:'Roboto Slab',serif;font-size:15px;color:var(--stone);max-width:540px;line-height:1.7;opacity:.7;margin-bottom:0">Brands and individuals who back the Beltline Vibes movement. Interested in a spot? <a href="contact.html?utm_source=beltline&utm_medium=sponsors&utm_campaign=sponsor-inquiry" style="color:var(--red);text-decoration:none">Get in touch →</a></p>
+
+  <div class="sponsors-grid">
+    <!-- Filled sponsor slots would go here — placeholders shown -->
+    <div class="sponsor-slot available">
+      <div class="sponsor-slot-label">Your Brand Here</div>
+    </div>
+    <div class="sponsor-slot available">
+      <div class="sponsor-slot-label">Your Brand Here</div>
+    </div>
+    <div class="sponsor-slot available">
+      <div class="sponsor-slot-label">Your Brand Here</div>
+    </div>
+    <div class="sponsor-slot available">
+      <div class="sponsor-slot-label">Your Brand Here</div>
+    </div>
+    <div class="sponsor-slot available">
+      <div class="sponsor-slot-label">Your Brand Here</div>
+    </div>
+    <div class="sponsor-slot available">
+      <div class="sponsor-slot-label">Your Brand Here</div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;text-align:center">
+    <a href="contact.html?utm_source=beltline&utm_medium=sponsors-cta&utm_campaign=sponsor-inquiry" class="btn btn--red">Become a Sponsor →</a>
+  </div>
+</section>
 </body>
 </html>

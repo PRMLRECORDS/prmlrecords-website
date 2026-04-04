@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<title>Custom NFC Products — PRML RECORDS LLC</title>
+<meta name="description" content="Bespoke NFC hardware manufacturing. Custom Tap Cards, Keychains, Lightboxes, and steel badges. PRML RECORDS — Media. Marketing. Manufacturing. Atlanta, GA.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.prmlrecords.com/customize.html">
+<meta property="og:title" content="Custom NFC Products — PRML RECORDS">
+<meta property="og:description" content="Bespoke industrial NFC hardware. We don't just build hardware — we forge cultural artifacts.">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<meta property="og:site_name" content="PRML RECORDS">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=Nabla&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=Nabla&display=swap"></noscript>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');
+document.addEventListener('submit',function(e){gtag('event','form_submit',{form_id:e.target.id||'unknown',page_location:window.location.href});});</script>
+<!-- Facebook Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1244730814514395');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/brand.css">
+<style>
+:root{
+  --charcoal:#2B2B2B;
+  --cream:#F5E6C8;
+  --red:#E01010;
+  --stone:#C4B49A;
+  --bg:#FAF7F0;
+  --black:#131313;
+  --surface-low:#1B1C1C;
+  --surface-high:#2A2A2A;
+}
+
+/* ── HERO ── */
+.cust-hero{background:var(--black);padding:80px 5vw 72px;position:relative;overflow:hidden;border-bottom:4px solid var(--red)}
+.cust-hero::before{content:'BESPOKE';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(60px,14vw,180px);color:rgba(224,16,16,.04);letter-spacing:-4px;bottom:-20px;right:-10px;line-height:1;pointer-events:none;user-select:none}
+.ch-eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.ch-title{font-family:'Rubik Mono One',monospace;font-size:clamp(40px,7vw,96px);color:var(--cream);letter-spacing:-3px;line-height:.9;margin-bottom:8px}
+.ch-title span{color:var(--red)}
+.ch-tagline{font-family:'Odibee Sans',sans-serif;font-size:clamp(14px,2vw,20px);letter-spacing:4px;text-transform:uppercase;color:var(--stone);margin-bottom:20px}
+.ch-sub{font-family:'Roboto Slab',serif;font-size:16px;font-style:italic;font-weight:300;color:var(--cream);opacity:.55;max-width:560px;line-height:1.8;margin-bottom:36px}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--charcoal);padding:40px 5vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;border-bottom:3px solid var(--surface-high)}
+.stat-cell{background:var(--surface-low);padding:28px 24px}
+.stat-num{font-family:'Rubik Mono One',monospace;font-size:44px;color:var(--cream);letter-spacing:-2px;line-height:1;margin-bottom:6px}
+.stat-num span{color:var(--red);font-size:20px;letter-spacing:0}
+.stat-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--stone)}
+
+/* ── SHOWCASE GRID ── */
+.showcase{background:var(--black);padding:80px 5vw}
+.section-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.section-title{font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,52px);color:var(--cream);letter-spacing:-2px;line-height:1;margin-bottom:40px}
+.section-title span{color:var(--red)}
+
+.showcase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px}
+.showcase-card{background:var(--surface-low);padding:36px;position:relative;transition:background .2s}
+.showcase-card:hover{background:var(--surface-high)}
+.sc-icon{font-family:'Odibee Sans',sans-serif;font-size:32px;color:var(--red);margin-bottom:16px;letter-spacing:-1px}
+.sc-name{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--cream);text-transform:uppercase;letter-spacing:-1px;margin-bottom:10px}
+.sc-desc{font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);line-height:1.7;margin-bottom:20px}
+.sc-link{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);text-decoration:none;border-bottom:1px solid transparent;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+.sc-link:hover{border-bottom-color:var(--red)}
+
+/* ── PIPELINE ── */
+.pipeline{background:var(--charcoal);padding:80px 5vw}
+.pipeline-steps{display:grid;gap:2px;margin-top:40px}
+.pipe-step{background:var(--surface-low);padding:36px;display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;transition:background .2s}
+.pipe-step:hover{background:var(--surface-high)}
+.pipe-num{font-family:'Rubik Mono One',monospace;font-size:56px;color:rgba(224,16,16,.2);letter-spacing:-3px;line-height:1;padding-top:4px}
+.pipe-content{}
+.pipe-name{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.pipe-title{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);letter-spacing:-1px;margin-bottom:10px;text-transform:uppercase}
+.pipe-desc{font-family:'Roboto Slab',serif;font-size:14px;color:var(--stone);line-height:1.7}
+
+/* ── ORDER FORM ── */
+.order-section{background:var(--black);padding:80px 5vw}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+@media(max-width:768px){.order-grid{grid-template-columns:1fr;gap:48px}}
+.order-info{}
+.order-form-wrap{}
+.form-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:6px}
+.form-input{width:100%;background:var(--surface-low);border:none;border-bottom:2px solid var(--surface-high);color:var(--cream);font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;margin-bottom:24px;transition:border-color .15s;outline:none;display:block}
+.form-input:focus{border-bottom-color:var(--red)}
+.form-select{width:100%;background:var(--surface-low);border:none;border-bottom:2px solid var(--surface-high);color:var(--cream);font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;margin-bottom:24px;transition:border-color .15s;outline:none;display:block;-webkit-appearance:none;cursor:pointer}
+.form-select:focus{border-bottom-color:var(--red)}
+.form-textarea{width:100%;background:var(--surface-low);border:none;border-bottom:2px solid var(--surface-high);color:var(--cream);font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;margin-bottom:24px;transition:border-color .15s;outline:none;resize:vertical;min-height:100px;display:block}
+.form-textarea:focus{border-bottom-color:var(--red)}
+
+/* ── INFO LIST ── */
+.info-list{list-style:none;padding:0;margin:32px 0}
+.info-list li{font-family:'Roboto Slab',serif;font-size:14px;color:var(--stone);padding:12px 0;border-bottom:1px solid rgba(196,180,154,.1);display:flex;align-items:start;gap:12px;line-height:1.6}
+.info-list li::before{content:'—';color:var(--red);flex-shrink:0;margin-top:1px}
+
+/* ── PRICING TABLE ── */
+.pricing-section{background:var(--surface-low);padding:80px 5vw}
+.price-table{width:100%;border-collapse:collapse;margin-top:40px}
+.price-table th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);text-align:left;padding:12px 16px;border-bottom:2px solid var(--red);background:var(--charcoal)}
+.price-table td{font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream);padding:14px 16px;border-bottom:1px solid rgba(196,180,154,.1)}
+.price-table tr:hover td{background:rgba(224,16,16,.05)}
+.price-em{color:var(--red);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- NAV — PRML RECORDS v3 2026 -->
+<style>
+.nav2{background:#2B2B2B;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.nav2__inner{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto}
+.nav2__brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav2__brand-name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5E6C8;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.nav2__brand-name span{color:#E01010}
+.nav2__links{display:flex;align-items:center;gap:4px}
+.nav2__item{position:relative}
+.nav2__link{font-family:'Odibee Sans',sans-serif;font-size:15px;color:#F5E6C8;text-decoration:none;padding:8px 14px;border-radius:0;display:flex;align-items:center;gap:4px;white-space:nowrap;transition:background .2s,color .2s;letter-spacing:.04em}
+.nav2__link:hover,.nav2__link.active{background:#C4B49A;color:#F5E6C8}
+.nav2__link.active{color:#E01010;background:rgba(254,1,3,.1)}
+.nav2__caret{font-size:10px;opacity:.7}
+.nav2__dropdown{display:none;position:absolute;top:100%;left:0;background:#2B2B2B;border:1px solid #C4B49A;border-radius:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:1001;overflow:hidden}
+.nav2__item:hover .nav2__dropdown{display:block}
+.nav2__drop-link{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;padding:10px 16px;border-bottom:1px solid rgba(99,93,82,.3);transition:background .15s}
+.nav2__drop-link:last-child{border-bottom:none}
+.nav2__drop-link:hover{background:#C4B49A}
+.nav2__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav2__burger span{display:block;width:24px;height:2px;background:#F5E6C8;border-radius:2px}
+@media(max-width:768px){
+  .nav2__links{display:none}
+  .nav2__burger{display:flex}
+  .nav2.mob-open .nav2__links{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#2B2B2B;padding:16px;gap:2px;border-bottom:2px solid #C4B49A}
+  .nav2.mob-open .nav2__dropdown{position:static;border:none;box-shadow:none;background:rgba(99,93,82,.2);border-radius:0;display:block;padding-left:16px}
+  .nav2__item{width:100%}
+  .nav2__link{width:100%}
+}
+</style>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML RECORDS logo mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span>RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link active" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+          <a class="nav2__drop-link" href="shop.html">White Label Catalog</a>
+          <a class="nav2__drop-link" href="customize.html">Custom Orders</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="privacypolicy.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<!-- END NAV -->
+
+<main>
+
+<!-- HERO -->
+<div class="cust-hero">
+  <div class="ch-eyebrow">Bespoke Manufacturing · NFC · Custom Fabrication</div>
+  <h1 class="ch-title">BESPOKE<br><span>INDUSTRIAL</span></h1>
+  <div class="ch-tagline">Media · Market · Manufacturing</div>
+  <p class="ch-sub">We don't just build hardware — we forge cultural artifacts. From NFC-integrated steel badges to monumental lightboxes, PRML RECORDS defines the physical standard of the industry.</p>
+  <a href="#order" class="btn btn--red" style="margin-right:12px">Start Your Order →</a>
+  <a href="shop.html?utm_source=customize&utm_medium=hero&utm_campaign=white-label" class="btn btn--out">Browse WL Catalog →</a>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat-cell">
+    <div class="stat-num">94<span>%</span></div>
+    <div class="stat-label">Fabrication Capacity Available</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">12<span style="font-size:18px;color:var(--stone)"> DAYS</span></div>
+    <div class="stat-label">Average Production Queue</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">50<span>+</span></div>
+    <div class="stat-label">Custom Projects Delivered</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">0<span style="font-size:18px;color:var(--stone)">%</span></div>
+    <div class="stat-label">Subscription Fees — Ever</div>
+  </div>
+</div>
+
+<!-- SHOWCASE -->
+<div class="showcase reveal">
+  <div class="section-eye">Industrial Showcase · Custom Hardware</div>
+  <h2 class="section-title">WHAT WE <span>BUILD</span></h2>
+  <div class="showcase-grid">
+
+    <div class="showcase-card">
+      <div class="sc-icon">NFC</div>
+      <h3 class="sc-name">Tap Cards &amp; Keychains</h3>
+      <p class="sc-desc">Carbon-reinforced composite and stone resin. Embedded NTAG213 chips. Full-surface UV and laser branding. Programmed to your digital destination. MOQ 10 units.</p>
+      <a href="#order" class="sc-link">Configure Order →</a>
+    </div>
+
+    <div class="showcase-card">
+      <div class="sc-icon">▣</div>
+      <h3 class="sc-name">Brutalist Lightboxes</h3>
+      <p class="sc-desc">Heavy-gauge aluminum frames with interchangeable acrylic faces. Internal LED array. NFC tap integration for venue and gallery installations. Built to tour.</p>
+      <a href="#order" class="sc-link">Request Quote →</a>
+    </div>
+
+    <div class="showcase-card">
+      <div class="sc-icon">✦</div>
+      <h3 class="sc-name">Custom Neon Signage</h3>
+      <p class="sc-desc">Glass-tube gas lighting with NFC tap-to-verify authentication chips embedded in the ballast. Interactive signage for studios, venues, and galleries.</p>
+      <a href="#order" class="sc-link">Request Quote →</a>
+    </div>
+
+    <div class="showcase-card">
+      <div class="sc-icon">◈</div>
+      <h3 class="sc-name">Badge Fabrication</h3>
+      <p class="sc-desc">Laser-etched titanium and steel credential plates. Immutable physical links to digital discographies, portfolios, and identities. From 1 unit.</p>
+      <a href="#order" class="sc-link">Configure Order →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- PIPELINE -->
+<div class="pipeline reveal">
+  <div class="section-eye">Production Pipeline · How It Works</div>
+  <h2 class="section-title" style="color:var(--cream)">FROM CONCEPT<br>TO <span>DELIVERY</span></h2>
+  <div class="pipeline-steps">
+
+    <div class="pipe-step">
+      <div class="pipe-num">01</div>
+      <div class="pipe-content">
+        <div class="pipe-name">Design</div>
+        <h3 class="pipe-title">Submit Your Brief</h3>
+        <p class="pipe-desc">Fill out the order form below with product type, quantity, logo, destination URL, and any design requirements. We confirm specs within 24 hours and send a branded mockup.</p>
+      </div>
+    </div>
+
+    <div class="pipe-step">
+      <div class="pipe-num">02</div>
+      <div class="pipe-content">
+        <div class="pipe-name">Material</div>
+        <h3 class="pipe-title">Approve the Proof</h3>
+        <p class="pipe-desc">Review your design proof and select material finish — Charcoal matte, Beige stone, or custom color match. Unlimited revisions until you're satisfied.</p>
+      </div>
+    </div>
+
+    <div class="pipe-step">
+      <div class="pipe-num">03</div>
+      <div class="pipe-content">
+        <div class="pipe-name">NFC Link</div>
+        <h3 class="pipe-title">Secure Your Deposit</h3>
+        <p class="pipe-desc">50% production deposit locks in your slot and timeline. NFC chips are pre-programmed to your exact destination URL. Balance due at fulfillment.</p>
+      </div>
+    </div>
+
+    <div class="pipe-step">
+      <div class="pipe-num">04</div>
+      <div class="pipe-content">
+        <div class="pipe-name">Review &amp; Ship</div>
+        <h3 class="pipe-title">QA &amp; Fulfillment</h3>
+        <p class="pipe-desc">Every unit is tap-tested before shipment. Standard fulfillment: 10–14 business days. Rush options available. Full tracking provided at ship.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRICING TABLE -->
+<div class="pricing-section reveal">
+  <div class="section-eye">Pricing · Custom Orders</div>
+  <h2 class="section-title" style="color:var(--cream)">TRANSPARENT <span>PRICING</span></h2>
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>MOQ</th>
+        <th>Unit Price</th>
+        <th>Setup Fee</th>
+        <th>Lead Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TAP CARD — Custom Branded</td>
+        <td>10 units</td>
+        <td class="price-em">$45+</td>
+        <td>$0</td>
+        <td>10–14 days</td>
+      </tr>
+      <tr>
+        <td>KEYCHAIN — Custom Branded</td>
+        <td>10 units</td>
+        <td class="price-em">$35+</td>
+        <td>$0</td>
+        <td>10–14 days</td>
+      </tr>
+      <tr>
+        <td>LIGHTBOX — WL Edition</td>
+        <td>1 unit</td>
+        <td class="price-em">Custom Quote</td>
+        <td>Included</td>
+        <td>21–30 days</td>
+      </tr>
+      <tr>
+        <td>Neon Signage w/ NFC</td>
+        <td>1 unit</td>
+        <td class="price-em">Custom Quote</td>
+        <td>Included</td>
+        <td>21–30 days</td>
+      </tr>
+      <tr>
+        <td>Badge / Steel Plate</td>
+        <td>1 unit</td>
+        <td class="price-em">$85+</td>
+        <td>$0</td>
+        <td>7–10 days</td>
+      </tr>
+      <tr>
+        <td>Production Deposit (all orders)</td>
+        <td colspan="3">50% of total order, balance due at fulfillment</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--stone);margin-top:16px;opacity:.7">*Prices vary by quantity, material, and complexity. All quotes are itemized. Net-30 available for established clients.</p>
+</div>
+
+<!-- ORDER FORM -->
+<div class="order-section reveal" id="order">
+  <div class="section-eye">Custom Order · Start Here</div>
+  <div class="order-grid">
+
+    <div class="order-info">
+      <h2 class="section-title">START YOUR<br><span>ORDER</span></h2>
+      <p style="font-family:'Roboto Slab',serif;font-size:15px;color:var(--stone);line-height:1.8;margin-bottom:8px">Fill out the form and we'll respond within 24 hours with a itemized quote and design brief.</p>
+      <ul class="info-list">
+        <li>No setup fees on standard card and keychain orders</li>
+        <li>Free design mockup with every quote request</li>
+        <li>50% deposit to start production</li>
+        <li>NFC chips pre-programmed to your URL at no extra cost</li>
+        <li>Bulk discounts at 50, 100, and 500+ units</li>
+        <li>Rush production available — contact for availability</li>
+      </ul>
+      <p style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--stone)">Questions? Call (770) 686-7726 or email <a href="mailto:info@prmlrecords.com" style="color:var(--red);text-decoration:none">info@prmlrecords.com</a></p>
+    </div>
+
+    <div class="order-form-wrap">
+      <form id="customize-form" action="https://script.google.com/macros/s/AKfycbyDDMqGqm2JzFqWLJjx-placeholder/exec" method="POST">
+        <label class="form-label" for="cf-name">Full Name *</label>
+        <input class="form-input" type="text" id="cf-name" name="name" required placeholder="Your name" autocomplete="name" minlength="2" maxlength="100">
+
+        <label class="form-label" for="cf-email">Email Address *</label>
+        <input class="form-input" type="email" id="cf-email" name="email" required placeholder="you@example.com" autocomplete="email">
+
+        <label class="form-label" for="cf-company">Company / Brand</label>
+        <input class="form-input" type="text" id="cf-company" name="company" placeholder="Optional" maxlength="100">
+
+        <label class="form-label" for="cf-product">Product Type *</label>
+        <select class="form-select" id="cf-product" name="product" required>
+          <option value="">Select a product</option>
+          <option value="tap-card">TAP CARD — Custom Branded</option>
+          <option value="keychain">KEYCHAIN — Custom Branded</option>
+          <option value="tap-card-keychain-bundle">TAP CARD + KEYCHAIN Bundle</option>
+          <option value="lightbox">LIGHTBOX — WL Edition</option>
+          <option value="neon-sign">Neon Signage w/ NFC</option>
+          <option value="badge">Badge / Steel Plate</option>
+          <option value="other">Other / Multi-product</option>
+        </select>
+
+        <label class="form-label" for="cf-qty">Estimated Quantity *</label>
+        <select class="form-select" id="cf-qty" name="quantity" required>
+          <option value="">Select quantity</option>
+          <option value="1-9">1–9 units</option>
+          <option value="10-49">10–49 units</option>
+          <option value="50-99">50–99 units</option>
+          <option value="100-499">100–499 units</option>
+          <option value="500+">500+ units</option>
+        </select>
+
+        <label class="form-label" for="cf-url">Destination URL (NFC link)</label>
+        <input class="form-input" type="url" id="cf-url" name="destination_url" placeholder="https://yoursite.com" maxlength="500">
+
+        <label class="form-label" for="cf-notes">Design Notes / Special Requirements</label>
+        <textarea class="form-textarea" id="cf-notes" name="notes" placeholder="Logo details, color preferences, rush request, etc." maxlength="1000"></textarea>
+
+        <button type="submit" class="btn btn--red" style="width:100%;justify-content:center">Submit Custom Order Request →</button>
+        <p style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--stone);margin-top:12px;text-align:center;opacity:.7">We respond within 24 hours · No commitment until deposit</p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER — PRML RECORDS v3 2026 -->
+<footer style="background:#2B2B2B;padding:48px 32px 32px;border-top:4px solid #E01010">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 48px">
+    <div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5E6C8;letter-spacing:.06em;margin-bottom:12px">PRML <span style="color:#E01010">RECORDS</span></div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;line-height:1.7">Art. Community. Technology.<br>Atlanta, GA</div>
+    </div>
+    <div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4B49A;margin-bottom:12px">Company</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="index.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Home</a>
+        <a href="services.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Services</a>
+        <a href="booking.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Book SEAUX9</a>
+        <a href="press.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Press</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4B49A;margin-bottom:12px">Legal</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="privacypolicy.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Privacy Policy</a>
+        <a href="termsofservice.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Terms of Service</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4B49A;margin-bottom:12px">Contact</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;line-height:1.8">
+        <a href="mailto:info@prmlrecords.com" style="color:#F5E6C8;text-decoration:none">info@prmlrecords.com</a><br>
+        (770) 686-7726<br>
+        4485 Fulton Industrial Blvd SW<br>Ste A1 PMB 1167, Atlanta GA 30336
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1280px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(196,180,154,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;opacity:.6">&copy; 2026 PRML RECORDS LLC. All rights reserved.</div>
+    <div style="display:flex;gap:16px">
+      <a href="https://instagram.com/prmlrecords" target="_blank" rel="noopener" style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;text-decoration:none;opacity:.7">Instagram</a>
+      <a href="https://twitter.com/prmlrecords" target="_blank" rel="noopener" style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;text-decoration:none;opacity:.7">Twitter/X</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script>
+(function(){
+  if(!window.IntersectionObserver)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // Form submit handler
+  var form=document.getElementById('customize-form');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=form.querySelector('button[type=submit]');
+      btn.textContent='Sending...';
+      btn.disabled=true;
+      var data=new FormData(form);
+      var obj={page:'customize',source:'prmlrecords.com'};
+      data.forEach(function(v,k){obj[k]=v;});
+      fetch(form.action,{method:'POST',body:JSON.stringify(obj),headers:{'Content-Type':'application/json'}})
+        .then(function(){
+          form.innerHTML='<div style="text-align:center;padding:48px 0"><div style="font-family:\'Rubik Mono One\',monospace;font-size:28px;color:#E01010;letter-spacing:-1px;margin-bottom:12px">ORDER RECEIVED</div><p style="font-family:\'Roboto Slab\',serif;color:#C4B49A">We\'ll follow up within 24 hours with your quote and design brief.</p></div>';
+        })
+        .catch(function(){
+          btn.textContent='Submit Custom Order Request →';
+          btn.disabled=false;
+          alert('Something went wrong. Please email info@prmlrecords.com directly.');
+        });
+    });
+  }
+})();
+</script>
+</body>
+</html>

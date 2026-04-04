@@ -186,6 +186,41 @@ select,
   color: var(--cream) !important;
 }
 
+/* ── 3b. NABLA BRAND ACCENT — "RECORDS" wordmark ── */
+/*
+   Nabla is a COLRv1 variable color font used exclusively
+   for the "RECORDS" accent in the nav brand mark.
+   The @font-palette-values rule overrides the default
+   color layers with PRML Red and Cream in alternation.
+*/
+
+@font-palette-values --nabla-alt-red-cream {
+  font-family: "Nabla";
+  override-colors:
+    0 #E01010,
+    1 #F5E6C8,
+    2 #E01010,
+    3 #F5E6C8,
+    4 #E01010,
+    5 #F5E6C8,
+    6 #E01010,
+    7 #F5E6C8,
+    8 #E01010,
+    9 #F5E6C8;
+}
+
+.nav2__brand-name span {
+  font-family: 'Nabla', monospace !important;
+  font-palette: --nabla-alt-red-cream !important;
+  color: var(--red); /* fallback if Nabla not loaded */
+}
+
+/* Footer brand also gets Nabla treatment */
+.footer-brand-records {
+  font-family: 'Nabla', monospace !important;
+  font-palette: --nabla-alt-red-cream !important;
+}
+
 
 /* ── 4. TYPOGRAPHY SYSTEM ────────────────────────── */
 

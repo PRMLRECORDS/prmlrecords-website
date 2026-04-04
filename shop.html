@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<title>White Label Shop — PRML RECORDS LLC</title>
+<meta name="description" content="PRML RECORDS white label NFC products. TAP CARDS, KEYCHAINS, LIGHTBOXES and custom fabrication for brands, venues, and agencies. Starting at $45. Atlanta, GA.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.prmlrecords.com/shop.html">
+<meta property="og:title" content="White Label Shop — PRML RECORDS">
+<meta property="og:description" content="Industrial-grade NFC hardware for brands and agencies. Custom logo. Custom programming. No subscriptions.">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<meta property="og:site_name" content="PRML RECORDS">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=Nabla&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=Nabla&display=swap"></noscript>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');
+document.addEventListener('submit',function(e){gtag('event','form_submit',{form_id:e.target.id||'unknown',page_location:window.location.href});});</script>
+<!-- Facebook Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1244730814514395');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/brand.css">
+<style>
+:root{
+  --charcoal:#2B2B2B;
+  --cream:#F5E6C8;
+  --red:#E01010;
+  --stone:#C4B49A;
+  --bg:#FAF7F0;
+  --black:#131313;
+  --surface-low:#1B1C1C;
+  --surface-high:#2A2A2A;
+}
+
+/* ── SHOP HERO ── */
+.shop-hero{background:var(--black);padding:72px 5vw 64px;position:relative;overflow:hidden;border-bottom:4px solid var(--red)}
+.shop-hero::before{content:'CATALOGUE';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(60px,14vw,180px);color:rgba(245,230,200,.025);letter-spacing:-4px;bottom:-10px;right:-20px;line-height:1;pointer-events:none;user-select:none}
+.sh-eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.sh-title{font-family:'Rubik Mono One',monospace;font-size:clamp(40px,7vw,90px);color:var(--cream);letter-spacing:-3px;line-height:.9;margin-bottom:16px}
+.sh-title span{color:var(--red)}
+.sh-sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.5;max-width:540px;line-height:1.8;border-left:3px solid var(--red);padding-left:16px;margin-bottom:32px}
+
+/* ── CATEGORY BAR ── */
+.cat-bar{background:var(--charcoal);padding:0 5vw;display:flex;gap:0;border-bottom:2px solid var(--surface-high);overflow-x:auto}
+.cat-btn{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);padding:16px 24px;border:none;background:transparent;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:.15s}
+.cat-btn:hover,.cat-btn.active{color:var(--cream);border-bottom-color:var(--red)}
+
+/* ── CATALOG GRID ── */
+.catalog-wrap{display:flex;gap:0;min-height:600px}
+.catalog-sidebar{width:240px;min-width:200px;background:var(--charcoal);border-right:2px solid var(--surface-high);padding:32px 24px;flex-shrink:0}
+@media(max-width:768px){.catalog-sidebar{display:none}}
+.sidebar-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.sidebar-group{margin-bottom:32px}
+.sidebar-group-title{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(196,180,154,.15)}
+.filter-item{display:flex;align-items:center;gap:10px;padding:8px 0;cursor:pointer}
+.filter-item input[type=checkbox]{width:14px;height:14px;accent-color:var(--red);border-radius:0}
+.filter-item label{font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);cursor:pointer;transition:.15s}
+.filter-item:hover label{color:var(--cream)}
+.filter-reset{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);background:transparent;border:1px solid var(--red);padding:10px 20px;cursor:pointer;width:100%;margin-top:16px;transition:.15s}
+.filter-reset:hover{background:var(--red);color:var(--cream)}
+
+.catalog-main{flex:1;padding:48px 5vw;background:var(--black)}
+.catalog-header{margin-bottom:40px;border-left:6px solid var(--red);padding-left:20px}
+.catalog-count{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);margin-bottom:4px}
+.catalog-heading{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4vw,52px);color:var(--cream);letter-spacing:-2px;line-height:1}
+.catalog-heading span{color:var(--red)}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-bottom:64px}
+
+/* ── PRODUCT CARD ── */
+.prod-card{background:var(--surface-low);position:relative;cursor:pointer;transition:background .2s}
+.prod-card:hover{background:var(--surface-high)}
+.prod-card-badge{position:absolute;top:16px;left:16px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:var(--red);color:var(--cream);padding:4px 10px;z-index:2}
+.prod-card-img{width:100%;aspect-ratio:4/3;background:var(--charcoal);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:2px solid var(--surface-high)}
+.prod-img-placeholder{font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--stone);text-align:center;border:2px solid rgba(196,180,154,.2);padding:12px 20px;transform:rotate(-6deg);background:rgba(43,43,43,.7)}
+.prod-card-body{padding:24px}
+.prod-category{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.prod-name{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);letter-spacing:-1px;line-height:1.1;margin-bottom:10px;text-transform:uppercase}
+.prod-desc{font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);line-height:1.7;margin-bottom:20px}
+.prod-pricing{display:flex;align-items:baseline;gap:8px;margin-bottom:16px}
+.prod-price{font-family:'Odibee Sans',sans-serif;font-size:26px;color:var(--cream);letter-spacing:2px}
+.prod-moq{font-family:'Roboto Slab',serif;font-size:11px;color:var(--stone);opacity:.7}
+.prod-cta{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;background:var(--red);color:var(--cream);padding:12px 20px;text-decoration:none;display:inline-block;transition:.15s;border:2px solid var(--red)}
+.prod-cta:hover{background:transparent;color:var(--red)}
+.prod-cta-out{background:transparent;color:var(--stone);border-color:rgba(196,180,154,.3)}
+.prod-cta-out:hover{border-color:var(--stone);color:var(--cream)}
+
+/* ── FEATURES STRIP ── */
+.features-strip{background:var(--charcoal);padding:48px 5vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;border-top:3px solid var(--red)}
+.feat-item{}
+.feat-num{font-family:'Rubik Mono One',monospace;font-size:40px;color:var(--red);letter-spacing:-2px;line-height:1;margin-bottom:8px}
+.feat-label{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);margin-bottom:4px}
+.feat-desc{font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);opacity:.7;line-height:1.6}
+
+/* ── B2B CTA SECTION ── */
+.b2b-cta{background:var(--red);padding:80px 5vw;position:relative;overflow:hidden}
+.b2b-cta::before{content:'B2B';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(80px,20vw,240px);color:rgba(0,0,0,.1);bottom:-20px;right:-10px;line-height:1;pointer-events:none}
+.b2b-cta-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(245,230,200,.7);margin-bottom:12px}
+.b2b-cta-title{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,64px);color:var(--cream);letter-spacing:-2px;line-height:1;margin-bottom:16px}
+.b2b-cta-sub{font-family:'Roboto Slab',serif;font-size:16px;color:rgba(245,230,200,.8);max-width:540px;line-height:1.7;margin-bottom:36px}
+.btn-dark{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:var(--black);color:var(--cream);padding:16px 32px;text-decoration:none;display:inline-block;border:2px solid var(--black);transition:.15s;margin-right:12px;margin-bottom:12px}
+.btn-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
+.btn-outline-cream{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:transparent;color:var(--cream);padding:16px 32px;text-decoration:none;display:inline-block;border:2px solid rgba(245,230,200,.6);transition:.15s;margin-bottom:12px}
+.btn-outline-cream:hover{border-color:var(--cream);background:rgba(245,230,200,.1)}
+
+/* ── PROCESS ── */
+.process-section{background:var(--black);padding:80px 5vw}
+.process-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.process-title{font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,50px);color:var(--cream);letter-spacing:-2px;line-height:1;margin-bottom:48px}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px}
+.process-step{background:var(--surface-low);padding:32px;position:relative}
+.process-step:hover{background:var(--surface-high)}
+.step-num{font-family:'Rubik Mono One',monospace;font-size:52px;color:rgba(224,16,16,.15);letter-spacing:-3px;line-height:1;margin-bottom:12px}
+.step-name{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.step-desc{font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);line-height:1.7}
+</style>
+</head>
+<body>
+
+<!-- NAV — PRML RECORDS v3 2026 — DO NOT MODIFY THIS BLOCK, EDIT nav-include.html -->
+<style>
+.nav2{background:#2B2B2B;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.nav2__inner{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto}
+.nav2__brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav2__brand-name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5E6C8;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.nav2__brand-name span{color:#E01010}
+.nav2__links{display:flex;align-items:center;gap:4px}
+.nav2__item{position:relative}
+.nav2__link{font-family:'Odibee Sans',sans-serif;font-size:15px;color:#F5E6C8;text-decoration:none;padding:8px 14px;border-radius:0;display:flex;align-items:center;gap:4px;white-space:nowrap;transition:background .2s,color .2s;letter-spacing:.04em}
+.nav2__link:hover,.nav2__link.active{background:#C4B49A;color:#F5E6C8}
+.nav2__link.active{color:#E01010;background:rgba(254,1,3,.1)}
+.nav2__caret{font-size:10px;opacity:.7}
+.nav2__dropdown{display:none;position:absolute;top:100%;left:0;background:#2B2B2B;border:1px solid #C4B49A;border-radius:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:1001;overflow:hidden}
+.nav2__item:hover .nav2__dropdown{display:block}
+.nav2__drop-link{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;padding:10px 16px;border-bottom:1px solid rgba(99,93,82,.3);transition:background .15s}
+.nav2__drop-link:last-child{border-bottom:none}
+.nav2__drop-link:hover{background:#C4B49A}
+.nav2__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav2__burger span{display:block;width:24px;height:2px;background:#F5E6C8;border-radius:2px}
+@media(max-width:768px){
+  .nav2__links{display:none}
+  .nav2__burger{display:flex}
+  .nav2.mob-open .nav2__links{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#2B2B2B;padding:16px;gap:2px;border-bottom:2px solid #C4B49A}
+  .nav2.mob-open .nav2__dropdown{position:static;border:none;box-shadow:none;background:rgba(99,93,82,.2);border-radius:0;display:block;padding-left:16px}
+  .nav2__item{width:100%}
+  .nav2__link{width:100%}
+}
+</style>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML RECORDS logo mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span>RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link active" href="products.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="products.html#tap-card">PRML TAP CARD</a>
+          <a class="nav2__drop-link" href="products.html#tap-keychain">PRML TAP KEYCHAIN</a>
+          <a class="nav2__drop-link" href="shop.html">White Label Catalog</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="booking.html">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="privacypolicy.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<!-- END NAV -->
+
+<main>
+
+<!-- HERO -->
+<div class="shop-hero">
+  <div class="sh-eyebrow">White Label · Industrial NFC · B2B Catalog</div>
+  <h1 class="sh-title">WHITE<br>LABEL <span>SHOP</span></h1>
+  <p class="sh-sub">Custom-branded NFC hardware for businesses, venues, artists, and agencies. Your logo. Our technology. No subscriptions required.</p>
+  <a href="contact.html?utm_source=shop&utm_medium=hero&utm_campaign=white-label" class="btn btn--red" style="margin-right:12px">Request a Quote →</a>
+  <a href="#catalog" class="btn btn--out">Browse Products →</a>
+</div>
+
+<!-- CATEGORY BAR -->
+<div class="cat-bar" role="navigation" aria-label="Product categories">
+  <button class="cat-btn active" data-cat="all">All Products</button>
+  <button class="cat-btn" data-cat="tap-card">Tap Card</button>
+  <button class="cat-btn" data-cat="keychain">Keychain</button>
+  <button class="cat-btn" data-cat="lightbox">Lightbox</button>
+  <button class="cat-btn" data-cat="sign">Signage</button>
+  <button class="cat-btn" data-cat="bundle">Bundles</button>
+</div>
+
+<!-- CATALOG -->
+<div class="catalog-wrap" id="catalog">
+  <!-- Sidebar -->
+  <aside class="catalog-sidebar" aria-label="Product filters">
+    <div class="sidebar-label">Filter</div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Product Type</div>
+      <div class="filter-item"><input type="checkbox" id="f-card"><label for="f-card">Tap Card</label></div>
+      <div class="filter-item"><input type="checkbox" id="f-key"><label for="f-key">Keychain</label></div>
+      <div class="filter-item"><input type="checkbox" id="f-light"><label for="f-light">Lightbox</label></div>
+      <div class="filter-item"><input type="checkbox" id="f-sign"><label for="f-sign">Signage</label></div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Minimum Order</div>
+      <div class="filter-item"><input type="checkbox" id="m-10"><label for="m-10">10+ units</label></div>
+      <div class="filter-item"><input type="checkbox" id="m-50"><label for="m-50">50+ units</label></div>
+      <div class="filter-item"><input type="checkbox" id="m-100"><label for="m-100">100+ units</label></div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Features</div>
+      <div class="filter-item"><input type="checkbox" id="f-nfc"><label for="f-nfc">NFC Chip</label></div>
+      <div class="filter-item"><input type="checkbox" id="f-qr"><label for="f-qr">QR Code</label></div>
+      <div class="filter-item"><input type="checkbox" id="f-laser"><label for="f-laser">Laser Etching</label></div>
+      <div class="filter-item"><input type="checkbox" id="f-uv"><label for="f-uv">UV Print</label></div>
+    </div>
+
+    <button class="filter-reset" onclick="document.querySelectorAll('.catalog-sidebar input').forEach(i=>i.checked=false)">Reset Filters</button>
+  </aside>
+
+  <!-- Main Catalog -->
+  <div class="catalog-main">
+    <div class="catalog-header">
+      <div class="catalog-count">4 Products — White Label Edition</div>
+      <h2 class="catalog-heading">THE <span>CATALOGUE</span></h2>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- TAP CARD WL -->
+      <div class="prod-card reveal" data-cat="tap-card">
+        <span class="prod-card-badge">Most Popular</span>
+        <div class="prod-card-img">
+          <div class="prod-img-placeholder">YOUR LOGO HERE</div>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-category">NFC · Tap Card</div>
+          <h3 class="prod-name">TAP CARD<br>WL EDITION</h3>
+          <p class="prod-desc">Ultra-durable carbon-reinforced composite with embedded NTAG213 chip. Full-surface UV branding. Custom programmed to your digital destination.</p>
+          <div class="prod-pricing">
+            <span class="prod-price">$45+</span>
+            <span class="prod-moq">/ unit · MOQ 10</span>
+          </div>
+          <a href="contact.html?utm_source=shop&utm_medium=product-card&utm_campaign=tap-card-wl" class="prod-cta">Request Quote →</a>
+        </div>
+      </div>
+
+      <!-- KEYCHAIN WL -->
+      <div class="prod-card reveal" data-cat="keychain">
+        <div class="prod-card-img">
+          <div class="prod-img-placeholder">YOUR LOGO HERE</div>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-category">NFC · Keychain</div>
+          <h3 class="prod-name">KEYCHAIN<br>WL EDITION</h3>
+          <p class="prod-desc">Compact impact-resistant stone resin casing with embedded NFC chip and QR code. Laser-etched branding front and back. Built for daily carry.</p>
+          <div class="prod-pricing">
+            <span class="prod-price">$35+</span>
+            <span class="prod-moq">/ unit · MOQ 10</span>
+          </div>
+          <a href="contact.html?utm_source=shop&utm_medium=product-card&utm_campaign=keychain-wl" class="prod-cta">Request Quote →</a>
+        </div>
+      </div>
+
+      <!-- LIGHTBOX WL -->
+      <div class="prod-card reveal" data-cat="lightbox">
+        <span class="prod-card-badge" style="background:var(--charcoal)">Custom Quote</span>
+        <div class="prod-card-img" style="background:#0e0e0e">
+          <div class="prod-img-placeholder" style="transform:rotate(3deg)">LIGHTBOX</div>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-category">Signage · Lightbox</div>
+          <h3 class="prod-name">LIGHTBOX<br>WL EDITION</h3>
+          <p class="prod-desc">Cold-rolled steel frame with custom laser-cut acrylic face and internal LED array. NFC tap integration for venue and gallery installations. Built to tour.</p>
+          <div class="prod-pricing">
+            <span class="prod-price">Custom</span>
+            <span class="prod-moq">Quote required</span>
+          </div>
+          <a href="contact.html?utm_source=shop&utm_medium=product-card&utm_campaign=lightbox-wl" class="prod-cta">Get Pricing →</a>
+        </div>
+      </div>
+
+      <!-- SIGN / BADGE WL -->
+      <div class="prod-card reveal" data-cat="sign">
+        <div class="prod-card-img" style="background:#0e0e0e">
+          <div class="prod-img-placeholder" style="transform:rotate(-3deg)">BADGE</div>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-category">Badge · Fabrication</div>
+          <h3 class="prod-name">BADGE &amp;<br>SIGN EDITION</h3>
+          <p class="prod-desc">Laser-etched titanium and steel credential plates. Custom neon signage with NFC tap verification. Immutable physical links to your digital identity.</p>
+          <div class="prod-pricing">
+            <span class="prod-price">Custom</span>
+            <span class="prod-moq">Quote required</span>
+          </div>
+          <a href="contact.html?utm_source=shop&utm_medium=product-card&utm_campaign=badge-wl" class="prod-cta">Get Pricing →</a>
+        </div>
+      </div>
+
+    </div><!-- /product-grid -->
+
+    <!-- Also available: consumer products -->
+    <div style="border-top:2px solid var(--surface-high);padding-top:40px;margin-top:16px">
+      <div class="sh-eyebrow" style="margin-bottom:8px">Consumer Products</div>
+      <p style="font-family:'Roboto Slab',serif;font-size:14px;color:var(--stone);margin-bottom:20px;line-height:1.7">Looking for individual retail units? Shop the PRML TAP CARD and KEYCHAIN direct — no MOQ required.</p>
+      <a href="products.html?utm_source=shop&utm_medium=consumer-link&utm_campaign=retail" class="prod-cta prod-cta-out">Shop Retail Products →</a>
+    </div>
+
+  </div><!-- /catalog-main -->
+</div><!-- /catalog-wrap -->
+
+<!-- FEATURES STRIP -->
+<div class="features-strip reveal">
+  <div class="feat-item">
+    <div class="feat-num">0%</div>
+    <div class="feat-label">Subscription Fees</div>
+    <div class="feat-desc">One-time hardware cost. No recurring charges. Ever.</div>
+  </div>
+  <div class="feat-item">
+    <div class="feat-num">100%</div>
+    <div class="feat-label">Custom Branding</div>
+    <div class="feat-desc">Your logo. Your colors. Your URL. Factory-programmed.</div>
+  </div>
+  <div class="feat-item">
+    <div class="feat-num">10+</div>
+    <div class="feat-label">Units Minimum</div>
+    <div class="feat-desc">Low MOQ for independent brands and small agencies.</div>
+  </div>
+  <div class="feat-item">
+    <div class="feat-num">NFC</div>
+    <div class="feat-label">NTAG213 Standard</div>
+    <div class="feat-desc">Works with every iPhone XR+ and Android 6+ — no app required.</div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section reveal">
+  <div class="process-eye">How It Works · White Label</div>
+  <h2 class="process-title">THE PRODUCTION<br>PIPELINE</h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-name">Request &amp; Brief</div>
+      <p class="step-desc">Submit your quote request with logo, destination URL, and quantity. We'll confirm specs within 24 hours.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-name">Design Proof</div>
+      <p class="step-desc">Our team creates a branded mockup for your approval. Revisions included at no extra cost.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-name">Production Deposit</div>
+      <p class="step-desc">50% deposit secures your production slot. Balance due at delivery. Net-30 available for established clients.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-name">Fulfillment &amp; Ship</div>
+      <p class="step-desc">Units programmed, QA tested, and shipped within 10–14 business days. Tracking provided.</p>
+    </div>
+  </div>
+</div>
+
+<!-- B2B CTA -->
+<div class="b2b-cta reveal">
+  <div class="b2b-cta-eye">For Brands · Agencies · Venues · Artists</div>
+  <h2 class="b2b-cta-title">READY TO BUILD<br>YOUR HARDWARE LINE?</h2>
+  <p class="b2b-cta-sub">From 10 units to 10,000 — PRML RECORDS handles manufacturing, programming, and fulfillment. Let's build something permanent.</p>
+  <a href="contact.html?utm_source=shop&utm_medium=b2b-cta&utm_campaign=white-label-quote" class="btn-dark">Request a Quote →</a>
+  <a href="booking.html?utm_source=shop&utm_medium=b2b-cta&utm_campaign=consultation" class="btn-outline-cream">Book a Consultation →</a>
+</div>
+
+</main>
+
+<!-- FOOTER — PRML RECORDS v3 2026 -->
+<footer style="background:#2B2B2B;padding:48px 32px 32px;border-top:4px solid #E01010">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 48px">
+    <div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5E6C8;letter-spacing:.06em;margin-bottom:12px">PRML <span style="color:#E01010">RECORDS</span></div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;line-height:1.7">Art. Community. Technology.<br>Atlanta, GA</div>
+    </div>
+    <div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4B49A;margin-bottom:12px">Company</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="index.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Home</a>
+        <a href="services.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Services</a>
+        <a href="booking.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Book SEAUX9</a>
+        <a href="press.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Press</a>
+        <a href="https://namecheap.pxf.io/prmlrecords" target="_blank" rel="noopener" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Namecheap</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4B49A;margin-bottom:12px">Legal</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="privacypolicy.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Privacy Policy</a>
+        <a href="termsofservice.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;opacity:.8">Terms of Service</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4B49A;margin-bottom:12px">Contact</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;line-height:1.8">
+        <a href="mailto:info@prmlrecords.com" style="color:#F5E6C8;text-decoration:none">info@prmlrecords.com</a><br>
+        (770) 686-7726<br>
+        4485 Fulton Industrial Blvd SW<br>Ste A1 PMB 1167, Atlanta GA 30336
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1280px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(196,180,154,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;opacity:.6">&copy; 2026 PRML RECORDS LLC. All rights reserved.</div>
+    <div style="display:flex;gap:16px">
+      <a href="https://instagram.com/prmlrecords" target="_blank" rel="noopener" style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;text-decoration:none;opacity:.7">Instagram</a>
+      <a href="https://twitter.com/prmlrecords" target="_blank" rel="noopener" style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;text-decoration:none;opacity:.7">Twitter/X</a>
+    </div>
+  </div>
+</footer>
+<!-- END FOOTER -->
+
+<script src="js/main.js" defer></script>
+<script>
+// Category filter
+document.querySelectorAll('.cat-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active')});
+    this.classList.add('active');
+    var cat=this.dataset.cat;
+    document.querySelectorAll('.prod-card').forEach(function(card){
+      card.style.display=(cat==='all'||card.dataset.cat===cat)?'':'none';
+    });
+  });
+});
+// Scroll reveal
+(function(){
+  if(!window.IntersectionObserver)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
