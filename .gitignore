@@ -13,9 +13,13 @@ apply-changes.py
 # OS / editor junk
 .DS_Store
 Thumbs.db
+desktop.ini
 *.log
 .env
 .env.*
+
+# Empty Windows artifact directories
+pages/
 
 # Node
 node_modules/

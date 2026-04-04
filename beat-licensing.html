@@ -15,6 +15,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/brand.css">
 <style>
 /* ── HERO ── */
 .bl-hero{background:var(--black);padding:80px 5vw 64px;border-bottom:3px solid var(--red);position:relative;overflow:hidden}
@@ -76,6 +77,17 @@
 .tc-list li{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--charcoal);opacity:.6;line-height:1.6;padding-left:14px;position:relative}
 .tc-list li::before{content:'·';position:absolute;left:0;color:var(--red)}
 .tc-list li.no{opacity:.35;text-decoration:line-through}
+
+/* ── AFTERCARE ── */
+.aftercare-section{background:var(--charcoal);padding:72px 5vw;border-top:3px solid var(--red)}
+.ac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:40px;background:rgba(245,230,200,.04)}
+.ac-card{background:var(--charcoal);padding:32px;border-left:3px solid transparent;transition:.2s}
+.ac-card:hover{border-left-color:var(--red)}
+.ac-num{font-family:'Rubik Mono One',monospace;font-size:40px;color:var(--red);opacity:.35;letter-spacing:-2px;line-height:1;margin-bottom:10px}
+.ac-title{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);margin-bottom:10px}
+.ac-body{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.45;line-height:1.75}
+.ac-body a{color:var(--red);opacity:1;text-decoration:underline}
+.ac-tag{display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:rgba(224,16,16,.15);color:var(--red);padding:4px 10px;margin-bottom:12px}
 
 /* ── CUSTOM INQUIRY ── */
 .custom-section{background:var(--black);padding:72px 5vw;border-top:3px solid var(--red)}
@@ -186,6 +198,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
       </ul>
       <!-- TODO: Replace with live Stripe payment link once beat catalog is built -->
       <a class="lc-cta lc-cta-outline" href="contact.html?subject=Basic+Beat+License" id="cta-basic">Inquire / Buy →</a>
+      <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--charcoal);opacity:.4;margin-top:10px;line-height:1.6">By purchasing, you agree to the <a href="termsofservice.html" style="color:var(--red);text-decoration:underline">PRML RECORDS Beat License Agreement</a>. License + aftercare guide delivered to your email.</p>
     </div>
 
     <!-- PREMIUM — FEATURED -->
@@ -206,6 +219,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
       </ul>
       <!-- TODO: Replace with live Stripe payment link once beat catalog is built -->
       <a class="lc-cta lc-cta-red" href="contact.html?subject=Premium+Beat+License" id="cta-premium">Inquire / Buy →</a>
+      <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.35;margin-top:10px;line-height:1.6">By purchasing, you agree to the <a href="termsofservice.html" style="color:var(--red);text-decoration:underline">PRML RECORDS Beat License Agreement</a>. License + aftercare guide delivered to your email.</p>
     </div>
 
     <!-- EXCLUSIVE -->
@@ -224,6 +238,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
         <li>Film, TV, advertising, major label use</li>
       </ul>
       <a class="lc-cta lc-cta-outline" href="contact.html?subject=Exclusive+Beat+License">Inquire for Pricing →</a>
+      <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--charcoal);opacity:.4;margin-top:10px;line-height:1.6">By purchasing, you agree to the <a href="termsofservice.html" style="color:var(--red);text-decoration:underline">PRML RECORDS Beat License Agreement</a>. License + aftercare guide delivered to your email.</p>
     </div>
 
   </div>

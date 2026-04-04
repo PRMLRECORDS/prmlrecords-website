@@ -1,0 +1,864 @@
+/* ════════════════════════════════════════════════════
+   PRML RECORDS — Brand Design System v3.1
+   "Industrial Brutalism" — Stitch Digital Marketing Hub
+   prmlrecords.com · West End Atlanta
+
+   This file extends styles.css with unified tokens,
+   component patterns, and audit-level brand corrections.
+   Load AFTER styles.css on every page.
+════════════════════════════════════════════════════ */
+
+
+/* ── 1. DESIGN TOKEN SYSTEM ────────────────────── */
+:root {
+  /* Core Brand */
+  --red:              #E01010;
+  --red-dark:         #930003;
+  --red-dim:          rgba(224, 16, 16, 0.12);
+  --red-glow:         rgba(224, 16, 16, 0.25);
+
+  /* Neutral Palette */
+  --cream:            #F5E6C8;
+  --stone:            #C4B49A;
+  --charcoal:         #2B2B2B;
+
+  /* Surface Hierarchy (Tonal Depth Stack — Stitch spec) */
+  --surface-lowest:   #0E0E0E;
+  --surface:          #131313;
+  --surface-low:      #1B1C1C;
+  --surface-container:#1F2020;
+  --surface-high:     #2A2A2A;
+  --surface-highest:  #353535;
+  --surface-bright:   #393939;
+
+  /* Text */
+  --text-on-dark:     #E4E2E1;
+  --text-muted:       #C4B49A;
+  --text-subtle:      rgba(245, 230, 200, 0.5);
+  --text-on-red:      #FFF3F1;
+  --text-on-cream:    #131313;
+
+  /* Alias for legacy --black usage */
+  --black:            #131313;
+
+  /* Ghost Borders (use ONLY for inputs/accessibility — never for layout) */
+  --ghost-border:     rgba(92, 63, 58, 0.15);
+  --input-border:     rgba(245, 230, 200, 0.12);
+  --input-focus:      var(--red);
+
+  /* Glass System (modals, dropdowns, floating elements) */
+  --glass-bg:         rgba(53, 53, 53, 0.6);
+  --glass-blur:       blur(24px);
+
+  /* Red Gradient Signature (hero CTAs, primary buttons) */
+  --gradient-cta:     linear-gradient(135deg, #E01010 0%, #930003 100%);
+
+  /* Spacing Scale (8-point grid) */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* Type Scale */
+  --type-display: clamp(52px, 8vw, 120px);
+  --type-hero:    clamp(38px, 5.5vw, 88px);
+  --type-h1:      clamp(28px, 4vw, 56px);
+  --type-h2:      clamp(22px, 3vw, 40px);
+  --type-h3:      clamp(16px, 2vw, 24px);
+  --type-label:   9px;
+  --type-label-lg:11px;
+  --type-body:    14px;
+  --type-body-lg: 16px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.12s;
+  --duration-base: 0.2s;
+  --duration-slow: 0.4s;
+
+  /* Shadows (ambient only — no dark smudges) */
+  --shadow-float:  0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-modal:  0 40px 80px rgba(0, 0, 0, 0.5);
+  --shadow-red:    0 20px 60px rgba(224, 16, 16, 0.25);
+
+  /* Site layout */
+  --max-w:         1280px;
+  --nav-h:         60px;
+}
+
+
+/* ── 2. GLOBAL RESET — ZERO RADIUS RULE ────────── */
+/*
+   The #1 brand rule: NO ROUNDED CORNERS.
+   Sharp edges are non-negotiable to maintain
+   the urban, industrial energy. — Stitch Design Spec
+*/
+
+/* Target all UI elements (not decorative circles like spinners) */
+button:not(.spinner):not(.dot),
+a,
+input:not([type="radio"]):not([type="checkbox"]),
+textarea,
+select,
+.nav2__link,
+.nav2__dropdown,
+.nav2__drop-link,
+.nav2__links,
+.btn,
+[class*="card"],
+[class*="tier"],
+[class*="modal"],
+[class*="tag"],
+[class*="badge"]:not(.spinner):not(.dot),
+[class*="chip"],
+[class*="pill"],
+[class*="panel"] {
+  border-radius: 0 !important;
+}
+
+/* Progress bars stay square */
+[class*="progress"],
+[class*="bar"] {
+  border-radius: 0 !important;
+}
+
+
+/* ── 3. NAV BRAND CORRECTION ────────────────────── */
+/*
+   Fixing: border-radius: 4px on links, 6px on dropdown,
+   and 1px section borders (violates No-Line Rule).
+   Nav is the first thing visitors see — must be perfect.
+*/
+
+/* Nav link — remove rounded corners */
+.nav2__link {
+  border-radius: 0 !important;
+  transition: background var(--duration-base) var(--ease-in-out),
+              color var(--duration-base) var(--ease-in-out);
+}
+
+/* Hover state — 10% white overlay (Stitch interaction spec) */
+.nav2__link:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--cream) !important;
+}
+
+/* Active state — red indicator */
+.nav2__link.active {
+  color: var(--red) !important;
+  background: var(--red-dim) !important;
+}
+
+/* Dropdown — glass system, no hard borders */
+.nav2__dropdown {
+  border-radius: 0 !important;
+  border: none !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  box-shadow: var(--shadow-modal) !important;
+}
+
+/* Drop links — no dividers, use spacing instead */
+.nav2__drop-link {
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  padding: 11px 16px !important;
+  font-family: 'Odibee Sans', sans-serif !important;
+  font-size: 10px !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: var(--stone) !important;
+  transition: background var(--duration-fast) !important;
+}
+
+.nav2__drop-link:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--cream) !important;
+}
+
+
+/* ── 4. TYPOGRAPHY SYSTEM ────────────────────────── */
+
+/* Display — Rubik Mono One, tightly tracked, all-caps */
+.t-display,
+.svc-hero__title,
+.booking-hero .bh-title,
+.bf-title,
+.hero__title {
+  font-family: 'Rubik Mono One', monospace !important;
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+/* Section headlines — heavy, condensed */
+.t-headline {
+  font-family: 'Rubik Mono One', monospace;
+  letter-spacing: -0.015em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+/* Label — Odibee Sans, uppercase, tracked */
+.t-label,
+.tier-label,
+.bh-eye,
+.ac-label,
+.sc-name,
+.bf-label,
+.prx-type,
+.bc-cat,
+.ac-k {
+  font-family: 'Odibee Sans', sans-serif !important;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* Body — Roboto Slab, weight 300 for editorial grit */
+.t-body,
+.svc-hero__sub,
+.bh-sub,
+.sc-desc,
+.ac-desc,
+.bf-sub,
+.prx-note,
+.bc-excerpt {
+  font-family: 'Roboto Slab', serif !important;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* Wordmark accent — Nabla only for "RECORDS" */
+.t-wordmark,
+.nabla {
+  font-family: 'Nabla', cursive;
+}
+
+
+/* ── 5. BUTTON SYSTEM ────────────────────────────── */
+
+.btn,
+.btn--primary,
+.btn--secondary,
+.btn--ghost {
+  font-family: 'Odibee Sans', sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  transition:
+    background var(--duration-base),
+    color var(--duration-base),
+    transform var(--duration-fast);
+}
+
+.btn:active,
+.btn--primary:active,
+.btn--secondary:active {
+  transform: scale(0.98);
+}
+
+/* Primary — Red with gradient signature */
+.btn--primary,
+.prml-btn,
+button[class*="primary"] {
+  background: var(--gradient-cta);
+  color: var(--text-on-red);
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  border: none !important;
+}
+
+.btn--primary:hover,
+.prml-btn:hover {
+  background: var(--red-dark);
+}
+
+/* Secondary — outline */
+.btn--secondary {
+  background: transparent;
+  color: var(--red);
+  border: 1.5px solid var(--red) !important;
+  padding: 13px 27px;
+  font-size: 11px;
+}
+
+.btn--secondary:hover {
+  background: var(--red);
+  color: var(--text-on-red);
+}
+
+/* Ghost — dark fill */
+.btn--ghost {
+  background: rgba(245, 230, 200, 0.06);
+  border: 1.5px solid var(--input-border) !important;
+  color: var(--cream);
+  padding: 13px 27px;
+  font-size: 11px;
+}
+
+.btn--ghost:hover {
+  background: rgba(245, 230, 200, 0.12);
+}
+
+
+/* ── 6. INPUT SYSTEM ────────────────────────────── */
+/*
+   Filled style only (no outlined boxes).
+   Bottom-bar focus indicator only.
+*/
+
+.bf-input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  background: var(--surface-highest) !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--cream) !important;
+  font-family: 'Roboto Slab', serif;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 12px 16px;
+  border-radius: 0 !important;
+  outline: none;
+  transition: border-bottom-color var(--duration-base);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bf-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-bottom-color: var(--red) !important;
+  background: rgba(224, 16, 16, 0.06) !important;
+}
+
+
+/* ── 7. CARD & SECTION PATTERNS ─────────────────── */
+/*
+   No dividers. Use background shifts for hierarchy.
+   Tonal layering creates depth, not shadows.
+*/
+
+/* Section backgrounds — use these classes for consistency */
+.sect--base      { background: var(--surface); }
+.sect--lowest    { background: var(--surface-lowest); }
+.sect--lift      { background: var(--surface-low); }
+.sect--container { background: var(--surface-container); }
+.sect--high      { background: var(--surface-high); }
+.sect--highest   { background: var(--surface-highest); }
+.sect--charcoal  { background: var(--charcoal); }
+.sect--cream     { background: var(--cream); color: var(--text-on-cream); }
+
+/* Card base */
+.card,
+.svc-card,
+.artist-card,
+.pricing-card,
+.blog-card {
+  border-radius: 0 !important;
+  transition: background var(--duration-base);
+}
+
+/* Hover — background shift up one tier */
+.card:hover,
+.svc-card:hover {
+  background: var(--surface-low);
+}
+
+
+/* ── 8. RED ACCENT BLOCK ────────────────────────── */
+/*
+   Left-border accent for editorial pull quotes,
+   sub-headlines, and contextual notes.
+*/
+.accent-block,
+.svc-hero__sub + *,
+.bf-sub,
+.svc-note,
+.bh-sub,
+.deposit-note {
+  border-left: 3px solid var(--red);
+  padding-left: var(--sp-5);
+}
+
+
+/* ── 9. NFC SCAN GLASS COMPONENT ────────────────── */
+/*
+   Glassmorphic state for NFC interactions.
+   60% opacity + 24px blur + red pulse animation.
+*/
+.nfc-scan,
+.nfc-glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  position: relative;
+  overflow: hidden;
+}
+
+.nfc-scan::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(224, 16, 16, 0.12) 50%,
+    transparent 100%
+  );
+  animation: nfc-sweep 2.4s var(--ease-in-out) infinite;
+}
+
+@keyframes nfc-sweep {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+
+/* ── 10. PAGE ENTRY ANIMATION ────────────────────── */
+/*
+   Staggered reveal on page load.
+   One well-orchestrated entrance creates more delight
+   than scattered micro-interactions.
+*/
+@keyframes prml-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes prml-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.prml-rise {
+  animation: prml-rise var(--duration-slow) var(--ease-out-expo) both;
+}
+
+.prml-rise--1 { animation-delay: 0.0s; }
+.prml-rise--2 { animation-delay: 0.08s; }
+.prml-rise--3 { animation-delay: 0.16s; }
+.prml-rise--4 { animation-delay: 0.24s; }
+.prml-rise--5 { animation-delay: 0.32s; }
+
+.prml-fade {
+  animation: prml-fade var(--duration-slow) var(--ease-out-expo) both;
+}
+
+
+/* ── 11. INDUSTRIAL GRID SYSTEM ─────────────────── */
+/*
+   Gap of 2px with background = charcoal creates
+   the "iron grid" separator look.
+   No borders, no dividers — only tonal gaps.
+*/
+.grid--industrial {
+  display: grid;
+  gap: 2px;
+  background: var(--charcoal);
+}
+
+.grid--industrial > * {
+  background: var(--surface);
+}
+
+.grid--industrial--cream > * {
+  background: var(--cream);
+}
+
+.grid--2 { grid-template-columns: 1fr 1fr; }
+.grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid--asym { grid-template-columns: 3fr 2fr; }
+.grid--asym-r { grid-template-columns: 2fr 3fr; }
+
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--asym,
+  .grid--asym-r {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ── 12. TYPOGRAPHY — DATA STRIP ─────────────────── */
+/*
+   Horizontal scrolling marquee for metadata,
+   track titles, or system status.
+   Reinforces the record-label / tech hybrid.
+*/
+.data-strip {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--surface-lowest);
+  padding: 10px 0;
+  border-top: 1px solid var(--red-dim);
+  border-bottom: 1px solid var(--red-dim);
+}
+
+.data-strip__inner {
+  display: inline-block;
+  animation: marquee 24s linear infinite;
+}
+
+.data-strip__text {
+  font-family: 'Odibee Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+  padding: 0 var(--sp-16);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ── 13. FOOTER PATTERN ──────────────────────────── */
+/*
+   Dark base, no top border (handled by parent section).
+   Red top-bar via border-top on the section container.
+*/
+footer,
+.site-footer {
+  background: var(--charcoal) !important;
+  border-top: 4px solid var(--red) !important;
+  border-radius: 0 !important;
+}
+
+.footer__brand {
+  font-family: 'Rubik Mono One', monospace;
+  font-size: 16px;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer__brand span,
+.footer__brand .accent {
+  color: var(--red);
+}
+
+.footer__label {
+  font-family: 'Odibee Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 10px;
+}
+
+.footer__link {
+  font-family: 'Roboto Slab', serif;
+  font-size: 13px;
+  color: var(--cream);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity var(--duration-base);
+  display: block;
+  line-height: 2;
+}
+
+.footer__link:hover {
+  opacity: 1;
+  color: var(--cream);
+}
+
+.footer__copy {
+  font-family: 'Roboto Slab', serif;
+  font-size: 12px;
+  color: var(--stone);
+  opacity: 0.6;
+}
+
+
+/* ── 14. SECTION DIVIDER — RED LINE ─────────────── */
+/*
+   When a visual break IS needed (not layout, but
+   decorative), use the red line — not a grey border.
+*/
+.divider--red {
+  height: 1px;
+  background: var(--red-dim);
+  border: none;
+  margin: 0;
+}
+
+.divider--red-solid {
+  height: 2px;
+  background: var(--red);
+  border: none;
+  margin: 0;
+}
+
+
+/* ── 15. UTILITY CLASSES ─────────────────────────── */
+
+/* Text */
+.text-red     { color: var(--red); }
+.text-cream   { color: var(--cream); }
+.text-stone   { color: var(--stone); }
+.text-muted   { color: var(--text-muted); opacity: 0.55; }
+.text-subtle  { color: var(--text-subtle); }
+.text-upper   { text-transform: uppercase; }
+.text-tight   { letter-spacing: -0.02em; }
+.text-wide    { letter-spacing: 4px; }
+.font-display { font-family: 'Rubik Mono One', monospace; }
+.font-label   { font-family: 'Odibee Sans', sans-serif; }
+.font-body    { font-family: 'Roboto Slab', serif; font-weight: 300; }
+.font-accent  { font-family: 'Nabla', cursive; }
+
+/* Backgrounds */
+.bg-surface   { background: var(--surface); }
+.bg-low       { background: var(--surface-low); }
+.bg-charcoal  { background: var(--charcoal); }
+.bg-red       { background: var(--red); }
+.bg-cream     { background: var(--cream); }
+.bg-gradient  { background: var(--gradient-cta); }
+
+/* Spacing */
+.mt-section   { margin-top: var(--sp-20); }
+.mb-section   { margin-bottom: var(--sp-20); }
+.px-site      { padding-left: 5vw; padding-right: 5vw; }
+.py-section   { padding-top: var(--sp-20); padding-bottom: var(--sp-20); }
+.py-section--lg { padding-top: var(--sp-24); padding-bottom: var(--sp-24); }
+
+/* Max-width container */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Red left-border accent */
+.border-accent {
+  border-left: 3px solid var(--red);
+  padding-left: var(--sp-5);
+}
+
+
+/* ── 16. SCROLL REVEAL (JS-powered) ─────────────── */
+/*
+   Add .reveal to elements. JS adds .revealed class
+   after IntersectionObserver fires.
+*/
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ── 17. PRINT / ACCESSIBILITY SAFEGUARDS ────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Focus visible — red outline instead of browser default */
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+
+/* ── 18. SECTION HEADER PATTERN ─────────────────── */
+/*
+   Every major section should use this header pattern
+   for visual consistency across pages.
+*/
+.sect-hd {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-10);
+  flex-wrap: wrap;
+}
+
+.sect-hd__num {
+  font-family: 'Rubik Mono One', monospace;
+  font-size: 72px;
+  color: var(--red);
+  opacity: 0.12;
+  letter-spacing: -4px;
+  line-height: 1;
+}
+
+.sect-hd__label {
+  font-family: 'Odibee Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.sect-hd__title {
+  font-family: 'Rubik Mono One', monospace;
+  font-size: clamp(24px, 3.5vw, 48px);
+  letter-spacing: -1px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+
+/* ── 19. SCROLL REVEAL ACTIVATOR ─────────────────── */
+/*
+   Activated by brand-init.js (inline or external).
+   Adds 'revealed' class to .reveal elements
+   when they enter viewport.
+*/
+
+/* Stagger children in a container */
+.reveal-group .reveal:nth-child(1) { transition-delay: 0.0s; }
+.reveal-group .reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal-group .reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal-group .reveal:nth-child(4) { transition-delay: 0.24s; }
+.reveal-group .reveal:nth-child(5) { transition-delay: 0.32s; }
+.reveal-group .reveal:nth-child(6) { transition-delay: 0.40s; }
+
+
+/* ── 20. BRAND CONSISTENCY OVERRIDES ─────────────── */
+/*
+   Final audit corrections — catch-all for any page-level
+   inline styles that escape the component rules above.
+*/
+
+/* Any element with explicit border-radius override */
+[style*="border-radius"] {
+  /* Can't override inline style without JS,
+     but we flag it here for future refactor */
+}
+
+/* Ensure ALL anchor tags that look like buttons are 0-radius */
+a[class*="btn"],
+a[class*="cta"],
+a[class*="button"],
+a[class*="launch"],
+a[class*="promo"] {
+  border-radius: 0 !important;
+}
+
+/* Ensure form elements match brand */
+input[type="submit"],
+input[type="button"],
+button[type="submit"] {
+  font-family: 'Odibee Sans', sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+  cursor: pointer;
+  background: var(--red);
+  color: var(--text-on-red);
+  border: none;
+  padding: 14px 28px;
+}
+
+/* Selection highlight — brand red */
+::selection {
+  background: var(--red);
+  color: var(--text-on-red);
+}
+
+/* Scrollbar — minimal industrial style */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-lowest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+
+/* ── 21. SIGNUP / NEWSLETTER COMPONENT FIX ────────── */
+/*
+   .signup-* classes appear across blog, booking, and
+   other pages with border-radius:6px — overriding here.
+*/
+.signup-input,
+.signup-select,
+.signup-btn,
+.signup-confirm,
+.launch-promo__cta,
+.launch-promo__btn,
+[class*="signup"] {
+  border-radius: 0 !important;
+}
+
+/* signup-input override — filled style, bottom bar focus */
+.signup-input,
+.signup-select {
+  background: var(--surface-highest) !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--cream) !important;
+}
+
+.signup-input:focus,
+.signup-select:focus {
+  border-bottom-color: var(--red) !important;
+  background: rgba(224, 16, 16, 0.06) !important;
+}
+
+/* signup-btn override — gradient CTA */
+.signup-btn {
+  background: var(--gradient-cta) !important;
+  color: var(--text-on-red) !important;
+  font-family: 'Odibee Sans', sans-serif !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  border: none !important;
+}
+
+/* signup-confirm — dark tonal background, no radius */
+.signup-confirm {
+  background: var(--surface-low) !important;
+  border-left: 4px solid var(--red) !important;
+  border-radius: 0 !important;
+  color: var(--cream) !important;
+}
