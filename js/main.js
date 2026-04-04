@@ -16,20 +16,48 @@ const STRIPE_FEE = 6.00;                                      // flat $6 transac
 
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem('prml_cart') || '[]'); } catch(e) { cart = []; }
+// Migrate old cart items without qty field
+cart = cart.map(i => ({ ...i, qty: i.qty || 1 }));
 
 function saveCart()            { try { localStorage.setItem('prml_cart', JSON.stringify(cart)); } catch(e) {} }
-function addToCart(item)       { cart.push(item); saveCart(); updateCartUI(); openCart(); }
+
+function addToCart(item) {
+  const qty = parseInt(item.qty) || 1;
+  const existing = cart.find(i => i.name === item.name && (i.variant || '') === (item.variant || ''));
+  if (existing) {
+    existing.qty = (existing.qty || 1) + qty;
+  } else {
+    cart.push({ ...item, qty });
+  }
+  saveCart(); updateCartUI(); openCart();
+}
+
 function removeFromCart(idx)   { cart.splice(idx, 1); saveCart(); updateCartUI(); }
+function updateQty(idx, delta) {
+  if (!cart[idx]) return;
+  cart[idx].qty = Math.max(1, (cart[idx].qty || 1) + delta);
+  saveCart(); updateCartUI();
+}
+function setQty(idx, val) {
+  if (!cart[idx]) return;
+  const n = parseInt(val);
+  if (n > 0) cart[idx].qty = n;
+  saveCart(); updateCartUI();
+}
 function clearCart()           { cart = []; saveCart(); updateCartUI(); }
-function getCartSubtotal()     { return cart.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0); }
+function getCartItemCount()    { return cart.reduce((sum, i) => sum + (i.qty || 1), 0); }
+function getCartSubtotal()     { return cart.reduce((sum, i) => sum + (parseFloat(i.price) || 0) * (i.qty || 1), 0); }
 function getCartTotal()        { return getCartSubtotal() + STRIPE_FEE; }
 function getDepositAmount()    { return getCartTotal() * 0.5; }
 
 function updateCartUI() {
-  const count = cart.length;
+  const count = getCartItemCount();
 
   // Badge counts
-  document.querySelectorAll('.cart-count').forEach(el => el.textContent = count || '');
+  document.querySelectorAll('.cart-count').forEach(el => {
+    el.textContent = count || '';
+    el.style.display = count > 0 ? '' : 'none';
+  });
 
   const itemsEl = document.querySelector('.cart-items');
   const totalEl = document.querySelector('.cart-total');
@@ -37,8 +65,8 @@ function updateCartUI() {
   const subEl   = document.querySelector('.cart-subtotal');
   if (!itemsEl) return;
 
-  if (count === 0) {
-    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty" style="text-align:center;padding:32px 0;color:#8C8C7A;font-family:\'Roboto Slab\',serif;font-size:14px">Your cart is empty.</div>';
     if (totalEl) totalEl.textContent = '$0.00';
     if (subEl)   subEl.textContent   = '$0.00';
     if (feeEl)   feeEl.style.display = 'none';
@@ -46,17 +74,28 @@ function updateCartUI() {
     return;
   }
 
-  itemsEl.innerHTML = cart.map((item, i) => `
-    <div class="cart-item">
+  itemsEl.innerHTML = cart.map((item, i) => {
+    const lineTotal = (parseFloat(item.price) || 0) * (item.qty || 1);
+    return `
+    <div class="cart-item" style="display:flex;align-items:center;padding:12px 0;border-bottom:1px solid rgba(245,230,200,.1)">
       <div style="flex:1">
-        <div class="cart-item__name">${item.name}</div>
-        ${item.desc ? `<div class="cart-item__desc">${item.desc}</div>` : ''}
+        <div class="cart-item__name" style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:1px;color:#F5E6C8;text-transform:uppercase">${item.name}${item.variant ? ' — ' + item.variant : ''}</div>
+        ${item.desc ? `<div class="cart-item__desc" style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;margin-top:2px">${item.desc}</div>` : ''}
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;margin-top:4px">$${parseFloat(item.price).toFixed(2)} each</div>
       </div>
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="cart-item__price">$${parseFloat(item.price).toFixed(2)}</div>
-        <div class="cart-item__remove" onclick="removeFromCart(${i})">×</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;align-items:center;border:1px solid rgba(245,230,200,.15)">
+          <button onclick="updateQty(${i},-1)" style="background:none;border:none;color:#F5E6C8;font-size:16px;padding:4px 10px;cursor:pointer;font-family:'Odibee Sans',sans-serif">−</button>
+          <input type="number" value="${item.qty || 1}" min="1" max="999" onchange="setQty(${i},this.value)"
+            style="width:36px;background:none;border:none;border-left:1px solid rgba(245,230,200,.15);border-right:1px solid rgba(245,230,200,.15);color:#F5E6C8;text-align:center;font-family:'Odibee Sans',sans-serif;font-size:14px;padding:4px 0;-moz-appearance:textfield"
+            onwheel="this.blur()">
+          <button onclick="updateQty(${i},1)" style="background:none;border:none;color:#F5E6C8;font-size:16px;padding:4px 10px;cursor:pointer;font-family:'Odibee Sans',sans-serif">+</button>
+        </div>
+        <div class="cart-item__price" style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#E01010;min-width:60px;text-align:right">$${lineTotal.toFixed(2)}</div>
+        <div class="cart-item__remove" onclick="removeFromCart(${i})" style="color:#8C8C7A;cursor:pointer;font-size:18px;padding:0 4px;transition:color .15s" onmouseover="this.style.color='#E01010'" onmouseout="this.style.color='#8C8C7A'">×</div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   const sub   = getCartSubtotal();
   const total = getCartTotal();
@@ -73,6 +112,13 @@ function updateCartUI() {
 
 function openCart()  { document.querySelector('.cart-panel')?.classList.add('open'); }
 function closeCart() { document.querySelector('.cart-panel')?.classList.remove('open'); }
+
+/* Buy Now — add item and immediately open checkout */
+function buyNow(item) {
+  addToCart(item);
+  closeCart();
+  collectAndCheckout(false);
+}
 
 /* ════════════════════════════════════════════════════
    STRIPE CHECKOUT
@@ -115,7 +161,7 @@ async function stripeCheckout(depositOnly = false) {
   const total  = getCartTotal();
   const amount = depositOnly ? getDepositAmount() : total;
   const label  = depositOnly ? '50% Deposit' : 'Full Payment';
-  const items  = cart.map(i => `${i.name} — $${parseFloat(i.price).toFixed(2)}`).join('\n');
+  const items  = cart.map(i => `${i.name}${i.qty > 1 ? ' x' + i.qty : ''} — $${(parseFloat(i.price) * (i.qty||1)).toFixed(2)}`).join('\n');
   const amountCents = Math.round(amount * 100);
 
   // ── Step 1: Log order to Google Sheet ──────────────
@@ -278,10 +324,36 @@ function collectAndCheckout(depositOnly = false) {
         <input id="cust-email-inp" type="email" placeholder="your@email.com"
                style="background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:#F5E6C8;font-family:'Roboto Slab',serif;font-size:13px;padding:11px 14px;width:100%;outline:none">
       </div>
-      <div style="margin-bottom:20px">
+      <div style="margin-bottom:14px">
         <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#E01010;display:block;margin-bottom:7px">Phone (optional)</label>
         <input id="cust-phone-inp" type="tel" placeholder="770-000-0000"
                style="background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:#F5E6C8;font-family:'Roboto Slab',serif;font-size:13px;padding:11px 14px;width:100%;outline:none">
+      </div>
+
+      <!-- Business purchase toggle -->
+      <div style="margin-bottom:16px">
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+          <input type="checkbox" id="cust-biz-toggle" onchange="document.getElementById('cust-biz-fields').style.display=this.checked?'block':'none'"
+            style="accent-color:#E01010;width:16px;height:16px">
+          <span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#F5E6C8">This is a business purchase</span>
+        </label>
+        <div id="cust-biz-fields" style="display:none;margin-top:12px">
+          <div style="margin-bottom:10px">
+            <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:5px">Business Name</label>
+            <input id="cust-biz-name" type="text" placeholder="Your Company LLC"
+                   style="background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:#F5E6C8;font-family:'Roboto Slab',serif;font-size:13px;padding:11px 14px;width:100%;outline:none">
+          </div>
+          <div style="margin-bottom:10px">
+            <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:5px">Industry (auto, real estate, restaurant, etc.)</label>
+            <input id="cust-biz-industry" type="text" placeholder="Automotive, Real Estate, Restaurant..."
+                   style="background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:#F5E6C8;font-family:'Roboto Slab',serif;font-size:13px;padding:11px 14px;width:100%;outline:none">
+          </div>
+          <div style="margin-bottom:10px">
+            <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:5px">EIN / Tax ID (optional)</label>
+            <input id="cust-biz-ein" type="text" placeholder="XX-XXXXXXX"
+                   style="background:rgba(245,230,200,.06);border:1.5px solid rgba(245,230,200,.15);color:#F5E6C8;font-family:'Roboto Slab',serif;font-size:13px;padding:11px 14px;width:100%;outline:none">
+          </div>
+        </div>
       </div>
 
       <div style="display:flex;gap:10px">
@@ -305,6 +377,9 @@ async function proceedToStripe(depositOnly) {
   const name  = document.getElementById('cust-name-inp')?.value.trim();
   const email = document.getElementById('cust-email-inp')?.value.trim();
   const phone = document.getElementById('cust-phone-inp')?.value.trim();
+  const isBiz = document.getElementById('cust-biz-toggle')?.checked || false;
+  const bizName = document.getElementById('cust-biz-name')?.value.trim() || '';
+  const bizIndustry = document.getElementById('cust-biz-industry')?.value.trim() || '';
 
   if (!name)  { document.getElementById('cust-name-inp').style.borderColor='#E01010';  return; }
   if (!email) { document.getElementById('cust-email-inp').style.borderColor='#E01010'; return; }
@@ -335,6 +410,9 @@ async function proceedToStripe(depositOnly) {
         total:           total.toFixed(2),
         amount_due:      amount.toFixed(2),
         pay_type:        label,
+        is_business:     isBiz,
+        business_name:   bizName,
+        business_industry: bizIndustry,
         source:          'Website Cart'
       })
     }).catch(() => {});
@@ -343,16 +421,31 @@ async function proceedToStripe(depositOnly) {
   // Close customer info modal
   document.getElementById('prml-cust-modal')?.remove();
 
-  // Send to Stripe Payment Link
+  // Send to checkout with cart data in URL (cross-domain safe)
   if (STRIPE_URL && !STRIPE_URL.includes('PASTE_YOUR')) {
     try {
       const url = new URL(STRIPE_URL);
-      // Prefill customer email in Stripe checkout if supported
       if (email) url.searchParams.set('prefilled_email', email);
+      url.searchParams.set('customer_name', name);
+      url.searchParams.set('customer_email', email);
+      if (phone) url.searchParams.set('customer_phone', phone);
+      if (isBiz && bizName) url.searchParams.set('business_name', bizName);
+      if (isBiz && bizIndustry) url.searchParams.set('business_industry', bizIndustry);
       url.searchParams.set('client_reference_id', 'cart-' + Date.now());
+      // Pass cart as base64 so checkout-app can read it even cross-domain
+      const cartData = cart.map(i => ({
+        name: i.name + (i.variant ? ' — ' + i.variant : ''),
+        price: i.price,
+        qty: i.qty || 1,
+        desc: i.desc || ''
+      }));
+      url.searchParams.set('cart', btoa(JSON.stringify(cartData)));
+      url.searchParams.set('deposit', depositOnly ? '1' : '0');
       window.location.href = url.toString();
       return;
-    } catch(e) {}
+    } catch(e) {
+      console.error('[checkout] URL build failed:', e);
+    }
   }
 
   // Fallback: no Stripe configured

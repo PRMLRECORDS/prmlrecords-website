@@ -198,21 +198,41 @@ export default function CheckoutPage() {
   const [state, setState] = useState('');
   const [zip, setZip]     = useState('');
 
-  // ── Load cart from localStorage (set by main.js on static site) ──────────
+  // ── Load cart: URL params (cross-domain) → localStorage (same-domain) ────
   useEffect(() => {
+    let loaded = [];
+
+    // Try URL params first (passed from main site via base64)
     try {
-      const stored = JSON.parse(localStorage.getItem('prml_cart') || '[]');
-      setCart(stored);
-    } catch {
-      setCart([]);
+      const params = new URLSearchParams(window.location.search);
+      const cartParam = params.get('cart');
+      if (cartParam) {
+        loaded = JSON.parse(atob(cartParam));
+        // Prefill customer info from URL if available
+        if (params.get('customer_name'))  setName(params.get('customer_name'));
+        if (params.get('customer_email')) setEmail(params.get('customer_email'));
+      }
+    } catch (e) {
+      console.warn('[checkout] URL cart parse failed:', e);
     }
+
+    // Fall back to localStorage (same-domain scenario)
+    if (!loaded.length) {
+      try {
+        loaded = JSON.parse(localStorage.getItem('prml_cart') || '[]');
+      } catch {
+        loaded = [];
+      }
+    }
+
+    setCart(loaded);
   }, []);
 
   // ── Fetch PaymentIntent client_secret once cart is ready ─────────────────
   useEffect(() => {
     if (!cart.length) return;
 
-    const subtotal = cart.reduce((s, i) => s + (parseFloat(i.price) || 0), 0);
+    const subtotal = cart.reduce((s, i) => s + (parseFloat(i.price) || 0) * (i.qty || 1), 0);
     const tax      = subtotal * GA_TAX_RATE;
     const total    = subtotal + tax + FLAT_FEE;
     const amountCents = Math.round(total * 100);

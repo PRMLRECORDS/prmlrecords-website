@@ -7,9 +7,10 @@
  * 3. Returns { success: true, orderId } or an error response
  *
  * Environment variables required (set in Render dashboard):
- *   AIRTABLE_API_KEY   — Airtable personal access token (pat...)
- *   AIRTABLE_BASE_ID   — e.g. appXXXXXXXXXXXXXX
- *   BREVO_API_KEY      — xkeysib-... (Brevo API v3 key)
+ *   AIRTABLE_API_KEY            — Airtable personal access token (pat...)
+ *   AIRTABLE_BASE_ID            — e.g. appXXXXXXXXXXXXXX
+ *   BREVO_API_KEY               — xkeysib-... (Brevo API v3 key)
+ *   OWNER_NOTIFICATION_EMAIL    — (optional) Email for order alerts, defaults to info@prmlrecords.com
  */
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -254,6 +255,129 @@ async function sendConfirmationEmail(orderId, payload) {
   }
 }
 
+// ── Owner notification (SEAUX9 alert) ────────────────────────────────────────
+
+async function sendOwnerNotification(orderId, payload) {
+  const { cart, shipping, email, delivery, amount } = payload;
+  const totalDollars = (amount / 100).toFixed(2);
+  const itemList = cart
+    .map((i) => `• ${sanitize(i.name)}${i.qty > 1 ? ` x${i.qty}` : ''} — $${parseFloat(i.price).toFixed(2)}`)
+    .join('\n');
+
+  const ownerEmail = process.env.OWNER_NOTIFICATION_EMAIL || 'info@prmlrecords.com';
+
+  const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>New Order — ${orderId}</title></head>
+<body style="margin:0;padding:0;background:#131313;font-family:'Helvetica Neue',Arial,sans-serif">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;padding:32px 20px">
+    <tr>
+      <td align="center">
+        <table width="100%" style="max-width:560px">
+
+          <!-- Header -->
+          <tr>
+            <td style="background:#E01010;padding:16px 24px">
+              <p style="margin:0;font-size:14px;color:#F5F0E8;letter-spacing:2px;font-weight:bold">
+                NEW ORDER — ${orderId}
+              </p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="background:#1B1C1C;padding:24px">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:0 0 16px">
+                    <p style="margin:0;font-size:28px;color:#F5F0E8;font-weight:bold">$${totalDollars}</p>
+                    <p style="margin:4px 0 0;font-size:12px;color:#8C8C7A;letter-spacing:1px">
+                      ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })} ET
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:16px 0;border-top:1px solid #353535">
+                    <p style="margin:0 0 8px;font-size:10px;color:#E01010;letter-spacing:2px;text-transform:uppercase">CUSTOMER</p>
+                    <p style="margin:0;font-size:14px;color:#F5F0E8;line-height:1.6">
+                      ${sanitize(shipping.name)}<br>
+                      <span style="color:#8C8C7A">${sanitize(email)}</span><br>
+                      <span style="color:#8C8C7A">${sanitize(shipping.street)}, ${sanitize(shipping.city)}, ${sanitize(shipping.state)} ${sanitize(shipping.zip)}</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:16px 0;border-top:1px solid #353535">
+                    <p style="margin:0 0 8px;font-size:10px;color:#E01010;letter-spacing:2px;text-transform:uppercase">ITEMS</p>
+                    <p style="margin:0;font-size:13px;color:#F5F0E8;line-height:1.8;white-space:pre-line">${itemList}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:16px 0;border-top:1px solid #353535">
+                    <p style="margin:0 0 8px;font-size:10px;color:#E01010;letter-spacing:2px;text-transform:uppercase">DELIVERY</p>
+                    <p style="margin:0;font-size:13px;color:#F5F0E8">${sanitize(delivery)}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#0E0E0E;padding:16px 24px">
+              <p style="margin:0;font-size:11px;color:#8C8C7A">
+                PRML RECORDS — Order Alert System · With Gratitude.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method:  'POST',
+    headers: {
+      'api-key':      process.env.BREVO_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      sender: {
+        name:  'PRML ORDER ALERT',
+        email: 'hello@prmlrecords.com',
+      },
+      to: [{ email: ownerEmail, name: 'SEAUX9' }],
+      subject: `💰 NEW ORDER: ${orderId} — $${totalDollars} — ${sanitize(shipping.name)}`,
+      htmlContent,
+      textContent: [
+        `NEW ORDER — ${orderId}`,
+        ``,
+        `Total: $${totalDollars}`,
+        `Customer: ${shipping.name} (${email})`,
+        `Address: ${shipping.street}, ${shipping.city}, ${shipping.state} ${shipping.zip}`,
+        ``,
+        `Items:`,
+        itemList,
+        ``,
+        `Delivery: ${delivery}`,
+        ``,
+        `— PRML RECORDS Order Alert System`,
+      ].join('\n'),
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    console.error(`[/api/orders] Owner notification error ${response.status}:`, err);
+  } else {
+    console.log(`[/api/orders] Owner notification sent for ${orderId}`);
+  }
+}
+
 // ── Route handler ─────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
@@ -289,11 +413,13 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Failed to save order record' });
   }
 
-  // ── Brevo email — best effort ─────────────────────────────────────────────
+  // ── Brevo emails — best effort (customer confirmation + owner alert) ─────
   try {
-    await sendConfirmationEmail(orderId, payload);
+    await Promise.allSettled([
+      sendConfirmationEmail(orderId, payload),
+      sendOwnerNotification(orderId, payload),
+    ]);
   } catch (err) {
-    // Already logged inside sendConfirmationEmail; don't fail the response
     console.error('[/api/orders] Email send error:', err.message);
   }
 
