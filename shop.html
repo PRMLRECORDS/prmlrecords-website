@@ -42,59 +42,75 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/brand.css">
 <style>
-/* ── SHOP PAGE — LIGHT THEME ── */
-.shop-hero{background:var(--cream,#F5F0E8);padding:80px 5vw 60px;border-bottom:4px solid #E01010;position:relative;overflow:hidden}
-.shop-hero::before{content:'SHOP';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(80px,18vw,220px);color:rgba(43,43,43,.04);letter-spacing:-6px;bottom:-20px;right:-20px;line-height:1;pointer-events:none;user-select:none}
-.shop-hero__eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:12px}
-.shop-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(44px,8vw,96px);color:#2B2B2B;letter-spacing:-3px;line-height:.9;margin-bottom:16px}
-.shop-hero__title span{color:#E01010}
-.shop-hero__sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:#2B2B2B;opacity:.6;max-width:560px;line-height:1.8;border-left:3px solid #E01010;padding-left:16px}
+/* ── SHOP PAGE — PREMIUM DARK ── */
+*{box-sizing:border-box}
 
-/* ── PRODUCT GRID ── */
-.shop-grid-wrap{background:#F5F0E8;padding:64px 5vw 80px}
+/* Hero */
+.shop-hero{background:#131313;padding:80px 5vw 60px;position:relative;overflow:hidden;border-bottom:4px solid #E01010}
+.shop-hero::before{content:'SHOP';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(100px,22vw,280px);color:rgba(224,16,16,.03);letter-spacing:-8px;bottom:-30px;right:-20px;line-height:1;pointer-events:none;user-select:none}
+.shop-hero__inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.shop-hero__eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:12px}
+.shop-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,6vw,72px);color:#F5F0E8;letter-spacing:-3px;line-height:.92;margin-bottom:16px}
+.shop-hero__title span{color:#E01010}
+.shop-hero__sub{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:#F5F0E8;opacity:.55;max-width:480px;line-height:1.8;border-left:3px solid #E01010;padding-left:16px;margin-bottom:24px}
+.shop-hero__ctas{display:flex;gap:12px;flex-wrap:wrap}
+.shop-hero__cta{font-family:'Rubik Mono One',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:16px 32px;transition:.2s}
+.shop-hero__cta--primary{background:#E01010;color:#fff;border:2px solid #E01010}
+.shop-hero__cta--primary:hover{background:#c00d0d}
+.shop-hero__cta--secondary{background:transparent;color:#F5F0E8;border:2px solid rgba(245,230,200,.3)}
+.shop-hero__cta--secondary:hover{border-color:#F5F0E8}
+.shop-hero__img{position:relative}
+.shop-hero__img img{width:100%;max-width:420px;display:block;margin:0 auto}
+@media(max-width:768px){.shop-hero__inner{grid-template-columns:1fr}.shop-hero__img{order:-1}}
+
+/* Product Grid */
+.shop-grid-wrap{background:#1A1A1A;padding:64px 5vw 80px}
+.shop-grid-header{max-width:1280px;margin:0 auto 40px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .shop-grid-label{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px}
-.shop-grid-title{font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,48px);color:#2B2B2B;letter-spacing:-1.5px;line-height:1;margin-bottom:40px}
-.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:1280px}
-@media(max-width:1100px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
+.shop-grid-title{font-family:'Rubik Mono One',monospace;font-size:clamp(24px,3.5vw,42px);color:#F5F0E8;letter-spacing:-1.5px;line-height:1}
+.shop-grid-count{font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1280px;margin:0 auto}
+@media(max-width:1000px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.shop-grid{grid-template-columns:1fr}}
 
-/* ── PRODUCT CARD ── */
-.s-card{background:#fff;border:1px solid rgba(43,43,43,.1);display:flex;flex-direction:column;position:relative;transition:.18s}
-.s-card:hover{box-shadow:0 8px 32px rgba(43,43,43,.12);transform:translateY(-3px)}
-.s-card__badge{position:absolute;top:16px;left:16px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:#E01010;color:#fff;padding:4px 10px;z-index:2}
-.s-card__img{background:#2B2B2B;height:220px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:2px solid rgba(43,43,43,.08)}
-.s-card__img-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px}
-.s-card__img-placeholder .mock{width:110px;height:70px;background:rgba(245,240,232,.08);border:1px solid rgba(224,16,16,.3);display:flex;align-items:center;justify-content:center}
-.s-card__img-placeholder .mock span{font-family:'Rubik Mono One',monospace;font-size:10px;color:#F5F0E8;letter-spacing:1px}
-.s-card__body{padding:24px;display:flex;flex-direction:column;flex:1;gap:6px}
-.s-card__tag{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#E01010}
-.s-card__name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#2B2B2B;letter-spacing:-.5px;line-height:1.1}
-.s-card__desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#8C8C7A;line-height:1.6;flex:1}
-.s-card__price{font-family:'Rubik Mono One',monospace;font-size:28px;color:#E01010;letter-spacing:-1px;margin-top:6px}
-.s-card__actions{padding:0 24px 24px;display:flex;flex-direction:column;gap:8px}
-.s-card__buy{display:block;text-align:center;font-family:'Rubik Mono One',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:#E01010;color:#fff;border:3px solid #E01010;padding:14px 20px;transition:.18s}
-.s-card__buy:hover{background:#A00000;border-color:#A00000}
-.s-card__alt{display:block;text-align:center;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;background:transparent;color:#E01010;border:2px solid rgba(224,16,16,.4);padding:10px 20px;transition:.18s}
-.s-card__alt:hover{background:rgba(224,16,16,.06);border-color:#E01010}
+/* Product Card — Shopify-style */
+.p-card{background:#222;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s;overflow:hidden}
+.p-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.p-card__badge{position:absolute;top:12px;left:12px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:#E01010;color:#fff;padding:5px 12px;z-index:2}
+.p-card__img{aspect-ratio:1/1;background:#1A1A1A;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:2px solid rgba(224,16,16,.15)}
+.p-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.p-card:hover .p-card__img img{transform:scale(1.05)}
+.p-card__img-svg{width:60%;max-width:200px;height:auto;opacity:.9}
+.p-card__body{padding:20px 20px 8px;display:flex;flex-direction:column;flex:1;gap:4px}
+.p-card__tag{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#E01010}
+.p-card__name{font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5F0E8;letter-spacing:-.5px;line-height:1.15}
+.p-card__desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#8C8C7A;line-height:1.6;flex:1;margin-top:4px}
+.p-card__price-row{display:flex;align-items:baseline;gap:10px;margin-top:8px}
+.p-card__price{font-family:'Rubik Mono One',monospace;font-size:24px;color:#E01010;letter-spacing:-1px}
+.p-card__price-sub{font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;font-weight:300}
+.p-card__save{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#E01010;background:rgba(224,16,16,.1);padding:3px 8px}
+.p-card__actions{padding:12px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.p-card__buy{display:block;text-align:center;font-family:'Rubik Mono One',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:#E01010;color:#fff;border:none;padding:14px 20px;cursor:pointer;transition:background .2s}
+.p-card__buy:hover{background:#c00d0d}
+.p-card__alt{display:block;text-align:center;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;color:#8C8C7A;border:1px solid rgba(245,230,200,.12);padding:10px 20px;transition:.2s}
+.p-card__alt:hover{color:#F5F0E8;border-color:rgba(245,230,200,.3)}
 
-/* ── BULK PRICING NOTE ── */
-.bulk-note{background:#2B2B2B;padding:32px 5vw;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
-.bulk-note__icon{font-family:'Rubik Mono One',monospace;font-size:28px;color:#E01010;letter-spacing:-1px}
-.bulk-note__text{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:#F5F0E8;opacity:.85}
-.bulk-note__text strong{color:#E01010;font-weight:700}
+/* Bulk Note */
+.bulk-note{background:#E01010;padding:32px 5vw;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.bulk-note__icon{font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-1px}
+.bulk-note__text{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:#F5F0E8;opacity:.9}
+.bulk-note__text strong{font-weight:700}
 
-/* ── CTA BANNERS ── */
-.cta-banners{background:#F5F0E8;padding:0 5vw 80px;display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:1280px}
+/* CTA Banners */
+.cta-banners{background:#131313;padding:0 5vw 80px;display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:1280px;margin:0 auto}
 @media(max-width:768px){.cta-banners{grid-template-columns:1fr}}
-.cta-banner{padding:48px 40px;position:relative;overflow:hidden;border:1px solid rgba(43,43,43,.1)}
-.cta-banner--custom{background:#2B2B2B}
+.cta-banner{padding:48px 40px;position:relative;overflow:hidden}
+.cta-banner--custom{background:#1A1A1A}
 .cta-banner--service{background:#E01010}
 .cta-banner__eyebrow{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px}
 .cta-banner--custom .cta-banner__eyebrow{color:#E01010}
 .cta-banner--service .cta-banner__eyebrow{color:rgba(245,240,232,.7)}
-.cta-banner__title{font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3vw,36px);letter-spacing:-1px;line-height:1.05;margin-bottom:12px}
-.cta-banner--custom .cta-banner__title{color:#F5F0E8}
-.cta-banner--service .cta-banner__title{color:#F5F0E8}
+.cta-banner__title{font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3vw,36px);color:#F5F0E8;letter-spacing:-1px;line-height:1.05;margin-bottom:12px}
 .cta-banner__desc{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;line-height:1.7;margin-bottom:24px}
 .cta-banner--custom .cta-banner__desc{color:#8C8C7A}
 .cta-banner--service .cta-banner__desc{color:rgba(245,240,232,.75)}
@@ -102,9 +118,9 @@
 .cta-banner--custom .cta-banner__link{background:#E01010;color:#fff;border:2px solid #E01010}
 .cta-banner--custom .cta-banner__link:hover{background:transparent;color:#E01010}
 .cta-banner--service .cta-banner__link{background:#2B2B2B;color:#F5F0E8;border:2px solid #2B2B2B}
-.cta-banner--service .cta-banner__link:hover{background:transparent;color:#2B2B2B;border-color:#2B2B2B}
+.cta-banner--service .cta-banner__link:hover{background:transparent;color:#F5F0E8;border-color:#F5F0E8}
 
-/* ── SCROLL REVEAL ── */
+/* Scroll Reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .reveal.revealed{opacity:1;transform:translateY(0)}
 </style>
@@ -113,41 +129,13 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Product",
-      "name": "PRML TAP CARD",
-      "brand": {"@type": "Brand", "name": "PRML RECORDS"},
-      "description": "Premium tap-enabled business card. One tap shares your complete digital profile. No app, no subscription.",
-      "url": "https://prmlrecords.com/tap-card.html",
-      "offers": [
-        {"@type": "Offer", "name": "Charcoal", "price": "29.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
-        {"@type": "Offer", "name": "Beige", "price": "29.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
-      ]
-    },
-    {
-      "@type": "Product",
-      "name": "PRML TAP KEYCHAIN",
-      "brand": {"@type": "Brand", "name": "PRML RECORDS"},
-      "description": "Compact tap-enabled keychain. Share your profile with a tap — built for daily carry.",
-      "url": "https://prmlrecords.com/tap-keychain.html",
-      "offers": {"@type": "Offer", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
-    },
-    {
-      "@type": "Product",
-      "name": "PRML TAP STARTER KIT",
-      "brand": {"@type": "Brand", "name": "PRML RECORDS"},
-      "description": "Card + Keychain + QR + Landing Page + 30-Day Support",
-      "url": "https://prmlrecords.com/shop.html#starter-kit",
-      "offers": {"@type": "Offer", "price": "99.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
-    },
-    {
-      "@type": "Product",
-      "name": "Church Connect Pack",
-      "brand": {"@type": "Brand", "name": "PRML RECORDS"},
-      "description": "10 Cards + QR + Training for churches and ministries.",
-      "url": "https://prmlrecords.com/shop.html#church-connect",
-      "offers": {"@type": "Offer", "price": "249.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
-    }
+    {"@type":"Product","name":"PRML TAP CARD — Charcoal","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Premium tap-enabled business card in Charcoal. One tap shares your complete digital profile.","url":"https://prmlrecords.com/tap-card.html","offers":{"@type":"Offer","price":"29.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+    {"@type":"Product","name":"PRML TAP CARD — Beige","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Premium tap-enabled business card in Beige.","url":"https://prmlrecords.com/tap-card.html","offers":{"@type":"Offer","price":"29.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+    {"@type":"Product","name":"PRML TAP KEYCHAIN — Charcoal","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Compact tap-enabled keychain. Share your profile from your keys.","url":"https://prmlrecords.com/tap-keychain.html","offers":{"@type":"Offer","price":"19.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+    {"@type":"Product","name":"PRML TAP KEYCHAIN — Beige","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Tap-enabled keychain in warm cream colorway.","url":"https://prmlrecords.com/tap-keychain.html","offers":{"@type":"Offer","price":"19.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+    {"@type":"Product","name":"PRML TAP STARTER KIT","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Card + Keychain, both programmed and shipped.","url":"https://prmlrecords.com/shop.html#starter-kit","offers":{"@type":"Offer","price":"39.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+    {"@type":"Product","name":"PRML TAP CARD 10-Pack","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Ten tap-enabled cards, all programmed and shipped.","url":"https://prmlrecords.com/shop.html#card-10pack","offers":{"@type":"Offer","price":"249.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+    {"@type":"Product","name":"PRML TAP KEYCHAIN 10-Pack","brand":{"@type":"Brand","name":"PRML RECORDS"},"description":"Ten tap-enabled keychains, all programmed and shipped.","url":"https://prmlrecords.com/shop.html#keychain-10pack","offers":{"@type":"Offer","price":"149.99","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
   ]
 }
 </script>
@@ -264,92 +252,170 @@
 
 <!-- HERO -->
 <section class="shop-hero">
-  <div class="shop-hero__eyebrow">PRML RECORDS &middot; Product Catalog</div>
-  <h1 class="shop-hero__title">THE <span>SHOP</span></h1>
-  <p class="shop-hero__sub">Premium tap-enabled products engineered by PRML RECORDS. One tap shares your complete digital identity. No app. No subscription. Just tap.</p>
+  <div class="shop-hero__inner">
+    <div>
+      <div class="shop-hero__eyebrow">PRML RECORDS &middot; Atlanta, GA</div>
+      <h1 class="shop-hero__title">TAP<br><span>PRODUCTS.</span></h1>
+      <p class="shop-hero__sub">One tap shares your complete digital identity. No app. No subscription. No expiration. Premium tap-enabled hardware, programmed and shipped from Atlanta.</p>
+      <div class="shop-hero__ctas">
+        <a href="#products" class="shop-hero__cta shop-hero__cta--primary">Shop Now &#8594;</a>
+        <a href="how-it-works.html" class="shop-hero__cta shop-hero__cta--secondary">How It Works</a>
+      </div>
+    </div>
+    <div class="shop-hero__img">
+      <img src="images/nfc/tap-card-charcoal-demo.jpg" alt="PRML TAP CARD tap demo on smartphone" width="420" height="420" loading="eager">
+    </div>
+  </div>
 </section>
 
 <!-- PRODUCT GRID -->
-<section class="shop-grid-wrap">
-  <div class="shop-grid-label">Products</div>
-  <h2 class="shop-grid-title">WHAT WE MAKE</h2>
+<section class="shop-grid-wrap" id="products">
+  <div class="shop-grid-header">
+    <div>
+      <div class="shop-grid-label">Product Catalog</div>
+      <h2 class="shop-grid-title">ALL PRODUCTS</h2>
+    </div>
+    <div class="shop-grid-count">7 products</div>
+  </div>
 
   <div class="shop-grid">
 
-    <!-- 1. TAP CARD — $29.99 -->
-    <div class="s-card reveal">
-      <span class="s-card__badge">Best Seller</span>
-      <div class="s-card__img">
-        <div class="s-card__img-placeholder">
-          <div class="mock"><span>PRML</span></div>
+    <!-- 1. TAP CARD — CHARCOAL -->
+    <div class="p-card reveal">
+      <span class="p-card__badge">Best Seller</span>
+      <div class="p-card__img">
+        <img src="images/nfc/tap-card-charcoal.jpg" alt="PRML TAP CARD — Charcoal, front and back" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Tap Card</div>
+        <h3 class="p-card__name">TAP CARD — Charcoal</h3>
+        <p class="p-card__desc">Premium tap-enabled card in PRML Charcoal. One tap shares your full digital profile. Programmed and shipped.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$29.99</div>
         </div>
       </div>
-      <div class="s-card__body">
-        <div class="s-card__tag">Tap-Enabled Card</div>
-        <h3 class="s-card__name">TAP CARD</h3>
-        <p class="s-card__desc">Premium tap-enabled business card. One tap shares your full digital profile — contact, socials, portfolio, and more. No app required.</p>
-        <div class="s-card__price">$29.99</div>
-      </div>
-      <div class="s-card__actions">
-        <button onclick="addToCart({name:'PRML TAP CARD',variant:'Charcoal',price:'29.99',qty:1})" class="s-card__buy" style="cursor:pointer;border:none">Add to Cart — Charcoal</button>
-        <button onclick="addToCart({name:'PRML TAP CARD',variant:'Beige',price:'29.99',qty:1})" class="s-card__alt" style="cursor:pointer;border:none">Add to Cart — Beige</button>
-        <a href="tap-card.html" class="s-card__alt">View Details</a>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP CARD',variant:'Charcoal',price:'29.99',qty:1})" class="p-card__buy">Add to Cart</button>
+        <a href="tap-card.html" class="p-card__alt">View Details &#8594;</a>
       </div>
     </div>
 
-    <!-- 2. TAP KEYCHAIN — $19.99 -->
-    <div class="s-card reveal">
-      <div class="s-card__img">
-        <div class="s-card__img-placeholder">
-          <div class="mock"><span>PRML</span></div>
+    <!-- 2. TAP CARD — BEIGE -->
+    <div class="p-card reveal">
+      <div class="p-card__img">
+        <img src="images/nfc/tap-card-charcoal.jpg" alt="PRML TAP CARD — Beige, front and back" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Tap Card</div>
+        <h3 class="p-card__name">TAP CARD — Beige</h3>
+        <p class="p-card__desc">Premium tap-enabled card in PRML Beige. Clean cream colorway. Programmed and shipped.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$29.99</div>
         </div>
       </div>
-      <div class="s-card__body">
-        <div class="s-card__tag">Tap-Enabled Keychain</div>
-        <h3 class="s-card__name">TAP KEYCHAIN</h3>
-        <p class="s-card__desc">Compact, durable tap-enabled keychain. Built for daily carry. Share your profile with a single tap from your keys.</p>
-        <div class="s-card__price">$19.99</div>
-      </div>
-      <div class="s-card__actions">
-        <a href="tap-keychain.html" class="s-card__buy">View &amp; Buy</a>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP CARD',variant:'Beige',price:'29.99',qty:1})" class="p-card__buy">Add to Cart</button>
+        <a href="tap-card.html" class="p-card__alt">View Details &#8594;</a>
       </div>
     </div>
 
-    <!-- 3. TAP STARTER KIT — $99 -->
-    <div class="s-card reveal" id="starter-kit">
-      <span class="s-card__badge">Bundle</span>
-      <div class="s-card__img">
-        <div class="s-card__img-placeholder">
-          <div class="mock"><span>KIT</span></div>
+    <!-- 3. TAP KEYCHAIN — CHARCOAL -->
+    <div class="p-card reveal">
+      <div class="p-card__img">
+        <img src="images/nfc/tap-keychain-charcoal.jpg" alt="PRML TAP KEYCHAIN — Charcoal" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Tap Keychain</div>
+        <h3 class="p-card__name">TAP KEYCHAIN — Charcoal</h3>
+        <p class="p-card__desc">Compact, durable tap-enabled keychain. Built for daily carry. Share your profile from your keys.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$19.99</div>
         </div>
       </div>
-      <div class="s-card__body">
-        <div class="s-card__tag">Starter Bundle</div>
-        <h3 class="s-card__name">TAP STARTER KIT</h3>
-        <p class="s-card__desc">Card + Keychain + QR + Landing Page + 30-Day Support. Everything you need to launch your tap-enabled presence.</p>
-        <div class="s-card__price">$99</div>
-      </div>
-      <div class="s-card__actions">
-        <button onclick="addToCart({name:'TAP STARTER KIT',price:'99.00',desc:'Card + Keychain + QR + Landing Page + 30-Day Support',qty:1})" class="s-card__buy" style="cursor:pointer;border:none">Add to Cart</button>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP KEYCHAIN',variant:'Charcoal',price:'19.99',qty:1})" class="p-card__buy">Add to Cart</button>
+        <a href="tap-keychain.html" class="p-card__alt">View Details &#8594;</a>
       </div>
     </div>
 
-    <!-- 4. CHURCH CONNECT PACK — $249 -->
-    <div class="s-card reveal" id="church-connect">
-      <span class="s-card__badge">Bulk Pack</span>
-      <div class="s-card__img">
-        <div class="s-card__img-placeholder">
-          <div class="mock"><span>10x</span></div>
+    <!-- 4. TAP KEYCHAIN — BEIGE -->
+    <div class="p-card reveal">
+      <div class="p-card__img">
+        <img src="images/nfc/tap-keychain.jpg" alt="PRML TAP KEYCHAIN — Beige" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Tap Keychain</div>
+        <h3 class="p-card__name">TAP KEYCHAIN — Beige</h3>
+        <p class="p-card__desc">Tap-enabled keychain in warm cream. Always with you, always ready to share your digital profile.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$19.99</div>
         </div>
       </div>
-      <div class="s-card__body">
-        <div class="s-card__tag">Ministry &amp; Outreach</div>
-        <h3 class="s-card__name">CHURCH CONNECT PACK</h3>
-        <p class="s-card__desc">10 Cards + QR + Training. Equip your ministry team with tap-enabled connection tools and a guided onboarding session.</p>
-        <div class="s-card__price">$249</div>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP KEYCHAIN',variant:'Beige',price:'19.99',qty:1})" class="p-card__buy">Add to Cart</button>
+        <a href="tap-keychain.html" class="p-card__alt">View Details &#8594;</a>
       </div>
-      <div class="s-card__actions">
-        <button onclick="addToCart({name:'CHURCH CONNECT PACK',price:'249.00',desc:'10 Cards + QR + Training',qty:1})" class="s-card__buy" style="cursor:pointer;border:none">Add to Cart</button>
+    </div>
+
+    <!-- 5. TAP STARTER KIT -->
+    <div class="p-card reveal" id="starter-kit">
+      <span class="p-card__badge">Best Value</span>
+      <div class="p-card__img">
+        <img src="images/nfc/tap-card-charcoal.jpg" alt="PRML TAP STARTER KIT — Card + Keychain" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Starter Kit</div>
+        <h3 class="p-card__name">TAP STARTER KIT</h3>
+        <p class="p-card__desc">Card + Keychain, one price. Both products programmed and shipped. The smartest way to start.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$39.99</div>
+          <span class="p-card__save">SAVE $10</span>
+        </div>
+      </div>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP STARTER KIT',price:'39.99',desc:'Card + Keychain — programmed & shipped',qty:1})" class="p-card__buy">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- 6. TAP CARD — 10-PACK -->
+    <div class="p-card reveal" id="card-10pack">
+      <span class="p-card__badge">Team Price</span>
+      <div class="p-card__img">
+        <img src="images/nfc/tap-card-charcoal-demo.jpg" alt="PRML TAP CARD 10-Pack" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Tap Card &middot; Bulk</div>
+        <h3 class="p-card__name">TAP CARD 10-PACK</h3>
+        <p class="p-card__desc">Ten cards, all programmed, all shipped. Color mix confirmed during setup. Perfect for teams and events.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$249.99</div>
+          <span class="p-card__price-sub">$24.99 / card</span>
+        </div>
+      </div>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP CARD 10-PACK',price:'249.99',desc:'10 cards — programmed & shipped',qty:1})" class="p-card__buy">Add to Cart</button>
+        <a href="booking.html?utm_source=shop&utm_medium=product-card&utm_campaign=bulk-order" class="p-card__alt">Ask About Bulk &#8594;</a>
+      </div>
+    </div>
+
+    <!-- 7. TAP KEYCHAIN — 10-PACK -->
+    <div class="p-card reveal" id="keychain-10pack">
+      <span class="p-card__badge">Team Price</span>
+      <div class="p-card__img">
+        <img src="images/nfc/tap-keychain-charcoal.jpg" alt="PRML TAP KEYCHAIN 10-Pack" loading="lazy">
+      </div>
+      <div class="p-card__body">
+        <div class="p-card__tag">Tap Keychain &middot; Bulk</div>
+        <h3 class="p-card__name">TAP KEYCHAIN 10-PACK</h3>
+        <p class="p-card__desc">Ten keychains, all programmed. Gift them, distribute them, or equip your crew.</p>
+        <div class="p-card__price-row">
+          <div class="p-card__price">$149.99</div>
+          <span class="p-card__price-sub">$14.99 / keychain</span>
+        </div>
+      </div>
+      <div class="p-card__actions">
+        <button onclick="addToCart({name:'PRML TAP KEYCHAIN 10-PACK',price:'149.99',desc:'10 keychains — programmed & shipped',qty:1})" class="p-card__buy">Add to Cart</button>
+        <a href="booking.html?utm_source=shop&utm_medium=product-card&utm_campaign=bulk-order" class="p-card__alt">Ask About Bulk &#8594;</a>
       </div>
     </div>
 
@@ -359,8 +425,8 @@
 <!-- BULK PRICING NOTE -->
 <div class="bulk-note reveal">
   <div class="bulk-note__icon">5+</div>
-  <div class="bulk-note__text">Ordering 5+ units? <strong>Save up to 30%.</strong> Contact us for bulk pricing.</div>
-  <a href="contact.html?utm_source=shop&utm_medium=bulk-note&utm_campaign=bulk-pricing" style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:#E01010;color:#fff;padding:12px 24px;text-decoration:none;border:2px solid #E01010;transition:.15s">Get Bulk Pricing</a>
+  <div class="bulk-note__text">Ordering 5+ units? <strong>Save up to 30%.</strong> Contact us for custom bulk pricing.</div>
+  <a href="contact.html?utm_source=shop&utm_medium=bulk-note&utm_campaign=bulk-pricing" style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:#2B2B2B;color:#F5F0E8;padding:12px 24px;text-decoration:none;border:2px solid #2B2B2B;transition:.15s">Get Bulk Pricing</a>
 </div>
 
 <!-- CTA BANNERS -->
@@ -370,14 +436,14 @@
     <div class="cta-banner__eyebrow">Customization</div>
     <h2 class="cta-banner__title">WANT SOMETHING CUSTOM?</h2>
     <p class="cta-banner__desc">Your logo. Your colors. Your URL. We build fully branded tap-enabled hardware from scratch. White label available.</p>
-    <a href="customize.html" class="cta-banner__link">Start Customizing</a>
+    <a href="customize.html" class="cta-banner__link">Start Customizing &#8594;</a>
   </div>
   <!-- Service Banner -->
   <div class="cta-banner cta-banner--service reveal">
     <div class="cta-banner__eyebrow">Services</div>
     <h2 class="cta-banner__title">NEED A SERVICE?</h2>
     <p class="cta-banner__desc">Web development, brand identity, music production, photography, and more. PRML RECORDS is a full creative studio.</p>
-    <a href="services.html" class="cta-banner__link">Explore Services</a>
+    <a href="services.html" class="cta-banner__link">Explore Services &#8594;</a>
   </div>
 </div>
 
