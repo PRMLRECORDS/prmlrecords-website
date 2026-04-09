@@ -113,96 +113,125 @@ async function sendConfirmationEmail(orderId, payload) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Order Confirmed — PRML RECORDS</title>
 </head>
-<body style="margin:0;padding:0;background:#F5F0E8;font-family:'Roboto Slab',Georgia,serif">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#F5F0E8;padding:40px 20px">
+<body style="margin:0;padding:0;background-color:#F5E6C8;font-family:Georgia,serif;-webkit-font-smoothing:antialiased">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5E6C8">
     <tr>
-      <td align="center">
-        <table width="100%" style="max-width:560px;background:#F5F0E8">
+      <td align="center" style="padding:40px 16px">
 
-          <!-- Header -->
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#F5E6C8">
+
+          <!-- HEADER — Charcoal with wordmark -->
           <tr>
-            <td style="background:#2C2C2C;padding:24px 32px">
-              <p style="margin:0;font-family:'Courier New',monospace;font-size:18px;color:#F5F0E8;letter-spacing:2px">
-                PRML RECORDS
+            <td style="background-color:#2B2B2B;padding:32px 40px 28px">
+              <div style="font-family:Arial Black,Arial,sans-serif;font-size:22px;font-weight:900;letter-spacing:0.08em;color:#F5E6C8;text-transform:uppercase;line-height:1">
+                PRML <span style="color:#E01010">RECORDS</span>
+              </div>
+              <div style="font-family:Georgia,serif;font-size:11px;letter-spacing:0.22em;color:#8C8C7A;text-transform:uppercase;margin-top:6px">
+                Primal Energy. Primal Sound.
+              </div>
+            </td>
+          </tr>
+
+          <!-- RED ACCENT BAR -->
+          <tr><td style="height:4px;background-color:#E01010"></td></tr>
+
+          <!-- RED LABEL STRIP -->
+          <tr>
+            <td style="background-color:#E01010;padding:10px 40px">
+              <p style="margin:0;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.26em;color:#F5E6C8;text-transform:uppercase">
+                Order Confirmed — ${orderId}
               </p>
             </td>
           </tr>
 
-          <!-- Red accent bar -->
-          <tr><td style="height:4px;background:#E01010"></td></tr>
-
-          <!-- Body -->
+          <!-- BODY -->
           <tr>
-            <td style="padding:32px">
+            <td style="background-color:#F5E6C8;padding:40px 40px 32px">
 
-              <p style="margin:0 0 4px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#E01010">
-                Order Confirmed
-              </p>
-              <h1 style="margin:0 0 24px;font-family:'Courier New',monospace;font-size:28px;color:#2C2C2C;letter-spacing:-1px">
+              <h1 style="margin:0 0 24px;font-family:Arial Black,Arial,sans-serif;font-size:28px;font-weight:900;color:#2B2B2B;letter-spacing:-0.01em;line-height:1.2">
                 Thank you, ${sanitize(shipping.name).split(' ')[0]}.
               </h1>
 
-              <p style="font-size:13px;color:#2C2C2C;line-height:1.8;margin:0 0 24px">
-                Your order has been received and is being processed.
+              <p style="font-family:Georgia,serif;font-size:15px;color:#2B2B2B;line-height:1.8;margin:0 0 24px;opacity:.85">
+                Your order has been received and is being prepared.
                 Estimated delivery: <strong>${sanitize(delivery)}</strong>.
               </p>
 
-              <!-- Order summary -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px">
+              <!-- ORDER SUMMARY TABLE -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px">
                 <tr>
-                  <td colspan="2" style="padding-bottom:8px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#888">
-                    Order Summary · ${orderId}
+                  <td colspan="2" style="padding:12px 0;border-top:1px solid rgba(43,43,43,.15);border-bottom:1px solid rgba(43,43,43,.15)">
+                    <span style="font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;color:#E01010;text-transform:uppercase">Order Summary</span>
                   </td>
                 </tr>
                 ${itemRows}
                 <tr>
-                  <td style="padding:12px 0 4px;font-size:12px;color:#888">Shipping &amp; Handling</td>
-                  <td style="padding:12px 0 4px;font-size:12px;color:#888;text-align:right">$6.00</td>
+                  <td style="padding:10px 0 4px;font-family:Georgia,serif;font-size:13px;color:#8C8C7A">Shipping &amp; Handling</td>
+                  <td style="padding:10px 0 4px;font-family:Georgia,serif;font-size:13px;color:#8C8C7A;text-align:right">$6.00</td>
                 </tr>
                 <tr>
-                  <td style="padding:8px 0;font-size:14px;font-weight:bold;color:#2C2C2C;border-top:2px solid #2C2C2C">
+                  <td style="padding:12px 0;font-family:Arial Black,Arial,sans-serif;font-size:16px;font-weight:900;color:#2B2B2B;border-top:2px solid #2B2B2B">
                     Total
                   </td>
-                  <td style="padding:8px 0;font-family:'Courier New',monospace;font-size:16px;color:#2C2C2C;font-weight:bold;text-align:right;border-top:2px solid #2C2C2C">
+                  <td style="padding:12px 0;font-family:Arial Black,Arial,sans-serif;font-size:18px;font-weight:900;color:#E01010;text-align:right;border-top:2px solid #2B2B2B">
                     $${totalDollars}
                   </td>
                 </tr>
               </table>
 
-              <!-- Ship to -->
-              <div style="background:#2C2C2C;padding:20px 24px;margin-bottom:24px">
-                <p style="margin:0 0 8px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#E01010">
-                  Ships To
-                </p>
-                <p style="margin:0;font-size:13px;color:#F5F0E8;line-height:1.8">
-                  ${sanitize(shipping.name)}<br>
-                  ${sanitize(shipping.street)}<br>
-                  ${sanitize(shipping.city)}, ${sanitize(shipping.state)} ${sanitize(shipping.zip)}
-                </p>
-              </div>
+              <!-- SHIPS TO — Dark card -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px">
+                <tr>
+                  <td style="background-color:#2B2B2B;padding:20px 24px">
+                    <p style="margin:0 0 8px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;color:#E01010;text-transform:uppercase">
+                      Ships To
+                    </p>
+                    <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#F5E6C8;line-height:1.8">
+                      ${sanitize(shipping.name)}<br>
+                      ${sanitize(shipping.street)}<br>
+                      ${sanitize(shipping.city)}, ${sanitize(shipping.state)} ${sanitize(shipping.zip)}
+                    </p>
+                  </td>
+                </tr>
+              </table>
 
-              <p style="font-size:12px;color:#888;line-height:1.8;margin:0 0 32px">
-                Questions? Reply to this email or visit
-                <a href="https://prmlrecords.com/support.html" style="color:#E01010">prmlrecords.com/support</a>.
+              <!-- SUPPORT NOTE -->
+              <p style="font-family:Georgia,serif;font-size:13px;color:#8C8C7A;line-height:1.8;margin:0 0 28px">
+                Questions about your order? Reply to this email or visit
+                <a href="https://prmlrecords.com/support.html" style="color:#E01010;text-decoration:none;font-weight:bold">prmlrecords.com/support</a>.
               </p>
 
-              <!-- CTA -->
-              <a
-                href="https://prmlrecords.com"
-                style="display:inline-block;background:#E01010;color:#F5F0E8;font-family:'Courier New',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:14px 28px"
-              >
-                Visit PRML RECORDS
-              </a>
+              <!-- CTA BUTTON -->
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color:#E01010;padding:14px 28px">
+                    <a href="https://prmlrecords.com/shop.html" style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;color:#F5E6C8;text-transform:uppercase;text-decoration:none">
+                      Continue Shopping
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- SIGN-OFF -->
+              <p style="font-family:Georgia,serif;font-size:14px;color:#2B2B2B;margin:32px 0 0;font-style:italic;opacity:.7">
+                With Gratitude,<br>
+                PRML RECORDS
+              </p>
 
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- FOOTER -->
           <tr>
-            <td style="padding:20px 32px;border-top:1px solid rgba(44,44,44,.1)">
-              <p style="margin:0;font-size:11px;color:#888;line-height:1.8">
-                PRML RECORDS LLC · Atlanta, GA · West End<br>
+            <td style="background-color:#2B2B2B;padding:20px 40px;border-top:3px solid #E01010">
+              <p style="margin:0;font-family:Georgia,serif;font-size:11px;color:#8C8C7A;line-height:1.8">
+                PRML RECORDS LLC &middot; West End, Atlanta, GA<br>
                 Peace Freedom Justice Equality
+              </p>
+              <p style="margin:8px 0 0;font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.1em;color:#555">
+                <a href="https://prmlrecords.com" style="color:#E01010;text-decoration:none">prmlrecords.com</a> &middot;
+                <a href="https://prmlrecords.com/privacypolicy.html" style="color:#555;text-decoration:none">Privacy Policy</a> &middot;
+                <a href="https://prmlrecords.com/termsofservice.html" style="color:#555;text-decoration:none">Terms</a>
               </p>
             </td>
           </tr>

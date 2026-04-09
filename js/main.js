@@ -7,7 +7,7 @@
 
 const GAS_URL    = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';        // Apps Script /exec URL
 const STRIPE_PK  = 'pk_live_51IJPNBIEvKUNtDqenm2BfJJxvZKp5gcSpzilQq1AtgC9likIp8XJFsSZzjmo0z8M9IvwduJg34Op8D0jst1EmnjA00C3wRPaUv'; // pk_live_... or pk_test_...
-const STRIPE_URL = '';  // Checkout app disabled — using direct Stripe Payment Links
+const STRIPE_URL = 'https://prml-checkout.vercel.app/checkout';  // Vercel checkout app (Airtable + Brevo emails)
 const STRIPE_FEE = 6.00;                                      // flat $6 transaction fee
 
 /* ── Stripe Payment Link Map (loaded from products.json at init) ── */
