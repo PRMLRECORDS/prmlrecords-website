@@ -94,9 +94,9 @@
     "alt": "PRML TAP PENDANT — Charcoal",
     "detailsUrl": "",
     "bulkUrl": "",
-    "stripeProductId": "",
-    "stripePriceId": "",
-    "stripeLink": "",
+    "stripeProductId": "prod_UJ4ASCA1cpWwFS",
+    "stripePriceId": "price_1TKS2gIEvKUNtDqe5ZlhBiip",
+    "stripeLink": "https://buy.stripe.com/7sY8wQ02p9NI7zg2Aq1ZS0T",
     "active": true
   },
   {
@@ -114,9 +114,9 @@
     "alt": "PRML TAP PENDANT — Beige",
     "detailsUrl": "",
     "bulkUrl": "",
-    "stripeProductId": "",
-    "stripePriceId": "",
-    "stripeLink": "",
+    "stripeProductId": "prod_UJ4AQsEewJBD6f",
+    "stripePriceId": "price_1TKS2jIEvKUNtDqet08SnjY0",
+    "stripeLink": "https://buy.stripe.com/7sYbJ2g1ngc6f1I5MC1ZS0U",
     "active": true
   },
   {
@@ -194,9 +194,9 @@
     "alt": "Custom NFC TAP CARD — Your Logo Here",
     "detailsUrl": "customize.html?product=card",
     "bulkUrl": "",
-    "stripeProductId": "",
-    "stripePriceId": "",
-    "stripeLink": "",
+    "stripeProductId": "prod_UJ4A5BIBTjLjgd",
+    "stripePriceId": "price_1TKS2mIEvKUNtDqeM0lnmqF0",
+    "stripeLink": "https://buy.stripe.com/aFa5kEaH32lg7zg7UK1ZS0V",
     "active": true
   },
   {
@@ -214,9 +214,9 @@
     "alt": "Custom NFC TAP KEYCHAIN — Your Logo Here",
     "detailsUrl": "customize.html?product=keychain",
     "bulkUrl": "",
-    "stripeProductId": "",
-    "stripePriceId": "",
-    "stripeLink": "",
+    "stripeProductId": "prod_UJ4A6aTGXwS7AX",
+    "stripePriceId": "price_1TKS2pIEvKUNtDqehikqAgO9",
+    "stripeLink": "https://buy.stripe.com/00w14o5mJ5xsdXE5MC1ZS0W",
     "active": true
   },
   {
@@ -234,9 +234,9 @@
     "alt": "Custom NFC TAP PENDANT — Your Logo Here",
     "detailsUrl": "customize.html?product=pendant",
     "bulkUrl": "",
-    "stripeProductId": "",
-    "stripePriceId": "",
-    "stripeLink": "",
+    "stripeProductId": "prod_UJ4AlkCEoWccoL",
+    "stripePriceId": "price_1TKS2rIEvKUNtDqeQdoXsxyD",
+    "stripeLink": "https://buy.stripe.com/8x2fZieXje3Y9Hodf41ZS0X",
     "active": true
   },
   {
@@ -254,9 +254,9 @@
     "alt": "PRML Premium Payment Stand — custom logo, with NFC cubes",
     "detailsUrl": "customize.html?product=payment-stand",
     "bulkUrl": "booking.html?utm_source=shop&utm_medium=product-card&utm_campaign=payment-stand",
-    "stripeProductId": "",
-    "stripePriceId": "",
-    "stripeLink": "",
+    "stripeProductId": "prod_UJ4A3HBpWg1m8q",
+    "stripePriceId": "price_1TKS2uIEvKUNtDqe1APPeAXH",
+    "stripeLink": "https://buy.stripe.com/3cIfZig1n0d85r87UK1ZS0Y",
     "active": true
   }
 ]
