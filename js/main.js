@@ -7,8 +7,17 @@
 
 const GAS_URL    = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';        // Apps Script /exec URL
 const STRIPE_PK  = 'pk_live_51IJPNBIEvKUNtDqenm2BfJJxvZKp5gcSpzilQq1AtgC9likIp8XJFsSZzjmo0z8M9IvwduJg34Op8D0jst1EmnjA00C3wRPaUv'; // pk_live_... or pk_test_...
-const STRIPE_URL = 'https://prmlrecords-checkout.onrender.com/checkout'; // Next.js checkout app
+const STRIPE_URL = '';  // Checkout app disabled — using direct Stripe Payment Links
 const STRIPE_FEE = 6.00;                                      // flat $6 transaction fee
+
+/* ── Stripe Payment Link Map (loaded from products.json at init) ── */
+let _productCatalog = [];
+(async function loadProductCatalog() {
+  try {
+    const res = await fetch('data/products.json');
+    if (res.ok) _productCatalog = await res.json();
+  } catch(e) { /* silent — fallback to manual checkout */ }
+})();
 
 /* ════════════════════════════════════════════════════
    CART
@@ -391,9 +400,9 @@ async function proceedToStripe(depositOnly) {
   const total  = getCartTotal();
   const amount = depositOnly ? getDepositAmount() : total;
   const label  = depositOnly ? '50% Deposit' : 'Full Payment';
-  const items  = cart.map(i => `${i.name} — $${parseFloat(i.price).toFixed(2)}`).join('\n');
+  const items  = cart.map(i => `${i.name}${i.variant ? ' — ' + i.variant : ''}${i.qty > 1 ? ' x' + i.qty : ''} — $${(parseFloat(i.price) * (i.qty||1)).toFixed(2)}`).join('\n');
 
-  // Log to Sheet with customer info attached
+  // ── Step 1: Log to Google Sheet (always, fire-and-forget) ──
   if (GAS_URL && !GAS_URL.includes('PASTE_YOUR')) {
     fetch(GAS_URL, {
       method: 'POST', mode: 'no-cors',
@@ -421,7 +430,44 @@ async function proceedToStripe(depositOnly) {
   // Close customer info modal
   document.getElementById('prml-cust-modal')?.remove();
 
-  // Send to checkout with cart data in URL (cross-domain safe)
+  // ── Step 2: Smart Stripe Payment Link routing ──
+  // For single-item carts: redirect to that product's dedicated Stripe Payment Link
+  // For multi-item: open each link sequentially (first item auto-opens, rest shown as list)
+
+  // Try to match cart items to product catalog Payment Links
+  // Cart items may have "PRML TAP CARD" while catalog has "TAP CARD" — normalize both
+  function findStripeLink(item) {
+    if (!_productCatalog.length) return null;
+    const normalize = s => (s || '').replace(/^PRML\s+/i, '').trim().toUpperCase();
+    const match = _productCatalog.find(p =>
+      normalize(p.name) === normalize(item.name) &&
+      normalize(p.variant) === normalize(item.variant) &&
+      p.stripeLink
+    );
+    return match ? match.stripeLink : null;
+  }
+
+  // Deposit orders always go to manual payment (need custom amount)
+  if (depositOnly) {
+    showPaymentModal(items, sub, total, amount, label);
+    return;
+  }
+
+  // Single-item cart with qty=1: direct Payment Link redirect (seamless!)
+  if (cart.length === 1 && (cart[0].qty || 1) === 1) {
+    const link = findStripeLink(cart[0]);
+    if (link) {
+      try {
+        const url = new URL(link);
+        if (email) url.searchParams.set('prefilled_email', email);
+        url.searchParams.set('client_reference_id', name.replace(/\s+/g, '-') + '-' + Date.now());
+        window.location.href = url.toString();
+        return;
+      } catch(e) { /* fall through */ }
+    }
+  }
+
+  // Multi-item cart: try the checkout app first, then Payment Links, then fallback
   if (STRIPE_URL && !STRIPE_URL.includes('PASTE_YOUR')) {
     try {
       const url = new URL(STRIPE_URL);
@@ -429,27 +475,87 @@ async function proceedToStripe(depositOnly) {
       url.searchParams.set('customer_name', name);
       url.searchParams.set('customer_email', email);
       if (phone) url.searchParams.set('customer_phone', phone);
-      if (isBiz && bizName) url.searchParams.set('business_name', bizName);
-      if (isBiz && bizIndustry) url.searchParams.set('business_industry', bizIndustry);
       url.searchParams.set('client_reference_id', 'cart-' + Date.now());
-      // Pass cart as base64 so checkout-app can read it even cross-domain
       const cartData = cart.map(i => ({
         name: i.name + (i.variant ? ' — ' + i.variant : ''),
         price: i.price,
-        qty: i.qty || 1,
-        desc: i.desc || ''
+        qty: i.qty || 1
       }));
       url.searchParams.set('cart', btoa(JSON.stringify(cartData)));
-      url.searchParams.set('deposit', depositOnly ? '1' : '0');
+      url.searchParams.set('deposit', '0');
       window.location.href = url.toString();
       return;
-    } catch(e) {
-      console.error('[checkout] URL build failed:', e);
+    } catch(e) { /* fall through */ }
+  }
+
+  // Multi-item without checkout app: open first item's Payment Link, show rest
+  const firstLink = findStripeLink(cart[0]);
+  if (firstLink && cart.length <= 3) {
+    // For small carts, open each item's Payment Link
+    // Customer completes them in order (not ideal, but works)
+    const allLinks = cart.map(item => {
+      const link = findStripeLink(item);
+      return link ? { name: item.name + (item.variant ? ' — ' + item.variant : ''), url: link } : null;
+    }).filter(Boolean);
+
+    if (allLinks.length === cart.length) {
+      // All items have Payment Links — redirect to first, show others
+      const url = new URL(allLinks[0].url);
+      if (email) url.searchParams.set('prefilled_email', email);
+      url.searchParams.set('client_reference_id', name.replace(/\s+/g, '-') + '-' + Date.now());
+
+      if (allLinks.length === 1) {
+        window.location.href = url.toString();
+        return;
+      }
+
+      // Multiple items: show a "pay for each item" modal
+      showMultiItemCheckout(allLinks, email, name);
+      return;
     }
   }
 
-  // Fallback: no Stripe configured
+  // Final fallback: manual payment modal
   showPaymentModal(items, sub, total, amount, label);
+}
+
+/* Multi-item checkout: opens Payment Links for each item */
+function showMultiItemCheckout(links, email, customerName) {
+  const existing = document.getElementById('prml-multi-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'prml-multi-modal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px';
+
+  const linkHtml = links.map((l, i) => {
+    const url = new URL(l.url);
+    if (email) url.searchParams.set('prefilled_email', email);
+    url.searchParams.set('client_reference_id', customerName.replace(/\s+/g, '-') + '-item' + (i+1) + '-' + Date.now());
+    return `<a href="${url.toString()}" target="_blank" rel="noopener"
+      style="display:block;background:${i===0?'#E01010':'transparent'};color:#F5E6C8;border:1px solid ${i===0?'#E01010':'rgba(245,230,200,.2)'};padding:13px 20px;text-align:center;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;margin-bottom:8px;transition:.15s"
+      onmouseover="this.style.background='#E01010';this.style.borderColor='#E01010'"
+      onmouseout="this.style.background='${i===0?'#E01010':'transparent'}';this.style.borderColor='${i===0?'#E01010':'rgba(245,230,200,.2)'}'"
+      >${l.name} → Pay Now</a>`;
+  }).join('');
+
+  modal.innerHTML = `
+    <div style="background:#2B2B2B;padding:36px;max-width:440px;width:100%;border-top:4px solid #E01010;font-family:'Roboto Slab',serif">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:20px;color:#E01010;margin-bottom:4px">Complete Your Order</div>
+      <div style="font-size:12px;color:#F5E6C8;opacity:.6;margin-bottom:20px;line-height:1.7">
+        Your cart has ${links.length} items. Click each to pay securely via Stripe:
+      </div>
+      ${linkHtml}
+      <div style="margin-top:16px;font-size:11px;color:#8C8C7A;line-height:1.6">
+        Each item opens a secure Stripe checkout. Your email (${email}) is pre-filled.
+      </div>
+      <button onclick="document.getElementById('prml-multi-modal').remove()"
+              style="margin-top:12px;background:transparent;border:1px solid rgba(245,230,200,.15);color:#F5E6C8;padding:10px 16px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%">
+        Close
+      </button>
+    </div>`;
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
 }
 
 /* ════════════════════════════════════════════════════
