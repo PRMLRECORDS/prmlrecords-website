@@ -214,6 +214,9 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('orders')">Orders</button>
     <button class="tab" onclick="showTab('seaux9')">SEAUX9</button>
     <button class="tab" onclick="showTab('links')">Quick Links</button>
+    <button class="tab" onclick="showTab('lp-builder')">LP Builder</button>
+    <button class="tab" onclick="showTab('print-ads')">Print Ads</button>
+    <button class="tab" onclick="showTab('photo-tool')">Photo Tool</button>
     <button class="tab" onclick="showTab('todo')">TODO / Roadmap</button>
     <button class="tab" onclick="showTab('tutorials')">Tutorials</button>
     <button class="tab" onclick="showTab('pricing')">Pricing Hub</button>
@@ -684,6 +687,234 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <a class="ql" href="https://distrokid.com/dashboard" target="_blank"><div class="ql-title">DistroKid ↗</div><div class="ql-sub">SEAUX9 distribution</div></a>
       <a class="ql" href="https://render.com/dashboard" target="_blank"><div class="ql-title">Render ↗</div><div class="ql-sub">Site deployment</div></a>
       <a class="ql" href="https://dash.cloudflare.com" target="_blank"><div class="ql-title">Cloudflare ↗</div><div class="ql-sub">DNS & CDN</div></a>
+    </div>
+  </div>
+
+  <!-- ══ LP BUILDER ══ -->
+  <div class="panel" id="tab-lp-builder">
+    <div class="section-title">Landing Page Generator</div>
+    <div class="section-head">Build Print Ad Landing Pages</div>
+    <p style="font-size:13px;opacity:.5;margin-bottom:24px;line-height:1.7">Generate landing pages for QR codes on flyers, business cards, and print ads. Pages are noindex (hidden from Google) and track conversions via GA4.</p>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+      <!-- FORM -->
+      <div class="card" style="padding:24px">
+        <div class="card-label" style="margin-bottom:16px">Page Details</div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">PRODUCT NAME</label>
+          <select id="lp-product" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" onchange="lpUpdatePreview()">
+            <option value="tap-card">TAP CARD — $29.99</option>
+            <option value="tap-keychain">TAP KEYCHAIN — $19.99</option>
+            <option value="tap-pendant">TAP PENDANT — $19.99</option>
+            <option value="starter-kit">TAP STARTER KIT — $39.99</option>
+            <option value="custom-card">CUSTOM TAP CARD — From $54.99</option>
+            <option value="custom-keychain">CUSTOM TAP KEYCHAIN — From $39.99</option>
+            <option value="custom-pendant">CUSTOM TAP PENDANT — From $39.99</option>
+            <option value="payment-stand">PREMIUM PAYMENT STAND — $199.99</option>
+          </select>
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">HEADLINE</label>
+          <input id="lp-headline" value="One Tap. Everything About You." style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="lpUpdatePreview()">
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">SUBHEADLINE</label>
+          <input id="lp-sub" value="No app. No subscription. Just tap." style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="lpUpdatePreview()">
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">CTA BUTTON TEXT</label>
+          <input id="lp-cta" value="GET YOURS →" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="lpUpdatePreview()">
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">UTM CAMPAIGN NAME</label>
+          <input id="lp-utm" value="print-flyer-spring2026" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px">
+        </div>
+        <button onclick="lpGenerate()" class="btn-full" style="margin-top:8px">Generate Landing Page HTML</button>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="card" style="padding:0;overflow:hidden;background:var(--charcoal)">
+        <div style="padding:8px 12px;background:var(--bg);font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--stone)">LIVE PREVIEW</div>
+        <div id="lp-preview" style="padding:32px;text-align:center">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:9px;letter-spacing:4px;color:var(--red);margin-bottom:8px">PRML RECORDS</div>
+          <div id="lp-prev-headline" style="font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);line-height:1.1;margin-bottom:12px">One Tap. Everything About You.</div>
+          <div id="lp-prev-sub" style="font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone);margin-bottom:20px">No app. No subscription. Just tap.</div>
+          <div id="lp-prev-price" style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);margin-bottom:16px">$29.99</div>
+          <div id="lp-prev-cta" style="background:var(--red);color:var(--cream);padding:14px 28px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;display:inline-block">GET YOURS &rarr;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div id="lp-output" style="display:none;margin-top:20px">
+      <div class="card-label" style="margin-bottom:8px">Generated HTML (copy &amp; paste into a new file)</div>
+      <div style="position:relative">
+        <pre id="lp-code" style="background:var(--bg);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:11px;color:var(--cream);overflow-x:auto;max-height:400px;white-space:pre-wrap;line-height:1.6"></pre>
+        <button onclick="navigator.clipboard.writeText(document.getElementById('lp-code').textContent);this.textContent='COPIED!';setTimeout(()=>this.textContent='COPY',1500)" style="position:absolute;top:8px;right:8px;background:var(--red);color:var(--cream);border:none;padding:6px 14px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;cursor:pointer">COPY</button>
+      </div>
+      <div style="margin-top:12px;font-size:12px;opacity:.5">
+        <strong>Next steps:</strong> Save as <code style="color:var(--red)">lp/[product-name].html</code> in the website folder, then create a QR code pointing to <code style="color:var(--red)">https://prmlrecords.com/lp/[product-name].html</code>
+      </div>
+    </div>
+
+    <!-- QR CODE GENERATOR -->
+    <div style="margin-top:32px;background:var(--charcoal);padding:24px;border-left:3px solid var(--red)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">QR Code Generator</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">Generate QR codes for your landing pages</div>
+      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+        <div style="flex:1;min-width:250px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">URL TO ENCODE</label>
+          <input id="qr-url" value="https://prmlrecords.com/lp/tap-card.html?utm_source=print&utm_medium=flyer&utm_campaign=spring2026" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:12px">
+        </div>
+        <button onclick="generateQR()" style="background:var(--red);color:var(--cream);border:none;padding:12px 24px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;cursor:pointer;white-space:nowrap">GENERATE QR</button>
+      </div>
+      <div id="qr-output" style="margin-top:16px;text-align:center"></div>
+    </div>
+  </div>
+
+  <!-- ══ PRINT ADS ══ -->
+  <div class="panel" id="tab-print-ads">
+    <div class="section-title">Marketing Materials</div>
+    <div class="section-head">Print Ad Generator</div>
+    <p style="font-size:13px;opacity:.5;margin-bottom:24px;line-height:1.7">Generate print-ready flyers, business card inserts, and social media graphics in PRML brand style. Download as HTML or screenshot to image.</p>
+
+    <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
+      <button onclick="showAdTemplate('flyer')" class="btn btn-out" id="ad-btn-flyer" style="border-color:var(--red);color:var(--red)">Product Flyer (8.5x11)</button>
+      <button onclick="showAdTemplate('card-insert')" class="btn btn-out" id="ad-btn-card-insert">Business Card Insert</button>
+      <button onclick="showAdTemplate('social')" class="btn btn-out" id="ad-btn-social">Social Post (1080x1080)</button>
+      <button onclick="showAdTemplate('banner')" class="btn btn-out" id="ad-btn-banner">Web Banner (1200x628)</button>
+    </div>
+
+    <!-- AD CONTROLS -->
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:24px">
+      <div class="card" style="padding:24px">
+        <div class="card-label" style="margin-bottom:16px">Customize</div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">PRODUCT</label>
+          <select id="ad-product" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" onchange="updateAdPreview()">
+            <option value="tap-card" data-price="$29.99">TAP CARD</option>
+            <option value="tap-keychain" data-price="$19.99">TAP KEYCHAIN</option>
+            <option value="tap-pendant" data-price="$19.99">TAP PENDANT</option>
+            <option value="starter-kit" data-price="$39.99">TAP STARTER KIT</option>
+            <option value="custom" data-price="From $39.99">CUSTOM PRODUCTS</option>
+          </select>
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">HEADLINE</label>
+          <input id="ad-headline" value="SHARE YOUR WORLD WITH ONE TAP." style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="updateAdPreview()">
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">TAGLINE</label>
+          <input id="ad-tagline" value="NFC-powered smart products by PRML RECORDS" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="updateAdPreview()">
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">STYLE</label>
+          <select id="ad-style" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" onchange="updateAdPreview()">
+            <option value="dark">Dark (Charcoal BG)</option>
+            <option value="light">Light (Cream BG)</option>
+            <option value="red">Bold Red</option>
+            <option value="split">Split (Half Dark / Half Cream)</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:16px">
+          <button onclick="downloadAdHTML()" class="btn-full" style="flex:1">Download HTML</button>
+          <button onclick="printAd()" style="flex:1;background:var(--charcoal);color:var(--cream);border:1px solid rgba(254,1,3,.3);padding:14px;font-family:'Rubik Mono One',monospace;font-size:10px;letter-spacing:.1em;cursor:pointer">PRINT / PDF</button>
+        </div>
+      </div>
+
+      <!-- AD PREVIEW -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:8px 12px;background:var(--bg);font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--stone)">PREVIEW</div>
+        <div id="ad-preview" style="aspect-ratio:8.5/11;background:var(--charcoal);padding:40px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+          <div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;color:var(--red);text-transform:uppercase;margin-bottom:4px">PRML RECORDS LLC &middot; ATLANTA, GA</div>
+            <div style="height:3px;background:var(--red);width:60px;margin-bottom:24px"></div>
+          </div>
+          <div>
+            <div id="ad-prev-headline" style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--cream);line-height:1.05;letter-spacing:-1px;margin-bottom:16px">SHARE YOUR WORLD WITH ONE TAP.</div>
+            <div id="ad-prev-tagline" style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--stone);line-height:1.6;margin-bottom:24px">NFC-powered smart products by PRML RECORDS</div>
+            <div id="ad-prev-price" style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--red);margin-bottom:8px">$29.99</div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end">
+              <div>
+                <div style="background:var(--red);color:var(--cream);padding:10px 20px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;display:inline-block;margin-bottom:12px">SHOP NOW &rarr; PRMLRECORDS.COM</div>
+                <div style="font-family:'Roboto Slab',serif;font-size:10px;color:var(--stone);opacity:.6">Peace &middot; Freedom &middot; Justice &middot; Equality</div>
+              </div>
+              <div id="ad-prev-qr" style="width:80px;height:80px;background:white;display:flex;align-items:center;justify-content:center;font-size:8px;color:#333">QR CODE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHOTO TOOL ══ -->
+  <div class="panel" id="tab-photo-tool">
+    <div class="section-title">Product Photography</div>
+    <div class="section-head">Photo Processing Tool</div>
+    <p style="font-size:13px;opacity:.5;margin-bottom:24px;line-height:1.7">Upload raw product photos and generate Nano Banana Pro prompts for professional lightbox-style images. Batch process multiple images.</p>
+
+    <!-- UPLOAD AREA -->
+    <div style="border:2px dashed rgba(254,1,3,.3);padding:40px;text-align:center;margin-bottom:24px;cursor:pointer;transition:border-color .2s" id="photo-drop" ondragover="event.preventDefault();this.style.borderColor='var(--red)'" ondragleave="this.style.borderColor='rgba(254,1,3,.3)'" ondrop="handlePhotoDrop(event)" onclick="document.getElementById('photo-input').click()">
+      <input type="file" id="photo-input" multiple accept="image/*" style="display:none" onchange="handlePhotoSelect(event)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--red);margin-bottom:8px">DROP PHOTOS HERE</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:var(--stone)">or click to browse &middot; PNG, JPG, WEBP accepted</div>
+    </div>
+
+    <!-- BATCH SETTINGS -->
+    <div class="card" style="padding:24px;margin-bottom:24px">
+      <div class="card-label" style="margin-bottom:16px">Batch Settings</div>
+      <div class="grid" style="grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div>
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">PRODUCT TYPE</label>
+          <select id="photo-type" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px">
+            <option value="card">NFC Business Card</option>
+            <option value="keychain">NFC Keychain</option>
+            <option value="pendant">NFC Pendant</option>
+            <option value="stand">Payment Stand</option>
+            <option value="custom">Custom / Other</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">COLOR VARIANT</label>
+          <select id="photo-color" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px">
+            <option value="charcoal">Charcoal (Dark)</option>
+            <option value="beige">Beige (Cream)</option>
+            <option value="custom">Custom Color</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">OUTPUT STYLE</label>
+          <select id="photo-output" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px">
+            <option value="lightbox">White Lightbox (E-commerce)</option>
+            <option value="whitelabel">White-Label (YOUR LOGO HERE)</option>
+            <option value="lifestyle">Lifestyle (In-Use Context)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPLOADED PHOTOS GRID -->
+    <div id="photo-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px"></div>
+
+    <!-- GENERATE PROMPTS BUTTON -->
+    <div id="photo-actions" style="display:none;margin-bottom:24px">
+      <button onclick="generateAllPrompts()" class="btn-full">Generate Nano Banana Pro Prompts for All Photos</button>
+    </div>
+
+    <!-- PROMPTS OUTPUT -->
+    <div id="photo-prompts" style="margin-bottom:24px"></div>
+
+    <!-- NAMING CONVENTION -->
+    <div style="background:var(--charcoal);padding:20px;border-left:3px solid var(--red);margin-top:20px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);margin-bottom:8px">FILE NAMING CONVENTION</div>
+      <div style="font-size:12px;color:var(--cream);opacity:.7;line-height:2">
+        <code style="color:var(--red)">tap-card-charcoal.jpg</code> &mdash; PRML branded product<br>
+        <code style="color:var(--red)">tap-card-charcoal-new.png</code> &mdash; Updated photo (keeps old as backup)<br>
+        <code style="color:var(--red)">custom-card.png</code> &mdash; White-label "YOUR LOGO HERE" version<br>
+        <code style="color:var(--red)">tap-pendant-charcoal-options.png</code> &mdash; Shows adhesive/magnet back options
+      </div>
     </div>
   </div>
 
@@ -1500,6 +1731,196 @@ function copyCode(id){
     const btn = el.querySelector('.copy-btn');
     if(btn){ btn.textContent='COPIED!'; setTimeout(()=>btn.textContent='COPY',1500); }
   });
+}
+
+// ── LP BUILDER ──────────────────────────────────────────────
+const lpProducts = {
+  'tap-card':       { name:'PRML TAP CARD', price:'$29.99', link:'https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O', img:'tap-card-charcoal-new.png' },
+  'tap-keychain':   { name:'PRML TAP KEYCHAIN', price:'$19.99', link:'https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q', img:'tap-keychain-charcoal-new.png' },
+  'tap-pendant':    { name:'PRML TAP PENDANT', price:'$19.99', link:'https://buy.stripe.com/3cI6oIbL7f82aLs4Iy1ZS0Z', img:'tap-pendant-charcoal.png' },
+  'starter-kit':    { name:'TAP STARTER KIT', price:'$39.99', link:'https://buy.stripe.com/8x2fZi9CZ3pkf1I1wm1ZS0S', img:'tap-card-charcoal-new.png' },
+  'custom-card':    { name:'CUSTOM TAP CARD', price:'From $54.99', link:'https://buy.stripe.com/aFa5kEaH32lg7zg7UK1ZS0V', img:'custom-card.png' },
+  'custom-keychain':{ name:'CUSTOM TAP KEYCHAIN', price:'From $39.99', link:'https://buy.stripe.com/00w14o5mJ5xsdXE5MC1ZS0W', img:'custom-keychain.png' },
+  'custom-pendant': { name:'CUSTOM TAP PENDANT', price:'From $39.99', link:'https://buy.stripe.com/8x2fZieXje3Y9Hodf41ZS0X', img:'custom-pendant.png' },
+  'payment-stand':  { name:'PREMIUM PAYMENT STAND', price:'$199.99', link:'https://buy.stripe.com/3cIfZig1n0d85r87UK1ZS0Y', img:'payment-stand-custom.png' }
+};
+
+function lpUpdatePreview(){
+  const p = lpProducts[document.getElementById('lp-product').value];
+  document.getElementById('lp-prev-headline').textContent = document.getElementById('lp-headline').value;
+  document.getElementById('lp-prev-sub').textContent = document.getElementById('lp-sub').value;
+  document.getElementById('lp-prev-price').textContent = p.price;
+  document.getElementById('lp-prev-cta').textContent = document.getElementById('lp-cta').value;
+}
+
+function lpGenerate(){
+  const sel = document.getElementById('lp-product').value;
+  const p = lpProducts[sel];
+  const headline = document.getElementById('lp-headline').value;
+  const sub = document.getElementById('lp-sub').value;
+  const cta = document.getElementById('lp-cta').value;
+  const utm = document.getElementById('lp-utm').value;
+  const link = p.link + '?utm_source=print&utm_medium=qr&utm_campaign=' + encodeURIComponent(utm);
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${p.name} — PRML RECORDS</title>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="${p.name} — ${p.price} — PRML RECORDS">
+<meta property="og:description" content="${sub}">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"><\\/script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');<\\/script>
+<style>body{margin:0;background:#131313;color:#F5E6C8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+.lp-brand{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:8px}
+.lp-headline{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,6vw,56px);line-height:1.05;letter-spacing:-2px;margin-bottom:16px;max-width:600px}
+.lp-sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:#C4B49A;line-height:1.7;margin-bottom:32px;max-width:500px}
+.lp-price{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,8vw,72px);color:#E01010;margin-bottom:24px}
+.lp-cta{display:inline-block;background:linear-gradient(135deg,#E01010,#930003);color:#F5E6C8;font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;text-decoration:none;padding:18px 40px;transition:opacity .2s}
+.lp-cta:hover{opacity:.85}
+.lp-footer{margin-top:48px;font-family:'Roboto Slab',serif;font-size:11px;color:#C4B49A;opacity:.4}
+.lp-services{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.lp-svc{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C4B49A;border:1px solid rgba(196,180,154,.2);padding:8px 16px;text-decoration:none;transition:.2s}
+.lp-svc:hover{border-color:#E01010;color:#E01010}</style>
+</head>
+<body>
+<div class="lp-brand">PRML RECORDS &middot; ATLANTA, GA</div>
+<h1 class="lp-headline">${headline}</h1>
+<p class="lp-sub">${sub}</p>
+<div class="lp-price">${p.price}</div>
+<a href="${link}" class="lp-cta" onclick="gtag('event','cta_click',{product:'${sel}',source:'print-ad'})">${cta}</a>
+<div class="lp-services">
+  <a href="https://prmlrecords.com/services.html?utm_source=print&utm_medium=lp" class="lp-svc">Need a Website?</a>
+  <a href="https://prmlrecords.com/customize.html?utm_source=print&utm_medium=lp" class="lp-svc">Need a Design?</a>
+  <a href="https://prmlrecords.com/contact.html?service=consultation&utm_source=print&utm_medium=lp" class="lp-svc">Custom Orders &amp; Inquiries</a>
+</div>
+<div class="lp-footer">PRML RECORDS LLC &middot; Peace Freedom Justice Equality &middot; prmlrecords.com</div>
+</body>
+</html>`;
+
+  document.getElementById('lp-code').textContent = html;
+  document.getElementById('lp-output').style.display = 'block';
+  document.getElementById('lp-output').scrollIntoView({behavior:'smooth'});
+}
+
+// ── QR CODE (uses QR Server API) ────────────────────────────
+function generateQR(){
+  const url = document.getElementById('qr-url').value;
+  if(!url){alert('Enter a URL');return;}
+  const qrImg = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(url)}&bgcolor=FFFFFF&color=2B2B2B&margin=10`;
+  document.getElementById('qr-output').innerHTML = `
+    <img src="${qrImg}" style="width:200px;height:200px;margin-bottom:12px" alt="QR Code">
+    <div style="font-size:11px;opacity:.5">Right-click &rarr; Save Image As</div>
+    <a href="${qrImg}" download="PRML-QR.png" style="display:inline-block;margin-top:8px;background:var(--red);color:var(--cream);padding:8px 20px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-decoration:none">DOWNLOAD QR</a>`;
+}
+
+// ── PRINT AD PREVIEW ────────────────────────────────────────
+function showAdTemplate(type){
+  document.querySelectorAll('[id^="ad-btn-"]').forEach(b=>{b.style.borderColor='rgba(254,1,3,.3)';b.style.color='var(--cream)'});
+  const btn=document.getElementById('ad-btn-'+type);
+  if(btn){btn.style.borderColor='var(--red)';btn.style.color='var(--red)'}
+  const preview = document.getElementById('ad-preview');
+  if(type==='social') preview.style.aspectRatio='1/1';
+  else if(type==='banner') preview.style.aspectRatio='1200/628';
+  else if(type==='card-insert') preview.style.aspectRatio='3.5/2';
+  else preview.style.aspectRatio='8.5/11';
+  updateAdPreview();
+}
+
+function updateAdPreview(){
+  const sel = document.getElementById('ad-product');
+  const price = sel.options[sel.selectedIndex].dataset.price;
+  document.getElementById('ad-prev-headline').textContent = document.getElementById('ad-headline').value;
+  document.getElementById('ad-prev-tagline').textContent = document.getElementById('ad-tagline').value;
+  document.getElementById('ad-prev-price').textContent = price;
+  const style = document.getElementById('ad-style').value;
+  const preview = document.getElementById('ad-preview');
+  if(style==='dark'){preview.style.background='var(--charcoal)';document.getElementById('ad-prev-headline').style.color='var(--cream)'}
+  else if(style==='light'){preview.style.background='var(--cream)';document.getElementById('ad-prev-headline').style.color='var(--charcoal)'}
+  else if(style==='red'){preview.style.background='var(--red)';document.getElementById('ad-prev-headline').style.color='var(--cream)'}
+  else{preview.style.background='linear-gradient(135deg,var(--charcoal) 50%,var(--cream) 50%)';document.getElementById('ad-prev-headline').style.color='var(--cream)'}
+}
+
+function downloadAdHTML(){
+  const preview = document.getElementById('ad-preview');
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet"></head><body style="margin:0">${preview.outerHTML}</body></html>`;
+  const a = document.createElement('a');
+  a.href = 'data:text/html;charset=utf-8,'+encodeURIComponent(html);
+  a.download = 'PRML_PrintAd_'+Date.now()+'.html';
+  a.click();
+}
+
+function printAd(){
+  const preview = document.getElementById('ad-preview');
+  const win = window.open('','','width=850,height=1100');
+  win.document.write(`<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet"><style>body{margin:0}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>${preview.outerHTML}</body></html>`);
+  win.document.close();
+  setTimeout(()=>win.print(),500);
+}
+
+// ── PHOTO TOOL ──────────────────────────────────────────────
+let uploadedPhotos = [];
+
+function handlePhotoDrop(e){
+  e.preventDefault();
+  document.getElementById('photo-drop').style.borderColor='rgba(254,1,3,.3)';
+  handleFiles(e.dataTransfer.files);
+}
+function handlePhotoSelect(e){ handleFiles(e.target.files); }
+
+function handleFiles(files){
+  Array.from(files).forEach(f=>{
+    if(!f.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = (e)=>{
+      uploadedPhotos.push({name:f.name, src:e.target.result, type:f.type});
+      renderPhotoGrid();
+    };
+    reader.readAsDataURL(f);
+  });
+}
+
+function renderPhotoGrid(){
+  const grid = document.getElementById('photo-grid');
+  grid.innerHTML = uploadedPhotos.map((p,i)=>`
+    <div style="background:var(--charcoal);overflow:hidden;position:relative">
+      <img src="${p.src}" style="width:100%;height:180px;object-fit:cover">
+      <div style="padding:10px">
+        <div style="font-size:11px;color:var(--cream);opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.name}</div>
+      </div>
+      <button onclick="uploadedPhotos.splice(${i},1);renderPhotoGrid()" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.7);color:var(--red);border:none;cursor:pointer;padding:4px 8px;font-size:14px">&times;</button>
+    </div>`).join('');
+  document.getElementById('photo-actions').style.display = uploadedPhotos.length ? 'block' : 'none';
+}
+
+function generateAllPrompts(){
+  const type = document.getElementById('photo-type').value;
+  const color = document.getElementById('photo-color').value;
+  const output = document.getElementById('photo-output').value;
+  const typeNames = {card:'NFC business card',keychain:'NFC keychain',pendant:'circular NFC pendant',stand:'NFC payment stand',custom:'custom NFC product'};
+  const colorNames = {charcoal:'matte charcoal/dark grey',beige:'warm cream/beige',custom:'custom color'};
+  const styleNote = output==='whitelabel' ? ' with bold white raised 3D text reading "YOUR LOGO HERE" on the product surface' : output==='lifestyle' ? ', shown in a real-world usage context (on a desk, being held, near a phone)' : '';
+
+  const basePrompt = `Hyper-realistic product photography of a premium ${colorNames[color]} ${typeNames[type]}${styleNote}, shot in a professional lightbox studio on a pure white seamless background. Shot with a Canon EOS R5, 100mm macro lens, f/8, studio strobe lighting with soft diffusion from two sides and a hair light above. Clean, sharp focus, zero motion blur. No shadows on background — product appears to float. Color-accurate, print-ready, 4K resolution. Commercial e-commerce product photography style.`;
+
+  const container = document.getElementById('photo-prompts');
+  container.innerHTML = `
+    <div class="card-label" style="margin-bottom:12px">Generated Prompts (${uploadedPhotos.length} photos)</div>
+    ${uploadedPhotos.map((p,i)=>`
+      <div style="background:var(--charcoal);padding:16px;margin-bottom:8px;display:flex;gap:16px;align-items:flex-start">
+        <img src="${p.src}" style="width:80px;height:80px;object-fit:cover;flex-shrink:0">
+        <div style="flex:1">
+          <div style="font-size:11px;color:var(--stone);margin-bottom:6px">${p.name}</div>
+          <div style="font-size:12px;color:var(--cream);opacity:.8;line-height:1.6;background:var(--bg);padding:10px;position:relative" id="prompt-${i}">
+            ${basePrompt}
+            <button onclick="navigator.clipboard.writeText(document.getElementById('prompt-${i}').textContent.trim());this.textContent='COPIED!';setTimeout(()=>this.textContent='COPY',1500)" style="position:absolute;top:6px;right:6px;background:var(--red);color:var(--cream);border:none;padding:4px 10px;font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;cursor:pointer">COPY</button>
+          </div>
+        </div>
+      </div>`).join('')}`;
 }
 
 function changePw(){
