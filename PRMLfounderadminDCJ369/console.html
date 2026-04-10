@@ -214,6 +214,9 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('orders')">Orders</button>
     <button class="tab" onclick="showTab('seaux9')">SEAUX9</button>
     <button class="tab" onclick="showTab('links')">Quick Links</button>
+    <button class="tab" onclick="showTab('todo')">TODO / Roadmap</button>
+    <button class="tab" onclick="showTab('tutorials')">Tutorials</button>
+    <button class="tab" onclick="showTab('pricing')">Pricing Hub</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
   </div>
 
@@ -681,6 +684,262 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <a class="ql" href="https://distrokid.com/dashboard" target="_blank"><div class="ql-title">DistroKid ↗</div><div class="ql-sub">SEAUX9 distribution</div></a>
       <a class="ql" href="https://render.com/dashboard" target="_blank"><div class="ql-title">Render ↗</div><div class="ql-sub">Site deployment</div></a>
       <a class="ql" href="https://dash.cloudflare.com" target="_blank"><div class="ql-title">Cloudflare ↗</div><div class="ql-sub">DNS & CDN</div></a>
+    </div>
+  </div>
+
+  <!-- ══ TODO / ROADMAP ══ -->
+  <div class="panel" id="tab-todo">
+    <div class="section-title">Mission Control</div>
+    <div class="section-head">TODO &amp; Roadmap</div>
+
+    <!-- COMPLETED -->
+    <div style="margin-bottom:32px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:12px">Completed This Week</div>
+      <div style="background:rgba(34,197,94,.06);border-left:3px solid var(--green);padding:16px 20px;font-size:13px;line-height:2.2;color:var(--cream);opacity:.8">
+        &#9745; 13-product shop page live (9 PRML + 4 custom)<br>
+        &#9745; Checkout app on Vercel (Stripe + Airtable + Brevo emails)<br>
+        &#9745; 6 new Stripe products + Payment Links created<br>
+        &#9745; 14 new product photos deployed<br>
+        &#9745; TAP PENDANT product line launched ($19.99)<br>
+        &#9745; Custom products: Card $54.99, Keychain $39.99, Pendant $39.99, Stand $199.99<br>
+        &#9745; Volume discount tiers (27%/36%/54%/63%/72%)<br>
+        &#9745; "Book a Consultation" fixed &rarr; contact form (28 pages)<br>
+        &#9745; booking.html renamed to seaux9booking.html<br>
+        &#9745; Nav/footer consistency across all 32 pages<br>
+        &#9745; Stripe audit: 7 old prices archived, all prices verified<br>
+        &#9745; Branded order confirmation email ("With Gratitude")<br>
+        &#9745; /prml-product skill for product management automation<br>
+        &#9745; Price master CSV + Product photo pipeline docs
+      </div>
+    </div>
+
+    <!-- IN PROGRESS -->
+    <div style="margin-bottom:32px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px">In Progress</div>
+      <div style="background:rgba(234,179,8,.06);border-left:3px solid var(--yellow);padding:16px 20px;font-size:13px;line-height:2.2;color:var(--cream);opacity:.8">
+        &#9744; Footer structure cleanup (12 pages need footer2 update)<br>
+        &#9744; Footer QR placeholder boxes (remove from 9 pages)<br>
+        &#9744; Legal pages: Cookie banner + DMCA + Refund Policy<br>
+        &#9744; Import PRICE_MASTER.csv to Google Sheets
+      </div>
+    </div>
+
+    <!-- PENDING -->
+    <div style="margin-bottom:32px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px">Pending &mdash; Next Actions</div>
+      <div style="background:rgba(224,16,16,.06);border-left:3px solid var(--red);padding:16px 20px;font-size:13px;line-height:2.2;color:var(--cream);opacity:.8">
+        &#9744; <strong>Mobile responsive audit</strong> (375/768/1280px) &mdash; customers shop on phones<br>
+        &#9744; <strong>UTM parameters</strong> on index.html CTAs + services.html links<br>
+        &#9744; <strong>Stripe webhook secret</strong> &mdash; add to Vercel (enables order safety net)<br>
+        &#9744; Lead magnet page build<br>
+        &#9744; Calendly integration for consultations<br>
+        &#9744; Brevo follow-up automation (24hr / 3-day / 9-day)<br>
+        &#9744; Daily KPI digest (Stripe + GA4 &rarr; Sheets &rarr; email)<br>
+        &#9744; Master Google Spreadsheet (8-tab hub)<br>
+        &#9744; Nano Banana Pro product photos (prompts ready)<br>
+        &#9744; Blog content (currently "Coming Soon")<br>
+        &#9744; Beat licensing catalog<br>
+        &#9744; Website-as-a-service template + client pricing
+      </div>
+    </div>
+
+    <!-- BLOCKED -->
+    <div style="margin-bottom:32px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--stone);margin-bottom:12px">Blocked &mdash; Waiting on You</div>
+      <div style="background:rgba(196,180,154,.06);border-left:3px solid var(--stone);padding:16px 20px;font-size:13px;line-height:2.2;color:var(--cream);opacity:.8">
+        &#9744; SEAUX9 items S.1&ndash;S.7 (Airtable access, domain, PRO registration, Beltline date)<br>
+        &#9744; Confirm seaux9.com registrar + expiry<br>
+        &#9744; Confirm ASCAP/BMI PRO registration status<br>
+        &#9744; Product photos for remaining items (your camera shots + Pinterest finds)<br>
+        &#9744; Google Workspace email setup (hello@prmlrecords.com)
+      </div>
+    </div>
+
+    <!-- OVERALL GOALS -->
+    <div style="margin-bottom:32px">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Overall Goals</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+        <div style="background:var(--charcoal);padding:20px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--blue);margin-bottom:6px">PHASE 1: SELL</div>
+          <div style="font-size:12px;opacity:.7;line-height:1.8">Products live, checkout working, people can buy. &#9989; DONE</div>
+        </div>
+        <div style="background:var(--charcoal);padding:20px;border-left:3px solid var(--yellow)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--yellow);margin-bottom:6px">PHASE 2: MARKET</div>
+          <div style="font-size:12px;opacity:.7;line-height:1.8">UTMs, analytics, lead magnets, social content, email campaigns. IN PROGRESS</div>
+        </div>
+        <div style="background:var(--charcoal);padding:20px;border-left:3px solid var(--red)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red);margin-bottom:6px">PHASE 3: SCALE</div>
+          <div style="font-size:12px;opacity:.7;line-height:1.8">B2B landing pages, website-as-a-service, automation, multiple revenue streams.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TUTORIALS ══ -->
+  <div class="panel" id="tab-tutorials">
+    <div class="section-title">Knowledge Base</div>
+    <div class="section-head">Tutorials &amp; Walkthroughs</div>
+
+    <!-- ADD A PRODUCT -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--red)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">How to Add a New Product</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">Use this when you have a new product to sell</div>
+      <ol style="font-size:13px;line-height:2.4;padding-left:20px;opacity:.8">
+        <li>Go to <a href="https://dashboard.stripe.com/products/create" target="_blank" style="color:var(--red)">Stripe Dashboard &rarr; Products &rarr; Create</a></li>
+        <li>Enter product name, description, and price</li>
+        <li>After creating, go to <strong>Payment Links &rarr; New</strong> and select your product</li>
+        <li>Copy the <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">buy.stripe.com/...</code> URL</li>
+        <li>Tell Claude: <strong>"Add [product name] at $[price] with this Stripe link: [URL]"</strong></li>
+        <li>Or use the <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">/prml-product</code> skill in Claude Code</li>
+      </ol>
+    </div>
+
+    <!-- UPDATE A PRICE -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--yellow)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">How to Update a Price</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">Stripe prices are immutable &mdash; you archive old and create new</div>
+      <ol style="font-size:13px;line-height:2.4;padding-left:20px;opacity:.8">
+        <li>Go to Stripe Dashboard &rarr; Products &rarr; find the product</li>
+        <li>Click the old price &rarr; <strong>Archive</strong></li>
+        <li>Add a new price at the correct amount</li>
+        <li>Create a new Payment Link for the updated price</li>
+        <li>Tell Claude: <strong>"Update [product] price to $[new price]"</strong></li>
+        <li>Claude will update products.json, shop.html, and push to Render</li>
+      </ol>
+    </div>
+
+    <!-- GENERATE PRODUCT PHOTOS -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--green)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">How to Generate Product Photos</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">Using Google Nano Banana Pro for white lightbox shots</div>
+      <ol style="font-size:13px;line-height:2.4;padding-left:20px;opacity:.8">
+        <li>Open the photo pipeline doc: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">16_CLAUDE_OPS/PRODUCT_PHOTO_PIPELINE.md</code></li>
+        <li>Copy the prompt for your product type (card, keychain, pendant, stand)</li>
+        <li>Paste into Nano Banana Pro &rarr; generate 3-4 variations</li>
+        <li>Pick the best one, crop to 1200x1200px square</li>
+        <li>Save as <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">tap-[product]-[color].jpg</code></li>
+        <li>Drop in <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">images/nfc/</code> and tell Claude to update the catalog</li>
+      </ol>
+    </div>
+
+    <!-- PUSH WEBSITE CHANGES -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--blue)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">How to Push Website Changes</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">Deploy updates to prmlrecords.com via Render</div>
+      <ol style="font-size:13px;line-height:2.4;padding-left:20px;opacity:.8">
+        <li>Open PowerShell and navigate: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">cd Desktop\PRML_STUDIO\04_WEBSITE\prmlrecords.com\v3_current\prml-site</code></li>
+        <li>Stage changes: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">git add -A</code></li>
+        <li>Commit: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">git commit -m "Description of changes"</code></li>
+        <li>Push: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">git push origin master</code></li>
+        <li>Render auto-deploys in ~60 seconds</li>
+        <li>Or just tell Claude <strong>"/deploy"</strong> or <strong>"push"</strong></li>
+      </ol>
+    </div>
+
+    <!-- ADD ENV VARS TO VERCEL -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--stone)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">How to Add Vercel Environment Variables</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">For the checkout app at prml-checkout.vercel.app</div>
+      <ol style="font-size:13px;line-height:2.4;padding-left:20px;opacity:.8">
+        <li>Open PowerShell, navigate to checkout-app folder</li>
+        <li>Run: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">vercel env add VARIABLE_NAME production</code></li>
+        <li>Paste the value when prompted</li>
+        <li>Redeploy: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">vercel --prod --yes</code></li>
+        <li>Currently needed: <strong>STRIPE_WEBHOOK_SECRET</strong></li>
+      </ol>
+    </div>
+
+    <!-- VOLUME DISCOUNT REFERENCE -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--red)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">Volume Discount Calculator</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">For custom product quotes</div>
+      <table style="width:100%;font-size:13px;border-collapse:collapse">
+        <tr style="border-bottom:1px solid rgba(245,230,200,.1)">
+          <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">QTY</th>
+          <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">DISCOUNT</th>
+          <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">CARD ($54.99)</th>
+          <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">KEYCHAIN ($39.99)</th>
+          <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">PENDANT ($39.99)</th>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:8px 0">10+</td><td>27%</td><td>$40.14</td><td>$29.19</td><td>$29.19</td></tr>
+        <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:8px 0">20+</td><td>36%</td><td>$35.19</td><td>$25.59</td><td>$25.59</td></tr>
+        <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:8px 0">50+</td><td>54%</td><td>$25.30</td><td>$18.40</td><td>$18.40</td></tr>
+        <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:8px 0">100+</td><td>63%</td><td>$20.35</td><td>$14.80</td><td>$14.80</td></tr>
+        <tr><td style="padding:8px 0">500+</td><td>72%</td><td>$15.40</td><td>$11.20</td><td>$11.20</td></tr>
+      </table>
+    </div>
+
+    <!-- ADMIN PAGES -->
+    <div style="margin-bottom:28px;background:var(--charcoal);padding:24px;border-left:3px solid var(--stone)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin-bottom:4px">Admin Pages &amp; Docs</div>
+      <div style="font-size:11px;opacity:.4;margin-bottom:16px">Other pages in your admin panel</div>
+      <div style="font-size:13px;line-height:2.2;opacity:.8">
+        <a href="../admin/index.html" style="color:var(--red);text-decoration:none">Standard Dashboard</a> &mdash; KPIs, goals, grants, blog, social<br>
+        <a href="../admin/dashboard.html" style="color:var(--red);text-decoration:none">Alt Dashboard</a> &mdash; System status, daily cheatsheet<br>
+        <a href="../admin/email-branding-guide.html" style="color:var(--red);text-decoration:none">Email Branding Guide</a> &mdash; @prmlrecords.com setup, signatures, BIMI<br>
+        <a href="../admin/documentation.html" style="color:var(--red);text-decoration:none">Full Documentation</a> &mdash; Complete site docs<br>
+        <a href="../admin/suggestions.html" style="color:var(--red);text-decoration:none">Suggestions &amp; Ideas</a> &mdash; Future features<br>
+        <a href="../admin/settings.html" style="color:var(--red);text-decoration:none">Site Settings</a> &mdash; GAS URL, Stripe, Sheet ID
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PRICING HUB ══ -->
+  <div class="panel" id="tab-pricing">
+    <div class="section-title">Price Management</div>
+    <div class="section-head">All Product Pricing</div>
+
+    <div style="font-size:12px;opacity:.5;margin-bottom:20px">Source of truth: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">data/products.json</code> &middot; Backup: <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">16_CLAUDE_OPS/PRICE_MASTER.csv</code></div>
+
+    <!-- PRML BRANDED -->
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px">PRML Branded Products</div>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;margin-bottom:32px">
+      <tr style="border-bottom:2px solid var(--red)">
+        <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">PRODUCT</th>
+        <th style="text-align:right;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">PRICE</th>
+        <th style="text-align:right;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">STATUS</th>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">TAP CARD (Charcoal / Beige)</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$29.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">TAP KEYCHAIN (Charcoal / Beige)</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$19.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">TAP PENDANT (Charcoal / Beige)</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$19.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">TAP STARTER KIT (Card + Keychain)</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$39.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">TAP CARD 10-PACK ($24.99/ea)</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$249.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr><td style="padding:10px 0">TAP KEYCHAIN 10-PACK ($14.99/ea)</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$149.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+    </table>
+
+    <!-- CUSTOM -->
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Custom / White-Label Products</div>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;margin-bottom:32px">
+      <tr style="border-bottom:2px solid var(--red)">
+        <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">PRODUCT</th>
+        <th style="text-align:right;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">STARTING</th>
+        <th style="text-align:right;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">STATUS</th>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">CUSTOM TAP CARD &mdash; Your Logo</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$54.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">CUSTOM TAP KEYCHAIN &mdash; Your Logo</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$39.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">CUSTOM TAP PENDANT &mdash; Your Logo</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$39.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+      <tr><td style="padding:10px 0">PREMIUM PAYMENT STAND</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$199.99</td><td style="text-align:right"><span style="color:var(--green);font-size:11px">&#9679; LIVE</span></td></tr>
+    </table>
+
+    <!-- SERVICES -->
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:10px">Services</div>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;margin-bottom:32px">
+      <tr style="border-bottom:2px solid var(--red)">
+        <th style="text-align:left;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">SERVICE</th>
+        <th style="text-align:right;padding:10px 0;color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px">RATE</th>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Web Development</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$60/hr</td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Sound/Music Production</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$60/hr</td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Photography</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$60/hr</td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Film/Video</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$60/hr</td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Consulting &mdash; Discovery</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$100</td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Consulting &mdash; Strategy</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$350</td></tr>
+      <tr style="border-bottom:1px solid rgba(245,230,200,.06)"><td style="padding:10px 0">Consulting &mdash; Growth</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$500/mo</td></tr>
+      <tr><td style="padding:10px 0">Consulting &mdash; Artist Pro</td><td style="text-align:right;font-family:'Rubik Mono One',monospace;color:var(--cream)">$1,200</td></tr>
+    </table>
+
+    <div style="font-size:12px;opacity:.4;line-height:1.8;margin-top:20px">
+      <strong style="color:var(--red)">Note:</strong> First 9 customers get setup fees waived + free 30-min consultation with every deposit.
     </div>
   </div>
 
