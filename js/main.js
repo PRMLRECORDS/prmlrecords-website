@@ -620,6 +620,13 @@ function initReveal() {
     { threshold: 0.07 }
   );
   document.querySelectorAll('.rev').forEach(el => ro.observe(el));
+
+  // brand.css uses .reveal → .revealed (different naming convention)
+  const ro2 = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro2.unobserve(e.target); } }),
+    { threshold: 0.05 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => ro2.observe(el));
 }
 
 /* ════════════════════════════════════════════════════
