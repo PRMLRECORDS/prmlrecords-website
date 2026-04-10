@@ -622,11 +622,22 @@ function initReveal() {
   document.querySelectorAll('.rev').forEach(el => ro.observe(el));
 
   // brand.css uses .reveal → .revealed (different naming convention)
-  const ro2 = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro2.unobserve(e.target); } }),
-    { threshold: 0.05 }
-  );
-  document.querySelectorAll('.reveal').forEach(el => ro2.observe(el));
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length) {
+    const ro2 = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('revealed'); ro2.unobserve(e.target); }
+      }),
+      { threshold: 0.01, rootMargin: '100px' }
+    );
+    revealEls.forEach(el => ro2.observe(el));
+
+    // Safety net: reveal any still-hidden elements after 2s
+    // (grid items at opacity:0 can collapse, preventing lower items from intersecting)
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
+    }, 2000);
+  }
 }
 
 /* ════════════════════════════════════════════════════
