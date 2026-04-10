@@ -209,16 +209,30 @@ select,
     9 #F5E6C8;
 }
 
+/* Default: red text with Rubik Mono One (safe on all browsers) */
 .nav2__brand-name span {
-  font-family: 'Nabla', monospace !important;
-  font-palette: --nabla-alt-red-cream !important;
-  color: var(--red); /* fallback if Nabla not loaded */
+  font-family: 'Rubik Mono One', monospace !important;
+  color: var(--red) !important;
 }
 
-/* Footer brand also gets Nabla treatment */
 .footer-brand-records {
-  font-family: 'Nabla', monospace !important;
-  font-palette: --nabla-alt-red-cream !important;
+  font-family: 'Rubik Mono One', monospace !important;
+  color: var(--red) !important;
+}
+
+/* Only use Nabla on browsers that support font-palette (COLRv1) */
+@supports (font-palette: normal) {
+  .nav2__brand-name span {
+    font-family: 'Nabla', monospace !important;
+    font-palette: --nabla-alt-red-cream !important;
+    color: var(--red) !important; /* still set for accessibility */
+  }
+
+  .footer-brand-records {
+    font-family: 'Nabla', monospace !important;
+    font-palette: --nabla-alt-red-cream !important;
+    color: var(--red) !important;
+  }
 }
 
 
