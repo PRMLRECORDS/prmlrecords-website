@@ -231,18 +231,18 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div class="grid-3">
       <div class="card card--green">
         <div class="card-label">Products Active</div>
-        <div class="card-val">2</div>
-        <div class="card-sub">TAP CARD · TAP KEYCHAIN</div>
+        <div class="card-val">4</div>
+        <div class="card-sub">TAP CARD · KEYCHAIN · PENDANT · PAYMENT STAND</div>
       </div>
       <div class="card card--green">
-        <div class="card-label">Payment Links</div>
-        <div class="card-val">6</div>
-        <div class="card-sub">4 singles + 2 ten-packs</div>
+        <div class="card-label">Site Pages</div>
+        <div class="card-val">32+</div>
+        <div class="card-sub">Shop · Customize · Beltline · Services · Blog + more</div>
       </div>
-      <div class="card card--yellow">
-        <div class="card-label">Launch Spots</div>
-        <div class="card-val" id="ov-spots">9</div>
-        <div class="card-sub" id="ov-spots-sub">First 9 — setup fee waived</div>
+      <div class="card card--green">
+        <div class="card-label">Customize Page</div>
+        <div class="card-val" style="font-size:16px;margin-top:4px">LIVE</div>
+        <div class="card-sub">Full order form · Cart checkout · Logo upload · Links form</div>
       </div>
       <div class="card">
         <div class="card-label">SEAUX9 Earnings</div>
@@ -257,25 +257,65 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="card card--blue">
         <div class="card-label">Site</div>
         <div class="card-val" style="font-size:16px;margin-top:4px">LIVE</div>
-        <div class="card-sub">prmlrecords.com · Render + CF</div>
+        <div class="card-sub">prmlrecords.com · GitHub → Render + CF</div>
+      </div>
+      <div class="card card--green">
+        <div class="card-label">Sponsorship Campaign</div>
+        <div class="card-val">31</div>
+        <div class="card-sub">Companies in Airtable CRM · Outreach active</div>
+      </div>
+      <div class="card card--yellow">
+        <div class="card-label">Beltline Launch</div>
+        <div class="card-val" style="font-size:16px;margin-top:4px">MAY 2026</div>
+        <div class="card-sub">Ponce City Market / Kroger on Ponce · Mailing list live</div>
+      </div>
+      <div class="card">
+        <div class="card-label">seaux9.com</div>
+        <div class="card-val" style="font-size:14px;margin-top:4px">ACTIVE</div>
+        <div class="card-sub">Expires 2026-05-17 · Renewal needed</div>
       </div>
     </div>
 
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
       <div class="section-title">System Status</div>
-      <div class="status-row"><span class="dot dot-g"></span>Site deployment (Render)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Stripe payment links (6 active)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Google Analytics GA4 (G-2PNH2XTRDK)</div>
-      <div class="status-row"><span class="dot dot-y"></span>Zapier automations (to be built — 3 zaps)</div>
-      <div class="status-row"><span class="dot dot-y"></span>ManyChat widget (configured — not yet live)</div>
-      <div class="status-row"><span class="dot dot-r"></span>Brevo drip (3-email sequence — needs activation)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Site deployment (GitHub → Render + Cloudflare)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Stripe payment links (active across shop + products)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Google Analytics GA4 (G-2PNH2XTRDK) — all 32+ pages</div>
+      <div class="status-row"><span class="dot dot-g"></span>Facebook Pixel (active on shop + customize)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Customize page — full order form + cart checkout</div>
+      <div class="status-row"><span class="dot dot-g"></span>Beltline mailing list — live on customize.html</div>
+      <div class="status-row"><span class="dot dot-g"></span>Beltline content upload — live for fan photos/videos</div>
+      <div class="status-row"><span class="dot dot-g"></span>Zapier automations (3 zaps live: Stripe→HubSpot, Stripe→Brevo, Brevo→HubSpot)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Airtable CRM — Orders table + Sponsorship tables (31 companies)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Donate section — live on customize.html</div>
+      <div class="status-row"><span class="dot dot-y"></span>Checkout app (Next.js) — built, needs deploy + webhook secret</div>
+      <div class="status-row"><span class="dot dot-y"></span>seaux9.com — domain active, needs renewal by 2026-05-17</div>
+      <div class="status-row"><span class="dot dot-y"></span>Performance royalty pipeline — ASCAP/SoundExchange registration pending</div>
+      <div class="status-row"><span class="dot dot-y"></span>Brevo email sequences — configured, needs end-to-end test</div>
+    </div>
+
+    <!-- UPCOMING / ACTION ITEMS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--yellow);margin-bottom:20px">
+      <div class="section-title" style="color:var(--yellow)">Action Items</div>
+      <div style="font-size:13px;font-weight:300;line-height:2;opacity:.85">
+        <div>&#9744; Beltline prep — finalize event logistics for May 2026 at Ponce City Market</div>
+        <div>&#9744; seaux9.com — renew domain before 2026-05-17</div>
+        <div>&#9744; Stripe test checkout — run test card 4242 4242 4242 4242</div>
+        <div>&#9744; Performance pipeline — register works with ASCAP, SoundExchange</div>
+        <div>&#9744; Sponsorship outreach — 31 companies queued, begin sending batches</div>
+        <div>&#9744; Deploy checkout-app to Render + set STRIPE_WEBHOOK_SECRET</div>
+        <div>&#9744; Mobile responsive check 375/768/1280px</div>
+      </div>
     </div>
 
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">FLY — Copilot Brief</strong>
       This console operates independently. All critical controls are here — promo toggles, payment links, order log, SEAUX9 data, and site settings.
-      To deploy changes to the live site: edit the HTML files in <code>04_WEBSITE/prmlrecords.com/v3_current/prml-site/</code> and push via Render or Cloudflare.
-      Emergency contact: info@prmlrecords.com · (770) 686-7726
+      <br><br>
+      <strong>Recent updates (April 2026):</strong> customize.html overhauled with full product order form (4 products, bulk pricing, logo upload, link collection, cart checkout). Beltline mailing list + content upload live. Donate section added. Sponsorship campaign launched (31 companies in Airtable). Performance royalty pipeline planned.
+      <br><br>
+      To deploy changes: <code>git push origin master</code> from <code>prml-site/</code> directory.
+      <br>Emergency contact: info@prmlrecords.com · (770) 686-7726
     </div>
   </div>
 
