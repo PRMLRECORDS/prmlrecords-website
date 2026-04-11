@@ -144,9 +144,9 @@ document.addEventListener('submit',function(e){gtag('event','form_submit',{form_
 <section style="background:#131313;padding:80px 5vw 64px;position:relative;overflow:hidden;border-bottom:4px solid #E01010">
   <div style="position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(60px,14vw,180px);color:rgba(224,16,16,.04);letter-spacing:-4px;bottom:-20px;right:-10px;line-height:1;pointer-events:none;user-select:none">CUSTOM</div>
   <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:12px">Customization Studio</div>
-  <h1 style="font-family:'Rubik Mono One',monospace;font-size:clamp(32px,6vw,72px);color:#F5F0E8;letter-spacing:-3px;line-height:.92;margin:0 0 16px">CUSTOMIZE YOUR<br><span style="color:#E01010">CARD / KEYCHAIN / PENDANT</span></h1>
-  <p style="font-family:'Odibee Sans',sans-serif;font-size:clamp(14px,2vw,20px);letter-spacing:4px;text-transform:uppercase;color:#8C8C7A;margin-bottom:24px">Your Design. Our Materials. Professional Finish.</p>
-  <p style="font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:#F5F0E8;opacity:.55;max-width:560px;line-height:1.8;border-left:3px solid #E01010;padding-left:20px;margin-bottom:0">Build your product step by step below. Pick your base, finish, and add-ons, then submit for a free quote. No commitment until you approve the mock-up.</p>
+  <h1 style="font-family:'Rubik Mono One',monospace;font-size:clamp(32px,6vw,72px);color:#F5F0E8;letter-spacing:-3px;line-height:.92;margin:0 0 16px">CUSTOMIZE YOUR<br><span style="color:#E01010">TAP PRODUCT</span></h1>
+  <p style="font-family:'Odibee Sans',sans-serif;font-size:clamp(14px,2vw,20px);letter-spacing:4px;text-transform:uppercase;color:#8C8C7A;margin-bottom:24px">Your Design. Your Links. Our Hardware. Professional Finish.</p>
+  <p style="font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:#F5F0E8;opacity:.55;max-width:560px;line-height:1.8;border-left:3px solid #E01010;padding-left:20px;margin-bottom:0">Build your custom tap-enabled product step by step. Choose your product, colors, finish, upload your logo, tell us what links to program, and check out &mdash; all in one place. Bulk pricing available.</p>
 </section>
 
 <!-- ============================================================ -->
@@ -156,62 +156,221 @@ document.addEventListener('submit',function(e){gtag('event','form_submit',{form_
   <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 1</div>
   <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 32px">CHOOSE YOUR <span style="color:#E01010">PRODUCT</span></h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px" id="product-select">
-    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="card">
+    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="card" data-base-price="54.99" data-setup="15.99">
       <input type="radio" name="product_type" value="card" style="position:absolute;opacity:0;pointer-events:none" required>
       <div style="font-family:'Odibee Sans',sans-serif;font-size:32px;color:#E01010;margin-bottom:12px">TAP</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Tap Card</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">Full-surface printed smart card. Credit-card size. Tap-enabled. Starting at $54.99.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Custom Tap Card</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">Full-surface printed smart card. Credit-card size. 7-day turnaround. We beat Dot Card's 2-week lead time. Free shipping + free local pickup Atlanta.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:22px;color:#E01010;margin-top:12px">$54.99</div>
+      <div style="font-size:11px;color:#8C8C7A;margin-top:8px;line-height:1.6">+$15.99 setup fee (orders under 5 units)<br>Card stock colors: Black, White, Clear<br>QR code on back (standard) &bull; Bulk discounts available</div>
     </label>
-    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="keychain">
+    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="keychain" data-base-price="39.99" data-setup="15.99">
       <input type="radio" name="product_type" value="keychain" style="position:absolute;opacity:0;pointer-events:none">
       <div style="font-family:'Odibee Sans',sans-serif;font-size:32px;color:#E01010;margin-bottom:12px">&#9670;</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Tap Keychain</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">Durable resin keychain with embedded tap technology. Custom shape and print. Starting at $39.99.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Custom Tap Keychain</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">3D-printed in-house in Atlanta. Standard shapes: Circle or Square (2.5&Prime;&times;2.5&Prime;). Smooth finish. 7-day turnaround. Free shipping + free local pickup.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:22px;color:#E01010;margin-top:12px">$39.99</div>
+      <div style="font-size:11px;color:#8C8C7A;margin-top:8px;line-height:1.6">+$15.99 setup fee (orders under 5 units)<br>Stock colors: Black, White, Gray, Red<br>Plant-based materials available &bull; Bulk discounts available</div>
     </label>
-    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="pendant">
+    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="pendant" data-base-price="39.99" data-setup="15.99">
       <input type="radio" name="product_type" value="pendant" style="position:absolute;opacity:0;pointer-events:none">
       <div style="font-family:'Odibee Sans',sans-serif;font-size:32px;color:#E01010;margin-bottom:12px">&#9674;</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Pendant</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">Wearable smart pendant. Metal or resin. Custom engraving and print. Starting at $39.99.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Custom Pendant</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">Wearable smart pendant. Metal or resin. Custom engraving and print. 7-day turnaround. Free shipping + free local pickup Atlanta.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:22px;color:#E01010;margin-top:12px">$39.99</div>
+      <div style="font-size:11px;color:#8C8C7A;margin-top:8px;line-height:1.6">+$15.99 setup fee (orders under 5 units)<br>Stock colors: Black, White, Gray, Red<br>Same upgrades as keychains &bull; Bulk discounts available</div>
+    </label>
+    <label style="background:#2A2A2A;padding:36px;cursor:pointer;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="product-card" data-product="payment-stand" data-base-price="199.99" data-setup="0">
+      <input type="radio" name="product_type" value="payment-stand" style="position:absolute;opacity:0;pointer-events:none">
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:32px;color:#E01010;margin-bottom:12px">&#9634;</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5F0E8;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px">Premium Payment Stand</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7">Premium countertop tap stand for businesses. Custom branding. Choose your payment processor. Perfect for merchants, vendors, and sellers.</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:22px;color:#E01010;margin-top:12px">$199.99</div>
+      <div style="font-size:11px;color:#8C8C7A;margin-top:8px;line-height:1.6">Setup included &bull; Choose processor below<br>+$99 for turnkey payment processor setup</div>
+    </label>
+  </div>
+
+  <!-- PRODUCT-SPECIFIC UPGRADES (shown dynamically) -->
+  <div id="card-upgrades" style="display:none;margin-top:24px">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#E01010;margin-bottom:12px">Card Optional Upgrades</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px">
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="card_upgrade" value="custom-color" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Custom Color</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="card_upgrade" value="textured-finish" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Textured Finish</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="card_upgrade" value="double-sided" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Double-Sided</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="card_upgrade" value="multicolor" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Multicolor</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+    </div>
+    <div style="font-size:11px;color:#8C8C7A;margin-top:10px;line-height:1.7">Standard: QR code on back (unless double-sided selected) &bull; 50% deposit required to begin &bull; Scope adjustments billed as an adjustment fee if project exceeds paid package</div>
+  </div>
+
+  <div id="keychain-upgrades" style="display:none;margin-top:24px">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#E01010;margin-bottom:12px">Keychain / Pendant Optional Upgrades</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px">
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="kp_upgrade" value="qr-back" data-upgrade-price="1.00" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">QR Code on Back</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$1.00</div></div>
+      </label>
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="kp_upgrade" value="custom-color" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Custom Color</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="kp_upgrade" value="multicolor" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Multicolor</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+      <label class="upgrade-card" style="background:#2A2A2A;padding:20px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:3px solid transparent;transition:background .2s">
+        <input type="checkbox" name="kp_upgrade" value="custom-shape" data-upgrade-price="5.99" style="accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+        <div><div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#F5F0E8">Custom Shape</div><div style="font-family:'Odibee Sans',sans-serif;font-size:12px;color:#E01010;letter-spacing:2px">+$5.99</div></div>
+      </label>
+    </div>
+    <div style="font-size:11px;color:#8C8C7A;margin-top:10px;line-height:1.7">50% deposit required to begin &bull; Plant-based materials available &bull; Scope adjustments billed as an adjustment fee if project exceeds paid package</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAYMENT STAND: PROCESSOR OPTIONS (shown only when Payment Stand selected) -->
+<!-- ============================================================ -->
+<section id="stand-processor-section" style="display:none;background:#131313;padding:48px 5vw;border-bottom:2px solid #2B2B2B">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Payment Stand Config</div>
+  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(20px,3vw,32px);color:#F5F0E8;letter-spacing:-1px;line-height:1;margin:0 0 12px">WHICH <span style="color:#E01010">PAYMENT PROCESSOR</span> DO YOU USE?</h2>
+  <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:24px;max-width:600px">Select all that apply. We will configure your stand to display the correct QR codes and payment links for your chosen processors.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2px" id="processor-select">
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="cash-app" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">Cash App</div><div style="font-size:11px;color:#8C8C7A">$cashtag QR</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="zelle" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">Zelle</div><div style="font-size:11px;color:#8C8C7A">Phone/email QR</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="venmo" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">Venmo</div><div style="font-size:11px;color:#8C8C7A">@username QR</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="paypal" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">PayPal</div><div style="font-size:11px;color:#8C8C7A">PayPal.me link</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="stripe" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">Stripe</div><div style="font-size:11px;color:#8C8C7A">Payment link</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="square" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">Square</div><div style="font-size:11px;color:#8C8C7A">Square link</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="website" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">My Website</div><div style="font-size:11px;color:#8C8C7A">Custom URL</div>
+    </label>
+    <label class="proc-card" style="background:#2A2A2A;padding:20px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="processor" value="other" style="display:none"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;margin-bottom:4px">Other</div><div style="font-size:11px;color:#8C8C7A">Tell us below</div>
+    </label>
+  </div>
+
+  <!-- TURNKEY UPSELL -->
+  <div style="background:#E01010;padding:28px 32px;margin-top:24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+    <div style="flex:1;min-width:280px">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#fff;letter-spacing:-1px;margin-bottom:6px">NEED A PAYMENT PROCESSOR?</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:14px;color:rgba(255,255,255,.85);line-height:1.7">For <strong>$99</strong> we set up a turnkey payment solution &mdash; accept credit cards, Apple Pay, Cash App, Venmo, and bank transfers all on one platform. No juggling multiple apps. Perfect for merchants, vendors, graphic artists, and business owners.</div>
+    </div>
+    <label style="cursor:pointer;display:flex;align-items:center;gap:10px;flex-shrink:0">
+      <input type="checkbox" id="addon-processor-setup" value="processor-setup" style="accent-color:#fff;width:20px;height:20px">
+      <span style="font-family:'Rubik Mono One',monospace;font-size:13px;color:#fff;letter-spacing:.5px">ADD +$99</span>
     </label>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 3: CHOOSE BASE COLOR -->
+<!-- SECTION 3: CHOOSE LOGO COLOR (Two-Tone — pick 2 from stock) -->
 <!-- ============================================================ -->
 <section style="background:#131313;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
   <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 2</div>
-  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 32px">CHOOSE <span style="color:#E01010">BASE COLOR</span></h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px" id="base-select">
-    <label style="background:#2A2A2A;padding:28px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="base-card">
-      <input type="radio" name="base_color" value="black" style="position:absolute;opacity:0;pointer-events:none" required>
-      <div style="width:60px;height:60px;background:#131313;border:2px solid #8C8C7A;margin:0 auto 12px"></div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8">Black</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;margin-top:4px">Stock &mdash; Included</div>
+  <h2 id="color-heading" style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 12px">CHOOSE YOUR <span style="color:#E01010">COLORS</span></h2>
+  <p id="color-desc" style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:8px;max-width:640px">Standard pricing is <strong style="color:#F5F0E8">two-tone</strong> &mdash; pick 2 colors. Your logo prints in one color on the other. Additional colors or multicolor designs are available for an upcharge.</p>
+  <p style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E01010;margin-bottom:28px">Select up to 2 stock colors below. Default: Black + White.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px" id="color-select">
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="black" style="display:none" checked>
+      <div style="width:50px;height:50px;background:#131313;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">BLACK</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
     </label>
-    <label style="background:#2A2A2A;padding:28px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="base-card">
-      <input type="radio" name="base_color" value="white" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="width:60px;height:60px;background:#F5F0E8;border:2px solid #8C8C7A;margin:0 auto 12px"></div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8">White</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;margin-top:4px">Stock &mdash; Included</div>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="white" style="display:none" checked>
+      <div style="width:50px;height:50px;background:#F5F0E8;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">WHITE</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
     </label>
-    <label style="background:#2A2A2A;padding:28px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="base-card">
-      <input type="radio" name="base_color" value="clear" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="width:60px;height:60px;background:linear-gradient(135deg,rgba(245,240,232,.15),rgba(245,240,232,.05));border:2px solid #8C8C7A;margin:0 auto 12px"></div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8">Clear</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;margin-top:4px">Stock &mdash; Included</div>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="red" style="display:none">
+      <div style="width:50px;height:50px;background:#E01010;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">RED</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
     </label>
-    <label style="background:#2A2A2A;padding:28px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="base-card">
-      <input type="radio" name="base_color" value="custom" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="width:60px;height:60px;background:conic-gradient(#E01010,#F5F0E8,#8C8C7A,#2B2B2B,#E01010);border:2px solid #8C8C7A;margin:0 auto 12px"></div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8">Custom Color</div>
-      <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#E01010;margin-top:4px;font-weight:700">+$5 per unit</div>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="gold" style="display:none">
+      <div style="width:50px;height:50px;background:#D4AF37;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">GOLD</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
+    </label>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="gray" style="display:none">
+      <div style="width:50px;height:50px;background:#8C8C8C;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">GRAY</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
+    </label>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="green-silky" style="display:none">
+      <div style="width:50px;height:50px;background:linear-gradient(135deg,#2E8B57,#3CB371);border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">GREEN SILKY</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
+    </label>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="red-silky" style="display:none">
+      <div style="width:50px;height:50px;background:linear-gradient(135deg,#C41E3A,#E01010);border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">RED SILKY</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Stock</div>
+    </label>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="glow-green" style="display:none">
+      <div style="width:50px;height:50px;background:#39FF14;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%;box-shadow:0 0 12px rgba(57,255,20,.4)"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">GLOW GREEN</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Glow-in-the-Dark</div>
+    </label>
+    <label class="color-card" style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;border-bottom:3px solid transparent">
+      <input type="checkbox" name="logo_color" value="glow-red" style="display:none">
+      <div style="width:50px;height:50px;background:#FF073A;border:2px solid #8C8C7A;margin:0 auto 10px;border-radius:50%;box-shadow:0 0 12px rgba(255,7,58,.4)"></div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;color:#F5F0E8">GLOW RED</div>
+      <div style="font-size:10px;color:#8C8C7A;margin-top:2px">Glow-in-the-Dark</div>
     </label>
   </div>
-  <div id="custom-color-input" style="display:none;margin-top:16px">
-    <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Specify your custom color (hex, Pantone, or description)</label>
-    <input type="text" name="custom_color" placeholder="#FF5500 or Pantone 1505 C" style="width:100%;max-width:400px;background:#1B1C1C;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+
+  <!-- Multicolor add-on (in context with color selection) -->
+  <div style="margin-top:20px;background:#2A2A2A;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:4px solid #E01010">
+    <label style="cursor:pointer;display:flex;align-items:center;gap:12px;flex:1;min-width:260px">
+      <input type="checkbox" id="multicolor-addon" name="addon_multicolor" value="multicolor" style="accent-color:#E01010;width:20px;height:20px;flex-shrink:0">
+      <div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8">NEED MORE THAN 2 COLORS?</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A;line-height:1.6;margin-top:4px">Check this box if you want 3+ colors on your product. We will follow up to confirm your exact color selections. Starts at +$5.99/unit &mdash; final price depends on color count.</div>
+      </div>
+    </label>
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:14px;color:#E01010;letter-spacing:2px;flex-shrink:0">+$5.99/UNIT</div>
+  </div>
+
+  <div id="color-warning" style="display:none;margin-top:12px;background:rgba(224,16,16,.1);border:1px solid rgba(224,16,16,.3);padding:14px 20px;font-family:'Roboto Slab',serif;font-size:13px;color:#E01010">
+    You selected more than 2 colors above &mdash; the multicolor add-on has been checked automatically. We will follow up to confirm your exact color choices.
+  </div>
+
+  <div style="margin-top:20px;background:#2A2A2A;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A">Need a color we don't stock?</div>
+    <input type="text" name="custom_color" id="custom-color-input" placeholder="Hex, Pantone, or describe it" style="flex:1;min-width:200px;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:10px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;color:#E01010;letter-spacing:2px">+$5/UNIT</div>
   </div>
 </section>
 
@@ -268,38 +427,89 @@ document.addEventListener('submit',function(e){gtag('event','form_submit',{form_
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 5: DESIGN UPLOAD -->
+<!-- SECTION 5: LOGO UPLOAD + CONTENT UPLOAD -->
 <!-- ============================================================ -->
 <section style="background:#131313;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
   <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 4</div>
-  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 32px">YOUR <span style="color:#E01010">DESIGN</span></h2>
+  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 32px">YOUR <span style="color:#E01010">DESIGN &amp; CONTENT</span></h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px">
-    <!-- Option A: I have my design -->
+    <!-- Logo Upload -->
     <div style="background:#1B1C1C;padding:36px">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5F0E8;margin-bottom:8px;text-transform:uppercase">I Have My Design</div>
-      <p style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7;margin-bottom:20px">Upload your artwork file. We accept PNG, JPG, PDF, SVG, and AI formats. Minimum 300 DPI for print.</p>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5F0E8;margin-bottom:8px;text-transform:uppercase">Upload Your Logo</div>
+      <p style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7;margin-bottom:20px">Upload your logo or artwork. We accept PNG, JPG, PDF, SVG, and AI formats. Minimum 300 DPI for print.</p>
       <label style="display:block;background:#2A2A2A;border:2px dashed #8C8C7A;padding:40px 24px;text-align:center;cursor:pointer;transition:border-color .2s" id="upload-area">
         <input type="file" name="design_file" accept=".png,.jpg,.jpeg,.pdf,.svg,.ai" style="display:none" id="design-upload">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:28px;color:#E01010;margin-bottom:8px">&#8593;</div>
-        <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8;margin-bottom:4px">Click to Upload</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8;margin-bottom:4px">Click to Upload Logo</div>
         <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A" id="upload-filename">PNG, JPG, PDF, SVG, AI &mdash; Max 25MB</div>
       </label>
     </div>
-    <!-- Option B: I need help -->
+    <!-- Logo upload only — content upload moved to Beltline section -->
     <div style="background:#1B1C1C;padding:36px">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5F0E8;margin-bottom:8px;text-transform:uppercase">I Need Design Help</div>
-      <p style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7;margin-bottom:20px">No artwork yet? No problem. Our design team can create your look from scratch or refine your concept.</p>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <a href="services.html?utm_source=prmlrecords&utm_medium=customize-page&utm_campaign=services&utm_content=brand-identity-services" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:14px 20px;background:#2A2A2A;display:flex;align-items:center;justify-content:space-between;transition:background .2s" onmouseover="this.style.background='#353535'" onmouseout="this.style.background='#2A2A2A'">
-          <span>Brand Identity Services</span><span>&#8594;</span>
-        </a>
-        <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=customize-page&utm_campaign=consultation&utm_content=book-design-consultation" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:14px 20px;background:#2A2A2A;display:flex;align-items:center;justify-content:space-between;transition:background .2s" onmouseover="this.style.background='#353535'" onmouseout="this.style.background='#2A2A2A'">
-          <span>Book a Design Consultation</span><span>&#8594;</span>
-        </a>
-        <a href="contact.html?utm_source=prmlrecords&utm_medium=customize-page&utm_campaign=custom-orders&utm_content=contact-us-for-help" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:14px 20px;background:#2A2A2A;display:flex;align-items:center;justify-content:space-between;transition:background .2s" onmouseover="this.style.background='#353535'" onmouseout="this.style.background='#2A2A2A'">
-          <span>Contact Us for Help</span><span>&#8594;</span>
-        </a>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:#F5F0E8;margin-bottom:8px;text-transform:uppercase">Design Tips</div>
+      <p style="font-family:'Roboto Slab',serif;font-size:13px;color:#8C8C7A;line-height:1.7;margin-bottom:16px">For the best results, send us your logo as a vector file (SVG, AI, or high-res PDF). We will handle the rest.</p>
+      <div style="font-size:12px;color:#8C8C7A;line-height:1.8">
+        <div style="margin-bottom:6px"><span style="color:#E01010;font-weight:700">&#10003;</span> Vector files (SVG, AI, PDF) = best quality</div>
+        <div style="margin-bottom:6px"><span style="color:#E01010;font-weight:700">&#10003;</span> PNG at 300+ DPI = good</div>
+        <div style="margin-bottom:6px"><span style="color:#8C8C7A;font-weight:700">&#10007;</span> Low-res screenshots = we can work with it, but results may vary</div>
       </div>
+    </div>
+  </div>
+  <div style="margin-top:16px;background:#2A2A2A;padding:20px 24px">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;margin-bottom:8px">No Design Yet?</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="services.html?utm_source=prmlrecords&utm_medium=customize-page&utm_campaign=services&utm_content=brand-identity" style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:10px 16px;border:1px solid rgba(224,16,16,.4);transition:background .2s" onmouseover="this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.background='transparent'">Brand Identity Services &#8594;</a>
+      <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=customize-page&utm_campaign=consultation" style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:10px 16px;border:1px solid rgba(224,16,16,.4);transition:background .2s" onmouseover="this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.background='transparent'">Book a Design Consultation &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5B: LINKS — What to program into the NFC -->
+<!-- ============================================================ -->
+<section style="background:#1B1C1C;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 5</div>
+  <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 12px">YOUR <span style="color:#E01010">LINKS</span></h2>
+  <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:32px;max-width:640px">Tell us what links and social profiles to program into your tap product. When someone taps your card/keychain/pendant, these are the destinations they will see.</p>
+
+  <div style="max-width:700px;display:flex;flex-direction:column;gap:16px">
+    <div>
+      <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Website URL</label>
+      <input type="url" name="link_website" placeholder="https://yoursite.com" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Instagram</label>
+        <input type="text" name="link_instagram" placeholder="@yourhandle" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+      <div>
+        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">TikTok</label>
+        <input type="text" name="link_tiktok" placeholder="@yourhandle" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+      <div>
+        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Facebook</label>
+        <input type="text" name="link_facebook" placeholder="facebook.com/yourpage" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+      <div>
+        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Twitter / X</label>
+        <input type="text" name="link_twitter" placeholder="@yourhandle" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+      <div>
+        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">YouTube</label>
+        <input type="text" name="link_youtube" placeholder="youtube.com/@yourchannel" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+      <div>
+        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">LinkedIn</label>
+        <input type="text" name="link_linkedin" placeholder="linkedin.com/in/yourprofile" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+    </div>
+    <div>
+      <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Payment Link (Cash App, Venmo, PayPal, etc.)</label>
+      <input type="text" name="link_payment" placeholder="$cashtag, venmo.com/you, paypal.me/you" style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+    </div>
+    <div>
+      <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px">Other Links (one per line)</label>
+      <textarea name="link_other" placeholder="Google Maps listing, Yelp, Spotify, Apple Music, booking link, menu, etc." style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;resize:vertical;min-height:80px" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'"></textarea>
     </div>
   </div>
 </section>
@@ -307,28 +517,32 @@ document.addEventListener('submit',function(e){gtag('event','form_submit',{form_
 <!-- ============================================================ -->
 <!-- SECTION 6: ADD-ONS -->
 <!-- ============================================================ -->
-<section style="background:#1B1C1C;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
-  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 5</div>
+<section style="background:#131313;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 6</div>
   <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 32px"><span style="color:#E01010">ADD</span>-ONS</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px" id="addons-select">
-    <label style="background:#2A2A2A;padding:28px;cursor:pointer;display:flex;align-items:flex-start;gap:16px;transition:background .2s;border-bottom:3px solid transparent" class="addon-card">
-      <input type="checkbox" name="addon_magnetic" value="magnetic" style="margin-top:4px;accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+    <!-- Pendant-only add-ons -->
+    <label id="addon-magnetic" style="display:none;background:#2A2A2A;padding:28px;cursor:pointer;align-items:flex-start;gap:16px;transition:background .2s;border-bottom:3px solid transparent" class="addon-card">
+      <input type="checkbox" name="addon" value="magnetic" data-addon-price="3" style="margin-top:4px;accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
       <div>
         <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;text-transform:uppercase;margin-bottom:4px">Magnetic Backing</div>
         <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A;line-height:1.6;margin-bottom:6px">Strong adhesive magnet on the reverse. Great for fridges, lockers, and metal surfaces.</div>
         <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;color:#E01010;letter-spacing:2px">+$3 / UNIT</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;color:#8C8C7A;margin-top:4px">PENDANT ONLY</div>
       </div>
     </label>
-    <label style="background:#2A2A2A;padding:28px;cursor:pointer;display:flex;align-items:flex-start;gap:16px;transition:background .2s;border-bottom:3px solid transparent" class="addon-card">
-      <input type="checkbox" name="addon_adhesive" value="adhesive" style="margin-top:4px;accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+    <label id="addon-adhesive" style="display:none;background:#2A2A2A;padding:28px;cursor:pointer;align-items:flex-start;gap:16px;transition:background .2s;border-bottom:3px solid transparent" class="addon-card">
+      <input type="checkbox" name="addon" value="adhesive" data-addon-price="2" style="margin-top:4px;accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
       <div>
         <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;text-transform:uppercase;margin-bottom:4px">Adhesive Backing</div>
         <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A;line-height:1.6;margin-bottom:6px">Peel-and-stick adhesive for permanent mounting on laptops, phones, and equipment.</div>
         <div style="font-family:'Odibee Sans',sans-serif;font-size:13px;color:#E01010;letter-spacing:2px">+$2 / UNIT</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;color:#8C8C7A;margin-top:4px">PENDANT ONLY</div>
       </div>
     </label>
+    <!-- Available for all products -->
     <label style="background:#2A2A2A;padding:28px;cursor:pointer;display:flex;align-items:flex-start;gap:16px;transition:background .2s;border-bottom:3px solid transparent" class="addon-card">
-      <input type="checkbox" name="addon_sleeve" value="sleeve" style="margin-top:4px;accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
+      <input type="checkbox" name="addon" value="sleeve" data-addon-price="2" style="margin-top:4px;accent-color:#E01010;width:18px;height:18px;flex-shrink:0">
       <div>
         <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5F0E8;text-transform:uppercase;margin-bottom:4px">Protective Sleeve</div>
         <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A;line-height:1.6;margin-bottom:6px">Individual clear sleeve for each unit. Ideal for retail presentation and gifting.</div>
@@ -339,91 +553,155 @@ document.addEventListener('submit',function(e){gtag('event','form_submit',{form_
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 7: QUANTITY TIERS -->
+<!-- SECTION 7: QUANTITY + BULK PRICING -->
 <!-- ============================================================ -->
-<section style="background:#131313;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
-  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 6</div>
+<section style="background:#1B1C1C;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
+  <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Step 7</div>
   <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,40px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 12px">SELECT <span style="color:#E01010">QUANTITY</span></h2>
-  <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:32px;max-width:600px">More units = bigger savings. Volume discounts are applied automatically to your quote.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px" id="qty-select">
-    <label style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="qty-card">
-      <input type="radio" name="quantity_tier" value="1-4" style="position:absolute;opacity:0;pointer-events:none" required>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-2px;margin-bottom:4px">1-4</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A">Standard Price</div>
-    </label>
-    <label style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="qty-card">
-      <input type="radio" name="quantity_tier" value="5-9" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-2px;margin-bottom:4px">5-9</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#E01010">6% Off</div>
-    </label>
-    <label style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="qty-card">
-      <input type="radio" name="quantity_tier" value="10-19" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-2px;margin-bottom:4px">10-19</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#E01010">15% Off</div>
-    </label>
-    <label style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="qty-card">
-      <input type="radio" name="quantity_tier" value="20-49" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-2px;margin-bottom:4px">20-49</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#E01010">20% Off</div>
-    </label>
-    <label style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="qty-card">
-      <input type="radio" name="quantity_tier" value="50-99" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-2px;margin-bottom:4px">50-99</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#E01010">30% Off</div>
-    </label>
-    <label style="background:#2A2A2A;padding:24px;cursor:pointer;text-align:center;transition:background .2s;display:block;position:relative;border-bottom:3px solid transparent" class="qty-card">
-      <input type="radio" name="quantity_tier" value="100+" style="position:absolute;opacity:0;pointer-events:none">
-      <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#F5F0E8;letter-spacing:-2px;margin-bottom:4px">100+</div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#E01010">Custom Quote</div>
-    </label>
+  <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:12px;max-width:600px">More units = bigger savings. Bulk pricing available on both custom and branded items. <strong style="color:#F5F0E8">Setup fee waived for orders of 5+ units.</strong></p>
+  <div style="font-family:'Roboto Slab',serif;font-size:13px;color:#F5F0E8;margin-bottom:32px;max-width:600px;line-height:1.8;padding-left:16px;border-left:3px solid #E01010">
+    <strong>Volume Discounts:</strong><br>
+    Order 10+ &mdash; Save 27%<br>
+    Order 20+ &mdash; Save 36%<br>
+    Order 50+ &mdash; Save 54%<br>
+    Order 100+ &mdash; Save 63%<br>
+    Order 500+ &mdash; Save 72%
   </div>
+  <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;max-width:400px">
+    <label style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A">Quantity</label>
+    <input type="number" name="quantity" id="qty-input" min="1" value="1" style="width:120px;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Rubik Mono One',monospace;font-size:24px;padding:12px 0;outline:none;text-align:center" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+  </div>
+  <div id="qty-discount-note" style="margin-top:12px;font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:2px;color:#E01010;display:none"></div>
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 8 & 9: QUOTE REQUEST FORM + CTA -->
+<!-- SECTION 8: YOUR INFO + CHECKOUT -->
 <!-- ============================================================ -->
-<section style="background:#1B1C1C;padding:80px 5vw;border-bottom:4px solid #E01010" id="quote-form">
+<section style="background:#131313;padding:80px 5vw;border-bottom:4px solid #E01010" id="checkout-section">
   <div style="max-width:800px;margin:0 auto">
     <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px;text-align:center">Final Step</div>
-    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,48px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 12px;text-align:center">GET YOUR <span style="color:#E01010">QUOTE</span></h2>
-    <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:40px;text-align:center">Tell us who you are and any details we should know. We will respond with an itemized quote and design mock-up.</p>
+    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,48px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 12px;text-align:center">YOUR INFO &amp; <span style="color:#E01010">ORDER</span></h2>
+    <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:40px;text-align:center">Fill out your details and place your order. We will follow up with a mock-up for approval before production. Any updates or changes are handled on the backend &mdash; zero hassle.</p>
 
-    <form id="customize-form" action="https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec" method="POST">
+    <form id="customize-form">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;margin-bottom:24px">
         <div>
           <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px" for="cf-name">Full Name *</label>
-          <input style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="text" id="cf-name" name="name" required placeholder="Your name" autocomplete="name" minlength="2" maxlength="100" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+          <input style="width:100%;background:#1B1C1C;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="text" id="cf-name" name="name" required placeholder="Your name" autocomplete="name" minlength="2" maxlength="100" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
         </div>
         <div>
           <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px" for="cf-email">Email Address *</label>
-          <input style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="email" id="cf-email" name="email" required placeholder="you@example.com" autocomplete="email" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+          <input style="width:100%;background:#1B1C1C;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="email" id="cf-email" name="email" required placeholder="you@example.com" autocomplete="email" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
         </div>
       </div>
-      <div style="margin-bottom:24px">
-        <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px" for="cf-phone">Phone Number</label>
-        <input style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="tel" id="cf-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;margin-bottom:24px">
+        <div>
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px" for="cf-phone">Phone Number</label>
+          <input style="width:100%;background:#1B1C1C;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="tel" id="cf-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+        </div>
+        <div>
+          <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px" for="cf-biz">Business / Brand Name</label>
+          <input style="width:100%;background:#1B1C1C;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s" type="text" id="cf-biz" name="business" placeholder="Your Business LLC" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+        </div>
       </div>
       <div style="margin-bottom:32px">
         <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;display:block;margin-bottom:6px" for="cf-notes">Notes / Special Requirements</label>
-        <textarea style="width:100%;background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s;resize:vertical;min-height:100px" id="cf-notes" name="notes" placeholder="Logo details, destination URL, rush request, brand guidelines, etc." maxlength="2000" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'"></textarea>
+        <textarea style="width:100%;background:#1B1C1C;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;transition:border-color .15s;resize:vertical;min-height:100px" id="cf-notes" name="notes" placeholder="Specific colors, rush request, brand guidelines, special instructions..." maxlength="2000" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'"></textarea>
       </div>
 
-      <!-- CTA BUTTON -->
-      <button type="submit" style="width:100%;background:#E01010;color:#F5F0E8;font-family:'Rubik Mono One',monospace;font-size:18px;letter-spacing:1px;text-transform:uppercase;padding:20px;border:none;cursor:pointer;transition:background .2s" onmouseover="this.style.background='#B00D0D'" onmouseout="this.style.background='#E01010'">Get Your Quote</button>
-      <p style="font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A;margin-top:14px;text-align:center;opacity:.7">No payment required. No commitment until you approve the mock-up.</p>
+      <!-- ORDER SUMMARY -->
+      <div id="order-summary" style="background:#1B1C1C;padding:28px;margin-bottom:24px;border-left:4px solid #E01010">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#E01010;margin-bottom:12px">Order Summary</div>
+        <div id="summary-lines" style="font-family:'Roboto Slab',serif;font-size:14px;color:#F5F0E8;line-height:2"></div>
+        <div style="border-top:1px solid rgba(245,230,200,.1);margin-top:12px;padding-top:12px;display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8">Estimated Total</span>
+          <span id="summary-total" style="font-family:'Rubik Mono One',monospace;font-size:28px;color:#E01010;letter-spacing:-1px">$0.00</span>
+        </div>
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;margin-top:8px">Final price confirmed after mock-up approval. Volume discounts applied at checkout.</div>
+      </div>
+
+      <!-- CTA BUTTONS -->
+      <button type="button" id="btn-add-cart" style="width:100%;background:#E01010;color:#F5F0E8;font-family:'Rubik Mono One',monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;padding:20px;border:none;cursor:pointer;transition:background .2s;margin-bottom:12px" onmouseover="this.style.background='#B00D0D'" onmouseout="this.style.background='#E01010'">ORDER NOW &mdash; ADD TO CART</button>
+      <p style="font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A;margin-top:14px;text-align:center;opacity:.7">We will follow up with a mock-up for approval before production. 50% deposit option available at checkout. Any adjustments handled on the backend &mdash; no hassle.</p>
+      <div style="text-align:center;margin-top:20px;padding-top:20px;border-top:1px solid rgba(245,230,200,.08)">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;margin-bottom:8px">Looking for a service quote instead?</div>
+        <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=customize-page&utm_campaign=service-quote" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:12px 24px;border:1px solid rgba(224,16,16,.4);display:inline-block;transition:background .2s" onmouseover="this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.background='transparent'">Request a Service Quote &#8594;</a>
+      </div>
     </form>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 10: AFTER-SUBMIT MESSAGE (hidden until submit) -->
+<!-- DONATE / SUPPORT PRML -->
+<!-- ============================================================ -->
+<section style="background:#1B1C1C;padding:64px 5vw;border-bottom:2px solid #2B2B2B">
+  <div style="max-width:600px;margin:0 auto;text-align:center">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#E01010;margin-bottom:10px">Support</div>
+    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,3.5vw,36px);color:#F5F0E8;letter-spacing:-2px;line-height:1;margin:0 0 12px">SUPPORT <span style="color:#E01010">PRML RECORDS</span></h2>
+    <p style="font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;line-height:1.7;margin-bottom:28px">Love what we do? Your donations support community events, artist development, and technology innovation in Atlanta. Leave a note and your socials so we can thank you properly.</p>
+    <div id="donate-form" style="text-align:left;display:flex;flex-direction:column;gap:14px;max-width:460px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <input type="text" id="donate-name" placeholder="Your Name" style="background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+        <input type="email" id="donate-email" placeholder="Email" style="background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      </div>
+      <input type="text" id="donate-social" placeholder="Instagram, TikTok, or website (so we can shout you out)" style="background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'">
+      <textarea id="donate-note" placeholder="Leave a note (optional)" style="background:#131313;border:none;border-bottom:2px solid #2A2A2A;color:#F5F0E8;font-family:'Roboto Slab',serif;font-size:14px;padding:12px 0;outline:none;resize:vertical;min-height:60px" onfocus="this.style.borderBottomColor='#E01010'" onblur="this.style.borderBottomColor='#2A2A2A'"></textarea>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px">
+        <button type="button" onclick="submitDonation(5)" class="donate-amt" style="font-family:'Rubik Mono One',monospace;font-size:14px;background:#2A2A2A;color:#F5F0E8;border:2px solid rgba(224,16,16,.3);padding:14px 28px;cursor:pointer;transition:.2s" onmouseover="this.style.borderColor='#E01010';this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.borderColor='rgba(224,16,16,.3)';this.style.background='#2A2A2A'">$5</button>
+        <button type="button" onclick="submitDonation(10)" class="donate-amt" style="font-family:'Rubik Mono One',monospace;font-size:14px;background:#2A2A2A;color:#F5F0E8;border:2px solid rgba(224,16,16,.3);padding:14px 28px;cursor:pointer;transition:.2s" onmouseover="this.style.borderColor='#E01010';this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.borderColor='rgba(224,16,16,.3)';this.style.background='#2A2A2A'">$10</button>
+        <button type="button" onclick="submitDonation(25)" class="donate-amt" style="font-family:'Rubik Mono One',monospace;font-size:14px;background:#E01010;color:#fff;border:2px solid #E01010;padding:14px 28px;cursor:pointer;transition:.2s" onmouseover="this.style.background='#B00D0D'" onmouseout="this.style.background='#E01010'">$25</button>
+        <button type="button" onclick="submitDonation(50)" class="donate-amt" style="font-family:'Rubik Mono One',monospace;font-size:14px;background:#2A2A2A;color:#F5F0E8;border:2px solid rgba(224,16,16,.3);padding:14px 28px;cursor:pointer;transition:.2s" onmouseover="this.style.borderColor='#E01010';this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.borderColor='rgba(224,16,16,.3)';this.style.background='#2A2A2A'">$50</button>
+        <button type="button" onclick="submitDonation(100)" class="donate-amt" style="font-family:'Rubik Mono One',monospace;font-size:14px;background:#2A2A2A;color:#F5F0E8;border:2px solid rgba(224,16,16,.3);padding:14px 28px;cursor:pointer;transition:.2s" onmouseover="this.style.borderColor='#E01010';this.style.background='rgba(224,16,16,.1)'" onmouseout="this.style.borderColor='rgba(224,16,16,.3)';this.style.background='#2A2A2A'">$100</button>
+      </div>
+      <p style="font-family:'Roboto Slab',serif;font-size:11px;color:#8C8C7A;text-align:center;margin-top:4px">Art. Community. Technology. &mdash; With Gratitude.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- MAILING LIST: BELTLINE EVENTS -->
+<!-- ============================================================ -->
+<section style="background:#E01010;padding:48px 5vw">
+  <div style="max-width:700px;margin:0 auto;text-align:center">
+    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(22px,4vw,36px);color:#fff;letter-spacing:-1px;margin-bottom:8px">BELTLINE EVENTS &amp; POP-UPS</div>
+    <p style="font-family:'Roboto Slab',serif;font-size:15px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:24px">Starting May 2026 at Ponce City Market / Kroger on Ponce area, Atlanta Beltline. Join the mailing list to get first access to our Beltline pop-up events, exclusive drops, and meetups.</p>
+    <form id="beltline-signup" style="display:flex;gap:8px;max-width:500px;margin:0 auto;flex-wrap:wrap">
+      <input type="text" name="bl_name" required placeholder="Your Name" style="flex:1;min-width:140px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;font-family:'Roboto Slab',serif;font-size:14px;padding:14px 16px;outline:none" onfocus="this.style.borderColor='#fff'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
+      <input type="email" name="bl_email" required placeholder="Email Address" style="flex:1.5;min-width:200px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;font-family:'Roboto Slab',serif;font-size:14px;padding:14px 16px;outline:none" onfocus="this.style.borderColor='#fff'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
+      <button type="submit" style="background:#131313;color:#F5F0E8;font-family:'Rubik Mono One',monospace;font-size:12px;letter-spacing:.5px;padding:14px 24px;border:none;cursor:pointer;transition:background .2s;white-space:nowrap" onmouseover="this.style.background='#2B2B2B'" onmouseout="this.style.background='#131313'">JOIN THE LIST</button>
+    </form>
+    <p id="bl-success" style="display:none;font-family:'Roboto Slab',serif;font-size:14px;color:#fff;margin-top:16px;font-weight:700">You are in! We will keep you posted on all Beltline events.</p>
+
+    <!-- CONTENT UPLOAD: passersby / fans upload photos & videos of PRML -->
+    <div style="margin-top:32px;padding-top:28px;border-top:2px solid rgba(255,255,255,.15)">
+      <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#fff;letter-spacing:-1px;margin-bottom:8px">SHARE YOUR CONTENT</div>
+      <p style="font-family:'Roboto Slab',serif;font-size:14px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:16px">Took a photo or video of us at the Beltline? Share it here! We are building a community content library and would love to feature your shots.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;max-width:500px;margin:0 auto">
+        <input type="text" id="bl-uploader-name" placeholder="Your Name / @handle" style="flex:1;min-width:160px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;font-family:'Roboto Slab',serif;font-size:13px;padding:12px 14px;outline:none" onfocus="this.style.borderColor='#fff'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
+        <input type="email" id="bl-uploader-email" placeholder="Email (optional)" style="flex:1;min-width:160px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;font-family:'Roboto Slab',serif;font-size:13px;padding:12px 14px;outline:none" onfocus="this.style.borderColor='#fff'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
+      </div>
+      <label style="display:block;background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.35);padding:32px 20px;text-align:center;cursor:pointer;margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto;transition:border-color .2s" id="bl-content-upload-area" onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.35)'">
+        <input type="file" name="bl_content_files" accept=".png,.jpg,.jpeg,.mp4,.mov,.heic,.webp" multiple style="display:none" id="bl-content-upload">
+        <div style="font-size:24px;margin-bottom:6px">&#128247;</div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:#fff;letter-spacing:.5px;margin-bottom:4px">TAP TO UPLOAD PHOTOS &amp; VIDEOS</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6)" id="bl-content-filename">JPG, PNG, MP4, MOV, HEIC &mdash; Multiple files OK</div>
+      </label>
+      <button type="button" id="bl-content-submit" style="display:block;margin:12px auto 0;background:#131313;color:#F5F0E8;font-family:'Rubik Mono One',monospace;font-size:11px;letter-spacing:.5px;padding:12px 24px;border:none;cursor:pointer;transition:background .2s" onmouseover="this.style.background='#2B2B2B'" onmouseout="this.style.background='#131313'">SUBMIT CONTENT</button>
+      <p id="bl-content-success" style="display:none;font-family:'Roboto Slab',serif;font-size:13px;color:#fff;margin-top:12px;text-align:center">Thanks for sharing! We may feature your content &mdash; follow us @prmlrecords for shoutouts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AFTER-SUBMIT CONFIRMATION (hidden until submit) -->
 <!-- ============================================================ -->
 <div id="quote-confirmation" style="display:none;background:#131313;padding:80px 5vw;text-align:center;border-bottom:4px solid #E01010">
-  <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,52px);color:#E01010;letter-spacing:-2px;margin-bottom:16px">QUOTE REQUEST RECEIVED</div>
-  <p style="font-family:'Roboto Slab',serif;font-size:16px;color:#F5F0E8;line-height:1.8;max-width:560px;margin:0 auto 12px">We will send you a mock-up within 24-48 hours.</p>
+  <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,52px);color:#E01010;letter-spacing:-2px;margin-bottom:16px">ORDER PLACED</div>
+  <p style="font-family:'Roboto Slab',serif;font-size:16px;color:#F5F0E8;line-height:1.8;max-width:560px;margin:0 auto 12px">We will follow up with a mock-up within 24-48 hours. Any updates, changes, or adjustments are handled by our team &mdash; zero hassle.</p>
   <p style="font-family:'Odibee Sans',sans-serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#8C8C7A">With Gratitude.</p>
-  <div style="margin-top:32px">
-    <a href="index.html" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:14px 28px;border:2px solid #E01010;display:inline-block;transition:background .2s,color .2s" onmouseover="this.style.background='#E01010';this.style.color='#F5F0E8'" onmouseout="this.style.background='transparent';this.style.color='#E01010'">Back to Home</a>
+  <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="shop.html" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#E01010;text-decoration:none;padding:14px 28px;border:2px solid #E01010;display:inline-block;transition:background .2s,color .2s" onmouseover="this.style.background='#E01010';this.style.color='#F5F0E8'" onmouseout="this.style.background='transparent';this.style.color='#E01010'">Browse Shop</a>
+    <a href="index.html" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#8C8C7A;text-decoration:none;padding:14px 28px;border:2px solid rgba(140,140,122,.3);display:inline-block;transition:border-color .2s" onmouseover="this.style.borderColor='#8C8C7A'" onmouseout="this.style.borderColor='rgba(140,140,122,.3)'">Back to Home</a>
   </div>
 </div>
 
@@ -473,127 +751,373 @@ document.addEventListener('submit',function(e){gtag('event','form_submit',{form_
 <script src="js/main.js" defer></script>
 <script>
 (function(){
-  /* ── Selection highlight logic ── */
-  function setupSelectionCards(containerSelector, cardClass) {
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
+
+  /* ── Radio card selection highlight ── */
+  function setupRadioCards(containerSelector, cardClass) {
     var container = document.querySelector(containerSelector);
     if (!container) return;
-    var cards = container.querySelectorAll('.' + cardClass);
-    cards.forEach(function(card) {
-      var input = card.querySelector('input');
+    container.querySelectorAll('.' + cardClass).forEach(function(card) {
+      var input = card.querySelector('input[type=radio]');
       if (!input) return;
       input.addEventListener('change', function() {
-        cards.forEach(function(c) {
-          c.style.borderBottomColor = 'transparent';
-          c.style.background = '#2A2A2A';
+        container.querySelectorAll('.' + cardClass).forEach(function(c) {
+          c.style.borderBottomColor = 'transparent'; c.style.background = '#2A2A2A';
         });
-        if (input.checked) {
-          card.style.borderBottomColor = '#E01010';
-          card.style.background = '#353535';
-        }
+        if (input.checked) { card.style.borderBottomColor = '#E01010'; card.style.background = '#353535'; }
       });
     });
   }
+  setupRadioCards('#product-select', 'product-card');
+  setupRadioCards('#finish-select', 'finish-card');
 
-  setupSelectionCards('#product-select', 'product-card');
-  setupSelectionCards('#base-select', 'base-card');
-  setupSelectionCards('#finish-select', 'finish-card');
-  setupSelectionCards('#qty-select', 'qty-card');
-
-  /* ── Addon highlight ── */
-  var addonCards = document.querySelectorAll('.addon-card');
-  addonCards.forEach(function(card) {
-    var cb = card.querySelector('input[type=checkbox]');
-    if (!cb) return;
-    cb.addEventListener('change', function() {
-      card.style.borderBottomColor = cb.checked ? '#E01010' : 'transparent';
-      card.style.background = cb.checked ? '#353535' : '#2A2A2A';
-    });
-  });
-
-  /* ── Custom color toggle ── */
-  var baseRadios = document.querySelectorAll('input[name="base_color"]');
-  var customColorBox = document.getElementById('custom-color-input');
-  baseRadios.forEach(function(r) {
+  /* ── Product selection: show/hide sections per product ── */
+  document.querySelectorAll('input[name="product_type"]').forEach(function(r) {
     r.addEventListener('change', function() {
-      customColorBox.style.display = r.value === 'custom' && r.checked ? 'block' : 'none';
+      var v = r.value;
+      document.getElementById('stand-processor-section').style.display = v === 'payment-stand' ? 'block' : 'none';
+      document.getElementById('card-upgrades').style.display = v === 'card' ? 'block' : 'none';
+      document.getElementById('keychain-upgrades').style.display = (v === 'keychain' || v === 'pendant') ? 'block' : 'none';
+
+      /* Pendant-only add-ons */
+      var isPendant = v === 'pendant';
+      document.getElementById('addon-magnetic').style.display = isPendant ? 'flex' : 'none';
+      document.getElementById('addon-adhesive').style.display = isPendant ? 'flex' : 'none';
+      /* Uncheck pendant add-ons when switching away */
+      if (!isPendant) {
+        var magCb = document.querySelector('#addon-magnetic input'); if (magCb) magCb.checked = false;
+        var adhCb = document.querySelector('#addon-adhesive input'); if (adhCb) adhCb.checked = false;
+      }
+
+      /* Dynamic color heading for cards */
+      var heading = document.getElementById('color-heading');
+      var desc = document.getElementById('color-desc');
+      if (v === 'card') {
+        heading.innerHTML = 'CARD STOCK <span style="color:#E01010">COLOR</span>';
+        desc.innerHTML = 'Cards come in stock colors: Black, White, Clear. Custom colors and multicolor available with upcharge.';
+      } else {
+        heading.innerHTML = 'CHOOSE YOUR <span style="color:#E01010">COLORS</span>';
+        desc.innerHTML = 'Standard pricing is <strong style="color:#F5F0E8">two-tone</strong> &mdash; pick 2 colors. Your logo prints in one color on the other. Additional colors or multicolor designs are available for an upcharge.';
+      }
+      updateSummary();
     });
   });
 
-  /* ── File upload display ── */
+  /* ── Upgrade card highlights ── */
+  setupCheckboxCards('.upgrade-card');
+  document.querySelectorAll('.upgrade-card input').forEach(function(cb) { cb.addEventListener('change', updateSummary); });
+
+  /* ── Checkbox card highlight (colors, processors, addons) ── */
+  function setupCheckboxCards(selector) {
+    document.querySelectorAll(selector).forEach(function(card) {
+      var cb = card.querySelector('input[type=checkbox]');
+      if (!cb) return;
+      cb.addEventListener('change', function() {
+        card.style.borderBottomColor = cb.checked ? '#E01010' : 'transparent';
+        card.style.background = cb.checked ? '#353535' : '#2A2A2A';
+        updateSummary();
+      });
+    });
+  }
+  setupCheckboxCards('.color-card');
+  setupCheckboxCards('.proc-card');
+  setupCheckboxCards('.addon-card');
+
+  /* ── Color limit + auto-check multicolor ── */
+  var multicolorCb = document.getElementById('multicolor-addon');
+  function checkColorCount() {
+    var checked = document.querySelectorAll('input[name="logo_color"]:checked').length;
+    var warning = document.getElementById('color-warning');
+    if (checked > 2) {
+      warning.style.display = 'block';
+      if (multicolorCb) multicolorCb.checked = true;
+    } else {
+      warning.style.display = 'none';
+    }
+  }
+  document.querySelectorAll('input[name="logo_color"]').forEach(function(cb) { cb.addEventListener('change', function() { checkColorCount(); updateSummary(); }); });
+  if (multicolorCb) multicolorCb.addEventListener('change', updateSummary);
+  checkColorCount();
+
+  /* ── File upload displays ── */
   var fileInput = document.getElementById('design-upload');
   var filenameDisplay = document.getElementById('upload-filename');
-  if (fileInput) {
-    fileInput.addEventListener('change', function() {
-      if (fileInput.files.length > 0) {
-        filenameDisplay.textContent = fileInput.files[0].name;
-        filenameDisplay.style.color = '#E01010';
-      }
+  if (fileInput) { fileInput.addEventListener('change', function() { if (fileInput.files.length) { filenameDisplay.textContent = fileInput.files[0].name; filenameDisplay.style.color = '#E01010'; } }); }
+
+  /* Beltline content upload display */
+  var blContentInput = document.getElementById('bl-content-upload');
+  var blContentDisplay = document.getElementById('bl-content-filename');
+  if (blContentInput) { blContentInput.addEventListener('change', function() { if (blContentInput.files.length) { blContentDisplay.textContent = blContentInput.files.length + ' file(s) selected'; blContentDisplay.style.color = '#fff'; } }); }
+
+  /* ── Finish card changes ── */
+  document.querySelectorAll('input[name="finish"]').forEach(function(r) { r.addEventListener('change', updateSummary); });
+
+  /* ── Quantity input: discount note ── */
+  var qtyInput = document.getElementById('qty-input');
+  var qtyNote = document.getElementById('qty-discount-note');
+  qtyInput.addEventListener('input', function() {
+    var q = parseInt(qtyInput.value) || 1;
+    if (q >= 500) qtyNote.textContent = '500+ UNITS — 72% DISCOUNT APPLIED';
+    else if (q >= 100) qtyNote.textContent = '100+ UNITS — 63% DISCOUNT APPLIED';
+    else if (q >= 50) qtyNote.textContent = '50+ UNITS — 54% DISCOUNT APPLIED';
+    else if (q >= 20) qtyNote.textContent = '20+ UNITS — 36% DISCOUNT APPLIED';
+    else if (q >= 10) qtyNote.textContent = '10+ UNITS — 27% DISCOUNT APPLIED';
+    else { qtyNote.textContent = ''; }
+    qtyNote.style.display = q >= 10 ? 'block' : 'none';
+    updateSummary();
+  });
+
+  /* ── Processor setup upsell ── */
+  var procSetup = document.getElementById('addon-processor-setup');
+  if (procSetup) procSetup.addEventListener('change', updateSummary);
+
+  /* ── ORDER SUMMARY CALCULATOR ── */
+  /* Unified volume discounts — all products */
+  function getDiscount(qty) {
+    if (qty >= 500) return 0.72;
+    if (qty >= 100) return 0.63;
+    if (qty >= 50) return 0.54;
+    if (qty >= 20) return 0.36;
+    if (qty >= 10) return 0.27;
+    return 0;
+  }
+
+  function updateSummary() {
+    var lines = [];
+    var total = 0;
+
+    /* Product + setup fee (only for qty < 5) */
+    var prodEl = document.querySelector('input[name="product_type"]:checked');
+    var prodCard = prodEl ? prodEl.closest('.product-card') : null;
+    var basePrice = prodCard ? parseFloat(prodCard.dataset.basePrice) : 0;
+    var rawSetup = prodCard ? (parseFloat(prodCard.dataset.setup) || 0) : 0;
+    var qty = parseInt(qtyInput.value) || 1;
+    var setupFee = qty < 5 ? rawSetup : 0;
+    var prodValue = prodEl ? prodEl.value : '';
+    var prodName = prodValue.replace(/-/g, ' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); }) || 'No product selected';
+    if (basePrice) lines.push(prodName + ' — $' + basePrice.toFixed(2) + '/ea');
+    if (setupFee) lines.push('Setup fee (orders under 5) — $' + setupFee.toFixed(2));
+    if (rawSetup && !setupFee && qty >= 5) lines.push('Setup fee — WAIVED (5+ units)');
+
+    /* Product-specific upgrades */
+    var upgradeTotal = 0;
+    var upgradeSelector = prodValue === 'card' ? 'input[name="card_upgrade"]:checked' : 'input[name="kp_upgrade"]:checked';
+    document.querySelectorAll(upgradeSelector).forEach(function(cb) {
+      var p = parseFloat(cb.dataset.upgradePrice) || 0;
+      upgradeTotal += p;
+      lines.push(cb.value.replace(/-/g, ' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); }) + ' — +$' + p.toFixed(2) + '/unit');
+    });
+
+    /* Colors */
+    var colorNames = [];
+    document.querySelectorAll('input[name="logo_color"]:checked').forEach(function(c){ colorNames.push(c.value); });
+    if (colorNames.length) lines.push('Colors: ' + colorNames.join(', '));
+    var multicolorAddon = (multicolorCb && multicolorCb.checked) ? 5.99 : 0;
+    if (multicolorAddon) lines.push('Multicolor (3+ colors) — +$5.99/unit');
+
+    /* Custom color */
+    var customColor = document.getElementById('custom-color-input');
+    var customExtra = 0;
+    if (customColor && customColor.value.trim()) { lines.push('Custom color: ' + customColor.value.trim() + ' — +$5.99/unit'); customExtra = 5.99; }
+
+    /* Finish */
+    var finishEl = document.querySelector('input[name="finish"]:checked');
+    var finishPrices = { raw:0, glossy:3, uv:5, shimmer:7, textured:5, laser:10, embossing:10 };
+    var finishPrice = finishEl ? (finishPrices[finishEl.value] || 0) : 0;
+    if (finishEl) lines.push('Finish: ' + finishEl.value.toUpperCase() + (finishPrice ? ' — +$' + finishPrice : ' — Included'));
+
+    /* General addons */
+    var addonTotal = 0;
+    document.querySelectorAll('.addon-card input[type=checkbox]:checked').forEach(function(cb) {
+      var p = parseFloat(cb.dataset.addonPrice) || 0;
+      addonTotal += p;
+      lines.push(cb.value.replace(/\b\w/g, function(c){ return c.toUpperCase(); }) + ' — +$' + p + '/unit');
+    });
+
+    /* Quantity + discount (unified across all products) */
+    var unitPrice = basePrice + finishPrice + addonTotal + multicolorAddon + upgradeTotal + customExtra;
+    var discount = getDiscount(qty);
+    var discountedUnit = unitPrice * (1 - discount);
+    total = (discountedUnit * qty) + setupFee;
+
+    lines.push('Qty: ' + qty + (discount ? ' (' + Math.round(discount * 100) + '% volume discount)' : ''));
+
+    /* Processor setup */
+    if (procSetup && procSetup.checked) { total += 99; lines.push('Payment processor setup — $99'); }
+
+    /* Render */
+    var summaryDiv = document.getElementById('summary-lines');
+    var totalDiv = document.getElementById('summary-total');
+    summaryDiv.innerHTML = lines.map(function(l){ return '<div>' + l + '</div>'; }).join('');
+    totalDiv.textContent = '$' + total.toFixed(2);
+  }
+
+  /* Initial update */
+  updateSummary();
+
+  /* ── ADD TO CART ── */
+  document.getElementById('btn-add-cart').addEventListener('click', function() {
+    var nameField = document.getElementById('cf-name');
+    var emailField = document.getElementById('cf-email');
+    if (!nameField.value.trim() || !emailField.value.trim()) { alert('Please enter your name and email.'); nameField.focus(); return; }
+
+    var prodEl = document.querySelector('input[name="product_type"]:checked');
+    if (!prodEl) { alert('Please select a product type.'); return; }
+
+    var orderData = collectOrderData();
+    submitToGAS(orderData, 'cart');
+
+    /* Add to main.js cart — mirrors summary calculator */
+    var prodCard = prodEl.closest('.product-card');
+    var basePrice = parseFloat(prodCard.dataset.basePrice) || 0;
+    var rawSetup = parseFloat(prodCard.dataset.setup) || 0;
+    var prodValue = prodEl.value;
+    var qty = parseInt(qtyInput.value) || 1;
+    var setupFee = qty < 5 ? rawSetup : 0;
+    var finishEl = document.querySelector('input[name="finish"]:checked');
+    var finishPrices = { raw:0, glossy:3, uv:5, shimmer:7, textured:5, laser:10, embossing:10 };
+    var finishPrice = finishEl ? (finishPrices[finishEl.value] || 0) : 0;
+    var addonTotal = 0;
+    document.querySelectorAll('.addon-card input[type=checkbox]:checked').forEach(function(cb) { addonTotal += parseFloat(cb.dataset.addonPrice) || 0; });
+    var upgradeTotal = 0;
+    var upgradeSelector = prodValue === 'card' ? 'input[name="card_upgrade"]:checked' : 'input[name="kp_upgrade"]:checked';
+    document.querySelectorAll(upgradeSelector).forEach(function(cb) { upgradeTotal += parseFloat(cb.dataset.upgradePrice) || 0; });
+    var multiColor = (multicolorCb && multicolorCb.checked) ? 5.99 : 0;
+    var customColor = document.getElementById('custom-color-input');
+    var customExtra = (customColor && customColor.value.trim()) ? 5.99 : 0;
+    var unitPrice = basePrice + finishPrice + addonTotal + multiColor + upgradeTotal + customExtra;
+    var discount = getDiscount(qty);
+    var finalUnit = unitPrice * (1 - discount);
+    var totalPrice = (finalUnit * qty) + setupFee;
+
+    if (procSetup && procSetup.checked) totalPrice += 99;
+
+    var desc = 'Custom ' + prodEl.value.replace(/-/g, ' ');
+    if (typeof addToCart === 'function') {
+      addToCart({ name: desc, price: totalPrice.toFixed(2), qty: 1, desc: 'Custom order — see confirmation email for details', variant: 'custom-' + Date.now() });
+    }
+  });
+
+  /* Quote handler removed — this is a product order form. Service quotes go to contact.html */
+
+  /* ── Collect all form data ── */
+  function collectOrderData() {
+    var prodEl = document.querySelector('input[name="product_type"]:checked');
+    var finishEl = document.querySelector('input[name="finish"]:checked');
+    var colors = []; document.querySelectorAll('input[name="logo_color"]:checked').forEach(function(c){ colors.push(c.value); });
+    var addons = []; document.querySelectorAll('.addon-card input[type=checkbox]:checked').forEach(function(cb){ addons.push(cb.value); });
+    var processors = []; document.querySelectorAll('input[name="processor"]:checked').forEach(function(cb){ processors.push(cb.value); });
+    var cardUpgrades = []; document.querySelectorAll('input[name="card_upgrade"]:checked').forEach(function(cb){ cardUpgrades.push(cb.value); });
+    var kpUpgrades = []; document.querySelectorAll('input[name="kp_upgrade"]:checked').forEach(function(cb){ kpUpgrades.push(cb.value); });
+
+    return {
+      page: 'customize-v3', source: 'prmlrecords.com', timestamp: new Date().toISOString(),
+      name: document.getElementById('cf-name').value.trim(),
+      email: document.getElementById('cf-email').value.trim(),
+      phone: document.getElementById('cf-phone').value.trim(),
+      business: document.getElementById('cf-biz').value.trim(),
+      notes: document.getElementById('cf-notes').value.trim(),
+      product_type: prodEl ? prodEl.value : '',
+      colors: colors.join(', '),
+      custom_color: document.getElementById('custom-color-input').value.trim(),
+      finish: finishEl ? finishEl.value : '',
+      addons: addons.join(', '),
+      multicolor: (multicolorCb && multicolorCb.checked) ? 'yes' : 'no',
+      quantity: document.getElementById('qty-input').value,
+      card_upgrades: cardUpgrades.join(', '),
+      keychain_pendant_upgrades: kpUpgrades.join(', '),
+      processors: processors.join(', '),
+      processor_setup: (procSetup && procSetup.checked) ? 'yes' : 'no',
+      link_website: (document.querySelector('input[name="link_website"]') || {}).value || '',
+      link_instagram: (document.querySelector('input[name="link_instagram"]') || {}).value || '',
+      link_tiktok: (document.querySelector('input[name="link_tiktok"]') || {}).value || '',
+      link_facebook: (document.querySelector('input[name="link_facebook"]') || {}).value || '',
+      link_twitter: (document.querySelector('input[name="link_twitter"]') || {}).value || '',
+      link_youtube: (document.querySelector('input[name="link_youtube"]') || {}).value || '',
+      link_linkedin: (document.querySelector('input[name="link_linkedin"]') || {}).value || '',
+      link_payment: (document.querySelector('input[name="link_payment"]') || {}).value || '',
+      link_other: (document.querySelector('textarea[name="link_other"]') || {}).value || '',
+      estimated_total: document.getElementById('summary-total').textContent
+    };
+  }
+
+  function submitToGAS(data, label) {
+    fetch(GAS_URL, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } }).catch(function(){});
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: label, event_label: data.product_type });
+  }
+
+  /* ── DONATE ── */
+  window.submitDonation = function(amount) {
+    var name = document.getElementById('donate-name').value.trim();
+    var email = document.getElementById('donate-email').value.trim();
+    var social = document.getElementById('donate-social').value.trim();
+    var note = document.getElementById('donate-note').value.trim();
+
+    var donateData = { page: 'donate', source: 'prmlrecords.com', name: name, email: email, social: social, note: note, amount: amount, timestamp: new Date().toISOString() };
+    fetch(GAS_URL, { method: 'POST', body: JSON.stringify(donateData), headers: { 'Content-Type': 'application/json' } }).catch(function(){});
+
+    if (typeof addToCart === 'function') {
+      addToCart({ name: 'Donation — PRML RECORDS', price: amount.toFixed(2), qty: 1, desc: 'Support donation' + (note ? ': ' + note : ''), variant: 'donate-' + amount });
+    }
+    if (typeof gtag === 'function') gtag('event', 'donate', { event_category: 'donation', value: amount });
+  };
+
+  /* ── BELTLINE SIGNUP ── */
+  var blForm = document.getElementById('beltline-signup');
+  if (blForm) {
+    blForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = blForm.querySelector('input[name="bl_name"]').value.trim();
+      var email = blForm.querySelector('input[name="bl_email"]').value.trim();
+      if (!name || !email) return;
+
+      var blData = { page: 'beltline-signup', source: 'prmlrecords.com', name: name, email: email, timestamp: new Date().toISOString() };
+      fetch(GAS_URL, { method: 'POST', body: JSON.stringify(blData), headers: { 'Content-Type': 'application/json' } })
+        .then(function() {
+          blForm.style.display = 'none';
+          document.getElementById('bl-success').style.display = 'block';
+          if (typeof gtag === 'function') gtag('event', 'sign_up', { event_category: 'beltline_mailing_list' });
+        })
+        .catch(function() { alert('Error — please email info@prmlrecords.com to join the list.'); });
     });
   }
 
-  /* ── Form submission ── */
-  var form = document.getElementById('customize-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type=submit]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      btn.style.opacity = '.6';
-
-      /* Collect all selections */
-      var data = new FormData(form);
-      var obj = {page: 'customize-v2', source: 'prmlrecords.com'};
-      data.forEach(function(v, k) { obj[k] = v; });
-
-      /* Also collect radio/checkbox from outside the form */
-      var productRadio = document.querySelector('input[name="product_type"]:checked');
-      var baseRadio = document.querySelector('input[name="base_color"]:checked');
-      var finishRadio = document.querySelector('input[name="finish"]:checked');
-      var qtyRadio = document.querySelector('input[name="quantity_tier"]:checked');
-      if (productRadio) obj.product_type = productRadio.value;
-      if (baseRadio) obj.base_color = baseRadio.value;
-      if (finishRadio) obj.finish = finishRadio.value;
-      if (qtyRadio) obj.quantity_tier = qtyRadio.value;
-
-      /* Custom color */
-      var customColorInput = document.querySelector('input[name="custom_color"]');
-      if (customColorInput && customColorInput.value) obj.custom_color = customColorInput.value;
-
-      /* Add-ons */
-      var addons = [];
-      document.querySelectorAll('.addon-card input[type=checkbox]:checked').forEach(function(cb) { addons.push(cb.value); });
-      obj.addons = addons.join(', ');
-
-      fetch(form.action, {method: 'POST', body: JSON.stringify(obj), headers: {'Content-Type': 'application/json'}})
+  /* ── Beltline content upload submit ── */
+  var blContentBtn = document.getElementById('bl-content-submit');
+  if (blContentBtn) {
+    blContentBtn.addEventListener('click', function() {
+      var name = (document.getElementById('bl-uploader-name') || {}).value || '';
+      var email = (document.getElementById('bl-uploader-email') || {}).value || '';
+      var files = blContentInput ? blContentInput.files.length : 0;
+      if (!files) { alert('Please select photos or videos to upload.'); return; }
+      var data = { page: 'beltline-content-upload', source: 'prmlrecords.com', uploader_name: name.trim(), uploader_email: email.trim(), file_count: files, timestamp: new Date().toISOString() };
+      fetch(GAS_URL, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } })
         .then(function() {
-          document.getElementById('quote-form').style.display = 'none';
-          document.getElementById('quote-confirmation').style.display = 'block';
-          document.getElementById('quote-confirmation').scrollIntoView({behavior: 'smooth'});
-          if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {event_category: 'quote_request', event_label: obj.product_type || 'unknown'});
-          }
-          if (typeof fbq === 'function') {
-            fbq('track', 'Lead', {content_name: 'customize_quote', content_category: obj.product_type || 'unknown'});
-          }
+          document.getElementById('bl-content-success').style.display = 'block';
+          blContentBtn.style.display = 'none';
+          if (typeof gtag === 'function') gtag('event', 'content_upload', { event_category: 'beltline_content', value: files });
         })
-        .catch(function() {
-          btn.textContent = 'Get Your Quote';
-          btn.disabled = false;
-          btn.style.opacity = '1';
-          alert('Something went wrong. Please email info@prmlrecords.com directly or call (770) 686-7726.');
-        });
+        .catch(function() { alert('Upload error — please DM us @prmlrecords on Instagram.'); });
     });
   }
 
   /* ── Responsive form grid ── */
   var mq = window.matchMedia('(max-width:600px)');
   function handleFormGrid(e) {
-    var grid = document.querySelector('#quote-form form > div:first-child');
-    if (grid) grid.style.gridTemplateColumns = e.matches ? '1fr' : '1fr 1fr';
+    document.querySelectorAll('#checkout-section form > div:nth-child(1), #checkout-section form > div:nth-child(2)').forEach(function(g) {
+      g.style.gridTemplateColumns = e.matches ? '1fr' : '1fr 1fr';
+    });
   }
   mq.addListener(handleFormGrid);
   handleFormGrid(mq);
+
+  /* ── URL params pre-select ── */
+  var params = new URLSearchParams(window.location.search);
+  var preProduct = params.get('product');
+  if (preProduct) {
+    var preRadio = document.querySelector('input[name="product_type"][value="' + preProduct + '"]');
+    if (preRadio) { preRadio.checked = true; preRadio.dispatchEvent(new Event('change', {bubbles:true})); }
+  }
 
 })();
 </script>
