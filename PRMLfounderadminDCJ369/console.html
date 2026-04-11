@@ -220,6 +220,10 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('todo')">TODO / Roadmap</button>
     <button class="tab" onclick="showTab('tutorials')">Tutorials</button>
     <button class="tab" onclick="showTab('pricing')">Pricing Hub</button>
+    <button class="tab" onclick="showTab('world-map')">🌍 World Map</button>
+    <button class="tab" onclick="showTab('atl-map')">📍 ATL Map</button>
+    <button class="tab" onclick="showTab('goals')">🎯 Goals</button>
+    <button class="tab" onclick="showTab('learn')">📚 Learn</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
   </div>
 
@@ -1265,6 +1269,345 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <strong>Change price:</strong> Stripe → Edit product price<br>
           <strong>Redirect domain:</strong> Cloudflare → DNS → A record<br>
           <strong>Rollback:</strong> Render → Deploys → Rollback to prior
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WORLD MAP — SEAUX9 STREAMING REACH ══ -->
+  <div class="panel" id="tab-world-map">
+    <div class="section-title">Global Reach</div>
+    <div class="section-head">SEAUX9 Worldwide Streaming</div>
+
+    <div style="background:var(--charcoal);padding:24px;border-top:3px solid var(--red);margin-bottom:20px">
+      <div class="grid-3" style="margin-bottom:16px">
+        <div class="card card--green" style="padding:16px"><div class="card-label">Total Streams</div><div class="card-val">1.28M</div></div>
+        <div class="card card--blue" style="padding:16px"><div class="card-label">Platforms</div><div class="card-val">27</div></div>
+        <div class="card" style="padding:16px"><div class="card-label">Countries</div><div class="card-val">40+</div></div>
+      </div>
+
+      <!-- SVG WORLD MAP -->
+      <div style="position:relative;background:#111;padding:20px;overflow:hidden;border:1px solid rgba(254,1,3,.15)">
+        <svg viewBox="0 0 1000 500" style="width:100%;height:auto" id="world-map-svg">
+          <!-- Simplified world continents -->
+          <defs>
+            <radialGradient id="glow"><stop offset="0%" stop-color="#E01010" stop-opacity=".6"/><stop offset="100%" stop-color="#E01010" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- North America -->
+          <path d="M150,120 L180,80 L250,70 L280,90 L300,130 L280,170 L250,200 L220,210 L180,200 L160,170 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <!-- South America -->
+          <path d="M250,250 L280,230 L300,260 L310,320 L290,380 L260,400 L240,370 L230,310 L240,270 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <!-- Europe -->
+          <path d="M440,90 L480,70 L520,80 L540,110 L520,140 L480,150 L450,130 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <!-- Africa -->
+          <path d="M460,180 L500,160 L540,180 L550,250 L530,320 L500,350 L470,330 L450,270 L440,220 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <!-- Asia -->
+          <path d="M560,80 L650,60 L750,80 L800,120 L780,170 L720,190 L650,180 L600,160 L560,130 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <!-- Australia -->
+          <path d="M750,310 L800,290 L840,310 L830,350 L790,370 L750,350 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+
+          <!-- STREAMING HOTSPOTS — animated pulse dots -->
+          <!-- USA (Atlanta HQ) -->
+          <circle cx="230" cy="150" r="8" fill="#E01010" opacity=".9"><animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="230" cy="150" r="20" fill="url(#glow)"><animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="230" y="140" text-anchor="middle" fill="#F5E6C8" font-size="8" font-family="'Odibee Sans',sans-serif" letter-spacing="2">ATL HQ</text>
+
+          <!-- UK -->
+          <circle cx="460" cy="100" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.5s" repeatCount="indefinite"/></circle>
+          <!-- Germany -->
+          <circle cx="490" cy="105" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="3s" repeatCount="indefinite"/></circle>
+          <!-- France -->
+          <circle cx="470" cy="120" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.8s" repeatCount="indefinite"/></circle>
+          <!-- Nigeria -->
+          <circle cx="475" cy="250" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite"/></circle>
+          <!-- South Africa -->
+          <circle cx="510" cy="340" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.7s" repeatCount="indefinite"/></circle>
+          <!-- Brazil -->
+          <circle cx="280" cy="300" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.3s" repeatCount="indefinite"/></circle>
+          <!-- Japan -->
+          <circle cx="780" cy="130" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.6s" repeatCount="indefinite"/></circle>
+          <!-- India -->
+          <circle cx="660" cy="180" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.4s" repeatCount="indefinite"/></circle>
+          <!-- Australia -->
+          <circle cx="790" cy="330" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.9s" repeatCount="indefinite"/></circle>
+          <!-- Canada -->
+          <circle cx="220" cy="100" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.5s" repeatCount="indefinite"/></circle>
+          <!-- Mexico -->
+          <circle cx="190" cy="190" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.4s" repeatCount="indefinite"/></circle>
+          <!-- Kenya -->
+          <circle cx="530" cy="270" r="3" fill="#E01010" opacity=".5"><animate attributeName="r" values="2;6;2" dur="3s" repeatCount="indefinite"/></circle>
+          <!-- Sweden -->
+          <circle cx="495" cy="78" r="3" fill="#E01010" opacity=".5"><animate attributeName="r" values="2;6;2" dur="3.2s" repeatCount="indefinite"/></circle>
+          <!-- Philippines -->
+          <circle cx="760" cy="200" r="3" fill="#E01010" opacity=".5"><animate attributeName="r" values="2;6;2" dur="2.8s" repeatCount="indefinite"/></circle>
+        </svg>
+        <div style="display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;background:#E01010;border-radius:50%"></div><span style="font-size:10px;color:var(--stone)">High streams</span></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:7px;height:7px;background:#E01010;border-radius:50%;opacity:.6"></div><span style="font-size:10px;color:var(--stone)">Active listeners</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP PLATFORMS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:20px">
+      <div class="section-title" style="color:var(--green)">Top Platforms</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px">
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Spotify</div><div style="font-size:10px;color:var(--stone)">Primary</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Apple Music</div><div style="font-size:10px;color:var(--stone)">Active</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">YouTube</div><div style="font-size:10px;color:var(--stone)">Active</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Tidal</div><div style="font-size:10px;color:var(--stone)">Active</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Amazon</div><div style="font-size:10px;color:var(--stone)">Active</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Deezer</div><div style="font-size:10px;color:var(--stone)">Active</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">SoundCloud</div><div style="font-size:10px;color:var(--stone)">Active</div></div>
+        <div style="background:var(--bg);padding:12px;text-align:center"><div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">+20 more</div><div style="font-size:10px;color:var(--stone)">27 total</div></div>
+      </div>
+    </div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">About This Data</strong>
+      Stream data from DistroKid/streaming reports (Apr 2019–Dec 2025). 6,519 rows across 27 platforms and 40+ countries. Earnings: $231 cumulative. Map hotspots represent relative listener concentration.
+    </div>
+  </div>
+
+  <!-- ══ ATL MAP — LOCAL OPERATIONS ══ -->
+  <div class="panel" id="tab-atl-map">
+    <div class="section-title">Local Operations</div>
+    <div class="section-head">Atlanta Map — PRML RECORDS</div>
+
+    <div style="background:var(--charcoal);padding:24px;border-top:3px solid var(--red);margin-bottom:20px">
+      <!-- EMBEDDED GOOGLE MAP — Atlanta Beltline area -->
+      <div style="position:relative;background:#111;border:1px solid rgba(254,1,3,.15);overflow:hidden;margin-bottom:16px">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13268.9!2d-84.365!3d33.772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sPonce%20City%20Market!5e0!3m2!1sen!2sus!4v1" width="100%" height="400" style="border:0;display:block;filter:saturate(.3) brightness(.8)" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="position:absolute;top:12px;left:12px;background:rgba(43,43,43,.9);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red)">PRML Operations Zone</div>
+      </div>
+
+      <!-- LOCATION CARDS -->
+      <div class="grid" style="margin-bottom:0">
+        <div class="card card--green" style="padding:16px">
+          <div class="card-label">Primary Location</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:6px 0 4px">Ponce City Market</div>
+          <div class="card-sub">Beltline pop-ups starting May 2026<br>Kroger on Ponce area<br>NFC product demos · live events</div>
+        </div>
+        <div class="card" style="padding:16px">
+          <div class="card-label">Mailing Address</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:6px 0 4px">PRML RECORDS LLC</div>
+          <div class="card-sub">4485 Fulton Industrial Blvd SW<br>Ste A1 PMB 1167<br>Atlanta, GA 30336</div>
+        </div>
+        <div class="card card--yellow" style="padding:16px">
+          <div class="card-label">Coverage Area</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:6px 0 4px">West End → Midtown</div>
+          <div class="card-sub">Beltline corridor<br>West End · Little Five Points · Old Fourth Ward<br>Ponce City Market · Piedmont Park</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BELTLINE SCHEDULE -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:20px">
+      <div class="section-title" style="color:var(--green)">Beltline Schedule — May 2026</div>
+      <div style="font-size:13px;font-weight:300;line-height:2;margin-top:12px">
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>📍 Ponce City Market / Kroger on Ponce</span><span style="color:var(--green)">PRIMARY</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>🎵 Live NFC product demos</span><span style="color:var(--stone)">Every pop-up</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>📸 Content capture station</span><span style="color:var(--stone)">Fan uploads → prmlrecords.com</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>🎤 SEAUX9 live performances</span><span style="color:var(--stone)">Register w/ PRO for royalties</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0"><span>📧 Mailing list signup</span><span style="color:var(--green)">LIVE on customize.html</span></div>
+      </div>
+    </div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Logistics Note</strong>
+      Free local pickup available for all product orders (Atlanta metro). QR code flyers point to <code>prmlrecords.com/beltline.html</code> with UTM tracking. Fan content uploads go to Google Sheets for review.
+    </div>
+  </div>
+
+  <!-- ══ GOALS — 3-6-9 FRAMEWORK ══ -->
+  <div class="panel" id="tab-goals">
+    <div class="section-title">Strategy</div>
+    <div class="section-head">Goals — 3-6-9 Framework</div>
+
+    <!-- TIER 3: NOW (This Week) -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
+      <div class="section-title">Tier 3 — Revenue Now (This Week)</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">Seal leaks. Capture every dollar.</div>
+      <div style="font-size:13px;font-weight:300;line-height:2">
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Customize page — full order form + cart checkout</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Product photos on customize page</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Beltline mailing list + content upload live</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> 31 sponsorship companies loaded in Airtable</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--yellow)">&#9744;</span> Run Stripe test checkout (4242 4242 4242 4242)</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--yellow)">&#9744;</span> Deploy checkout-app to Render + set webhook secret</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0"><span style="color:var(--yellow)">&#9744;</span> Mobile responsive check 375/768/1280px</div>
+      </div>
+    </div>
+
+    <!-- TIER 6: SOON (This Month) -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--yellow);margin-bottom:20px">
+      <div class="section-title" style="color:var(--yellow)">Tier 6 — Revenue Soon (This Month)</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">Build the machine.</div>
+      <div style="font-size:13px;font-weight:300;line-height:2">
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Beat licensing page — Basic $29.99 / Premium $99.99 / Exclusive $299+</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; B2B landing pages — 6 verticals (automotive first)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; TAP STARTER KIT bundle page ($99)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Calendly setup — consultations + studio sessions</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Sponsorship outreach — send first batch of emails</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Performance royalty pipeline — ASCAP/SoundExchange registration</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Lead magnet page build</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Post-event Brevo follow-up sequences (24hr / 3-day / 9-day)</div>
+        <div style="padding:6px 0">&#9744; seaux9.com holding page + domain renewal (expires May 17)</div>
+      </div>
+    </div>
+
+    <!-- TIER 9: SCALE (This Quarter) -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--blue);margin-bottom:20px">
+      <div class="section-title" style="color:var(--blue)">Tier 9 — Revenue at Scale (This Quarter)</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">Multiply and automate.</div>
+      <div style="font-size:13px;font-weight:300;line-height:2">
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Master Google Spreadsheet (8-tab hub)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Daily KPI digest: Stripe + GA4 → Sheets → 9am email</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Community membership tiers (Free / Premium / Gold)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Digital downloads store (beat packs, templates)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Livestream monetization setup</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Website-as-a-service productization (white-label sites)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Grant applications — Hello Alice + top 3-5</div>
+        <div style="padding:6px 0">&#9744; PRML↔SEAUX9 formal deal memo</div>
+      </div>
+    </div>
+
+    <!-- REVENUE TRACKER -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:20px">
+      <div class="section-title" style="color:var(--green)">Revenue Streams</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">13 Streams — $5.5k–$48.5k/mo Potential</div>
+      <table class="tbl" style="margin-top:12px">
+        <tr><th>Stream</th><th>Status</th><th>Est. Monthly</th></tr>
+        <tr><td>Custom NFC products (Cards/Keychains/Pendants)</td><td><span style="color:var(--green)">LIVE</span></td><td>$500–$5,000</td></tr>
+        <tr><td>Payment Stand sales</td><td><span style="color:var(--green)">LIVE</span></td><td>$500–$3,000</td></tr>
+        <tr><td>Payment processor setup ($99)</td><td><span style="color:var(--green)">LIVE</span></td><td>$200–$1,000</td></tr>
+        <tr><td>Branded NFC (TAP CARD/KEYCHAIN)</td><td><span style="color:var(--green)">LIVE</span></td><td>$300–$2,000</td></tr>
+        <tr><td>Design/branding services</td><td><span style="color:var(--yellow)">PARTIAL</span></td><td>$500–$5,000</td></tr>
+        <tr><td>Beat licensing</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$200–$3,000</td></tr>
+        <tr><td>Sponsorships</td><td><span style="color:var(--yellow)">OUTREACH</span></td><td>$500–$10,000</td></tr>
+        <tr><td>Affiliate commissions</td><td><span style="color:var(--green)">LIVE</span></td><td>$50–$500</td></tr>
+        <tr><td>Streaming royalties (SEAUX9)</td><td><span style="color:var(--yellow)">PARTIAL</span></td><td>$30–$200</td></tr>
+        <tr><td>Live performance royalties</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$100–$2,000</td></tr>
+        <tr><td>Digital downloads</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$100–$1,000</td></tr>
+        <tr><td>Website-as-a-service</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$500–$5,000</td></tr>
+        <tr><td>Community memberships</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$200–$2,000</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ LEARN — EDUCATIONAL RESOURCES ══ -->
+  <div class="panel" id="tab-learn">
+    <div class="section-title">Education</div>
+    <div class="section-head">Learn — Business Swiss Army Knife</div>
+
+    <!-- CATEGORY: ROYALTIES & MUSIC BUSINESS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:16px">
+      <div class="section-title">Royalties &amp; Music Business</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:8px 0 16px">Collect Every Dollar You Are Owed</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">What is ASCAP?</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">American Society of Composers, Authors and Publishers. They collect performance royalties when your music is played live, on radio, TV, streaming, or in businesses. You register your songs as "works" and get paid when they are performed. <strong>Action:</strong> Register at ascap.com → Create account → Add works.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">What is SoundExchange?</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Collects <strong>digital performance royalties</strong> — money from Pandora, SiriusXM, internet radio, and non-interactive streaming. This is separate from ASCAP/BMI. You must register as both an artist AND a rights owner. <strong>Action:</strong> Register at soundexchange.com.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Performance Royalties from Live Shows</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every time you perform live, you can collect royalties IF your setlist is registered with your PRO (ASCAP or BMI). <strong>Process:</strong> 1) Register songs as works, 2) After each show, submit a setlist to ASCAP/BMI online, 3) They pay you per performance. Beltline shows = royalty opportunity.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Copyright Registration (U.S. Copyright Office)</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Your music is copyrighted the moment you create it, but <strong>registering</strong> gives you legal power — you can sue for damages, it's public record, and it strengthens licensing deals. <strong>Action:</strong> copyright.gov → Register a Work → Sound Recording (SR). ~$65 per work or $85 for a group.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">The MLC (Mechanical Licensing Collective)</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Collects <strong>mechanical royalties</strong> from interactive streaming (Spotify, Apple Music, etc.). This is the money for the composition itself, not the performance. If you wrote the song, you are owed mechanicals. <strong>Action:</strong> Register at themlc.com.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY: BUSINESS & MARKETING -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:16px">
+      <div class="section-title" style="color:var(--green)">Business &amp; Marketing</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:8px 0 16px">Grow Smarter, Not Harder</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">The Value Equation (Alex Hormozi)</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Value = (Dream Outcome × Perceived Likelihood) ÷ (Time Delay × Effort). Increase value by: making the outcome bigger, proving it works, delivering faster, and making it effortless. Your TAP STARTER KIT at $99 is a Grand Slam Offer — it bundles card + keychain + QR + landing page + support.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">UTM Tracking — Know Where Your Money Comes From</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every link you share should have UTM parameters so Google Analytics shows exactly which channel drove the sale. Format: <code>?utm_source=instagram&utm_medium=bio&utm_campaign=spring2026</code>. Your Beltline QR codes already have this. Check GA4 → Acquisition → Traffic Acquisition to see results.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Email Marketing Sequences (Brevo)</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7"><strong>Welcome sequence:</strong> Instant → Day 1 (intro) → Day 3 (value) → Day 7 (offer). <strong>Post-purchase:</strong> Confirm → Day 3 (review request) → Day 14 (upsell). <strong>Post-event:</strong> 24hr (thank you + photos) → Day 3 (offer) → Day 9 (last chance). These run automatically in Brevo once activated.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Sponsorship Outreach 101</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7"><strong>What sponsors want:</strong> Reach (your audience), credibility (your brand), and exposure (your events). <strong>What you offer:</strong> Review videos, booth space, ad placement, affiliate links, giveaway distribution. <strong>Never sell their product for them</strong> — give it away as swag. 31 companies are loaded in Airtable, batch by category, send 9am-11am EST.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Grants for Small Businesses</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">You qualify for multiple grant categories: Black-owned, minority-owned, small business, creative/arts, technology, Atlanta-based. <strong>Key platforms:</strong> Hello Alice, Grants.gov, SBA, local Atlanta funds. Claude can research, catalog, and apply autonomously — use <code>/prml-grants</code>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY: TECHNOLOGY & TOOLS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--blue);margin-bottom:16px">
+      <div class="section-title" style="color:var(--blue)">Technology &amp; Tools</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:8px 0 16px">Your Tech Stack Explained</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">NFC Technology — How It Works</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">NFC (Near Field Communication) is a chip embedded in your cards/keychains/pendants. When someone taps their phone on it, it opens a URL — no app needed. The chip stores a link to a landing page you control. You can change the destination anytime without reprinting. This is why the "links" form on customize.html matters — those URLs get programmed into the chip.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Stripe — Your Payment Processor</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Stripe handles all credit card payments. <strong>Payment Links</strong> are direct checkout URLs (no code needed). <strong>Payment Intents</strong> are API-based (used in the checkout app). Your Stripe dashboard: dashboard.stripe.com. Test card: 4242 4242 4242 4242. Live keys start with <code>pk_live_</code> and <code>sk_live_</code> — never share the secret key.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Google Analytics (GA4) — What It Tells You</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">GA4 tracks every visitor to prmlrecords.com. Key reports: <strong>Realtime</strong> (who's on now), <strong>Acquisition</strong> (where they came from — UTM tracking), <strong>Engagement</strong> (which pages they view), <strong>Events</strong> (button clicks, form submits, purchases). Your GA4 ID: G-2PNH2XTRDK. Access: analytics.google.com.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Airtable — Your Database</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Airtable is a spreadsheet that acts like a database. Your tables: <strong>Orders</strong> (every purchase), <strong>Sponsorship Companies</strong> (31 targets), <strong>Sponsorship Email Log</strong> (tracking sends), <strong>Sponsorship Partnerships</strong> (active deals). Base ID: app3ABwfzM6QJM7UL. Access: airtable.com.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Brevo — Email Marketing</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Brevo (formerly Sendinblue) sends your automated emails. 300 emails/day on free plan. Used for: welcome sequences, post-purchase confirmations, event follow-ups, sponsorship outreach batches. Contact list syncs with HubSpot via Zapier. Access: app.brevo.com.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Git + GitHub — Version Control</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every change to prmlrecords.com is tracked in Git. The repo is at <code>github.com/PRMLRECORDS/prmlrecords-website</code>. To deploy changes: <code>git add .</code> → <code>git commit -m "description"</code> → <code>git push origin master</code>. Render auto-deploys from master. If something breaks, you can rollback in Render → Deploys.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Claude Code — Your AI Co-Operator</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Claude has custom skills built for PRML: <code>/prml-audit</code> (site health), <code>/prml-sponsorship</code> (outreach), <code>/prml-grants</code> (funding), <code>/prml-followup</code> (customer emails), <code>/prml-quote</code> (invoices), <code>/prml-product</code> (catalog), <code>/prml-booking</code> (bookings), <code>/prml-seaux9</code> (artist management). Type the command and Claude handles the rest.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY: LEGAL & COMPLIANCE -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--yellow);margin-bottom:16px">
+      <div class="section-title" style="color:var(--yellow)">Legal &amp; Compliance</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:8px 0 16px">Protect the Business</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--yellow)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">LLC Basics</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">PRML RECORDS LLC is your legal entity. It separates your personal assets from business liability. Always use "PRML RECORDS LLC" on contracts, invoices, and legal docs. On marketing/website, just use "PRML RECORDS" (no LLC). Keep business bank account separate from personal.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--yellow)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Privacy Policy &amp; Terms of Service</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Both are live: <a href="../privacypolicy.html" style="color:var(--red)">Privacy Policy</a> and <a href="../termsofservice.html" style="color:var(--red)">Terms of Service</a>. Required by law if you collect any customer data (names, emails, payments). Review quarterly. Cookie consent banner is still pending — run <code>/prml-legal</code> to audit.</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--yellow)">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Contracts &amp; Deal Memos</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Always get agreements in writing — even with friends. Key docs needed: <strong>PRML↔SEAUX9 deal memo</strong> (pending), <strong>sponsorship agreements</strong> (template needed), <strong>client service agreements</strong> (for custom orders over $500). 50% deposit policy protects against scope creep.</div>
         </div>
       </div>
     </div>
