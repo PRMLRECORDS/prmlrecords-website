@@ -225,6 +225,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('goals')">ðŸŽ¯ Goals</button>
     <button class="tab" onclick="showTab('learn')">ðŸ“š Learn</button>
     <button class="tab" onclick="showTab('sponsorship')">ðŸ¤ Sponsorship</button>
+    <button class="tab" onclick="showTab('outreach-queue')">âš¡ Outreach Queue</button>
     <button class="tab" onclick="showTab('events-radar')">ðŸ“¡ Events Radar</button>
     <button class="tab" onclick="showTab('asset-rubric')">ðŸ“‚ Asset Rubric</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
@@ -1745,6 +1746,127 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <a href="https://airtable.com/app3ABwfzM6QJM7UL/tblzlT76XaQF9Zecr" target="_blank" style="color:var(--cream)">Email Log</a> &middot;
       <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/00_INDEX.md" target="_blank" style="color:var(--cream)">Today's Campaign INDEX</a> &middot;
       <a href="../../../.claude/skills/prml-company-brain/SKILL.md" target="_blank" style="color:var(--cream)">Company-brain SKILL.md</a>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- OUTREACH QUEUE TAB - 4-stage pipeline status + approval     -->
+  <!-- ============================================================ -->
+  <div class="panel" id="tab-outreach-queue">
+    <div class="section-title">Outreach Pipeline</div>
+    <div class="section-head">Hunter.io scrape &rarr; tailored draft &rarr; YOUR approval &rarr; Brevo send &rarr; auto-follow-up</div>
+
+    <!-- 4-STAGE PIPELINE STATUS -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 22px">
+      <div style="background:var(--charcoal);padding:18px;border-top:3px solid var(--blue);text-align:center">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:6px">Stage 1 &middot; Scrape</div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);line-height:1">35</div>
+        <div style="font-size:10px;color:var(--stone);margin-top:6px">domains in pipeline</div>
+      </div>
+      <div style="background:var(--charcoal);padding:18px;border-top:3px solid #ffb84d;text-align:center">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Stage 2 &middot; Draft</div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);line-height:1" id="oq-drafted">6</div>
+        <div style="font-size:10px;color:var(--stone);margin-top:6px">tailored emails ready</div>
+      </div>
+      <div style="background:var(--charcoal);padding:18px;border-top:3px solid var(--red);text-align:center">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Stage 3 &middot; Approve</div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);line-height:1" id="oq-pending">6</div>
+        <div style="font-size:10px;color:var(--stone);margin-top:6px">awaiting your click</div>
+      </div>
+      <div style="background:var(--charcoal);padding:18px;border-top:3px solid var(--green);text-align:center">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px">Stage 4 &middot; Sent</div>
+        <div style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);line-height:1" id="oq-sent">0</div>
+        <div style="font-size:10px;color:var(--stone);margin-top:6px">today's send count</div>
+      </div>
+    </div>
+
+    <!-- QUOTA STATUS -->
+    <div style="background:var(--charcoal);padding:18px;border-top:3px solid var(--stone);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:12px;color:var(--stone)">Quota status</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div>
+          <div style="font-size:11px;color:var(--stone);margin-bottom:4px">Hunter.io searches this month</div>
+          <div style="background:var(--bg);height:14px;position:relative;overflow:hidden">
+            <div style="background:var(--green);width:20%;height:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--cream);margin-top:4px">10 / 50 used</div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--stone);margin-bottom:4px">Brevo sends today</div>
+          <div style="background:var(--bg);height:14px;position:relative;overflow:hidden">
+            <div style="background:var(--green);width:0%;height:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--cream);margin-top:4px">0 / 300 used</div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--stone);margin-bottom:4px">Bounce rate (rolling 7-day)</div>
+          <div style="background:var(--bg);height:14px;position:relative;overflow:hidden">
+            <div style="background:var(--green);width:0%;height:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--cream);margin-top:4px">0% &middot; safe (cap: 5%)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW TO USE -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--green)">Run a new batch (3 commands, 24-hour cycle)</div>
+      <div style="display:grid;gap:12px">
+        <div style="display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--blue);text-align:center">1</div>
+          <div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--blue);margin-bottom:4px">SCRAPE (15 min, Claude)</div>
+            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Tell Claude: <code style="background:var(--bg);padding:2px 6px;color:#ffb84d">/prml-outreach-pipeline scrape anycubic.com,creality.com,longer3d.com,...</code></div>
+            <div style="font-size:11px;color:var(--stone)">Claude calls Hunter.io for each domain, filters role accounts, writes a CSV to <code>10_OUTREACH/hunter_scrape_*.csv</code></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#ffb84d;text-align:center">2</div>
+          <div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:#ffb84d;margin-bottom:4px">DRAFT (1-2 hrs, Claude)</div>
+            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Tell Claude: <code style="background:var(--bg);padding:2px 6px;color:#ffb84d">/prml-outreach-pipeline draft</code></div>
+            <div style="font-size:11px;color:var(--stone)">Claude reads the CSV, WebFetches each company for personalization, writes tailored emails using <code>/prml-company-brain</code> rules. Queues to Airtable as "Pending Approval".</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--red);text-align:center">3</div>
+          <div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red);margin-bottom:4px">APPROVE (30-45 min, YOU)</div>
+            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Open Airtable Email Log, scan each draft, check the Approve box on the ones that look right. Edit any that need a tweak.</div>
+            <a href="https://airtable.com/app3ABwfzM6QJM7UL/tblzlT76XaQF9Zecr" target="_blank" style="background:var(--red);color:#fff;padding:10px 18px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700;display:inline-block">Open Airtable Approval View &rarr;</a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--green);text-align:center">4</div>
+          <div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green);margin-bottom:4px">SEND (auto, next morning 9-11am EST)</div>
+            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Approved drafts queue in Brevo, send window auto-fires next morning when B2B open rates peak. Day 3 / 7 / 14 follow-ups draft automatically and re-enter the approval queue.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAFETY GUARDRAILS -->
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7;margin-bottom:18px">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Safety guardrails (always on)</strong>
+      <ul style="margin:0;padding-left:18px">
+        <li style="margin-bottom:4px">Max 30 prospects per batch, max 1 batch per week (protects domain reputation)</li>
+        <li style="margin-bottom:4px">CAN-SPAM compliant: physical address + unsubscribe link auto-appended to every email</li>
+        <li style="margin-bottom:4px">Role accounts (info@, support@, noreply@) skipped unless flagged manually</li>
+        <li style="margin-bottom:4px">Dedupe: never re-send to an email contacted in last 90 days</li>
+        <li style="margin-bottom:4px">Approval gate: NOTHING sends without your click. Ever.</li>
+        <li style="margin-bottom:0">If bounce rate &gt; 5%, pipeline halts automatically and pings you</li>
+      </ul>
+    </div>
+
+    <!-- REFERENCES -->
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Reference docs</strong>
+      <a href="../../../.claude/skills/prml-outreach-pipeline/SKILL.md" target="_blank" style="color:var(--cream)">/prml-outreach-pipeline SKILL</a> &middot;
+      <a href="../../../.claude/skills/prml-company-brain/SKILL.md" target="_blank" style="color:var(--cream)">/prml-company-brain SKILL</a> &middot;
+      <a href="../../../scripts/prml-hunter-scrape.ps1" target="_blank" style="color:var(--cream)">Hunter scrape script</a> &middot;
+      <a href="https://hunter.io/account/billing" target="_blank" style="color:var(--cream)">Hunter quota dashboard</a> &middot;
+      <a href="https://app.brevo.com/contact/list-listing" target="_blank" style="color:var(--cream)">Brevo dashboard</a>
     </div>
   </div>
 
