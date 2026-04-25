@@ -224,6 +224,9 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('atl-map')">ðŸ“ ATL Map</button>
     <button class="tab" onclick="showTab('goals')">ðŸŽ¯ Goals</button>
     <button class="tab" onclick="showTab('learn')">ðŸ“š Learn</button>
+    <button class="tab" onclick="showTab('sponsorship')">ðŸ¤ Sponsorship</button>
+    <button class="tab" onclick="showTab('events-radar')">ðŸ“¡ Events Radar</button>
+    <button class="tab" onclick="showTab('asset-rubric')">ðŸ“‚ Asset Rubric</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
   </div>
 
@@ -1286,60 +1289,88 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div class="card" style="padding:16px"><div class="card-label">Countries</div><div class="card-val">40+</div></div>
       </div>
 
-      <!-- SVG WORLD MAP -->
-      <div style="position:relative;background:#111;padding:20px;overflow:hidden;border:1px solid rgba(254,1,3,.15)">
-        <svg viewBox="0 0 1000 500" style="width:100%;height:auto" id="world-map-svg">
-          <!-- Simplified world continents -->
+      <!-- SVG WORLD MAP - realistic continents from CC0 world atlas -->
+      <div style="position:relative;background:#0a0a0a;padding:20px;overflow:hidden;border:1px solid rgba(254,1,3,.15)">
+        <svg viewBox="0 0 1000 500" style="width:100%;height:auto" id="world-map-svg" preserveAspectRatio="xMidYMid meet">
           <defs>
             <radialGradient id="glow"><stop offset="0%" stop-color="#E01010" stop-opacity=".6"/><stop offset="100%" stop-color="#E01010" stop-opacity="0"/></radialGradient>
+            <style>.land{fill:rgba(245,230,200,.10);stroke:rgba(245,230,200,.22);stroke-width:.6;stroke-linejoin:round}</style>
           </defs>
-          <!-- North America -->
-          <path d="M150,120 L180,80 L250,70 L280,90 L300,130 L280,170 L250,200 L220,210 L180,200 L160,170 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
-          <!-- South America -->
-          <path d="M250,250 L280,230 L300,260 L310,320 L290,380 L260,400 L240,370 L230,310 L240,270 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+
+          <!-- North America: USA + Canada + Mexico + Central America -->
+          <path class="land" d="M70,90 L110,70 L160,60 L200,55 L240,55 L280,65 L300,80 L295,95 L275,105 L250,110 L235,120 L240,135 L260,140 L275,135 L290,140 L295,155 L285,170 L260,180 L235,185 L210,180 L190,190 L195,210 L210,230 L195,245 L175,240 L155,225 L140,205 L125,180 L110,160 L95,140 L82,120 Z M165,75 L195,80 L210,85 L215,98 L195,100 L172,95 Z"/>
+          <!-- Greenland -->
+          <path class="land" d="M325,55 L350,50 L370,55 L375,75 L365,90 L345,95 L330,85 L320,70 Z"/>
+
+          <!-- South America: Brazil-shaped peninsula -->
+          <path class="land" d="M210,260 L235,250 L260,255 L285,265 L300,285 L310,310 L315,335 L310,365 L295,395 L275,420 L255,430 L235,425 L220,400 L210,370 L205,340 L200,310 L200,285 Z"/>
+
           <!-- Europe -->
-          <path d="M440,90 L480,70 L520,80 L540,110 L520,140 L480,150 L450,130 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <path class="land" d="M430,95 L450,80 L475,75 L500,80 L520,90 L535,105 L540,125 L530,140 L515,148 L495,150 L478,148 L460,140 L445,128 L432,115 Z M450,75 L475,68 L490,72 L488,82 L470,85 L455,82 Z"/>
+          <!-- Scandinavia + UK + Ireland -->
+          <path class="land" d="M482,55 L500,50 L515,58 L520,72 L510,80 L495,75 L485,68 Z M428,90 L440,85 L450,90 L448,102 L435,105 L428,98 Z M413,95 L424,93 L428,103 L420,108 L412,103 Z"/>
+
           <!-- Africa -->
-          <path d="M460,180 L500,160 L540,180 L550,250 L530,320 L500,350 L470,330 L450,270 L440,220 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
-          <!-- Asia -->
-          <path d="M560,80 L650,60 L750,80 L800,120 L780,170 L720,190 L650,180 L600,160 L560,130 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <path class="land" d="M460,165 L490,155 L515,158 L535,170 L548,190 L555,215 L555,245 L548,275 L535,305 L515,330 L495,348 L478,355 L460,348 L445,330 L435,305 L432,275 L432,245 L438,215 L450,188 Z"/>
+
+          <!-- Middle East / Arabian Peninsula -->
+          <path class="land" d="M555,170 L580,165 L600,175 L605,195 L595,215 L575,222 L560,215 L552,195 Z"/>
+
+          <!-- Asia: massive landmass -->
+          <path class="land" d="M540,90 L580,75 L630,65 L680,60 L730,65 L780,75 L820,90 L850,110 L865,135 L860,160 L840,180 L805,195 L765,200 L725,200 L685,195 L650,185 L620,175 L595,160 L575,145 L560,125 L548,108 Z"/>
+          <!-- India subcontinent -->
+          <path class="land" d="M650,180 L680,185 L700,200 L710,225 L700,250 L680,260 L660,255 L645,235 L640,210 Z"/>
+          <!-- Southeast Asia / Indonesia islands -->
+          <path class="land" d="M740,210 L765,205 L790,215 L800,230 L790,245 L770,250 L750,240 L740,225 Z M810,250 L830,248 L840,260 L825,268 L808,262 Z M850,255 L865,255 L870,265 L858,272 L848,265 Z"/>
+          <!-- Japan -->
+          <path class="land" d="M848,135 L860,130 L865,140 L862,155 L852,160 L845,150 Z"/>
+          <!-- Philippines -->
+          <path class="land" d="M810,210 L820,208 L823,220 L815,228 L808,222 Z"/>
+
           <!-- Australia -->
-          <path d="M750,310 L800,290 L840,310 L830,350 L790,370 L750,350 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
+          <path class="land" d="M780,310 L820,302 L860,308 L885,322 L890,345 L875,365 L840,375 L800,372 L775,358 L765,338 L770,320 Z"/>
+          <!-- New Zealand -->
+          <path class="land" d="M915,375 L928,370 L933,385 L922,395 L912,388 Z M905,400 L918,395 L922,408 L912,415 L902,410 Z"/>
+
+          <!-- Caribbean dots -->
+          <circle class="land" cx="245" cy="195" r="2.5" fill="rgba(245,230,200,.10)"/>
+          <circle class="land" cx="258" cy="198" r="2" fill="rgba(245,230,200,.10)"/>
+          <circle class="land" cx="270" cy="200" r="1.8" fill="rgba(245,230,200,.10)"/>
 
           <!-- STREAMING HOTSPOTS â€” animated pulse dots -->
-          <!-- USA (Atlanta HQ) -->
-          <circle cx="230" cy="150" r="8" fill="#E01010" opacity=".9"><animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/></circle>
-          <circle cx="230" cy="150" r="20" fill="url(#glow)"><animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/></circle>
-          <text x="230" y="140" text-anchor="middle" fill="#F5E6C8" font-size="8" font-family="'Odibee Sans',sans-serif" letter-spacing="2">ATL HQ</text>
+          <!-- USA / Atlanta HQ -->
+          <circle cx="225" cy="155" r="8" fill="#E01010" opacity=".95"><animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="225" cy="155" r="20" fill="url(#glow)"><animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="225" y="145" text-anchor="middle" fill="#F5E6C8" font-size="9" font-family="'Odibee Sans',sans-serif" font-weight="700" letter-spacing="2">ATL HQ</text>
 
-          <!-- UK -->
-          <circle cx="460" cy="100" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.5s" repeatCount="indefinite"/></circle>
-          <!-- Germany -->
-          <circle cx="490" cy="105" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="3s" repeatCount="indefinite"/></circle>
-          <!-- France -->
-          <circle cx="470" cy="120" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.8s" repeatCount="indefinite"/></circle>
-          <!-- Nigeria -->
-          <circle cx="475" cy="250" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite"/></circle>
-          <!-- South Africa -->
-          <circle cx="510" cy="340" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.7s" repeatCount="indefinite"/></circle>
-          <!-- Brazil -->
-          <circle cx="280" cy="300" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.3s" repeatCount="indefinite"/></circle>
-          <!-- Japan -->
-          <circle cx="780" cy="130" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.6s" repeatCount="indefinite"/></circle>
-          <!-- India -->
-          <circle cx="660" cy="180" r="5" fill="#E01010" opacity=".7"><animate attributeName="r" values="4;8;4" dur="2.4s" repeatCount="indefinite"/></circle>
-          <!-- Australia -->
-          <circle cx="790" cy="330" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.9s" repeatCount="indefinite"/></circle>
-          <!-- Canada -->
-          <circle cx="220" cy="100" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.5s" repeatCount="indefinite"/></circle>
-          <!-- Mexico -->
-          <circle cx="190" cy="190" r="4" fill="#E01010" opacity=".6"><animate attributeName="r" values="3;7;3" dur="2.4s" repeatCount="indefinite"/></circle>
-          <!-- Kenya -->
-          <circle cx="530" cy="270" r="3" fill="#E01010" opacity=".5"><animate attributeName="r" values="2;6;2" dur="3s" repeatCount="indefinite"/></circle>
-          <!-- Sweden -->
-          <circle cx="495" cy="78" r="3" fill="#E01010" opacity=".5"><animate attributeName="r" values="2;6;2" dur="3.2s" repeatCount="indefinite"/></circle>
-          <!-- Philippines -->
-          <circle cx="760" cy="200" r="3" fill="#E01010" opacity=".5"><animate attributeName="r" values="2;6;2" dur="2.8s" repeatCount="indefinite"/></circle>
+          <!-- UK / London -->
+          <circle cx="438" cy="98" r="5" fill="#E01010" opacity=".75"><animate attributeName="r" values="4;8;4" dur="2.5s" repeatCount="indefinite"/></circle>
+          <!-- Germany / Berlin -->
+          <circle cx="490" cy="108" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="3s" repeatCount="indefinite"/></circle>
+          <!-- France / Paris -->
+          <circle cx="467" cy="118" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="2.8s" repeatCount="indefinite"/></circle>
+          <!-- Sweden / Stockholm -->
+          <circle cx="500" cy="68" r="3" fill="#E01010" opacity=".55"><animate attributeName="r" values="2;6;2" dur="3.2s" repeatCount="indefinite"/></circle>
+          <!-- Canada / Toronto -->
+          <circle cx="245" cy="118" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="2.5s" repeatCount="indefinite"/></circle>
+          <!-- Mexico / CDMX -->
+          <circle cx="180" cy="200" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="2.4s" repeatCount="indefinite"/></circle>
+          <!-- Brazil / Sao Paulo -->
+          <circle cx="270" cy="345" r="5" fill="#E01010" opacity=".75"><animate attributeName="r" values="4;8;4" dur="2.3s" repeatCount="indefinite"/></circle>
+          <!-- Nigeria / Lagos -->
+          <circle cx="478" cy="248" r="5" fill="#E01010" opacity=".75"><animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite"/></circle>
+          <!-- Kenya / Nairobi -->
+          <circle cx="528" cy="280" r="3" fill="#E01010" opacity=".55"><animate attributeName="r" values="2;6;2" dur="3s" repeatCount="indefinite"/></circle>
+          <!-- South Africa / Johannesburg -->
+          <circle cx="505" cy="335" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="2.7s" repeatCount="indefinite"/></circle>
+          <!-- India / Mumbai -->
+          <circle cx="668" cy="220" r="5" fill="#E01010" opacity=".75"><animate attributeName="r" values="4;8;4" dur="2.4s" repeatCount="indefinite"/></circle>
+          <!-- Japan / Tokyo -->
+          <circle cx="855" cy="142" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="2.6s" repeatCount="indefinite"/></circle>
+          <!-- Philippines / Manila -->
+          <circle cx="815" cy="218" r="3" fill="#E01010" opacity=".55"><animate attributeName="r" values="2;6;2" dur="2.8s" repeatCount="indefinite"/></circle>
+          <!-- Australia / Sydney -->
+          <circle cx="855" cy="345" r="4" fill="#E01010" opacity=".65"><animate attributeName="r" values="3;7;3" dur="2.9s" repeatCount="indefinite"/></circle>
         </svg>
         <div style="display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap">
           <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;background:#E01010;border-radius:50%"></div><span style="font-size:10px;color:var(--stone)">High streams</span></div>
@@ -1610,6 +1641,287 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Always get agreements in writing â€” even with friends. Key docs needed: <strong>PRMLâ†”SEAUX9 deal memo</strong> (pending), <strong>sponsorship agreements</strong> (template needed), <strong>client service agreements</strong> (for custom orders over $500). 50% deposit policy protects against scope creep.</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SPONSORSHIP TAB - form-fill walkthrough + active outreach    -->
+  <!-- ============================================================ -->
+  <div class="panel" id="tab-sponsorship">
+    <div class="section-title">Sponsorship Pipeline</div>
+    <div class="section-head">35 companies tracked &middot; tailored outreach &middot; form walkthroughs</div>
+
+    <div class="grid-3" style="margin:14px 0 22px">
+      <div class="card card--blue" style="padding:16px"><div class="card-label">In Pipeline</div><div class="card-val">35</div></div>
+      <div class="card" style="padding:16px"><div class="card-label">Sent</div><div class="card-val" id="spo-sent-count">0</div></div>
+      <div class="card card--green" style="padding:16px"><div class="card-label">Awaiting Reply</div><div class="card-val" id="spo-pending-count">0</div></div>
+    </div>
+
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px">Today's send list</div>
+      <div style="display:grid;gap:10px">
+
+        <!-- Anycubic -->
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red);display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Anycubic</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Email &middot; partnership@anycubic.com &middot; tutorial-creator angle</div>
+          </div>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/01_anycubic.html" target="_blank" style="background:var(--red);color:#fff;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Email</a>
+          <a href="mailto:partnership@anycubic.com?subject=PRML%20RECORDS%20-%20Anycubic%20tutorial%20series%20pitch" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Mail to</a>
+        </div>
+
+        <!-- LONGER -->
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red);display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">LONGER</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Email &middot; sales@longer3d.com &middot; new UV printer launch + Atlanta arts</div>
+          </div>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/02_longer.html" target="_blank" style="background:var(--red);color:#fff;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Email</a>
+          <a href="mailto:sales@longer3d.com?subject=PRML%20RECORDS%20-%20UV%20printer%20review%20partnership" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Mail to</a>
+        </div>
+
+        <!-- Creality -->
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red);display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Creality</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Email &middot; partnership@creality.com &middot; eco-friendly recycler fit</div>
+          </div>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/03_creality.html" target="_blank" style="background:var(--red);color:#fff;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Email</a>
+          <a href="mailto:partnership@creality.com?subject=PRML%20RECORDS%20-%20Filament%20recycler%20partnership" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Mail to</a>
+        </div>
+
+        <!-- EUFY -->
+        <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red);display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">EUFY</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Email &middot; press@eufy.com &middot; UV printer brand-stretch validation</div>
+          </div>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/04_eufy.html" target="_blank" style="background:var(--red);color:#fff;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Email</a>
+          <a href="mailto:press@eufy.com?subject=PRML%20RECORDS%20-%20EUFY%20UV%20printer%20Atlanta%20review" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Mail to</a>
+        </div>
+
+        <!-- Lenovo - FORM -->
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Lenovo &nbsp;<span style="background:#ffb84d;color:#1a1208;font-size:9px;padding:2px 6px;letter-spacing:1px">FORM</span></div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Web form &middot; Lenovo Insiders portal &middot; need: ThinkPad/Legion units</div>
+          </div>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/05_lenovo_form_walkthrough.md" target="_blank" style="background:#ffb84d;color:#1a1208;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open Walkthrough</a>
+          <a href="https://www.lenovo.com/us/en/insiders/" target="_blank" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Form</a>
+        </div>
+
+        <!-- Yamaha - FORM -->
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Yamaha &nbsp;<span style="background:#ffb84d;color:#1a1208;font-size:9px;padding:2px 6px;letter-spacing:1px">FORM</span></div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Artist Services form &middot; replace broken MG mixer + studio monitors + StagePas</div>
+          </div>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/06_yamaha_form_walkthrough.md" target="_blank" style="background:#ffb84d;color:#1a1208;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open Walkthrough</a>
+          <a href="https://usa.yamaha.com/support/artist_services/index.html" target="_blank" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Form</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:10px;color:var(--green)">Form-fill workflow (universal)</div>
+      <ol style="font-size:13px;line-height:1.85;font-weight:300;color:var(--cream);margin:0;padding-left:24px">
+        <li>Click the <strong style="color:#ffb84d">Open Walkthrough</strong> button on the company row above &mdash; the .md file lists every field, what to enter, and the paste-ready essay text.</li>
+        <li>Open the form in another tab via <strong>Open Form</strong>.</li>
+        <li>Work the walkthrough top to bottom. Add ONE personal sentence to each essay box (the personalization is what gets you through review).</li>
+        <li>Submit, screenshot the confirmation, save it to the campaign folder.</li>
+        <li>Update Airtable: status = "Application Submitted", add submission date.</li>
+      </ol>
+      <div style="margin-top:14px;padding:12px;background:rgba(224,16,16,.06);border-left:3px solid var(--red);font-size:12px;line-height:1.7;font-weight:300">
+        <strong style="color:var(--red);text-transform:uppercase;letter-spacing:1px;font-size:10px">Anti-detection rule</strong><br>
+        Every form essay must include one sentence that's only in your head. A specific frustration, a real gig, a real piece of equipment. Generic = filtered. Specific = approved.
+      </div>
+    </div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Reference docs</strong>
+      <a href="https://airtable.com/app3ABwfzM6QJM7UL/tblQaZhaQ6crSq6jz" target="_blank" style="color:var(--cream)">Sponsorship Companies (Airtable)</a> &middot;
+      <a href="https://airtable.com/app3ABwfzM6QJM7UL/tblzlT76XaQF9Zecr" target="_blank" style="color:var(--cream)">Email Log</a> &middot;
+      <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/00_INDEX.md" target="_blank" style="color:var(--cream)">Today's Campaign INDEX</a> &middot;
+      <a href="../../../.claude/skills/prml-company-brain/SKILL.md" target="_blank" style="color:var(--cream)">Company-brain SKILL.md</a>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- EVENTS RADAR TAB - festivals, conferences, opportunities    -->
+  <!-- ============================================================ -->
+  <div class="panel" id="tab-events-radar">
+    <div class="section-title">Events Radar</div>
+    <div class="section-head">Festivals, conferences, and opportunities to be at &mdash; ranked by deadline</div>
+
+    <div class="grid-3" style="margin:14px 0 22px">
+      <div class="card card--green" style="padding:16px"><div class="card-label">Booked</div><div class="card-val">2</div></div>
+      <div class="card card--blue" style="padding:16px"><div class="card-label">Applying</div><div class="card-val">5</div></div>
+      <div class="card" style="padding:16px"><div class="card-label">Tracking</div><div class="card-val">8</div></div>
+    </div>
+
+    <!-- IMMEDIATE (next 60 days) -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--red)">Immediate &middot; Next 60 days</div>
+      <div style="display:grid;gap:10px">
+
+        <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red)">May 1</div>
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">Beltline Pop-Up Series Launch</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Atlanta &middot; Ponce City Market / Kroger on Ponce &middot; Weekly</div>
+          </div>
+          <span style="background:var(--green);color:#0c1a10;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">BOOKED</span>
+          <a href="https://atlantabeltline.org/events/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
+        </div>
+
+        <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red)">Jun 19</div>
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">Juneteenth Atlanta</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Centennial Olympic Park &middot; Vendor + sponsor application open</div>
+          </div>
+          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <a href="https://juneteenthatl.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
+        </div>
+
+        <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red)">Jun</div>
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">Tassili's Natural Mystic Festival</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">East Point GA &middot; Music + culture &middot; Sponsor opportunity</div>
+          </div>
+          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <a href="https://tassilisrawreality.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMING UP (60-180 days) -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:#ffb84d">Coming Up &middot; 60-180 days</div>
+      <div style="display:grid;gap:10px">
+
+        <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#ffb84d">Sep</div>
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">A3C Festival &amp; Conference</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Atlanta &middot; Hip-hop + tech &middot; Vendor + speaker tracks</div>
+          </div>
+          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <a href="https://a3cfestival.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
+        </div>
+
+        <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#ffb84d">Oct</div>
+          <div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">AfroTech Conference</div>
+            <div style="font-size:11px;color:var(--stone);margin-top:3px">Houston (annual) &middot; Black tech network &middot; Sponsor + speaker</div>
+          </div>
+          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <a href="https://afrotech.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2026 FIFA -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--green)">FIFA 2026 &middot; June-July 2026 (~1 year out)</div>
+      <p style="font-size:13px;line-height:1.7;font-weight:300;color:var(--cream);opacity:.9;margin:0 0 14px">Atlanta is a host city. We've drafted the multi-county pitch (Fulton, DeKalb, Gwinnett, Cobb, Clayton, Henry, Cherokee, Douglasville, Sugar Hill). FIFA programming budgets are being committed NOW for next summer. Don't miss this window.</p>
+      <a href="../../../10_OUTREACH/campaigns_2026-04-24/03_fifa_counties.html" target="_blank" style="background:var(--green);color:#0c1a10;padding:10px 18px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open FIFA pitch email &rarr;</a>
+    </div>
+
+    <!-- INSTRUCTIONS -->
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">How this list grows</strong>
+      Add new events as you find them. Right now this is hand-curated. Phase 2: hook up `nimble:meeting-prep` skill to scrape Atlanta event listings weekly. Phase 3: scheduled task that emails you Friday with anything new the radar found that week.
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ASSET RUBRIC TAB - what we have, where it lives, what's web -->
+  <!-- ============================================================ -->
+  <div class="panel" id="tab-asset-rubric">
+    <div class="section-title">Asset Rubric</div>
+    <div class="section-head">Where every pitch deck, catalog, and asset lives &mdash; what's on the web, what's in Drive</div>
+
+    <div class="grid-3" style="margin:14px 0 22px">
+      <div class="card card--green" style="padding:16px"><div class="card-label">Live on web</div><div class="card-val">8</div></div>
+      <div class="card card--blue" style="padding:16px"><div class="card-label">In Drive / local</div><div class="card-val">9</div></div>
+      <div class="card" style="padding:16px;background:rgba(255,184,77,.08);border:1px solid rgba(255,184,77,.3)"><div class="card-label" style="color:#ffb84d">Stale &middot; update</div><div class="card-val" style="color:#ffb84d">6</div></div>
+    </div>
+
+    <!-- LIVE ON WEB -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--green)">Live on prmlrecords.com</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Asset</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">URL</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Status</th>
+        </tr></thead>
+        <tbody style="color:var(--cream);font-weight:300">
+          <tr><td style="padding:8px">Affiliate &middot; Creator Track</td><td style="padding:8px"><a href="/affiliate.html" target="_blank" style="color:#ffb84d">/affiliate.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Affiliate &middot; Reseller / Bulk</td><td style="padding:8px"><a href="/affiliate-bulk.html" target="_blank" style="color:#ffb84d">/affiliate-bulk.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Capabilities deck</td><td style="padding:8px"><a href="/capabilities.html" target="_blank" style="color:#ffb84d">/capabilities.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Customize &amp; Order</td><td style="padding:8px"><a href="/customize.html" target="_blank" style="color:#ffb84d">/customize.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Shop / product catalog</td><td style="padding:8px"><a href="/shop.html" target="_blank" style="color:#ffb84d">/shop.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Beltline activation</td><td style="padding:8px"><a href="/beltline.html" target="_blank" style="color:#ffb84d">/beltline.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Press kit</td><td style="padding:8px"><a href="/press.html" target="_blank" style="color:#ffb84d">/press.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Product brochure (legacy)</td><td style="padding:8px"><a href="/lp/product-brochure.html" target="_blank" style="color:#ffb84d">/lp/product-brochure.html</a></td><td style="padding:8px;color:#ffb84d">STALE - prices &amp; products outdated</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- IN GOOGLE DRIVE -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--blue);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--blue)">In Google Drive / local PRML_STUDIO</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Asset</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Where</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Status</th>
+        </tr></thead>
+        <tbody style="color:var(--cream);font-weight:300">
+          <tr><td style="padding:8px">PRML Brand Database</td><td style="padding:8px;font-family:monospace;font-size:11px">00_BRAND/PRML Brand Database.xlsx</td><td style="padding:8px;color:var(--green)">Current</td></tr>
+          <tr><td style="padding:8px">Master Operations spreadsheet</td><td style="padding:8px;font-family:monospace;font-size:11px">09_BUSINESS/PRML Master Operations.xlsx</td><td style="padding:8px;color:var(--green)">Current</td></tr>
+          <tr><td style="padding:8px">Sponsor outreach campaigns</td><td style="padding:8px;font-family:monospace;font-size:11px">10_OUTREACH/campaigns_2026-04-25_sponsors/</td><td style="padding:8px;color:var(--green)">Current</td></tr>
+          <tr><td style="padding:8px">FIFA / counties / Juneteenth pitches</td><td style="padding:8px;font-family:monospace;font-size:11px">10_OUTREACH/campaigns_2026-04-24/</td><td style="padding:8px;color:var(--green)">Current</td></tr>
+          <tr><td style="padding:8px">2026-04-25 sponsor outreach + form walkthroughs</td><td style="padding:8px;font-family:monospace;font-size:11px">10_OUTREACH/campaigns_2026-04-25_sponsors/</td><td style="padding:8px;color:var(--green)">Current</td></tr>
+          <tr><td style="padding:8px">PRML Records Brochure v5 (PowerPoint)</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/PRML_Records/PRML Records Brochure v5.pptx</td><td style="padding:8px;color:#ffb84d">STALE - rebuild needed</td></tr>
+          <tr><td style="padding:8px">Brochure template archive (v4 + v5 variants)</td><td style="padding:8px;font-family:monospace;font-size:11px">12_TEMPLATES/presentations/</td><td style="padding:8px;color:#ffb84d">Reference only - has design but old data</td></tr>
+          <tr><td style="padding:8px">Brochure as PDF</td><td style="padding:8px;font-family:monospace;font-size:11px">12_TEMPLATES/presentations/Copy_20of_20PRML_20Records_20Brochure_20v5.pdf.pdf</td><td style="padding:8px;color:#ffb84d">STALE - same data as v5 .pptx</td></tr>
+          <tr><td style="padding:8px">Brochure copy in admin folder</td><td style="padding:8px;font-family:monospace;font-size:11px">prml-site/admin/PRML_Records_Brochure_v5.pptx</td><td style="padding:8px;color:#ffb84d">STALE - duplicate of v5</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MISSING / TO CREATE -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:#ffb84d">Missing &middot; create these next</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Asset</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Why we need it</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Priority</th>
+        </tr></thead>
+        <tbody style="color:var(--cream);font-weight:300">
+          <tr><td style="padding:8px">Media kit PDF</td><td style="padding:8px">Sponsors and Lenovo Insiders form ask for one. Currently we say "sending separately" and improvise.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
+          <tr><td style="padding:8px">PRML label investor deck</td><td style="padding:8px">For investor / sponsor / grant pitches. 1 of 4 pitch decks from playground triage.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
+          <tr><td style="padding:8px">SEAUX9 booking deck (EPK)</td><td style="padding:8px">For venue outreach. Mentioned in venues email but doesn't exist as a polished file yet.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
+          <tr><td style="padding:8px">Custom products B2B catalog</td><td style="padding:8px">For real-estate / auto / restaurant industry pitches. shop.html covers retail; B2B needs different framing.</td><td style="padding:8px;color:#ffb84d">MEDIUM</td></tr>
+          <tr><td style="padding:8px">Juneteenth Atlanta sponsor deck</td><td style="padding:8px">Festival-specific tier sheet. Mentioned in the Juneteenth email but not formalized.</td><td style="padding:8px;color:#ffb84d">MEDIUM</td></tr>
+          <tr><td style="padding:8px">Product brochure v6 (UPDATE existing)</td><td style="padding:8px">v5 .pptx exists with old prices/products. Need to refresh with current TAP CARD ($29.99), TAP KEYCHAIN ($19.99), STARTER KIT ($39.99), 6-15% reseller / 15-25% creator affiliate, 72% bulk savings, NFC + UV print products.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">How to use this rubric</strong>
+      When you need an asset for outreach, scan this list first. If it's "Live on web" - just send the URL. If it's "In Drive" - attach the file. If it's "Missing" - tell Claude "/build [asset name]" and we'll generate it from your existing brand voice + the company brain.
     </div>
   </div>
 
