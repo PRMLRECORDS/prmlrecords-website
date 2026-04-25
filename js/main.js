@@ -113,7 +113,15 @@ function updateCartUI() {
   if (totalEl) totalEl.textContent = '$' + total.toFixed(2);
   if (feeEl) {
     feeEl.style.display = 'flex';
-    feeEl.innerHTML = `<span>Processing fee</span><span>$${STRIPE_FEE.toFixed(2)}</span>`;
+    feeEl.style.flexDirection = 'column';
+    feeEl.style.gap = '4px';
+    feeEl.innerHTML = `
+      <div style="display:flex;justify-content:space-between;width:100%">
+        <span title="Flat $6 covers Stripe processing + secure handling. Same fee whether you buy 1 or 100 items.">Processing fee <span style="color:#8C8C7A;font-size:10px;cursor:help">(?)</span></span>
+        <span>$${STRIPE_FEE.toFixed(2)}</span>
+      </div>
+      ${sub >= 99 ? '<div style="font-size:10px;color:#4ade80;letter-spacing:1px;text-transform:uppercase;font-family:\'Odibee Sans\',sans-serif">Free shipping unlocked</div>' : `<div style="font-size:10px;color:#8C8C7A;letter-spacing:1px;text-transform:uppercase;font-family:'Odibee Sans',sans-serif">Free shipping at $99 (add $${(99-sub).toFixed(2)})</div>`}
+    `;
   }
 
   document.querySelectorAll('.cart-checkout, .cart-deposit').forEach(b => b.disabled = false);
