@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,7 +28,7 @@
   <div class="login-box">
     <div class="login-title">The Dashboard</div><div class="login-sub">Restricted Access</div>
     <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()"></div>
-    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -39,7 +39,7 @@
     <a href="index.html" class="anl">Dashboard</a>
     <a href="analytics.html" class="anl">Analytics</a>
     <a href="social.html" class="anl">Social</a>
-    <a href="ai.html" class="anl active">✦ AI</a>
+    <a href="ai.html" class="anl active">âœ¦ AI</a>
     <a href="news.html" class="anl">News</a>
     <a href="competitors.html" class="anl">Competitors</a>
     <a href="goals.html" class="anl">Goals</a>
@@ -52,12 +52,12 @@
 <div class="adm-wrap" id="main-content" style="display:none">
   <div class="page-hd">
     <h1>AI Command Center</h1>
-    <p>Claude-powered tools for PRML Records — briefings, content, hashtags &amp; more</p>
+    <p>Claude-powered tools for PRML Records â€” briefings, content, hashtags &amp; more</p>
   </div>
 
   <!-- KEY WARNING -->
   <div id="key-warn" class="status status-err" style="display:none;margin-bottom:20px">
-    ⚠️ Anthropic API key not set. <a href="settings.html" style="color:var(--red);text-decoration:underline">Go to Settings</a> to add it — AI tools won't work without it.
+    âš ï¸ Anthropic API key not set. <a href="settings.html" style="color:var(--red);text-decoration:underline">Go to Settings</a> to add it â€” AI tools won't work without it.
   </div>
 
   <!-- MORNING BRIEF -->
@@ -65,10 +65,10 @@
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
       <div>
         <div class="sec-hd" style="border:none;margin:0;padding:0">Morning Brief</div>
-        <div class="brief-meta" id="brief-date">—</div>
+        <div class="brief-meta" id="brief-date">â€”</div>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
-        <span class="ai-badge">⚡ Claude</span>
+        <span class="ai-badge">âš¡ Claude</span>
         <button class="btn btn-red btn-sm" id="brief-btn" onclick="runBrief()">Generate Brief</button>
       </div>
     </div>
@@ -185,7 +185,7 @@ async function runBrief() {
     const text = await ClaudeAdmin.morningBrief();
     document.getElementById('brief-out').textContent = text;
   } catch (e) {
-    document.getElementById('brief-out').textContent = '⚠️ ' + e.message;
+    document.getElementById('brief-out').textContent = 'âš ï¸ ' + e.message;
   }
   ClaudeAdmin.setLoading(btn, false, 'Regenerate');
 }
@@ -210,7 +210,7 @@ async function runHashtags() {
     });
     document.getElementById('tag-out').classList.add('visible');
   } catch (e) {
-    document.getElementById('tag-out').textContent = '⚠️ ' + e.message;
+    document.getElementById('tag-out').textContent = 'âš ï¸ ' + e.message;
     document.getElementById('tag-out').classList.add('visible');
   }
   ClaudeAdmin.setLoading(btn, false, 'Generate Hashtags');
@@ -228,7 +228,7 @@ async function runCalendar() {
     out.classList.add('visible');
   } catch (e) {
     const out = document.getElementById('cal-out');
-    out.textContent = '⚠️ ' + e.message;
+    out.textContent = 'âš ï¸ ' + e.message;
     out.classList.add('visible');
   }
   ClaudeAdmin.setLoading(btn, false, 'Generate 7-Day Plan');
@@ -242,7 +242,7 @@ async function runCaption() {
   ClaudeAdmin.setLoading(btn, true);
   try {
     const text = await ClaudeAdmin.ask(
-      'You are a social media copywriter for PRML Records, an independent Atlanta music label. Write captions that are authentic, direct, and on-brand — bold, creative, no corporate fluff.',
+      'You are a social media copywriter for PRML Records, an independent Atlanta music label. Write captions that are authentic, direct, and on-brand â€” bold, creative, no corporate fluff.',
       `Write an Instagram caption for this post: ${desc}\n\nInclude: hook line, 2-3 sentences of body, call to action. Keep it under 150 words. No hashtags (those get added separately).`
     );
     const out = document.getElementById('cap-out');
@@ -250,7 +250,7 @@ async function runCaption() {
     out.classList.add('visible');
   } catch (e) {
     const out = document.getElementById('cap-out');
-    out.textContent = '⚠️ ' + e.message;
+    out.textContent = 'âš ï¸ ' + e.message;
     out.classList.add('visible');
   }
   ClaudeAdmin.setLoading(btn, false, 'Write Caption');
@@ -273,7 +273,7 @@ async function runPress() {
     out.classList.add('visible');
   } catch (e) {
     const out = document.getElementById('press-out');
-    out.textContent = '⚠️ ' + e.message;
+    out.textContent = 'âš ï¸ ' + e.message;
     out.classList.add('visible');
   }
   ClaudeAdmin.setLoading(btn, false, 'Draft Press Release');
@@ -287,7 +287,7 @@ async function runEmail() {
   ClaudeAdmin.setLoading(btn, true);
   try {
     const text = await ClaudeAdmin.ask(
-      'You are a music industry professional drafting outreach emails for PRML Records, an independent label in Atlanta. Tone: confident, direct, professional — not desperate or over-explaining.',
+      'You are a music industry professional drafting outreach emails for PRML Records, an independent label in Atlanta. Tone: confident, direct, professional â€” not desperate or over-explaining.',
       `Draft this email: ${context}\n\nFormat: Subject line, greeting, body (3-4 short paragraphs), sign-off. Include a clear ask. Use [NAME] for recipient placeholder.`,
       { maxTokens: 700 }
     );
@@ -296,7 +296,7 @@ async function runEmail() {
     out.classList.add('visible');
   } catch (e) {
     const out = document.getElementById('email-out');
-    out.textContent = '⚠️ ' + e.message;
+    out.textContent = 'âš ï¸ ' + e.message;
     out.classList.add('visible');
   }
   ClaudeAdmin.setLoading(btn, false, 'Draft Email');
@@ -319,11 +319,12 @@ async function runFree() {
     out.classList.add('visible');
   } catch (e) {
     const out = document.getElementById('free-out');
-    out.textContent = '⚠️ ' + e.message;
+    out.textContent = 'âš ï¸ ' + e.message;
     out.classList.add('visible');
   }
   ClaudeAdmin.setLoading(btn, false, 'Ask Claude');
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>

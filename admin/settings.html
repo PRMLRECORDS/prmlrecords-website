@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,7 +15,7 @@
   <div class="login-box">
     <div class="login-title">The Dashboard</div><div class="login-sub">Restricted Access</div>
     <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password"></div>
-    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -27,16 +27,16 @@
     <a href="goals.html" class="anl" data-page="goals">Goals</a>
     <a href="grants.html" class="anl" data-page="grants">Grants</a>
     <a href="social.html" class="anl" data-page="social">Social</a>
-    <a href="ai.html" class="anl" data-page="ai">✦ AI</a>
+    <a href="ai.html" class="anl" data-page="ai">âœ¦ AI</a>
     <a href="news.html" class="anl" data-page="news">News</a>
     <a href="competitors.html" class="anl" data-page="competitors">Competitors</a>
     <a href="invoice.html" class="anl" data-page="invoice">Invoice</a>
     <a href="product-scanner.html" class="anl" data-page="scanner">Scanner</a>
     <a href="suggestions.html" class="anl" data-page="suggestions">Ideas</a>
     <a href="settings.html" class="anl" data-page="settings">Settings</a>
-    <a href="../index.html" target="_blank" class="anl anl--ext">Site ↗</a>
+    <a href="../index.html" target="_blank" class="anl anl--ext">Site â†—</a>
   </div>
-  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">☰</button>
+  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">â˜°</button>
 </nav>
 
 <div class="adm-wrap">
@@ -51,7 +51,7 @@
         <div class="f-field">
           <label class="f-label">Apps Script URL (GAS_URL)</label>
           <input class="f-input" id="s-gas" value="https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec">
-          <div style="font-size:11px;opacity:.35;margin-top:4px">From script.google.com → Deploy → Manage Deployments</div>
+          <div style="font-size:11px;opacity:.35;margin-top:4px">From script.google.com â†’ Deploy â†’ Manage Deployments</div>
           <div style="display:flex;gap:8px;margin-top:8px">
             <button class="btn btn-sm btn-out" onclick="testGAS()">Test Connection</button>
           </div>
@@ -61,7 +61,7 @@
         <div class="f-field" style="margin-top:14px">
           <label class="f-label">Stripe Payment Link</label>
           <input class="f-input" id="s-stripe" placeholder="https://buy.stripe.com/...">
-          <div style="font-size:11px;opacity:.35;margin-top:4px">From dashboard.stripe.com → Payment Links</div>
+          <div style="font-size:11px;opacity:.35;margin-top:4px">From dashboard.stripe.com â†’ Payment Links</div>
         </div>
 
         <div class="f-field" style="margin-top:14px">
@@ -86,13 +86,13 @@
       <div class="panel panel--red" style="margin-bottom:14px">
         <div class="sec-hd">Live Infrastructure</div>
         <div style="font-size:13px;line-height:2.2;opacity:.7">
-          <div>🟢 Domain: <strong style="color:var(--cream)">prmlrecords.com</strong> (Namecheap)</div>
-          <div>🟢 Hosting: <strong style="color:var(--cream)">Render.com</strong> — prmlrecords-website</div>
-          <div>🟢 DNS: www CNAME → prmlrecords-website.onrender.com</div>
-          <div>🟢 Repo: <strong style="color:var(--cream)">PRMLRECORDS/prmlrecords-website</strong></div>
-          <div>🟡 GAS: Check connection above</div>
-          <div>🟡 Stripe: Paste link above</div>
-          <div>🟡 Sheets API Key: Add to js/sheets-fetcher.js</div>
+          <div>ðŸŸ¢ Domain: <strong style="color:var(--cream)">prmlrecords.com</strong> (Namecheap)</div>
+          <div>ðŸŸ¢ Hosting: <strong style="color:var(--cream)">Render.com</strong> â€” prmlrecords-website</div>
+          <div>ðŸŸ¢ DNS: www CNAME â†’ prmlrecords-website.onrender.com</div>
+          <div>ðŸŸ¢ Repo: <strong style="color:var(--cream)">PRMLRECORDS/prmlrecords-website</strong></div>
+          <div>ðŸŸ¡ GAS: Check connection above</div>
+          <div>ðŸŸ¡ Stripe: Paste link above</div>
+          <div>ðŸŸ¡ Sheets API Key: Add to js/sheets-fetcher.js</div>
         </div>
       </div>
 
@@ -130,7 +130,7 @@ function saveSettings(){
   const newpw = document.getElementById('s-pw').value.trim();
   if(newpw) localStorage.setItem('prml_admin_pw', newpw);
   const st = document.getElementById('save-st');
-  st.className='status status-ok'; st.textContent='✓ Settings saved. Reload pages for changes to take effect.';
+  st.className='status status-ok'; st.textContent='âœ“ Settings saved. Reload pages for changes to take effect.';
 }
 
 async function testGAS(){
@@ -140,11 +140,12 @@ async function testGAS(){
     const r = await fetch(url+'?action=ping');
     const d = await r.json();
     document.getElementById('gas-test').className='status status-ok';
-    document.getElementById('gas-test').textContent='✓ Connected: '+JSON.stringify(d);
+    document.getElementById('gas-test').textContent='âœ“ Connected: '+JSON.stringify(d);
   }catch(e){
     document.getElementById('gas-test').className='status status-err';
-    document.getElementById('gas-test').textContent='Connection failed: '+e.message+' (CORS errors are normal — try saving and testing a form submission instead)';
+    document.getElementById('gas-test').textContent='Connection failed: '+e.message+' (CORS errors are normal â€” try saving and testing a form submission instead)';
   }
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

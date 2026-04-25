@@ -4,10 +4,51 @@ services:
     name: prmlrecords
     env: static
     staticPublishPath: .
+
     headers:
-      - path: /*
+      # HTML — must always re-validate so deploys are visible immediately
+      - path: /*.html
         name: Cache-Control
-        value: no-cache
+        value: "public, max-age=0, must-revalidate"
+      - path: /
+        name: Cache-Control
+        value: "public, max-age=0, must-revalidate"
+
+      # Service worker — never cache; the browser must always check
+      - path: /sw.js
+        name: Cache-Control
+        value: "public, max-age=0, must-revalidate"
+
+      # Manifest — short cache
+      - path: /manifest.json
+        name: Cache-Control
+        value: "public, max-age=3600"
+
+      # CSS / JS / images — long cache (use ?v= query strings or hashed filenames)
+      - path: /css/*
+        name: Cache-Control
+        value: "public, max-age=604800"
+      - path: /js/*
+        name: Cache-Control
+        value: "public, max-age=604800"
+      - path: /assets/*
+        name: Cache-Control
+        value: "public, max-age=2592000"
+      - path: /images/*
+        name: Cache-Control
+        value: "public, max-age=2592000"
+
+      # Security headers — apply to everything
+      - path: /*
+        name: X-Frame-Options
+        value: "DENY"
+      - path: /*
+        name: X-Content-Type-Options
+        value: "nosniff"
+      - path: /*
+        name: Referrer-Policy
+        value: "strict-origin-when-cross-origin"
+
     routes:
       - type: rewrite
         source: /admin

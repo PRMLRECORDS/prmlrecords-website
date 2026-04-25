@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<title>The Dashboard — PRML RECORDS</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230D0D0D'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23E01010' font-family='Arial'%3E🔐%3C/text%3E%3C/svg%3E">
+<title>The Dashboard â€” PRML RECORDS</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230D0D0D'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23E01010' font-family='Arial'%3EðŸ”%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
@@ -48,9 +48,9 @@ body{background:var(--black)}
       <label>Password</label>
       <input type="password" id="pw-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')tryLogin()">
     </div>
-    <button class="f-submit" onclick="tryLogin()">Enter Dashboard →</button>
+    <button class="f-submit" onclick="tryLogin()">Enter Dashboard â†’</button>
     <div id="pw-err" style="display:none;margin-top:12px;font-family:'Roboto Slab',serif;font-size:13px;color:var(--red)">Incorrect password. Try again or call 770-686-7726.</div>
-    <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.3;margin-top:16px;line-height:1.6">Default password: PRMLp369! — Change this in admin/dashboard.html line ~120 before going live.</p>
+    <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.3;margin-top:16px;line-height:1.6">Default password: PRMLp369! â€” Change this in admin/dashboard.html line ~120 before going live.</p>
   </div>
 </div>
 
@@ -59,11 +59,11 @@ body{background:var(--black)}
   <div class="dash-header">
     <div>
       <div class="dash-title">THE <span>DASHBOARD</span></div>
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--cream);opacity:.3;text-transform:uppercase">PRML RECORDS · Command Center · Not linked from public site</div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--cream);opacity:.3;text-transform:uppercase">PRML RECORDS Â· Command Center Â· Not linked from public site</div>
     </div>
     <div style="display:flex;align-items:center;gap:20px">
-      <a href="../index.html" class="btn btn--out-cream btn--sm" style="font-size:9px">View Site →</a>
-      <button class="logout" onclick="logout()">Log Out ×</button>
+      <a href="../index.html" class="btn btn--out-cream btn--sm" style="font-size:9px">View Site â†’</a>
+      <button class="logout" onclick="logout()">Log Out Ã—</button>
     </div>
   </div>
 
@@ -81,8 +81,8 @@ body{background:var(--black)}
       <div style="display:flex;flex-direction:column;gap:8px">
         <a href="../index.html" target="_blank" class="btn btn--red btn--sm" style="justify-content:center">View Homepage</a>
         <a href="../testimonials.html" target="_blank" class="btn btn--out-cream btn--sm" style="justify-content:center">View Testimonials</a>
-        <a href="invoice.html" class="btn btn--red btn--sm" style="justify-content:center">Invoice Generator ✦</a>
-        <a href="product-scanner.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Product Scanner ✦</a>
+        <a href="invoice.html" class="btn btn--red btn--sm" style="justify-content:center">Invoice Generator âœ¦</a>
+        <a href="product-scanner.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Product Scanner âœ¦</a>
         <a href="documentation.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Docs & Deploy Guide</a>
         <a href="email-branding-guide.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Email Branding</a>
       </div>
@@ -102,9 +102,9 @@ body{background:var(--black)}
   <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:2px">
     <div class="dash-card">
       <div class="dash-card__title">Mailing List</div>
-      <div id="metric-ml" style="font-family:'Rubik Mono One',monospace;font-size:36px;color:var(--cream);letter-spacing:-1px;margin-bottom:6px">—</div>
+      <div id="metric-ml" style="font-family:'Rubik Mono One',monospace;font-size:36px;color:var(--cream);letter-spacing:-1px;margin-bottom:6px">â€”</div>
       <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4;margin-bottom:12px">Total subscribers in Google Sheet</div>
-      <a href="https://docs.google.com/spreadsheets/d/10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Open Sheet →</a>
+      <a href="https://docs.google.com/spreadsheets/d/10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Open Sheet â†’</a>
     </div>
     <div class="dash-card">
       <div class="dash-card__title">Form Submissions</div>
@@ -112,14 +112,14 @@ body{background:var(--black)}
         <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Quote Requests (Tally): <strong style="color:var(--red)" id="metric-quotes">2</strong></div>
         <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">Booking Requests (Tally): <strong style="color:var(--red)" id="metric-bookings">0</strong></div>
       </div>
-      <a href="https://tally.so/forms/44jbLr/submissions" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center;margin-bottom:6px">Quote Submissions →</a>
-      <a href="https://tally.so/forms/jaxVLQ/submissions" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Booking Submissions →</a>
+      <a href="https://tally.so/forms/44jbLr/submissions" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center;margin-bottom:6px">Quote Submissions â†’</a>
+      <a href="https://tally.so/forms/jaxVLQ/submissions" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Booking Submissions â†’</a>
     </div>
     <div class="dash-card">
       <div class="dash-card__title">Orders & Revenue</div>
       <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.5;margin-bottom:12px;line-height:1.7">Live order data lives in Stripe. Check dashboard for payments, invoices, and disputes.</div>
-      <a href="https://dashboard.stripe.com/payments" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center;margin-bottom:6px">Stripe Payments →</a>
-      <a href="https://dashboard.stripe.com/invoices" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Stripe Invoices →</a>
+      <a href="https://dashboard.stripe.com/payments" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center;margin-bottom:6px">Stripe Payments â†’</a>
+      <a href="https://dashboard.stripe.com/invoices" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">Stripe Invoices â†’</a>
     </div>
   </div>
 
@@ -127,12 +127,12 @@ body{background:var(--black)}
   <div class="dash-card" style="margin-bottom:2px">
     <div class="dash-card__title">TAP Payment Links</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:4px">
-      <a href="https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP CARD — Charcoal ($29.99)</a>
-      <a href="https://buy.stripe.com/cNiaEY8yVgc69Ho3Eu1ZS0P" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP CARD — Cream ($29.99)</a>
-      <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP CARD — 10-Pack ($249.99)</a>
-      <a href="https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP KEYCHAIN — Charcoal ($19.99)</a>
-      <a href="https://buy.stripe.com/aFa14o2ax0d81aScb01ZS0R" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP KEYCHAIN — Cream ($19.99)</a>
-      <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP KEYCHAIN — 10-Pack ($149.99)</a>
+      <a href="https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP CARD â€” Charcoal ($29.99)</a>
+      <a href="https://buy.stripe.com/cNiaEY8yVgc69Ho3Eu1ZS0P" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP CARD â€” Cream ($29.99)</a>
+      <a href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP CARD â€” 10-Pack ($249.99)</a>
+      <a href="https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP KEYCHAIN â€” Charcoal ($19.99)</a>
+      <a href="https://buy.stripe.com/aFa14o2ax0d81aScb01ZS0R" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP KEYCHAIN â€” Cream ($19.99)</a>
+      <a href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" target="_blank" rel="noopener" class="btn btn--out-cream btn--sm" style="justify-content:center">TAP KEYCHAIN â€” 10-Pack ($149.99)</a>
       <a href="https://buy.stripe.com/8x2fZi9CZ3pkf1I1wm1ZS0S" target="_blank" rel="noopener" class="btn btn--red btn--sm" style="justify-content:center">TAP STARTER KIT ($39.99)</a>
     </div>
   </div>
@@ -141,40 +141,40 @@ body{background:var(--black)}
   <div class="dash-card" style="margin-bottom:2px">
     <div class="dash-card__title">Portals &amp; Presentations</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:4px">
-      <a href="../PRMLfounderadminDCJ369/console.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Founder Console →</a>
-      <a href="strategy.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Strategy Dashboard →</a>
-      <a href="goals.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Goals →</a>
-      <a href="analytics.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Analytics →</a>
-      <a href="social.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Social →</a>
-      <a href="blog.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Blog Manager →</a>
-      <a href="competitors.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Competitors →</a>
-      <a href="grants.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Grants →</a>
-      <a href="settings.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Settings →</a>
-      <a href="ai.html" class="btn btn--out-cream btn--sm" style="justify-content:center">AI Tools →</a>
+      <a href="../PRMLfounderadminDCJ369/console.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Founder Console â†’</a>
+      <a href="strategy.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Strategy Dashboard â†’</a>
+      <a href="goals.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Goals â†’</a>
+      <a href="analytics.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Analytics â†’</a>
+      <a href="social.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Social â†’</a>
+      <a href="blog.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Blog Manager â†’</a>
+      <a href="competitors.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Competitors â†’</a>
+      <a href="grants.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Grants â†’</a>
+      <a href="settings.html" class="btn btn--out-cream btn--sm" style="justify-content:center">Settings â†’</a>
+      <a href="ai.html" class="btn btn--out-cream btn--sm" style="justify-content:center">AI Tools â†’</a>
     </div>
   </div>
 
   <!-- NEW TOOLS -->
   <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-bottom:16px">
     <div class="dash-card" style="border-top-color:var(--red);background:rgba(224,16,16,.06)">
-      <div class="dash-card__title">✦ Invoice Generator</div>
-      <div class="dash-card__body">Paste a brain dump → AI parses line items → builds invoice → emails customer → logs to Sheet. $6 Stripe fee auto-added.</div>
-      <a href="invoice.html" class="btn btn--red btn--sm" style="display:flex;justify-content:center;margin-top:8px">Open Invoice Generator →</a>
+      <div class="dash-card__title">âœ¦ Invoice Generator</div>
+      <div class="dash-card__body">Paste a brain dump â†’ AI parses line items â†’ builds invoice â†’ emails customer â†’ logs to Sheet. $6 Stripe fee auto-added.</div>
+      <a href="invoice.html" class="btn btn--red btn--sm" style="display:flex;justify-content:center;margin-top:8px">Open Invoice Generator â†’</a>
     </div>
     <div class="dash-card" style="border-top-color:var(--red);background:rgba(224,16,16,.06)">
-      <div class="dash-card__title">✦ Product Scanner</div>
-      <div class="dash-card__body">Drop product photos → AI tags them with name, category, price, description → push directly to your Google Sheet Products tab.</div>
-      <a href="product-scanner.html" class="btn btn--red btn--sm" style="display:flex;justify-content:center;margin-top:8px">Open Product Scanner →</a>
+      <div class="dash-card__title">âœ¦ Product Scanner</div>
+      <div class="dash-card__body">Drop product photos â†’ AI tags them with name, category, price, description â†’ push directly to your Google Sheet Products tab.</div>
+      <a href="product-scanner.html" class="btn btn--red btn--sm" style="display:flex;justify-content:center;margin-top:8px">Open Product Scanner â†’</a>
     </div>
     <div class="dash-card">
       <div class="dash-card__title">New Product Categories</div>
       <div class="dash-card__body" style="font-size:12px;line-height:1.9">
-        ✉️ Event Invitations · $75+<br>
-        🖨️ Digital Invitations · $75+<br>
-        📬 Postcards · $50/25-pack<br>
-        🎨 Stickers · $25/25-pack<br>
-        🎵 Album Artwork · $150+<br>
-        💿 CD Duplication · $5/each
+        âœ‰ï¸ Event Invitations Â· $75+<br>
+        ðŸ–¨ï¸ Digital Invitations Â· $75+<br>
+        ðŸ“¬ Postcards Â· $50/25-pack<br>
+        ðŸŽ¨ Stickers Â· $25/25-pack<br>
+        ðŸŽµ Album Artwork Â· $150+<br>
+        ðŸ’¿ CD Duplication Â· $5/each
       </div>
     </div>
   </div>
@@ -189,10 +189,10 @@ body{background:var(--black)}
       <table class="sheet-map">
         <tr><th>Column</th><th>What It Does</th><th>Example Value</th></tr>
         <tr><td><code>name</code></td><td>Reviewer's name</td><td>Marcus T.</td></tr>
-        <tr><td><code>role</code></td><td>Their title / description</td><td>Small Business Owner · Atlanta</td></tr>
+        <tr><td><code>role</code></td><td>Their title / description</td><td>Small Business Owner Â· Atlanta</td></tr>
         <tr><td><code>text</code></td><td>The review text</td><td>PRML did an amazing job...</td></tr>
-        <tr><td><code>rating</code></td><td>Star rating (1–5)</td><td>5</td></tr>
-        <tr><td><code>approved</code></td><td>⚠️ MUST be TRUE to show on site</td><td>TRUE or FALSE</td></tr>
+        <tr><td><code>rating</code></td><td>Star rating (1â€“5)</td><td>5</td></tr>
+        <tr><td><code>approved</code></td><td>âš ï¸ MUST be TRUE to show on site</td><td>TRUE or FALSE</td></tr>
         <tr><td><code>date</code></td><td>Date of review (optional)</td><td>2025-01-15</td></tr>
       </table>
     </div>
@@ -221,7 +221,7 @@ body{background:var(--black)}
         <tr><td><code>Items</code></td><td>Line items summary</td></tr>
         <tr><td><code>Total</code></td><td>Full total including $6 Stripe fee</td></tr>
         <tr><td><code>Amount Due</code></td><td>What they owe now (full, deposit, or custom)</td></tr>
-        <tr><td><code>Status</code></td><td>Sent / Paid / Overdue — update manually</td></tr>
+        <tr><td><code>Status</code></td><td>Sent / Paid / Overdue â€” update manually</td></tr>
       </table>
     </div>
 
@@ -243,15 +243,15 @@ body{background:var(--black)}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
       <div>
         <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Add A Testimonial</div>
-        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Go to the Testimonials tab<br>3. Add a new row with name, role, text, rating<br>4. Set <code style="background:rgba(224,16,16,.2);color:var(--red);padding:1px 5px">approved</code> to TRUE when ready to show<br>5. Refresh testimonials.html — it auto-updates</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Go to the Testimonials tab<br>3. Add a new row with name, role, text, rating<br>4. Set <code style="background:rgba(224,16,16,.2);color:var(--red);padding:1px 5px">approved</code> to TRUE when ready to show<br>5. Refresh testimonials.html â€” it auto-updates</div>
       </div>
       <div>
         <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Add A Product</div>
-        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Go to the Products tab<br>3. Add a new row — fill all columns<br>4. Set category to match the page<br>5. Set active to TRUE<br>6. Refresh the page — auto-updates</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Go to the Products tab<br>3. Add a new row â€” fill all columns<br>4. Set category to match the page<br>5. Set active to TRUE<br>6. Refresh the page â€” auto-updates</div>
       </div>
       <div>
         <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Change A Price</div>
-        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Find the product in Products tab<br>3. Edit the price column (numbers only, no $)<br>4. Save — site updates automatically</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.8">1. Open your Google Sheet<br>2. Find the product in Products tab<br>3. Edit the price column (numbers only, no $)<br>4. Save â€” site updates automatically</div>
       </div>
       <div>
         <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">To Hide Something</div>
@@ -260,11 +260,11 @@ body{background:var(--black)}
     </div>
   </div>
 
-  <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.25;text-align:center;padding:20px">The Dashboard · Not linked from public navigation · Keep URL private</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.25;text-align:center;padding:20px">The Dashboard Â· Not linked from public navigation Â· Keep URL private</div>
 </div>
 
 <script>
-// ── CHANGE THIS PASSWORD before going live ──
+// â”€â”€ CHANGE THIS PASSWORD before going live â”€â”€
 const ADMIN_PW = 'PRMLp369!';
 
 function tryLogin() {
@@ -302,11 +302,11 @@ function checkStatus() {
       const sheetOk  = sheetId  && !sheetId.includes('PASTE_YOUR');
 
       document.getElementById('gas-status').innerHTML = gasOk
-        ? '<div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Apps Script: Connected ✓</span>'
-        : '<div class="dot dot--red"></div><span style="color:var(--cream);opacity:.7">Apps Script: Paste URL in js/main.js line 19 → commit → push</span>';
+        ? '<div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Apps Script: Connected âœ“</span>'
+        : '<div class="dot dot--red"></div><span style="color:var(--cream);opacity:.7">Apps Script: Paste URL in js/main.js line 19 â†’ commit â†’ push</span>';
 
       document.getElementById('sheets-status').innerHTML = sheetOk
-        ? '<div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Sheet ID: Wired in ✓ (10hOO67u...)</span>'
+        ? '<div class="dot dot--green"></div><span style="color:var(--cream);opacity:.7">Sheet ID: Wired in âœ“ (10hOO67u...)</span>'
         : '<div class="dot dot--yellow"></div><span style="color:var(--cream);opacity:.7">Sheet ID: Check js/sheets-fetcher.js</span>';
 
       document.getElementById('stripe-status').innerHTML =
@@ -326,7 +326,7 @@ function loadMetrics() {
       if (d.count !== undefined) document.getElementById('metric-ml').textContent = d.count;
     })
     .catch(() => {
-      document.getElementById('metric-ml').textContent = '—';
+      document.getElementById('metric-ml').textContent = 'â€”';
     });
 }
 
@@ -342,4 +342,5 @@ document.getElementById('pw-input')?.addEventListener('keydown', e => {
   if (e.key === 'Enter') tryLogin();
 });
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

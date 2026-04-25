@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,7 +15,7 @@
   <div class="login-box">
     <div class="login-title">The Dashboard</div><div class="login-sub">Restricted Access</div>
     <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password"></div>
-    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -27,16 +27,16 @@
     <a href="goals.html" class="anl" data-page="goals">Goals</a>
     <a href="grants.html" class="anl" data-page="grants">Grants</a>
     <a href="social.html" class="anl" data-page="social">Social</a>
-    <a href="ai.html" class="anl" data-page="ai">✦ AI</a>
+    <a href="ai.html" class="anl" data-page="ai">âœ¦ AI</a>
     <a href="news.html" class="anl" data-page="news">News</a>
     <a href="competitors.html" class="anl" data-page="competitors">Competitors</a>
     <a href="invoice.html" class="anl" data-page="invoice">Invoice</a>
     <a href="product-scanner.html" class="anl" data-page="scanner">Scanner</a>
     <a href="suggestions.html" class="anl" data-page="suggestions">Ideas</a>
     <a href="settings.html" class="anl" data-page="settings">Settings</a>
-    <a href="../index.html" target="_blank" class="anl anl--ext">Site ↗</a>
+    <a href="../index.html" target="_blank" class="anl anl--ext">Site â†—</a>
   </div>
-  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">☰</button>
+  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">â˜°</button>
 </nav>
 
 <div class="adm-wrap">
@@ -50,34 +50,34 @@
       <div class="panel panel--red">
         <div class="f-field">
           <label class="f-label">Topic / Blog Title / Promotion</label>
-          <input class="f-input" id="gen-title" placeholder="e.g. New custom signs now available · Blog post title · Event announcement">
+          <input class="f-input" id="gen-title" placeholder="e.g. New custom signs now available Â· Blog post title Â· Event announcement">
         </div>
         <div class="f-row">
           <div class="f-field"><label class="f-label">Schedule Date (optional)</label><input type="date" class="f-input" id="sched-date"></div>
-          <div style="display:flex;align-items:flex-end"><button class="btn btn-red" id="gen-btn" onclick="generateFromTitle()">✦ Generate Posts</button></div>
+          <div style="display:flex;align-items:flex-end"><button class="btn btn-red" id="gen-btn" onclick="generateFromTitle()">âœ¦ Generate Posts</button></div>
         </div>
       </div>
 
       <!-- OUTPUT -->
       <div id="gen-output" style="display:none">
         <div class="panel" style="margin-bottom:10px">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">📸 Instagram</div>
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">ðŸ“¸ Instagram</div>
           <textarea class="f-textarea" id="out-ig" style="min-height:80px"></textarea>
           <button class="btn btn-sm btn-out" style="margin-top:6px" onclick="addToQueue('ig')">+ Add to Queue</button>
         </div>
         <div class="panel" style="margin-bottom:10px">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">📘 Facebook</div>
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">ðŸ“˜ Facebook</div>
           <textarea class="f-textarea" id="out-fb" style="min-height:70px"></textarea>
           <button class="btn btn-sm btn-out" style="margin-top:6px" onclick="addToQueue('fb')">+ Add to Queue</button>
         </div>
         <div class="panel" style="margin-bottom:10px">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">🐦 X / Twitter</div>
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">ðŸ¦ X / Twitter</div>
           <textarea class="f-textarea" id="out-x" style="min-height:60px"></textarea>
           <div style="font-size:11px;opacity:.35;margin-top:4px" id="x-count"></div>
           <button class="btn btn-sm btn-out" style="margin-top:6px" onclick="addToQueue('x')">+ Add to Queue</button>
         </div>
         <div class="panel" style="margin-bottom:10px">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">💼 LinkedIn</div>
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">ðŸ’¼ LinkedIn</div>
           <textarea class="f-textarea" id="out-li" style="min-height:70px"></textarea>
           <button class="btn btn-sm btn-out" style="margin-top:6px" onclick="addToQueue('li')">+ Add to Queue</button>
         </div>
@@ -85,23 +85,23 @@
           <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Suggested Hashtags</div>
           <div id="out-tags" style="font-size:13px;line-height:1.9;color:var(--red)"></div>
         </div>
-        <button class="btn btn-red" onclick="addAllToQueue()">Queue All Platforms →</button>
+        <button class="btn btn-red" onclick="addAllToQueue()">Queue All Platforms â†’</button>
       </div>
 
       <!-- PLATFORM SETUP GUIDES -->
       <div class="sec-hd" style="margin-top:24px">Platform Setup Guides</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <details style="background:var(--charcoal);padding:14px">
-          <summary style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);cursor:pointer">Buffer (Free — 3 platforms)</summary>
-          <div style="font-size:13px;opacity:.65;margin-top:12px;line-height:1.8">1. Go to buffer.com → Create free account<br>2. Connect Instagram, Facebook, and X (free tier allows 3)<br>3. Copy your generated posts → paste into Buffer → schedule<br>4. Buffer posts for you automatically at the scheduled time</div>
+          <summary style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);cursor:pointer">Buffer (Free â€” 3 platforms)</summary>
+          <div style="font-size:13px;opacity:.65;margin-top:12px;line-height:1.8">1. Go to buffer.com â†’ Create free account<br>2. Connect Instagram, Facebook, and X (free tier allows 3)<br>3. Copy your generated posts â†’ paste into Buffer â†’ schedule<br>4. Buffer posts for you automatically at the scheduled time</div>
         </details>
         <details style="background:var(--charcoal);padding:14px">
-          <summary style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);cursor:pointer">Later (Free — Instagram)</summary>
-          <div style="font-size:13px;opacity:.65;margin-top:12px;line-height:1.8">1. Go to later.com → Free account for 1 Instagram account<br>2. Upload images → drag to calendar → add caption<br>3. Later sends you a push notification to post (free tier)<br>4. Upgrade to auto-publish ($15/mo)</div>
+          <summary style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);cursor:pointer">Later (Free â€” Instagram)</summary>
+          <div style="font-size:13px;opacity:.65;margin-top:12px;line-height:1.8">1. Go to later.com â†’ Free account for 1 Instagram account<br>2. Upload images â†’ drag to calendar â†’ add caption<br>3. Later sends you a push notification to post (free tier)<br>4. Upgrade to auto-publish ($15/mo)</div>
         </details>
         <details style="background:var(--charcoal);padding:14px">
-          <summary style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);cursor:pointer">Meta Business Suite (Free — FB + IG)</summary>
-          <div style="font-size:13px;opacity:.65;margin-top:12px;line-height:1.8">1. business.facebook.com → Connect your FB Page and IG Business Account<br>2. Free scheduling for both Facebook and Instagram<br>3. Also shows your analytics and inbox in one place<br>4. Best free option for FB + IG combined</div>
+          <summary style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);cursor:pointer">Meta Business Suite (Free â€” FB + IG)</summary>
+          <div style="font-size:13px;opacity:.65;margin-top:12px;line-height:1.8">1. business.facebook.com â†’ Connect your FB Page and IG Business Account<br>2. Free scheduling for both Facebook and Instagram<br>3. Also shows your analytics and inbox in one place<br>4. Best free option for FB + IG combined</div>
         </details>
       </div>
     </div>
@@ -114,13 +114,13 @@
       <div class="sec-hd" style="margin-top:28px">Content Ideas</div>
       <div class="panel">
         <div style="font-size:12px;line-height:2;opacity:.65">
-          💡 <strong style="color:var(--cream)">Weekly post schedule:</strong><br>
-          Mon — New product or service spotlight<br>
-          Wed — Client story or testimonial<br>
-          Fri — Behind the scenes or community<br>
-          Sat — SEAUX9 music or events<br>
+          ðŸ’¡ <strong style="color:var(--cream)">Weekly post schedule:</strong><br>
+          Mon â€” New product or service spotlight<br>
+          Wed â€” Client story or testimonial<br>
+          Fri â€” Behind the scenes or community<br>
+          Sat â€” SEAUX9 music or events<br>
           <br>
-          💡 <strong style="color:var(--cream)">High-engagement content:</strong><br>
+          ðŸ’¡ <strong style="color:var(--cream)">High-engagement content:</strong><br>
           Before/after photos of laser work<br>
           Time-lapse of engraving process<br>
           Short Reels of studio sessions<br>
@@ -154,7 +154,7 @@ function renderQueue(){
     el.innerHTML='<div style="opacity:.35;font-size:13px;padding:16px 0">Queue is empty. Generate and schedule posts below.</div>';
     return;
   }
-  const PLAT = {ig:'📸 Instagram',fb:'📘 Facebook',x:'🐦 X',li:'💼 LinkedIn'};
+  const PLAT = {ig:'ðŸ“¸ Instagram',fb:'ðŸ“˜ Facebook',x:'ðŸ¦ X',li:'ðŸ’¼ LinkedIn'};
   el.innerHTML = queue.map((p,i)=>`
     <div style="display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start">
       <div style="min-width:110px">
@@ -208,7 +208,7 @@ async function generateFromTitle(){
   }catch(e){
     alert('AI unavailable. Add your Anthropic API key in Settings.');
   }
-  btn.disabled=false; btn.textContent='✦ Generate Posts';
+  btn.disabled=false; btn.textContent='âœ¦ Generate Posts';
 }
 
 function addToQueue(platform){
@@ -234,4 +234,5 @@ function addAllToQueue(){
   });
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

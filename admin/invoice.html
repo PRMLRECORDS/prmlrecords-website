@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -129,7 +129,7 @@ select option{background:var(--charcoal);color:var(--cream)}
     <div class="field"><label class="section-label">Password</label>
       <input type="password" class="input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()">
     </div>
-    <button class="ai-btn" onclick="tryLogin()">Enter →</button>
+    <button class="ai-btn" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-family:var(--font-body);font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -153,10 +153,10 @@ select option{background:var(--charcoal);color:var(--cream)}
 
     <!-- BRAIN DUMP -->
     <div class="field">
-      <label class="section-label">Brain Dump → AI Invoice</label>
+      <label class="section-label">Brain Dump â†’ AI Invoice</label>
       <textarea id="brain-dump" placeholder="Just describe the job however you want. Example:&#10;&#10;Marcus needs 50 custom keychains with his barber logo engraved, he wants them in wood. Also a custom light box with his shop name. He said budget around $400. Need by next Friday.&#10;&#10;AI will extract line items, prices, and details automatically."></textarea>
       <button class="ai-btn" id="parse-btn" onclick="parseBrainDump()" style="margin-top:10px">
-        <span id="parse-label">✦ Parse with AI → Add to Cart</span>
+        <span id="parse-label">âœ¦ Parse with AI â†’ Add to Cart</span>
         <div class="spinner" id="parse-spinner" style="display:none"></div>
       </button>
       <div class="status status--info" id="parse-status"></div>
@@ -229,7 +229,7 @@ select option{background:var(--charcoal);color:var(--cream)}
 
     <!-- MANUAL ADD ROW (condensed) -->
     <div class="fee-note" id="fee-note" style="display:none">
-      💳 $6.00 Stripe transaction fee added automatically.
+      ðŸ’³ $6.00 Stripe transaction fee added automatically.
     </div>
 
     <div class="totals" id="totals" style="display:none">
@@ -258,7 +258,7 @@ select option{background:var(--charcoal);color:var(--cream)}
 
     <div class="action-strip">
       <button class="act-btn act-btn--out preview-btn" onclick="previewInvoice()" style="font-size:9px;letter-spacing:3px;padding:10px">Preview Invoice</button>
-      <button class="act-btn act-btn--full" id="send-btn" onclick="sendInvoice()">Send Invoice + Request Payment →</button>
+      <button class="act-btn act-btn--full" id="send-btn" onclick="sendInvoice()">Send Invoice + Request Payment â†’</button>
       <button class="act-btn act-btn--out" id="stripe-btn" onclick="openStripe()">Open Stripe Payment Link</button>
       <button class="act-btn act-btn--out" id="log-btn" onclick="logToSheet()">Save to Google Sheet Only</button>
     </div>
@@ -274,20 +274,20 @@ select option{background:var(--charcoal);color:var(--cream)}
 <!-- INVOICE PREVIEW MODAL -->
 <div class="modal" id="inv-modal">
   <div class="modal-inner">
-    <button class="modal-close" onclick="closeModal()">Close Preview ×</button>
+    <button class="modal-close" onclick="closeModal()">Close Preview Ã—</button>
     <div id="invoice-tpl"></div>
   </div>
 </div>
 
 <script>
-/* ── CONFIG ── */
+/* â”€â”€ CONFIG â”€â”€ */
 const ADMIN_PW  = 'PRMLp369!';  // change to match your dashboard password
 const GAS_URL   = 'https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';
 const STRIPE_URL= 'PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE';
 const SHEET_ID  = '10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA';
 const STRIPE_FEE= 6.00;
 
-/* ── AUTH ── */
+/* â”€â”€ AUTH â”€â”€ */
 function tryLogin(){
   if(document.getElementById('pw').value===ADMIN_PW){
     sessionStorage.setItem('prml_admin','1');
@@ -305,7 +305,7 @@ if(sessionStorage.getItem('prml_admin')==='1'){
 }
 document.getElementById('pw')?.addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
 
-/* ── CART STATE ── */
+/* â”€â”€ CART STATE â”€â”€ */
 let cart = [];
 
 function addToCart(name, price, desc=''){
@@ -336,7 +336,7 @@ function renderCart(){
       </div>
       <div>
         <div class="li-price">$${i.price.toFixed(2)}</div>
-        <button class="li-del" onclick="removeItem(${i.id})">Remove ×</button>
+        <button class="li-del" onclick="removeItem(${i.id})">Remove Ã—</button>
       </div>
     </div>`).join('');
   
@@ -371,22 +371,22 @@ function updateCustPreview(){
   const el=document.getElementById('cust-preview');
   el.style.fontStyle='normal';
   el.style.opacity='1';
-  el.innerHTML = n ? `<strong style="color:var(--cream)">${n}</strong>${b?' · '+b:''}<br><span style="opacity:.5;font-size:12px">${e||'No email yet'}</span>` : '<span style="opacity:.4;font-style:italic">Fill in customer info on the left.</span>';
+  el.innerHTML = n ? `<strong style="color:var(--cream)">${n}</strong>${b?' Â· '+b:''}<br><span style="opacity:.5;font-size:12px">${e||'No email yet'}</span>` : '<span style="opacity:.4;font-style:italic">Fill in customer info on the left.</span>';
 }
 
-/* ── PAY TYPE TOGGLE ── */
+/* â”€â”€ PAY TYPE TOGGLE â”€â”€ */
 document.getElementById('pay-type').addEventListener('change',function(){
   document.getElementById('custom-amt-row').style.display=this.value==='custom'?'block':'none';
   updateDueAmount();
 });
 
-/* ── INPUT LISTENERS ── */
+/* â”€â”€ INPUT LISTENERS â”€â”€ */
 ['cust-name','cust-email','cust-biz','cust-phone'].forEach(id=>{
   document.getElementById(id)?.addEventListener('input',updateCustPreview);
 });
 document.getElementById('custom-amt')?.addEventListener('input',updateDueAmount);
 
-/* ── MANUAL ADD ── */
+/* â”€â”€ MANUAL ADD â”€â”€ */
 function addManualLine(){
   const name  = document.getElementById('li-name').value.trim();
   const price = document.getElementById('li-price').value;
@@ -398,7 +398,7 @@ function addManualLine(){
   document.getElementById('li-desc').value='';
 }
 
-/* ── AI BRAIN DUMP PARSER ── */
+/* â”€â”€ AI BRAIN DUMP PARSER â”€â”€ */
 async function parseBrainDump(){
   const dump = document.getElementById('brain-dump').value.trim();
   if(!dump){ alert('Paste a description first.'); return; }
@@ -431,7 +431,7 @@ If price isn't stated, estimate a fair price based on these rates:
 - CD duplication: $3-8/each
 - Event invitations (digital): $75-200 per design
 
-Note: Stripe adds a $6 flat fee automatically — do NOT include it in line items.
+Note: Stripe adds a $6 flat fee automatically â€” do NOT include it in line items.
 
 Return ONLY valid JSON, no markdown, no explanation:
 {
@@ -474,7 +474,7 @@ ${dump}`;
       if(item.name && item.price>0){
         const qty = parseInt(item.qty)||1;
         const total = item.price * qty;
-        const desc = qty>1 ? `Qty: ${qty} × $${item.price.toFixed(2)}${item.desc?' · '+item.desc:''}` : item.desc;
+        const desc = qty>1 ? `Qty: ${qty} Ã— $${item.price.toFixed(2)}${item.desc?' Â· '+item.desc:''}` : item.desc;
         addToCart(item.name, total, desc);
         added++;
       }
@@ -491,7 +491,7 @@ ${dump}`;
 
     sta.style.display='block';
     sta.className='status status--ok';
-    sta.textContent = `✓ Added ${added} item${added!==1?'s':''} to cart. Review and adjust prices as needed.`;
+    sta.textContent = `âœ“ Added ${added} item${added!==1?'s':''} to cart. Review and adjust prices as needed.`;
 
     updateCustPreview();
 
@@ -504,7 +504,7 @@ ${dump}`;
   btn.disabled=false; lbl.style.display='flex'; spn.style.display='none';
 }
 
-/* ── BUILD INVOICE DATA ── */
+/* â”€â”€ BUILD INVOICE DATA â”€â”€ */
 function buildInvoiceData(){
   const name   = document.getElementById('cust-name').value.trim();
   const email  = document.getElementById('cust-email').value.trim();
@@ -526,7 +526,7 @@ function buildInvoiceData(){
   return { name, email, phone, biz, notes, type, sub, total, amount, inv_num, today, dueStr, items:cart };
 }
 
-/* ── INVOICE HTML TEMPLATE ── */
+/* â”€â”€ INVOICE HTML TEMPLATE â”€â”€ */
 function buildInvoiceHTML(d){
   const rows = d.items.map(i=>`
     <tr>
@@ -541,7 +541,7 @@ function buildInvoiceHTML(d){
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:24px;border-bottom:3px solid #E01010">
     <div>
       <div style="font-family:'Arial Black',sans-serif;font-size:26px;color:#E01010;letter-spacing:-0.5px">PRML Records LLC</div>
-      <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#555;margin-top:3px">West End · Atlanta · Georgia</div>
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#555;margin-top:3px">West End Â· Atlanta Â· Georgia</div>
       <div style="font-size:12px;color:#555;margin-top:6px;line-height:1.7">
         770-686-7726<br>info@prmlrecords.com<br>www.prmlrecords.com
       </div>
@@ -557,7 +557,7 @@ function buildInvoiceHTML(d){
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:32px">
     <div>
       <div style="font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#E01010;margin-bottom:8px">Bill To</div>
-      <div style="font-weight:700;font-size:15px">${d.name||'—'}</div>
+      <div style="font-weight:700;font-size:15px">${d.name||'â€”'}</div>
       ${d.biz?`<div style="font-size:13px;color:#555">${d.biz}</div>`:''}
       ${d.email?`<div style="font-size:12px;color:#555">${d.email}</div>`:''}
       ${d.phone?`<div style="font-size:12px;color:#555">${d.phone}</div>`:''}
@@ -605,27 +605,27 @@ function buildInvoiceHTML(d){
   <div style="clear:both;border-top:2px solid #f0e8d5;padding-top:20px">
     ${d.notes?`<p style="font-size:13px;color:#2B2B2B;margin-bottom:12px;font-style:italic">${d.notes}</p>`:''}
     <p style="font-size:11px;color:#888;line-height:1.8">
-      PRML Records LLC · West End, Atlanta, Georgia · 770-686-7726 · info@prmlrecords.com<br>
-      Peace · Freedom · Justice · Equality · Black-owned since 2019
+      PRML Records LLC Â· West End, Atlanta, Georgia Â· 770-686-7726 Â· info@prmlrecords.com<br>
+      Peace Â· Freedom Â· Justice Â· Equality Â· Black-owned since 2019
     </p>
   </div>
 </div>`;
 }
 
-/* ── PREVIEW ── */
+/* â”€â”€ PREVIEW â”€â”€ */
 function previewInvoice(){
   if(cart.length===0){ alert('Add items to cart first.'); return; }
   const d = buildInvoiceData();
   document.getElementById('inv-modal').innerHTML =
     `<div class="modal-inner">
-      <button class="modal-close" onclick="closeModal()">Close Preview × &nbsp; (Print: Ctrl+P)</button>
+      <button class="modal-close" onclick="closeModal()">Close Preview Ã— &nbsp; (Print: Ctrl+P)</button>
       ${buildInvoiceHTML(d)}
     </div>`;
   document.getElementById('inv-modal').classList.add('open');
 }
 function closeModal(){ document.getElementById('inv-modal').classList.remove('open'); }
 
-/* ── SEND INVOICE ── */
+/* â”€â”€ SEND INVOICE â”€â”€ */
 async function sendInvoice(){
   if(cart.length===0){ alert('Add items to cart first.'); return; }
   const name  = document.getElementById('cust-name').value.trim();
@@ -646,7 +646,7 @@ async function sendInvoice(){
     customer_email: d.email,
     customer_phone: d.phone,
     customer_biz:   d.biz,
-    items: d.items.map(i=>i.name+' — $'+i.price.toFixed(2)).join('\n'),
+    items: d.items.map(i=>i.name+' â€” $'+i.price.toFixed(2)).join('\n'),
     subtotal:   d.sub.toFixed(2),
     stripe_fee: STRIPE_FEE.toFixed(2),
     total:      d.total.toFixed(2),
@@ -663,9 +663,9 @@ async function sendInvoice(){
   if(!GAS_URL||GAS_URL.includes('PASTE_YOUR')){
     sta.style.display='block';
     sta.className='status status--info';
-    sta.textContent='Invoice built (Apps Script not connected — once connected, this will email the invoice to '+email+' and log to your Sheet automatically).';
+    sta.textContent='Invoice built (Apps Script not connected â€” once connected, this will email the invoice to '+email+' and log to your Sheet automatically).';
     previewInvoice();
-    btn.disabled=false; btn.textContent='Send Invoice + Request Payment →';
+    btn.disabled=false; btn.textContent='Send Invoice + Request Payment â†’';
     return;
   }
 
@@ -677,16 +677,16 @@ async function sendInvoice(){
     });
     sta.style.display='block';
     sta.className='status status--ok';
-    sta.textContent='✓ Invoice #'+d.inv_num+' sent to '+email+' and logged to your sheet.';
+    sta.textContent='âœ“ Invoice #'+d.inv_num+' sent to '+email+' and logged to your sheet.';
   } catch(e){
     sta.style.display='block';
     sta.className='status status--err';
     sta.textContent='Send failed. Try logging to sheet instead, or email manually.';
   }
-  btn.disabled=false; btn.textContent='Send Invoice + Request Payment →';
+  btn.disabled=false; btn.textContent='Send Invoice + Request Payment â†’';
 }
 
-/* ── STRIPE LINK ── */
+/* â”€â”€ STRIPE LINK â”€â”€ */
 function openStripe(){
   if(STRIPE_URL&&!STRIPE_URL.includes('PASTE_YOUR')){
     window.open(STRIPE_URL,'_blank');
@@ -695,7 +695,7 @@ function openStripe(){
   }
 }
 
-/* ── LOG TO SHEET ONLY ── */
+/* â”€â”€ LOG TO SHEET ONLY â”€â”€ */
 async function logToSheet(){
   if(cart.length===0){ alert('Add items first.'); return; }
   const d = buildInvoiceData();
@@ -707,8 +707,8 @@ async function logToSheet(){
     type:'INVOICE',
     ts: new Date().toISOString(),
     invoice_num: d.inv_num,
-    customer_name:  d.name||'—',
-    customer_email: d.email||'—',
+    customer_name:  d.name||'â€”',
+    customer_email: d.email||'â€”',
     items: d.items.map(i=>i.name+' $'+i.price.toFixed(2)).join(' | '),
     total: d.total.toFixed(2),
     amount_due: d.amount.toFixed(2),
@@ -720,14 +720,14 @@ async function logToSheet(){
     try {
       await fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       sta.style.display='block'; sta.className='status status--ok';
-      sta.textContent='✓ Invoice #'+d.inv_num+' logged to Google Sheet.';
+      sta.textContent='âœ“ Invoice #'+d.inv_num+' logged to Google Sheet.';
     } catch(e){
       sta.style.display='block'; sta.className='status status--err';
       sta.textContent='Save failed. Check Apps Script connection.';
     }
   } else {
     sta.style.display='block'; sta.className='status status--info';
-    sta.textContent='Sheet not connected yet. Invoice #'+d.inv_num+' — Total: $'+d.total.toFixed(2);
+    sta.textContent='Sheet not connected yet. Invoice #'+d.inv_num+' â€” Total: $'+d.total.toFixed(2);
   }
   btn.disabled=false; btn.textContent='Save to Google Sheet Only';
 }
@@ -739,4 +739,5 @@ function initApp(){
 }
 if(sessionStorage.getItem('prml_admin')==='1') initApp();
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -94,7 +94,7 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
       <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Password</label>
       <input type="password" class="input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()">
     </div>
-    <button onclick="tryLogin()" style="width:100%;padding:14px;background:var(--red);color:var(--cream);border:none;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer">Enter →</button>
+    <button onclick="tryLogin()" style="width:100%;padding:14px;background:var(--red);color:var(--cream);border:none;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -111,14 +111,14 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
 
 <div class="wrap">
   <div class="page-title">Product Scanner</div>
-  <div class="page-sub">Drop product photos here. AI identifies each item, generates a name, category, description, and suggested price — then you can push everything to your Google Sheet with one click.</div>
+  <div class="page-sub">Drop product photos here. AI identifies each item, generates a name, category, description, and suggested price â€” then you can push everything to your Google Sheet with one click.</div>
 
   <!-- UPLOAD ZONE -->
   <div class="upload-zone" id="drop-zone">
     <input type="file" id="file-input" accept="image/*" multiple onchange="handleFiles(this.files)">
-    <div class="uz-icon">📸</div>
+    <div class="uz-icon">ðŸ“¸</div>
     <div class="uz-title">Drop product photos here</div>
-    <div class="uz-sub">Or click to browse · JPG, PNG, WEBP · Multiple files OK</div>
+    <div class="uz-sub">Or click to browse Â· JPG, PNG, WEBP Â· Multiple files OK</div>
   </div>
 
   <!-- IMAGE QUEUE -->
@@ -126,7 +126,7 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
     <div class="queue-header">
       <div class="queue-title" id="queue-count">0 images queued</div>
       <button class="scan-btn" id="scan-btn" onclick="scanAll()">
-        <span id="scan-label">✦ Scan All with AI</span>
+        <span id="scan-label">âœ¦ Scan All with AI</span>
         <div class="spinner" id="scan-spinner" style="display:none"></div>
       </button>
     </div>
@@ -135,7 +135,7 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
 
   <!-- RESULTS TABLE -->
   <div id="results-wrap" style="display:none">
-    <div class="results-header">Scanned Products — Review & Edit Before Saving</div>
+    <div class="results-header">Scanned Products â€” Review & Edit Before Saving</div>
     <table class="results-table">
       <thead>
         <tr>
@@ -151,7 +151,7 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
     </table>
 
     <div class="action-bar">
-      <button class="btn btn-red" onclick="pushToSheet()">Push All to Google Sheet →</button>
+      <button class="btn btn-red" onclick="pushToSheet()">Push All to Google Sheet â†’</button>
       <button class="btn btn-out" onclick="exportCSV()">Download as CSV</button>
       <button class="btn btn-out" onclick="clearAll()">Clear & Start Over</button>
     </div>
@@ -167,44 +167,44 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
         <div class="tool-name">Canva Mockups</div>
         <div class="tool-tag">Free</div>
         <div class="tool-desc">Mockup templates for signs, keychains, tote bags, t-shirts, mugs, phone cases. Drag your design onto the product. One-click export.</div>
-        <a class="tool-link" href="https://www.canva.com/create/mockups/" target="_blank">Open Canva Mockups →</a>
+        <a class="tool-link" href="https://www.canva.com/create/mockups/" target="_blank">Open Canva Mockups â†’</a>
       </div>
       <div class="tool-card">
         <div class="tool-name">Placeit by Envato</div>
         <div class="tool-tag">Free + Paid</div>
         <div class="tool-desc">Best for album artwork mockups, CD cases, stickers, apparel, and phone cases. Free tier available. Photorealistic results.</div>
-        <a class="tool-link" href="https://placeit.net/c/mockups" target="_blank">Open Placeit →</a>
+        <a class="tool-link" href="https://placeit.net/c/mockups" target="_blank">Open Placeit â†’</a>
       </div>
       <div class="tool-card">
         <div class="tool-name">Adobe Express</div>
         <div class="tool-tag">Free Tier</div>
         <div class="tool-desc">Quick mockups, product photo editing, background removal, and brand template creation. Free with Adobe account.</div>
-        <a class="tool-link" href="https://www.adobe.com/express/create/mockup" target="_blank">Open Adobe Express →</a>
+        <a class="tool-link" href="https://www.adobe.com/express/create/mockup" target="_blank">Open Adobe Express â†’</a>
       </div>
       <div class="tool-card">
         <div class="tool-name">Smartmockups</div>
         <div class="tool-tag">Free</div>
         <div class="tool-desc">Good for stickers, postcards, invitations, CDs, and business cards. Upload your artwork, instant photorealistic mockup.</div>
-        <a class="tool-link" href="https://smartmockups.com" target="_blank">Open Smartmockups →</a>
+        <a class="tool-link" href="https://smartmockups.com" target="_blank">Open Smartmockups â†’</a>
       </div>
       <div class="tool-card">
         <div class="tool-name">Mockup World</div>
         <div class="tool-tag">100% Free</div>
         <div class="tool-desc">Completely free Photoshop mockup files. Download PSD templates for signs, prints, keychains, phone cases, and more.</div>
-        <a class="tool-link" href="https://www.mockupworld.co" target="_blank">Open Mockup World →</a>
+        <a class="tool-link" href="https://www.mockupworld.co" target="_blank">Open Mockup World â†’</a>
       </div>
       <div class="tool-card">
         <div class="tool-name">Remove.bg</div>
         <div class="tool-tag">Free</div>
         <div class="tool-desc">Remove background from any product photo in seconds. Essential step before placing your product on a mockup background.</div>
-        <a class="tool-link" href="https://remove.bg" target="_blank">Open Remove.bg →</a>
+        <a class="tool-link" href="https://remove.bg" target="_blank">Open Remove.bg â†’</a>
       </div>
     </div>
 
     <div style="margin-top:24px;padding:16px;background:rgba(224,16,16,.08);border-left:3px solid var(--red)">
       <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Recommended Workflow</div>
       <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.8">
-        1. Take or find a photo of the product → 2. Remove.bg to clean background → 3. Canva or Placeit to create mockup → 4. Upload mockup to Google Drive → 5. Get shareable link → 6. Drop image here to scan → AI tags it → Push to Sheet → Appears on website
+        1. Take or find a photo of the product â†’ 2. Remove.bg to clean background â†’ 3. Canva or Placeit to create mockup â†’ 4. Upload mockup to Google Drive â†’ 5. Get shareable link â†’ 6. Drop image here to scan â†’ AI tags it â†’ Push to Sheet â†’ Appears on website
       </div>
     </div>
   </div>
@@ -241,13 +241,13 @@ if(sessionStorage.getItem('prml_admin')==='1'){
 }
 document.getElementById('pw')?.addEventListener('keydown',e=>{ if(e.key==='Enter') tryLogin(); });
 
-/* ── DRAG/DROP ── */
+/* â”€â”€ DRAG/DROP â”€â”€ */
 const dz = document.getElementById('drop-zone');
 dz.addEventListener('dragover',e=>{ e.preventDefault(); dz.classList.add('drag'); });
 dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
 dz.addEventListener('drop',e=>{ e.preventDefault(); dz.classList.remove('drag'); handleFiles(e.dataTransfer.files); });
 
-/* ── IMAGE QUEUE ── */
+/* â”€â”€ IMAGE QUEUE â”€â”€ */
 let imageQueue = []; // [{id, file, dataUrl, status}]
 let scannedResults = []; // [{id, dataUrl, name, category, price, description}]
 
@@ -275,7 +275,7 @@ function renderQueue(){
     <div class="q-card" id="qc-${img.id}">
       <img src="${img.dataUrl}" alt="${img.file.name}">
       <div class="q-name">${img.file.name}</div>
-      <button class="q-del" onclick="removeQueued(${img.id})">×</button>
+      <button class="q-del" onclick="removeQueued(${img.id})">Ã—</button>
       ${img.status!=='queued'?`<div class="q-status ${img.status}">${img.status}</div>`:''}
     </div>`).join('');
 }
@@ -285,7 +285,7 @@ function removeQueued(id){
   renderQueue();
 }
 
-/* ── AI SCAN ── */
+/* â”€â”€ AI SCAN â”€â”€ */
 async function scanAll(){
   if(imageQueue.length===0){ alert('Add images first.'); return; }
   const btn = document.getElementById('scan-btn');
@@ -301,7 +301,7 @@ async function scanAll(){
       updateQueueStatus(img.id,'done');
     } catch(e){
       console.error('Scan error:',e);
-      scannedResults.push({ id: img.id, dataUrl: img.dataUrl, name: img.file.name.replace(/\.[^.]+$/,''), category:'Other', price:0, description:'Could not auto-scan — fill in manually.' });
+      scannedResults.push({ id: img.id, dataUrl: img.dataUrl, name: img.file.name.replace(/\.[^.]+$/,''), category:'Other', price:0, description:'Could not auto-scan â€” fill in manually.' });
       updateQueueStatus(img.id,'err');
     }
   }
@@ -379,14 +379,14 @@ function renderResults(){
       </td>
       <td><input type="number" value="${r.price||0}" min="0" step="0.01" onchange="updateResult(${i},'price',parseFloat(this.value))"></td>
       <td><input type="text" value="${r.description||''}" onchange="updateResult(${i},'description',this.value)"></td>
-      <td><button onclick="removeResult(${i})" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:18px">×</button></td>
+      <td><button onclick="removeResult(${i})" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:18px">Ã—</button></td>
     </tr>`).join('');
 }
 
 function updateResult(i, key, val){ scannedResults[i][key]=val; }
 function removeResult(i){ scannedResults.splice(i,1); renderResults(); }
 
-/* ── PUSH TO SHEET ── */
+/* â”€â”€ PUSH TO SHEET â”€â”€ */
 async function pushToSheet(){
   if(scannedResults.length===0){ alert('Nothing to push.'); return; }
   const sta = document.getElementById('push-status');
@@ -409,7 +409,7 @@ async function pushToSheet(){
     sta.style.display='block';
     sta.className='status status-info';
     sta.textContent='Apps Script not connected yet. Download as CSV to import manually to your Sheet.';
-    btn.disabled=false; btn.textContent='Push All to Google Sheet →';
+    btn.disabled=false; btn.textContent='Push All to Google Sheet â†’';
     return;
   }
 
@@ -419,16 +419,16 @@ async function pushToSheet(){
     }
     sta.style.display='block';
     sta.className='status status-ok';
-    sta.textContent='✓ '+rows.length+' products pushed to your Google Sheet. Open the sheet to add image URLs and set prices.';
+    sta.textContent='âœ“ '+rows.length+' products pushed to your Google Sheet. Open the sheet to add image URLs and set prices.';
   } catch(e){
     sta.style.display='block';
     sta.className='status status-err';
     sta.textContent='Push failed. Download as CSV instead.';
   }
-  btn.disabled=false; btn.textContent='Push All to Google Sheet →';
+  btn.disabled=false; btn.textContent='Push All to Google Sheet â†’';
 }
 
-/* ── CSV EXPORT ── */
+/* â”€â”€ CSV EXPORT â”€â”€ */
 function exportCSV(){
   if(scannedResults.length===0){ alert('No results to export.'); return; }
   const headers = ['name','category','price','description','active','imageurl'];
@@ -450,4 +450,5 @@ function exportCSV(){
 
 function clearAll(){ imageQueue=[]; scannedResults=[]; renderQueue(); renderResults(); document.getElementById('file-input').value=''; }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

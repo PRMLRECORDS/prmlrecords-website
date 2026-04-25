@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -32,7 +32,7 @@
   <div class="login-box">
     <div class="login-title">The Dashboard</div><div class="login-sub">Restricted Access</div>
     <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()"></div>
-    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -43,7 +43,7 @@
     <a href="index.html" class="anl">Dashboard</a>
     <a href="analytics.html" class="anl">Analytics</a>
     <a href="social.html" class="anl">Social</a>
-    <a href="ai.html" class="anl">✦ AI</a>
+    <a href="ai.html" class="anl">âœ¦ AI</a>
     <a href="news.html" class="anl active">News</a>
     <a href="competitors.html" class="anl">Competitors</a>
     <a href="goals.html" class="anl">Goals</a>
@@ -60,8 +60,8 @@
       <p>Curated from Billboard, HipHopDX, Pigeons &amp; Planes, Rolling Stone, The Source</p>
     </div>
     <div style="display:flex;gap:8px;padding-top:8px">
-      <button class="btn btn-out btn-sm" onclick="loadNews()">↻ Refresh</button>
-      <button class="btn btn-red btn-sm" id="summarize-btn" onclick="runSummarize()">⚡ Summarize Top 5</button>
+      <button class="btn btn-out btn-sm" onclick="loadNews()">â†» Refresh</button>
+      <button class="btn btn-red btn-sm" id="summarize-btn" onclick="runSummarize()">âš¡ Summarize Top 5</button>
     </div>
   </div>
 
@@ -83,14 +83,14 @@
 
     <!-- SIDEBAR -->
     <div class="sidebar-panel">
-      <div class="sidebar-title">⚡ AI Summary</div>
+      <div class="sidebar-title">âš¡ AI Summary</div>
       <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.4;line-height:1.6;margin-bottom:12px">
         Click "Summarize Top 5" to get Claude's take on what today's headlines mean for PRML Records.
       </div>
       <div class="ai-summary-box" id="ai-summary"></div>
 
       <div style="margin-top:24px">
-        <div class="sidebar-title">📌 Saved</div>
+        <div class="sidebar-title">ðŸ“Œ Saved</div>
         <div id="saved-list">
           <div style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.3">No saved articles yet.</div>
         </div>
@@ -112,7 +112,7 @@ function tryLogin() {
   }
 }
 
-// Seeded news items — replace with RSS/API fetch in production
+// Seeded news items â€” replace with RSS/API fetch in production
 const NEWS = [
   { source: 'Billboard', headline: 'Independent Labels See 34% Revenue Surge in Streaming Era', summary: 'New data shows indie labels capturing more streaming market share, with distribution deals and direct-to-fan strategies driving unprecedented growth.', time: '2h ago', url: '#', relevant: true },
   { source: 'HipHopDX', headline: 'Atlanta Hip-Hop Scene Dominates Streaming Charts Heading Into Summer', summary: 'Atlanta-based artists account for 3 of the top 10 most-streamed hip-hop tracks this month, cementing the city\'s dominance in the genre.', time: '4h ago', url: '#', relevant: true },
@@ -121,7 +121,7 @@ const NEWS = [
   { source: 'Billboard', headline: 'TikTok\'s New SoundOn Program Expands Music Distribution Options', summary: 'TikTok launches expanded distribution features for independent artists, allowing direct monetization without traditional label deals.', time: '10h ago', url: '#', relevant: false },
   { source: 'The Source', headline: 'DistroKid vs TuneCore vs CD Baby: 2026 Comparison for Independent Labels', summary: 'An in-depth breakdown of distribution platform fees, royalty splits, and features that matter most for growing indie labels.', time: '12h ago', url: '#', relevant: false },
   { source: 'HipHopDX', headline: 'Sync Licensing Revenue Up 40% for Independent Music Catalogs', summary: 'Independent music catalogs are seeing record sync licensing revenue as streaming shows, podcasts, and ads compete for authentic sound.', time: '1d ago', url: '#', relevant: false },
-  { source: 'Pigeons & Planes', headline: 'How Independent Labels Are Using AI to Compete with Majors', summary: 'A look at the AI tools — from production to marketing — that indie labels are deploying to level the playing field against major label budgets.', time: '1d ago', url: '#', relevant: false },
+  { source: 'Pigeons & Planes', headline: 'How Independent Labels Are Using AI to Compete with Majors', summary: 'A look at the AI tools â€” from production to marketing â€” that indie labels are deploying to level the playing field against major label budgets.', time: '1d ago', url: '#', relevant: false },
 ];
 
 let saved = [];
@@ -142,9 +142,9 @@ function renderNews(items) {
       <div class="news-headline">${item.headline}</div>
       <div class="news-summary">${item.summary}</div>
       <div class="news-actions">
-        <button class="btn btn-out btn-sm" onclick="markRelevant(${i})">✓ Relevant</button>
-        <button class="btn btn-out btn-sm" onclick="saveArticle(${i})">📌 Save</button>
-        ${item.url !== '#' ? `<a href="${item.url}" target="_blank" class="btn btn-out btn-sm">↗ Read</a>` : ''}
+        <button class="btn btn-out btn-sm" onclick="markRelevant(${i})">âœ“ Relevant</button>
+        <button class="btn btn-out btn-sm" onclick="saveArticle(${i})">ðŸ“Œ Save</button>
+        ${item.url !== '#' ? `<a href="${item.url}" target="_blank" class="btn btn-out btn-sm">â†— Read</a>` : ''}
       </div>
     `;
     list.appendChild(div);
@@ -184,7 +184,7 @@ async function runSummarize() {
   if (!ClaudeAdmin.requireKey()) return;
   const btn = document.getElementById('summarize-btn');
   ClaudeAdmin.setLoading(btn, true);
-  const top5 = allNews.slice(0, 5).map(n => `${n.source}: ${n.headline} — ${n.summary}`).join('\n\n');
+  const top5 = allNews.slice(0, 5).map(n => `${n.source}: ${n.headline} â€” ${n.summary}`).join('\n\n');
   try {
     const text = await ClaudeAdmin.summarizeNews(top5);
     const box = document.getElementById('ai-summary');
@@ -192,11 +192,12 @@ async function runSummarize() {
     box.classList.add('visible');
   } catch (e) {
     const box = document.getElementById('ai-summary');
-    box.textContent = '⚠️ ' + e.message;
+    box.textContent = 'âš ï¸ ' + e.message;
     box.classList.add('visible');
   }
-  ClaudeAdmin.setLoading(btn, false, '⚡ Summarize Top 5');
+  ClaudeAdmin.setLoading(btn, false, 'âš¡ Summarize Top 5');
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>

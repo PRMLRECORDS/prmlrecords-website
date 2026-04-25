@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,7 +20,7 @@
     <div class="f-field"><label class="f-label">Password</label>
       <input type="password" class="f-input" id="pw" placeholder="Admin password">
     </div>
-    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -34,36 +34,36 @@
     <a href="goals.html" class="anl" data-page="goals">Goals</a>
     <a href="grants.html" class="anl" data-page="grants">Grants</a>
     <a href="social.html" class="anl" data-page="social">Social</a>
-    <a href="ai.html" class="anl" data-page="ai">✦ AI</a>
+    <a href="ai.html" class="anl" data-page="ai">âœ¦ AI</a>
     <a href="news.html" class="anl" data-page="news">News</a>
     <a href="competitors.html" class="anl" data-page="competitors">Competitors</a>
     <a href="invoice.html" class="anl" data-page="invoice">Invoice</a>
     <a href="product-scanner.html" class="anl" data-page="scanner">Scanner</a>
-    <a href="booking.html" class="sn-item">🎤 Booking</a>
-      <a href="documents.html" class="sn-item">📁 Documents</a>
-      <a href="strategy.html" class="sn-item">🧠 Strategy</a>
+    <a href="booking.html" class="sn-item">ðŸŽ¤ Booking</a>
+      <a href="documents.html" class="sn-item">ðŸ“ Documents</a>
+      <a href="strategy.html" class="sn-item">ðŸ§  Strategy</a>
       <a href="suggestions.html" class="anl" data-page="suggestions">Ideas</a>
     <a href="settings.html" class="anl" data-page="settings">Settings</a>
-    <a href="console.html" class="anl" data-page="console" style="color:#E01010;font-weight:700">⚡ Console</a>
-    <a href="../index.html" target="_blank" class="anl anl--ext">Site ↗</a>
+    <a href="console.html" class="anl" data-page="console" style="color:#E01010;font-weight:700">âš¡ Console</a>
+    <a href="../index.html" target="_blank" class="anl anl--ext">Site â†—</a>
   </div>
-  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">☰</button>
+  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">â˜°</button>
 </nav>
 
 <div class="adm-wrap" id="admin-app">
   <div class="page-hd">
     <h1>Dashboard</h1>
-    <p>PRML Records LLC · West End Atlanta · <span id="dash-date"></span></p>
+    <p>PRML Records LLC Â· West End Atlanta Â· <span id="dash-date"></span></p>
   </div>
 
   <!-- KPI CARDS -->
   <div class="card-row" id="kpi-row">
-    <div class="adm-card"><div class="adm-card__label">Active Goals</div><div class="adm-card__val" id="k-goals">—</div><div class="adm-card__sub">90-day tracker</div></div>
-    <div class="adm-card"><div class="adm-card__label">Open Grants</div><div class="adm-card__val" id="k-grants">—</div><div class="adm-card__sub">Pending / In Progress</div></div>
-    <div class="adm-card"><div class="adm-card__label">Blog Posts</div><div class="adm-card__val" id="k-posts">—</div><div class="adm-card__sub">Published</div></div>
-    <div class="adm-card"><div class="adm-card__label">Social Queue</div><div class="adm-card__val" id="k-social">—</div><div class="adm-card__sub">Scheduled posts</div></div>
-    <div class="adm-card"><div class="adm-card__label">Leads (30d)</div><div class="adm-card__val" id="k-leads">—</div><div class="adm-card__sub">From contact forms</div></div>
-    <div class="adm-card"><div class="adm-card__label">Invoices</div><div class="adm-card__val" id="k-invoices">—</div><div class="adm-card__sub">Outstanding</div></div>
+    <div class="adm-card"><div class="adm-card__label">Active Goals</div><div class="adm-card__val" id="k-goals">â€”</div><div class="adm-card__sub">90-day tracker</div></div>
+    <div class="adm-card"><div class="adm-card__label">Open Grants</div><div class="adm-card__val" id="k-grants">â€”</div><div class="adm-card__sub">Pending / In Progress</div></div>
+    <div class="adm-card"><div class="adm-card__label">Blog Posts</div><div class="adm-card__val" id="k-posts">â€”</div><div class="adm-card__sub">Published</div></div>
+    <div class="adm-card"><div class="adm-card__label">Social Queue</div><div class="adm-card__val" id="k-social">â€”</div><div class="adm-card__sub">Scheduled posts</div></div>
+    <div class="adm-card"><div class="adm-card__label">Leads (30d)</div><div class="adm-card__val" id="k-leads">â€”</div><div class="adm-card__sub">From contact forms</div></div>
+    <div class="adm-card"><div class="adm-card__label">Invoices</div><div class="adm-card__val" id="k-invoices">â€”</div><div class="adm-card__sub">Outstanding</div></div>
   </div>
 
   <div class="split">
@@ -71,12 +71,12 @@
     <div>
       <div class="sec-hd">Quick Actions</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px">
-        <a href="blog.html" class="btn btn-red">✦ New Blog Post</a>
-        <a href="invoice.html" class="btn btn-red">✦ New Invoice</a>
-        <a href="goals.html" class="btn btn-out">→ Update Goals</a>
-        <a href="grants.html" class="btn btn-out">→ Grant Tracker</a>
-        <a href="social.html" class="btn btn-out">→ Social Hub</a>
-        <a href="product-scanner.html" class="btn btn-out">→ Scan Products</a>
+        <a href="blog.html" class="btn btn-red">âœ¦ New Blog Post</a>
+        <a href="invoice.html" class="btn btn-red">âœ¦ New Invoice</a>
+        <a href="goals.html" class="btn btn-out">â†’ Update Goals</a>
+        <a href="grants.html" class="btn btn-out">â†’ Grant Tracker</a>
+        <a href="social.html" class="btn btn-out">â†’ Social Hub</a>
+        <a href="product-scanner.html" class="btn btn-out">â†’ Scan Products</a>
       </div>
 
       <!-- UPCOMING (goals/grants deadlines) -->
@@ -120,11 +120,11 @@ function renderSetupStatus(){
   const items = [
     { label:'Apps Script URL', ok: gas, fix:'settings.html' },
     { label:'Stripe Payment Link', ok: stripe, fix:'settings.html' },
-    { label:'Google Sheet ID', ok: true, note:'10hOO67u... ✓' },
+    { label:'Google Sheet ID', ok: true, note:'10hOO67u... âœ“' },
   ];
   document.getElementById('setup-status').innerHTML = items.map(i=>`
     <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)">
-      <span style="color:${i.ok?'#4ade80':'var(--red)'};font-size:16px">${i.ok?'✓':'✗'}</span>
+      <span style="color:${i.ok?'#4ade80':'var(--red)'};font-size:16px">${i.ok?'âœ“':'âœ—'}</span>
       <span style="font-size:13px;flex:1">${i.label}</span>
       ${i.ok ? `<span style="font-size:11px;opacity:.4">${i.note||'Connected'}</span>` : `<a href="${i.fix}" class="btn btn-sm btn-out">Set Up</a>`}
     </div>`).join('');
@@ -143,7 +143,7 @@ async function loadDashboardData(){
       document.getElementById('recent-posts').innerHTML = postsData.posts.slice(0,5).map(p=>`
         <div style="padding:9px 0;border-bottom:1px solid var(--border)">
           <div style="font-size:13px;color:var(--cream)">${p.title||'Untitled'}</div>
-          <div style="font-size:11px;opacity:.4;margin-top:2px">${p.date||''} · <span class="badge ${p.published?'badge--green':'badge--gray'}">${p.published?'Published':'Draft'}</span></div>
+          <div style="font-size:11px;opacity:.4;margin-top:2px">${p.date||''} Â· <span class="badge ${p.published?'badge--green':'badge--gray'}">${p.published?'Published':'Draft'}</span></div>
         </div>`).join('') || '<div style="opacity:.35;font-size:13px">No posts yet.</div>';
     }
 
@@ -180,12 +180,13 @@ function showSetupNeeded(){
   document.getElementById('recent-posts').innerHTML = '<div class="status status-info">Connect Apps Script in Settings to see live data.</div>';
   document.getElementById('upcoming-list').innerHTML = '<div class="status status-info">Connect Apps Script in Settings to see deadlines.</div>';
   ['k-goals','k-grants','k-posts','k-social','k-leads','k-invoices'].forEach(id=>{
-    document.getElementById(id).textContent = '—';
+    document.getElementById(id).textContent = 'â€”';
   });
 }
 </script>
 
 <script src="../js/admin-auth.js"></script>
 
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>

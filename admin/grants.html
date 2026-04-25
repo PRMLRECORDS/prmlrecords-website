@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -19,7 +19,7 @@
     <div class="f-field"><label class="f-label">Password</label>
       <input type="password" class="f-input" id="pw" placeholder="Admin password">
     </div>
-    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -31,16 +31,16 @@
     <a href="goals.html" class="anl" data-page="goals">Goals</a>
     <a href="grants.html" class="anl" data-page="grants">Grants</a>
     <a href="social.html" class="anl" data-page="social">Social</a>
-    <a href="ai.html" class="anl" data-page="ai">✦ AI</a>
+    <a href="ai.html" class="anl" data-page="ai">âœ¦ AI</a>
     <a href="news.html" class="anl" data-page="news">News</a>
     <a href="competitors.html" class="anl" data-page="competitors">Competitors</a>
     <a href="invoice.html" class="anl" data-page="invoice">Invoice</a>
     <a href="product-scanner.html" class="anl" data-page="scanner">Scanner</a>
     <a href="suggestions.html" class="anl" data-page="suggestions">Ideas</a>
     <a href="settings.html" class="anl" data-page="settings">Settings</a>
-    <a href="../index.html" target="_blank" class="anl anl--ext">Site ↗</a>
+    <a href="../index.html" target="_blank" class="anl anl--ext">Site â†—</a>
   </div>
-  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">☰</button>
+  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">â˜°</button>
 </nav>
 
 <div class="adm-wrap">
@@ -93,7 +93,7 @@
   </div>
 
   <div style="margin-top:16px;font-size:12px;opacity:.35">
-    Click ✦ AI on any grant to generate next action steps using AI. Requires Anthropic API.
+    Click âœ¦ AI on any grant to generate next action steps using AI. Requires Anthropic API.
   </div>
 </div>
 
@@ -114,9 +114,9 @@ async function loadGrants(){
 
 function getSampleGrants(){
   return [
-    {id:1,name:'Atlanta Small Biz Grant',funder:'City of Atlanta',deadline:'2025-07-15',amount:'$5,000',status:'In Progress',notes:'Requires MWBE cert first',next_steps:'Complete MWBE certification · Gather financials · Submit by deadline'},
-    {id:2,name:'Georgia SBDC Assist Grant',funder:'GA SBDC',deadline:'2025-09-01',amount:'$2,500',status:'Not Started',notes:'',next_steps:'Call SBDC to verify eligibility · Get EIN documentation ready'},
-    {id:3,name:'NEA Creative Business Grant',funder:'NEA',deadline:'2025-12-01',amount:'$10,000',status:'Researching',notes:'Arts-focused grant',next_steps:'Read full RFP · Assess fit · Draft project narrative'},
+    {id:1,name:'Atlanta Small Biz Grant',funder:'City of Atlanta',deadline:'2025-07-15',amount:'$5,000',status:'In Progress',notes:'Requires MWBE cert first',next_steps:'Complete MWBE certification Â· Gather financials Â· Submit by deadline'},
+    {id:2,name:'Georgia SBDC Assist Grant',funder:'GA SBDC',deadline:'2025-09-01',amount:'$2,500',status:'Not Started',notes:'',next_steps:'Call SBDC to verify eligibility Â· Get EIN documentation ready'},
+    {id:3,name:'NEA Creative Business Grant',funder:'NEA',deadline:'2025-12-01',amount:'$10,000',status:'Researching',notes:'Arts-focused grant',next_steps:'Read full RFP Â· Assess fit Â· Draft project narrative'},
   ];
 }
 
@@ -132,14 +132,14 @@ function renderGrants(){
   el.innerHTML = grants.map(g=>`
     <tr>
       <td><strong>${g.name}</strong>${g.notes?'<br><span style="opacity:.4;font-size:11px">'+g.notes+'</span>':''}</td>
-      <td>${g.funder||'—'}</td>
-      <td>${g.deadline||'—'}</td>
-      <td style="font-family:'Roboto Slab',serif;color:var(--red)">${g.amount||'—'}</td>
+      <td>${g.funder||'â€”'}</td>
+      <td>${g.deadline||'â€”'}</td>
+      <td style="font-family:'Roboto Slab',serif;color:var(--red)">${g.amount||'â€”'}</td>
       <td><span class="badge ${STATUS_BADGE[g.status]||'badge--gray'}">${g.status||'Unknown'}</span></td>
       <td style="max-width:240px;font-size:12px;opacity:.65">${g.next_steps||''}</td>
       <td>
         <button class="btn btn-sm btn-out" onclick="editGrant(${g.id})">Edit</button>
-        <button class="btn btn-sm btn-out" onclick="aiNextSteps(${g.id})" title="AI: Suggest next steps">✦ AI</button>
+        <button class="btn btn-sm btn-out" onclick="aiNextSteps(${g.id})" title="AI: Suggest next steps">âœ¦ AI</button>
       </td>
     </tr>`).join('');
 }
@@ -165,7 +165,7 @@ async function aiNextSteps(id){
     if(!GAS_URL.includes('PASTE_YOUR'))
       fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'UPDATE_GRANT',...g})});
   }catch(e){ alert('AI unavailable'); }
-  btn.textContent='✦ AI'; btn.disabled=false;
+  btn.textContent='âœ¦ AI'; btn.disabled=false;
 }
 
 function editGrant(id){
@@ -204,4 +204,5 @@ function saveGrantForm(){
   clearGrantForm();
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

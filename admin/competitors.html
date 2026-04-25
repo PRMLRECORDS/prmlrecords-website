@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -30,7 +30,7 @@
   <div class="login-box">
     <div class="login-title">The Dashboard</div><div class="login-sub">Restricted Access</div>
     <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')tryLogin()"></div>
-    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%;margin-top:4px" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -41,7 +41,7 @@
     <a href="index.html" class="anl">Dashboard</a>
     <a href="analytics.html" class="anl">Analytics</a>
     <a href="social.html" class="anl">Social</a>
-    <a href="ai.html" class="anl">✦ AI</a>
+    <a href="ai.html" class="anl">âœ¦ AI</a>
     <a href="news.html" class="anl">News</a>
     <a href="competitors.html" class="anl active">Competitors</a>
     <a href="goals.html" class="anl">Goals</a>
@@ -55,7 +55,7 @@
   <div class="page-hd" style="display:flex;align-items:flex-start;justify-content:space-between">
     <div>
       <h1>Competitor Tracker</h1>
-      <p>Monitor peers, labels &amp; artists — Claude analyzes strategy on demand</p>
+      <p>Monitor peers, labels &amp; artists â€” Claude analyzes strategy on demand</p>
     </div>
     <button class="btn btn-red btn-sm" style="margin-top:8px" onclick="toggleAddForm()">+ Add Competitor</button>
   </div>
@@ -94,7 +94,7 @@
       <textarea class="f-textarea" id="new-notes" placeholder="What they do well, recent releases, strategies you've noticed..." style="min-height:60px"></textarea>
     </div>
     <div style="display:flex;gap:8px">
-      <button class="btn btn-red btn-sm" onclick="addCompetitor()">Add →</button>
+      <button class="btn btn-red btn-sm" onclick="addCompetitor()">Add â†’</button>
       <button class="btn btn-out btn-sm" onclick="toggleAddForm()">Cancel</button>
     </div>
   </div>
@@ -134,9 +134,9 @@ function saveCompetitors(comps) {
 }
 
 function trendIcon(t) {
-  if (t === 'up') return '<span class="trend-up">↑ Growing</span>';
-  if (t === 'down') return '<span class="trend-dn">↓ Declining</span>';
-  return '<span class="trend-flat">→ Stable</span>';
+  if (t === 'up') return '<span class="trend-up">â†‘ Growing</span>';
+  if (t === 'down') return '<span class="trend-dn">â†“ Declining</span>';
+  return '<span class="trend-flat">â†’ Stable</span>';
 }
 
 function renderCompetitors() {
@@ -149,14 +149,14 @@ function renderCompetitors() {
     card.id = `comp-${i}`;
     card.innerHTML = `
       <div class="comp-name">${c.name}</div>
-      <div class="comp-type">${c.type} · ${trendIcon(c.trend || 'flat')}</div>
+      <div class="comp-type">${c.type} Â· ${trendIcon(c.trend || 'flat')}</div>
       <div class="comp-stats">
-        <div class="comp-stat"><div class="comp-stat-val">${c.ig || '—'}</div><div class="comp-stat-lbl">IG Followers</div></div>
-        <div class="comp-stat"><div class="comp-stat-val">${c.streams || '—'}</div><div class="comp-stat-lbl">Monthly Streams</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">${c.ig || 'â€”'}</div><div class="comp-stat-lbl">IG Followers</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">${c.streams || 'â€”'}</div><div class="comp-stat-lbl">Monthly Streams</div></div>
       </div>
       ${c.notes ? `<div class="comp-notes">${c.notes}</div>` : ''}
       <div style="display:flex;gap:6px;flex-wrap:wrap">
-        <button class="btn btn-red btn-sm" id="analyze-btn-${i}" onclick="analyzeComp(${i})">⚡ Analyze Strategy</button>
+        <button class="btn btn-red btn-sm" id="analyze-btn-${i}" onclick="analyzeComp(${i})">âš¡ Analyze Strategy</button>
         <button class="btn btn-out btn-sm" onclick="removeComp(${i})">Remove</button>
       </div>
       <div class="comp-analysis" id="analysis-${i}"></div>
@@ -178,10 +178,10 @@ async function analyzeComp(i) {
     box.classList.add('visible');
   } catch (e) {
     const box = document.getElementById(`analysis-${i}`);
-    box.textContent = '⚠️ ' + e.message;
+    box.textContent = 'âš ï¸ ' + e.message;
     box.classList.add('visible');
   }
-  ClaudeAdmin.setLoading(btn, false, '⚡ Analyze Strategy');
+  ClaudeAdmin.setLoading(btn, false, 'âš¡ Analyze Strategy');
 }
 
 function toggleAddForm() {
@@ -196,8 +196,8 @@ function addCompetitor() {
   comps.push({
     name,
     type: document.getElementById('new-type').value,
-    ig: document.getElementById('new-ig').value.trim() || '—',
-    streams: document.getElementById('new-streams').value.trim() || '—',
+    ig: document.getElementById('new-ig').value.trim() || 'â€”',
+    streams: document.getElementById('new-streams').value.trim() || 'â€”',
     trend: 'flat',
     notes: document.getElementById('new-notes').value.trim(),
   });
@@ -215,5 +215,6 @@ function removeComp(i) {
   renderCompetitors();
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -137,7 +137,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 .track-name{font-weight:300}
 .track-earn{font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--green)}
 
-/* ── STORE EDITOR ── */
+/* â”€â”€ STORE EDITOR â”€â”€ */
 .se-prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:32px}
 .se-prod-card{background:var(--charcoal);border-top:3px solid var(--red);padding:20px}
 .se-prod-card__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
@@ -174,13 +174,13 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 </head>
 <body>
 
-<!-- ───── LOGIN ───── -->
+<!-- â”€â”€â”€â”€â”€ LOGIN â”€â”€â”€â”€â”€ -->
 <div class="login-wrap" id="login-wrap">
   <div class="login-box">
     <div class="login-title">Command Console</div>
-    <div class="login-sub">PRML Records LLC — Restricted Access</div>
+    <div class="login-sub">PRML Records LLC â€” Restricted Access</div>
     <input type="password" id="pw" placeholder="Enter access code" onkeydown="if(event.key==='Enter')tryLogin()">
-    <button class="btn-full" onclick="tryLogin()">ENTER →</button>
+    <button class="btn-full" onclick="tryLogin()">ENTER â†’</button>
     <div class="login-err" id="pw-err">Access denied. Check your code.</div>
     <div style="font-size:11px;opacity:.25;margin-top:16px;font-weight:300;line-height:1.6">
       FLY clearance active. Set your password in console.html line ~300.<br>
@@ -189,14 +189,14 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
   </div>
 </div>
 
-<!-- ───── CONSOLE ───── -->
+<!-- â”€â”€â”€â”€â”€ CONSOLE â”€â”€â”€â”€â”€ -->
 <div class="console" id="console">
 
   <!-- TOP BAR -->
   <div class="topbar">
     <div>
       <div class="topbar-brand">PRML <span>Console</span></div>
-      <div style="font-size:10px;opacity:.3;letter-spacing:2px;font-family:'Odibee Sans',sans-serif;text-transform:uppercase">Command Center · FLY Executive Access</div>
+      <div style="font-size:10px;opacity:.3;letter-spacing:2px;font-family:'Odibee Sans',sans-serif;text-transform:uppercase">Command Center Â· FLY Executive Access</div>
     </div>
     <div class="topbar-right">
       <div class="topbar-badge">LIVE</div>
@@ -209,7 +209,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
   <div class="tabs" id="tabs">
     <button class="tab active" onclick="showTab('overview')">Overview</button>
     <button class="tab" onclick="showTab('promo')">Promo Control</button>
-    <button class="tab" onclick="showTab('store-editor')">🏪 Store Editor</button>
+    <button class="tab" onclick="showTab('store-editor')">ðŸª Store Editor</button>
     <button class="tab" onclick="showTab('products')">Products</button>
     <button class="tab" onclick="showTab('orders')">Orders</button>
     <button class="tab" onclick="showTab('seaux9')">SEAUX9</button>
@@ -220,14 +220,14 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('todo')">TODO / Roadmap</button>
     <button class="tab" onclick="showTab('tutorials')">Tutorials</button>
     <button class="tab" onclick="showTab('pricing')">Pricing Hub</button>
-    <button class="tab" onclick="showTab('world-map')">🌍 World Map</button>
-    <button class="tab" onclick="showTab('atl-map')">📍 ATL Map</button>
-    <button class="tab" onclick="showTab('goals')">🎯 Goals</button>
-    <button class="tab" onclick="showTab('learn')">📚 Learn</button>
+    <button class="tab" onclick="showTab('world-map')">ðŸŒ World Map</button>
+    <button class="tab" onclick="showTab('atl-map')">ðŸ“ ATL Map</button>
+    <button class="tab" onclick="showTab('goals')">ðŸŽ¯ Goals</button>
+    <button class="tab" onclick="showTab('learn')">ðŸ“š Learn</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
   </div>
 
-  <!-- ══ OVERVIEW ══ -->
+  <!-- â•â• OVERVIEW â•â• -->
   <div class="panel active" id="tab-overview">
     <div class="section-title">Command Center</div>
     <div class="section-head">System Overview</div>
@@ -236,94 +236,94 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="card card--green">
         <div class="card-label">Products Active</div>
         <div class="card-val">4</div>
-        <div class="card-sub">TAP CARD · KEYCHAIN · PENDANT · PAYMENT STAND</div>
+        <div class="card-sub">TAP CARD Â· KEYCHAIN Â· PENDANT Â· PAYMENT STAND</div>
       </div>
       <div class="card card--green">
         <div class="card-label">Site Pages</div>
         <div class="card-val">32+</div>
-        <div class="card-sub">Shop · Customize · Beltline · Services · Blog + more</div>
+        <div class="card-sub">Shop Â· Customize Â· Beltline Â· Services Â· Blog + more</div>
       </div>
       <div class="card card--green">
         <div class="card-label">Customize Page</div>
         <div class="card-val" style="font-size:16px;margin-top:4px">LIVE</div>
-        <div class="card-sub">Full order form · Cart checkout · Logo upload · Links form</div>
+        <div class="card-sub">Full order form Â· Cart checkout Â· Logo upload Â· Links form</div>
       </div>
       <div class="card">
         <div class="card-label">SEAUX9 Earnings</div>
         <div class="card-val">$231</div>
-        <div class="card-sub">6,519 rows · Apr 2019–Dec 2025</div>
+        <div class="card-sub">6,519 rows Â· Apr 2019â€“Dec 2025</div>
       </div>
       <div class="card card--green">
         <div class="card-label">SEAUX9 Streams</div>
         <div class="card-val">1.28M</div>
-        <div class="card-sub">27 platforms · 40+ countries</div>
+        <div class="card-sub">27 platforms Â· 40+ countries</div>
       </div>
       <div class="card card--blue">
         <div class="card-label">Site</div>
         <div class="card-val" style="font-size:16px;margin-top:4px">LIVE</div>
-        <div class="card-sub">prmlrecords.com · GitHub → Render + CF</div>
+        <div class="card-sub">prmlrecords.com Â· GitHub â†’ Render + CF</div>
       </div>
       <div class="card card--green">
         <div class="card-label">Sponsorship Campaign</div>
         <div class="card-val">31</div>
-        <div class="card-sub">Companies in Airtable CRM · Outreach active</div>
+        <div class="card-sub">Companies in Airtable CRM Â· Outreach active</div>
       </div>
       <div class="card card--yellow">
         <div class="card-label">Beltline Launch</div>
         <div class="card-val" style="font-size:16px;margin-top:4px">MAY 2026</div>
-        <div class="card-sub">Ponce City Market / Kroger on Ponce · Mailing list live</div>
+        <div class="card-sub">Ponce City Market / Kroger on Ponce Â· Mailing list live</div>
       </div>
       <div class="card">
         <div class="card-label">seaux9.com</div>
         <div class="card-val" style="font-size:14px;margin-top:4px">ACTIVE</div>
-        <div class="card-sub">Expires 2026-05-17 · Renewal needed</div>
+        <div class="card-sub">Expires 2026-05-17 Â· Renewal needed</div>
       </div>
     </div>
 
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
       <div class="section-title">System Status</div>
-      <div class="status-row"><span class="dot dot-g"></span>Site deployment (GitHub → Render + Cloudflare)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Site deployment (GitHub â†’ Render + Cloudflare)</div>
       <div class="status-row"><span class="dot dot-g"></span>Stripe payment links (active across shop + products)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Google Analytics GA4 (G-2PNH2XTRDK) — all 32+ pages</div>
+      <div class="status-row"><span class="dot dot-g"></span>Google Analytics GA4 (G-2PNH2XTRDK) â€” all 32+ pages</div>
       <div class="status-row"><span class="dot dot-g"></span>Facebook Pixel (active on shop + customize)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Customize page — full order form + cart checkout</div>
-      <div class="status-row"><span class="dot dot-g"></span>Beltline mailing list — live on customize.html</div>
-      <div class="status-row"><span class="dot dot-g"></span>Beltline content upload — live for fan photos/videos</div>
-      <div class="status-row"><span class="dot dot-g"></span>Zapier automations (3 zaps live: Stripe→HubSpot, Stripe→Brevo, Brevo→HubSpot)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Airtable CRM — Orders table + Sponsorship tables (31 companies)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Donate section — live on customize.html</div>
-      <div class="status-row"><span class="dot dot-y"></span>Checkout app (Next.js) — built, needs deploy + webhook secret</div>
-      <div class="status-row"><span class="dot dot-y"></span>seaux9.com — domain active, needs renewal by 2026-05-17</div>
-      <div class="status-row"><span class="dot dot-y"></span>Performance royalty pipeline — ASCAP/SoundExchange registration pending</div>
-      <div class="status-row"><span class="dot dot-y"></span>Brevo email sequences — configured, needs end-to-end test</div>
+      <div class="status-row"><span class="dot dot-g"></span>Customize page â€” full order form + cart checkout</div>
+      <div class="status-row"><span class="dot dot-g"></span>Beltline mailing list â€” live on customize.html</div>
+      <div class="status-row"><span class="dot dot-g"></span>Beltline content upload â€” live for fan photos/videos</div>
+      <div class="status-row"><span class="dot dot-g"></span>Zapier automations (3 zaps live: Stripeâ†’HubSpot, Stripeâ†’Brevo, Brevoâ†’HubSpot)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Airtable CRM â€” Orders table + Sponsorship tables (31 companies)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Donate section â€” live on customize.html</div>
+      <div class="status-row"><span class="dot dot-y"></span>Checkout app (Next.js) â€” built, needs deploy + webhook secret</div>
+      <div class="status-row"><span class="dot dot-y"></span>seaux9.com â€” domain active, needs renewal by 2026-05-17</div>
+      <div class="status-row"><span class="dot dot-y"></span>Performance royalty pipeline â€” ASCAP/SoundExchange registration pending</div>
+      <div class="status-row"><span class="dot dot-y"></span>Brevo email sequences â€” configured, needs end-to-end test</div>
     </div>
 
     <!-- UPCOMING / ACTION ITEMS -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--yellow);margin-bottom:20px">
       <div class="section-title" style="color:var(--yellow)">Action Items</div>
       <div style="font-size:13px;font-weight:300;line-height:2;opacity:.85">
-        <div>&#9744; Beltline prep — finalize event logistics for May 2026 at Ponce City Market</div>
-        <div>&#9744; seaux9.com — renew domain before 2026-05-17</div>
-        <div>&#9744; Stripe test checkout — run test card 4242 4242 4242 4242</div>
-        <div>&#9744; Performance pipeline — register works with ASCAP, SoundExchange</div>
-        <div>&#9744; Sponsorship outreach — 31 companies queued, begin sending batches</div>
+        <div>&#9744; Beltline prep â€” finalize event logistics for May 2026 at Ponce City Market</div>
+        <div>&#9744; seaux9.com â€” renew domain before 2026-05-17</div>
+        <div>&#9744; Stripe test checkout â€” run test card 4242 4242 4242 4242</div>
+        <div>&#9744; Performance pipeline â€” register works with ASCAP, SoundExchange</div>
+        <div>&#9744; Sponsorship outreach â€” 31 companies queued, begin sending batches</div>
         <div>&#9744; Deploy checkout-app to Render + set STRIPE_WEBHOOK_SECRET</div>
         <div>&#9744; Mobile responsive check 375/768/1280px</div>
       </div>
     </div>
 
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
-      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">FLY — Copilot Brief</strong>
-      This console operates independently. All critical controls are here — promo toggles, payment links, order log, SEAUX9 data, and site settings.
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">FLY â€” Copilot Brief</strong>
+      This console operates independently. All critical controls are here â€” promo toggles, payment links, order log, SEAUX9 data, and site settings.
       <br><br>
       <strong>Recent updates (April 2026):</strong> customize.html overhauled with full product order form (4 products, bulk pricing, logo upload, link collection, cart checkout). Beltline mailing list + content upload live. Donate section added. Sponsorship campaign launched (31 companies in Airtable). Performance royalty pipeline planned.
       <br><br>
       To deploy changes: <code>git push origin master</code> from <code>prml-site/</code> directory.
-      <br>Emergency contact: info@prmlrecords.com · (770) 686-7726
+      <br>Emergency contact: info@prmlrecords.com Â· (770) 686-7726
     </div>
   </div>
 
-  <!-- ══ PROMO CONTROL ══ -->
+  <!-- â•â• PROMO CONTROL â•â• -->
   <div class="panel" id="tab-promo">
     <div class="section-title">Marketing</div>
     <div class="section-head">Promo Control</div>
@@ -352,7 +352,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <div style="text-align:center;font-size:11px;opacity:.4;margin-top:4px">spots remaining</div>
         </div>
         <div style="display:flex;gap:8px;justify-content:center">
-          <button class="btn btn-out btn-sm" onclick="adjustSpots(-1)">− Spot Used</button>
+          <button class="btn btn-out btn-sm" onclick="adjustSpots(-1)">âˆ’ Spot Used</button>
           <button class="btn btn-out btn-sm" onclick="adjustSpots(1)">+ Add Back</button>
         </div>
         <div style="margin-top:12px;font-size:11px;opacity:.4;text-align:center;font-weight:300">Updates display. To update site copy, use "Get Code" below.</div>
@@ -360,12 +360,12 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
 
     <div class="card" style="margin-bottom:16px">
-      <div class="card-label" style="margin-bottom:14px">Promo Badge Copy — Edit &amp; Generate Code</div>
+      <div class="card-label" style="margin-bottom:14px">Promo Badge Copy â€” Edit &amp; Generate Code</div>
       <div class="grid" style="margin-bottom:0">
         <div>
           <div class="f-group">
             <label class="f-label">Badge Label</label>
-            <input class="f-input" id="badge-label" value="LAUNCH OFFER — First 9 Only" oninput="updatePromoPreview()">
+            <input class="f-input" id="badge-label" value="LAUNCH OFFER â€” First 9 Only" oninput="updatePromoPreview()">
           </div>
           <div class="f-group">
             <label class="f-label">Badge Body Text</label>
@@ -373,15 +373,15 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           </div>
           <div class="f-group">
             <label class="f-label">Badge CTA Link Text</label>
-            <input class="f-input" id="badge-cta" value="GET YOURS →" oninput="updatePromoPreview()">
+            <input class="f-input" id="badge-cta" value="GET YOURS â†’" oninput="updatePromoPreview()">
           </div>
         </div>
         <div>
           <div class="f-label">Live Preview</div>
           <div id="badge-preview" style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(254,1,3,.08);border:1px solid rgba(254,1,3,.3);border-left:3px solid #E01010;padding:10px 16px;max-width:100%;margin-top:6px">
-            <span id="prev-label" style="font-family:'Rubik Mono One',monospace;font-size:10px;color:#E01010;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap">LAUNCH OFFER — First 9 Only</span>
+            <span id="prev-label" style="font-family:'Rubik Mono One',monospace;font-size:10px;color:#E01010;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap">LAUNCH OFFER â€” First 9 Only</span>
             <span id="prev-body" style="font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:#2B2B2B;opacity:.75;line-height:1.4">Setup fees waived. Free 30-min consultation with every deposit.</span>
-            <span id="prev-cta" style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:.1em;color:#E01010;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(254,1,3,.4)">GET YOURS →</span>
+            <span id="prev-cta" style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:.1em;color:#E01010;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(254,1,3,.4)">GET YOURS â†’</span>
           </div>
           <div style="margin-top:14px">
             <button class="btn btn-red btn-sm" onclick="generateBadgeCode()">GENERATE CODE</button>
@@ -395,32 +395,32 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
 
     <div class="card">
-      <div class="card-label">Brevo Email Drip — Status</div>
-      <div class="ctrl-row"><div><div class="ctrl-label">Email 1 (Day 0 — Welcome)</div><div class="ctrl-sub">"Your link. One tap. We'll set it all up."</div></div><span class="badge badge-pending">NOT LIVE</span></div>
-      <div class="ctrl-row"><div><div class="ctrl-label">Email 2 (Day 3 — Social Proof)</div><div class="ctrl-sub">"What people say after their first tap"</div></div><span class="badge badge-pending">NOT LIVE</span></div>
-      <div class="ctrl-row"><div><div class="ctrl-label">Email 3 (Day 7 — Offer)</div><div class="ctrl-sub">"Last call — setup fees waived for first 9"</div></div><span class="badge badge-pending">NOT LIVE</span></div>
-      <div style="margin-top:14px;font-size:11px;opacity:.4;font-weight:300">Activate at: app.brevo.com → Automations → ManyChat Drip Sequence</div>
+      <div class="card-label">Brevo Email Drip â€” Status</div>
+      <div class="ctrl-row"><div><div class="ctrl-label">Email 1 (Day 0 â€” Welcome)</div><div class="ctrl-sub">"Your link. One tap. We'll set it all up."</div></div><span class="badge badge-pending">NOT LIVE</span></div>
+      <div class="ctrl-row"><div><div class="ctrl-label">Email 2 (Day 3 â€” Social Proof)</div><div class="ctrl-sub">"What people say after their first tap"</div></div><span class="badge badge-pending">NOT LIVE</span></div>
+      <div class="ctrl-row"><div><div class="ctrl-label">Email 3 (Day 7 â€” Offer)</div><div class="ctrl-sub">"Last call â€” setup fees waived for first 9"</div></div><span class="badge badge-pending">NOT LIVE</span></div>
+      <div style="margin-top:14px;font-size:11px;opacity:.4;font-weight:300">Activate at: app.brevo.com â†’ Automations â†’ ManyChat Drip Sequence</div>
     </div>
   </div>
 
-  <!-- ══ STORE EDITOR ══ -->
+  <!-- â•â• STORE EDITOR â•â• -->
   <div class="panel" id="tab-store-editor">
     <div class="section-title">Store Management</div>
-    <div class="section-head">🏪 Store Editor</div>
+    <div class="section-head">ðŸª Store Editor</div>
 
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:14px 18px;font-size:13px;font-weight:300;line-height:1.7;margin-bottom:28px">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:6px">How This Works</strong>
       Edit any product below. Click <strong>PREVIEW</strong> to see a mini card mockup. Click <strong>GENERATE CODE</strong> to output the ready-to-paste HTML snippet for products.html. Nothing changes on the live site until you copy and paste the code.
     </div>
 
-    <!-- ── PRODUCT CARDS ── -->
-    <div class="section-title" style="margin-bottom:14px">Product Cards — Edit &amp; Generate</div>
+    <!-- â”€â”€ PRODUCT CARDS â”€â”€ -->
+    <div class="section-title" style="margin-bottom:14px">Product Cards â€” Edit &amp; Generate</div>
 
     <div class="se-prod-grid" id="se-prod-grid">
       <!-- Cards injected by JS -->
     </div>
 
-    <!-- ── SERVICES PRICE EDITOR ── -->
+    <!-- â”€â”€ SERVICES PRICE EDITOR â”€â”€ -->
     <div class="section-title" style="margin-bottom:8px;margin-top:8px">Services Price Editor</div>
     <div style="font-size:12px;font-weight:300;opacity:.5;margin-bottom:16px;line-height:1.6">Edit prices and descriptions below. Click <strong>GET UPDATE CODE</strong> on any row to get the HTML snippet to paste into services.html.</div>
     <div style="overflow-x:auto;margin-bottom:32px">
@@ -443,7 +443,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="code-block" id="se-svc-code-text" style="white-space:pre-wrap"><button class="copy-btn" onclick="copyCode('se-svc-code-text')">COPY</button></div>
     </div>
 
-    <!-- ── GOOGLE SHEETS SYNC ── -->
+    <!-- â”€â”€ GOOGLE SHEETS SYNC â”€â”€ -->
     <div class="section-title" style="margin-bottom:8px;margin-top:32px">Google Sheets Sync</div>
     <div class="se-sheets-card">
       <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:-.5px;margin-bottom:16px">Connect a Sheet as your price source of truth</div>
@@ -457,19 +457,19 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="se-sheets-step">
         <div class="se-sheets-step-num">02</div>
         <div class="se-sheets-step-body">
-          <strong>Publish as CSV.</strong> In Google Sheets: File → Share → Publish to web → select the sheet → choose CSV → click Publish. Copy the URL it gives you.
+          <strong>Publish as CSV.</strong> In Google Sheets: File â†’ Share â†’ Publish to web â†’ select the sheet â†’ choose CSV â†’ click Publish. Copy the URL it gives you.
         </div>
       </div>
       <div class="se-sheets-step">
         <div class="se-sheets-step-num">03</div>
         <div class="se-sheets-step-body">
-          <strong>Paste the URL below.</strong> Test the connection. If it returns data, products.html can be updated to auto-fetch prices from the sheet on page load — no redeployment needed for price changes.
+          <strong>Paste the URL below.</strong> Test the connection. If it returns data, products.html can be updated to auto-fetch prices from the sheet on page load â€” no redeployment needed for price changes.
         </div>
       </div>
       <div class="se-sheets-step">
         <div class="se-sheets-step-num">04</div>
         <div class="se-sheets-step-body">
-          <strong>Keep the sheet published.</strong> Anyone with the URL can read it (CSV only — no edit access). Change a price in the sheet → live site reflects it within minutes.
+          <strong>Keep the sheet published.</strong> Anyone with the URL can read it (CSV only â€” no edit access). Change a price in the sheet â†’ live site reflects it within minutes.
         </div>
       </div>
 
@@ -480,7 +480,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
           <button class="btn btn-red btn-sm" onclick="testSheetsConnection()">TEST CONNECTION</button>
-          <span style="font-size:11px;opacity:.4;font-weight:300">Runs a client-side fetch — checks if the URL returns valid CSV data</span>
+          <span style="font-size:11px;opacity:.4;font-weight:300">Runs a client-side fetch â€” checks if the URL returns valid CSV data</span>
         </div>
         <div class="se-conn-result" id="se-conn-result"></div>
       </div>
@@ -488,20 +488,20 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)">
         <div class="f-label" style="margin-bottom:8px">Integration Status</div>
         <div style="font-size:13px;font-weight:300;line-height:1.9;opacity:.6">
-          ☐ Sheet URL saved and tested<br>
-          ☐ products.html updated to fetch from sheet on load<br>
-          ☐ Price change tested end-to-end (update sheet → verify on site)<br>
-          ☐ Stripe prices updated to match (Stripe is the billing source — sheet is display only)
+          â˜ Sheet URL saved and tested<br>
+          â˜ products.html updated to fetch from sheet on load<br>
+          â˜ Price change tested end-to-end (update sheet â†’ verify on site)<br>
+          â˜ Stripe prices updated to match (Stripe is the billing source â€” sheet is display only)
         </div>
         <div style="margin-top:12px;padding:10px 14px;background:rgba(234,179,8,.08);border-left:3px solid var(--yellow);font-size:12px;font-weight:300;line-height:1.6">
-          <strong style="color:var(--yellow)">Note:</strong> The Google Sheet controls display prices only. The actual charge amount is set in Stripe. Always update Stripe first when changing prices — then update the sheet to match.
+          <strong style="color:var(--yellow)">Note:</strong> The Google Sheet controls display prices only. The actual charge amount is set in Stripe. Always update Stripe first when changing prices â€” then update the sheet to match.
         </div>
       </div>
     </div>
 
   </div><!-- end tab-store-editor -->
 
-  <!-- ══ PRODUCTS ══ -->
+  <!-- â•â• PRODUCTS â•â• -->
   <div class="panel" id="tab-products">
     <div class="section-title">Store</div>
     <div class="section-head">Products &amp; Payment Links</div>
@@ -512,37 +512,37 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <tbody>
         <tr>
           <td><strong>PRML TAP CARD</strong></td><td>Charcoal</td><td>$29.99</td><td>Single</td>
-          <td><a class="link-pill" href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G" target="_blank">OPEN →</a>
+          <td><a class="link-pill" href="https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G" target="_blank">OPEN â†’</a>
           <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G')">COPY</button></td>
           <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtSyIEvKUNtDqe</td>
         </tr>
         <tr>
           <td><strong>PRML TAP CARD</strong></td><td>Beige</td><td>$29.99</td><td>Single</td>
-          <td><a class="link-pill" href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F" target="_blank">OPEN →</a>
+          <td><a class="link-pill" href="https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F" target="_blank">OPEN â†’</a>
           <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F')">COPY</button></td>
           <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtSxIEvKUNtDqe</td>
         </tr>
         <tr>
           <td><strong>PRML TAP CARD</strong></td><td>Any (10-Pack)</td><td>$249.99</td><td>10-Pack</td>
-          <td><a class="link-pill" href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" target="_blank">OPEN →</a>
+          <td><a class="link-pill" href="https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J" target="_blank">OPEN â†’</a>
           <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J')">COPY</button></td>
           <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtT8IEvKUNtDqe</td>
         </tr>
         <tr>
           <td><strong>PRML TAP KEYCHAIN</strong></td><td>Charcoal</td><td>$19.99</td><td>Single</td>
-          <td><a class="link-pill" href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I" target="_blank">OPEN →</a>
+          <td><a class="link-pill" href="https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I" target="_blank">OPEN â†’</a>
           <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I')">COPY</button></td>
           <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtT6IEvKUNtDqe</td>
         </tr>
         <tr>
           <td><strong>PRML TAP KEYCHAIN</strong></td><td>Beige</td><td>$19.99</td><td>Single</td>
-          <td><a class="link-pill" href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H" target="_blank">OPEN →</a>
+          <td><a class="link-pill" href="https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H" target="_blank">OPEN â†’</a>
           <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H')">COPY</button></td>
           <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtSzIEvKUNtDqe</td>
         </tr>
         <tr>
           <td><strong>PRML TAP KEYCHAIN</strong></td><td>Any (10-Pack)</td><td>$219.90</td><td>10-Pack</td>
-          <td><a class="link-pill" href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" target="_blank">OPEN →</a>
+          <td><a class="link-pill" href="https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K" target="_blank">OPEN â†’</a>
           <button class="btn btn-out btn-sm" style="margin-left:6px" onclick="copyText('https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K')">COPY</button></td>
           <td style="font-family:monospace;font-size:10px;opacity:.4">plink_1TCtT9IEvKUNtDqe</td>
         </tr>
@@ -552,7 +552,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
     <div class="grid">
       <div class="card">
-        <div class="card-label">Price Override — Generate Code</div>
+        <div class="card-label">Price Override â€” Generate Code</div>
         <div class="f-group">
           <label class="f-label">TAP CARD Price</label>
           <input class="f-input" id="card-price" value="$29.99">
@@ -578,16 +578,16 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
       <div class="card">
         <div class="card-label">Stripe Direct Links</div>
-        <div class="ctrl-row"><div class="ctrl-label">Dashboard</div><a class="link-pill" href="https://dashboard.stripe.com" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Products</div><a class="link-pill" href="https://dashboard.stripe.com/products" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Payment Links</div><a class="link-pill" href="https://dashboard.stripe.com/payment-links" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Balance</div><a class="link-pill" href="https://dashboard.stripe.com/balance" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Customers</div><a class="link-pill" href="https://dashboard.stripe.com/customers" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Dashboard</div><a class="link-pill" href="https://dashboard.stripe.com" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Products</div><a class="link-pill" href="https://dashboard.stripe.com/products" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Payment Links</div><a class="link-pill" href="https://dashboard.stripe.com/payment-links" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Balance</div><a class="link-pill" href="https://dashboard.stripe.com/balance" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Customers</div><a class="link-pill" href="https://dashboard.stripe.com/customers" target="_blank">OPEN â†’</a></div>
       </div>
     </div>
   </div>
 
-  <!-- ══ ORDERS ══ -->
+  <!-- â•â• ORDERS â•â• -->
   <div class="panel" id="tab-orders">
     <div class="section-title">Fulfillment</div>
     <div class="section-head">Order Log</div>
@@ -603,12 +603,12 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>
           <div class="f-group"><label class="f-label">Product</label>
             <select class="f-input" id="o-product">
-              <option>PRML TAP CARD — Charcoal</option>
-              <option>PRML TAP CARD — Beige</option>
-              <option>PRML TAP KEYCHAIN — Charcoal</option>
-              <option>PRML TAP KEYCHAIN — Beige</option>
-              <option>PRML TAP CARD — 10-Pack</option>
-              <option>PRML TAP KEYCHAIN — 10-Pack</option>
+              <option>PRML TAP CARD â€” Charcoal</option>
+              <option>PRML TAP CARD â€” Beige</option>
+              <option>PRML TAP KEYCHAIN â€” Charcoal</option>
+              <option>PRML TAP KEYCHAIN â€” Beige</option>
+              <option>PRML TAP CARD â€” 10-Pack</option>
+              <option>PRML TAP KEYCHAIN â€” 10-Pack</option>
             </select>
           </div>
           <div class="f-group"><label class="f-label">Amount Paid</label><input class="f-input" id="o-amount" placeholder="$29.99"></div>
@@ -623,18 +623,18 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div style="margin-top:12px"><button class="btn btn-out btn-sm" onclick="exportOrders()">EXPORT CSV</button></div>
   </div>
 
-  <!-- ══ SEAUX9 ══ -->
+  <!-- â•â• SEAUX9 â•â• -->
   <div class="panel" id="tab-seaux9">
     <div class="section-title">Record Label</div>
     <div class="section-head">SEAUX9 Dashboard</div>
 
     <div class="grid-3" style="margin-bottom:24px">
-      <div class="card card--green"><div class="card-label">Total Earnings</div><div class="card-val">$231.05</div><div class="card-sub">Apr 2019 – Dec 2025</div></div>
-      <div class="card card--green"><div class="card-label">Total Streams</div><div class="card-val">1.28M</div><div class="card-sub">27 platforms · 40+ countries</div></div>
+      <div class="card card--green"><div class="card-label">Total Earnings</div><div class="card-val">$231.05</div><div class="card-sub">Apr 2019 â€“ Dec 2025</div></div>
+      <div class="card card--green"><div class="card-label">Total Streams</div><div class="card-val">1.28M</div><div class="card-sub">27 platforms Â· 40+ countries</div></div>
       <div class="card"><div class="card-label">Report Rows</div><div class="card-val">6,519</div><div class="card-sub">Last report: Mar 2, 2026</div></div>
-      <div class="card card--yellow"><div class="card-label">Peak Month</div><div class="card-val" style="font-size:18px;margin-top:4px">Nov 2021</div><div class="card-sub">$47.65 — NFT drop</div></div>
+      <div class="card card--yellow"><div class="card-label">Peak Month</div><div class="card-val" style="font-size:18px;margin-top:4px">Nov 2021</div><div class="card-sub">$47.65 â€” NFT drop</div></div>
       <div class="card"><div class="card-label">Top Platform</div><div class="card-val" style="font-size:18px;margin-top:4px">Spotify</div><div class="card-sub">$46.99 earned</div></div>
-      <div class="card card--blue"><div class="card-label">NFT Revenue</div><div class="card-val">$51.23</div><div class="card-sub">22% of total · Sellouts</div></div>
+      <div class="card card--blue"><div class="card-label">NFT Revenue</div><div class="card-val">$51.23</div><div class="card-sub">22% of total Â· Sellouts</div></div>
     </div>
 
     <div class="grid">
@@ -644,7 +644,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div class="track-row"><div><div class="track-name">Ssh9</div><div style="font-size:11px;opacity:.4">6,808 streams</div></div><div class="track-earn">$15.93</div></div>
         <div class="track-row"><div><div class="track-name">No Assistz</div><div style="font-size:11px;opacity:.4">6,323 streams</div></div><div class="track-earn">$15.46</div></div>
         <div class="track-row"><div><div class="track-name">Solid Goldz</div><div style="font-size:11px;opacity:.4">5,453 streams</div></div><div class="track-earn">$14.25</div></div>
-        <div class="track-row"><div><div class="track-name">The Higher Statez ⚠️</div><div style="font-size:11px;opacity:.4">1,142,168 streams</div></div><div class="track-earn">$11.72</div></div>
+        <div class="track-row"><div><div class="track-name">The Higher Statez âš ï¸</div><div style="font-size:11px;opacity:.4">1,142,168 streams</div></div><div class="track-earn">$11.72</div></div>
         <div class="track-row"><div><div class="track-name">Index</div><div style="font-size:11px;opacity:.4">3,986 streams</div></div><div class="track-earn">$11.25</div></div>
       </div>
 
@@ -661,10 +661,10 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
 
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;margin-bottom:16px">
-      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">⚠️ Anomaly: Rate Compression</div>
+      <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">âš ï¸ Anomaly: Rate Compression</div>
       <div style="font-size:13px;font-weight:300;line-height:1.7">
-        "The Higher Statez" — 1,142,168 streams → $11.72 = <strong>$0.00001/stream</strong>.<br>
-        Standard Spotify rate is ~$0.003–0.005. Majority of streams likely from TikTok/social packs at near-zero rates.<br>
+        "The Higher Statez" â€” 1,142,168 streams â†’ $11.72 = <strong>$0.00001/stream</strong>.<br>
+        Standard Spotify rate is ~$0.003â€“0.005. Majority of streams likely from TikTok/social packs at near-zero rates.<br>
         <strong>Action:</strong> Audit DistroKid dashboard for stream source breakdown.
       </div>
     </div>
@@ -672,28 +672,28 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div class="grid">
       <div class="card">
         <div class="card-label" style="margin-bottom:14px">Quick Actions</div>
-        <div class="ctrl-row"><div class="ctrl-label">Full Analysis Report</div><a class="link-pill" href="file:///C:/Users/User/Desktop/PRML_STUDIO/08_STREAMING/SEAUX9/analysis/SEAUX9_Royalty_Analysis_v1.0_20260319.md" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Team Document</div><a class="link-pill" href="file:///C:/Users/User/Desktop/PRML_STUDIO/08_STREAMING/SEAUX9/team/SEAUX9_RecordLabel_Team_v1.0_20260319.md" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">DistroKid</div><a class="link-pill" href="https://distrokid.com/dashboard" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Spotify for Artists</div><a class="link-pill" href="https://artists.spotify.com" target="_blank">OPEN →</a></div>
-        <div class="ctrl-row"><div class="ctrl-label">Apple Music for Artists</div><a class="link-pill" href="https://artists.apple.com" target="_blank">OPEN →</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Full Analysis Report</div><a class="link-pill" href="file:///C:/Users/User/Desktop/PRML_STUDIO/08_STREAMING/SEAUX9/analysis/SEAUX9_Royalty_Analysis_v1.0_20260319.md" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Team Document</div><a class="link-pill" href="file:///C:/Users/User/Desktop/PRML_STUDIO/08_STREAMING/SEAUX9/team/SEAUX9_RecordLabel_Team_v1.0_20260319.md" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">DistroKid</div><a class="link-pill" href="https://distrokid.com/dashboard" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Spotify for Artists</div><a class="link-pill" href="https://artists.spotify.com" target="_blank">OPEN â†’</a></div>
+        <div class="ctrl-row"><div class="ctrl-label">Apple Music for Artists</div><a class="link-pill" href="https://artists.apple.com" target="_blank">OPEN â†’</a></div>
       </div>
 
       <div class="card">
         <div class="card-label" style="margin-bottom:14px">Next Actions</div>
         <div style="font-size:13px;font-weight:300;line-height:2">
-          ☐ Audit "The Higher Statez" stream source<br>
-          ☐ Confirm ASCAP/BMI PRO registration<br>
-          ☐ Pitch 9TATEZ to Spotify editorial<br>
-          ☐ Set up monthly royalty auto-pull<br>
-          ☐ Explore Foundation/Zora for next NFT<br>
-          ☐ Formalize PRML–SEAUX9 deal memo
+          â˜ Audit "The Higher Statez" stream source<br>
+          â˜ Confirm ASCAP/BMI PRO registration<br>
+          â˜ Pitch 9TATEZ to Spotify editorial<br>
+          â˜ Set up monthly royalty auto-pull<br>
+          â˜ Explore Foundation/Zora for next NFT<br>
+          â˜ Formalize PRMLâ€“SEAUX9 deal memo
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ QUICK LINKS ══ -->
+  <!-- â•â• QUICK LINKS â•â• -->
   <div class="panel" id="tab-links">
     <div class="section-title">Navigation</div>
     <div class="section-head">Quick Links</div>
@@ -713,28 +713,28 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
     <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin-bottom:10px">Site Pages</div>
     <div class="ql-grid">
-      <a class="ql" href="../index.html" target="_blank"><div class="ql-title">Homepage ↗</div><div class="ql-sub">prmlrecords.com</div></a>
-      <a class="ql" href="../products.html" target="_blank"><div class="ql-title">Products ↗</div><div class="ql-sub">TAP CARD / KEYCHAIN</div></a>
-      <a class="ql" href="../services.html" target="_blank"><div class="ql-title">Services ↗</div><div class="ql-sub">All service tiers</div></a>
-      <a class="ql" href="../booking.html" target="_blank"><div class="ql-title">Booking ↗</div><div class="ql-sub">Consultation form</div></a>
-      <a class="ql" href="../contact.html" target="_blank"><div class="ql-title">Contact ↗</div><div class="ql-sub">Contact page</div></a>
+      <a class="ql" href="../index.html" target="_blank"><div class="ql-title">Homepage â†—</div><div class="ql-sub">prmlrecords.com</div></a>
+      <a class="ql" href="../products.html" target="_blank"><div class="ql-title">Products â†—</div><div class="ql-sub">TAP CARD / KEYCHAIN</div></a>
+      <a class="ql" href="../services.html" target="_blank"><div class="ql-title">Services â†—</div><div class="ql-sub">All service tiers</div></a>
+      <a class="ql" href="../booking.html" target="_blank"><div class="ql-title">Booking â†—</div><div class="ql-sub">Consultation form</div></a>
+      <a class="ql" href="../contact.html" target="_blank"><div class="ql-title">Contact â†—</div><div class="ql-sub">Contact page</div></a>
     </div>
 
     <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin-bottom:10px">External Platforms</div>
     <div class="ql-grid">
-      <a class="ql" href="https://dashboard.stripe.com" target="_blank"><div class="ql-title">Stripe ↗</div><div class="ql-sub">Payments & products</div></a>
-      <a class="ql" href="https://app.hubspot.com" target="_blank"><div class="ql-title">HubSpot ↗</div><div class="ql-sub">CRM & contacts</div></a>
-      <a class="ql" href="https://app.brevo.com" target="_blank"><div class="ql-title">Brevo ↗</div><div class="ql-sub">Email marketing</div></a>
-      <a class="ql" href="https://zapier.com/app/zaps" target="_blank"><div class="ql-title">Zapier ↗</div><div class="ql-sub">Automation zaps</div></a>
-      <a class="ql" href="https://manychat.com" target="_blank"><div class="ql-title">ManyChat ↗</div><div class="ql-sub">Chat widget</div></a>
-      <a class="ql" href="https://analytics.google.com" target="_blank"><div class="ql-title">GA4 ↗</div><div class="ql-sub">G-2PNH2XTRDK</div></a>
-      <a class="ql" href="https://distrokid.com/dashboard" target="_blank"><div class="ql-title">DistroKid ↗</div><div class="ql-sub">SEAUX9 distribution</div></a>
-      <a class="ql" href="https://render.com/dashboard" target="_blank"><div class="ql-title">Render ↗</div><div class="ql-sub">Site deployment</div></a>
-      <a class="ql" href="https://dash.cloudflare.com" target="_blank"><div class="ql-title">Cloudflare ↗</div><div class="ql-sub">DNS & CDN</div></a>
+      <a class="ql" href="https://dashboard.stripe.com" target="_blank"><div class="ql-title">Stripe â†—</div><div class="ql-sub">Payments & products</div></a>
+      <a class="ql" href="https://app.hubspot.com" target="_blank"><div class="ql-title">HubSpot â†—</div><div class="ql-sub">CRM & contacts</div></a>
+      <a class="ql" href="https://app.brevo.com" target="_blank"><div class="ql-title">Brevo â†—</div><div class="ql-sub">Email marketing</div></a>
+      <a class="ql" href="https://zapier.com/app/zaps" target="_blank"><div class="ql-title">Zapier â†—</div><div class="ql-sub">Automation zaps</div></a>
+      <a class="ql" href="https://manychat.com" target="_blank"><div class="ql-title">ManyChat â†—</div><div class="ql-sub">Chat widget</div></a>
+      <a class="ql" href="https://analytics.google.com" target="_blank"><div class="ql-title">GA4 â†—</div><div class="ql-sub">G-2PNH2XTRDK</div></a>
+      <a class="ql" href="https://distrokid.com/dashboard" target="_blank"><div class="ql-title">DistroKid â†—</div><div class="ql-sub">SEAUX9 distribution</div></a>
+      <a class="ql" href="https://render.com/dashboard" target="_blank"><div class="ql-title">Render â†—</div><div class="ql-sub">Site deployment</div></a>
+      <a class="ql" href="https://dash.cloudflare.com" target="_blank"><div class="ql-title">Cloudflare â†—</div><div class="ql-sub">DNS & CDN</div></a>
     </div>
   </div>
 
-  <!-- ══ LP BUILDER ══ -->
+  <!-- â•â• LP BUILDER â•â• -->
   <div class="panel" id="tab-lp-builder">
     <div class="section-title">Landing Page Generator</div>
     <div class="section-head">Build Print Ad Landing Pages</div>
@@ -747,14 +747,14 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div style="margin-bottom:12px">
           <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">PRODUCT NAME</label>
           <select id="lp-product" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" onchange="lpUpdatePreview()">
-            <option value="tap-card">TAP CARD — $29.99</option>
-            <option value="tap-keychain">TAP KEYCHAIN — $19.99</option>
-            <option value="tap-pendant">TAP PENDANT — $19.99</option>
-            <option value="starter-kit">TAP STARTER KIT — $39.99</option>
-            <option value="custom-card">CUSTOM TAP CARD — From $54.99</option>
-            <option value="custom-keychain">CUSTOM TAP KEYCHAIN — From $39.99</option>
-            <option value="custom-pendant">CUSTOM TAP PENDANT — From $39.99</option>
-            <option value="payment-stand">PREMIUM PAYMENT STAND — $199.99</option>
+            <option value="tap-card">TAP CARD â€” $29.99</option>
+            <option value="tap-keychain">TAP KEYCHAIN â€” $19.99</option>
+            <option value="tap-pendant">TAP PENDANT â€” $19.99</option>
+            <option value="starter-kit">TAP STARTER KIT â€” $39.99</option>
+            <option value="custom-card">CUSTOM TAP CARD â€” From $54.99</option>
+            <option value="custom-keychain">CUSTOM TAP KEYCHAIN â€” From $39.99</option>
+            <option value="custom-pendant">CUSTOM TAP PENDANT â€” From $39.99</option>
+            <option value="payment-stand">PREMIUM PAYMENT STAND â€” $199.99</option>
           </select>
         </div>
         <div style="margin-bottom:12px">
@@ -767,7 +767,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         </div>
         <div style="margin-bottom:12px">
           <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">CTA BUTTON TEXT</label>
-          <input id="lp-cta" value="GET YOURS →" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="lpUpdatePreview()">
+          <input id="lp-cta" value="GET YOURS â†’" style="width:100%;background:var(--bg);border:1px solid rgba(254,1,3,.3);color:var(--cream);padding:10px;font-size:13px" oninput="lpUpdatePreview()">
         </div>
         <div style="margin-bottom:12px">
           <label style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);display:block;margin-bottom:6px">UTM CAMPAIGN NAME</label>
@@ -816,7 +816,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ PRINT ADS ══ -->
+  <!-- â•â• PRINT ADS â•â• -->
   <div class="panel" id="tab-print-ads">
     <div class="section-title">Marketing Materials</div>
     <div class="section-head">Print Ad Generator</div>
@@ -893,7 +893,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ PHOTO TOOL ══ -->
+  <!-- â•â• PHOTO TOOL â•â• -->
   <div class="panel" id="tab-photo-tool">
     <div class="section-title">Product Photography</div>
     <div class="section-head">Photo Processing Tool</div>
@@ -962,7 +962,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ TODO / ROADMAP ══ -->
+  <!-- â•â• TODO / ROADMAP â•â• -->
   <div class="panel" id="tab-todo">
     <div class="section-title">Mission Control</div>
     <div class="section-head">TODO &amp; Roadmap</div>
@@ -1050,7 +1050,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ TUTORIALS ══ -->
+  <!-- â•â• TUTORIALS â•â• -->
   <div class="panel" id="tab-tutorials">
     <div class="section-title">Knowledge Base</div>
     <div class="section-head">Tutorials &amp; Walkthroughs</div>
@@ -1159,7 +1159,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ PRICING HUB ══ -->
+  <!-- â•â• PRICING HUB â•â• -->
   <div class="panel" id="tab-pricing">
     <div class="section-title">Price Management</div>
     <div class="section-head">All Product Pricing</div>
@@ -1218,7 +1218,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ SETTINGS ══ -->
+  <!-- â•â• SETTINGS â•â• -->
   <div class="panel" id="tab-settings">
     <div class="section-title">Configuration</div>
     <div class="section-head">Site Settings</div>
@@ -1263,18 +1263,18 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="card">
         <div class="card-label" style="margin-bottom:14px">Emergency Procedures</div>
         <div style="font-size:13px;font-weight:300;line-height:2">
-          <strong>Take site down:</strong> Render → Suspend service<br>
-          <strong>Disable payments:</strong> Stripe → Disable payment links<br>
+          <strong>Take site down:</strong> Render â†’ Suspend service<br>
+          <strong>Disable payments:</strong> Stripe â†’ Disable payment links<br>
           <strong>Clear promo:</strong> Edit index.html, remove badge div<br>
-          <strong>Change price:</strong> Stripe → Edit product price<br>
-          <strong>Redirect domain:</strong> Cloudflare → DNS → A record<br>
-          <strong>Rollback:</strong> Render → Deploys → Rollback to prior
+          <strong>Change price:</strong> Stripe â†’ Edit product price<br>
+          <strong>Redirect domain:</strong> Cloudflare â†’ DNS â†’ A record<br>
+          <strong>Rollback:</strong> Render â†’ Deploys â†’ Rollback to prior
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ WORLD MAP — SEAUX9 STREAMING REACH ══ -->
+  <!-- â•â• WORLD MAP â€” SEAUX9 STREAMING REACH â•â• -->
   <div class="panel" id="tab-world-map">
     <div class="section-title">Global Reach</div>
     <div class="section-head">SEAUX9 Worldwide Streaming</div>
@@ -1306,7 +1306,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <!-- Australia -->
           <path d="M750,310 L800,290 L840,310 L830,350 L790,370 L750,350 Z" fill="rgba(245,230,200,.08)" stroke="rgba(245,230,200,.15)" stroke-width="1"/>
 
-          <!-- STREAMING HOTSPOTS — animated pulse dots -->
+          <!-- STREAMING HOTSPOTS â€” animated pulse dots -->
           <!-- USA (Atlanta HQ) -->
           <circle cx="230" cy="150" r="8" fill="#E01010" opacity=".9"><animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/></circle>
           <circle cx="230" cy="150" r="20" fill="url(#glow)"><animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/></circle>
@@ -1365,17 +1365,17 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">About This Data</strong>
-      Stream data from DistroKid/streaming reports (Apr 2019–Dec 2025). 6,519 rows across 27 platforms and 40+ countries. Earnings: $231 cumulative. Map hotspots represent relative listener concentration.
+      Stream data from DistroKid/streaming reports (Apr 2019â€“Dec 2025). 6,519 rows across 27 platforms and 40+ countries. Earnings: $231 cumulative. Map hotspots represent relative listener concentration.
     </div>
   </div>
 
-  <!-- ══ ATL MAP — LOCAL OPERATIONS ══ -->
+  <!-- â•â• ATL MAP â€” LOCAL OPERATIONS â•â• -->
   <div class="panel" id="tab-atl-map">
     <div class="section-title">Local Operations</div>
-    <div class="section-head">Atlanta Map — PRML RECORDS</div>
+    <div class="section-head">Atlanta Map â€” PRML RECORDS</div>
 
     <div style="background:var(--charcoal);padding:24px;border-top:3px solid var(--red);margin-bottom:20px">
-      <!-- EMBEDDED GOOGLE MAP — Atlanta Beltline area -->
+      <!-- EMBEDDED GOOGLE MAP â€” Atlanta Beltline area -->
       <div style="position:relative;background:#111;border:1px solid rgba(254,1,3,.15);overflow:hidden;margin-bottom:16px">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13268.9!2d-84.365!3d33.772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sPonce%20City%20Market!5e0!3m2!1sen!2sus!4v1" width="100%" height="400" style="border:0;display:block;filter:saturate(.3) brightness(.8)" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div style="position:absolute;top:12px;left:12px;background:rgba(43,43,43,.9);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red)">PRML Operations Zone</div>
@@ -1386,7 +1386,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div class="card card--green" style="padding:16px">
           <div class="card-label">Primary Location</div>
           <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:6px 0 4px">Ponce City Market</div>
-          <div class="card-sub">Beltline pop-ups starting May 2026<br>Kroger on Ponce area<br>NFC product demos · live events</div>
+          <div class="card-sub">Beltline pop-ups starting May 2026<br>Kroger on Ponce area<br>NFC product demos Â· live events</div>
         </div>
         <div class="card" style="padding:16px">
           <div class="card-label">Mailing Address</div>
@@ -1395,21 +1395,21 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         </div>
         <div class="card card--yellow" style="padding:16px">
           <div class="card-label">Coverage Area</div>
-          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:6px 0 4px">West End → Midtown</div>
-          <div class="card-sub">Beltline corridor<br>West End · Little Five Points · Old Fourth Ward<br>Ponce City Market · Piedmont Park</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:6px 0 4px">West End â†’ Midtown</div>
+          <div class="card-sub">Beltline corridor<br>West End Â· Little Five Points Â· Old Fourth Ward<br>Ponce City Market Â· Piedmont Park</div>
         </div>
       </div>
     </div>
 
     <!-- BELTLINE SCHEDULE -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:20px">
-      <div class="section-title" style="color:var(--green)">Beltline Schedule — May 2026</div>
+      <div class="section-title" style="color:var(--green)">Beltline Schedule â€” May 2026</div>
       <div style="font-size:13px;font-weight:300;line-height:2;margin-top:12px">
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>📍 Ponce City Market / Kroger on Ponce</span><span style="color:var(--green)">PRIMARY</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>🎵 Live NFC product demos</span><span style="color:var(--stone)">Every pop-up</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>📸 Content capture station</span><span style="color:var(--stone)">Fan uploads → prmlrecords.com</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>🎤 SEAUX9 live performances</span><span style="color:var(--stone)">Register w/ PRO for royalties</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0"><span>📧 Mailing list signup</span><span style="color:var(--green)">LIVE on customize.html</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>ðŸ“ Ponce City Market / Kroger on Ponce</span><span style="color:var(--green)">PRIMARY</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>ðŸŽµ Live NFC product demos</span><span style="color:var(--stone)">Every pop-up</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>ðŸ“¸ Content capture station</span><span style="color:var(--stone)">Fan uploads â†’ prmlrecords.com</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>ðŸŽ¤ SEAUX9 live performances</span><span style="color:var(--stone)">Register w/ PRO for royalties</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0"><span>ðŸ“§ Mailing list signup</span><span style="color:var(--green)">LIVE on customize.html</span></div>
       </div>
     </div>
 
@@ -1419,17 +1419,17 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
   </div>
 
-  <!-- ══ GOALS — 3-6-9 FRAMEWORK ══ -->
+  <!-- â•â• GOALS â€” 3-6-9 FRAMEWORK â•â• -->
   <div class="panel" id="tab-goals">
     <div class="section-title">Strategy</div>
-    <div class="section-head">Goals — 3-6-9 Framework</div>
+    <div class="section-head">Goals â€” 3-6-9 Framework</div>
 
     <!-- TIER 3: NOW (This Week) -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
-      <div class="section-title">Tier 3 — Revenue Now (This Week)</div>
+      <div class="section-title">Tier 3 â€” Revenue Now (This Week)</div>
       <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">Seal leaks. Capture every dollar.</div>
       <div style="font-size:13px;font-weight:300;line-height:2">
-        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Customize page — full order form + cart checkout</div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Customize page â€” full order form + cart checkout</div>
         <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Product photos on customize page</div>
         <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> Beltline mailing list + content upload live</div>
         <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span style="color:var(--green)">&#9745;</span> 31 sponsorship companies loaded in Airtable</div>
@@ -1441,15 +1441,15 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
     <!-- TIER 6: SOON (This Month) -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--yellow);margin-bottom:20px">
-      <div class="section-title" style="color:var(--yellow)">Tier 6 — Revenue Soon (This Month)</div>
+      <div class="section-title" style="color:var(--yellow)">Tier 6 â€” Revenue Soon (This Month)</div>
       <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">Build the machine.</div>
       <div style="font-size:13px;font-weight:300;line-height:2">
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Beat licensing page — Basic $29.99 / Premium $99.99 / Exclusive $299+</div>
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; B2B landing pages — 6 verticals (automotive first)</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Beat licensing page â€” Basic $29.99 / Premium $99.99 / Exclusive $299+</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; B2B landing pages â€” 6 verticals (automotive first)</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; TAP STARTER KIT bundle page ($99)</div>
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Calendly setup — consultations + studio sessions</div>
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Sponsorship outreach — send first batch of emails</div>
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Performance royalty pipeline — ASCAP/SoundExchange registration</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Calendly setup â€” consultations + studio sessions</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Sponsorship outreach â€” send first batch of emails</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Performance royalty pipeline â€” ASCAP/SoundExchange registration</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Lead magnet page build</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Post-event Brevo follow-up sequences (24hr / 3-day / 9-day)</div>
         <div style="padding:6px 0">&#9744; seaux9.com holding page + domain renewal (expires May 17)</div>
@@ -1458,47 +1458,47 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
     <!-- TIER 9: SCALE (This Quarter) -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--blue);margin-bottom:20px">
-      <div class="section-title" style="color:var(--blue)">Tier 9 — Revenue at Scale (This Quarter)</div>
+      <div class="section-title" style="color:var(--blue)">Tier 9 â€” Revenue at Scale (This Quarter)</div>
       <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">Multiply and automate.</div>
       <div style="font-size:13px;font-weight:300;line-height:2">
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Master Google Spreadsheet (8-tab hub)</div>
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Daily KPI digest: Stripe + GA4 → Sheets → 9am email</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Daily KPI digest: Stripe + GA4 â†’ Sheets â†’ 9am email</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Community membership tiers (Free / Premium / Gold)</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Digital downloads store (beat packs, templates)</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Livestream monetization setup</div>
         <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Website-as-a-service productization (white-label sites)</div>
-        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Grant applications — Hello Alice + top 3-5</div>
-        <div style="padding:6px 0">&#9744; PRML↔SEAUX9 formal deal memo</div>
+        <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)">&#9744; Grant applications â€” Hello Alice + top 3-5</div>
+        <div style="padding:6px 0">&#9744; PRMLâ†”SEAUX9 formal deal memo</div>
       </div>
     </div>
 
     <!-- REVENUE TRACKER -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:20px">
       <div class="section-title" style="color:var(--green)">Revenue Streams</div>
-      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">13 Streams — $5.5k–$48.5k/mo Potential</div>
+      <div style="font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);margin:8px 0 16px">13 Streams â€” $5.5kâ€“$48.5k/mo Potential</div>
       <table class="tbl" style="margin-top:12px">
         <tr><th>Stream</th><th>Status</th><th>Est. Monthly</th></tr>
-        <tr><td>Custom NFC products (Cards/Keychains/Pendants)</td><td><span style="color:var(--green)">LIVE</span></td><td>$500–$5,000</td></tr>
-        <tr><td>Payment Stand sales</td><td><span style="color:var(--green)">LIVE</span></td><td>$500–$3,000</td></tr>
-        <tr><td>Payment processor setup ($99)</td><td><span style="color:var(--green)">LIVE</span></td><td>$200–$1,000</td></tr>
-        <tr><td>Branded NFC (TAP CARD/KEYCHAIN)</td><td><span style="color:var(--green)">LIVE</span></td><td>$300–$2,000</td></tr>
-        <tr><td>Design/branding services</td><td><span style="color:var(--yellow)">PARTIAL</span></td><td>$500–$5,000</td></tr>
-        <tr><td>Beat licensing</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$200–$3,000</td></tr>
-        <tr><td>Sponsorships</td><td><span style="color:var(--yellow)">OUTREACH</span></td><td>$500–$10,000</td></tr>
-        <tr><td>Affiliate commissions</td><td><span style="color:var(--green)">LIVE</span></td><td>$50–$500</td></tr>
-        <tr><td>Streaming royalties (SEAUX9)</td><td><span style="color:var(--yellow)">PARTIAL</span></td><td>$30–$200</td></tr>
-        <tr><td>Live performance royalties</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$100–$2,000</td></tr>
-        <tr><td>Digital downloads</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$100–$1,000</td></tr>
-        <tr><td>Website-as-a-service</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$500–$5,000</td></tr>
-        <tr><td>Community memberships</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$200–$2,000</td></tr>
+        <tr><td>Custom NFC products (Cards/Keychains/Pendants)</td><td><span style="color:var(--green)">LIVE</span></td><td>$500â€“$5,000</td></tr>
+        <tr><td>Payment Stand sales</td><td><span style="color:var(--green)">LIVE</span></td><td>$500â€“$3,000</td></tr>
+        <tr><td>Payment processor setup ($99)</td><td><span style="color:var(--green)">LIVE</span></td><td>$200â€“$1,000</td></tr>
+        <tr><td>Branded NFC (TAP CARD/KEYCHAIN)</td><td><span style="color:var(--green)">LIVE</span></td><td>$300â€“$2,000</td></tr>
+        <tr><td>Design/branding services</td><td><span style="color:var(--yellow)">PARTIAL</span></td><td>$500â€“$5,000</td></tr>
+        <tr><td>Beat licensing</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$200â€“$3,000</td></tr>
+        <tr><td>Sponsorships</td><td><span style="color:var(--yellow)">OUTREACH</span></td><td>$500â€“$10,000</td></tr>
+        <tr><td>Affiliate commissions</td><td><span style="color:var(--green)">LIVE</span></td><td>$50â€“$500</td></tr>
+        <tr><td>Streaming royalties (SEAUX9)</td><td><span style="color:var(--yellow)">PARTIAL</span></td><td>$30â€“$200</td></tr>
+        <tr><td>Live performance royalties</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$100â€“$2,000</td></tr>
+        <tr><td>Digital downloads</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$100â€“$1,000</td></tr>
+        <tr><td>Website-as-a-service</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$500â€“$5,000</td></tr>
+        <tr><td>Community memberships</td><td><span style="color:var(--red)">NOT BUILT</span></td><td>$200â€“$2,000</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- ══ LEARN — EDUCATIONAL RESOURCES ══ -->
+  <!-- â•â• LEARN â€” EDUCATIONAL RESOURCES â•â• -->
   <div class="panel" id="tab-learn">
     <div class="section-title">Education</div>
-    <div class="section-head">Learn — Business Swiss Army Knife</div>
+    <div class="section-head">Learn â€” Business Swiss Army Knife</div>
 
     <!-- CATEGORY: ROYALTIES & MUSIC BUSINESS -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:16px">
@@ -1507,11 +1507,11 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">What is ASCAP?</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">American Society of Composers, Authors and Publishers. They collect performance royalties when your music is played live, on radio, TV, streaming, or in businesses. You register your songs as "works" and get paid when they are performed. <strong>Action:</strong> Register at ascap.com → Create account → Add works.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">American Society of Composers, Authors and Publishers. They collect performance royalties when your music is played live, on radio, TV, streaming, or in businesses. You register your songs as "works" and get paid when they are performed. <strong>Action:</strong> Register at ascap.com â†’ Create account â†’ Add works.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">What is SoundExchange?</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Collects <strong>digital performance royalties</strong> — money from Pandora, SiriusXM, internet radio, and non-interactive streaming. This is separate from ASCAP/BMI. You must register as both an artist AND a rights owner. <strong>Action:</strong> Register at soundexchange.com.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Collects <strong>digital performance royalties</strong> â€” money from Pandora, SiriusXM, internet radio, and non-interactive streaming. This is separate from ASCAP/BMI. You must register as both an artist AND a rights owner. <strong>Action:</strong> Register at soundexchange.com.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Performance Royalties from Live Shows</div>
@@ -1519,7 +1519,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Copyright Registration (U.S. Copyright Office)</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Your music is copyrighted the moment you create it, but <strong>registering</strong> gives you legal power — you can sue for damages, it's public record, and it strengthens licensing deals. <strong>Action:</strong> copyright.gov → Register a Work → Sound Recording (SR). ~$65 per work or $85 for a group.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Your music is copyrighted the moment you create it, but <strong>registering</strong> gives you legal power â€” you can sue for damages, it's public record, and it strengthens licensing deals. <strong>Action:</strong> copyright.gov â†’ Register a Work â†’ Sound Recording (SR). ~$65 per work or $85 for a group.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--red)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">The MLC (Mechanical Licensing Collective)</div>
@@ -1535,23 +1535,23 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">The Value Equation (Alex Hormozi)</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Value = (Dream Outcome × Perceived Likelihood) ÷ (Time Delay × Effort). Increase value by: making the outcome bigger, proving it works, delivering faster, and making it effortless. Your TAP STARTER KIT at $99 is a Grand Slam Offer — it bundles card + keychain + QR + landing page + support.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Value = (Dream Outcome Ã— Perceived Likelihood) Ã· (Time Delay Ã— Effort). Increase value by: making the outcome bigger, proving it works, delivering faster, and making it effortless. Your TAP STARTER KIT at $99 is a Grand Slam Offer â€” it bundles card + keychain + QR + landing page + support.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">UTM Tracking — Know Where Your Money Comes From</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every link you share should have UTM parameters so Google Analytics shows exactly which channel drove the sale. Format: <code>?utm_source=instagram&utm_medium=bio&utm_campaign=spring2026</code>. Your Beltline QR codes already have this. Check GA4 → Acquisition → Traffic Acquisition to see results.</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">UTM Tracking â€” Know Where Your Money Comes From</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every link you share should have UTM parameters so Google Analytics shows exactly which channel drove the sale. Format: <code>?utm_source=instagram&utm_medium=bio&utm_campaign=spring2026</code>. Your Beltline QR codes already have this. Check GA4 â†’ Acquisition â†’ Traffic Acquisition to see results.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Email Marketing Sequences (Brevo)</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7"><strong>Welcome sequence:</strong> Instant → Day 1 (intro) → Day 3 (value) → Day 7 (offer). <strong>Post-purchase:</strong> Confirm → Day 3 (review request) → Day 14 (upsell). <strong>Post-event:</strong> 24hr (thank you + photos) → Day 3 (offer) → Day 9 (last chance). These run automatically in Brevo once activated.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7"><strong>Welcome sequence:</strong> Instant â†’ Day 1 (intro) â†’ Day 3 (value) â†’ Day 7 (offer). <strong>Post-purchase:</strong> Confirm â†’ Day 3 (review request) â†’ Day 14 (upsell). <strong>Post-event:</strong> 24hr (thank you + photos) â†’ Day 3 (offer) â†’ Day 9 (last chance). These run automatically in Brevo once activated.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Sponsorship Outreach 101</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7"><strong>What sponsors want:</strong> Reach (your audience), credibility (your brand), and exposure (your events). <strong>What you offer:</strong> Review videos, booth space, ad placement, affiliate links, giveaway distribution. <strong>Never sell their product for them</strong> — give it away as swag. 31 companies are loaded in Airtable, batch by category, send 9am-11am EST.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7"><strong>What sponsors want:</strong> Reach (your audience), credibility (your brand), and exposure (your events). <strong>What you offer:</strong> Review videos, booth space, ad placement, affiliate links, giveaway distribution. <strong>Never sell their product for them</strong> â€” give it away as swag. 31 companies are loaded in Airtable, batch by category, send 9am-11am EST.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--green)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Grants for Small Businesses</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">You qualify for multiple grant categories: Black-owned, minority-owned, small business, creative/arts, technology, Atlanta-based. <strong>Key platforms:</strong> Hello Alice, Grants.gov, SBA, local Atlanta funds. Claude can research, catalog, and apply autonomously — use <code>/prml-grants</code>.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">You qualify for multiple grant categories: Black-owned, minority-owned, small business, creative/arts, technology, Atlanta-based. <strong>Key platforms:</strong> Hello Alice, Grants.gov, SBA, local Atlanta funds. Claude can research, catalog, and apply autonomously â€” use <code>/prml-grants</code>.</div>
         </div>
       </div>
     </div>
@@ -1562,31 +1562,31 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream);margin:8px 0 16px">Your Tech Stack Explained</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">NFC Technology — How It Works</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">NFC (Near Field Communication) is a chip embedded in your cards/keychains/pendants. When someone taps their phone on it, it opens a URL — no app needed. The chip stores a link to a landing page you control. You can change the destination anytime without reprinting. This is why the "links" form on customize.html matters — those URLs get programmed into the chip.</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">NFC Technology â€” How It Works</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">NFC (Near Field Communication) is a chip embedded in your cards/keychains/pendants. When someone taps their phone on it, it opens a URL â€” no app needed. The chip stores a link to a landing page you control. You can change the destination anytime without reprinting. This is why the "links" form on customize.html matters â€” those URLs get programmed into the chip.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Stripe — Your Payment Processor</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Stripe handles all credit card payments. <strong>Payment Links</strong> are direct checkout URLs (no code needed). <strong>Payment Intents</strong> are API-based (used in the checkout app). Your Stripe dashboard: dashboard.stripe.com. Test card: 4242 4242 4242 4242. Live keys start with <code>pk_live_</code> and <code>sk_live_</code> — never share the secret key.</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Stripe â€” Your Payment Processor</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Stripe handles all credit card payments. <strong>Payment Links</strong> are direct checkout URLs (no code needed). <strong>Payment Intents</strong> are API-based (used in the checkout app). Your Stripe dashboard: dashboard.stripe.com. Test card: 4242 4242 4242 4242. Live keys start with <code>pk_live_</code> and <code>sk_live_</code> â€” never share the secret key.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Google Analytics (GA4) — What It Tells You</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">GA4 tracks every visitor to prmlrecords.com. Key reports: <strong>Realtime</strong> (who's on now), <strong>Acquisition</strong> (where they came from — UTM tracking), <strong>Engagement</strong> (which pages they view), <strong>Events</strong> (button clicks, form submits, purchases). Your GA4 ID: G-2PNH2XTRDK. Access: analytics.google.com.</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Google Analytics (GA4) â€” What It Tells You</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">GA4 tracks every visitor to prmlrecords.com. Key reports: <strong>Realtime</strong> (who's on now), <strong>Acquisition</strong> (where they came from â€” UTM tracking), <strong>Engagement</strong> (which pages they view), <strong>Events</strong> (button clicks, form submits, purchases). Your GA4 ID: G-2PNH2XTRDK. Access: analytics.google.com.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Airtable — Your Database</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Airtable â€” Your Database</div>
           <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Airtable is a spreadsheet that acts like a database. Your tables: <strong>Orders</strong> (every purchase), <strong>Sponsorship Companies</strong> (31 targets), <strong>Sponsorship Email Log</strong> (tracking sends), <strong>Sponsorship Partnerships</strong> (active deals). Base ID: app3ABwfzM6QJM7UL. Access: airtable.com.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Brevo — Email Marketing</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Brevo â€” Email Marketing</div>
           <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Brevo (formerly Sendinblue) sends your automated emails. 300 emails/day on free plan. Used for: welcome sequences, post-purchase confirmations, event follow-ups, sponsorship outreach batches. Contact list syncs with HubSpot via Zapier. Access: app.brevo.com.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Git + GitHub — Version Control</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every change to prmlrecords.com is tracked in Git. The repo is at <code>github.com/PRMLRECORDS/prmlrecords-website</code>. To deploy changes: <code>git add .</code> → <code>git commit -m "description"</code> → <code>git push origin master</code>. Render auto-deploys from master. If something breaks, you can rollback in Render → Deploys.</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Git + GitHub â€” Version Control</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Every change to prmlrecords.com is tracked in Git. The repo is at <code>github.com/PRMLRECORDS/prmlrecords-website</code>. To deploy changes: <code>git add .</code> â†’ <code>git commit -m "description"</code> â†’ <code>git push origin master</code>. Render auto-deploys from master. If something breaks, you can rollback in Render â†’ Deploys.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--blue)">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Claude Code — Your AI Co-Operator</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Claude Code â€” Your AI Co-Operator</div>
           <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Claude has custom skills built for PRML: <code>/prml-audit</code> (site health), <code>/prml-sponsorship</code> (outreach), <code>/prml-grants</code> (funding), <code>/prml-followup</code> (customer emails), <code>/prml-quote</code> (invoices), <code>/prml-product</code> (catalog), <code>/prml-booking</code> (bookings), <code>/prml-seaux9</code> (artist management). Type the command and Claude handles the rest.</div>
         </div>
       </div>
@@ -1603,11 +1603,11 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--yellow)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Privacy Policy &amp; Terms of Service</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Both are live: <a href="../privacypolicy.html" style="color:var(--red)">Privacy Policy</a> and <a href="../termsofservice.html" style="color:var(--red)">Terms of Service</a>. Required by law if you collect any customer data (names, emails, payments). Review quarterly. Cookie consent banner is still pending — run <code>/prml-legal</code> to audit.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Both are live: <a href="../privacypolicy.html" style="color:var(--red)">Privacy Policy</a> and <a href="../termsofservice.html" style="color:var(--red)">Terms of Service</a>. Required by law if you collect any customer data (names, emails, payments). Review quarterly. Cookie consent banner is still pending â€” run <code>/prml-legal</code> to audit.</div>
         </div>
         <div style="background:var(--bg);padding:14px;border-left:3px solid var(--yellow)">
           <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);margin-bottom:4px">Contracts &amp; Deal Memos</div>
-          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Always get agreements in writing — even with friends. Key docs needed: <strong>PRML↔SEAUX9 deal memo</strong> (pending), <strong>sponsorship agreements</strong> (template needed), <strong>client service agreements</strong> (for custom orders over $500). 50% deposit policy protects against scope creep.</div>
+          <div style="font-size:12px;font-weight:300;opacity:.7;line-height:1.7">Always get agreements in writing â€” even with friends. Key docs needed: <strong>PRMLâ†”SEAUX9 deal memo</strong> (pending), <strong>sponsorship agreements</strong> (template needed), <strong>client service agreements</strong> (for custom orders over $500). 50% deposit policy protects against scope creep.</div>
         </div>
       </div>
     </div>
@@ -1616,7 +1616,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 </div><!-- end console -->
 
 <script>
-// ── ACCESS CONTROL ──────────────────────────────────────────────
+// â”€â”€ ACCESS CONTROL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // FLY: Change default password here (line ~300 area):
 const DEFAULT_PW = 'PRML369!';
 
@@ -1655,19 +1655,19 @@ window.onload = function(){
   }
 };
 
-// ── CLOCK ──────────────────────────────────────────────────────
+// â”€â”€ CLOCK â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function startClock(){
   function tick(){
     const now = new Date();
     document.getElementById('live-time').textContent =
       now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})
-      + ' · ' + now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+      + ' Â· ' + now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
   }
   tick();
   setInterval(tick, 30000);
 }
 
-// ── TABS ──────────────────────────────────────────────────────
+// â”€â”€ TABS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function showTab(id){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -1675,7 +1675,7 @@ function showTab(id){
   event.target.classList.add('active');
 }
 
-// ── PROMO CONTROLS ────────────────────────────────────────────
+// â”€â”€ PROMO CONTROLS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let spots = 9;
 
 function loadSpots(){
@@ -1684,7 +1684,7 @@ function loadSpots(){
   document.getElementById('spots-display').textContent = spots;
   document.getElementById('ov-spots').textContent = spots;
   document.getElementById('ov-spots-sub').textContent =
-    spots > 0 ? 'First 9 — setup fee waived' : 'CLOSED — All spots filled';
+    spots > 0 ? 'First 9 â€” setup fee waived' : 'CLOSED â€” All spots filled';
 }
 
 function adjustSpots(n){
@@ -1693,7 +1693,7 @@ function adjustSpots(n){
   document.getElementById('spots-display').textContent = spots;
   document.getElementById('ov-spots').textContent = spots;
   document.getElementById('ov-spots-sub').textContent =
-    spots > 0 ? 'First 9 — setup fee waived' : 'CLOSED — All spots filled';
+    spots > 0 ? 'First 9 â€” setup fee waived' : 'CLOSED â€” All spots filled';
 }
 
 function updatePromoPreview(){
@@ -1738,15 +1738,15 @@ dashboard.stripe.com/products`;
   document.getElementById('price-code-output').style.display='block';
 }
 
-// ── STORE EDITOR ─────────────────────────────────────────────
+// â”€â”€ STORE EDITOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const SE_PRODUCTS = [
   {
     id:'tap-card-charcoal',
     sku:'TAP-CARD-CH',
-    name:'PRML TAP CARD — Charcoal',
+    name:'PRML TAP CARD â€” Charcoal',
     tag:'TAP CARD',
-    desc:'Premium NFC card in PRML Charcoal. One tap shares your complete digital profile — no app, no subscription, no expiration.',
+    desc:'Premium NFC card in PRML Charcoal. One tap shares your complete digital profile â€” no app, no subscription, no expiration.',
     price:'29.99',
     stripe:'https://buy.stripe.com/eVq3cw3eB1hcf1Ia2S1ZS0G',
     image:''
@@ -1754,9 +1754,9 @@ const SE_PRODUCTS = [
   {
     id:'tap-card-beige',
     sku:'TAP-CARD-BG',
-    name:'PRML TAP CARD — Beige',
+    name:'PRML TAP CARD â€” Beige',
     tag:'TAP CARD',
-    desc:'Premium NFC card in PRML Beige. Clean, cream colorway — the classic PRML look that feels like a credit card.',
+    desc:'Premium NFC card in PRML Beige. Clean, cream colorway â€” the classic PRML look that feels like a credit card.',
     price:'29.99',
     stripe:'https://buy.stripe.com/fZucN6cPb2lg5r8grg1ZS0F',
     image:''
@@ -1764,8 +1764,8 @@ const SE_PRODUCTS = [
   {
     id:'tap-card-10pack',
     sku:'TAP-CARD-10',
-    name:'PRML TAP CARD — 10-Pack',
-    tag:'TAP CARD · TEAM',
+    name:'PRML TAP CARD â€” 10-Pack',
+    tag:'TAP CARD Â· TEAM',
     desc:'Equip the whole team. Ten cards, all programmed, all shipped. Color mix confirmed during setup.',
     price:'279.90',
     stripe:'https://buy.stripe.com/9B6fZi16t6Bw1aScb01ZS0J',
@@ -1774,9 +1774,9 @@ const SE_PRODUCTS = [
   {
     id:'tap-keychain-charcoal',
     sku:'TAP-KEY-CH',
-    name:'PRML TAP KEYCHAIN — Charcoal',
+    name:'PRML TAP KEYCHAIN â€” Charcoal',
     tag:'TAP KEYCHAIN',
-    desc:'Your network, on your keys. The PRML TAP KEYCHAIN in Charcoal — always with you, always ready to share your full digital profile.',
+    desc:'Your network, on your keys. The PRML TAP KEYCHAIN in Charcoal â€” always with you, always ready to share your full digital profile.',
     price:'19.99',
     stripe:'https://buy.stripe.com/00w14odTf7FAaLs7UK1ZS0I',
     image:''
@@ -1784,9 +1784,9 @@ const SE_PRODUCTS = [
   {
     id:'tap-keychain-beige',
     sku:'TAP-KEY-BG',
-    name:'PRML TAP KEYCHAIN — Beige',
+    name:'PRML TAP KEYCHAIN â€” Beige',
     tag:'TAP KEYCHAIN',
-    desc:'Your network, on your keys. The PRML TAP KEYCHAIN in Beige — the warm cream colorway that goes everywhere you go.',
+    desc:'Your network, on your keys. The PRML TAP KEYCHAIN in Beige â€” the warm cream colorway that goes everywhere you go.',
     price:'19.99',
     stripe:'https://buy.stripe.com/8x2aEY16taRMcTA7UK1ZS0H',
     image:''
@@ -1794,8 +1794,8 @@ const SE_PRODUCTS = [
   {
     id:'tap-keychain-10pack',
     sku:'TAP-KEY-10',
-    name:'PRML TAP KEYCHAIN — 10-Pack',
-    tag:'TAP KEYCHAIN · TEAM',
+    name:'PRML TAP KEYCHAIN â€” 10-Pack',
+    tag:'TAP KEYCHAIN Â· TEAM',
     desc:'Equip your crew. Ten TAP KEYCHAINs, all programmed, all ready. Gift them, distribute them, or keep a supply for your team.',
     price:'219.90',
     stripe:'https://buy.stripe.com/dRmeVe16tgc606Ofnc1ZS0K',
@@ -1804,29 +1804,29 @@ const SE_PRODUCTS = [
 ];
 
 const SE_SERVICES = [
-  {name:'Starter Website',price:'$1,500',desc:'Five pages built mobile-first — customers find you, contact you, trust you.'},
-  {name:'Business Website',price:'$2,500',desc:'A full custom site built to scale with your business — analytics, advanced features, and a design that converts.'},
-  {name:'E-Commerce Website',price:'$3,500',desc:'A complete online store — products, cart, checkout, and payments — built and ready to generate revenue.'},
+  {name:'Starter Website',price:'$1,500',desc:'Five pages built mobile-first â€” customers find you, contact you, trust you.'},
+  {name:'Business Website',price:'$2,500',desc:'A full custom site built to scale with your business â€” analytics, advanced features, and a design that converts.'},
+  {name:'E-Commerce Website',price:'$3,500',desc:'A complete online store â€” products, cart, checkout, and payments â€” built and ready to generate revenue.'},
   {name:'Landing Page',price:'$500',desc:'One page. One goal. Maximum response. Built for campaigns, launches, and lead capture.'},
-  {name:'Website Maintenance',price:'$200/month',desc:'Monthly updates, backups, and content changes — your site stays fast and current.'},
-  {name:'Logo Design',price:'$500',desc:'A custom mark that makes people remember your name — three directions, two revision rounds.'},
-  {name:'Brand Identity Starter',price:'$750',desc:'Logo, color palette, and typography guide — the foundation that keeps your brand consistent.'},
+  {name:'Website Maintenance',price:'$200/month',desc:'Monthly updates, backups, and content changes â€” your site stays fast and current.'},
+  {name:'Logo Design',price:'$500',desc:'A custom mark that makes people remember your name â€” three directions, two revision rounds.'},
+  {name:'Brand Identity Starter',price:'$750',desc:'Logo, color palette, and typography guide â€” the foundation that keeps your brand consistent.'},
   {name:'Brand Identity Full',price:'$1,500',desc:'Your complete brand system. Logo, colors, fonts, voice, business card, social templates, and a standards doc.'},
   {name:'Business Card Design',price:'$150',desc:'Front and back, press-ready, in every format you need to print anywhere.'},
   {name:'Social Media Ad Set',price:'$300',desc:'Five ads, ready to run. Stop the scroll on Instagram, Facebook, and TikTok.'},
   {name:'Email Campaign Design',price:'$200',desc:'An email people actually open and act on. Full template delivered as HTML and image exports.'},
   {name:'Digital Banner / Billboard',price:'$150',desc:'High-impact display creative sized for outdoor digital boards, web, and social.'},
   {name:'Flyer Design',price:'$100',desc:'A fast-turnaround flyer that works at 300dpi and on every screen.'},
-  {name:'Poster (24×36)',price:'$150',desc:'A press-ready poster that commands attention at events, venues, and storefronts.'},
+  {name:'Poster (24Ã—36)',price:'$150',desc:'A press-ready poster that commands attention at events, venues, and storefronts.'},
   {name:'Brochure (Trifold)',price:'$200',desc:'A professional trifold that reads well, looks exceptional, and prints flawlessly.'},
   {name:'Business Cards (Design)',price:'$125',desc:'Premium front-and-back design delivered in every print-ready format you need.'},
-  {name:'PRML TAP CARD — Single',price:'$29.99',desc:'One tap. They have everything — your link, your contact, your story.'},
-  {name:'PRML TAP CARD — 10-Pack',price:'$249.99',desc:'Ten cards, ten first impressions — all programmed, all shipped.'},
-  {name:'PRML TAP KEYCHAIN — Single',price:'$19.99',desc:'Always with you. Always ready. Your full digital profile on your keychain.'},
-  {name:'PRML TAP KEYCHAIN — 10-Pack',price:'$219.90',desc:'Ten TAP KEYCHAINs for the team that\'s always moving.'},
-  {name:'Custom NFC Setup + Landing Page',price:'$150',desc:'Custom chip programming plus a branded landing page — configured before it ships.'},
-  {name:'Custom 3D Print — Small',price:'From $25',desc:'FDM printing in PLA, PETG, or ABS — functional parts, prototypes, artistic pieces.'},
-  {name:'Custom 3D Print — Large',price:'From $75',desc:'Large-format FDM for display pieces, signage inserts, event props, and production runs.'},
+  {name:'PRML TAP CARD â€” Single',price:'$29.99',desc:'One tap. They have everything â€” your link, your contact, your story.'},
+  {name:'PRML TAP CARD â€” 10-Pack',price:'$249.99',desc:'Ten cards, ten first impressions â€” all programmed, all shipped.'},
+  {name:'PRML TAP KEYCHAIN â€” Single',price:'$19.99',desc:'Always with you. Always ready. Your full digital profile on your keychain.'},
+  {name:'PRML TAP KEYCHAIN â€” 10-Pack',price:'$219.90',desc:'Ten TAP KEYCHAINs for the team that\'s always moving.'},
+  {name:'Custom NFC Setup + Landing Page',price:'$150',desc:'Custom chip programming plus a branded landing page â€” configured before it ships.'},
+  {name:'Custom 3D Print â€” Small',price:'From $25',desc:'FDM printing in PLA, PETG, or ABS â€” functional parts, prototypes, artistic pieces.'},
+  {name:'Custom 3D Print â€” Large',price:'From $75',desc:'Large-format FDM for display pieces, signage inserts, event props, and production runs.'},
   {name:'Laser Engraving',price:'From $20',desc:'Logo, art, or text precision-engraved onto wood, acrylic, leather, and more.'}
 ];
 
@@ -1885,7 +1885,7 @@ function buildProductCards(){
           <div class="se-preview-mini__name" id="se-pm-name-${i}">${escHtml(p.name.replace('PRML ',''))}</div>
           <div class="se-preview-mini__desc" id="se-pm-desc-${i}">${escHtml(p.desc)}</div>
           <div class="se-preview-mini__price" id="se-pm-price-${i}">$${p.price}</div>
-          <div class="se-preview-mini__btn">BUY NOW →</div>
+          <div class="se-preview-mini__btn">BUY NOW â†’</div>
         </div>
       </div>
 
@@ -1936,7 +1936,7 @@ function generateSECode(i){
   const stripe = (document.getElementById('se-stripe-'+i)||{}).value || prod.stripe;
   const img = (document.getElementById('se-img-'+i)||{}).value || '';
   const tag = prod.tag;
-  const displayName = name.replace(/^PRML /, '').replace(' — ', '<br>');
+  const displayName = name.replace(/^PRML /, '').replace(' â€” ', '<br>');
 
   const imgHtml = img
     ? `<img src="${img}" alt="${name}" style="width:100%;height:100%;object-fit:cover;display:block">`
@@ -2009,7 +2009,7 @@ async function testSheetsConnection(){
   const url = (document.getElementById('se-sheets-url')||{}).value||'';
   const res = document.getElementById('se-conn-result');
   if(!url){ res.className='se-conn-result show error'; res.textContent='Paste a URL first.'; return; }
-  res.className='se-conn-result show'; res.textContent='Testing connection…';
+  res.className='se-conn-result show'; res.textContent='Testing connectionâ€¦';
   try{
     const r = await fetch(url, {mode:'cors'});
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -2019,11 +2019,11 @@ async function testSheetsConnection(){
     res.textContent = `Connection successful. ${rows} row(s) returned. Your sheet is reachable and returning data.`;
   } catch(e){
     res.className='se-conn-result show error';
-    res.textContent = `Connection failed: ${e.message}. Check that the sheet is published as CSV and the URL is correct. If the sheet is on a different domain, CORS may block the test — try opening the URL directly in a browser tab.`;
+    res.textContent = `Connection failed: ${e.message}. Check that the sheet is published as CSV and the URL is correct. If the sheet is on a different domain, CORS may block the test â€” try opening the URL directly in a browser tab.`;
   }
 }
 
-// ── ORDERS ────────────────────────────────────────────────────
+// â”€â”€ ORDERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let orders = [];
 
 function loadOrders(){
@@ -2074,8 +2074,8 @@ function renderOrders(){
   list.innerHTML = orders.map(o=>`
     <div class="order-item ${o.status==='fulfilled'?'fulfilled':''}">
       <div>
-        <div style="font-weight:300;font-size:13px"><strong>${o.name}</strong> — ${o.product}</div>
-        <div class="order-meta">${o.date} · ${o.email} · ${o.phone} · ${o.amount}</div>
+        <div style="font-weight:300;font-size:13px"><strong>${o.name}</strong> â€” ${o.product}</div>
+        <div class="order-meta">${o.date} Â· ${o.email} Â· ${o.phone} Â· ${o.amount}</div>
         ${o.notes?`<div class="order-meta" style="margin-top:4px;opacity:.5">${o.notes}</div>`:''}
       </div>
       <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex-shrink:0">
@@ -2097,7 +2097,7 @@ function exportOrders(){
   a.click();
 }
 
-// ── UTILITIES ────────────────────────────────────────────────
+// â”€â”€ UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function copyText(text){
   navigator.clipboard.writeText(text).then(()=>{
     const btn = event.target;
@@ -2116,7 +2116,7 @@ function copyCode(id){
   });
 }
 
-// ── LP BUILDER ──────────────────────────────────────────────
+// â”€â”€ LP BUILDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const lpProducts = {
   'tap-card':       { name:'PRML TAP CARD', price:'$29.99', link:'https://buy.stripe.com/5kQ4gAdTf4to5r84Iy1ZS0O', img:'tap-card-charcoal-new.png' },
   'tap-keychain':   { name:'PRML TAP KEYCHAIN', price:'$19.99', link:'https://buy.stripe.com/28E9AUcPb6Bw2eW7UK1ZS0Q', img:'tap-keychain-charcoal-new.png' },
@@ -2149,9 +2149,9 @@ function lpGenerate(){
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${p.name} — PRML RECORDS</title>
+<title>${p.name} â€” PRML RECORDS</title>
 <meta name="robots" content="noindex,nofollow">
-<meta property="og:title" content="${p.name} — ${p.price} — PRML RECORDS">
+<meta property="og:title" content="${p.name} â€” ${p.price} â€” PRML RECORDS">
 <meta property="og:description" content="${sub}">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
@@ -2182,6 +2182,7 @@ function lpGenerate(){
   <a href="https://prmlrecords.com/contact.html?service=consultation&utm_source=print&utm_medium=lp" class="lp-svc">Custom Orders &amp; Inquiries</a>
 </div>
 <div class="lp-footer">PRML RECORDS LLC &middot; Peace Freedom Justice Equality &middot; prmlrecords.com</div>
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>`;
 
@@ -2190,7 +2191,7 @@ function lpGenerate(){
   document.getElementById('lp-output').scrollIntoView({behavior:'smooth'});
 }
 
-// ── QR CODE (uses QR Server API) ────────────────────────────
+// â”€â”€ QR CODE (uses QR Server API) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function generateQR(){
   const url = document.getElementById('qr-url').value;
   if(!url){alert('Enter a URL');return;}
@@ -2201,7 +2202,7 @@ function generateQR(){
     <a href="${qrImg}" download="PRML-QR.png" style="display:inline-block;margin-top:8px;background:var(--red);color:var(--cream);padding:8px 20px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-decoration:none">DOWNLOAD QR</a>`;
 }
 
-// ── PRINT AD PREVIEW ────────────────────────────────────────
+// â”€â”€ PRINT AD PREVIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function showAdTemplate(type){
   document.querySelectorAll('[id^="ad-btn-"]').forEach(b=>{b.style.borderColor='rgba(254,1,3,.3)';b.style.color='var(--cream)'});
   const btn=document.getElementById('ad-btn-'+type);
@@ -2230,7 +2231,8 @@ function updateAdPreview(){
 
 function downloadAdHTML(){
   const preview = document.getElementById('ad-preview');
-  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet"></head><body style="margin:0">${preview.outerHTML}</body></html>`;
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet"></head><body style="margin:0">${preview.outerHTML}<script src="/js/cache-bust.js" defer></script>
+</body></html>`;
   const a = document.createElement('a');
   a.href = 'data:text/html;charset=utf-8,'+encodeURIComponent(html);
   a.download = 'PRML_PrintAd_'+Date.now()+'.html';
@@ -2240,12 +2242,13 @@ function downloadAdHTML(){
 function printAd(){
   const preview = document.getElementById('ad-preview');
   const win = window.open('','','width=850,height=1100');
-  win.document.write(`<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet"><style>body{margin:0}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>${preview.outerHTML}</body></html>`);
+  win.document.write(`<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet"><style>body{margin:0}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>${preview.outerHTML}<script src="/js/cache-bust.js" defer></script>
+</body></html>`);
   win.document.close();
   setTimeout(()=>win.print(),500);
 }
 
-// ── PHOTO TOOL ──────────────────────────────────────────────
+// â”€â”€ PHOTO TOOL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let uploadedPhotos = [];
 
 function handlePhotoDrop(e){
@@ -2288,7 +2291,7 @@ function generateAllPrompts(){
   const colorNames = {charcoal:'matte charcoal/dark grey',beige:'warm cream/beige',custom:'custom color'};
   const styleNote = output==='whitelabel' ? ' with bold white raised 3D text reading "YOUR LOGO HERE" on the product surface' : output==='lifestyle' ? ', shown in a real-world usage context (on a desk, being held, near a phone)' : '';
 
-  const basePrompt = `Hyper-realistic product photography of a premium ${colorNames[color]} ${typeNames[type]}${styleNote}, shot in a professional lightbox studio on a pure white seamless background. Shot with a Canon EOS R5, 100mm macro lens, f/8, studio strobe lighting with soft diffusion from two sides and a hair light above. Clean, sharp focus, zero motion blur. No shadows on background — product appears to float. Color-accurate, print-ready, 4K resolution. Commercial e-commerce product photography style.`;
+  const basePrompt = `Hyper-realistic product photography of a premium ${colorNames[color]} ${typeNames[type]}${styleNote}, shot in a professional lightbox studio on a pure white seamless background. Shot with a Canon EOS R5, 100mm macro lens, f/8, studio strobe lighting with soft diffusion from two sides and a hair light above. Clean, sharp focus, zero motion blur. No shadows on background â€” product appears to float. Color-accurate, print-ready, 4K resolution. Commercial e-commerce product photography style.`;
 
   const container = document.getElementById('photo-prompts');
   container.innerHTML = `
@@ -2318,5 +2321,6 @@ function changePw(){
   document.getElementById('confirm-pw').value='';
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>

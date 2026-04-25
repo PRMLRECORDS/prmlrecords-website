@@ -646,12 +646,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 <script src="js/main.js" defer></script>
 <script src="js/sheets-fetcher.js" defer></script>
 <script>if(document.getElementById("featured-posts"))loadFeaturedPosts();</script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
-  });
-}
-</script>
+<!-- SW registration + auto-update handled by /js/cache-bust.js -->
+<script src="js/cache-bust.js" defer></script>
 <script src="js/cookie-consent.js" defer></script>
 </body></html>

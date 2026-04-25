@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -30,7 +30,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
   <div class="login-box">
     <div class="login-title">The Dashboard</div><div class="login-sub">Restricted Access</div>
     <div class="f-field"><label class="f-label">Password</label><input type="password" class="f-input" id="pw" placeholder="Admin password"></div>
-    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -42,16 +42,16 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
     <a href="goals.html" class="anl" data-page="goals">Goals</a>
     <a href="grants.html" class="anl" data-page="grants">Grants</a>
     <a href="social.html" class="anl" data-page="social">Social</a>
-    <a href="ai.html" class="anl" data-page="ai">✦ AI</a>
+    <a href="ai.html" class="anl" data-page="ai">âœ¦ AI</a>
     <a href="news.html" class="anl" data-page="news">News</a>
     <a href="competitors.html" class="anl" data-page="competitors">Competitors</a>
     <a href="invoice.html" class="anl" data-page="invoice">Invoice</a>
     <a href="product-scanner.html" class="anl" data-page="scanner">Scanner</a>
     <a href="suggestions.html" class="anl active" data-page="suggestions">Ideas</a>
     <a href="settings.html" class="anl" data-page="settings">Settings</a>
-    <a href="../index.html" target="_blank" class="anl anl--ext">Site ↗</a>
+    <a href="../index.html" target="_blank" class="anl anl--ext">Site â†—</a>
   </div>
-  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">☰</button>
+  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">â˜°</button>
 </nav>
 
 <div class="adm-wrap">
@@ -68,56 +68,56 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
   <!-- IPHONE SHORTCUTS -->
   <div id="tab-shortcuts-content">
     <div style="background:rgba(224,16,16,.06);border-left:3px solid var(--red);padding:16px 20px;margin-bottom:20px;font-size:13px;line-height:1.7;opacity:.8">
-      iPhone Shortcuts sends data to your Apps Script webhook URL. Once your GAS is connected, these shortcuts work instantly from your phone — no app needed.
+      iPhone Shortcuts sends data to your Apps Script webhook URL. Once your GAS is connected, these shortcuts work instantly from your phone â€” no app needed.
       <br><strong style="color:var(--cream)">Webhook URL:</strong> Your Apps Script URL + <code>?action=shortcut</code>
     </div>
 
     <div class="shortcut-card">
-      <div class="sc-title">🎙 New Blog Post (Voice)</div>
-      <div class="sc-desc">Dictate a blog post on your phone → it creates a draft in your admin automatically.</div>
+      <div class="sc-title">ðŸŽ™ New Blog Post (Voice)</div>
+      <div class="sc-desc">Dictate a blog post on your phone â†’ it creates a draft in your admin automatically.</div>
       <div class="sc-steps">
-        1. Open Shortcuts app → New Shortcut<br>
+        1. Open Shortcuts app â†’ New Shortcut<br>
         2. Add action: <strong>Dictate Text</strong> (prompt: "Dictate your blog post title and content")<br>
-        3. Add action: <strong>Ask for Input</strong> (prompt: "Post title?") → save to variable "Title"<br>
+        3. Add action: <strong>Ask for Input</strong> (prompt: "Post title?") â†’ save to variable "Title"<br>
         4. Add action: <strong>Get Contents of URL</strong><br>
         &nbsp;&nbsp;&nbsp;URL: your GAS URL<br>
         &nbsp;&nbsp;&nbsp;Method: POST<br>
         &nbsp;&nbsp;&nbsp;Body: <code>{"type":"BLOG_DRAFT","title":"[Title variable]","content":"[Dictated Text]"}</code><br>
-        5. Add action: <strong>Show Result</strong> → "Draft saved!"
+        5. Add action: <strong>Show Result</strong> â†’ "Draft saved!"
       </div>
     </div>
 
     <div class="shortcut-card">
-      <div class="sc-title">👤 Quick Lead Capture</div>
-      <div class="sc-desc">Voice capture a new client's info → adds directly to your Leads sheet + emails you.</div>
+      <div class="sc-title">ðŸ‘¤ Quick Lead Capture</div>
+      <div class="sc-desc">Voice capture a new client's info â†’ adds directly to your Leads sheet + emails you.</div>
       <div class="sc-steps">
-        1. New Shortcut → Ask for Input: "Client name?"<br>
+        1. New Shortcut â†’ Ask for Input: "Client name?"<br>
         2. Ask for Input: "Email or phone?"<br>
         3. Ask for Input: "What service do they need?"<br>
-        4. Get Contents of URL → POST to GAS:<br>
+        4. Get Contents of URL â†’ POST to GAS:<br>
         &nbsp;&nbsp;&nbsp;<code>{"type":"INQUIRY","name":"[name]","email":"[contact]","service":"[service]","source":"iPhone Shortcut"}</code><br>
-        5. Show notification: "Lead saved — check your sheet"
+        5. Show notification: "Lead saved â€” check your sheet"
       </div>
     </div>
 
     <div class="shortcut-card">
-      <div class="sc-title">🎯 Today's Goals (Read Aloud)</div>
-      <div class="sc-desc">Tap this shortcut each morning → Siri reads your active goals and progress.</div>
+      <div class="sc-title">ðŸŽ¯ Today's Goals (Read Aloud)</div>
+      <div class="sc-desc">Tap this shortcut each morning â†’ Siri reads your active goals and progress.</div>
       <div class="sc-steps">
-        1. New Shortcut → Get Contents of URL<br>
+        1. New Shortcut â†’ Get Contents of URL<br>
         &nbsp;&nbsp;&nbsp;URL: <code>YOUR_GAS_URL?action=getGoals</code><br>
         2. Add action: <strong>Get Dictionary from Input</strong><br>
-        3. Add action: <strong>Get Value for Key</strong> → "goals"<br>
-        4. Add action: <strong>Speak Text</strong> → "Your active goals: [goals list]"
+        3. Add action: <strong>Get Value for Key</strong> â†’ "goals"<br>
+        4. Add action: <strong>Speak Text</strong> â†’ "Your active goals: [goals list]"
       </div>
     </div>
 
     <div class="shortcut-card">
-      <div class="sc-title">📱 Quick Social Post</div>
-      <div class="sc-desc">Describe something you want to post → AI generates caption → adds to social queue.</div>
+      <div class="sc-title">ðŸ“± Quick Social Post</div>
+      <div class="sc-desc">Describe something you want to post â†’ AI generates caption â†’ adds to social queue.</div>
       <div class="sc-steps">
-        1. New Shortcut → Dictate Text (prompt: "What do you want to post about?")<br>
-        2. Get Contents of URL → POST to GAS:<br>
+        1. New Shortcut â†’ Dictate Text (prompt: "What do you want to post about?")<br>
+        2. Get Contents of URL â†’ POST to GAS:<br>
         &nbsp;&nbsp;&nbsp;<code>{"type":"SOCIAL_QUICK","content":"[dictated text]","platform":"ig"}</code><br>
         3. GAS generates AI caption and adds to Social Queue sheet<br>
         4. Show notification: "Added to social queue"
@@ -125,20 +125,20 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
     </div>
 
     <div class="shortcut-card">
-      <div class="sc-title">📋 Grant Deadline Reminder</div>
-      <div class="sc-desc">Voice → adds grant to tracker + creates calendar reminder automatically.</div>
+      <div class="sc-title">ðŸ“‹ Grant Deadline Reminder</div>
+      <div class="sc-desc">Voice â†’ adds grant to tracker + creates calendar reminder automatically.</div>
       <div class="sc-steps">
         1. Ask for Input: "Grant name?"<br>
         2. Ask for Input: "Funder?"<br>
         3. Ask for Input: "Deadline? (YYYY-MM-DD)"<br>
         4. Ask for Input: "Amount?"<br>
         5. POST to GAS: <code>{"type":"GRANT","name":"...","funder":"...","deadline":"...","amount":"..."}</code><br>
-        6. Add Calendar Event action → create reminder 7 days before deadline
+        6. Add Calendar Event action â†’ create reminder 7 days before deadline
       </div>
     </div>
 
     <div style="margin-top:20px;padding:16px;background:rgba(245,230,200,.04);font-size:12px;opacity:.55;line-height:1.8">
-      <strong style="color:var(--cream)">Where to find the Shortcuts app:</strong> Built into iPhone — search "Shortcuts" in Spotlight. iOS 16+ required for all features above. Your GAS URL must be connected in Settings first.
+      <strong style="color:var(--cream)">Where to find the Shortcuts app:</strong> Built into iPhone â€” search "Shortcuts" in Spotlight. iOS 16+ required for all features above. Your GAS URL must be connected in Settings first.
     </div>
   </div>
 
@@ -146,14 +146,14 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
   <div id="tab-apis-content" style="display:none">
 
     <div class="guide-card">
-      <div class="guide-title">Stripe — Accept Payments</div>
+      <div class="guide-title">Stripe â€” Accept Payments</div>
       <div class="guide-sub">For checkout, invoices, and deposits. Takes ~10 minutes to set up.</div>
       <ol class="guide-steps">
-        <li>Go to <strong>stripe.com</strong> → Create account → Verify your business (PRML Records LLC)</li>
-        <li>Dashboard → Payment Links → Create Payment Link → "Customer chooses price"</li>
+        <li>Go to <strong>stripe.com</strong> â†’ Create account â†’ Verify your business (PRML Records LLC)</li>
+        <li>Dashboard â†’ Payment Links â†’ Create Payment Link â†’ "Customer chooses price"</li>
         <li>Copy the link (starts with buy.stripe.com)</li>
-        <li>Open <code>admin/settings.html</code> → paste into Stripe Payment Link field → Save</li>
-        <li>Or: open <code>js/main.js</code> line 2 → replace the placeholder with your link</li>
+        <li>Open <code>admin/settings.html</code> â†’ paste into Stripe Payment Link field â†’ Save</li>
+        <li>Or: open <code>js/main.js</code> line 2 â†’ replace the placeholder with your link</li>
         <li>Test with card: 4242 4242 4242 4242 / any future date / any CVC</li>
       </ol>
     </div>
@@ -162,11 +162,11 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-title">Google Calendar Sync</div>
       <div class="guide-sub">Auto-add grant deadlines and goal targets to your calendar from the admin dashboard.</div>
       <ol class="guide-steps">
-        <li>In your Apps Script project → add this service: Resources → Google APIs → Enable Calendar API</li>
+        <li>In your Apps Script project â†’ add this service: Resources â†’ Google APIs â†’ Enable Calendar API</li>
         <li>In your GAS code, use <code>CalendarApp.getDefaultCalendar().createEvent(title, startTime, endTime)</code></li>
         <li>The updated apps-script.gs in your admin folder already has the <code>syncCalendar</code> handler</li>
         <li>Grant and goal deadlines will create calendar events automatically when you save them</li>
-        <li>No additional setup needed — uses the Google account your script is deployed under</li>
+        <li>No additional setup needed â€” uses the Google account your script is deployed under</li>
       </ol>
     </div>
 
@@ -176,23 +176,23 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <ol class="guide-steps">
         <li>Convert Instagram to a <strong>Business or Creator account</strong> (free, in IG settings)</li>
         <li>Connect it to a Facebook Page (required by Meta)</li>
-        <li>Go to <strong>developers.facebook.com</strong> → Create App → Business type</li>
+        <li>Go to <strong>developers.facebook.com</strong> â†’ Create App â†’ Business type</li>
         <li>Add Instagram Graph API product to your app</li>
         <li>Generate a long-lived access token (valid 60 days, needs renewal)</li>
-        <li><strong>Easier alternative:</strong> Use Buffer or Meta Business Suite (both free) — just copy-paste the generated captions from your Social Hub</li>
+        <li><strong>Easier alternative:</strong> Use Buffer or Meta Business Suite (both free) â€” just copy-paste the generated captions from your Social Hub</li>
       </ol>
     </div>
 
     <div class="guide-card">
-      <div class="guide-title">Twilio — SMS Automation</div>
+      <div class="guide-title">Twilio â€” SMS Automation</div>
       <div class="guide-sub">Send invoice payment reminders, appointment confirmations, and lead follow-ups via text. ~$0.0075 per text.</div>
       <ol class="guide-steps">
-        <li>Go to <strong>twilio.com</strong> → Sign up → Get a free trial phone number</li>
+        <li>Go to <strong>twilio.com</strong> â†’ Sign up â†’ Get a free trial phone number</li>
         <li>Find your Account SID and Auth Token from the Twilio Console</li>
         <li>In your Apps Script, add this to send a text:
           <br><code>UrlFetchApp.fetch('https://api.twilio.com/2010-04-01/Accounts/ACCOUNT_SID/Messages.json', {method:'post', payload:{To:phoneNumber, From:yourTwilioNumber, Body:messageText}, headers:{Authorization: 'Basic '+Utilities.base64Encode(accountSid+':'+authToken)}})</code>
         </li>
-        <li>Use this for: invoice sent → auto-text "Your invoice from PRML Records is ready. Reply PAID to confirm."</li>
+        <li>Use this for: invoice sent â†’ auto-text "Your invoice from PRML Records is ready. Reply PAID to confirm."</li>
         <li>Cost: ~$1/month for 100 texts on the cheapest plan</li>
       </ol>
     </div>
@@ -201,11 +201,11 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-title">WhatsApp Business API</div>
       <div class="guide-sub">Send order updates and invoices via WhatsApp. Free up to 1,000 conversations/month.</div>
       <ol class="guide-steps">
-        <li>Go to <strong>business.facebook.com</strong> → WhatsApp → Get Started</li>
+        <li>Go to <strong>business.facebook.com</strong> â†’ WhatsApp â†’ Get Started</li>
         <li>Register a phone number for WhatsApp Business (use a separate number from your personal)</li>
         <li>Create message templates (pre-approved by Meta before sending)</li>
         <li>Send via the API: similar to Twilio but uses Meta's endpoint</li>
-        <li><strong>Easier start:</strong> Download the WhatsApp Business app (free) → send invoices as PDFs manually until you're ready for API</li>
+        <li><strong>Easier start:</strong> Download the WhatsApp Business app (free) â†’ send invoices as PDFs manually until you're ready for API</li>
       </ol>
     </div>
 
@@ -213,11 +213,11 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-title">OpenAI / Anthropic API</div>
       <div class="guide-sub">Powers AI features in your admin (invoice parser, social generator, grant suggestions, product scanner).</div>
       <ol class="guide-steps">
-        <li>The admin pages use Anthropic's API (Claude) — these calls go directly from your browser</li>
+        <li>The admin pages use Anthropic's API (Claude) â€” these calls go directly from your browser</li>
         <li>If you see API errors, it means your session needs a fresh API key</li>
-        <li>For production use: go to <strong>console.anthropic.com</strong> → Create API Key</li>
+        <li>For production use: go to <strong>console.anthropic.com</strong> â†’ Create API Key</li>
         <li>Add to Settings page (coming) or directly in each admin page's config section</li>
-        <li>Current cost: Claude Sonnet is ~$3 per million input tokens — very cheap for admin use</li>
+        <li>Current cost: Claude Sonnet is ~$3 per million input tokens â€” very cheap for admin use</li>
       </ol>
     </div>
 
@@ -230,37 +230,37 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-card">
         <div class="guide-title">Social Scheduling</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://buffer.com" target="_blank" style="color:var(--red)">Buffer</a> — Free, 3 platforms, 10 posts/platform<br>
-          <a href="https://later.com" target="_blank" style="color:var(--red)">Later</a> — Free, 1 Instagram account, 30 posts/mo<br>
-          <a href="https://business.facebook.com" target="_blank" style="color:var(--red)">Meta Business Suite</a> — Free, FB + IG unlimited
+          <a href="https://buffer.com" target="_blank" style="color:var(--red)">Buffer</a> â€” Free, 3 platforms, 10 posts/platform<br>
+          <a href="https://later.com" target="_blank" style="color:var(--red)">Later</a> â€” Free, 1 Instagram account, 30 posts/mo<br>
+          <a href="https://business.facebook.com" target="_blank" style="color:var(--red)">Meta Business Suite</a> â€” Free, FB + IG unlimited
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">Design & Mockups</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://canva.com" target="_blank" style="color:var(--red)">Canva</a> — Free tier, mockups, graphics, social posts<br>
-          <a href="https://placeit.net" target="_blank" style="color:var(--red)">Placeit</a> — Mockups for products, merch, apparel<br>
-          <a href="https://remove.bg" target="_blank" style="color:var(--red)">Remove.bg</a> — Background removal, free<br>
-          <a href="https://smartmockups.com" target="_blank" style="color:var(--red)">Smartmockups</a> — Product, CD, print mockups
+          <a href="https://canva.com" target="_blank" style="color:var(--red)">Canva</a> â€” Free tier, mockups, graphics, social posts<br>
+          <a href="https://placeit.net" target="_blank" style="color:var(--red)">Placeit</a> â€” Mockups for products, merch, apparel<br>
+          <a href="https://remove.bg" target="_blank" style="color:var(--red)">Remove.bg</a> â€” Background removal, free<br>
+          <a href="https://smartmockups.com" target="_blank" style="color:var(--red)">Smartmockups</a> â€” Product, CD, print mockups
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">Automation</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://ifttt.com" target="_blank" style="color:var(--red)">IFTTT</a> — Connect apps with simple triggers, free tier<br>
-          <a href="https://make.com" target="_blank" style="color:var(--red)">Make (Integromat)</a> — More powerful than Zapier, free tier<br>
-          <a href="https://zapier.com" target="_blank" style="color:var(--red)">Zapier</a> — 100 tasks/month free<br>
-          <a href="https://n8n.io" target="_blank" style="color:var(--red)">n8n</a> — Open-source, self-hosted automation
+          <a href="https://ifttt.com" target="_blank" style="color:var(--red)">IFTTT</a> â€” Connect apps with simple triggers, free tier<br>
+          <a href="https://make.com" target="_blank" style="color:var(--red)">Make (Integromat)</a> â€” More powerful than Zapier, free tier<br>
+          <a href="https://zapier.com" target="_blank" style="color:var(--red)">Zapier</a> â€” 100 tasks/month free<br>
+          <a href="https://n8n.io" target="_blank" style="color:var(--red)">n8n</a> â€” Open-source, self-hosted automation
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">QR Codes</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://qr.io" target="_blank" style="color:var(--red)">QR.io</a> — Custom branded QR codes, free tier<br>
-          <a href="https://www.qrcode-monkey.com" target="_blank" style="color:var(--red)">QRCode Monkey</a> — Free, styled QR codes<br>
+          <a href="https://qr.io" target="_blank" style="color:var(--red)">QR.io</a> â€” Custom branded QR codes, free tier<br>
+          <a href="https://www.qrcode-monkey.com" target="_blank" style="color:var(--red)">QRCode Monkey</a> â€” Free, styled QR codes<br>
           Use for: product labels, NFC alternatives, menus, invoices
         </div>
       </div>
@@ -268,18 +268,18 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-card">
         <div class="guide-title">Email Marketing</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://mailchimp.com" target="_blank" style="color:var(--red)">Mailchimp</a> — 500 contacts free, drag-drop editor<br>
-          <a href="https://brevo.com" target="_blank" style="color:var(--red)">Brevo (Sendinblue)</a> — 300 emails/day free<br>
-          <a href="https://beehiiv.com" target="_blank" style="color:var(--red)">Beehiiv</a> — Best for newsletter, free up to 2,500 subs
+          <a href="https://mailchimp.com" target="_blank" style="color:var(--red)">Mailchimp</a> â€” 500 contacts free, drag-drop editor<br>
+          <a href="https://brevo.com" target="_blank" style="color:var(--red)">Brevo (Sendinblue)</a> â€” 300 emails/day free<br>
+          <a href="https://beehiiv.com" target="_blank" style="color:var(--red)">Beehiiv</a> â€” Best for newsletter, free up to 2,500 subs
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">Video & Reels</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://www.capcut.com" target="_blank" style="color:var(--red)">CapCut</a> — Free video editor, great for Reels<br>
-          <a href="https://www.descript.com" target="_blank" style="color:var(--red)">Descript</a> — Free tier, AI transcription + video edit<br>
-          <a href="https://clipchamp.com" target="_blank" style="color:var(--red)">Clipchamp</a> — Free, browser-based video editor
+          <a href="https://www.capcut.com" target="_blank" style="color:var(--red)">CapCut</a> â€” Free video editor, great for Reels<br>
+          <a href="https://www.descript.com" target="_blank" style="color:var(--red)">Descript</a> â€” Free tier, AI transcription + video edit<br>
+          <a href="https://clipchamp.com" target="_blank" style="color:var(--red)">Clipchamp</a> â€” Free, browser-based video editor
         </div>
       </div>
 
@@ -291,50 +291,50 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
 
       <div class="guide-card">
-        <div class="guide-title">🤖 Voice-to-Blog (Built-in)</div>
-        <div class="guide-sub">Already partially supported via iPhone Shortcut. Full version: dictate post → AI formats it → publishes draft. Estimate: 2 hours to set up.</div>
+        <div class="guide-title">ðŸ¤– Voice-to-Blog (Built-in)</div>
+        <div class="guide-sub">Already partially supported via iPhone Shortcut. Full version: dictate post â†’ AI formats it â†’ publishes draft. Estimate: 2 hours to set up.</div>
         <div><span class="pill">iPhone Shortcut</span><span class="pill">Apps Script</span><span class="pill">Free</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">📲 Client Portal</div>
+        <div class="guide-title">ðŸ“² Client Portal</div>
         <div class="guide-sub">Password-protected page per client where they can view invoices, project status, and files. Simple version: one page per client with a unique URL.</div>
         <div><span class="pill">HTML page</span><span class="pill">Google Drive links</span><span class="pill">Free</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">💬 SMS Invoice Follow-up</div>
+        <div class="guide-title">ðŸ’¬ SMS Invoice Follow-up</div>
         <div class="guide-sub">Auto-text clients 3 days before invoice is due: "Hey [name], your invoice from PRML Records is due in 3 days. Pay here: [link]"</div>
         <div><span class="pill">Twilio</span><span class="pill">Apps Script</span><span class="pill">~$1/mo</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">🔗 PRML TAP CARDs</div>
-        <div class="guide-sub">You already do these. Admin integration: scan NFC tag → auto-add to Leads sheet. Uses iPhone Shortcut + NFC trigger + GAS webhook.</div>
+        <div class="guide-title">ðŸ”— PRML TAP CARDs</div>
+        <div class="guide-sub">You already do these. Admin integration: scan NFC tag â†’ auto-add to Leads sheet. Uses iPhone Shortcut + NFC trigger + GAS webhook.</div>
         <div><span class="pill">iPhone NFC</span><span class="pill">Shortcut</span><span class="pill">Free</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">📦 Automated Product Gallery</div>
-        <div class="guide-sub">Folder on Google Drive → AI scans new images → auto-populates product page with mockups. Already partially built in Product Scanner.</div>
+        <div class="guide-title">ðŸ“¦ Automated Product Gallery</div>
+        <div class="guide-sub">Folder on Google Drive â†’ AI scans new images â†’ auto-populates product page with mockups. Already partially built in Product Scanner.</div>
         <div><span class="pill">Google Drive</span><span class="pill">AI Scanner</span><span class="pill">Free</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">📊 Revenue Dashboard</div>
-        <div class="guide-sub">Connect Stripe webhook → track revenue in Google Sheet → show chart on admin dashboard. Requires Stripe webhook setup (~30 min).</div>
+        <div class="guide-title">ðŸ“Š Revenue Dashboard</div>
+        <div class="guide-sub">Connect Stripe webhook â†’ track revenue in Google Sheet â†’ show chart on admin dashboard. Requires Stripe webhook setup (~30 min).</div>
         <div><span class="pill">Stripe Webhooks</span><span class="pill">Apps Script</span><span class="pill">Free</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">🗓 Booking System</div>
+        <div class="guide-title">ðŸ—“ Booking System</div>
         <div class="guide-sub">Embedded calendar widget for clients to book studio time or consultations. Calendly free tier (5 event types) or Google Calendar appointment scheduling.</div>
         <div><span class="pill">Calendly free</span><span class="pill">Google Calendar</span><span class="pill">Free</span></div>
       </div>
 
       <div class="guide-card">
-        <div class="guide-title">🤝 Affiliate / Referral Program</div>
-        <div class="guide-sub">Unique referral links for past clients. Track clicks → commissions in Google Sheet. Simple version with no extra software — just URL params.</div>
+        <div class="guide-title">ðŸ¤ Affiliate / Referral Program</div>
+        <div class="guide-sub">Unique referral links for past clients. Track clicks â†’ commissions in Google Sheet. Simple version with no extra software â€” just URL params.</div>
         <div><span class="pill">URL params</span><span class="pill">Google Sheet</span><span class="pill">Free</span></div>
       </div>
 
@@ -354,4 +354,5 @@ function showTab(tab){
   });
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

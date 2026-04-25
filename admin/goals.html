@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -19,7 +19,7 @@
     <div class="f-field"><label class="f-label">Password</label>
       <input type="password" class="f-input" id="pw" placeholder="Admin password">
     </div>
-    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter →</button>
+    <button class="btn btn-red" style="width:100%" onclick="tryLogin()">Enter â†’</button>
     <div id="pw-err" style="display:none;margin-top:10px;font-size:12px;color:var(--red)">Wrong password.</div>
   </div>
 </div>
@@ -31,16 +31,16 @@
     <a href="goals.html" class="anl" data-page="goals">Goals</a>
     <a href="grants.html" class="anl" data-page="grants">Grants</a>
     <a href="social.html" class="anl" data-page="social">Social</a>
-    <a href="ai.html" class="anl" data-page="ai">✦ AI</a>
+    <a href="ai.html" class="anl" data-page="ai">âœ¦ AI</a>
     <a href="news.html" class="anl" data-page="news">News</a>
     <a href="competitors.html" class="anl" data-page="competitors">Competitors</a>
     <a href="invoice.html" class="anl" data-page="invoice">Invoice</a>
     <a href="product-scanner.html" class="anl" data-page="scanner">Scanner</a>
     <a href="suggestions.html" class="anl" data-page="suggestions">Ideas</a>
     <a href="settings.html" class="anl" data-page="settings">Settings</a>
-    <a href="../index.html" target="_blank" class="anl anl--ext">Site ↗</a>
+    <a href="../index.html" target="_blank" class="anl anl--ext">Site â†—</a>
   </div>
-  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">☰</button>
+  <button class="adm-burger" onclick="document.getElementById('adm-nav').classList.toggle('open')">â˜°</button>
 </nav>
 
 <div class="adm-wrap" id="goals-app" style="display:none">
@@ -75,7 +75,7 @@
       <div></div>
     </div>
     <div class="f-field"><label class="f-label">Milestones / Steps</label>
-      <textarea class="f-textarea" id="g-milestones" style="min-height:60px" placeholder="Step 1 · Step 2 · Step 3"></textarea>
+      <textarea class="f-textarea" id="g-milestones" style="min-height:60px" placeholder="Step 1 Â· Step 2 Â· Step 3"></textarea>
     </div>
     <div style="display:flex;gap:8px">
       <button class="btn btn-red" onclick="saveGoalForm()">Save Goal</button>
@@ -104,10 +104,10 @@ async function loadGoals(){
 
 function getSampleGoals(){
   return [
-    {id:1,goal:'Launch blog with 5 posts',category:'Marketing',target:'2025-06-30',progress:60,status:'In Progress',milestones:'Draft 5 posts · Publish 2 · Set up blog index'},
-    {id:2,goal:'Connect Stripe to site',category:'Tech',target:'2025-04-15',progress:80,status:'In Progress',milestones:'Create account · Build payment link · Add to main.js'},
-    {id:3,goal:'Apply for 3 grants',category:'Business',target:'2025-07-01',progress:33,status:'In Progress',milestones:'MWBE cert · SBDC application · Atlanta grant'},
-    {id:4,goal:'100 email list subscribers',category:'Marketing',target:'2025-08-01',progress:20,status:'In Progress',milestones:'Add email strip · 20 subs · 50 subs · 100 subs'},
+    {id:1,goal:'Launch blog with 5 posts',category:'Marketing',target:'2025-06-30',progress:60,status:'In Progress',milestones:'Draft 5 posts Â· Publish 2 Â· Set up blog index'},
+    {id:2,goal:'Connect Stripe to site',category:'Tech',target:'2025-04-15',progress:80,status:'In Progress',milestones:'Create account Â· Build payment link Â· Add to main.js'},
+    {id:3,goal:'Apply for 3 grants',category:'Business',target:'2025-07-01',progress:33,status:'In Progress',milestones:'MWBE cert Â· SBDC application Â· Atlanta grant'},
+    {id:4,goal:'100 email list subscribers',category:'Marketing',target:'2025-08-01',progress:20,status:'In Progress',milestones:'Add email strip Â· 20 subs Â· 50 subs Â· 100 subs'},
   ];
 }
 
@@ -202,4 +202,5 @@ function saveGoalForm(){
   clearGoalForm();
 }
 </script>
+<script src="/js/cache-bust.js" defer></script>
 </body></html>

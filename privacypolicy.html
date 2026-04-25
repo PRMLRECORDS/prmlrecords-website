@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,12 +9,12 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prmlrecords.com/privacypolicy">
-<meta property="og:title" content="Privacy Policy — PRML RECORDS">
+<meta property="og:title" content="Privacy Policy â€” PRML RECORDS">
 <meta property="og:description" content="PRML RECORDS privacy policy. How we collect, use, and protect your information.">
 <meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
 <meta property="og:site_name" content="PRML RECORDS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Privacy Policy — PRML RECORDS">
+<meta name="twitter:title" content="Privacy Policy â€” PRML RECORDS">
 <meta name="twitter:description" content="PRML RECORDS privacy policy. How we collect, use, and protect your information.">
 <meta name="twitter:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="css/brand.css">
 <meta name="description" content="Privacy Policy for PRML Records LLC. How we collect, use, and protect your information.">
 <meta name="theme-color" content="#0D0D0D">
-<!-- GA4 — PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
+<!-- GA4 â€” PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -169,7 +169,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 </section>
 
 
-<!-- LAUNCH PROMO — PRML RECORDS -->
+<!-- LAUNCH PROMO â€” PRML RECORDS -->
 <section class="launch-promo" id="launch-promo">
 <style>
 .launch-promo{background:#2B2B2B;padding:80px 32px;text-align:center;position:relative;overflow:hidden}
@@ -199,7 +199,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 <p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML RECORDS discretion &#183; One per client</p>
 </section>
 
-<!-- MAILING LIST SIGNUP — PRML RECORDS -->
+<!-- MAILING LIST SIGNUP â€” PRML RECORDS -->
 <section class="signup-section" id="mailing-signup">
 <style>
 .signup-section{background:#F5E6C8;padding:64px 32px;text-align:center}
@@ -239,7 +239,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 async function submitPRMLSignup(e){
   e.preventDefault();
   var btn=document.getElementById('signup-submit-btn');
-  btn.textContent='Sending…';btn.disabled=true;
+  btn.textContent='Sendingâ€¦';btn.disabled=true;
   var gasUrl=typeof GAS_URL!=='undefined'?GAS_URL:'';
   var payload={action:'mailingList',name:document.getElementById('signup-name').value.trim(),email:document.getElementById('signup-email').value.trim(),interest:document.getElementById('signup-interest').value,timestamp:new Date().toISOString()};
   if(gasUrl){try{await fetch(gasUrl,{method:'POST',mode:'no-cors',body:JSON.stringify(payload),headers:{'Content-Type':'application/json'}})}catch(e){}}
@@ -248,7 +248,7 @@ async function submitPRMLSignup(e){
 }
 </script>
 </section>
-<!-- FOOTER — PRML RECORDS v3 2026 -->
+<!-- FOOTER â€” PRML RECORDS v3 2026 -->
 <footer class="footer2">
 <style>
 .footer2{background:#2B2B2B;color:#F5E6C8;padding:64px 32px 32px}
@@ -321,5 +321,6 @@ async function submitPRMLSignup(e){
 </footer>
 <script src="js/main.js" defer></script>
 <script src="js/cookie-consent.js" defer></script>
+<script src="/js/cache-bust.js" defer></script>
 </body>
 </html>
