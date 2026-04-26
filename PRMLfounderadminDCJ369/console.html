@@ -271,8 +271,18 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
       <div class="card card--green">
         <div class="card-label">Sponsorship Campaign</div>
-        <div class="card-val">31</div>
+        <div class="card-val">36</div>
         <div class="card-sub">Companies in Airtable CRM Â· Outreach active</div>
+      </div>
+      <div class="card card--green">
+        <div class="card-label">Brand Compliance</div>
+        <div class="card-val" style="font-size:14px;margin-top:4px">v4.0 ALIGNED</div>
+        <div class="card-sub">273 hex fixes Â· 4-color strict palette enforced</div>
+      </div>
+      <div class="card card--green">
+        <div class="card-label">Photo Library</div>
+        <div class="card-val">86</div>
+        <div class="card-sub">Events Â· Products Â· Team Â· Press Â· Hero Â· Manifest live</div>
       </div>
       <div class="card card--yellow">
         <div class="card-label">Beltline Launch</div>
@@ -309,12 +319,36 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="section-title" style="color:var(--yellow)">Action Items</div>
       <div style="font-size:13px;font-weight:300;line-height:2;opacity:.85">
         <div>&#9744; Beltline prep â€” finalize event logistics for May 2026 at Ponce City Market</div>
-        <div>&#9744; seaux9.com â€” renew domain before 2026-05-17</div>
+        <div>&#9744; seaux9.com â€” renew domain before 2026-05-17 (~22 days)</div>
         <div>&#9744; Stripe test checkout â€” run test card 4242 4242 4242 4242</div>
         <div>&#9744; Performance pipeline â€” register works with ASCAP, SoundExchange</div>
-        <div>&#9744; Sponsorship outreach â€” 31 companies queued, begin sending batches</div>
+        <div>&#9744; Sponsorship outreach â€” 36 companies queued, daily follow-up cadence</div>
         <div>&#9744; Deploy checkout-app to Render + set STRIPE_WEBHOOK_SECRET</div>
         <div>&#9744; Mobile responsive check 375/768/1280px</div>
+        <div>&#9744; Hunter.io API key â€” rotate at hunter.io/api_keys (flagged for compromise)</div>
+        <div>&#9744; ASUS escalation â€” fill 4 placeholders in 10_OUTREACH/asus-escalation/ + send</div>
+        <div>&#9744; Cookie banner + DMCA + Refund policy â€” legal compliance gaps</div>
+        <div>&#9744; PRML label investor deck â€” 1 of 4 pitch decks pending</div>
+        <div>&#9744; SEAUX9 EPK â€” needs photos from new library + bio + tech rider</div>
+      </div>
+    </div>
+
+    <!-- LATEST DEPLOY -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
+      <div class="section-title" style="color:var(--red)">Latest Deploy â€” 2026-04-26</div>
+      <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
+        <strong style="color:var(--red)">Brand v4.0 Alignment + Photo Integration</strong> Â· commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">d5fffeb</code>
+        <ul style="padding-left:20px;margin-top:10px">
+          <li><strong>Brand audit:</strong> Confirmed <code>00_BRAND/PRML_Records/guidelines/PRML-Brand-Guide_Current.html</code> (v4.0 Â· 2026) as canonical spec</li>
+          <li><strong>273 hex replacements</strong> across 21 HTML pages + notify.css to align with the 4-color strict palette: Red <code>#E01010</code>, Charcoal <code>#2B2B2B</code>, Cream <code>#F5E6C8</code>, Stone <code>#C4B49A</code></li>
+          <li><strong>Removed off-spec colors:</strong> <code>#FFB84D</code> (gold), <code>#F5F0E8</code> (off-cream), <code>#8C8C7A</code> (wrong stone)</li>
+          <li><strong>89 photos pre-sorted</strong> from <code>999_TO_BE_ORGANIZED/pictures-to-upload/</code> into events / products / team / press / hero buckets</li>
+          <li><strong>86 photos processed</strong> via <code>scripts/prml-photo-pipeline.ps1</code> â€” resized + thumbnails + manifest</li>
+          <li><strong>brochure.html:</strong> events photo strip on Page 5 + founder card on Page 7</li>
+          <li><strong>media-kit.html:</strong> founder card + community photo grid on Page 2</li>
+          <li><strong>PRML_Brochure_v6.pptx</strong> rebuilt with v4.0 palette (no GOLD anywhere)</li>
+          <li><strong>sw.js cache version</strong> bumped to <code>20260426-110103</code></li>
+        </ul>
       </div>
     </div>
 
@@ -322,7 +356,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">FLY â€” Copilot Brief</strong>
       This console operates independently. All critical controls are here â€” promo toggles, payment links, order log, SEAUX9 data, and site settings.
       <br><br>
-      <strong>Recent updates (April 2026):</strong> customize.html overhauled with full product order form (4 products, bulk pricing, logo upload, link collection, cart checkout). Beltline mailing list + content upload live. Donate section added. Sponsorship campaign launched (31 companies in Airtable). Performance royalty pipeline planned.
+      <strong>Recent updates (April 2026):</strong> customize.html overhauled with full product order form (4 products, bulk pricing, logo upload, link collection, cart checkout). Beltline mailing list + content upload live. Donate section added. Sponsorship campaign launched (36 companies in Airtable). Performance royalty pipeline planned. <strong>Brand v4.0 alignment</strong> (Apr 26): 273 hex fixes, 86 photos integrated into brochure + media kit. <strong>$125M revenue target</strong> set as north-star.
       <br><br>
       To deploy changes: <code>git push origin master</code> from <code>prml-site/</code> directory.
       <br>Emergency contact: info@prmlrecords.com Â· (770) 686-7726
@@ -1705,22 +1739,22 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         </div>
 
         <!-- Lenovo - FORM -->
-        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #e01010;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
           <div>
-            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Lenovo &nbsp;<span style="background:#ffb84d;color:#1a1208;font-size:9px;padding:2px 6px;letter-spacing:1px">FORM</span></div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Lenovo &nbsp;<span style="background:#e01010;color:#2B2B2B;font-size:9px;padding:2px 6px;letter-spacing:1px">FORM</span></div>
             <div style="font-size:11px;color:var(--stone);margin-top:3px">Web form &middot; Lenovo Insiders portal &middot; need: ThinkPad/Legion units</div>
           </div>
-          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/05_lenovo_form_walkthrough.md" target="_blank" style="background:#ffb84d;color:#1a1208;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open Walkthrough</a>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/05_lenovo_form_walkthrough.md" target="_blank" style="background:#e01010;color:#2B2B2B;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open Walkthrough</a>
           <a href="https://www.lenovo.com/us/en/insiders/" target="_blank" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Form</a>
         </div>
 
         <!-- Yamaha - FORM -->
-        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #e01010;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center">
           <div>
-            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Yamaha &nbsp;<span style="background:#ffb84d;color:#1a1208;font-size:9px;padding:2px 6px;letter-spacing:1px">FORM</span></div>
+            <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--cream)">Yamaha &nbsp;<span style="background:#e01010;color:#2B2B2B;font-size:9px;padding:2px 6px;letter-spacing:1px">FORM</span></div>
             <div style="font-size:11px;color:var(--stone);margin-top:3px">Artist Services form &middot; replace broken MG mixer + studio monitors + StagePas</div>
           </div>
-          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/06_yamaha_form_walkthrough.md" target="_blank" style="background:#ffb84d;color:#1a1208;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open Walkthrough</a>
+          <a href="../../../10_OUTREACH/campaigns_2026-04-25_sponsors/06_yamaha_form_walkthrough.md" target="_blank" style="background:#e01010;color:#2B2B2B;padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:700">Open Walkthrough</a>
           <a href="https://usa.yamaha.com/support/artist_services/index.html" target="_blank" style="background:transparent;color:var(--cream);border:1px solid var(--stone);padding:8px 14px;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-decoration:none;text-transform:uppercase">Open Form</a>
         </div>
 
@@ -1730,7 +1764,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:18px">
       <div class="section-title" style="margin-bottom:10px;color:var(--green)">Form-fill workflow (universal)</div>
       <ol style="font-size:13px;line-height:1.85;font-weight:300;color:var(--cream);margin:0;padding-left:24px">
-        <li>Click the <strong style="color:#ffb84d">Open Walkthrough</strong> button on the company row above &mdash; the .md file lists every field, what to enter, and the paste-ready essay text.</li>
+        <li>Click the <strong style="color:#e01010">Open Walkthrough</strong> button on the company row above &mdash; the .md file lists every field, what to enter, and the paste-ready essay text.</li>
         <li>Open the form in another tab via <strong>Open Form</strong>.</li>
         <li>Work the walkthrough top to bottom. Add ONE personal sentence to each essay box (the personalization is what gets you through review).</li>
         <li>Submit, screenshot the confirmation, save it to the campaign folder.</li>
@@ -1765,8 +1799,8 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);line-height:1">35</div>
         <div style="font-size:10px;color:var(--stone);margin-top:6px">domains in pipeline</div>
       </div>
-      <div style="background:var(--charcoal);padding:18px;border-top:3px solid #ffb84d;text-align:center">
-        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Stage 2 &middot; Draft</div>
+      <div style="background:var(--charcoal);padding:18px;border-top:3px solid #e01010;text-align:center">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#e01010;margin-bottom:6px">Stage 2 &middot; Draft</div>
         <div style="font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);line-height:1" id="oq-drafted">6</div>
         <div style="font-size:10px;color:var(--stone);margin-top:6px">tailored emails ready</div>
       </div>
@@ -1818,15 +1852,15 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--blue);text-align:center">1</div>
           <div>
             <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--blue);margin-bottom:4px">SCRAPE (15 min, Claude)</div>
-            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Tell Claude: <code style="background:var(--bg);padding:2px 6px;color:#ffb84d">/prml-outreach-pipeline scrape anycubic.com,creality.com,longer3d.com,...</code></div>
+            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Tell Claude: <code style="background:var(--bg);padding:2px 6px;color:#e01010">/prml-outreach-pipeline scrape anycubic.com,creality.com,longer3d.com,...</code></div>
             <div style="font-size:11px;color:var(--stone)">Claude calls Hunter.io for each domain, filters role accounts, writes a CSV to <code>10_OUTREACH/hunter_scrape_*.csv</code></div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#ffb84d;text-align:center">2</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:18px;color:#e01010;text-align:center">2</div>
           <div>
-            <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:#ffb84d;margin-bottom:4px">DRAFT (1-2 hrs, Claude)</div>
-            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Tell Claude: <code style="background:var(--bg);padding:2px 6px;color:#ffb84d">/prml-outreach-pipeline draft</code></div>
+            <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:#e01010;margin-bottom:4px">DRAFT (1-2 hrs, Claude)</div>
+            <div style="font-size:13px;font-weight:300;color:var(--cream);margin-bottom:6px">Tell Claude: <code style="background:var(--bg);padding:2px 6px;color:#e01010">/prml-outreach-pipeline draft</code></div>
             <div style="font-size:11px;color:var(--stone)">Claude reads the CSV, WebFetches each company for personalization, writes tailored emails using <code>/prml-company-brain</code> rules. Queues to Airtable as "Pending Approval".</div>
           </div>
         </div>
@@ -1906,7 +1940,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
             <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">Juneteenth Atlanta</div>
             <div style="font-size:11px;color:var(--stone);margin-top:3px">Centennial Olympic Park &middot; Vendor + sponsor application open</div>
           </div>
-          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <span style="background:#e01010;color:#2B2B2B;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
           <a href="https://juneteenthatl.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
         </div>
 
@@ -1916,7 +1950,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
             <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">Tassili's Natural Mystic Festival</div>
             <div style="font-size:11px;color:var(--stone);margin-top:3px">East Point GA &middot; Music + culture &middot; Sponsor opportunity</div>
           </div>
-          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <span style="background:#e01010;color:#2B2B2B;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
           <a href="https://tassilisrawreality.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
         </div>
 
@@ -1924,27 +1958,27 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
 
     <!-- COMING UP (60-180 days) -->
-    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
-      <div class="section-title" style="margin-bottom:14px;color:#ffb84d">Coming Up &middot; 60-180 days</div>
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #e01010;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:#e01010">Coming Up &middot; 60-180 days</div>
       <div style="display:grid;gap:10px">
 
         <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#ffb84d">Sep</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#e01010">Sep</div>
           <div>
             <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">A3C Festival &amp; Conference</div>
             <div style="font-size:11px;color:var(--stone);margin-top:3px">Atlanta &middot; Hip-hop + tech &middot; Vendor + speaker tracks</div>
           </div>
-          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <span style="background:#e01010;color:#2B2B2B;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
           <a href="https://a3cfestival.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
         </div>
 
         <div style="background:var(--bg);padding:14px;display:grid;grid-template-columns:90px 1fr auto auto;gap:14px;align-items:center">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#ffb84d">Oct</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:14px;color:#e01010">Oct</div>
           <div>
             <div style="font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--cream)">AfroTech Conference</div>
             <div style="font-size:11px;color:var(--stone);margin-top:3px">Houston (annual) &middot; Black tech network &middot; Sponsor + speaker</div>
           </div>
-          <span style="background:#ffb84d;color:#1a1208;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
+          <span style="background:#e01010;color:#2B2B2B;font-size:10px;padding:4px 10px;letter-spacing:1px;font-weight:700;font-family:'Odibee Sans',sans-serif">APPLY</span>
           <a href="https://afrotech.com/" target="_blank" style="color:var(--cream);font-size:11px">â†—</a>
         </div>
 
@@ -1975,7 +2009,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div class="grid-3" style="margin:14px 0 22px">
       <div class="card card--green" style="padding:16px"><div class="card-label">Live on web</div><div class="card-val">8</div></div>
       <div class="card card--blue" style="padding:16px"><div class="card-label">In Drive / local</div><div class="card-val">9</div></div>
-      <div class="card" style="padding:16px;background:rgba(255,184,77,.08);border:1px solid rgba(255,184,77,.3)"><div class="card-label" style="color:#ffb84d">Stale &middot; update</div><div class="card-val" style="color:#ffb84d">6</div></div>
+      <div class="card" style="padding:16px;background:rgba(224,16,16,.08);border:1px solid rgba(224,16,16,.3)"><div class="card-label" style="color:#e01010">Stale &middot; update</div><div class="card-val" style="color:#e01010">6</div></div>
     </div>
 
     <!-- LIVE ON WEB -->
@@ -1988,14 +2022,14 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Status</th>
         </tr></thead>
         <tbody style="color:var(--cream);font-weight:300">
-          <tr><td style="padding:8px">Affiliate &middot; Creator Track</td><td style="padding:8px"><a href="/affiliate.html" target="_blank" style="color:#ffb84d">/affiliate.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Affiliate &middot; Reseller / Bulk</td><td style="padding:8px"><a href="/affiliate-bulk.html" target="_blank" style="color:#ffb84d">/affiliate-bulk.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Capabilities deck</td><td style="padding:8px"><a href="/capabilities.html" target="_blank" style="color:#ffb84d">/capabilities.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Customize &amp; Order</td><td style="padding:8px"><a href="/customize.html" target="_blank" style="color:#ffb84d">/customize.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Shop / product catalog</td><td style="padding:8px"><a href="/shop.html" target="_blank" style="color:#ffb84d">/shop.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Beltline activation</td><td style="padding:8px"><a href="/beltline.html" target="_blank" style="color:#ffb84d">/beltline.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Press kit</td><td style="padding:8px"><a href="/press.html" target="_blank" style="color:#ffb84d">/press.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
-          <tr><td style="padding:8px">Product brochure (legacy)</td><td style="padding:8px"><a href="/lp/product-brochure.html" target="_blank" style="color:#ffb84d">/lp/product-brochure.html</a></td><td style="padding:8px;color:#ffb84d">STALE - prices &amp; products outdated</td></tr>
+          <tr><td style="padding:8px">Affiliate &middot; Creator Track</td><td style="padding:8px"><a href="/affiliate.html" target="_blank" style="color:#e01010">/affiliate.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Affiliate &middot; Reseller / Bulk</td><td style="padding:8px"><a href="/affiliate-bulk.html" target="_blank" style="color:#e01010">/affiliate-bulk.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Capabilities deck</td><td style="padding:8px"><a href="/capabilities.html" target="_blank" style="color:#e01010">/capabilities.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Customize &amp; Order</td><td style="padding:8px"><a href="/customize.html" target="_blank" style="color:#e01010">/customize.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Shop / product catalog</td><td style="padding:8px"><a href="/shop.html" target="_blank" style="color:#e01010">/shop.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Beltline activation</td><td style="padding:8px"><a href="/beltline.html" target="_blank" style="color:#e01010">/beltline.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Press kit</td><td style="padding:8px"><a href="/press.html" target="_blank" style="color:#e01010">/press.html</a></td><td style="padding:8px;color:var(--green)">Live</td></tr>
+          <tr><td style="padding:8px">Product brochure (legacy)</td><td style="padding:8px"><a href="/lp/product-brochure.html" target="_blank" style="color:#e01010">/lp/product-brochure.html</a></td><td style="padding:8px;color:#e01010">STALE - prices &amp; products outdated</td></tr>
         </tbody>
       </table>
     </div>
@@ -2015,17 +2049,17 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <tr><td style="padding:8px">Sponsor outreach campaigns</td><td style="padding:8px;font-family:monospace;font-size:11px">10_OUTREACH/campaigns_2026-04-25_sponsors/</td><td style="padding:8px;color:var(--green)">Current</td></tr>
           <tr><td style="padding:8px">FIFA / counties / Juneteenth pitches</td><td style="padding:8px;font-family:monospace;font-size:11px">10_OUTREACH/campaigns_2026-04-24/</td><td style="padding:8px;color:var(--green)">Current</td></tr>
           <tr><td style="padding:8px">2026-04-25 sponsor outreach + form walkthroughs</td><td style="padding:8px;font-family:monospace;font-size:11px">10_OUTREACH/campaigns_2026-04-25_sponsors/</td><td style="padding:8px;color:var(--green)">Current</td></tr>
-          <tr><td style="padding:8px">PRML Records Brochure v5 (PowerPoint)</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/PRML_Records/PRML Records Brochure v5.pptx</td><td style="padding:8px;color:#ffb84d">STALE - rebuild needed</td></tr>
-          <tr><td style="padding:8px">Brochure template archive (v4 + v5 variants)</td><td style="padding:8px;font-family:monospace;font-size:11px">12_TEMPLATES/presentations/</td><td style="padding:8px;color:#ffb84d">Reference only - has design but old data</td></tr>
-          <tr><td style="padding:8px">Brochure as PDF</td><td style="padding:8px;font-family:monospace;font-size:11px">12_TEMPLATES/presentations/Copy_20of_20PRML_20Records_20Brochure_20v5.pdf.pdf</td><td style="padding:8px;color:#ffb84d">STALE - same data as v5 .pptx</td></tr>
-          <tr><td style="padding:8px">Brochure copy in admin folder</td><td style="padding:8px;font-family:monospace;font-size:11px">prml-site/admin/PRML_Records_Brochure_v5.pptx</td><td style="padding:8px;color:#ffb84d">STALE - duplicate of v5</td></tr>
+          <tr><td style="padding:8px">PRML Records Brochure v5 (PowerPoint)</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/PRML_Records/PRML Records Brochure v5.pptx</td><td style="padding:8px;color:#e01010">STALE - rebuild needed</td></tr>
+          <tr><td style="padding:8px">Brochure template archive (v4 + v5 variants)</td><td style="padding:8px;font-family:monospace;font-size:11px">12_TEMPLATES/presentations/</td><td style="padding:8px;color:#e01010">Reference only - has design but old data</td></tr>
+          <tr><td style="padding:8px">Brochure as PDF</td><td style="padding:8px;font-family:monospace;font-size:11px">12_TEMPLATES/presentations/Copy_20of_20PRML_20Records_20Brochure_20v5.pdf.pdf</td><td style="padding:8px;color:#e01010">STALE - same data as v5 .pptx</td></tr>
+          <tr><td style="padding:8px">Brochure copy in admin folder</td><td style="padding:8px;font-family:monospace;font-size:11px">prml-site/admin/PRML_Records_Brochure_v5.pptx</td><td style="padding:8px;color:#e01010">STALE - duplicate of v5</td></tr>
         </tbody>
       </table>
     </div>
 
     <!-- MISSING / TO CREATE -->
-    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
-      <div class="section-title" style="margin-bottom:14px;color:#ffb84d">Missing &middot; create these next</div>
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #e01010;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:#e01010">Missing &middot; create these next</div>
       <table style="width:100%;border-collapse:collapse;font-size:13px">
         <thead><tr>
           <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">Asset</th>
@@ -2036,8 +2070,8 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <tr><td style="padding:8px">Media kit PDF</td><td style="padding:8px">Sponsors and Lenovo Insiders form ask for one. Currently we say "sending separately" and improvise.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
           <tr><td style="padding:8px">PRML label investor deck</td><td style="padding:8px">For investor / sponsor / grant pitches. 1 of 4 pitch decks from playground triage.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
           <tr><td style="padding:8px">SEAUX9 booking deck (EPK)</td><td style="padding:8px">For venue outreach. Mentioned in venues email but doesn't exist as a polished file yet.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
-          <tr><td style="padding:8px">Custom products B2B catalog</td><td style="padding:8px">For real-estate / auto / restaurant industry pitches. shop.html covers retail; B2B needs different framing.</td><td style="padding:8px;color:#ffb84d">MEDIUM</td></tr>
-          <tr><td style="padding:8px">Juneteenth Atlanta sponsor deck</td><td style="padding:8px">Festival-specific tier sheet. Mentioned in the Juneteenth email but not formalized.</td><td style="padding:8px;color:#ffb84d">MEDIUM</td></tr>
+          <tr><td style="padding:8px">Custom products B2B catalog</td><td style="padding:8px">For real-estate / auto / restaurant industry pitches. shop.html covers retail; B2B needs different framing.</td><td style="padding:8px;color:#e01010">MEDIUM</td></tr>
+          <tr><td style="padding:8px">Juneteenth Atlanta sponsor deck</td><td style="padding:8px">Festival-specific tier sheet. Mentioned in the Juneteenth email but not formalized.</td><td style="padding:8px;color:#e01010">MEDIUM</td></tr>
           <tr><td style="padding:8px">Product brochure v6 (UPDATE existing)</td><td style="padding:8px">v5 .pptx exists with old prices/products. Need to refresh with current TAP CARD ($29.99), TAP KEYCHAIN ($19.99), STARTER KIT ($39.99), 6-15% reseller / 15-25% creator affiliate, 72% bulk savings, NFC + UV print products.</td><td style="padding:8px;color:var(--red)">HIGH</td></tr>
         </tbody>
       </table>
@@ -2069,38 +2103,38 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <tr>
             <td style="padding:8px;font-family:monospace;font-size:11px">prml-deploy-prep.ps1</td>
             <td style="padding:8px">Bump SW cache + inject cache-bust + check git status before push</td>
-            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">/prml-cache-bust</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#e01010">/prml-cache-bust</td>
           </tr>
           <tr>
             <td style="padding:8px;font-family:monospace;font-size:11px">prml-hunter-scrape.ps1</td>
             <td style="padding:8px">Hunter.io domain search -> CSV with department-filtered contacts</td>
-            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">/prml-outreach-pipeline scrape</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#e01010">/prml-outreach-pipeline scrape</td>
           </tr>
           <tr>
             <td style="padding:8px;font-family:monospace;font-size:11px">prml-photo-pipeline.ps1</td>
             <td style="padding:8px">Process drop folder -> resize + thumb + manifest -> /assets/</td>
-            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"process picture drop"</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#e01010">"process picture drop"</td>
           </tr>
           <tr>
             <td style="padding:8px;font-family:monospace;font-size:11px">prml-qr-batch.ps1</td>
             <td style="padding:8px">Generate QR codes (PNG + SVG) from URL list, branded</td>
-            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"make QR for X"</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#e01010">"make QR for X"</td>
           </tr>
           <tr>
             <td style="padding:8px;font-family:monospace;font-size:11px">prml-og-image.ps1</td>
             <td style="padding:8px">Generate 1200x630 social sharing card from logo + tagline</td>
-            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"make OG image for X"</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#e01010">"make OG image for X"</td>
           </tr>
           <tr>
             <td style="padding:8px;font-family:monospace;font-size:11px">prml-fix-mojibake.ps1</td>
             <td style="padding:8px">Repair UTF-8 corruption in HTML files (run when editor mangles)</td>
-            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"fix mojibake"</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#e01010">"fix mojibake"</td>
           </tr>
         </tbody>
       </table>
       <p style="font-size:11px;color:var(--stone);margin-top:14px;line-height:1.7">
-        Full reference: <a href="../../../scripts/README.md" target="_blank" style="color:#ffb84d">scripts/README.md</a> &middot;
-        All scripts read secrets from <code style="color:#ffb84d">.env.local</code> at project root (gitignored, never committed).
+        Full reference: <a href="../../../scripts/README.md" target="_blank" style="color:#e01010">scripts/README.md</a> &middot;
+        All scripts read secrets from <code style="color:#e01010">.env.local</code> at project root (gitignored, never committed).
       </p>
     </div>
 
@@ -2126,26 +2160,26 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
 
     <!-- CMS PHASE 2 PREP -->
-    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
-      <div class="section-title" style="margin-bottom:14px;color:#ffb84d">Coming next: Console becomes the CMS</div>
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #e01010;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:#e01010">Coming next: Console becomes the CMS</div>
       <p style="font-size:13px;font-weight:300;color:var(--cream);opacity:.85;margin-bottom:14px;line-height:1.7">
         The architecture is being prepared so this console becomes how you control the website end-to-end - prices, products, media, ads, copy - without touching code. Phase 1 is the read-only dashboards we have now. Phase 2 is read+write.
       </p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Product editor</div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #e01010">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#e01010;margin-bottom:6px">Product editor</div>
           <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">Edit prices, swap product photos, toggle stock - syncs to Stripe + shop.html</div>
         </div>
-        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Media uploader</div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #e01010">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#e01010;margin-bottom:6px">Media uploader</div>
           <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">Drag photos/videos in, auto-optimize, pick which page they go on</div>
         </div>
-        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Copy editor</div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #e01010">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#e01010;margin-bottom:6px">Copy editor</div>
           <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">Edit homepage hero, about section, capabilities - WYSIWYG, brand-locked</div>
         </div>
-        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
-          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Print Library</div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #e01010">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#e01010;margin-bottom:6px">Print Library</div>
           <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">B2B + B2C ad library with sized matrix (8.5x11 / 11x17 / IG carousel / etc.)</div>
         </div>
       </div>
@@ -2158,7 +2192,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:18px">
       <div class="section-title" style="margin-bottom:10px;color:var(--red)">Picture drop folder</div>
       <p style="font-size:13px;font-weight:300;color:var(--cream);opacity:.85;margin-bottom:12px;line-height:1.7">
-        Drop event/team/product/press photos at <code style="color:#ffb84d;font-size:11px">999_TO_BE_ORGANIZED/pictures-to-upload/&lt;subfolder&gt;/</code> &middot; tell Claude "process picture drop" when ready &middot; pipeline auto-resizes, makes thumbnails, copies to /assets/, builds gallery manifest.
+        Drop event/team/product/press photos at <code style="color:#e01010;font-size:11px">999_TO_BE_ORGANIZED/pictures-to-upload/&lt;subfolder&gt;/</code> &middot; tell Claude "process picture drop" when ready &middot; pipeline auto-resizes, makes thumbnails, copies to /assets/, builds gallery manifest.
       </p>
       <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;font-size:10px;text-align:center">
         <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">beltline</div></div>
@@ -2174,7 +2208,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <!-- REFERENCE -->
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Why this matters</strong>
-      Every script in <code style="color:#ffb84d">/scripts/</code> is reusable infrastructure. When you ask "do X again" Claude pulls the script instead of regenerating the work, which saves tokens AND makes results consistent. New automation patterns get added here as we build them.
+      Every script in <code style="color:#e01010">/scripts/</code> is reusable infrastructure. When you ask "do X again" Claude pulls the script instead of regenerating the work, which saves tokens AND makes results consistent. New automation patterns get added here as we build them.
     </div>
   </div>
 
@@ -2187,7 +2221,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
     <div class="grid-3" style="margin:14px 0 22px">
       <div class="card card--green" style="padding:16px"><div class="card-label">Live assets</div><div class="card-val">10</div></div>
-      <div class="card" style="padding:16px;background:rgba(255,184,77,.08);border:1px solid rgba(255,184,77,.3)"><div class="card-label" style="color:#ffb84d">In progress</div><div class="card-val" style="color:#ffb84d">8</div></div>
+      <div class="card" style="padding:16px;background:rgba(224,16,16,.08);border:1px solid rgba(224,16,16,.3)"><div class="card-label" style="color:#e01010">In progress</div><div class="card-val" style="color:#e01010">8</div></div>
       <div class="card" style="padding:16px;background:rgba(224,16,16,.08);border:1px solid rgba(224,16,16,.3)"><div class="card-label" style="color:var(--red)">Missing</div><div class="card-val" style="color:var(--red)">42</div></div>
     </div>
 
@@ -2210,10 +2244,10 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
             <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">Web Banner<br>1200x628</th>
           </tr></thead>
           <tbody style="color:var(--cream);font-weight:300">
-            <tr><td style="padding:8px">TAP CARD launch</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">TAP CARD launch</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:#e01010">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">TAP KEYCHAIN promo</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">Custom Signs</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
-            <tr><td style="padding:8px">Beltline pop-up</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Beltline pop-up</td><td style="text-align:center;color:#e01010">WIP</td><td style="text-align:center;color:#e01010">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">SEAUX9 release</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">Affiliate creator</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
           </tbody>
@@ -2222,26 +2256,26 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     </div>
 
     <!-- B2B MATRIX -->
-    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
-      <div class="section-title" style="margin-bottom:6px;color:#ffb84d">B2B - Business-to-Business ads</div>
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #e01010;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:6px;color:#e01010">B2B - Business-to-Business ads</div>
       <p style="font-size:12px;color:var(--cream);opacity:.7;margin-bottom:14px;line-height:1.6">
         Volume / contract / industry-specific framing. Reseller program, bulk manufacturing, sponsor pitches, FIFA / Juneteenth county pitches. Audience: real estate offices, auto dealers, restaurants, event organizers, county arts commissions, brand sponsors.
       </p>
       <div style="overflow-x:auto">
         <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:900px">
           <thead><tr>
-            <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:#ffb84d;background:var(--bg);position:sticky;left:0">Campaign</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">8.5x11<br>One-pager</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">11x17<br>Trade show</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Brochure<br>Multi-page</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Pitch deck<br>16:9</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Email<br>HTML</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">LinkedIn<br>1200x627</th>
-            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Web Banner<br>1200x628</th>
+            <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:#e01010;background:var(--bg);position:sticky;left:0">Campaign</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">8.5x11<br>One-pager</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">11x17<br>Trade show</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">Brochure<br>Multi-page</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">Pitch deck<br>16:9</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">Email<br>HTML</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">LinkedIn<br>1200x627</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#e01010">Web Banner<br>1200x628</th>
           </tr></thead>
           <tbody style="color:var(--cream);font-weight:300">
             <tr><td style="padding:8px">Reseller program</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--green)">v6 done</td><td style="text-align:center;color:var(--green)">v6 done</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
-            <tr><td style="padding:8px">Real estate vertical</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Real estate vertical</td><td style="text-align:center;color:#e01010">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:#e01010">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">Auto dealer vertical</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">Restaurant vertical</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
             <tr><td style="padding:8px">FIFA county pitch</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
@@ -2262,13 +2296,13 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
           <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Location</th>
         </tr></thead>
         <tbody style="color:var(--cream);font-weight:300">
-          <tr><td style="padding:8px">Brochure v6</td><td style="padding:8px">HTML + PowerPoint</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../brochure.html" target="_blank" style="color:#ffb84d">brochure.html</a> + <a href="../../../11_ADVERTISING/PRML_Records/PRML_Brochure_v6.pptx" target="_blank" style="color:#ffb84d">.pptx</a></td></tr>
-          <tr><td style="padding:8px">Media Kit 2026</td><td style="padding:8px">HTML + PDF</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../media-kit.html" target="_blank" style="color:#ffb84d">media-kit.html</a></td></tr>
+          <tr><td style="padding:8px">Brochure v6</td><td style="padding:8px">HTML + PowerPoint</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../brochure.html" target="_blank" style="color:#e01010">brochure.html</a> + <a href="../../../11_ADVERTISING/PRML_Records/PRML_Brochure_v6.pptx" target="_blank" style="color:#e01010">.pptx</a></td></tr>
+          <tr><td style="padding:8px">Media Kit 2026</td><td style="padding:8px">HTML + PDF</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../media-kit.html" target="_blank" style="color:#e01010">media-kit.html</a></td></tr>
           <tr><td style="padding:8px">PRML Logo (vinyl)</td><td style="padding:8px">PNG + SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">00_BRAND/logos/Official Logo/</td></tr>
           <tr><td style="padding:8px">PRML Logo (wordmark)</td><td style="padding:8px">PNG + SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">00_BRAND/logos/Wordmark Version/</td></tr>
-          <tr><td style="padding:8px">SEAUX9 Logo 2026</td><td style="padding:8px">PNG transparent</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/artists/seaux9-logo-2026.png" target="_blank" style="color:#ffb84d">/assets/artists/</a></td></tr>
-          <tr><td style="padding:8px">Founder headshot</td><td style="padding:8px">JPG (1200 + thumb)</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/team/dodley-headshot.jpg" target="_blank" style="color:#ffb84d">/assets/team/</a></td></tr>
-          <tr><td style="padding:8px">OG / Social card</td><td style="padding:8px">JPG 1200x630</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/og-image.jpg" target="_blank" style="color:#ffb84d">/assets/og-image.jpg</a></td></tr>
+          <tr><td style="padding:8px">SEAUX9 Logo 2026</td><td style="padding:8px">PNG transparent</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/artists/seaux9-logo-2026.png" target="_blank" style="color:#e01010">/assets/artists/</a></td></tr>
+          <tr><td style="padding:8px">Founder headshot</td><td style="padding:8px">JPG (1200 + thumb)</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/team/dodley-headshot.jpg" target="_blank" style="color:#e01010">/assets/team/</a></td></tr>
+          <tr><td style="padding:8px">OG / Social card</td><td style="padding:8px">JPG 1200x630</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/og-image.jpg" target="_blank" style="color:#e01010">/assets/og-image.jpg</a></td></tr>
           <tr><td style="padding:8px">Lightbox / Signs ads</td><td style="padding:8px">SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/PRML_Records/service_ads/</td></tr>
           <tr><td style="padding:8px">NFC Fire ad</td><td style="padding:8px">PDF</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/shared/nfc_ads/PRML-NFC-Ad-Fire.pdf</td></tr>
           <tr><td style="padding:8px">SEAUX9 fan QR codes</td><td style="padding:8px">PNG + SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/SEAUX9/qr-codes/</td></tr>
@@ -2279,9 +2313,9 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <!-- HOW TO REQUEST -->
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">How to fill the gaps</strong>
-      Every cell marked WIP or - in the matrix above is an asset Claude can build on demand. Tell Claude: <code style="color:#ffb84d">"build [campaign] for [format]"</code> - example: <code style="color:#ffb84d">"build TAP CARD for IG Story 1080x1920"</code>. Output saves to <code style="color:#ffb84d">11_ADVERTISING/&lt;brand&gt;/&lt;type&gt;/</code> and gets logged here.
+      Every cell marked WIP or - in the matrix above is an asset Claude can build on demand. Tell Claude: <code style="color:#e01010">"build [campaign] for [format]"</code> - example: <code style="color:#e01010">"build TAP CARD for IG Story 1080x1920"</code>. Output saves to <code style="color:#e01010">11_ADVERTISING/&lt;brand&gt;/&lt;type&gt;/</code> and gets logged here.
       <br><br>
-      Existing scripts that help: <code style="color:#ffb84d">prml-og-image.ps1</code> (any logo + tagline -> 1200x630 social), <code style="color:#ffb84d">prml-qr-batch.ps1</code> (URL -> QR for print), <code style="color:#ffb84d">prml-brochure-build.py</code> (rebuild brochure when pricing changes).
+      Existing scripts that help: <code style="color:#e01010">prml-og-image.ps1</code> (any logo + tagline -> 1200x630 social), <code style="color:#e01010">prml-qr-batch.ps1</code> (URL -> QR for print), <code style="color:#e01010">prml-brochure-build.py</code> (rebuild brochure when pricing changes).
     </div>
 
   </div>
