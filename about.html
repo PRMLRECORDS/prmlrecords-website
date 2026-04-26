@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="description" content="About PRML RECORDS LLC - Black, Latino, Indigenous, and Haitian owned creative-tech company in West End Atlanta. Founded by Dodley Joseph in 2019.">
+<title>About | PRML RECORDS</title>
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.prmlrecords.com/about.html">
+<meta property="og:title" content="About PRML RECORDS - Built in West End Atlanta">
+<meta property="og:description" content="Black-owned creative-tech company. Founded 2019 by Dodley Joseph. Music, film, manufacturing, web. Bridging art, community, and technology.">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="PRML RECORDS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About PRML RECORDS - Built in West End Atlanta">
+<meta name="twitter:description" content="Black-owned creative-tech company. Founded 2019. Music, film, manufacturing, web.">
+<meta name="twitter:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+
+<meta name="theme-color" content="#0D0D0D">
+<link rel="canonical" href="https://prmlrecords.com/about.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nabla&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/brand.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2PNH2XTRDK', { page_title: document.title, page_location: window.location.href });
+</script>
+
+<style>
+.about-hero{background:var(--charcoal);color:var(--cream);padding:80px 5vw 64px;text-align:center;position:relative;overflow:hidden}
+.about-hero::before{content:'PRML';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(180px,24vw,360px);color:rgba(245,230,200,.04);bottom:-30px;right:-30px;line-height:1;letter-spacing:-12px;pointer-events:none}
+.about-hero__eye{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--red);margin-bottom:14px;position:relative}
+.about-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(48px,8vw,108px);color:var(--cream);letter-spacing:-3px;line-height:.9;margin:0 auto 18px;max-width:1100px;position:relative}
+.about-hero__title span{color:var(--red)}
+.about-hero__sub{font-family:'Roboto Slab',serif;font-size:clamp(15px,1.6vw,18px);font-weight:300;color:var(--cream);opacity:.8;max-width:680px;margin:0 auto;line-height:1.7;position:relative}
+
+.founder-section{background:var(--cream);padding:96px 5vw}
+.founder-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;max-width:1200px;margin:0 auto;align-items:flex-start}
+.founder-photo{position:relative}
+.founder-photo img{width:100%;height:auto;display:block;border-bottom:5px solid var(--red)}
+.founder-photo__badge{position:absolute;bottom:-16px;left:-16px;background:var(--red);color:var(--cream);padding:12px 22px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.founder-eye{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.founder-name{font-family:'Rubik Mono One',monospace;font-size:clamp(40px,5vw,68px);color:var(--charcoal);letter-spacing:-2px;line-height:.95;margin:0 0 18px}
+.founder-bio p{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;line-height:1.85;color:var(--charcoal);opacity:.78;margin:0 0 18px}
+.founder-bio p.lead{font-size:18px;opacity:.9}
+.founder-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:28px 0}
+.founder-stat{background:#fff;padding:16px 18px;border-left:4px solid var(--red)}
+.founder-stat__k{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase}
+.founder-stat__v{font-family:'Roboto Slab',serif;font-size:14px;color:var(--charcoal);margin-top:6px;line-height:1.55}
+.founder-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+
+.story-section{background:var(--black);color:var(--cream);padding:96px 5vw}
+.story-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story-eye{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.story-title{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,5vw,64px);color:var(--cream);letter-spacing:-2px;line-height:.95;margin:0 0 24px}
+.story-title span{color:var(--red)}
+.story-body p{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;line-height:1.85;color:var(--cream);opacity:.78;margin:0 0 16px}
+.story-card{background:var(--charcoal);padding:36px 32px;border-top:4px solid var(--red)}
+.story-card__row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(245,230,200,.1)}
+.story-card__row:last-child{border-bottom:none}
+.story-card__k{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;color:var(--cream);opacity:.4;text-transform:uppercase;flex-shrink:0;min-width:110px;padding-top:2px}
+.story-card__v{font-family:'Roboto Slab',serif;font-size:14px;color:var(--cream);text-align:right;line-height:1.55}
+
+.values-section{background:var(--cream);padding:80px 5vw;text-align:center}
+.values-eye{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.values-title{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,5vw,64px);color:var(--charcoal);letter-spacing:-2px;line-height:.95;margin:0 0 16px}
+.values-sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--charcoal);opacity:.65;max-width:680px;margin:0 auto 48px;line-height:1.7}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--charcoal);border:2px solid var(--charcoal);max-width:1100px;margin:0 auto}
+.value-cell{background:#fff;padding:36px 24px;text-align:center}
+.value-cell__sym{font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--red);margin-bottom:10px;letter-spacing:-1px}
+.value-cell__name{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal)}
+
+.brands-section{background:var(--black);padding:96px 5vw}
+.brands-eye{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);text-align:center;margin-bottom:14px}
+.brands-title{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,5vw,64px);color:var(--cream);letter-spacing:-2px;line-height:.95;text-align:center;margin:0 0 48px}
+.brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(245,230,200,.08);max-width:1100px;margin:0 auto}
+.brand-card{background:var(--charcoal);padding:40px 32px;border-top:3px solid var(--red);transition:.18s}
+.brand-card:hover{background:rgba(224,16,16,.05)}
+.brand-card__name{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--cream);letter-spacing:-1px;margin-bottom:8px}
+.brand-card__tag{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.brand-card__desc{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.7;line-height:1.7;margin-bottom:14px}
+.brand-card__link{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;color:var(--red);text-transform:uppercase;text-decoration:none}
+.brand-card__link:hover{text-decoration:underline}
+
+.cta-section{background:var(--cream);padding:96px 5vw;text-align:center}
+.cta-section h2{font-family:'Rubik Mono One',monospace;font-size:clamp(36px,5vw,72px);color:var(--charcoal);letter-spacing:-2px;line-height:.95;margin:0 0 24px}
+.cta-section h2 span{color:var(--red)}
+.cta-section p{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--charcoal);opacity:.7;max-width:560px;margin:0 auto 36px;line-height:1.7}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .founder-grid{grid-template-columns:1fr;gap:48px}
+  .story-grid{grid-template-columns:1fr;gap:36px}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .brands-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<style>
+.nav2{background:#2B2B2B;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.nav2__inner{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;max-width:1280px;margin:0 auto}
+.nav2__brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav2__brand-name{font-family:'Rubik Mono One',monospace;font-size:18px;color:#F5E6C8;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.nav2__brand-name span{color:#E01010}
+.nav2__links{display:flex;align-items:center;gap:4px}
+.nav2__item{position:relative}
+.nav2__link{font-family:'Odibee Sans',sans-serif;font-size:15px;color:#F5E6C8;text-decoration:none;padding:8px 14px;display:flex;align-items:center;gap:4px;white-space:nowrap;transition:background .2s,color .2s;letter-spacing:.04em}
+.nav2__link:hover,.nav2__link.active{background:#C4B49A;color:#F5E6C8}
+.nav2__link.active{color:#E01010;background:rgba(254,1,3,.1)}
+.nav2__caret{font-size:10px;opacity:.7}
+.nav2__dropdown{display:none;position:absolute;top:100%;left:0;background:#2B2B2B;border:1px solid #C4B49A;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:1001;overflow:hidden}
+.nav2__item:hover .nav2__dropdown{display:block}
+.nav2__drop-link{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;padding:10px 16px;border-bottom:1px solid rgba(99,93,82,.3);transition:background .15s}
+.nav2__drop-link:last-child{border-bottom:none}
+.nav2__drop-link:hover{background:#C4B49A}
+.nav2__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav2__burger span{display:block;width:24px;height:2px;background:#F5E6C8}
+@media(max-width:768px){
+  .nav2__links{display:none}
+  .nav2__burger{display:flex}
+  .nav2.mob-open .nav2__links{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#2B2B2B;padding:16px;gap:2px;border-bottom:2px solid #C4B49A}
+  .nav2.mob-open .nav2__dropdown{position:static;border:none;box-shadow:none;background:rgba(99,93,82,.2);display:block;padding-left:16px}
+  .nav2__item{width:100%}
+  .nav2__link{width:100%}
+}
+</style>
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html"><img src="assets/logo.svg" alt="PRML RECORDS" width="32" height="32" onerror="this.style.display='none'"><span class="nav2__brand-name">PRML <span>RECORDS</span></span></a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item"><a class="nav2__link active" href="about.html">About</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="shop.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="shop.html#products">All Products</a>
+          <a class="nav2__drop-link" href="shop.html#custom">Custom &middot; Your Logo</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="contact.html?service=consultation">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="capabilities.html">Capabilities</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero__eye">PRML RECORDS LLC &middot; Atlanta, GA</div>
+  <h1 class="about-hero__title">Built in<br><span>West End.</span></h1>
+  <p class="about-hero__sub">Black, Latino, Indigenous, and Haitian owned creative-technology company. Music, film, manufactured products, web. Bridging art, community, and technology since 2019.</p>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section" id="founder">
+  <div class="founder-grid">
+    <div class="founder-photo">
+      <img src="assets/team/dodley-headshot.jpg" alt="Dodley Joseph - Founder of PRML RECORDS" width="1200" height="1796" loading="eager">
+      <div class="founder-photo__badge">Atlanta, Georgia</div>
+    </div>
+    <div class="founder-bio">
+      <div class="founder-eye">The Founder &middot; CEO &middot; Producer</div>
+      <h2 class="founder-name">Dodley<br>Joseph.</h2>
+      <p class="lead">Haitian-American multilingual founder. Builder, teacher, farmer, performer. Started PRML RECORDS in 2019 to bridge art, community, and technology - because no one was doing all three from West End Atlanta.</p>
+      <p>Background spans music production, software engineering, manufacturing (3D printing, NFC tech, laser cutting), urban farming, and tech education. PRML is the umbrella that ties all of it together. SEAUX9 is the flagship artist. Beltline pop-ups, FIFA 2026 programming, and a growing roster of bilingual creatives are next.</p>
+      <div class="founder-stats">
+        <div class="founder-stat">
+          <div class="founder-stat__k">Languages</div>
+          <div class="founder-stat__v">English &middot; Spanish<br>French &middot; Haitian Creole</div>
+        </div>
+        <div class="founder-stat">
+          <div class="founder-stat__k">Roots</div>
+          <div class="founder-stat__v">Sugar Hill, GA &middot; Lanier HS<br>West End, Atlanta</div>
+        </div>
+        <div class="founder-stat">
+          <div class="founder-stat__k">Disciplines</div>
+          <div class="founder-stat__v">Music &middot; Film &middot; Code<br>Manufacturing &middot; Farming</div>
+        </div>
+        <div class="founder-stat">
+          <div class="founder-stat__k">Founded PRML</div>
+          <div class="founder-stat__v">2019<br>West End, Atlanta</div>
+        </div>
+      </div>
+      <div class="founder-cta">
+        <a class="btn btn--red btn--sm" href="contact.html?utm_source=about&utm_medium=founder&utm_campaign=speaker-booking">Book Dodley as Speaker</a>
+        <a class="btn btn--out btn--sm" href="press.html">Press &amp; Media</a>
+        <a class="btn btn--out btn--sm" href="contact.html?utm_source=about&utm_medium=founder&utm_campaign=intro-call">Schedule Intro Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY STORY -->
+<section class="story-section">
+  <div class="story-grid">
+    <div>
+      <div class="story-eye">The Company</div>
+      <h2 class="story-title">We make. We <span>ship.</span> We perform.</h2>
+      <div class="story-body">
+        <p>PRML RECORDS is a Black, Latino, Indigenous, and Haitian owned creative studio rooted in West End Atlanta. We design, manufacture, and market physical and digital media - connecting art fanatics, collectors, and enthusiasts directly to the artists and work that move them.</p>
+        <p>We serve creatives, consumers, and businesses. Our roots are local. Our reach is global. The work spans music production, NFC products, custom signs, web development, photography, film, and manufacturing - all in-house, all under one roof.</p>
+        <p>We believe in long-game relationships, honest pricing, and showing up for our community. No shortcuts, no extractive tactics. Just real work for real people.</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-card__row"><span class="story-card__k">Founded</span><span class="story-card__v">2019</span></div>
+      <div class="story-card__row"><span class="story-card__k">Location</span><span class="story-card__v">West End, Atlanta, GA</span></div>
+      <div class="story-card__row"><span class="story-card__k">Entity</span><span class="story-card__v">Georgia Limited Liability Company</span></div>
+      <div class="story-card__row"><span class="story-card__k">Ownership</span><span class="story-card__v">Black-owned, founder-managed</span></div>
+      <div class="story-card__row"><span class="story-card__k">Disciplines</span><span class="story-card__v">8 categories &middot; 40+ services</span></div>
+      <div class="story-card__row"><span class="story-card__k">Brands</span><span class="story-card__v">PRML RECORDS &middot; SEAUX9 &middot; Creative UNDRGRND</span></div>
+      <div class="story-card__row"><span class="story-card__k">Reach</span><span class="story-card__v">1M+ annual hits<br>250K+ monthly social reach</span></div>
+      <div class="story-card__row"><span class="story-card__k">Phone</span><span class="story-card__v"><a href="tel:7706867726" style="color:var(--red);text-decoration:none">770-686-7726</a></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-eye">What we stand on</div>
+  <h2 class="values-title">Four words.<br>Every decision.</h2>
+  <p class="values-sub">These aren't slogans. They're filters. Every project, every partnership, every product passes through them or doesn't get made.</p>
+  <div class="values-grid">
+    <div class="value-cell"><div class="value-cell__sym">P</div><div class="value-cell__name">Peace</div></div>
+    <div class="value-cell"><div class="value-cell__sym">F</div><div class="value-cell__name">Freedom</div></div>
+    <div class="value-cell"><div class="value-cell__sym">J</div><div class="value-cell__name">Justice</div></div>
+    <div class="value-cell"><div class="value-cell__sym">E</div><div class="value-cell__name">Equality</div></div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section">
+  <div class="brands-eye">The Family</div>
+  <h2 class="brands-title">Three brands. One mission.</h2>
+  <div class="brands-grid">
+    <div class="brand-card">
+      <div class="brand-card__name">PRML RECORDS</div>
+      <div class="brand-card__tag">Parent label &middot; Creative tech</div>
+      <p class="brand-card__desc">The umbrella. Music, film, manufacturing, web, brand identity. Where everything connects. The shop that keeps the lights on for the artists.</p>
+      <a class="brand-card__link" href="index.html">View Home &rarr;</a>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card__name">SEAUX9</div>
+      <div class="brand-card__tag">Flagship artist &middot; West End</div>
+      <p class="brand-card__desc">Producer, artist, founder. Original music across 27 platforms, 40+ countries. Beat licensing, fan membership, growing audience. The sound of PRML.</p>
+      <a class="brand-card__link" href="https://seaux9.com" target="_blank" rel="noopener">Visit seaux9.com &rarr;</a>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card__name">Creative UNDRGRND</div>
+      <div class="brand-card__tag">Events &middot; Activations</div>
+      <p class="brand-card__desc">Live event arm. Beltline pop-ups, festival activations, FIFA 2026 programming. Where the studio work meets the city in person.</p>
+      <a class="brand-card__link" href="beltline.html">Beltline series &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Want to <span>work with us?</span></h2>
+  <p>Whether it's product, performance, partnership, or press - we read every message. Most replies go out same day.</p>
+  <div class="cta-buttons">
+    <a class="btn btn--red" href="contact.html?utm_source=about&utm_medium=cta&utm_campaign=quote">Request a Quote</a>
+    <a class="btn btn--out" href="contact.html?service=consultation&utm_source=about&utm_medium=cta&utm_campaign=consult">Book a Consultation</a>
+    <a class="btn btn--out" href="press.html">Press Inquiry</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer2">
+<style>
+.footer2{background:#2B2B2B;color:#F5E6C8;padding:64px 32px 32px}
+.footer2__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1280px;margin:0 auto;padding-bottom:48px;border-bottom:1px solid rgba(99,93,82,.4)}
+@media(max-width:900px){.footer2__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer2__grid{grid-template-columns:1fr}}
+.footer2__brand{display:flex;flex-direction:column;gap:12px}
+.footer2__brand-name{font-family:'Rubik Mono One',monospace;font-size:22px;color:#F5E6C8;letter-spacing:.06em}
+.footer2__brand-name span{color:#E01010}
+.footer2__tagline{font-family:'Roboto Slab',serif;font-size:14px;color:#C4B49A;font-style:italic}
+.footer2__contact{font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;line-height:1.8;opacity:.85}
+.footer2__contact a{color:#F5E6C8;text-decoration:none}
+.footer2__contact a:hover{color:#E01010}
+.footer2__social{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.footer2__social a{font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;text-decoration:none;border:1px solid #C4B49A;padding:5px 10px;transition:all .2s;white-space:nowrap}
+.footer2__social a:hover{background:#C4B49A;color:#F5E6C8}
+.footer2__col h4{font-family:'Rubik Mono One',monospace;font-size:11px;color:#E01010;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+.footer2__col a{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;margin-bottom:8px;opacity:.8;transition:opacity .2s,color .2s}
+.footer2__col a:hover{opacity:1;color:#E01010}
+.footer2__bottom{max-width:1280px;margin:0 auto;padding-top:32px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.footer2__values{font-family:'Rubik Mono One',monospace;font-size:12px;color:#C4B49A;letter-spacing:.1em;text-transform:uppercase}
+.footer2__values span{color:#E01010}
+.footer2__copy{font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;opacity:.7}
+.footer2__tagline-bottom{font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;font-style:italic}
+</style>
+<div class="footer2__grid">
+  <div class="footer2__brand">
+    <div class="footer2__brand-name">PRML <span>RECORDS</span></div>
+    <div class="footer2__tagline">Primal Energy. Primal Sound.</div>
+    <div class="footer2__contact">
+      <a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a><br>
+      <a href="tel:7706867726">(770) 686-7726</a><br>
+      4485 Fulton Industrial Blvd. SW<br>Ste A1 PMB 1167<br>Atlanta, GA 30336
+    </div>
+    <div class="footer2__social">
+      <a href="https://instagram.com/prmlrecords" target="_blank">Instagram</a>
+      <a href="https://facebook.com/prmlrecords" target="_blank">Facebook</a>
+      <a href="https://twitter.com/prmlrecords" target="_blank">Twitter/X</a>
+      <a href="https://youtube.com/@prmlrecords" target="_blank">YouTube</a>
+      <a href="https://tiktok.com/@prmlrecords" target="_blank">TikTok</a>
+    </div>
+  </div>
+  <div class="footer2__col">
+    <h4>Explore</h4>
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="blog/">Blog</a>
+    <a href="shop.html">Shop</a><a href="services.html">Services</a>
+  </div>
+  <div class="footer2__col">
+    <h4>Services</h4>
+    <a href="contact.html?service=consultation">Book a Consultation</a>
+    <a href="contact.html">Request a Quote</a>
+    <a href="services.html">View Services</a>
+    <a href="shop.html">Shop All Products</a>
+  </div>
+  <div class="footer2__col">
+    <h4>Company</h4>
+    <a href="about.html">About PRML</a>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="press.html">Press</a>
+    <a href="support.html">Support</a>
+    <a href="privacypolicy.html">Privacy Policy</a>
+    <a href="termsofservice.html">Terms of Service</a>
+  </div>
+</div>
+<div class="footer2__bottom">
+  <div class="footer2__values">Freedom <span>&middot;</span> Justice <span>&middot;</span> Equality</div>
+  <div class="footer2__tagline-bottom">Primal Energy. Primal Sound.</div>
+  <div class="footer2__copy">&copy; 2026 PRML RECORDS LLC. All rights reserved. &middot; Atlanta, GA &middot; @PRMLRECORDS</div>
+</div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/cookie-consent.js" defer></script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>
