@@ -228,6 +228,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('outreach-queue')">âš¡ Outreach Queue</button>
     <button class="tab" onclick="showTab('events-radar')">ðŸ“¡ Events Radar</button>
     <button class="tab" onclick="showTab('asset-rubric')">ðŸ“‚ Asset Rubric</button>
+    <button class="tab" onclick="showTab('automation')">âš™ï¸ Automation</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
   </div>
 
@@ -2044,6 +2045,135 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">How to use this rubric</strong>
       When you need an asset for outreach, scan this list first. If it's "Live on web" - just send the URL. If it's "In Drive" - attach the file. If it's "Missing" - tell Claude "/build [asset name]" and we'll generate it from your existing brand voice + the company brain.
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AUTOMATION TAB - script library + future CMS hooks           -->
+  <!-- ============================================================ -->
+  <div class="panel" id="tab-automation">
+    <div class="section-title">Automation &amp; Scripts</div>
+    <div class="section-head">Reusable scripts. Stop reinventing. Save tokens. Future home of the website CMS.</div>
+
+    <!-- ACTIVE SCRIPTS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin:14px 0 18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--green)">Live scripts (run on demand)</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Script</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Purpose</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Run command</th>
+        </tr></thead>
+        <tbody style="color:var(--cream);font-weight:300">
+          <tr>
+            <td style="padding:8px;font-family:monospace;font-size:11px">prml-deploy-prep.ps1</td>
+            <td style="padding:8px">Bump SW cache + inject cache-bust + check git status before push</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">/prml-cache-bust</td>
+          </tr>
+          <tr>
+            <td style="padding:8px;font-family:monospace;font-size:11px">prml-hunter-scrape.ps1</td>
+            <td style="padding:8px">Hunter.io domain search -> CSV with department-filtered contacts</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">/prml-outreach-pipeline scrape</td>
+          </tr>
+          <tr>
+            <td style="padding:8px;font-family:monospace;font-size:11px">prml-photo-pipeline.ps1</td>
+            <td style="padding:8px">Process drop folder -> resize + thumb + manifest -> /assets/</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"process picture drop"</td>
+          </tr>
+          <tr>
+            <td style="padding:8px;font-family:monospace;font-size:11px">prml-qr-batch.ps1</td>
+            <td style="padding:8px">Generate QR codes (PNG + SVG) from URL list, branded</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"make QR for X"</td>
+          </tr>
+          <tr>
+            <td style="padding:8px;font-family:monospace;font-size:11px">prml-og-image.ps1</td>
+            <td style="padding:8px">Generate 1200x630 social sharing card from logo + tagline</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"make OG image for X"</td>
+          </tr>
+          <tr>
+            <td style="padding:8px;font-family:monospace;font-size:11px">prml-fix-mojibake.ps1</td>
+            <td style="padding:8px">Repair UTF-8 corruption in HTML files (run when editor mangles)</td>
+            <td style="padding:8px;font-family:monospace;font-size:11px;color:#ffb84d">"fix mojibake"</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--stone);margin-top:14px;line-height:1.7">
+        Full reference: <a href="../../../scripts/README.md" target="_blank" style="color:#ffb84d">scripts/README.md</a> &middot;
+        All scripts read secrets from <code style="color:#ffb84d">.env.local</code> at project root (gitignored, never committed).
+      </p>
+    </div>
+
+    <!-- ACTIVE SKILLS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--blue);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--blue)">Active Claude skills</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--blue)">Skill</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--blue)">Trigger</th>
+        </tr></thead>
+        <tbody style="color:var(--cream);font-weight:300">
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-company-brain</td><td style="padding:8px">Source of truth for outreach + applications. Anti-AI-detection rules.</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-outreach-pipeline</td><td style="padding:8px">4-stage: scrape -> draft -> approve -> send -> follow-up</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-cache-bust</td><td style="padding:8px">Wraps prml-deploy-prep before any git push</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-deploy</td><td style="padding:8px">Website deployment review gate</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-sponsorship</td><td style="padding:8px">Sponsorship outreach (now wraps /prml-outreach-pipeline)</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-followup</td><td style="padding:8px">Customer / lead follow-up after sales conversations</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-quote</td><td style="padding:8px">Generate branded quotes + invoices</td></tr>
+          <tr><td style="padding:8px;font-family:monospace;font-size:11px">/prml-product</td><td style="padding:8px">Add / update products + pricing (will become CMS)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CMS PHASE 2 PREP -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:#ffb84d">Coming next: Console becomes the CMS</div>
+      <p style="font-size:13px;font-weight:300;color:var(--cream);opacity:.85;margin-bottom:14px;line-height:1.7">
+        The architecture is being prepared so this console becomes how you control the website end-to-end - prices, products, media, ads, copy - without touching code. Phase 1 is the read-only dashboards we have now. Phase 2 is read+write.
+      </p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Product editor</div>
+          <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">Edit prices, swap product photos, toggle stock - syncs to Stripe + shop.html</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Media uploader</div>
+          <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">Drag photos/videos in, auto-optimize, pick which page they go on</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Copy editor</div>
+          <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">Edit homepage hero, about section, capabilities - WYSIWYG, brand-locked</div>
+        </div>
+        <div style="background:var(--bg);padding:14px;border-left:3px solid #ffb84d">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ffb84d;margin-bottom:6px">Print Library</div>
+          <div style="font-size:12px;font-weight:300;color:var(--cream);opacity:.7">B2B + B2C ad library with sized matrix (8.5x11 / 11x17 / IG carousel / etc.)</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--stone);margin-top:14px;line-height:1.6">
+        These four panels will be added in Phase 2. The data model and folder conventions are already in place - just need the UI + write-back pipeline. Don't ask for these yet, they'll come when current outreach + sponsorship work stabilizes.
+      </p>
+    </div>
+
+    <!-- DROP FOLDER STATUS -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:10px;color:var(--red)">Picture drop folder</div>
+      <p style="font-size:13px;font-weight:300;color:var(--cream);opacity:.85;margin-bottom:12px;line-height:1.7">
+        Drop event/team/product/press photos at <code style="color:#ffb84d;font-size:11px">999_TO_BE_ORGANIZED/pictures-to-upload/&lt;subfolder&gt;/</code> &middot; tell Claude "process picture drop" when ready &middot; pipeline auto-resizes, makes thumbnails, copies to /assets/, builds gallery manifest.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;font-size:10px;text-align:center">
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">beltline</div></div>
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">press</div></div>
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">hero</div></div>
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">products</div></div>
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">team</div></div>
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">events</div></div>
+        <div style="background:var(--bg);padding:8px"><div style="color:var(--red)">unsorted</div></div>
+      </div>
+    </div>
+
+    <!-- REFERENCE -->
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Why this matters</strong>
+      Every script in <code style="color:#ffb84d">/scripts/</code> is reusable infrastructure. When you ask "do X again" Claude pulls the script instead of regenerating the work, which saves tokens AND makes results consistent. New automation patterns get added here as we build them.
     </div>
   </div>
 

@@ -4,15 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>SEAUX9 - Stay Connected</title>
-<meta name="description" content="Just caught a SEAUX9 set? Get on the list for new music, upcoming shows, exclusive drops. Direct from the artist.">
+<meta name="description" content="Become a SEAUX9 fan. New music drops, upcoming shows, donation support, and every platform in one place.">
 <meta name="theme-color" content="#0d0d0d">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://prmlrecords.com/lp/seaux9-fan.html">
 
-<!-- Open Graph -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="SEAUX9 - Stay Connected">
-<meta property="og:description" content="Just caught a SEAUX9 set? Get on the list for new music, upcoming shows, exclusive drops.">
+<meta property="og:description" content="Become a SEAUX9 fan. New music drops, shows, donations, every platform in one place.">
 <meta property="og:url" content="https://prmlrecords.com/lp/seaux9-fan.html">
 <meta property="og:image" content="https://prmlrecords.com/assets/og-image.jpg">
 
@@ -21,25 +20,31 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=Nabla&display=swap">
 
 <style>
-:root{--black:#0d0d0d;--charcoal:#2b2b2b;--cream:#f5e6c8;--red:#e01010;--stone:#8c8c7a}
+:root{--black:#0d0d0d;--charcoal:#2b2b2b;--cream:#f5e6c8;--red:#e01010;--gold:#ffb84d;--green:#4ade80;--stone:#8c8c7a}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
 
-/* HERO */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:32px 24px;background:radial-gradient(ellipse at top,rgba(224,16,16,.18) 0%,transparent 60%),var(--black);overflow:hidden}
 .hero::before{content:'SEAUX9';position:absolute;font-family:'Nabla',cursive;font-size:clamp(180px,40vw,400px);color:rgba(245,230,200,.04);bottom:-40px;left:50%;transform:translateX(-50%);line-height:1;letter-spacing:-12px;pointer-events:none;white-space:nowrap}
 .hero-content{position:relative;z-index:2;max-width:480px;margin:0 auto;text-align:center;width:100%}
-.eyebrow{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--red);margin-bottom:16px;font-weight:700}
+
+.event-context{display:inline-block;background:transparent;color:var(--red);padding:6px 0;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.event-context.live{background:var(--gold);color:var(--black);padding:8px 18px;letter-spacing:3px}
+
 .greet{font-family:'Roboto Slab',serif;font-size:18px;font-weight:300;color:var(--cream);opacity:.85;margin-bottom:14px}
 .greet strong{color:var(--red);font-weight:700;letter-spacing:1px}
-.brand{font-family:'Nabla',cursive;font-size:clamp(64px,16vw,120px);color:var(--cream);letter-spacing:-3px;line-height:.95;margin:8px 0 18px;text-shadow:0 4px 30px rgba(224,16,16,.5)}
-/* Hero logo replaces .brand text on fan page */
-.hero-content > img { display:block }
-.tagline{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.65;margin-bottom:36px;line-height:1.65;max-width:380px;margin-left:auto;margin-right:auto}
+.logo-wrap{display:block;margin:8px auto 18px;max-width:280px;width:75%}
+.logo-wrap img{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 30px rgba(224,16,16,.4))}
+.tagline{font-family:'Roboto Slab',serif;font-size:15px;font-weight:300;color:var(--cream);opacity:.65;margin-bottom:30px;line-height:1.65;max-width:380px;margin-left:auto;margin-right:auto}
 
-/* PRIMARY CTAs */
-.actions{display:grid;gap:10px;margin-bottom:28px}
-.action{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--charcoal);border:1.5px solid rgba(245,230,200,.1);color:var(--cream);text-decoration:none;font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;transition:all .15s;cursor:pointer;text-align:left}
+/* PROMO BANNER (only shows when ?promo= in URL) */
+.promo{display:none;background:rgba(255,184,77,.1);border:1.5px solid rgba(255,184,77,.4);padding:18px;margin-bottom:24px;text-align:left}
+.promo.show{display:block}
+.promo-tag{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+.promo-msg{font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream);line-height:1.7}
+
+.actions{display:grid;gap:10px;margin-bottom:24px}
+.action{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--charcoal);border:1.5px solid rgba(245,230,200,.1);color:var(--cream);text-decoration:none;font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-align:left;transition:all .15s}
 .action:hover,.action:active{border-color:var(--red);background:rgba(224,16,16,.1)}
 .action-icon{flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--red);color:#fff;font-family:'Rubik Mono One',monospace;font-size:14px}
 .action-meta{flex:1}
@@ -49,9 +54,12 @@ html,body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',s
 .action.primary .action-icon{background:var(--cream);color:var(--red)}
 .action.primary .action-meta small{color:rgba(255,255,255,.75)}
 .action.primary .action-arrow{color:var(--cream)}
+.action.donate{background:var(--green);border-color:var(--green);color:var(--black)}
+.action.donate .action-icon{background:var(--black);color:var(--green)}
+.action.donate .action-meta small{color:rgba(0,0,0,.65)}
+.action.donate .action-arrow{color:var(--black)}
 
-/* EMAIL FORM */
-.email-form{background:rgba(245,230,200,.04);border:1.5px solid rgba(224,16,16,.25);padding:22px;margin-bottom:28px}
+.email-form{background:rgba(245,230,200,.04);border:1.5px solid rgba(224,16,16,.25);padding:22px;margin-bottom:24px}
 .email-form h3{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--cream);letter-spacing:-.3px;margin-bottom:6px}
 .email-form p{font-size:12px;color:var(--cream);opacity:.6;margin-bottom:14px}
 .email-row{display:flex;gap:8px}
@@ -63,13 +71,11 @@ html,body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',s
 .email-success{display:none;background:rgba(74,222,128,.1);border:1.5px solid rgba(74,222,128,.4);padding:14px;font-size:13px;color:#4ade80;text-align:center;margin-top:10px}
 .email-success.show{display:block}
 
-/* SECONDARY GRID */
-.secondary{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.secondary{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:32px}
 .secondary a{display:block;padding:14px 12px;background:var(--charcoal);border:1px solid rgba(245,230,200,.08);color:var(--cream);text-decoration:none;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-align:center}
 .secondary a:hover,.secondary a:active{border-color:var(--red);color:var(--red)}
 
-/* FOOTER */
-.foot{margin-top:32px;text-align:center;font-family:'Roboto Slab',serif;font-size:11px;color:var(--stone);opacity:.5}
+.foot{text-align:center;font-family:'Roboto Slab',serif;font-size:11px;color:var(--stone);opacity:.5}
 .foot a{color:var(--stone);text-decoration:none}
 
 @media (min-width:600px){
@@ -82,31 +88,39 @@ html,body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',s
 
 <section class="hero">
   <div class="hero-content">
-    <div class="eyebrow" id="venue-tag">PEACE!</div>
+    <div class="event-context" id="event-context">PEACE!</div>
     <p class="greet">You just caught <strong>SEAUX9</strong>.</p>
-    <img src="/assets/artists/seaux9-logo-2026.png" alt="SEAUX9" style="max-width:280px;width:75%;height:auto;display:block;margin:8px auto 18px;filter:drop-shadow(0 4px 30px rgba(224,16,16,.4))" loading="eager" width="1200" height="1200">
+    <a class="logo-wrap" href="https://seaux9.com" target="_blank" rel="noopener" data-cta="logo">
+      <img src="/assets/artists/seaux9-logo-2026.png" alt="SEAUX9" loading="eager" width="1200" height="1200">
+    </a>
     <p class="tagline">Original sound. Atlanta roots. Pick how you want to stay in the loop - all of it works.</p>
+
+    <!-- PROMO BANNER - only shows when ?promo= present in URL -->
+    <div class="promo" id="promo">
+      <div class="promo-tag" id="promo-tag">Festival exclusive</div>
+      <div class="promo-msg" id="promo-msg">Drop your email below to claim it.</div>
+    </div>
 
     <!-- PRIMARY CTAs -->
     <div class="actions">
       <a href="https://www.instagram.com/seaux9" target="_blank" rel="noopener" class="action primary" data-cta="instagram">
         <div class="action-icon">IG</div>
-        <div class="action-meta">Follow on Instagram<small>New drops, behind the scenes, next gigs</small></div>
+        <div class="action-meta">Follow @seaux9<small>New drops, behind the scenes, next gigs</small></div>
         <div class="action-arrow">&rarr;</div>
       </a>
-      <a href="https://open.spotify.com/artist/seaux9" target="_blank" rel="noopener" class="action" data-cta="spotify">
+      <a href="https://www.google.com/search?q=SEAUX9" target="_blank" rel="noopener" class="action" data-cta="google-search">
         <div class="action-icon">&#9835;</div>
-        <div class="action-meta">Listen on Spotify<small>Save the latest release</small></div>
-        <div class="action-arrow">&rarr;</div>
-      </a>
-      <a href="https://music.apple.com/us/artist/seaux9" target="_blank" rel="noopener" class="action" data-cta="apple">
-        <div class="action-icon">A</div>
-        <div class="action-meta">Apple Music<small>Add to your library</small></div>
+        <div class="action-meta">Listen anywhere<small>One Google search shows every platform</small></div>
         <div class="action-arrow">&rarr;</div>
       </a>
       <a href="https://seaux9.com" target="_blank" rel="noopener" class="action" data-cta="seaux9-site">
         <div class="action-icon">S9</div>
         <div class="action-meta">seaux9.com<small>Booking, full discography, fan membership</small></div>
+        <div class="action-arrow">&rarr;</div>
+      </a>
+      <a href="#donate" class="action donate" data-cta="donate-anchor" onclick="document.getElementById('donate-block').scrollIntoView({behavior:'smooth'})">
+        <div class="action-icon">$</div>
+        <div class="action-meta">Support the music<small>Tip the artist directly</small></div>
         <div class="action-arrow">&rarr;</div>
       </a>
     </div>
@@ -122,6 +136,18 @@ html,body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',s
         </div>
       </form>
       <div class="email-success" id="email-success">&#10003; You&rsquo;re in. Check your inbox.</div>
+    </div>
+
+    <!-- DONATE -->
+    <div class="email-form" id="donate-block">
+      <h3>Support the music</h3>
+      <p>Every dollar goes back into recording, gear, and the next show. Pick any amount, any platform.</p>
+      <div class="secondary" style="margin-bottom:0">
+        <a href="https://cash.app/$SEAUX9" target="_blank" rel="noopener" data-cta="cashapp">Cash App<br><small style="font-size:9px;opacity:.5;letter-spacing:1px">$SEAUX9</small></a>
+        <a href="https://venmo.com/seaux9" target="_blank" rel="noopener" data-cta="venmo">Venmo<br><small style="font-size:9px;opacity:.5;letter-spacing:1px">@seaux9</small></a>
+        <a href="https://prmlrecords.com/customize.html?utm_source=fan-page&utm_medium=donate&utm_campaign=tip-as-purchase" target="_blank" rel="noopener" data-cta="merch-tip">Buy Merch<br><small style="font-size:9px;opacity:.5;letter-spacing:1px">Direct support</small></a>
+        <a href="https://seaux9.com/membership" target="_blank" rel="noopener" data-cta="membership">Fan Membership<br><small style="font-size:9px;opacity:.5;letter-spacing:1px">Monthly access</small></a>
+      </div>
     </div>
 
     <!-- SECONDARY -->
@@ -141,7 +167,6 @@ html,body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',s
   </div>
 </section>
 
-<!-- GA4 + custom event tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -149,24 +174,47 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-2PNH2XTRDK');
 
-// Read UTM params for venue/event context
+// URL params drive the page's contextual variants
 const params = new URLSearchParams(location.search);
-const utmSrc = params.get('utm_source');
-const utmCmp = params.get('utm_campaign');
-const venue = params.get('venue') || params.get('utm_content');
-if (venue) document.getElementById('venue-tag').textContent = 'PEACE - LIVE FROM ' + venue.toUpperCase();
+const venue = params.get('venue') || params.get('utm_content') || '';
+const promoTag = params.get('promo_tag') || '';
+const promoMsg = params.get('promo_msg') || '';
 
-// Page view
-gtag('event', 'page_view', { page_title: 'SEAUX9 Fan Landing', utm_source: utmSrc, utm_campaign: utmCmp, venue });
+// Top context line: "LIVE FROM [VENUE]" if venue passed, else default PEACE!
+if (venue) {
+  const ec = document.getElementById('event-context');
+  ec.textContent = 'Live from ' + venue.replace(/-/g, ' ');
+  ec.classList.add('live');
+}
+
+// Show promo banner only if both tag + msg passed in URL (no hardcoded festival)
+if (promoTag && promoMsg) {
+  document.getElementById('promo-tag').textContent = decodeURIComponent(promoTag);
+  document.getElementById('promo-msg').textContent = decodeURIComponent(promoMsg);
+  document.getElementById('promo').classList.add('show');
+}
+
+// Page view tracking
+gtag('event', 'page_view', {
+  page_title: 'SEAUX9 Fan Landing',
+  utm_source: params.get('utm_source'),
+  utm_campaign: params.get('utm_campaign'),
+  venue
+});
 
 // CTA click tracking
 document.querySelectorAll('[data-cta]').forEach(el => {
   el.addEventListener('click', () => {
-    gtag('event', 'fan_cta_click', { cta: el.dataset.cta, venue, utm_source: utmSrc, utm_campaign: utmCmp });
+    gtag('event', 'fan_cta_click', {
+      cta: el.dataset.cta,
+      venue,
+      utm_source: params.get('utm_source'),
+      utm_campaign: params.get('utm_campaign')
+    });
   });
 });
 
-// Email submit -> Apps Script + Brevo + GA event
+// Email submit -> Apps Script + GA event
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
 const form = document.getElementById('fan-email-form');
 const success = document.getElementById('email-success');
@@ -185,9 +233,10 @@ form.addEventListener('submit', async (e) => {
     type: 'FAN_EMAIL',
     list: 'SEAUX9',
     email,
-    venue: venue || '',
-    utm_source: utmSrc || '',
-    utm_campaign: utmCmp || '',
+    venue,
+    utm_source: params.get('utm_source') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    promo_tag: promoTag,
     ts: new Date().toISOString()
   };
 
@@ -195,7 +244,7 @@ form.addEventListener('submit', async (e) => {
     await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
   } catch (err) {}
 
-  gtag('event', 'fan_email_signup', { list: 'SEAUX9', venue, utm_source: utmSrc, utm_campaign: utmCmp });
+  gtag('event', 'fan_email_signup', { list: 'SEAUX9', venue, utm_source: params.get('utm_source'), utm_campaign: params.get('utm_campaign') });
 
   form.style.display = 'none';
   success.classList.add('show');
