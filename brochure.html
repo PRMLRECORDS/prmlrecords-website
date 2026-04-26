@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRML RECORDS - Product &amp; Services Brochure 2026</title>
+<meta name="description" content="PRML RECORDS LLC product and services brochure. NFC products, custom signs, UV printing, music production, web development, and event activations. Atlanta, GA.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="canonical" href="https://prmlrecords.com/brochure.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="PRML RECORDS - Product &amp; Services Brochure 2026">
+<meta property="og:description" content="Full product catalog + services + pricing. NFC tap products, custom manufacturing, music, web, events. Atlanta, GA.">
+<meta property="og:url" content="https://prmlrecords.com/brochure.html">
+<meta property="og:image" content="https://prmlrecords.com/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=Nabla&display=swap">
+
+<style>
+:root{--black:#0d0d0d;--charcoal:#2b2b2b;--cream:#f5e6c8;--beige:#f5f0e8;--red:#e01010;--green:#4ade80;--gold:#ffb84d;--stone:#8c8c7a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--beige);color:var(--charcoal);font-family:'Roboto Slab',serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Page wrapper - mimics letter-size for print */
+.page{max-width:8.5in;margin:24px auto;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.08);min-height:11in;page-break-after:always}
+.page:last-child{page-break-after:auto;margin-bottom:64px}
+
+/* PRINT controls (floating, hidden on print) */
+.print-bar{position:fixed;top:14px;right:14px;background:var(--charcoal);color:var(--cream);padding:10px 14px;border-radius:4px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:1000;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.print-bar button{background:var(--red);color:#fff;border:0;padding:8px 14px;font-family:inherit;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase}
+
+/* Cover */
+.cover{background:var(--black);color:var(--cream);padding:60px 56px;display:flex;flex-direction:column;justify-content:space-between;min-height:11in;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:var(--red)}
+.cover::after{content:'PRML';position:absolute;font-family:'Rubik Mono One',monospace;font-size:340px;color:rgba(245,230,200,.04);bottom:-60px;right:-30px;letter-spacing:-12px;line-height:1;pointer-events:none}
+.cover-eye{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:6px;color:var(--red);text-transform:uppercase;font-weight:700;position:relative}
+.cover-title{font-family:'Rubik Mono One',monospace;font-size:88px;color:var(--cream);letter-spacing:-3px;line-height:.9;margin:48px 0 14px;position:relative}
+.cover-title span{color:var(--red)}
+.cover-sub{font-family:'Roboto Slab',serif;font-size:18px;color:var(--cream);opacity:.75;font-weight:300;line-height:1.6;max-width:480px;position:relative}
+.cover-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative}
+.cover-meta{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--cream);opacity:.55;text-transform:uppercase;line-height:1.8}
+.cover-meta strong{color:var(--gold);display:block;margin-bottom:6px}
+.cover-version{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red);letter-spacing:2px}
+
+/* Inner page header */
+.ph{padding:36px 56px 0}
+.ph-eye{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:5px;color:var(--red);text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.ph-title{font-family:'Rubik Mono One',monospace;font-size:42px;color:var(--charcoal);letter-spacing:-2px;line-height:.95;margin-bottom:8px}
+.ph-title span{color:var(--red)}
+.ph-sub{font-family:'Roboto Slab',serif;font-size:14px;color:var(--charcoal);opacity:.65;line-height:1.7;max-width:580px;margin-bottom:36px}
+
+/* Content body */
+.pb{padding:0 56px 48px}
+
+/* Two-column intro */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:36px 56px}
+.two-col__head{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:5px;color:var(--red);text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.two-col__title{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--charcoal);letter-spacing:-1px;line-height:1.05;margin-bottom:14px}
+.two-col__body{font-family:'Roboto Slab',serif;font-size:13px;color:var(--charcoal);opacity:.78;line-height:1.85}
+.two-col__body p{margin-bottom:12px}
+
+/* Product cards */
+.products{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.product{background:var(--beige);border-left:4px solid var(--red);padding:18px 20px}
+.product-name{font-family:'Rubik Mono One',monospace;font-size:16px;color:var(--charcoal);letter-spacing:-.5px;margin-bottom:6px}
+.product-desc{font-family:'Roboto Slab',serif;font-size:11.5px;font-weight:300;color:var(--charcoal);opacity:.72;line-height:1.65;margin-bottom:8px}
+.product-price{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--red);letter-spacing:-.5px}
+.product-price small{font-family:'Roboto Slab',serif;font-size:10px;color:var(--stone);font-weight:300;letter-spacing:0;text-transform:none;margin-left:6px}
+
+/* Service rows */
+.service-row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(43,43,43,.08)}
+.service-row:last-child{border-bottom:none}
+.service-name{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);font-weight:700;margin-bottom:4px}
+.service-desc{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--charcoal);opacity:.72;line-height:1.65}
+.service-price{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red);letter-spacing:-.5px;white-space:nowrap}
+
+/* Tier table (volume + affiliate) */
+.tier-table{width:100%;border-collapse:collapse;font-family:'Roboto Slab',serif;font-size:12px;margin-top:12px}
+.tier-table th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);padding:10px 8px;text-align:left;border-bottom:2px solid var(--charcoal);background:var(--beige)}
+.tier-table td{padding:10px 8px;border-bottom:1px solid rgba(43,43,43,.08);color:var(--charcoal)}
+.tier-table .red{color:var(--red);font-weight:700}
+.tier-table .green{color:#16a34a;font-weight:700}
+
+/* Stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--charcoal);border:2px solid var(--charcoal);margin:24px 0}
+.stat{background:var(--beige);padding:18px 12px;text-align:center}
+.stat-n{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);letter-spacing:-1px;line-height:1}
+.stat-l{font-family:'Odibee Sans',sans-serif;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);opacity:.6;margin-top:6px}
+
+/* Callout box */
+.callout{background:var(--charcoal);color:var(--cream);padding:24px 28px;border-left:5px solid var(--gold);margin:20px 0}
+.callout-eye{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.callout-title{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--cream);letter-spacing:-.5px;margin-bottom:8px}
+.callout-body{font-family:'Roboto Slab',serif;font-size:12.5px;color:var(--cream);opacity:.85;line-height:1.75}
+
+/* Contact card (final page) */
+.contact-card{background:var(--charcoal);color:var(--cream);padding:48px 56px;text-align:center;margin-top:24px}
+.contact-card .lg{font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--cream);letter-spacing:-1px;margin-bottom:8px}
+.contact-card .lg span{color:var(--red)}
+.contact-card .tag{font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream);opacity:.6;font-style:italic;margin-bottom:24px}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;text-align:left;max-width:480px;margin:0 auto}
+.contact-cell{background:var(--bg,rgba(0,0,0,.3));padding:14px;border-left:3px solid var(--red)}
+.contact-cell .k{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.contact-cell .v{font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream);line-height:1.55}
+.contact-cell .v a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+
+/* Footer (each page) */
+.pf{padding:14px 56px;border-top:1px solid rgba(43,43,43,.1);display:flex;justify-content:space-between;align-items:center;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;color:var(--charcoal);opacity:.5;text-transform:uppercase}
+.pf .left{font-weight:700;color:var(--red);opacity:1}
+
+/* PRINT optimization */
+@media print {
+  body{background:#fff;margin:0}
+  .page{margin:0;box-shadow:none;border:none;max-width:none;min-height:auto}
+  .print-bar{display:none}
+  .cover::after{display:none}
+  @page{size:letter;margin:0}
+}
+
+/* Mobile - keep readable but stack */
+@media (max-width: 720px) {
+  .page{margin:8px}
+  .cover{padding:40px 28px}
+  .cover-title{font-size:54px}
+  .ph{padding:28px 28px 0}
+  .pb{padding:0 28px 36px}
+  .two-col{grid-template-columns:1fr;padding:28px}
+  .products{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-card{padding:32px 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  Brochure v6 &nbsp; <button onclick="window.print()">Save as PDF &rarr;</button>
+</div>
+
+<!-- ============================================== -->
+<!-- COVER -->
+<!-- ============================================== -->
+<div class="page cover">
+  <div>
+    <div class="cover-eye">PRML RECORDS LLC &middot; Atlanta, Georgia</div>
+    <h1 class="cover-title">Primal<br>Sound.<br><span>Primal</span><br>Energy.</h1>
+    <p class="cover-sub">Product and services brochure. Music, manufacturing, NFC, web, events. Built in West End. Shipped everywhere.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <strong>2026 Catalog</strong>
+      prmlrecords.com<br>
+      info@prmlrecords.com<br>
+      770-686-7726
+    </div>
+    <div class="cover-version">v6.0</div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE 2 - WHAT WE DO -->
+<!-- ============================================== -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-eye">What we do</div>
+    <h2 class="ph-title">One company.<br>Eight <span>disciplines.</span></h2>
+    <p class="ph-sub">PRML RECORDS is a vertically integrated creative-technology company. Music to manufacturing, code to live events. Everything in-house, everything connected.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="two-col__head">Make</div>
+      <h3 class="two-col__title">We design and produce.</h3>
+      <div class="two-col__body">
+        <p>Music production, beat licensing, mixing and mastering. Branded merchandise via 3D printing, laser cutting, and UV printing. Custom signs, NFC business cards, keychains, light boxes, t-shirts, banners. Full creative direction from sketch to final product.</p>
+        <p>Manufacturing capacity scaling from 1 printer to 30 across the year. Bulk turnaround as fast as 1 business day at full capacity.</p>
+      </div>
+    </div>
+    <div>
+      <div class="two-col__head">Ship</div>
+      <h3 class="two-col__title">We deliver and distribute.</h3>
+      <div class="two-col__body">
+        <p>Web development, brand identity, e-commerce, NFC technology integration. Direct-to-consumer through prmlrecords.com, partner streaming platforms for music, and physical fulfillment from our Atlanta facility.</p>
+        <p>Real-time order tracking, automated invoicing, customer support that actually answers. We do this for ourselves and we do it for clients.</p>
+      </div>
+    </div>
+    <div>
+      <div class="two-col__head">Perform</div>
+      <h3 class="two-col__title">We activate in person.</h3>
+      <div class="two-col__body">
+        <p>Beltline pop-up series starting May 2026 (weekly, Ponce City Market and Kroger on Ponce). Live performance through SEAUX9 and our roster. Festival activations - Juneteenth Atlanta, Tassili's Natural Mystic Festival, FIFA 2026 county arts programming.</p>
+        <p>Booth space, branded swag distribution, sponsor visibility, live music, content capture - all from one team.</p>
+      </div>
+    </div>
+    <div>
+      <div class="two-col__head">Connect</div>
+      <h3 class="two-col__title">We bridge people.</h3>
+      <div class="two-col__body">
+        <p>Bilingual, multicultural, founder-led. We work with artists ready to build long-term, businesses that need creative-tech work done right, and partners aligned with our values.</p>
+        <p>Art &middot; Community &middot; Technology - Freedom &middot; Justice &middot; Equality.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats" style="margin:0 56px 36px">
+    <div class="stat"><div class="stat-n">1M+</div><div class="stat-l">Annual hits</div></div>
+    <div class="stat"><div class="stat-n">250K+</div><div class="stat-l">Monthly reach</div></div>
+    <div class="stat"><div class="stat-n">27</div><div class="stat-l">Streaming platforms</div></div>
+    <div class="stat"><div class="stat-n">40+</div><div class="stat-l">Countries</div></div>
+  </div>
+
+  <div class="pf"><span class="left">PRML RECORDS LLC</span><span>Brochure v6.0 &middot; Page 2</span></div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE 3 - NFC PRODUCTS -->
+<!-- ============================================== -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-eye">NFC Products</div>
+    <h2 class="ph-title">One <span>tap.</span><br>Whole identity.</h2>
+    <p class="ph-sub">Tap-enabled hardware - no app, no subscription, lifetime use. Custom branding included on bulk orders. Made in Atlanta.</p>
+  </div>
+  <div class="pb">
+
+    <div class="products">
+      <div class="product">
+        <div class="product-name">TAP CARD</div>
+        <div class="product-desc">NFC business card. Tap any phone to share contact, links, socials, payment info. Premium PVC, custom logo + design.</div>
+        <div class="product-price">$29.99 <small>/ single</small></div>
+      </div>
+      <div class="product">
+        <div class="product-name">TAP KEYCHAIN</div>
+        <div class="product-desc">NFC keychain. Same tech as the card, attached to your keys. Travels with you, works anywhere.</div>
+        <div class="product-price">$19.99 <small>/ single</small></div>
+      </div>
+      <div class="product">
+        <div class="product-name">TAP PENDANT</div>
+        <div class="product-desc">NFC pendant on adjustable chain. Wearable contact share - drop it on a phone to connect.</div>
+        <div class="product-price">$19.99 <small>/ single</small></div>
+      </div>
+      <div class="product">
+        <div class="product-name">STARTER KIT</div>
+        <div class="product-desc">TAP CARD + TAP KEYCHAIN bundle. The combo most customers actually want, priced as a package.</div>
+        <div class="product-price">$39.99 <small>/ kit</small></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:24px 0 12px;font-weight:700">Volume pricing - bulk orders</h3>
+    <table class="tier-table">
+      <thead>
+        <tr><th>Order size</th><th>Per-unit price</th><th>Total savings</th><th>Typical use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>5-49 units</td><td>$11.99</td><td class="green">Save 12%</td><td>Small team / event giveaway</td></tr>
+        <tr><td>50-249 units</td><td>$8.99</td><td class="green">Save 33%</td><td>Real estate office, gym, restaurant chain</td></tr>
+        <tr><td>250-499 units</td><td>$6.99</td><td class="green">Save 51%</td><td>Mid-size business rollout</td></tr>
+        <tr><td>500+ units (priority)</td><td>$3.99</td><td class="red">Save 72%</td><td>Festival merch, distributor, large brand</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-eye">Custom branding included</div>
+      <div class="callout-title">Your logo. Your colors. Your URL.</div>
+      <div class="callout-body">All bulk orders include custom logo engraving, color matching, and the destination URL of your choice (your site, contact card, payment link, anything). Setup is free at 50+ units. Standard turnaround 3-5 business days; priority threshold (500+) ships in 1-2 business days at full capacity.</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="left">PRML RECORDS LLC</span><span>Brochure v6.0 &middot; Page 3 &middot; NFC Products</span></div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE 4 - MANUFACTURING & CUSTOM PRODUCTS -->
+<!-- ============================================== -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-eye">Manufacturing</div>
+    <h2 class="ph-title">Custom <span>everything.</span></h2>
+    <p class="ph-sub">Signs, light boxes, engraved memorabilia, t-shirts, banners. UV printing, laser cutting, 3D printing - all in-house, all customizable.</p>
+  </div>
+  <div class="pb">
+
+    <div class="products">
+      <div class="product">
+        <div class="product-name">CUSTOM SIGNS</div>
+        <div class="product-desc">Laser-engraved or UV-printed signs. Wood, acrylic, metal, composite. Indoor or outdoor rated. Any size.</div>
+        <div class="product-price">From $35</div>
+      </div>
+      <div class="product">
+        <div class="product-name">LIGHT BOXES</div>
+        <div class="product-desc">Illuminated LED light boxes with your logo. Studios, storefronts, restaurants, events. Plug-and-play.</div>
+        <div class="product-price">From $85</div>
+      </div>
+      <div class="product">
+        <div class="product-name">ENGRAVED MEMORABILIA</div>
+        <div class="product-desc">Trophies, plaques, keychains, gift items. Laser-engraved, color-matched, branded.</div>
+        <div class="product-price">From $15</div>
+      </div>
+      <div class="product">
+        <div class="product-name">UV PRINTING</div>
+        <div class="product-desc">Direct-to-substrate UV print on hard goods - phone cases, drinkware, wood plaques, metal plates.</div>
+        <div class="product-price">Quote on request</div>
+      </div>
+      <div class="product">
+        <div class="product-name">T-SHIRTS &amp; APPAREL</div>
+        <div class="product-desc">DTG and screen-printed apparel. Brand merch, event giveaways, team uniforms. Bulk discounts apply.</div>
+        <div class="product-price">From $18</div>
+      </div>
+      <div class="product">
+        <div class="product-name">BANNERS &amp; FLYERS</div>
+        <div class="product-desc">Large-format printing for events, retail, outdoor. Vinyl, mesh, or paper. Same-week turnaround.</div>
+        <div class="product-price">From $25</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-eye">B2B specialization</div>
+      <div class="callout-title">Real estate, auto, restaurants, events.</div>
+      <div class="callout-body">We work with industries that buy in volume and need consistent branding. Real estate agents (branded keychains for every closing), auto dealers (NFC cards for every test drive), restaurants (door signs and menu light boxes), event organizers (festival merch at scale). Custom pricing, recurring contracts, dedicated production capacity at Tier 3 reseller status.</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="left">PRML RECORDS LLC</span><span>Brochure v6.0 &middot; Page 4 &middot; Manufacturing</span></div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE 5 - SERVICES -->
+<!-- ============================================== -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-eye">Services</div>
+    <h2 class="ph-title">Studio + <span>code + sound.</span></h2>
+    <p class="ph-sub">Beyond products - PRML offers full creative-tech services for businesses, artists, and creators. All in-house, all priced transparently.</p>
+  </div>
+  <div class="pb">
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:0 0 10px;font-weight:700">Music &amp; Audio</h3>
+    <div class="service-row">
+      <div><div class="service-name">Music Production</div><div class="service-desc">Beat production, recording, mixing, mastering. Original music or for hire.</div></div>
+      <div class="service-price">From $300</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">Beat Licensing</div><div class="service-desc">Producer-friendly terms. Lease or exclusive. Catalog at prmlrecords.com/beat-licensing</div></div>
+      <div class="service-price">From $50</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">Mixing &amp; Mastering</div><div class="service-desc">Professional mix-down + mastering for artists releasing on major platforms.</div></div>
+      <div class="service-price">From $200</div>
+    </div>
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:24px 0 10px;font-weight:700">Web &amp; Brand</h3>
+    <div class="service-row">
+      <div><div class="service-name">Web Development</div><div class="service-desc">Custom websites, e-commerce, NFC integration. Built fast, hosted reliably.</div></div>
+      <div class="service-price">From $1,500</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">Brand Identity</div><div class="service-desc">Logo, color system, typography, brand guide. The visual foundation for everything that comes next.</div></div>
+      <div class="service-price">From $800</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">Print Design</div><div class="service-desc">Brochures, flyers, business cards, social graphics. Print-ready files delivered.</div></div>
+      <div class="service-price">From $250</div>
+    </div>
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:24px 0 10px;font-weight:700">Events &amp; Activation</h3>
+    <div class="service-row">
+      <div><div class="service-name">Live Performance Booking</div><div class="service-desc">SEAUX9 + roster bookings. DJ sets, live bands, spoken word, poetry, visual arts.</div></div>
+      <div class="service-price">From $500</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">Event Activation</div><div class="service-desc">Booth setup, branded swag distribution, content capture, on-site management.</div></div>
+      <div class="service-price">Quote on request</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">Beltline Pop-Up Hosting</div><div class="service-desc">Sponsor your brand into our weekly Beltline activation. Foot traffic in the thousands per weekend.</div></div>
+      <div class="service-price">From $350/wk</div>
+    </div>
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:24px 0 10px;font-weight:700">Consulting</h3>
+    <div class="service-row">
+      <div><div class="service-name">Creative-Tech Consulting</div><div class="service-desc">Brand strategy, manufacturing setup, web/e-commerce roadmap, AI workflow integration.</div></div>
+      <div class="service-price">$150/hr</div>
+    </div>
+    <div class="service-row">
+      <div><div class="service-name">NFC Strategy &amp; Setup</div><div class="service-desc">For businesses adopting NFC for sales, contact sharing, or customer experience. Hardware + setup + training.</div></div>
+      <div class="service-price">From $400</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="left">PRML RECORDS LLC</span><span>Brochure v6.0 &middot; Page 5 &middot; Services</span></div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE 6 - PARTNER WITH US -->
+<!-- ============================================== -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-eye">Partner with us</div>
+    <h2 class="ph-title">Three ways<br>to <span>grow together.</span></h2>
+    <p class="ph-sub">Different tracks for different relationships - whether you're a creator, a reseller, or a brand looking to sponsor our community work.</p>
+  </div>
+  <div class="pb">
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:0 0 10px;font-weight:700">Creator Affiliate Program</h3>
+    <p style="font-family:'Roboto Slab',serif;font-size:12.5px;color:var(--charcoal);opacity:.78;line-height:1.7;margin-bottom:14px">Share PRML products with your audience. Earn commission on every sale. Free to join, no minimum.</p>
+    <table class="tier-table">
+      <thead><tr><th>Tier</th><th>Commission</th><th>Cookie</th><th>Qualifier</th></tr></thead>
+      <tbody>
+        <tr><td>Tier 1 - Community</td><td class="red">15%</td><td>30 days</td><td>Anyone, instant</td></tr>
+        <tr><td>Tier 2 - Partner</td><td class="red">20%</td><td>60 days</td><td>5+ sales OR approved creator</td></tr>
+        <tr><td>Tier 3 - Ambassador</td><td class="red">25%</td><td>90 days</td><td>Invite only - apply</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:24px 0 10px;font-weight:700">Reseller / Bulk Program</h3>
+    <p style="font-family:'Roboto Slab',serif;font-size:12.5px;color:var(--charcoal);opacity:.78;line-height:1.7;margin-bottom:14px">For businesses placing 50+ unit orders. Lower per-unit commission, but volume rebates and recurring contracts.</p>
+    <table class="tier-table">
+      <thead><tr><th>Tier</th><th>Commission</th><th>Volume</th><th>Terms</th></tr></thead>
+      <tbody>
+        <tr><td>Tier 1 - Starter</td><td class="red">6%</td><td>5+ units first order</td><td>Net-15 after first paid order</td></tr>
+        <tr><td>Tier 2 - Activated</td><td class="red">9% + 3% rebate</td><td>1 bulk + 90 days</td><td>Net-30, priority queue</td></tr>
+        <tr><td>Tier 3 - Ongoing</td><td class="red">15%</td><td>500+ units / month</td><td>Net-60, reserved capacity</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:24px 0 10px;font-weight:700">Brand Sponsorship</h3>
+    <p style="font-family:'Roboto Slab',serif;font-size:12.5px;color:var(--charcoal);opacity:.78;line-height:1.7;margin-bottom:14px">For brands wanting visibility through PRML's roster, manufacturing, and Beltline + festival activations. We do not sell your products on your behalf - we put you in front of our audience.</p>
+    <ul style="font-family:'Roboto Slab',serif;font-size:12.5px;color:var(--charcoal);opacity:.78;line-height:1.85;padding-left:22px;margin-bottom:18px">
+      <li>Booth + event presence on the Atlanta Beltline (May 2026+)</li>
+      <li>Branded merch in customers' hands - logo on items people use daily</li>
+      <li>Honest review videos, unboxings, comparison content (UGC at scale)</li>
+      <li>Brand placement in music videos and live performance footage</li>
+      <li>Affiliate partnership if you have a program - we'll join it</li>
+    </ul>
+
+    <div class="callout" style="border-left-color:var(--red);background:rgba(224,16,16,.08);color:var(--charcoal)">
+      <div class="callout-eye" style="color:var(--red)">Already a customer?</div>
+      <div class="callout-title" style="color:var(--charcoal)">Let's talk about scale.</div>
+      <div class="callout-body" style="color:var(--charcoal);opacity:.85">Most of our largest accounts started as a single product purchase that grew into a recurring relationship. If you've already worked with us once and want to talk about scaling - bulk pricing, recurring orders, or partnership - reply to your last invoice or call us direct.</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="left">PRML RECORDS LLC</span><span>Brochure v6.0 &middot; Page 6 &middot; Partner with us</span></div>
+</div>
+
+<!-- ============================================== -->
+<!-- PAGE 7 - CONTACT / CTA -->
+<!-- ============================================== -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-eye">Get in touch</div>
+    <h2 class="ph-title">Talk to <span>a person.</span></h2>
+    <p class="ph-sub">Direct line to founder Dodley Joseph. Most replies same day. Quotes within 24 hours.</p>
+  </div>
+  <div class="pb">
+
+    <div class="contact-card" style="margin-top:0">
+      <div class="lg">PRML <span>RECORDS</span></div>
+      <div class="tag">Primal Sound. Primal Energy.</div>
+      <div class="contact-grid">
+        <div class="contact-cell">
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="k">Phone</div>
+          <div class="v"><a href="tel:7706867726">770-686-7726</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="k">Web</div>
+          <div class="v"><a href="https://prmlrecords.com">prmlrecords.com</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="k">HQ</div>
+          <div class="v">4485 Fulton Industrial Blvd. SW<br>Ste A1 PMB 1167<br>Atlanta, GA 30336</div>
+        </div>
+        <div class="contact-cell">
+          <div class="k">Instagram</div>
+          <div class="v"><a href="https://instagram.com/prmlrecords">@prmlrecords</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="k">Founder</div>
+          <div class="v">Dodley Joseph<br><span style="font-size:11px;opacity:.7">Direct line on request</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px">
+      <p style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px;font-weight:700">Ready to start?</p>
+      <p style="font-family:'Roboto Slab',serif;font-size:14px;color:var(--charcoal);opacity:.78;line-height:1.7;max-width:480px;margin:0 auto 24px">Request a quote in under 60 seconds. We send pricing, timeline, and a sample plan within 24 hours.</p>
+      <a href="https://prmlrecords.com/contact.html?utm_source=brochure&utm_medium=pdf&utm_campaign=v6" style="display:inline-block;background:var(--red);color:#fff;padding:16px 36px;font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:4px;text-decoration:none;text-transform:uppercase;font-weight:700">Request a Quote &rarr;</a>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid rgba(43,43,43,.1)">
+      <p style="font-family:'Rubik Mono One',monospace;font-size:11px;color:var(--red);letter-spacing:3px;text-transform:uppercase">Peace &middot; Freedom &middot; Justice &middot; Equality</p>
+      <p style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--charcoal);opacity:.55;margin-top:6px">&copy; 2026 PRML RECORDS LLC. All rights reserved. &middot; Atlanta, GA</p>
+    </div>
+
+  </div>
+  <div class="pf"><span class="left">PRML RECORDS LLC</span><span>Brochure v6.0 &middot; Page 7 &middot; Contact</span></div>
+</div>
+
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

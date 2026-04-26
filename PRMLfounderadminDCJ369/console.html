@@ -229,6 +229,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <button class="tab" onclick="showTab('events-radar')">ðŸ“¡ Events Radar</button>
     <button class="tab" onclick="showTab('asset-rubric')">ðŸ“‚ Asset Rubric</button>
     <button class="tab" onclick="showTab('automation')">âš™ï¸ Automation</button>
+    <button class="tab" onclick="showTab('print-library')">ðŸ–¨ï¸ Print Library</button>
     <button class="tab" onclick="showTab('settings')">Settings</button>
   </div>
 
@@ -2175,6 +2176,114 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">Why this matters</strong>
       Every script in <code style="color:#ffb84d">/scripts/</code> is reusable infrastructure. When you ask "do X again" Claude pulls the script instead of regenerating the work, which saves tokens AND makes results consistent. New automation patterns get added here as we build them.
     </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- PRINT LIBRARY - B2B + B2C ad matrix + asset index            -->
+  <!-- ============================================================ -->
+  <div class="panel" id="tab-print-library">
+    <div class="section-title">Print Library</div>
+    <div class="section-head">B2B + B2C ads, sized for every channel. Status: what exists, what's missing.</div>
+
+    <div class="grid-3" style="margin:14px 0 22px">
+      <div class="card card--green" style="padding:16px"><div class="card-label">Live assets</div><div class="card-val">10</div></div>
+      <div class="card" style="padding:16px;background:rgba(255,184,77,.08);border:1px solid rgba(255,184,77,.3)"><div class="card-label" style="color:#ffb84d">In progress</div><div class="card-val" style="color:#ffb84d">8</div></div>
+      <div class="card" style="padding:16px;background:rgba(224,16,16,.08);border:1px solid rgba(224,16,16,.3)"><div class="card-label" style="color:var(--red)">Missing</div><div class="card-val" style="color:var(--red)">42</div></div>
+    </div>
+
+    <!-- B2C MATRIX -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:6px;color:var(--red)">B2C - Direct-to-Consumer ads</div>
+      <p style="font-size:12px;color:var(--cream);opacity:.7;margin-bottom:14px;line-height:1.6">
+        Single-product / impulse-purchase framing. NFC tap products, custom signs, bulk merch. Audience: individuals, small businesses, gift buyers.
+      </p>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:900px">
+          <thead><tr>
+            <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red);background:var(--bg);position:sticky;left:0">Campaign</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">8.5x11<br>Flyer</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">11x17<br>Poster</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">13x19<br>Large</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">IG Sq<br>1080</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">IG Story<br>1080x1920</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">IG Carousel<br>10x</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:var(--red)">Web Banner<br>1200x628</th>
+          </tr></thead>
+          <tbody style="color:var(--cream);font-weight:300">
+            <tr><td style="padding:8px">TAP CARD launch</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">TAP KEYCHAIN promo</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Custom Signs</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Beltline pop-up</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">SEAUX9 release</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Affiliate creator</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- B2B MATRIX -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid #ffb84d;margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:6px;color:#ffb84d">B2B - Business-to-Business ads</div>
+      <p style="font-size:12px;color:var(--cream);opacity:.7;margin-bottom:14px;line-height:1.6">
+        Volume / contract / industry-specific framing. Reseller program, bulk manufacturing, sponsor pitches, FIFA / Juneteenth county pitches. Audience: real estate offices, auto dealers, restaurants, event organizers, county arts commissions, brand sponsors.
+      </p>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:900px">
+          <thead><tr>
+            <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:#ffb84d;background:var(--bg);position:sticky;left:0">Campaign</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">8.5x11<br>One-pager</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">11x17<br>Trade show</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Brochure<br>Multi-page</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Pitch deck<br>16:9</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Email<br>HTML</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">LinkedIn<br>1200x627</th>
+            <th style="padding:8px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:1px;color:#ffb84d">Web Banner<br>1200x628</th>
+          </tr></thead>
+          <tbody style="color:var(--cream);font-weight:300">
+            <tr><td style="padding:8px">Reseller program</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--green)">v6 done</td><td style="text-align:center;color:var(--green)">v6 done</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Real estate vertical</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:#ffb84d">WIP</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Auto dealer vertical</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Restaurant vertical</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">FIFA county pitch</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Juneteenth sponsor</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+            <tr><td style="padding:8px">Sponsor outreach (35 companies)</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--green)">v</td><td style="text-align:center;color:var(--stone)">-</td><td style="text-align:center;color:var(--stone)">-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- LIVE ASSETS LIST -->
+    <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--green);margin-bottom:18px">
+      <div class="section-title" style="margin-bottom:14px;color:var(--green)">Live brand assets (ready to use)</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Asset</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Format</th>
+          <th style="text-align:left;padding:8px;border-bottom:1px solid var(--stone);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--green)">Location</th>
+        </tr></thead>
+        <tbody style="color:var(--cream);font-weight:300">
+          <tr><td style="padding:8px">Brochure v6</td><td style="padding:8px">HTML + PowerPoint</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../brochure.html" target="_blank" style="color:#ffb84d">brochure.html</a> + <a href="../../../11_ADVERTISING/PRML_Records/PRML_Brochure_v6.pptx" target="_blank" style="color:#ffb84d">.pptx</a></td></tr>
+          <tr><td style="padding:8px">Media Kit 2026</td><td style="padding:8px">HTML + PDF</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../media-kit.html" target="_blank" style="color:#ffb84d">media-kit.html</a></td></tr>
+          <tr><td style="padding:8px">PRML Logo (vinyl)</td><td style="padding:8px">PNG + SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">00_BRAND/logos/Official Logo/</td></tr>
+          <tr><td style="padding:8px">PRML Logo (wordmark)</td><td style="padding:8px">PNG + SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">00_BRAND/logos/Wordmark Version/</td></tr>
+          <tr><td style="padding:8px">SEAUX9 Logo 2026</td><td style="padding:8px">PNG transparent</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/artists/seaux9-logo-2026.png" target="_blank" style="color:#ffb84d">/assets/artists/</a></td></tr>
+          <tr><td style="padding:8px">Founder headshot</td><td style="padding:8px">JPG (1200 + thumb)</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/team/dodley-headshot.jpg" target="_blank" style="color:#ffb84d">/assets/team/</a></td></tr>
+          <tr><td style="padding:8px">OG / Social card</td><td style="padding:8px">JPG 1200x630</td><td style="padding:8px;font-family:monospace;font-size:11px"><a href="../../../assets/og-image.jpg" target="_blank" style="color:#ffb84d">/assets/og-image.jpg</a></td></tr>
+          <tr><td style="padding:8px">Lightbox / Signs ads</td><td style="padding:8px">SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/PRML_Records/service_ads/</td></tr>
+          <tr><td style="padding:8px">NFC Fire ad</td><td style="padding:8px">PDF</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/shared/nfc_ads/PRML-NFC-Ad-Fire.pdf</td></tr>
+          <tr><td style="padding:8px">SEAUX9 fan QR codes</td><td style="padding:8px">PNG + SVG</td><td style="padding:8px;font-family:monospace;font-size:11px">11_ADVERTISING/SEAUX9/qr-codes/</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HOW TO REQUEST -->
+    <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:12px;font-weight:300;line-height:1.7">
+      <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">How to fill the gaps</strong>
+      Every cell marked WIP or - in the matrix above is an asset Claude can build on demand. Tell Claude: <code style="color:#ffb84d">"build [campaign] for [format]"</code> - example: <code style="color:#ffb84d">"build TAP CARD for IG Story 1080x1920"</code>. Output saves to <code style="color:#ffb84d">11_ADVERTISING/&lt;brand&gt;/&lt;type&gt;/</code> and gets logged here.
+      <br><br>
+      Existing scripts that help: <code style="color:#ffb84d">prml-og-image.ps1</code> (any logo + tagline -> 1200x630 social), <code style="color:#ffb84d">prml-qr-batch.ps1</code> (URL -> QR for print), <code style="color:#ffb84d">prml-brochure-build.py</code> (rebuild brochure when pricing changes).
+    </div>
+
   </div>
 
 </div><!-- end console -->
