@@ -285,6 +285,11 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div class="card-sub">Events Â· Products Â· Team Â· Press Â· Hero Â· Manifest live</div>
       </div>
       <div class="card card--yellow">
+        <div class="card-label">ATL + Fulton Campaign</div>
+        <div class="card-val" style="font-size:14px;margin-top:4px">STAGED</div>
+        <div class="card-sub">8 emails ready Â· tech / sustainability / ag / arts / libraries / parks</div>
+      </div>
+      <div class="card card--yellow">
         <div class="card-label">Beltline Launch</div>
         <div class="card-val" style="font-size:16px;margin-top:4px">MAY 2026</div>
         <div class="card-sub">Ponce City Market / Kroger on Ponce Â· Mailing list live</div>
@@ -306,7 +311,8 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       <div class="status-row"><span class="dot dot-g"></span>Beltline mailing list â€” live on customize.html</div>
       <div class="status-row"><span class="dot dot-g"></span>Beltline content upload â€” live for fan photos/videos</div>
       <div class="status-row"><span class="dot dot-g"></span>Zapier automations (3 zaps live: Stripeâ†’HubSpot, Stripeâ†’Brevo, Brevoâ†’HubSpot)</div>
-      <div class="status-row"><span class="dot dot-g"></span>Airtable CRM â€” Orders table + Sponsorship tables (31 companies)</div>
+      <div class="status-row"><span class="dot dot-g"></span>Airtable CRM â€” Orders table + Sponsorship tables (36 companies)</div>
+      <div class="status-row"><span class="dot dot-y"></span>City of Atlanta + Fulton County campaign â€” 8 emails staged 2026-04-26, ready to send</div>
       <div class="status-row"><span class="dot dot-g"></span>Donate section â€” live on customize.html</div>
       <div class="status-row"><span class="dot dot-y"></span>Checkout app (Next.js) â€” built, needs deploy + webhook secret</div>
       <div class="status-row"><span class="dot dot-y"></span>seaux9.com â€” domain active, needs renewal by 2026-05-17</div>
@@ -323,6 +329,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>&#9744; Stripe test checkout â€” run test card 4242 4242 4242 4242</div>
         <div>&#9744; Performance pipeline â€” register works with ASCAP, SoundExchange</div>
         <div>&#9744; Sponsorship outreach â€” 36 companies queued, daily follow-up cadence</div>
+        <div style="color:var(--red)"><strong>&#9744; CITY + FULTON CAMPAIGN (TODAY) â€” 8 emails staged in <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">10_OUTREACH/campaigns_2026-04-26_atl-fulton/</code></strong></div>
         <div>&#9744; Deploy checkout-app to Render + set STRIPE_WEBHOOK_SECRET</div>
         <div>&#9744; Mobile responsive check 375/768/1280px</div>
         <div>&#9744; Hunter.io API key â€” rotate at hunter.io/api_keys (flagged for compromise)</div>
@@ -333,24 +340,34 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-    <!-- LATEST DEPLOY -->
+        <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
-      <div class="section-title" style="color:var(--red)">Latest Deploy â€” 2026-04-26</div>
+      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-04-26</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">Brand v4.0 Alignment + Photo Integration</strong> Â· commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">d5fffeb</code>
-        <ul style="padding-left:20px;margin-top:10px">
-          <li><strong>Brand audit:</strong> Confirmed <code>00_BRAND/PRML_Records/guidelines/PRML-Brand-Guide_Current.html</code> (v4.0 Â· 2026) as canonical spec</li>
-          <li><strong>273 hex replacements</strong> across 21 HTML pages + notify.css to align with the 4-color strict palette: Red <code>#E01010</code>, Charcoal <code>#2B2B2B</code>, Cream <code>#F5E6C8</code>, Stone <code>#C4B49A</code></li>
-          <li><strong>Removed off-spec colors:</strong> <code>#FFB84D</code> (gold), <code>#F5F0E8</code> (off-cream), <code>#8C8C7A</code> (wrong stone)</li>
-          <li><strong>89 photos pre-sorted</strong> from <code>999_TO_BE_ORGANIZED/pictures-to-upload/</code> into events / products / team / press / hero buckets</li>
-          <li><strong>86 photos processed</strong> via <code>scripts/prml-photo-pipeline.ps1</code> â€” resized + thumbnails + manifest</li>
-          <li><strong>brochure.html:</strong> events photo strip on Page 5 + founder card on Page 7</li>
-          <li><strong>media-kit.html:</strong> founder card + community photo grid on Page 2</li>
-          <li><strong>PRML_Brochure_v6.pptx</strong> rebuilt with v4.0 palette (no GOLD anywhere)</li>
-          <li><strong>sw.js cache version</strong> bumped to <code>20260426-110103</code></li>
+        <strong style="color:var(--red)">console: latest deploy panel + brand alignment + 5 new action items</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">687a2e8</code>
+        <ul style='padding-left:20px;margin-top:10px'>
+          <li>Added &quot;Latest Deploy 2026-04-26&quot; panel listing today's brand fixes + photo integration</li>
+          <li>3 new overview cards: Brand Compliance (v4.0 ALIGNED), Photo Library (86), Sponsorship count → 36</li>
+          <li>5 new action items: Hunter rotation, ASUS escalation, legal compliance, investor deck, SEAUX9 EPK</li>
+          <li>104 hex replacements aligning console.html to v4.0 strict palette (no gold anywhere)</li>
+          <li>sw.js cache version bumped to 20260426-114314</li>
         </ul>
       </div>
+      <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
+        <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-04-26 &middot; <code>687a2e8</code> &middot; console: latest deploy panel + brand alignment + 5 new action items</div>
+        <div>2026-04-26 &middot; <code>d5fffeb</code> &middot; brand v4.0 alignment + photos: 273 hex fixes, 86 photos integrated</div>
+        <div>2026-04-25 &middot; <code>65c3e46</code> &middot; brochure v6 + media kit + print library hub</div>
+        <div>2026-04-25 &middot; <code>032ceac</code> &middot; about: dedicated about.html page + nav-wide About link</div>
+        <div>2026-04-25 &middot; <code>080dd42</code> &middot; seaux9: one landing page + console Automation tab</div>
+        <div>2026-04-25 &middot; <code>a014037</code> &middot; seaux9 fan landing pages + founder bio + branded OG image</div>
+        <div>2026-04-25 &middot; <code>714f9c6</code> &middot; console: Outreach Queue tab + 4-stage pipeline status</div>
+        <div>2026-04-25 &middot; <code>e5f05e0</code> &middot; console: 3 new tabs + realistic world map</div>
+        <!-- AUTO-DEPLOY-HISTORY:END -->
+      </div>
     </div>
+    <!-- AUTO-DEPLOY-PANEL:END -->
 
     <div style="background:rgba(254,1,3,.06);border:1px solid rgba(254,1,3,.2);padding:16px;font-size:13px;font-weight:300;line-height:1.7">
       <strong style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px">FLY â€” Copilot Brief</strong>
