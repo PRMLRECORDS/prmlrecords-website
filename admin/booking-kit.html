@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<title>Booking Response Kit &mdash; The Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin.css">
+<style>
+.bk-wrap{max-width:900px;margin:0 auto;padding:20px}
+.bk-h1{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--red);letter-spacing:.02em;margin:0 0 6px}
+.bk-sub{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--cream);opacity:.5;text-transform:uppercase;margin-bottom:24px}
+.bk-quicklinks{background:var(--charcoal);padding:14px;border-left:3px solid var(--green);margin-bottom:24px;font-family:'Roboto Slab',serif;font-size:13px;line-height:1.8}
+.bk-quicklinks a{color:var(--green);text-decoration:none}
+.bk-quicklinks a:hover{text-decoration:underline}
+.bk-toc{background:var(--charcoal);padding:16px;margin-bottom:28px}
+.bk-toc-h{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--cream);opacity:.5;text-transform:uppercase;margin-bottom:10px}
+.bk-toc table{width:100%;border-collapse:collapse}
+.bk-toc td{font-family:'Roboto Slab',serif;font-size:12px;padding:6px 8px;border-bottom:1px solid rgba(245,230,200,.06);color:var(--cream)}
+.bk-toc td:first-child{color:var(--cream);opacity:.7}
+.bk-toc td:last-child a{color:var(--red);text-decoration:none;font-family:'Rubik Mono One',monospace;font-size:11px;letter-spacing:.05em}
+.bk-section{background:var(--black);border:1px solid rgba(245,230,200,.08);padding:18px;margin-bottom:18px}
+.bk-section h2{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red);letter-spacing:.05em;margin:0 0 12px;text-transform:uppercase}
+.bk-section h3{font-family:'Rubik Mono One',monospace;font-size:12px;color:var(--cream);letter-spacing:.04em;margin:14px 0 8px;text-transform:uppercase}
+.bk-section p{font-family:'Roboto Slab',serif;font-size:13px;line-height:1.7;color:var(--cream);margin:6px 0}
+.bk-block{position:relative;background:var(--charcoal);border-left:3px solid var(--green);padding:14px;margin:10px 0;font-family:'JetBrains Mono','Courier New',monospace;font-size:12px;line-height:1.65;color:var(--cream);white-space:pre-wrap}
+.bk-copy{position:absolute;top:8px;right:8px;background:var(--red);color:#fff;border:0;padding:5px 10px;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.bk-copy:hover{opacity:.85}
+.bk-copy.ok{background:var(--green);color:#000}
+.bk-callout{background:rgba(224,16,16,.08);border-left:3px solid var(--red);padding:10px 14px;font-family:'Roboto Slab',serif;font-size:12px;line-height:1.6;color:var(--cream);margin:10px 0}
+.bk-back{display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);opacity:.5;text-decoration:none;margin-bottom:18px}
+.bk-back:hover{opacity:1;color:var(--red)}
+ul.bk-checklist{list-style:none;padding:0;margin:8px 0;font-family:'Roboto Slab',serif;font-size:13px;line-height:1.9;color:var(--cream)}
+ul.bk-checklist li:before{content:"\\25A1   ";color:var(--red);font-family:'Rubik Mono One',monospace}
+table.bk-router{width:100%;border-collapse:collapse;margin:8px 0}
+table.bk-router th,table.bk-router td{font-family:'Roboto Slab',serif;font-size:12px;padding:8px 10px;border-bottom:1px solid rgba(245,230,200,.05);color:var(--cream);text-align:left;vertical-align:top}
+table.bk-router th{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.5}
+table.bk-router td:last-child{color:var(--red);font-family:'Rubik Mono One',monospace;font-size:11px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="bk-wrap">
+<a href="PRMLfounderadminDCJ369/console.html" class="bk-back">&larr; Back to Console</a>
+<a href="../PRMLfounderadminDCJ369/console.html" class="bk-back" style="margin-left:14px">&larr; Console (alt path)</a>
+
+<h1 class="bk-h1">PRML RECORDS &mdash; Booking Response Kit</h1>
+<div class="bk-sub">v1.0 &middot; copy &middot; paste &middot; send</div>
+
+<div class="bk-quicklinks">
+  <strong style="color:var(--cream)">Quick links to send them:</strong><br>
+  Media kit: <a href="../media-kit.html">prmlrecords.com/media-kit.html</a> &middot;
+  Brochure: <a href="../brochure.html">prmlrecords.com/brochure.html</a> &middot;
+  About: <a href="../about.html">prmlrecords.com/about.html</a> &middot;
+  FAQ: <a href="../faq.html">prmlrecords.com/faq.html</a> &middot;
+  Booking: <a href="../seaux9booking.html">prmlrecords.com/seaux9booking.html</a><br>
+  Phone: 770-686-7726 &middot; Email: info@prmlrecords.com<br>
+  CAN-SPAM footer address: 4485 Fulton Industrial Blvd. SW, Ste A1 PMB 1167, Atlanta, GA 30336
+</div>
+
+<div class="bk-toc">
+<div class="bk-toc-h">ROUTER &mdash; pick the template that matches what they're asking</div>
+<table class="bk-router">
+<tr><th>If they're asking about&hellip;</th><th>Use</th></tr>
+<tr><td>SEAUX9 performance / DJ booking</td><td><a href="#s1">&sect;1 Performance</a></td></tr>
+<tr><td>Speaking, panel, workshop facilitation</td><td><a href="#s2">&sect;2 Speaking</a></td></tr>
+<tr><td>Vendor / booth at their event</td><td><a href="#s3">&sect;3 Vendor</a></td></tr>
+<tr><td>Custom NFC card, keychain, signs, merch</td><td><a href="#s4">&sect;4 Product</a></td></tr>
+<tr><td>Brand identity, web build, recording, photo, film</td><td><a href="#s5">&sect;5 Services</a></td></tr>
+<tr><td>Sponsor / partner us &mdash; use <code>/prml-sponsorship</code> instead</td><td><a href="#s6">&sect;6</a></td></tr>
+<tr><td>Press inquiry / general info</td><td><a href="#s7">&sect;7 Press</a></td></tr>
+<tr><td>Pricing / "how much"</td><td><a href="#s8">&sect;8 Pricing</a></td></tr>
+<tr><td>Already replied warm, schedule call</td><td><a href="#s9">&sect;9 Schedule</a></td></tr>
+<tr><td>Ghosted &mdash; bump after 7 days</td><td><a href="#s10">&sect;10 Bump</a></td></tr>
+</table>
+</div>
+
+<div class="bk-section" id="s1">
+<h2>&sect;1 Performance (SEAUX9 booking)</h2>
+<p><strong>Subject:</strong> SEAUX9 &mdash; booking details for [EVENT NAME]</p>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE!
+
+Appreciate you reaching out about [EVENT NAME]. SEAUX9 is available
+on [DATE] and the date works on our end.
+
+Quick rundown so we're aligned:
+
+&bull; Set length options: 30 min / 45 min / 60 min / 90 min
+&bull; Style: [hip-hop / R&amp;B / DJ blend / live performance &mdash; pick]
+&bull; Tech we bring: mic, USB stick, backup laptop. We hook into your house PA.
+&bull; Tech we need from venue: [PA + 2 monitors + 1 wired mic stand], OR
+  full backline if it's a longer set
+&bull; Travel: based in West End Atlanta &mdash; local is included, anything
+  outside the Perimeter is mileage at IRS rate
+&bull; Lead time: 14 days minimum for full press kit and promo support;
+  shorter turnarounds are doable but cost more
+
+Booking flow:
+1. We confirm date + set length
+2. I send a one-page contract + 50% deposit invoice (Stripe)
+3. Day-of: load-in 60 min before, sound check 30 min before
+4. Final 50% due day-of or net-7 after, depending on what works for you
+
+Media kit with photos, past sets, and bio:
+https://prmlrecords.com/media-kit.html
+
+Drop me three windows that work for a 15-min call this week and I'll
+lock one. Or just reply with the answers above and we move straight
+to contract.
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS
+770-686-7726 | info@prmlrecords.com
+4485 Fulton Industrial Blvd. SW, Ste A1 PMB 1167, Atlanta, GA 30336</div>
+</div>
+
+<div class="bk-section" id="s2">
+<h2>&sect;2 Speaking / Workshop / Panel</h2>
+<p><strong>Subject:</strong> Re: speaking at [EVENT NAME] &mdash; yes, here's the detail</p>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+Yes &mdash; happy to be on [EVENT NAME]. Three lanes I can speak to,
+pick whichever fits your audience best:
+
+1. Creative-Technology &mdash; NFC, web, manufacturing, AI workflows
+   for small Black-owned businesses
+2. Sustainability + Manufacturing &mdash; recycled materials, eco-friendly
+   production, urban farming systems
+3. Community + Music &mdash; running PRML RECORDS and the SEAUX9 artist
+   project from West End Atlanta
+
+Workshop format options:
+&bull; 30-min keynote
+&bull; 45-min keynote + Q&amp;A
+&bull; 60-min interactive workshop (10-30 attendees, hands-on)
+&bull; Half-day intensive (3 hours, up to 20 attendees)
+
+What I need from you:
+&bull; Date + time + duration
+&bull; Audience size and rough makeup (students / pros / mixed)
+&bull; Mic + projector or just a room
+&bull; Honorarium budget &mdash; sliding scale, tell me the line item
+
+Past activations: Beltline pop-ups (May 2026), founder-led tutorials
+on the Records site, ongoing tech-teaching in the West End.
+
+Quick bio + media kit:
+https://prmlrecords.com/about.html
+https://prmlrecords.com/media-kit.html
+
+Three windows for a 15-min call this week, or just answer in line
+and we move forward.
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS</div>
+</div>
+
+<div class="bk-section" id="s3">
+<h2>&sect;3 Vendor / Booth at Their Event</h2>
+<p><strong>Subject:</strong> Booth confirmation &mdash; PRML RECORDS at [EVENT NAME]</p>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+We're in for [EVENT NAME] on [DATE]. Booth questions on our side:
+
+&bull; Booth size we can use: 6 ft, 8 ft, or 10 ft table
+&bull; What we'll have on display: NFC tap cards, NFC keychains,
+  custom signs, the Brochure, samples
+&bull; Power: yes please, one outlet for the tap demo
+&bull; Wifi: helpful, we can hotspot if you don't have it
+&bull; Tent / table provided, or do we bring our own?
+&bull; Load-in window?
+&bull; Vendor fee &mdash; what's the line item, when's it due, and is there
+  a Black-owned / first-year-vendor discount we should ask about?
+
+We bring 2 staff. Both are insured.
+
+If there's a vendor packet or COI requirement, send it over and I'll
+turn it around in 24 hours.
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS
+770-686-7726</div>
+</div>
+
+<div class="bk-section" id="s4">
+<h2>&sect;4 Product / Custom Order (NFC / signs / merch)</h2>
+<p><strong>Subject:</strong> Custom order &mdash; [PRODUCT] for [THEIR BRAND]</p>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+Locked in. Here's how custom orders run with us:
+
+Product:        [TAP CARD / TAP KEYCHAIN / TAP PENDANT / SIGN / OTHER]
+Quantity:       [N]
+Unit price:     $[X]   (volume break at 10/25/50/100 &mdash; see catalog)
+Customization:  [LOGO / COLOR / TEXT &mdash; describe]
+
+Turnaround:
+&bull; Stock unbranded: 3-5 business days
+&bull; Custom logo / single-color: 7-10 business days
+&bull; Full custom (multi-color, packaging): 10-14 business days
+
+What I need from you to start:
+1. Logo or art file (vector preferred &mdash; .svg, .ai, .pdf, or 300dpi PNG)
+2. Pantone or hex codes if brand colors matter
+3. Shipping address
+4. Confirm the quantity and turnaround window above
+
+Payment: 50% deposit via Stripe to start production, 50% on completion
+(or net-30 if you're an established business).
+
+Catalog with all pricing:
+https://prmlrecords.com/shop.html
+
+Reply with the art and I'll send the invoice today.
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS</div>
+</div>
+
+<div class="bk-section" id="s5">
+<h2>&sect;5 Services (B2B &mdash; brand, web, recording, photo, film)</h2>
+<p><strong>Subject:</strong> [SERVICE] scope for [THEIR COMPANY]</p>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+Glad you reached out. To put real numbers on [SERVICE], I need a few
+things from you. Quick form, then I send a proper quote inside 24 hours.
+
+For [BRAND IDENTITY / WEB BUILD / RECORDING / PHOTO / FILM]:
+
+1. What are you trying to accomplish? (one sentence is fine)
+2. Deadline &mdash; hard or soft?
+3. Budget range &mdash; even a wide one helps me match scope
+4. Existing assets we should work with? (logo, copy, brand guide, etc.)
+5. Who's the audience?
+
+If [WEB BUILD]:
+&bull; How many pages?
+&bull; Do you need ecommerce / forms / booking?
+&bull; Do you have hosting + domain, or do we set that up?
+
+If [RECORDING / FILM / PHOTO]:
+&bull; Studio at our spot, your spot, or location?
+&bull; Estimated session hours?
+&bull; Do you need editing, or just raw files?
+
+Reply with answers and I'll have a quote in your inbox tomorrow.
+
+Capabilities + past work:
+https://prmlrecords.com/capabilities.html
+https://prmlrecords.com/services.html
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS</div>
+</div>
+
+<div class="bk-section" id="s6">
+<h2>&sect;6 Sponsorship &mdash; do not use this kit</h2>
+<div class="bk-callout">Use <code>/prml-sponsorship</code> skill or the campaign folder. Voice is different (we ask THEM, not respond to them).</div>
+</div>
+
+<div class="bk-section" id="s7">
+<h2>&sect;7 Press / General Inquiry</h2>
+<p><strong>Subject:</strong> Re: PRML RECORDS &mdash; info you asked for</p>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+Thanks for reaching out. Quick package:
+
+&bull; About: https://prmlrecords.com/about.html
+&bull; Media kit (logos, photos, bio, fact sheet):
+  https://prmlrecords.com/media-kit.html
+&bull; Brochure (7 pages, full overview):
+  https://prmlrecords.com/brochure.html
+&bull; Press page: https://prmlrecords.com/press.html
+
+If you're working on a story or feature, what's your deadline and
+angle? I can get you a quote, photos, or a phone interview &mdash; just
+tell me which.
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS
+770-686-7726 | info@prmlrecords.com</div>
+</div>
+
+<div class="bk-section" id="s8">
+<h2>&sect;8 Pricing &mdash; copy-paste lines</h2>
+
+<h3>Performance / DJ</h3>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>SEAUX9 performance pricing starts at $[X] for a 30-min set, $[X] for
+45 min, $[X] for 60 min. Pricing assumes local Atlanta. Outside the
+Perimeter adds mileage at IRS rate. Backline / additional production
+quoted separately.</div>
+
+<h3>Speaking / Workshop</h3>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>Speaking honorarium is on a sliding scale. Tell me your line item and
+audience size and I'll work with it. Pro bono available for youth and
+library programs when there's room in the calendar.</div>
+
+<h3>Custom NFC</h3>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>TAP CARD: $35 single, volume breaks at 10/25/50/100.
+TAP KEYCHAIN + PENDANT bundle: $19.99 (current promo).
+Custom logo adds $5/unit OR a one-time $50 setup, whichever is less.
+Full pricing: https://prmlrecords.com/shop.html</div>
+
+<h3>Web build</h3>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>Single-page builds start at $[X]. Multi-page (5-10 pages) starts at
+$[X]. Ecommerce add-on $[X]. All builds include hosting setup, GA4,
+basic SEO, and 30 days of post-launch support.</div>
+
+<h3>Brand identity</h3>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>Logo + brand guide: $[X]. Logo + brand guide + business card +
+social templates: $[X]. Full identity (the works): $[X].</div>
+
+<div class="bk-callout">Action item for Dodley: fill the <code>$[X]</code> blanks above with real numbers and re-deploy. Once filled, this is your single source of truth for quoting on the fly.</div>
+</div>
+
+<div class="bk-section" id="s9">
+<h2>&sect;9 Next-Step / Schedule a Call</h2>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+Three windows for a 15-min call this week:
+
+&bull; [DAY] at [TIME] ET
+&bull; [DAY] at [TIME] ET
+&bull; [DAY] at [TIME] ET
+
+Pick one and I'll send the calendar invite. Or if you'd rather skip
+the call and just trade specifics over email, send me [WHAT YOU NEED]
+and I'll have a [QUOTE / CONTRACT / DECK] in your inbox inside 24 hours.
+
+With Gratitude,
+Dodley Joseph
+PRML RECORDS
+770-686-7726</div>
+</div>
+
+<div class="bk-section" id="s10">
+<h2>&sect;10 Soft Follow-Up (no response after 7 days)</h2>
+<div class="bk-block"><button class="bk-copy" onclick="bkCopy(this)">Copy</button>PEACE [FIRST NAME]!
+
+Bumping this &mdash; knew you might be slammed. If [EVENT / PROJECT] is
+still on the table, I'm holding [DATE] for you through end of this
+week. After that I'll release the slot.
+
+If the timing's off or it's not the right fit, no hard feelings &mdash;
+just tell me and I'll close the loop.
+
+With Gratitude,
+Dodley</div>
+</div>
+
+<div class="bk-section">
+<h2>Send Checklist (every time)</h2>
+<ul class="bk-checklist">
+<li>Replace every [BRACKET] (search the email for "[" before sending)</li>
+<li>First-name them, not generic</li>
+<li>Reference one specific thing they said</li>
+<li>No banned words: delve / leverage / navigate / landscape / streamline / robust / synergy</li>
+<li>Don't open with "I hope this email finds you well"</li>
+<li>Sign off "With Gratitude" (rotate occasionally: "Talk soon" / "Appreciate you")</li>
+<li>CAN-SPAM footer on cold sends only; warm replies skip it</li>
+<li>Log to Airtable Email Log table after sending</li>
+</ul>
+</div>
+
+<div class="bk-section">
+<h2>FAQ Answers (drop into any reply)</h2>
+
+<h3>Where are you located?</h3>
+<p>West End Atlanta. Studio + manufacturing on-site. Mailing address 4485 Fulton Industrial Blvd. SW, Ste A1 PMB 1167, Atlanta, GA 30336.</p>
+
+<h3>Do you travel?</h3>
+<p>Yes &mdash; local Atlanta included in pricing, outside the Perimeter is mileage at IRS rate, anything overnight is per diem + travel quoted separately.</p>
+
+<h3>How fast can you turn around?</h3>
+<p>Stock product: 3-5 business days. Custom logo single-color: 7-10. Full custom: 10-14. Rush available, +30%.</p>
+
+<h3>Do you take credit cards?</h3>
+<p>Yes &mdash; Stripe. Send me a yes and I email an invoice you can pay in 30 seconds from your phone.</p>
+
+<h3>Are you Black-owned / minority-owned?</h3>
+<p>Yes. PRML RECORDS LLC is a Black-owned creative-technology company, founder Dodley Joseph (Haitian-American). EIN and supplier diversity documentation available on request.</p>
+
+<h3>Insurance / COI?</h3>
+<p>Yes, we carry general liability. I can send a COI naming your venue or event in 24 hours &mdash; just send me the certificate holder name and address.</p>
+
+<h3>Can I get a discount?</h3>
+<p>Tell me what budget you have and I'll match scope to it. We don't discount price; we adjust scope. Net effect is the same and the work stays high quality.</p>
+</div>
+
+<div class="bk-section">
+<h2>Phone Script (15-min call)</h2>
+<p><strong>1. Open (30 sec):</strong> "PEACE, [name], it's Dodley from PRML RECORDS. Thanks for the time. Mind if I ask three questions to make sure I send you the right thing?"</p>
+<p><strong>2. Three questions (5 min):</strong> What are you trying to make happen? When does it need to happen by? What's the budget line item &mdash; even a range?</p>
+<p><strong>3. Restate (2 min):</strong> "So you need [X] by [DATE], budget around [Y]. Did I get that right?"</p>
+<p><strong>4. Quote on the spot OR commit to 24-hour quote (3 min).</strong></p>
+<p><strong>5. Lock the next step (2 min):</strong> Calendar invite for the next call, or "I'll watch for your reply."</p>
+<p><strong>6. Close (1 min):</strong> "Appreciate you. Talk soon."</p>
+</div>
+
+</div>
+
+<script>
+function bkCopy(btn){
+  var block = btn.parentElement;
+  var text = block.innerText.replace(/^Copy\s*/,'').replace(/^Copied\s*/,'');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function(){
+      btn.innerText='Copied';btn.classList.add('ok');
+      setTimeout(function(){btn.innerText='Copy';btn.classList.remove('ok')},1600);
+    });
+  } else {
+    var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');btn.innerText='Copied';btn.classList.add('ok');}catch(e){}
+    document.body.removeChild(ta);
+    setTimeout(function(){btn.innerText='Copy';btn.classList.remove('ok')},1600);
+  }
+}
+</script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>
