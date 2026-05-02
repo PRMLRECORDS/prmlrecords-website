@@ -431,7 +431,7 @@ If price isn't stated, estimate a fair price based on these rates:
 - CD duplication: $3-8/each
 - Event invitations (digital): $75-200 per design
 
-Note: Stripe adds a $6 flat fee automatically â€” do NOT include it in line items.
+Note: Stripe adds a $6 flat fee automatically — do NOT include it in line items.
 
 Return ONLY valid JSON, no markdown, no explanation:
 {
@@ -557,7 +557,7 @@ function buildInvoiceHTML(d){
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:32px">
     <div>
       <div style="font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#E01010;margin-bottom:8px">Bill To</div>
-      <div style="font-weight:700;font-size:15px">${d.name||'â€”'}</div>
+      <div style="font-weight:700;font-size:15px">${d.name||'—'}</div>
       ${d.biz?`<div style="font-size:13px;color:#555">${d.biz}</div>`:''}
       ${d.email?`<div style="font-size:12px;color:#555">${d.email}</div>`:''}
       ${d.phone?`<div style="font-size:12px;color:#555">${d.phone}</div>`:''}
@@ -646,7 +646,7 @@ async function sendInvoice(){
     customer_email: d.email,
     customer_phone: d.phone,
     customer_biz:   d.biz,
-    items: d.items.map(i=>i.name+' â€” $'+i.price.toFixed(2)).join('\n'),
+    items: d.items.map(i=>i.name+' — $'+i.price.toFixed(2)).join('\n'),
     subtotal:   d.sub.toFixed(2),
     stripe_fee: STRIPE_FEE.toFixed(2),
     total:      d.total.toFixed(2),
@@ -663,7 +663,7 @@ async function sendInvoice(){
   if(!GAS_URL||GAS_URL.includes('PASTE_YOUR')){
     sta.style.display='block';
     sta.className='status status--info';
-    sta.textContent='Invoice built (Apps Script not connected â€” once connected, this will email the invoice to '+email+' and log to your Sheet automatically).';
+    sta.textContent='Invoice built (Apps Script not connected — once connected, this will email the invoice to '+email+' and log to your Sheet automatically).';
     previewInvoice();
     btn.disabled=false; btn.textContent='Send Invoice + Request Payment â†’';
     return;
@@ -707,8 +707,8 @@ async function logToSheet(){
     type:'INVOICE',
     ts: new Date().toISOString(),
     invoice_num: d.inv_num,
-    customer_name:  d.name||'â€”',
-    customer_email: d.email||'â€”',
+    customer_name:  d.name||'—',
+    customer_email: d.email||'—',
     items: d.items.map(i=>i.name+' $'+i.price.toFixed(2)).join(' | '),
     total: d.total.toFixed(2),
     amount_due: d.amount.toFixed(2),
@@ -727,7 +727,7 @@ async function logToSheet(){
     }
   } else {
     sta.style.display='block'; sta.className='status status--info';
-    sta.textContent='Sheet not connected yet. Invoice #'+d.inv_num+' â€” Total: $'+d.total.toFixed(2);
+    sta.textContent='Sheet not connected yet. Invoice #'+d.inv_num+' — Total: $'+d.total.toFixed(2);
   }
   btn.disabled=false; btn.textContent='Save to Google Sheet Only';
 }

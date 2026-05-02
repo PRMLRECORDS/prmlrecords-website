@@ -38,7 +38,7 @@ li{margin-bottom:8px;opacity:.85}
 </head>
 <body>
 <div class="nav-strip">
-  <div class="nav-strip-title">PRML <span>Admin</span> â€” Docs</div>
+  <div class="nav-strip-title">PRML <span>Admin</span> — Docs</div>
   <div style="display:flex;gap:10px">
     <a href="dashboard.html">Dashboard</a>
     <a href="email-branding-guide.html">Email Guide</a>
@@ -55,7 +55,7 @@ li{margin-bottom:8px;opacity:.85}
   <a href="#hosting">1. Uploading & Hosting Your Website (Netlify)</a>
   <a href="#domain">2. Connecting Your Domain (Namecheap)</a>
   <a href="#sheets">3. Setting Up Google Sheets as Your Database</a>
-  <a href="#apps-script">4. Google Apps Script â€” Contact Form & Lead Capture</a>
+  <a href="#apps-script">4. Google Apps Script — Contact Form & Lead Capture</a>
   <a href="#daily">5. Daily Update Guide (Adding Content)</a>
   <a href="#admin">6. Admin Dashboard Guide</a>
   <a href="#stripe">7. Stripe Payment Setup</a>
@@ -81,7 +81,7 @@ li{margin-bottom:8px;opacity:.85}
 <div class="step"><div class="step-num">3</div><div class="step-body">Commit and push your changes:<pre>git add .
 git commit -m "Brief description of what you changed"
 git push</pre></div></div>
-<div class="step"><div class="step-num">4</div><div class="step-body">Render detects the push and automatically re-deploys. Your site updates within 60â€“90 seconds. You can watch it at <a href="https://dashboard.render.com" target="_blank">dashboard.render.com</a></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body">Render detects the push and automatically re-deploys. Your site updates within 60–90 seconds. You can watch it at <a href="https://dashboard.render.com" target="_blank">dashboard.render.com</a></div></div>
 
 <div class="tip"><strong>No Terminal?</strong> You can also edit files directly in GitHub's web interface (github.com â†’ your repo â†’ click a file â†’ pencil icon to edit â†’ Commit changes). Render still auto-deploys.</div>
 
@@ -100,19 +100,19 @@ git push</pre></div></div>
 <h3>Step A: Create The Sheet</h3>
 <div class="step"><div class="step-num">1</div><div class="step-body">Go to <a href="https://sheets.google.com" target="_blank">sheets.google.com</a> â†’ Click the + to create a new spreadsheet â†’ Name it "PRML Records CMS"</div></div>
 <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Create 4 tabs</strong> (click the + at the bottom of the sheet): Name them exactly as: <code>Testimonials</code>, <code>Products</code>, <code>FAQ</code>, <code>Services</code></div></div>
-<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Testimonials tab â€” add these column headers in row 1:</strong><br><code>name</code> | <code>role</code> | <code>text</code> | <code>rating</code> | <code>approved</code> | <code>date</code></div></div>
-<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Products tab â€” add these headers:</strong><br><code>name</code> | <code>category</code> | <code>price</code> | <code>description</code> | <code>imageurl</code> | <code>active</code></div></div>
-<div class="step"><div class="step-num">5</div><div class="step-body"><strong>FAQ tab â€” add these headers:</strong><br><code>question</code> | <code>answer</code> | <code>category</code> | <code>active</code></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Testimonials tab — add these column headers in row 1:</strong><br><code>name</code> | <code>role</code> | <code>text</code> | <code>rating</code> | <code>approved</code> | <code>date</code></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Products tab — add these headers:</strong><br><code>name</code> | <code>category</code> | <code>price</code> | <code>description</code> | <code>imageurl</code> | <code>active</code></div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>FAQ tab — add these headers:</strong><br><code>question</code> | <code>answer</code> | <code>category</code> | <code>active</code></div></div>
 
 <h3>Step B: Get Your Sheet ID and API Key</h3>
-<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Sheet ID:</strong> Look at your sheet's URL. It looks like: docs.google.com/spreadsheets/d/<strong>1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms</strong>/edit â€” the bold part is your Sheet ID. Copy it.</div></div>
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Sheet ID:</strong> Look at your sheet's URL. It looks like: docs.google.com/spreadsheets/d/<strong>1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms</strong>/edit — the bold part is your Sheet ID. Copy it.</div></div>
 <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Make the sheet public (read only):</strong> Click Share â†’ change "General access" from "Restricted" to "Anyone with the link" â†’ set to "Viewer" â†’ Done</div></div>
 <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Get a Google API Key:</strong> Go to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> â†’ Create a project â†’ Enable "Google Sheets API" â†’ Credentials â†’ Create Credentials â†’ API Key â†’ Copy the key</div></div>
 <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Update js/sheets-fetcher.js:</strong> Open the file in a text editor, find the lines at the top and replace the placeholder values:
 <pre>const SHEET_ID = 'PASTE_YOUR_SHEET_ID_HERE';
 const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
 
-<h2 id="apps-script">4. Google Apps Script â€” Contact Form & Lead Capture</h2>
+<h2 id="apps-script">4. Google Apps Script — Contact Form & Lead Capture</h2>
 <p>This makes your contact form send data directly to a Google Sheet AND email you every time someone submits. Completely free.</p>
 
 <div class="step"><div class="step-num">1</div><div class="step-body">Go to <a href="https://script.google.com" target="_blank">script.google.com</a> â†’ Click "+ New Project"</div></div>
@@ -174,7 +174,7 @@ const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
   <li>Click the "Testimonials" tab</li>
   <li>Add a new row. Fill in: name, role (like "Small Business Owner Â· Atlanta"), the review text, rating (1-5), and the date</li>
   <li>In the "approved" column, type <code>TRUE</code> (all caps) when you're ready for it to appear on the website</li>
-  <li>Refresh testimonials.html â€” the review appears automatically</li>
+  <li>Refresh testimonials.html — the review appears automatically</li>
   <li>To hide a review later: change approved from TRUE to FALSE</li>
 </ol>
 
@@ -182,7 +182,7 @@ const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
 <ol>
   <li>Go to the "Products" tab</li>
   <li>Add a new row with all columns filled</li>
-  <li>For the category column â€” use EXACTLY one of these (spelling matters): Signs, Keychains, Light Boxes, 3D Printing, Laser Cutting, Laser Engraving, Laser Edging, Sound, Film, Photography, Web Dev, Consulting</li>
+  <li>For the category column — use EXACTLY one of these (spelling matters): Signs, Keychains, Light Boxes, 3D Printing, Laser Cutting, Laser Engraving, Laser Edging, Sound, Film, Photography, Web Dev, Consulting</li>
   <li>For the price column: numbers only, no $ sign. Example: 35 not $35</li>
   <li>Set active to TRUE to show it, FALSE to hide it</li>
 </ol>
@@ -200,13 +200,13 @@ const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
 <p>Find the product in your Products tab. Click the price cell. Type the new number (no $ sign). Press Enter. The website updates automatically when someone visits the page.</p>
 
 <h2 id="admin">6. Admin Dashboard Guide</h2>
-<p>The admin dashboard is at: <strong>yoursite.com/admin/dashboard.html</strong> â€” it is NOT linked from any public page.</p>
+<p>The admin dashboard is at: <strong>yoursite.com/admin/dashboard.html</strong> — it is NOT linked from any public page.</p>
 <ul>
-  <li>Default password: <code>PRMLp369!</code> â€” change this before going live</li>
+  <li>Default password: <code>PRMLp369!</code> — change this before going live</li>
   <li>To change the password: Open admin/dashboard.html in a text editor â†’ Find the line <code>const ADMIN_PW = 'PRMLp369!'</code> â†’ Change the text inside the quotes</li>
   <li>The dashboard shows you the Google Sheet column map so you know which columns do what</li>
   <li>The dashboard has quick links to all documentation and your live site</li>
-  <li>Keep the admin URL private â€” do not link to it anywhere public</li>
+  <li>Keep the admin URL private — do not link to it anywhere public</li>
 </ul>
 
 <h2 id="stripe">7. Stripe Payment Setup</h2>
@@ -215,7 +215,7 @@ const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
 <h3>Creating Your Stripe Account</h3>
 <div class="step"><div class="step-num">1</div><div class="step-body">Go to <a href="https://stripe.com" target="_blank">stripe.com</a> â†’ Create account â†’ Complete business verification with your LLC info</div></div>
 <div class="step"><div class="step-num">2</div><div class="step-body">In your Stripe dashboard â†’ go to Payment Links â†’ Create Payment Link</div></div>
-<div class="step"><div class="step-num">3</div><div class="step-body">Set up a "Custom amount" payment link â€” this lets the cart total be passed through. Name it "PRML Records Payment"</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Set up a "Custom amount" payment link — this lets the cart total be passed through. Name it "PRML Records Payment"</div></div>
 <div class="step"><div class="step-num">4</div><div class="step-body">Copy the Payment Link URL (looks like: buy.stripe.com/xxxx)</div></div>
 <div class="step"><div class="step-num">5</div><div class="step-body">Open js/main.js â†’ Find this line â†’ Replace the placeholder URL:
 <pre>const stripeUrl = `https://buy.stripe.com/YOUR_PAYMENT_LINK`;</pre></div></div>
@@ -244,7 +244,7 @@ const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
 <h3>Images Not Showing Up</h3>
 <ul>
   <li>Make sure the Google Drive file is shared as "Anyone with the link"</li>
-  <li>Make sure the URL format is: <code>https://drive.google.com/uc?id=FILE_ID</code> â€” NOT the share link</li>
+  <li>Make sure the URL format is: <code>https://drive.google.com/uc?id=FILE_ID</code> — NOT the share link</li>
   <li>Try opening the image URL directly in your browser to test it</li>
 </ul>
 
@@ -299,9 +299,9 @@ YOU
 </pre>
 
 <h2 id="email">10. Email Branding Reference</h2>
-<p>For complete email branding setup including custom @prmlrecords.com email addresses, email signatures, BIMI logo setup, and email templates â€” see the dedicated guide:</p>
+<p>For complete email branding setup including custom @prmlrecords.com email addresses, email signatures, BIMI logo setup, and email templates — see the dedicated guide:</p>
 <p><a href="email-branding-guide.html" style="font-size:18px">â†’ Open Email Branding Guide</a></p>
-<div class="tip"><strong>Quick Setup for Email:</strong> Fastest way to get professional email is Google Workspace ($6/month) â€” gives you @prmlrecords.com email with Gmail, Google Calendar, Drive, and Meet. Go to workspace.google.com and follow the setup wizard.</div>
+<div class="tip"><strong>Quick Setup for Email:</strong> Fastest way to get professional email is Google Workspace ($6/month) — gives you @prmlrecords.com email with Gmail, Google Calendar, Drive, and Meet. Go to workspace.google.com and follow the setup wizard.</div>
 </div>
 <script src="/js/cache-bust.js" defer></script>
 </body></html>

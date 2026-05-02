@@ -132,9 +132,9 @@ function renderGrants(){
   el.innerHTML = grants.map(g=>`
     <tr>
       <td><strong>${g.name}</strong>${g.notes?'<br><span style="opacity:.4;font-size:11px">'+g.notes+'</span>':''}</td>
-      <td>${g.funder||'â€”'}</td>
-      <td>${g.deadline||'â€”'}</td>
-      <td style="font-family:'Roboto Slab',serif;color:var(--red)">${g.amount||'â€”'}</td>
+      <td>${g.funder||'—'}</td>
+      <td>${g.deadline||'—'}</td>
+      <td style="font-family:'Roboto Slab',serif;color:var(--red)">${g.amount||'—'}</td>
       <td><span class="badge ${STATUS_BADGE[g.status]||'badge--gray'}">${g.status||'Unknown'}</span></td>
       <td style="max-width:240px;font-size:12px;opacity:.65">${g.next_steps||''}</td>
       <td>

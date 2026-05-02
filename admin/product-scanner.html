@@ -111,7 +111,7 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
 
 <div class="wrap">
   <div class="page-title">Product Scanner</div>
-  <div class="page-sub">Drop product photos here. AI identifies each item, generates a name, category, description, and suggested price â€” then you can push everything to your Google Sheet with one click.</div>
+  <div class="page-sub">Drop product photos here. AI identifies each item, generates a name, category, description, and suggested price — then you can push everything to your Google Sheet with one click.</div>
 
   <!-- UPLOAD ZONE -->
   <div class="upload-zone" id="drop-zone">
@@ -135,7 +135,7 @@ body{background:var(--black);color:var(--cream);font-family:'Roboto Slab',serif;
 
   <!-- RESULTS TABLE -->
   <div id="results-wrap" style="display:none">
-    <div class="results-header">Scanned Products â€” Review & Edit Before Saving</div>
+    <div class="results-header">Scanned Products — Review & Edit Before Saving</div>
     <table class="results-table">
       <thead>
         <tr>
@@ -301,7 +301,7 @@ async function scanAll(){
       updateQueueStatus(img.id,'done');
     } catch(e){
       console.error('Scan error:',e);
-      scannedResults.push({ id: img.id, dataUrl: img.dataUrl, name: img.file.name.replace(/\.[^.]+$/,''), category:'Other', price:0, description:'Could not auto-scan â€” fill in manually.' });
+      scannedResults.push({ id: img.id, dataUrl: img.dataUrl, name: img.file.name.replace(/\.[^.]+$/,''), category:'Other', price:0, description:'Could not auto-scan — fill in manually.' });
       updateQueueStatus(img.id,'err');
     }
   }

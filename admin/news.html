@@ -112,7 +112,7 @@ function tryLogin() {
   }
 }
 
-// Seeded news items â€” replace with RSS/API fetch in production
+// Seeded news items — replace with RSS/API fetch in production
 const NEWS = [
   { source: 'Billboard', headline: 'Independent Labels See 34% Revenue Surge in Streaming Era', summary: 'New data shows indie labels capturing more streaming market share, with distribution deals and direct-to-fan strategies driving unprecedented growth.', time: '2h ago', url: '#', relevant: true },
   { source: 'HipHopDX', headline: 'Atlanta Hip-Hop Scene Dominates Streaming Charts Heading Into Summer', summary: 'Atlanta-based artists account for 3 of the top 10 most-streamed hip-hop tracks this month, cementing the city\'s dominance in the genre.', time: '4h ago', url: '#', relevant: true },
@@ -121,7 +121,7 @@ const NEWS = [
   { source: 'Billboard', headline: 'TikTok\'s New SoundOn Program Expands Music Distribution Options', summary: 'TikTok launches expanded distribution features for independent artists, allowing direct monetization without traditional label deals.', time: '10h ago', url: '#', relevant: false },
   { source: 'The Source', headline: 'DistroKid vs TuneCore vs CD Baby: 2026 Comparison for Independent Labels', summary: 'An in-depth breakdown of distribution platform fees, royalty splits, and features that matter most for growing indie labels.', time: '12h ago', url: '#', relevant: false },
   { source: 'HipHopDX', headline: 'Sync Licensing Revenue Up 40% for Independent Music Catalogs', summary: 'Independent music catalogs are seeing record sync licensing revenue as streaming shows, podcasts, and ads compete for authentic sound.', time: '1d ago', url: '#', relevant: false },
-  { source: 'Pigeons & Planes', headline: 'How Independent Labels Are Using AI to Compete with Majors', summary: 'A look at the AI tools â€” from production to marketing â€” that indie labels are deploying to level the playing field against major label budgets.', time: '1d ago', url: '#', relevant: false },
+  { source: 'Pigeons & Planes', headline: 'How Independent Labels Are Using AI to Compete with Majors', summary: 'A look at the AI tools — from production to marketing — that indie labels are deploying to level the playing field against major label budgets.', time: '1d ago', url: '#', relevant: false },
 ];
 
 let saved = [];
@@ -184,7 +184,7 @@ async function runSummarize() {
   if (!ClaudeAdmin.requireKey()) return;
   const btn = document.getElementById('summarize-btn');
   ClaudeAdmin.setLoading(btn, true);
-  const top5 = allNews.slice(0, 5).map(n => `${n.source}: ${n.headline} â€” ${n.summary}`).join('\n\n');
+  const top5 = allNews.slice(0, 5).map(n => `${n.source}: ${n.headline} — ${n.summary}`).join('\n\n');
   try {
     const text = await ClaudeAdmin.summarizeNews(top5);
     const box = document.getElementById('ai-summary');

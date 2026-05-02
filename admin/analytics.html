@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<title>Analytics â€” The Dashboard</title>
+<title>Analytics — The Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/admin.css">
@@ -68,10 +68,10 @@
 
     <!-- KPIs -->
     <div class="kpi-row">
-      <div class="kpi"><div class="kpi-n" id="kpi-leads">â€”</div><div class="kpi-l">Total Leads</div><div class="kpi-delta delta-up" id="kpi-leads-d"></div></div>
-      <div class="kpi"><div class="kpi-n" id="kpi-orders">â€”</div><div class="kpi-l">Orders</div><div class="kpi-delta delta-up" id="kpi-orders-d"></div></div>
-      <div class="kpi"><div class="kpi-n" id="kpi-revenue">â€”</div><div class="kpi-l">Est. Revenue</div><div class="kpi-delta delta-up" id="kpi-rev-d"></div></div>
-      <div class="kpi"><div class="kpi-n" id="kpi-bookings">â€”</div><div class="kpi-l">Bookings</div><div class="kpi-delta" id="kpi-book-d"></div></div>
+      <div class="kpi"><div class="kpi-n" id="kpi-leads">—</div><div class="kpi-l">Total Leads</div><div class="kpi-delta delta-up" id="kpi-leads-d"></div></div>
+      <div class="kpi"><div class="kpi-n" id="kpi-orders">—</div><div class="kpi-l">Orders</div><div class="kpi-delta delta-up" id="kpi-orders-d"></div></div>
+      <div class="kpi"><div class="kpi-n" id="kpi-revenue">—</div><div class="kpi-l">Est. Revenue</div><div class="kpi-delta delta-up" id="kpi-rev-d"></div></div>
+      <div class="kpi"><div class="kpi-n" id="kpi-bookings">—</div><div class="kpi-l">Bookings</div><div class="kpi-delta" id="kpi-book-d"></div></div>
     </div>
 
     <div style="display:grid;grid-template-columns:2fr 1fr;gap:2px;background:var(--charcoal);margin-bottom:20px">
@@ -113,23 +113,23 @@
       <div class="card-header"><div class="card-title">ðŸ“ˆ Conversion Funnel</div></div>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--charcoal)">
         <div style="background:var(--black);padding:20px;text-align:center;position:relative">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px" id="funnel-visits">â€”</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px" id="funnel-visits">—</div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.35;margin-top:4px">Site Visits</div>
         </div>
         <div style="background:var(--black);padding:20px;text-align:center">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px" id="funnel-leads">â€”</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px" id="funnel-leads">—</div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.35;margin-top:4px">Inquiries</div>
         </div>
         <div style="background:var(--black);padding:20px;text-align:center">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px" id="funnel-quotes">â€”</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px" id="funnel-quotes">—</div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.35;margin-top:4px">Quotes Sent</div>
         </div>
         <div style="background:var(--black);padding:20px;text-align:center">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);letter-spacing:-1px" id="funnel-orders">â€”</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);letter-spacing:-1px" id="funnel-orders">—</div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.35;margin-top:4px">Orders</div>
         </div>
         <div style="background:rgba(224,16,16,.08);padding:20px;text-align:center">
-          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);letter-spacing:-1px" id="funnel-rate">â€”</div>
+          <div style="font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--red);letter-spacing:-1px" id="funnel-rate">—</div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.35;margin-top:4px">Close Rate</div>
         </div>
       </div>
@@ -182,15 +182,15 @@ async function loadAnalytics() {
   }
 
   // Fallback sample
-  document.getElementById('kpi-leads').textContent = 'â€”';
-  document.getElementById('kpi-orders').textContent = 'â€”';
-  document.getElementById('kpi-revenue').textContent = 'â€”';
-  document.getElementById('kpi-bookings').textContent = 'â€”';
-  document.getElementById('funnel-visits').textContent = 'â€”';
-  document.getElementById('funnel-leads').textContent = 'â€”';
-  document.getElementById('funnel-quotes').textContent = 'â€”';
-  document.getElementById('funnel-orders').textContent = 'â€”';
-  document.getElementById('funnel-rate').textContent = 'â€”';
+  document.getElementById('kpi-leads').textContent = '—';
+  document.getElementById('kpi-orders').textContent = '—';
+  document.getElementById('kpi-revenue').textContent = '—';
+  document.getElementById('kpi-bookings').textContent = '—';
+  document.getElementById('funnel-visits').textContent = '—';
+  document.getElementById('funnel-leads').textContent = '—';
+  document.getElementById('funnel-quotes').textContent = '—';
+  document.getElementById('funnel-orders').textContent = '—';
+  document.getElementById('funnel-rate').textContent = '—';
 
   // Render empty chart
   const chart = document.getElementById('rev-chart');
@@ -203,9 +203,9 @@ async function loadAnalytics() {
 
   // Top services sample
   document.getElementById('services-tbl').innerHTML = `
-    <tr><td style="opacity:.4">Recording</td><td style="opacity:.3">â€”</td><td style="opacity:.3">â€”</td></tr>
-    <tr><td style="opacity:.4">Custom Products</td><td style="opacity:.3">â€”</td><td style="opacity:.3">â€”</td></tr>
-    <tr><td style="opacity:.4">Web Dev</td><td style="opacity:.3">â€”</td><td style="opacity:.3">â€”</td></tr>`;
+    <tr><td style="opacity:.4">Recording</td><td style="opacity:.3">—</td><td style="opacity:.3">—</td></tr>
+    <tr><td style="opacity:.4">Custom Products</td><td style="opacity:.3">—</td><td style="opacity:.3">—</td></tr>
+    <tr><td style="opacity:.4">Web Dev</td><td style="opacity:.3">—</td><td style="opacity:.3">—</td></tr>`;
 
   document.getElementById('wins-list').innerHTML = `<div style="padding:20px;font-family:'Roboto Slab',serif;font-size:13px;color:var(--cream);opacity:.35">Wins will appear here as orders come in.</div>`;
   document.getElementById('improve-list').innerHTML = `<div class="improve-item"><div class="wi-text">Connect your Apps Script URL in Settings to start tracking data.</div></div>`;

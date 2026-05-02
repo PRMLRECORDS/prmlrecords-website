@@ -68,7 +68,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
   <!-- IPHONE SHORTCUTS -->
   <div id="tab-shortcuts-content">
     <div style="background:rgba(224,16,16,.06);border-left:3px solid var(--red);padding:16px 20px;margin-bottom:20px;font-size:13px;line-height:1.7;opacity:.8">
-      iPhone Shortcuts sends data to your Apps Script webhook URL. Once your GAS is connected, these shortcuts work instantly from your phone â€” no app needed.
+      iPhone Shortcuts sends data to your Apps Script webhook URL. Once your GAS is connected, these shortcuts work instantly from your phone — no app needed.
       <br><strong style="color:var(--cream)">Webhook URL:</strong> Your Apps Script URL + <code>?action=shortcut</code>
     </div>
 
@@ -96,7 +96,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
         3. Ask for Input: "What service do they need?"<br>
         4. Get Contents of URL â†’ POST to GAS:<br>
         &nbsp;&nbsp;&nbsp;<code>{"type":"INQUIRY","name":"[name]","email":"[contact]","service":"[service]","source":"iPhone Shortcut"}</code><br>
-        5. Show notification: "Lead saved â€” check your sheet"
+        5. Show notification: "Lead saved — check your sheet"
       </div>
     </div>
 
@@ -138,7 +138,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
     </div>
 
     <div style="margin-top:20px;padding:16px;background:rgba(245,230,200,.04);font-size:12px;opacity:.55;line-height:1.8">
-      <strong style="color:var(--cream)">Where to find the Shortcuts app:</strong> Built into iPhone â€” search "Shortcuts" in Spotlight. iOS 16+ required for all features above. Your GAS URL must be connected in Settings first.
+      <strong style="color:var(--cream)">Where to find the Shortcuts app:</strong> Built into iPhone — search "Shortcuts" in Spotlight. iOS 16+ required for all features above. Your GAS URL must be connected in Settings first.
     </div>
   </div>
 
@@ -146,7 +146,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
   <div id="tab-apis-content" style="display:none">
 
     <div class="guide-card">
-      <div class="guide-title">Stripe â€” Accept Payments</div>
+      <div class="guide-title">Stripe — Accept Payments</div>
       <div class="guide-sub">For checkout, invoices, and deposits. Takes ~10 minutes to set up.</div>
       <ol class="guide-steps">
         <li>Go to <strong>stripe.com</strong> â†’ Create account â†’ Verify your business (PRML Records LLC)</li>
@@ -166,7 +166,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
         <li>In your GAS code, use <code>CalendarApp.getDefaultCalendar().createEvent(title, startTime, endTime)</code></li>
         <li>The updated apps-script.gs in your admin folder already has the <code>syncCalendar</code> handler</li>
         <li>Grant and goal deadlines will create calendar events automatically when you save them</li>
-        <li>No additional setup needed â€” uses the Google account your script is deployed under</li>
+        <li>No additional setup needed — uses the Google account your script is deployed under</li>
       </ol>
     </div>
 
@@ -179,12 +179,12 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
         <li>Go to <strong>developers.facebook.com</strong> â†’ Create App â†’ Business type</li>
         <li>Add Instagram Graph API product to your app</li>
         <li>Generate a long-lived access token (valid 60 days, needs renewal)</li>
-        <li><strong>Easier alternative:</strong> Use Buffer or Meta Business Suite (both free) â€” just copy-paste the generated captions from your Social Hub</li>
+        <li><strong>Easier alternative:</strong> Use Buffer or Meta Business Suite (both free) — just copy-paste the generated captions from your Social Hub</li>
       </ol>
     </div>
 
     <div class="guide-card">
-      <div class="guide-title">Twilio â€” SMS Automation</div>
+      <div class="guide-title">Twilio — SMS Automation</div>
       <div class="guide-sub">Send invoice payment reminders, appointment confirmations, and lead follow-ups via text. ~$0.0075 per text.</div>
       <ol class="guide-steps">
         <li>Go to <strong>twilio.com</strong> â†’ Sign up â†’ Get a free trial phone number</li>
@@ -213,11 +213,11 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-title">OpenAI / Anthropic API</div>
       <div class="guide-sub">Powers AI features in your admin (invoice parser, social generator, grant suggestions, product scanner).</div>
       <ol class="guide-steps">
-        <li>The admin pages use Anthropic's API (Claude) â€” these calls go directly from your browser</li>
+        <li>The admin pages use Anthropic's API (Claude) — these calls go directly from your browser</li>
         <li>If you see API errors, it means your session needs a fresh API key</li>
         <li>For production use: go to <strong>console.anthropic.com</strong> â†’ Create API Key</li>
         <li>Add to Settings page (coming) or directly in each admin page's config section</li>
-        <li>Current cost: Claude Sonnet is ~$3 per million input tokens â€” very cheap for admin use</li>
+        <li>Current cost: Claude Sonnet is ~$3 per million input tokens — very cheap for admin use</li>
       </ol>
     </div>
 
@@ -230,37 +230,37 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-card">
         <div class="guide-title">Social Scheduling</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://buffer.com" target="_blank" style="color:var(--red)">Buffer</a> â€” Free, 3 platforms, 10 posts/platform<br>
-          <a href="https://later.com" target="_blank" style="color:var(--red)">Later</a> â€” Free, 1 Instagram account, 30 posts/mo<br>
-          <a href="https://business.facebook.com" target="_blank" style="color:var(--red)">Meta Business Suite</a> â€” Free, FB + IG unlimited
+          <a href="https://buffer.com" target="_blank" style="color:var(--red)">Buffer</a> — Free, 3 platforms, 10 posts/platform<br>
+          <a href="https://later.com" target="_blank" style="color:var(--red)">Later</a> — Free, 1 Instagram account, 30 posts/mo<br>
+          <a href="https://business.facebook.com" target="_blank" style="color:var(--red)">Meta Business Suite</a> — Free, FB + IG unlimited
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">Design & Mockups</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://canva.com" target="_blank" style="color:var(--red)">Canva</a> â€” Free tier, mockups, graphics, social posts<br>
-          <a href="https://placeit.net" target="_blank" style="color:var(--red)">Placeit</a> â€” Mockups for products, merch, apparel<br>
-          <a href="https://remove.bg" target="_blank" style="color:var(--red)">Remove.bg</a> â€” Background removal, free<br>
-          <a href="https://smartmockups.com" target="_blank" style="color:var(--red)">Smartmockups</a> â€” Product, CD, print mockups
+          <a href="https://canva.com" target="_blank" style="color:var(--red)">Canva</a> — Free tier, mockups, graphics, social posts<br>
+          <a href="https://placeit.net" target="_blank" style="color:var(--red)">Placeit</a> — Mockups for products, merch, apparel<br>
+          <a href="https://remove.bg" target="_blank" style="color:var(--red)">Remove.bg</a> — Background removal, free<br>
+          <a href="https://smartmockups.com" target="_blank" style="color:var(--red)">Smartmockups</a> — Product, CD, print mockups
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">Automation</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://ifttt.com" target="_blank" style="color:var(--red)">IFTTT</a> â€” Connect apps with simple triggers, free tier<br>
-          <a href="https://make.com" target="_blank" style="color:var(--red)">Make (Integromat)</a> â€” More powerful than Zapier, free tier<br>
-          <a href="https://zapier.com" target="_blank" style="color:var(--red)">Zapier</a> â€” 100 tasks/month free<br>
-          <a href="https://n8n.io" target="_blank" style="color:var(--red)">n8n</a> â€” Open-source, self-hosted automation
+          <a href="https://ifttt.com" target="_blank" style="color:var(--red)">IFTTT</a> — Connect apps with simple triggers, free tier<br>
+          <a href="https://make.com" target="_blank" style="color:var(--red)">Make (Integromat)</a> — More powerful than Zapier, free tier<br>
+          <a href="https://zapier.com" target="_blank" style="color:var(--red)">Zapier</a> — 100 tasks/month free<br>
+          <a href="https://n8n.io" target="_blank" style="color:var(--red)">n8n</a> — Open-source, self-hosted automation
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">QR Codes</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://qr.io" target="_blank" style="color:var(--red)">QR.io</a> â€” Custom branded QR codes, free tier<br>
-          <a href="https://www.qrcode-monkey.com" target="_blank" style="color:var(--red)">QRCode Monkey</a> â€” Free, styled QR codes<br>
+          <a href="https://qr.io" target="_blank" style="color:var(--red)">QR.io</a> — Custom branded QR codes, free tier<br>
+          <a href="https://www.qrcode-monkey.com" target="_blank" style="color:var(--red)">QRCode Monkey</a> — Free, styled QR codes<br>
           Use for: product labels, NFC alternatives, menus, invoices
         </div>
       </div>
@@ -268,18 +268,18 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
       <div class="guide-card">
         <div class="guide-title">Email Marketing</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://mailchimp.com" target="_blank" style="color:var(--red)">Mailchimp</a> â€” 500 contacts free, drag-drop editor<br>
-          <a href="https://brevo.com" target="_blank" style="color:var(--red)">Brevo (Sendinblue)</a> â€” 300 emails/day free<br>
-          <a href="https://beehiiv.com" target="_blank" style="color:var(--red)">Beehiiv</a> â€” Best for newsletter, free up to 2,500 subs
+          <a href="https://mailchimp.com" target="_blank" style="color:var(--red)">Mailchimp</a> — 500 contacts free, drag-drop editor<br>
+          <a href="https://brevo.com" target="_blank" style="color:var(--red)">Brevo (Sendinblue)</a> — 300 emails/day free<br>
+          <a href="https://beehiiv.com" target="_blank" style="color:var(--red)">Beehiiv</a> — Best for newsletter, free up to 2,500 subs
         </div>
       </div>
 
       <div class="guide-card">
         <div class="guide-title">Video & Reels</div>
         <div style="font-size:13px;line-height:2;opacity:.65">
-          <a href="https://www.capcut.com" target="_blank" style="color:var(--red)">CapCut</a> â€” Free video editor, great for Reels<br>
-          <a href="https://www.descript.com" target="_blank" style="color:var(--red)">Descript</a> â€” Free tier, AI transcription + video edit<br>
-          <a href="https://clipchamp.com" target="_blank" style="color:var(--red)">Clipchamp</a> â€” Free, browser-based video editor
+          <a href="https://www.capcut.com" target="_blank" style="color:var(--red)">CapCut</a> — Free video editor, great for Reels<br>
+          <a href="https://www.descript.com" target="_blank" style="color:var(--red)">Descript</a> — Free tier, AI transcription + video edit<br>
+          <a href="https://clipchamp.com" target="_blank" style="color:var(--red)">Clipchamp</a> — Free, browser-based video editor
         </div>
       </div>
 
@@ -334,7 +334,7 @@ code{font-family:monospace;background:rgba(224,16,16,.12);color:var(--red);paddi
 
       <div class="guide-card">
         <div class="guide-title">ðŸ¤ Affiliate / Referral Program</div>
-        <div class="guide-sub">Unique referral links for past clients. Track clicks â†’ commissions in Google Sheet. Simple version with no extra software â€” just URL params.</div>
+        <div class="guide-sub">Unique referral links for past clients. Track clicks â†’ commissions in Google Sheet. Simple version with no extra software — just URL params.</div>
         <div><span class="pill">URL params</span><span class="pill">Google Sheet</span><span class="pill">Free</span></div>
       </div>
 

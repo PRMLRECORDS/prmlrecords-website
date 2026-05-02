@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<title>Booking Manager â€” The Dashboard</title>
+<title>Booking Manager — The Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/admin.css">
@@ -71,10 +71,10 @@
 
     <!-- Stats -->
     <div class="booking-stats">
-      <div class="bs-card"><div class="bs-n" id="stat-new">â€”</div><div class="bs-l">New Requests</div></div>
-      <div class="bs-card"><div class="bs-n" id="stat-confirmed">â€”</div><div class="bs-l">Confirmed</div></div>
-      <div class="bs-card"><div class="bs-n" id="stat-month">â€”</div><div class="bs-l">This Month</div></div>
-      <div class="bs-card"><div class="bs-n" id="stat-revenue">â€”</div><div class="bs-l">Est. Revenue</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-new">—</div><div class="bs-l">New Requests</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-confirmed">—</div><div class="bs-l">Confirmed</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-month">—</div><div class="bs-l">This Month</div></div>
+      <div class="bs-card"><div class="bs-n" id="stat-revenue">—</div><div class="bs-l">Est. Revenue</div></div>
     </div>
 
     <!-- Calendar View -->
@@ -155,21 +155,21 @@
         <div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Get More SEAUX9 Bookings</div>
           <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
-            â€¢ Post performance clips every week â€” Instagram Reels get the most reach<br>
-            â€¢ Create an EPK (Electronic Press Kit) â€” we can build this in the Blog or Documents section<br>
-            â€¢ Target Atlanta event venues directly via email/DM outreach<br>
-            â€¢ List on GigSalad, Gigmasters, and The Bash for additional discovery<br>
-            â€¢ Offer a free 15-minute set at community events to build local buzz
+            • Post performance clips every week — Instagram Reels get the most reach<br>
+            • Create an EPK (Electronic Press Kit) — we can build this in the Blog or Documents section<br>
+            • Target Atlanta event venues directly via email/DM outreach<br>
+            • List on GigSalad, Gigmasters, and The Bash for additional discovery<br>
+            • Offer a free 15-minute set at community events to build local buzz
           </div>
         </div>
         <div>
           <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Booking Follow-Up System</div>
           <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.65;line-height:1.75">
-            â€¢ Follow up within 2 hours of a new request â€” speed wins bookings<br>
-            â€¢ Use the Invoice tool to send a formal quote same-day<br>
-            â€¢ Send deposit link via Stripe immediately when confirmed<br>
-            â€¢ 7 days before: confirm all logistics, rider, and parking<br>
-            â€¢ After the show: send a thank you + ask for a Google review
+            • Follow up within 2 hours of a new request — speed wins bookings<br>
+            • Use the Invoice tool to send a formal quote same-day<br>
+            • Send deposit link via Stripe immediately when confirmed<br>
+            • 7 days before: confirm all logistics, rider, and parking<br>
+            • After the show: send a thank you + ask for a Google review
           </div>
         </div>
       </div>
@@ -270,13 +270,13 @@ function renderBookings(bookings) {
   document.getElementById('bookings-tbl').style.display = 'table';
   tbody.innerHTML = bookings.map((b,i) => `
     <tr>
-      <td style="opacity:.5;font-size:11px">${b.date || 'â€”'}</td>
+      <td style="opacity:.5;font-size:11px">${b.date || '—'}</td>
       <td><span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;color:var(--red)">${(b.artist||'').split(' ').slice(0,1).join(' ')}</span></td>
-      <td><div style="font-weight:400">${b.name || 'â€”'}</div><div style="font-size:11px;opacity:.4">${b.email || ''}</div></td>
-      <td>${b.event_type || 'â€”'}</td>
-      <td style="color:var(--red);font-family:'Rubik Mono One',monospace;font-size:13px">${b.event_date || 'â€”'}</td>
-      <td style="opacity:.6">${b.venue_location || 'â€”'}</td>
-      <td style="opacity:.6">${b.budget || 'â€”'}</td>
+      <td><div style="font-weight:400">${b.name || '—'}</div><div style="font-size:11px;opacity:.4">${b.email || ''}</div></td>
+      <td>${b.event_type || '—'}</td>
+      <td style="color:var(--red);font-family:'Rubik Mono One',monospace;font-size:13px">${b.event_date || '—'}</td>
+      <td style="opacity:.6">${b.venue_location || '—'}</td>
+      <td style="opacity:.6">${b.budget || '—'}</td>
       <td><span class="status-badge status-${(b.status||'new').toLowerCase().replace(' ','')}">${b.status || 'New'}</span></td>
       <td>
         <button onclick="updateStatus(${i},'Confirmed')" style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;background:rgba(0,200,100,.12);color:#00c864;border:none;padding:4px 10px;cursor:pointer;margin-right:4px">âœ“ Confirm</button>

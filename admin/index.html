@@ -58,12 +58,12 @@
 
   <!-- KPI CARDS -->
   <div class="card-row" id="kpi-row">
-    <div class="adm-card"><div class="adm-card__label">Active Goals</div><div class="adm-card__val" id="k-goals">â€”</div><div class="adm-card__sub">90-day tracker</div></div>
-    <div class="adm-card"><div class="adm-card__label">Open Grants</div><div class="adm-card__val" id="k-grants">â€”</div><div class="adm-card__sub">Pending / In Progress</div></div>
-    <div class="adm-card"><div class="adm-card__label">Blog Posts</div><div class="adm-card__val" id="k-posts">â€”</div><div class="adm-card__sub">Published</div></div>
-    <div class="adm-card"><div class="adm-card__label">Social Queue</div><div class="adm-card__val" id="k-social">â€”</div><div class="adm-card__sub">Scheduled posts</div></div>
-    <div class="adm-card"><div class="adm-card__label">Leads (30d)</div><div class="adm-card__val" id="k-leads">â€”</div><div class="adm-card__sub">From contact forms</div></div>
-    <div class="adm-card"><div class="adm-card__label">Invoices</div><div class="adm-card__val" id="k-invoices">â€”</div><div class="adm-card__sub">Outstanding</div></div>
+    <div class="adm-card"><div class="adm-card__label">Active Goals</div><div class="adm-card__val" id="k-goals">—</div><div class="adm-card__sub">90-day tracker</div></div>
+    <div class="adm-card"><div class="adm-card__label">Open Grants</div><div class="adm-card__val" id="k-grants">—</div><div class="adm-card__sub">Pending / In Progress</div></div>
+    <div class="adm-card"><div class="adm-card__label">Blog Posts</div><div class="adm-card__val" id="k-posts">—</div><div class="adm-card__sub">Published</div></div>
+    <div class="adm-card"><div class="adm-card__label">Social Queue</div><div class="adm-card__val" id="k-social">—</div><div class="adm-card__sub">Scheduled posts</div></div>
+    <div class="adm-card"><div class="adm-card__label">Leads (30d)</div><div class="adm-card__val" id="k-leads">—</div><div class="adm-card__sub">From contact forms</div></div>
+    <div class="adm-card"><div class="adm-card__label">Invoices</div><div class="adm-card__val" id="k-invoices">—</div><div class="adm-card__sub">Outstanding</div></div>
   </div>
 
   <div class="split">
@@ -180,7 +180,7 @@ function showSetupNeeded(){
   document.getElementById('recent-posts').innerHTML = '<div class="status status-info">Connect Apps Script in Settings to see live data.</div>';
   document.getElementById('upcoming-list').innerHTML = '<div class="status status-info">Connect Apps Script in Settings to see deadlines.</div>';
   ['k-goals','k-grants','k-posts','k-social','k-leads','k-invoices'].forEach(id=>{
-    document.getElementById(id).textContent = 'â€”';
+    document.getElementById(id).textContent = '—';
   });
 }
 </script>

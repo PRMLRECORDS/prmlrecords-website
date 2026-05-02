@@ -55,7 +55,7 @@
   <div class="page-hd" style="display:flex;align-items:flex-start;justify-content:space-between">
     <div>
       <h1>Competitor Tracker</h1>
-      <p>Monitor peers, labels &amp; artists â€” Claude analyzes strategy on demand</p>
+      <p>Monitor peers, labels &amp; artists — Claude analyzes strategy on demand</p>
     </div>
     <button class="btn btn-red btn-sm" style="margin-top:8px" onclick="toggleAddForm()">+ Add Competitor</button>
   </div>
@@ -151,8 +151,8 @@ function renderCompetitors() {
       <div class="comp-name">${c.name}</div>
       <div class="comp-type">${c.type} Â· ${trendIcon(c.trend || 'flat')}</div>
       <div class="comp-stats">
-        <div class="comp-stat"><div class="comp-stat-val">${c.ig || 'â€”'}</div><div class="comp-stat-lbl">IG Followers</div></div>
-        <div class="comp-stat"><div class="comp-stat-val">${c.streams || 'â€”'}</div><div class="comp-stat-lbl">Monthly Streams</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">${c.ig || '—'}</div><div class="comp-stat-lbl">IG Followers</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">${c.streams || '—'}</div><div class="comp-stat-lbl">Monthly Streams</div></div>
       </div>
       ${c.notes ? `<div class="comp-notes">${c.notes}</div>` : ''}
       <div style="display:flex;gap:6px;flex-wrap:wrap">
@@ -196,8 +196,8 @@ function addCompetitor() {
   comps.push({
     name,
     type: document.getElementById('new-type').value,
-    ig: document.getElementById('new-ig').value.trim() || 'â€”',
-    streams: document.getElementById('new-streams').value.trim() || 'â€”',
+    ig: document.getElementById('new-ig').value.trim() || '—',
+    streams: document.getElementById('new-streams').value.trim() || '—',
     trend: 'flat',
     notes: document.getElementById('new-notes').value.trim(),
   });
