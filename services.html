@@ -15,13 +15,9 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/nav.css">
 <style>
-.consult-banner{background:var(--red);padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.cb-msg{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--cream)}
-.cb-counter{font-family:'Rubik Mono One',monospace;font-size:28px;color:var(--cream);letter-spacing:-1px}
-.cb-sub{font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.7}
-.cb-btn{background:var(--cream);color:var(--red);font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:10px 20px;border:none;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
-.cb-btn:hover{background:var(--black);color:var(--cream)}
+/* (Promo banner now lives in /js/promo-banner.js — config: /js/promo-config.json) */
 /* Tier layout */
 .tier{padding:72px 5vw;border-bottom:2px solid rgba(46,45,45,.1)}
 .tier:nth-child(odd){background:var(--cream)}
@@ -55,11 +51,12 @@
 .tier:nth-child(odd) .sc-deposit{color:var(--charcoal);opacity:.4}
 .tier:nth-child(even) .sc-deposit{color:var(--cream);opacity:.35}
 /* Hero */
-.svc-hero{padding:80px 5vw 48px;background:var(--black)}
-.svc-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(42px,6vw,88px);color:var(--cream);letter-spacing:-2px;line-height:.9;margin-bottom:16px}
+.svc-hero{padding:80px 5vw 56px;background:var(--black)}
+.svc-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(42px,6vw,88px);color:var(--cream);letter-spacing:-2px;line-height:.9;margin-bottom:20px}
 .svc-hero__title span{color:var(--red)}
-.svc-hero__sub{font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--cream);opacity:.5;max-width:560px;line-height:1.7}
-.svc-note{font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--cream);opacity:.4;margin-top:12px;border-left:3px solid var(--red);padding-left:14px}
+.svc-hero__sub{font-family:'Roboto Slab',serif;font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--cream);opacity:.7;max-width:640px;line-height:1.7;border-left:3px solid var(--red);padding-left:18px}
+.svc-note{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.45;margin-top:32px;letter-spacing:.02em}
+@media (max-width:640px){.svc-hero{padding:48px 5vw 36px}}
 /* Booking CTA */
 .booking-cta{background:var(--red);padding:64px 5vw;text-align:center}
 .bc-title{font-family:'Rubik Mono One',monospace;font-size:clamp(32px,5vw,64px);color:var(--cream);letter-spacing:-2px;margin-bottom:16px}
@@ -89,23 +86,10 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
+<script defer src="js/promo-banner.js"></script>
 </head>
 <body>
-
-<!-- CONSULT BANNER -->
-<div class="consult-banner">
-  <div>
-    <div class="cb-msg">First 9 Customers — Setup Fees Waived + Free 30-Min Consultation</div>
-    <div class="cb-sub">Free consultation counts as credit if you move forward &middot; Standard pricing after first 9</div>
-  </div>
-  <div style="display:flex;align-items:center;gap:16px">
-    <div>
-      <div class="cb-counter" id="consult-slots">9</div>
-      <div class="cb-sub">spots left</div>
-    </div>
-    <a href="contact.html?utm_source=prmlrecords&utm_medium=services-page&utm_campaign=consultation&utm_content=top-banner-claim-free-consult" class="cb-btn">Claim Free Consult &#8594;</a>
-  </div>
-</div>
+<!-- Top promo banner is rendered by /js/promo-banner.js (config: /js/promo-config.json) -->
 
 <nav class="nav2" id="nav2">
   <div class="nav2__inner">
@@ -150,28 +134,52 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 
 <!-- HERO -->
 <div class="svc-hero rev">
-  <div class="svc-hero__title">Every<br><span>Service</span><br>We Offer.</div>
-  <div class="svc-hero__sub">Four tiers. Every creative need covered. Prices shown are estimates — final pricing is confirmed after your free consultation. Custom and rush orders may vary.</div>
-  <div class="svc-note">$6 transaction fee applied to all orders &middot; First 9 customers: setup fees waived &middot; 50% deposit locks in your project</div>
+  <div class="svc-hero__eyebrow" style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);opacity:.85;margin-bottom:18px">Art &middot; Community &middot; Technology</div>
+  <div class="svc-hero__title">One Studio.<br><span>Every</span> Creative<br>Service.</div>
+  <div class="svc-hero__sub">Music, brand, web, print, NFC, manufacturing &mdash; built in Atlanta, delivered nationwide. Four tiers, transparent pricing, and every project starts with a free 30-minute consultation.</div>
+  <div class="svc-hero__ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+    <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=services-page&utm_campaign=hero&utm_content=book-consultation" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);background:var(--cream);text-decoration:none;padding:14px 26px;display:inline-block;transition:background .2s,color .2s" onmouseover="this.style.background='var(--red)';this.style.color='var(--cream)'" onmouseout="this.style.background='var(--cream)';this.style.color='var(--charcoal)'">Book Free Consult &rarr;</a>
+    <a href="#tier-1" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);background:transparent;text-decoration:none;padding:13px 26px;display:inline-block;border:1px solid rgba(245,230,200,.4);transition:background .2s,color .2s" onmouseover="this.style.background='var(--cream)';this.style.color='var(--charcoal)';this.style.borderColor='var(--cream)'" onmouseout="this.style.background='transparent';this.style.color='var(--cream)';this.style.borderColor='rgba(245,230,200,.4)'">See All Services &darr;</a>
+  </div>
+  <div class="svc-note">$6 transaction fee applied to all orders &middot; 50% deposit locks in your project &middot; Rush + custom pricing on request</div>
 </div>
 
-<!-- FIRST 9 CUSTOMERS — SERVICES PAGE PROMO -->
-<section style="background:#F5E6C8;padding:64px 5vw;border-bottom:3px solid #E01010">
-  <div style="max-width:800px">
-    <div style="font-family:'Rubik Mono One',monospace;font-size:11px;color:#E01010;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px">First 9 Customers — Special Terms</div>
-    <div style="font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,44px);color:#2B2B2B;line-height:1.05;letter-spacing:-.02em;margin-bottom:20px">We're at the beginning.<br>We want the right people<br>in the room first.</div>
-    <p style="font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:#2B2B2B;opacity:.75;line-height:1.75;max-width:620px;border-left:3px solid #E01010;padding-left:18px;margin-bottom:28px">For our first nine customers, we're waiving all setup fees on custom NFC orders. Your 50% deposit covers production — setup, programming, and your free 30-minute consultation are on us.</p>
-    <div style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#2B2B2B;opacity:.5;margin-bottom:12px">What's included in your consultation:</div>
-    <ul style="font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:#2B2B2B;opacity:.7;line-height:2;list-style:none;padding:0;margin:0 0 32px;border-left:1px solid rgba(254,1,3,.25);padding-left:18px">
-      <li>&#8594; We program your NFC chip to your chosen destination</li>
-      <li>&#8594; We verify your QR code routes correctly</li>
-      <li>&#8594; We walk you through how to update your link in the future</li>
-      <li>&#8594; We answer every question you have about your order</li>
-    </ul>
-    <p style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:400;color:#E01010;margin-bottom:24px">This offer is first come, first served. We're not running it forever.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=services-page&utm_campaign=consultation&utm_content=start-your-order" style="font-family:'Rubik Mono One',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#F5E6C8;background:#E01010;text-decoration:none;padding:14px 28px;display:inline-block">START YOUR ORDER &#8594;</a>
-      <a href="contact.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:#2B2B2B;opacity:.65;text-decoration:none;padding:14px 0;display:inline-flex;align-items:center;gap:6px">info@prmlrecords.com &nbsp;|&nbsp; (770) 686-7726</a>
+<!-- TIER NAVIGATOR — quick-jump to each tier -->
+<nav aria-label="Service tiers" style="background:var(--cream);border-bottom:1px solid rgba(43,43,43,.08);padding:18px 5vw;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase">
+  <span style="color:var(--charcoal);opacity:.4;margin-right:8px">Jump to:</span>
+  <a href="#tier-1" style="color:var(--charcoal);text-decoration:none;padding:6px 12px;border:1px solid rgba(43,43,43,.15);transition:.2s" onmouseover="this.style.background='var(--red)';this.style.color='var(--cream)';this.style.borderColor='var(--red)'" onmouseout="this.style.background='transparent';this.style.color='var(--charcoal)';this.style.borderColor='rgba(43,43,43,.15)'">01 Digital</a>
+  <a href="#tier-2" style="color:var(--charcoal);text-decoration:none;padding:6px 12px;border:1px solid rgba(43,43,43,.15);transition:.2s" onmouseover="this.style.background='var(--red)';this.style.color='var(--cream)';this.style.borderColor='var(--red)'" onmouseout="this.style.background='transparent';this.style.color='var(--charcoal)';this.style.borderColor='rgba(43,43,43,.15)'">02 Print &amp; Physical</a>
+  <a href="#tier-3" style="color:var(--charcoal);text-decoration:none;padding:6px 12px;border:1px solid rgba(43,43,43,.15);transition:.2s" onmouseover="this.style.background='var(--red)';this.style.color='var(--cream)';this.style.borderColor='var(--red)'" onmouseout="this.style.background='transparent';this.style.color='var(--charcoal)';this.style.borderColor='rgba(43,43,43,.15)'">03 Music &amp; Media</a>
+  <a href="#tier-4" style="color:var(--charcoal);text-decoration:none;padding:6px 12px;border:1px solid rgba(43,43,43,.15);transition:.2s" onmouseover="this.style.background='var(--red)';this.style.color='var(--cream)';this.style.borderColor='var(--red)'" onmouseout="this.style.background='transparent';this.style.color='var(--charcoal)';this.style.borderColor='rgba(43,43,43,.15)'">04 Consulting</a>
+</nav>
+
+<!-- HOW THE FREE CONSULTATION WORKS -->
+<section style="background:var(--cream);padding:72px 5vw;border-bottom:3px solid var(--red)">
+  <div style="max-width:880px;margin:0 auto">
+    <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;color:var(--red);letter-spacing:.25em;text-transform:uppercase;margin-bottom:18px">Step One &middot; The Free Consultation</div>
+    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(28px,4.5vw,48px);color:var(--charcoal);line-height:1.05;letter-spacing:-.02em;margin-bottom:24px">Every project starts<br>with a 30-minute call.</h2>
+    <p style="font-family:'Roboto Slab',serif;font-size:16px;font-weight:300;color:var(--charcoal);opacity:.78;line-height:1.75;max-width:680px;border-left:3px solid var(--red);padding-left:18px;margin-bottom:36px">No commitment, no hard sell. We learn what you actually need, scope it honestly, and tell you the price before you spend a dollar. If you move forward, the consult counts as credit toward your project.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;background:rgba(43,43,43,.08);margin-bottom:36px">
+      <div style="background:var(--cream);padding:24px">
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);margin-bottom:8px">01</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin-bottom:6px">Tell us what you need</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.65;line-height:1.65">Site, brand, song, sign, or product run &mdash; we hear the goal first.</div>
+      </div>
+      <div style="background:var(--cream);padding:24px">
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);margin-bottom:8px">02</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin-bottom:6px">We scope &amp; quote</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.65;line-height:1.65">Honest price range, timeline, and exactly what's in / out of scope.</div>
+      </div>
+      <div style="background:var(--cream);padding:24px">
+        <div style="font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);margin-bottom:8px">03</div>
+        <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin-bottom:6px">50% deposit locks it</div>
+        <div style="font-family:'Roboto Slab',serif;font-size:13px;font-weight:300;color:var(--charcoal);opacity:.65;line-height:1.65">Production starts the day the deposit clears. Balance on delivery.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=services-page&utm_campaign=services&utm_content=consultation-step-cta" style="font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);background:var(--red);text-decoration:none;padding:14px 28px;display:inline-block;transition:background .2s" onmouseover="this.style.background='var(--charcoal)'" onmouseout="this.style.background='var(--red)'">Book Your Free Consult &rarr;</a>
+      <a href="how-it-works.html" style="font-family:'Roboto Slab',serif;font-size:13px;color:var(--charcoal);opacity:.7;text-decoration:underline;padding:14px 4px">See full process</a>
+      <span style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--charcoal);opacity:.5;padding:14px 0">&middot;&nbsp; info@prmlrecords.com &nbsp;&middot;&nbsp; (770) 686-7726</span>
     </div>
   </div>
 </section>
@@ -572,35 +580,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   <a href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=services-page&utm_campaign=consultation&utm_content=booking-cta-book-consultation" class="btn btn--cream btn--lg">Book Your Consultation &#8594;</a>
 </div>
 
-<!-- LAUNCH PROMO -->
-<section class="launch-promo" id="launch-promo">
-<style>
-.launch-promo{background:#2B2B2B;padding:80px 32px;text-align:center;position:relative;overflow:hidden}
-.launch-promo::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#E01010}
-.launch-promo__eyebrow{font-family:'Rubik Mono One',monospace;font-size:12px;color:#E01010;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
-.launch-promo__headline{font-family:'Rubik Mono One',monospace;font-size:clamp(26px,5vw,48px);color:#F5E6C8;line-height:1.15;margin-bottom:24px;text-transform:uppercase;letter-spacing:.04em}
-.launch-promo__headline span{color:#E01010}
-.launch-promo__body{font-family:'Roboto Slab',serif;font-size:clamp(16px,2vw,20px);color:#F5E6C8;max-width:680px;margin:0 auto 16px;opacity:.9;line-height:1.6}
-.launch-promo__perks{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin:32px 0}
-.launch-promo__perk{background:rgba(245,230,200,.06);border:1px solid rgba(245,230,200,.2);border-radius:8px;padding:20px 28px;min-width:200px;flex:1;max-width:260px}
-.launch-promo__perk-icon{font-size:28px;margin-bottom:8px}
-.launch-promo__perk-title{font-family:'Rubik Mono One',monospace;font-size:13px;color:#E01010;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-.launch-promo__perk-desc{font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;opacity:.8;line-height:1.5}
-.launch-promo__cta{display:inline-flex;align-items:center;gap:8px;background:#E01010;color:#fff;font-family:'Rubik Mono One',monospace;font-size:16px;letter-spacing:.06em;text-decoration:none;padding:16px 40px;border-radius:6px;margin-top:8px;text-transform:uppercase}
-.launch-promo__cta:hover{background:#A00000}
-.launch-promo__fine{font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;margin-top:20px}
-</style>
-<div class="launch-promo__eyebrow">Limited Time &#8212; Launch Offer</div>
-<h2 class="launch-promo__headline">We're launching.<br><span>You benefit.</span></h2>
-<p class="launch-promo__body">First 9 clients get setup fees waived &#8212; plus a free 30-minute consultation with every deposit.</p>
-<div class="launch-promo__perks">
-  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#127919;</div><div class="launch-promo__perk-title">Setup Fee Waived</div><div class="launch-promo__perk-desc">First 9 customers pay zero setup fees on any service.</div></div>
-  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#129309;</div><div class="launch-promo__perk-title">Free Consultation</div><div class="launch-promo__perk-desc">Every deposit includes a free 30-minute 1-on-1 consultation.</div></div>
-  <div class="launch-promo__perk"><div class="launch-promo__perk-icon">&#128274;</div><div class="launch-promo__perk-title">Secure Your Spot</div><div class="launch-promo__perk-desc">50% deposit locks in your project and your launch pricing.</div></div>
-</div>
-<a class="launch-promo__cta" href="contact.html?service=consultation&utm_source=prmlrecords&utm_medium=services-page&utm_campaign=consultation&utm_content=launch-promo-cta">Book Your Consultation &#8594;</a>
-<p class="launch-promo__fine">Offer valid for first 9 clients only &#183; Expires at PRML RECORDS discretion &#183; One per client</p>
-</section>
+<!-- (Launch promo block removed — promo lives in /js/promo-banner.js + /js/promo-config.json) -->
 
 <!-- MAILING LIST SIGNUP -->
 <section class="signup-section" id="mailing-signup">
@@ -615,7 +595,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 .signup-input:focus{border-color:#E01010}
 .signup-select{font-family:'Roboto Slab',serif;font-size:14px;padding:12px 16px;border:1.5px solid #C4B49A;border-radius:6px;background:#FAF7F0;color:#2B2B2B;width:100%;outline:none;cursor:pointer}
 .signup-btn{font-family:'Rubik Mono One',monospace;font-size:15px;padding:14px 32px;background:#E01010;color:#fff;border:none;border-radius:6px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase}
-.signup-btn:hover{background:#A00000}
+.signup-btn:hover{background:#2B2B2B}
 .signup-confirm{display:none;font-family:'Rubik Mono One',monospace;font-size:18px;color:#2B2B2B;padding:24px;background:rgba(46,45,45,.08);border-radius:8px;border-left:4px solid #E01010}
 .signup-confirm.show{display:block}
 </style>

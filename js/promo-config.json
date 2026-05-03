@@ -1,0 +1,49 @@
+{
+  "_doc": "PRML RECORDS — Site-wide promo config. Edit this file to launch / pause / change any promo. promo-banner.js reads it on every page load. Brand-locked: only --red, --cream, --charcoal, --stone allowed for theme.",
+  "version": 1,
+  "active_promo": "first-9",
+  "promos": {
+    "first-9": {
+      "label": "First 9 Customers",
+      "headline": "Setup Fees Waived + Free 30-Min Consultation",
+      "sub": "Free consultation counts as credit if you move forward · Standard pricing after first 9",
+      "counter_text": "spots left",
+      "counter_value": 9,
+      "cta_text": "Claim Free Consult →",
+      "cta_href": "contact.html?utm_source=prmlrecords&utm_medium=promo-banner&utm_campaign=first-9&utm_content=top-banner-claim",
+      "theme": "red-on-cream",
+      "starts_at": "2026-04-01",
+      "ends_at": "2026-12-31",
+      "show_on": ["all"],
+      "hide_on": ["confirm/index.html", "card/index.html", "nfc/index.html"],
+      "stripe_coupon_code": null,
+      "discount_pct": null,
+      "discount_amount": null
+    },
+    "beltline-may": {
+      "label": "Beltline Pop-Up",
+      "headline": "Find Us at Ponce City Market — May Pop-Ups",
+      "sub": "Live demos · Try the TAP CARD · 10% off when you scan our card on-site",
+      "counter_text": null,
+      "counter_value": null,
+      "cta_text": "See Pop-Up Schedule →",
+      "cta_href": "beltline.html?utm_source=prmlrecords&utm_medium=promo-banner&utm_campaign=beltline-may",
+      "theme": "charcoal-on-cream",
+      "starts_at": "2026-05-01",
+      "ends_at": "2026-05-31",
+      "show_on": ["all"],
+      "hide_on": ["confirm/index.html"],
+      "stripe_coupon_code": "BELTLINE10",
+      "discount_pct": 10,
+      "discount_amount": null
+    },
+    "off": {
+      "_doc": "Set active_promo to 'off' to suppress all banners site-wide without deleting configs."
+    }
+  },
+  "themes": {
+    "red-on-cream":      { "bg": "#E01010", "fg": "#F5E6C8", "btn_bg": "#F5E6C8", "btn_fg": "#E01010", "btn_hover_bg": "#0D0D0D", "btn_hover_fg": "#F5E6C8" },
+    "charcoal-on-cream": { "bg": "#2B2B2B", "fg": "#F5E6C8", "btn_bg": "#E01010", "btn_fg": "#F5E6C8", "btn_hover_bg": "#F5E6C8", "btn_hover_fg": "#2B2B2B" },
+    "cream-on-charcoal": { "bg": "#F5E6C8", "fg": "#2B2B2B", "btn_bg": "#2B2B2B", "btn_fg": "#F5E6C8", "btn_hover_bg": "#E01010", "btn_hover_fg": "#F5E6C8" }
+  }
+}

@@ -1,0 +1,156 @@
+/* ============================================================
+   PRML RECORDS — NAV (.nav2) — SINGLE SOURCE OF TRUTH
+   ------------------------------------------------------------
+   Was inlined per page in 21 of 32 pages, missing from 11.
+   Now centralized here. Every page links this file once.
+   Brand-locked: Charcoal #2B2B2B / Cream #F5E6C8 / Red #E01010 / Stone #C4B49A.
+   `brand.css` keeps its !important override layer on top.
+   ============================================================ */
+
+.nav2{
+  background:#2B2B2B;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+.nav2__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 32px;
+  height:60px;
+  max-width:1280px;
+  margin:0 auto;
+}
+
+.nav2__brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.nav2__brand-name{
+  font-family:'Rubik Mono One',monospace;
+  font-size:18px;
+  color:#F5E6C8;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  line-height:1;
+}
+
+.nav2__brand-name span{ color:#E01010; }
+
+.nav2__links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.nav2__item{ position:relative; }
+
+.nav2__link{
+  font-family:'Odibee Sans',sans-serif;
+  font-size:15px;
+  color:#F5E6C8;
+  text-decoration:none;
+  padding:8px 14px;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  white-space:nowrap;
+  transition:background .2s,color .2s;
+  letter-spacing:.04em;
+}
+
+.nav2__link:hover,
+.nav2__link.active{
+  background:#C4B49A;
+  color:#F5E6C8;
+}
+
+.nav2__link.active{
+  color:#E01010;
+  background:rgba(224,16,16,.1);
+}
+
+.nav2__caret{
+  font-size:10px;
+  opacity:.7;
+}
+
+.nav2__dropdown{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#2B2B2B;
+  border:1px solid #C4B49A;
+  min-width:200px;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
+  z-index:1001;
+  overflow:hidden;
+}
+
+.nav2__item:hover .nav2__dropdown{ display:block; }
+
+.nav2__drop-link{
+  display:block;
+  font-family:'Roboto Slab',serif;
+  font-size:13px;
+  color:#F5E6C8;
+  text-decoration:none;
+  padding:10px 16px;
+  border-bottom:1px solid rgba(99,93,82,.3);
+  transition:background .15s;
+}
+
+.nav2__drop-link:last-child{ border-bottom:none; }
+.nav2__drop-link:hover{ background:#C4B49A; }
+
+.nav2__burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding:8px;
+}
+
+.nav2__burger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:#F5E6C8;
+}
+
+@media (max-width:768px){
+  .nav2__links{ display:none; }
+  .nav2__burger{ display:flex; }
+
+  .nav2.mob-open .nav2__links{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:60px;
+    left:0;
+    right:0;
+    background:#2B2B2B;
+    padding:16px;
+    gap:2px;
+    border-bottom:2px solid #C4B49A;
+  }
+
+  .nav2.mob-open .nav2__dropdown{
+    position:static;
+    border:none;
+    box-shadow:none;
+    background:rgba(99,93,82,.2);
+    display:block;
+    padding-left:16px;
+  }
+
+  .nav2__item{ width:100%; }
+  .nav2__link{ width:100%; }
+}

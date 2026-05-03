@@ -338,30 +338,35 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-                        <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
+                            <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
       <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-05-02</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">fix: 3740 mojibake replacements across 54 files + reply queue admin</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">afde923</code>
+        <strong style="color:var(--red)">security: hash-based console auth + noindex on all 22 admin pages</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">125d029</code>
         <ul style='padding-left:20px;margin-top:10px'>
-          <li>Mojibake: corrupted em-dashes, en-dashes, curly quotes, ellipses,</li>
-          <li>bullets cleaned site-wide (console.html alone had 885 instances).</li>
-          <li>Updated scripts/prml-fix-mojibake.py to handle double-encoded variant</li>
-          <li>(UTF-8 -&gt; cp1252 -&gt; UTF-8) which the original PowerShell script missed.</li>
-          <li>New /admin/reply-queue.html: Phase-1 dashboard for /prml-inbox-scan</li>
-          <li>drafts. Reads from reply-queue.json (currently empty placeholder).</li>
-          <li>Live Airtable wiring ships in Phase 2.</li>
-          <li>New skill .claude/skills/prml-inbox-scan: scans Gmail for outreach</li>
-          <li>replies, classifies against 8 contingency templates, drafts replies,</li>
-          <li>logs to Airtable. Manual or cron-triggered.</li>
-          <li>8 contingency templates in 10_OUTREACH/contingency_templates/.</li>
-          <li>sw.js: cache version bumped via prml-deploy-prep.ps1.</li>
+          <li>Console auth: replaced plain DEFAULT_PW with SHA-256 SECRET_HASH.</li>
+          <li>Hard-fails with &quot;Console offline&quot; if hash placeholder still set.</li>
+          <li>In-app password change now hashes (12-char min) instead of storing</li>
+          <li>plaintext.</li>
+          <li>UI cleanup: removed visible &quot;Default: PRML369!&quot; hint from login screen.</li>
+          <li>Removed &quot;FLY clearance&quot; comment that named the password.</li>
+          <li>Indexing: added &lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow,</li>
+          <li>noarchive,nosnippet&quot;&gt; + &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;</li>
+          <li>to all 22 /admin pages and console.html. Belt-and-suspenders alongside</li>
+          <li>robots.txt.</li>
+          <li>Pre-commit hook: scripts/prml-secret-scan.py now blocks any commit</li>
+          <li>containing PRML369!, sk_live_*, xkeysib-*, sk-ant-*, AKIA*, or the</li>
+          <li>placeholder still set as the live SECRET_HASH assignment.</li>
+          <li>Triggered by 2026-05-02 incident: default password was visible on the</li>
+          <li>live login screen and as a plain literal in source. Lesson logged in</li>
+          <li>memory/feedback_security_lessons.md.</li>
           <li>Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</li>
         </ul>
       </div>
       <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
         <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-05-02 &middot; <code>125d029</code> &middot; security: hash-based console auth + noindex on all 22 admin pages</div>
         <div>2026-05-02 &middot; <code>afde923</code> &middot; fix: 3740 mojibake replacements across 54 files + reply queue admin</div>
         <div>2026-05-02 &middot; <code>f28b1ea</code> &middot; deploy: booking kit + tassili sms admin pages + today action sheet</div>
         <div>2026-04-27 &middot; <code>c668889</code> &middot; deploy: console auto-panel + cache-bust 20260426-235653</div>
@@ -369,7 +374,6 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>2026-04-26 &middot; <code>687a2e8</code> &middot; console: latest deploy panel + brand alignment + 5 new action items</div>
         <div>2026-04-26 &middot; <code>d5fffeb</code> &middot; brand v4.0 alignment + photos: 273 hex fixes, 86 photos integrated</div>
         <div>2026-04-25 &middot; <code>65c3e46</code> &middot; brochure v6 + media kit + print library hub</div>
-        <div>2026-04-25 &middot; <code>032ceac</code> &middot; about: dedicated about.html page + nav-wide About link</div>
         <!-- AUTO-DEPLOY-HISTORY:END -->
       </div>
     </div>
@@ -2405,7 +2409,7 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 //   crypto.subtle.digest('SHA-256', new TextEncoder().encode('your-new-password'))
 //     .then(b => console.log(Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('')))
 // Paste the hex into SECRET_HASH below and redeploy. Plain passwords NEVER live in source.
-const SECRET_HASH = 'ea5dfd7f150cd7390ac0276d4460a2121874e5f418a6ba9d7da15f97bcfb84f3';
+const SECRET_HASH = '6eb7dd0272945e0703432330b89a06e3feb56bd31dbe23bca2e6bfd20b8f7773';
 
 async function sha256Hex(s){
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
@@ -2956,6 +2960,7 @@ function lpGenerate(){
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/brand.css">
+<link rel="stylesheet" href="../css/nav.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"><\\/script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');<\\/script>
 <style>body{margin:0;background:#131313;color:#F5E6C8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
