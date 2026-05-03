@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<title>PRML Command Console</title>
+<title>Command Console</title>
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -180,12 +182,8 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
     <div class="login-title">Command Console</div>
     <div class="login-sub">PRML Records LLC — Restricted Access</div>
     <input type="password" id="pw" placeholder="Enter access code" onkeydown="if(event.key==='Enter')tryLogin()">
-    <button class="btn-full" onclick="tryLogin()">ENTER â†’</button>
+    <button class="btn-full" onclick="tryLogin()">ENTER &rarr;</button>
     <div class="login-err" id="pw-err">Access denied. Check your code.</div>
-    <div style="font-size:11px;opacity:.25;margin-top:16px;font-weight:300;line-height:1.6">
-      FLY clearance active. Set your password in console.html line ~300.<br>
-      Default: <code style="opacity:.6">PRML369!</code>
-    </div>
   </div>
 </div>
 
@@ -340,22 +338,31 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-                    <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
+                        <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
       <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-05-02</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">deploy: booking kit + tassili sms admin pages + today action sheet</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">f28b1ea</code>
+        <strong style="color:var(--red)">fix: 3740 mojibake replacements across 54 files + reply queue admin</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">afde923</code>
         <ul style='padding-left:20px;margin-top:10px'>
-          <li>New /admin/booking-kit.html: 10 copy-paste templates (performance, speaking, vendor, custom order, services, press, pricing, schedule, follow-up) + FAQ + phone script. Click-to-copy buttons.</li>
-          <li>New /admin/tassili-sms.html: SMS reply drafts for Tassili's Raw Reality (Wonderful Wizards of Raw Festival).</li>
-          <li>Console: Today's Action Sheet card added at top of Sponsorship tab linking both new pages + Apr 25 sponsors campaign + Apr 26 ATL/Fulton campaign + ASUS marketing pitch.</li>
-          <li>sw.js: cache version bumped (auto via prml-deploy-prep.ps1).</li>
+          <li>Mojibake: corrupted em-dashes, en-dashes, curly quotes, ellipses,</li>
+          <li>bullets cleaned site-wide (console.html alone had 885 instances).</li>
+          <li>Updated scripts/prml-fix-mojibake.py to handle double-encoded variant</li>
+          <li>(UTF-8 -&gt; cp1252 -&gt; UTF-8) which the original PowerShell script missed.</li>
+          <li>New /admin/reply-queue.html: Phase-1 dashboard for /prml-inbox-scan</li>
+          <li>drafts. Reads from reply-queue.json (currently empty placeholder).</li>
+          <li>Live Airtable wiring ships in Phase 2.</li>
+          <li>New skill .claude/skills/prml-inbox-scan: scans Gmail for outreach</li>
+          <li>replies, classifies against 8 contingency templates, drafts replies,</li>
+          <li>logs to Airtable. Manual or cron-triggered.</li>
+          <li>8 contingency templates in 10_OUTREACH/contingency_templates/.</li>
+          <li>sw.js: cache version bumped via prml-deploy-prep.ps1.</li>
           <li>Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</li>
         </ul>
       </div>
       <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
         <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-05-02 &middot; <code>afde923</code> &middot; fix: 3740 mojibake replacements across 54 files + reply queue admin</div>
         <div>2026-05-02 &middot; <code>f28b1ea</code> &middot; deploy: booking kit + tassili sms admin pages + today action sheet</div>
         <div>2026-04-27 &middot; <code>c668889</code> &middot; deploy: console auto-panel + cache-bust 20260426-235653</div>
         <div>2026-04-26 &middot; <code>ebadb8b</code> &middot; campaign + tooling: ATL/Fulton outreach + investor deck v1 + auto-update hook</div>
@@ -363,7 +370,6 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>2026-04-26 &middot; <code>d5fffeb</code> &middot; brand v4.0 alignment + photos: 273 hex fixes, 86 photos integrated</div>
         <div>2026-04-25 &middot; <code>65c3e46</code> &middot; brochure v6 + media kit + print library hub</div>
         <div>2026-04-25 &middot; <code>032ceac</code> &middot; about: dedicated about.html page + nav-wide About link</div>
-        <div>2026-04-25 &middot; <code>080dd42</code> &middot; seaux9: one landing page + console Automation tab</div>
         <!-- AUTO-DEPLOY-HISTORY:END -->
       </div>
     </div>
@@ -1294,8 +1300,8 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <button class="btn btn-red btn-sm" onclick="changePw()">UPDATE CODE</button>
         <div id="pw-msg" style="font-size:12px;margin-top:10px;display:none"></div>
         <div style="font-size:11px;opacity:.35;margin-top:14px;font-weight:300;line-height:1.6">
-          Access code stored locally in browser.<br>
-          To make permanent: update DEFAULT_PW in console.html
+          Min 12 characters. Hashed (SHA-256) before storage.<br>
+          To make permanent across devices: paste the resulting hash into SECRET_HASH in console.html.
         </div>
       </div>
 
@@ -2394,13 +2400,29 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
 
 <script>
 // â”€â”€ ACCESS CONTROL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// FLY: Change default password here (line ~300 area):
-const DEFAULT_PW = 'PRML369!';
+// Console access. SECRET_HASH below = SHA-256 of the password.
+// To rotate: in your browser DevTools console, run:
+//   crypto.subtle.digest('SHA-256', new TextEncoder().encode('your-new-password'))
+//     .then(b => console.log(Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('')))
+// Paste the hex into SECRET_HASH below and redeploy. Plain passwords NEVER live in source.
+const SECRET_HASH = 'ea5dfd7f150cd7390ac0276d4460a2121874e5f418a6ba9d7da15f97bcfb84f3';
 
-function tryLogin(){
-  const stored = localStorage.getItem('prml_console_pw') || DEFAULT_PW;
+async function sha256Hex(s){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(x => x.toString(16).padStart(2,'0')).join('');
+}
+
+async function tryLogin(){
   const input = document.getElementById('pw').value;
-  if(input === stored){
+  if (SECRET_HASH === '__SET_THIS_HASH_BEFORE_DEPLOY__') {
+    const err = document.getElementById('pw-err');
+    err.textContent = 'Console offline. SECRET_HASH not configured.';
+    err.style.display='block';
+    return;
+  }
+  const stored = localStorage.getItem('prml_console_pw_hash') || SECRET_HASH;
+  const inputHash = await sha256Hex(input);
+  if(inputHash === stored){
     document.getElementById('login-wrap').style.display='none';
     document.getElementById('console').classList.add('active');
     localStorage.setItem('prml_authed','1');
@@ -2409,6 +2431,7 @@ function tryLogin(){
     loadSpots();
     initStoreEditor();
   } else {
+    document.getElementById('pw-err').textContent = 'Access denied. Check your code.';
     document.getElementById('pw-err').style.display='block';
   }
 }
@@ -3086,14 +3109,17 @@ function generateAllPrompts(){
       </div>`).join('')}`;
 }
 
-function changePw(){
+async function changePw(){
   const np = document.getElementById('new-pw').value;
   const cp = document.getElementById('confirm-pw').value;
   const msg = document.getElementById('pw-msg');
   if(!np){ msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Enter a new code.'; return; }
+  if(np.length < 12){ msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Min 12 chars.'; return; }
   if(np!==cp){ msg.style.display='block'; msg.style.color='var(--red)'; msg.textContent='Codes do not match.'; return; }
-  localStorage.setItem('prml_console_pw', np);
-  msg.style.display='block'; msg.style.color='var(--green)'; msg.textContent='Access code updated.';
+  const hash = await sha256Hex(np);
+  localStorage.setItem('prml_console_pw_hash', hash);
+  msg.style.display='block'; msg.style.color='var(--green)';
+  msg.textContent='Updated locally. To make permanent across devices, paste this hash into SECRET_HASH in console.html: ' + hash;
   document.getElementById('new-pw').value='';
   document.getElementById('confirm-pw').value='';
 }
