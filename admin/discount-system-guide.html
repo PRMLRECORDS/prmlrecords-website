@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<title>Discount System Guide | PRML RECORDS</title>
+<style>
+:root{--red:#E01010;--cream:#F5E6C8;--cream-dk:#E8D4A8;--charcoal:#2B2B2B;--black:#0D0D0D;--stone:#C4B49A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--charcoal);font-family:'Roboto Slab',Georgia,serif;font-size:15px;line-height:1.75}
+a{color:var(--red);text-decoration:underline}
+code{font-family:'SF Mono',Menlo,monospace;background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px;font-size:13px}
+pre{background:var(--charcoal);color:var(--cream);padding:20px;overflow-x:auto;font-family:'SF Mono',Menlo,monospace;font-size:13px;line-height:1.65;margin:16px 0;border-left:4px solid var(--red)}
+.wrap{max-width:920px;margin:0 auto;padding:40px 28px 80px}
+h1{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:clamp(28px,4.5vw,44px);color:var(--red);letter-spacing:-1px;margin-bottom:8px;line-height:1}
+h2{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:22px;color:var(--charcoal);margin:48px 0 14px;padding-top:36px;border-top:3px solid var(--red);letter-spacing:-.5px}
+h3{font-family:'Odibee Sans',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin:24px 0 10px}
+p{margin-bottom:14px;opacity:.85}
+ul,ol{margin:12px 0 18px 22px}
+li{margin-bottom:8px;opacity:.85}
+.tip{background:rgba(224,16,16,.07);border-left:4px solid var(--red);padding:14px 18px;margin:18px 0;font-size:14px}
+.warn{background:rgba(43,43,43,.06);border-left:4px solid var(--charcoal);padding:14px 18px;margin:18px 0;font-size:14px}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;background:var(--cream-dk);padding:16px 20px}
+.step-num{font-family:'Rubik Mono One',monospace;font-size:24px;color:var(--red);flex-shrink:0;min-width:32px;line-height:1}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(43,43,43,.15);vertical-align:top}
+th{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--red);background:var(--cream-dk)}
+.nav-strip{background:var(--black);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.nav-strip-title{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:14px;color:var(--cream);letter-spacing:.06em}
+.nav-strip-title span{color:var(--red)}
+.nav-strip a{font-family:'Odibee Sans',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--red);padding:6px 12px;border:1px solid var(--red);text-decoration:none;transition:.2s}
+.nav-strip a:hover{background:var(--red);color:var(--cream)}
+</style>
+</head>
+<body>
+<div class="nav-strip">
+  <div class="nav-strip-title">PRML <span>RECORDS</span> &mdash; Discount System Guide</div>
+  <div style="display:flex;gap:10px">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="../index.html" target="_blank">View Site</a>
+  </div>
+</div>
+
+<div class="wrap">
+<h1>Discount System Guide</h1>
+<p style="font-size:16px;opacity:.65">Everything about the site-wide promo banner and Stripe coupon system. Two source-of-truth files, live counters, auto-apply URLs.</p>
+
+<div class="tip">
+<strong>Two files control everything:</strong><br>
+1. <code>js/promo-config.json</code> &mdash; what shows on the site (banner, copy, URLs)<br>
+2. <strong>Stripe Dashboard &rarr; Coupons</strong> &mdash; what actually discounts at checkout<br>
+The coupon code (uppercase) in the JSON must match the coupon ID in Stripe exactly.
+</div>
+
+<h2 id="setup">1. ONE-TIME STRIPE SETUP &mdash; Create the coupons</h2>
+<p>Go to <a href="https://dashboard.stripe.com/coupons" target="_blank">Stripe Dashboard &rarr; Coupons</a> and create these 5 coupons. The <code>ID</code> field is the most important &mdash; it must match the JSON exactly.</p>
+
+<table>
+<tr><th>Coupon ID (uppercase)</th><th>Type</th><th>Discount</th><th>Max Redemptions</th><th>Purpose</th></tr>
+<tr><td><code>FIRST9_SETUP_FREE</code></td><td>Amount off</td><td>$150.00</td><td><strong>9</strong></td><td>Waives setup fee on first 9 NFC custom orders. Auto-disables when full.</td></tr>
+<tr><td><code>PRML5</code></td><td>Percent off</td><td>5%</td><td>Unlimited</td><td>Newsletter / first-time visitor discount</td></tr>
+<tr><td><code>PRML10</code></td><td>Percent off</td><td>10%</td><td>Unlimited</td><td>Email campaigns / IG link-in-bio</td></tr>
+<tr><td><code>PRML20</code></td><td>Percent off</td><td>20%</td><td>Unlimited</td><td>Black Friday / launch events</td></tr>
+<tr><td><code>BELTLINE10</code></td><td>Percent off</td><td>10%</td><td>Unlimited (or set to 100)</td><td>Beltline pop-up scan-our-card discount</td></tr>
+</table>
+
+<div class="warn">
+<strong>Important:</strong> Coupon IDs are case-sensitive but our system normalizes to UPPERCASE. Always create coupons with UPPERCASE IDs in Stripe (e.g. <code>PRML10</code> not <code>prml10</code>) so the URL <code>?promo=PRML10</code> matches.
+</div>
+
+<h2 id="launch-promo">2. Launch a promo campaign (banner across whole site)</h2>
+
+<div class="step"><div class="step-num">1</div><div>
+Open <code>js/promo-config.json</code> on your computer.
+</div></div>
+<div class="step"><div class="step-num">2</div><div>
+Either edit an existing promo (e.g. <code>"first-9"</code>, <code>"beltline-may"</code>) or add a new one to the <code>"promos"</code> object. Each promo needs:
+<pre>"my-promo": {
+  "label": "Spring Launch",
+  "headline": "20% OFF &mdash; Spring Drop, This Week Only",
+  "sub": "Use code PRML20 at checkout &middot; ends Sunday",
+  "stripe_coupon_code": "PRML20",
+  "live_counter": false,
+  "counter_text": null,
+  "counter_value_fallback": null,
+  "cta_text": "Shop Now &rarr;",
+  "cta_href": "shop.html?utm_source=prmlrecords&utm_medium=promo-banner&utm_campaign=spring-launch",
+  "auto_apply_url": "?promo=PRML20",
+  "theme": "red-on-cream",
+  "starts_at": "2026-05-15",
+  "ends_at": "2026-05-22",
+  "show_on": ["all"],
+  "hide_on": ["confirm/index.html"]
+}</pre>
+</div></div>
+<div class="step"><div class="step-num">3</div><div>
+Set <code>"active_promo": "my-promo"</code> at the top of the file.
+</div></div>
+<div class="step"><div class="step-num">4</div><div>
+Run <code>/prml-cache-bust</code> then <code>/prml-deploy</code>. Banner appears on every page within 60 seconds.
+</div></div>
+
+<h2 id="pause">3. Pause / kill the promo</h2>
+<p>Set <code>"active_promo": "off"</code> in <code>js/promo-config.json</code>, run <code>/prml-deploy</code>. Banner disappears site-wide. The Stripe coupon stays active so you don't lose redemption history.</p>
+
+<h2 id="urls">4. Auto-apply discount URLs (for marketing campaigns)</h2>
+<p>Send these URLs in emails, IG bio, SMS &mdash; the discount auto-applies when the customer reaches checkout. They never type a code.</p>
+<table>
+<tr><th>Send this URL</th><th>What happens</th></tr>
+<tr><td><code>https://prmlrecords.com/?promo=PRML10</code></td><td>10% off auto-applied at checkout</td></tr>
+<tr><td><code>https://prmlrecords.com/shop.html?promo=PRML20</code></td><td>20% off auto-applied at checkout</td></tr>
+<tr><td><code>https://prmlrecords.com/services.html?promo=FIRST9_SETUP_FREE</code></td><td>$150 setup fee waived (capped at 9)</td></tr>
+<tr><td><code>https://prmlrecords.com/?promo=FRIEND15</code></td><td>15% friends-and-family</td></tr>
+</table>
+<div class="tip">
+The promo code is captured by <code>js/promo-banner.js</code> on landing, stored in the visitor's browser, and silently sent to <code>/api/checkout</code> when they pay. They can also remove it on the checkout page.
+</div>
+
+<h2 id="counter">5. The "X spots left" live counter</h2>
+<p>Set <code>"live_counter": true</code> on a promo to show a real-time count. The banner calls <code>/api/promo-status?code=COUPON_ID</code> which counts actual succeeded payments tagged with that coupon. Cached 30 seconds at the edge.</p>
+
+<p>When the count hits the coupon's <code>max_redemptions</code>:</p>
+<ol>
+<li>The webhook (<code>/api/webhook</code>) <strong>deletes</strong> the Stripe coupon &mdash; hard kill switch, no further redemptions possible</li>
+<li><code>/api/promo-status</code> returns 410 Gone on next call</li>
+<li><code>js/promo-banner.js</code> hides the whole banner and clears any stored coupon</li>
+<li>Customers who already had the URL get the same "promo invalid" message at checkout</li>
+</ol>
+
+<h2 id="add-new">6. Add a brand-new discount code</h2>
+<div class="step"><div class="step-num">1</div><div>
+Create the coupon in <a href="https://dashboard.stripe.com/coupons" target="_blank">Stripe &rarr; Coupons</a> with an UPPERCASE ID like <code>SUMMER25</code>.
+</div></div>
+<div class="step"><div class="step-num">2</div><div>
+Optional &mdash; add to <code>storewide_codes</code> in <code>js/promo-config.json</code> for documentation:
+<pre>"SUMMER25": { "label": "25% Summer Sale", "percent_off": 25, "purpose": "June email", "auto_apply_url": "?promo=SUMMER25" }</pre>
+</div></div>
+<div class="step"><div class="step-num">3</div><div>
+That's it &mdash; the code now works at checkout (auto-apply via URL or manual entry). No code deploy needed if you're not making it the active banner promo.
+</div></div>
+
+<h2 id="audit">7. How to audit which discounts ran</h2>
+<ul>
+<li><strong>Stripe Dashboard &rarr; Coupons &rarr; [coupon] &rarr; Times redeemed</strong> shows live count (auto for Checkout Sessions; for raw PaymentIntents we count via metadata search)</li>
+<li><strong>Stripe Dashboard &rarr; Payments</strong> &mdash; filter by metadata <code>promo_code</code> equals the coupon ID</li>
+<li><strong>Airtable &rarr; Orders</strong> &mdash; every paid order has the promo code (if any) in the Stripe metadata</li>
+</ul>
+
+<h2 id="troubleshoot">8. Troubleshooting</h2>
+<table>
+<tr><th>Problem</th><th>Fix</th></tr>
+<tr><td>Banner not showing</td><td>Check <code>active_promo</code> spelled correctly, dates valid, page not in <code>hide_on</code></td></tr>
+<tr><td>Counter shows fallback (&mdash;) forever</td><td>Coupon ID typo, or <code>checkout_api_base</code> URL wrong in config</td></tr>
+<tr><td>"Promo code not found" at checkout</td><td>Coupon ID in JSON doesn't match Stripe (case sensitive!) &mdash; recreate in Stripe with UPPERCASE</td></tr>
+<tr><td>Discount didn't apply but customer says they used the URL</td><td>Stripe coupon was deleted (capped) OR expired &mdash; check Stripe &rarr; Coupons</td></tr>
+<tr><td>Promo banner shows after cap was reached</td><td>Edge cache (30s) &mdash; wait a minute. If persistent, check <code>/api/promo-status</code> directly</td></tr>
+</table>
+
+<h2 id="files">9. Where every file lives</h2>
+<table>
+<tr><th>File</th><th>Role</th></tr>
+<tr><td><code>js/promo-config.json</code></td><td>Active promo + theme + dates + URLs (edit this most)</td></tr>
+<tr><td><code>js/promo-banner.js</code></td><td>Renders banner, captures <code>?promo=</code> URL param, fetches live counter</td></tr>
+<tr><td><code>checkout-app/pages/api/checkout.js</code></td><td>Validates coupon + creates discounted PaymentIntent</td></tr>
+<tr><td><code>checkout-app/pages/api/promo-status.js</code></td><td>Live counter for the banner (counts succeeded PaymentIntents)</td></tr>
+<tr><td><code>checkout-app/pages/api/webhook.js</code></td><td>Deletes coupon when capped; logs every redemption</td></tr>
+<tr><td><code>checkout-app/pages/checkout.jsx</code></td><td>Promo input field + "Apply" / "remove" buttons + discount line</td></tr>
+</table>
+
+<p style="margin-top:48px;font-size:13px;opacity:.5">PRML RECORDS &middot; Discount System v1 &middot; 2026-05-03 &middot; With Gratitude.</p>
+</div>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

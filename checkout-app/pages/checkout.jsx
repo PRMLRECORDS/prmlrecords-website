@@ -198,6 +198,12 @@ export default function CheckoutPage() {
   const [state, setState] = useState('');
   const [zip, setZip]     = useState('');
 
+  // Promo / discount state
+  const [promoCodeInput, setPromoCodeInput] = useState('');   // what's in the text field
+  const [appliedPromo, setAppliedPromo]     = useState(null); // { code, label, discount_cents } | null
+  const [promoError, setPromoError]         = useState('');
+  const [promoLoading, setPromoLoading]     = useState(false);
+
   // ── Load cart: URL params (cross-domain) → localStorage (same-domain) ────
   useEffect(() => {
     let loaded = [];
@@ -211,6 +217,21 @@ export default function CheckoutPage() {
         // Prefill customer info from URL if available
         if (params.get('customer_name'))  setName(params.get('customer_name'));
         if (params.get('customer_email')) setEmail(params.get('customer_email'));
+      }
+      // Promo from URL (?promo=PRML10) overrides anything in storage
+      const promoFromUrl = params.get('promo');
+      if (promoFromUrl) {
+        const clean = String(promoFromUrl).toUpperCase().replace(/[^A-Z0-9_-]/g, '').slice(0, 40);
+        if (clean) {
+          setPromoCodeInput(clean);
+          try { localStorage.setItem('prml_promo_code', clean); } catch {}
+        }
+      } else {
+        // Otherwise check what promo-banner.js captured on the marketing site
+        try {
+          const stored = localStorage.getItem('prml_promo_code');
+          if (stored) setPromoCodeInput(stored);
+        } catch {}
       }
     } catch (e) {
       console.warn('[checkout] URL cart parse failed:', e);
@@ -228,7 +249,7 @@ export default function CheckoutPage() {
     setCart(loaded);
   }, []);
 
-  // ── Fetch PaymentIntent client_secret once cart is ready ─────────────────
+  // ── Fetch PaymentIntent client_secret when cart OR appliedPromo changes ──
   useEffect(() => {
     if (!cart.length) return;
 
@@ -237,27 +258,70 @@ export default function CheckoutPage() {
     const total    = subtotal + tax + FLAT_FEE;
     const amountCents = Math.round(total * 100);
 
+    const body = { amount: amountCents };
+    if (appliedPromo && appliedPromo.code) body.promo_code = appliedPromo.code;
+
     fetch('/api/checkout', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: amountCents }),
+      body: JSON.stringify(body),
     })
       .then((r) => r.json())
       .then((d) => {
         if (d.clientSecret) {
           setClientSecret(d.clientSecret);
+          // If server applied a promo (e.g. captured from URL on first load),
+          // mirror that into appliedPromo so the UI shows it.
+          if (d.promo_code && (!appliedPromo || appliedPromo.code !== d.promo_code)) {
+            setAppliedPromo({
+              code:           d.promo_code,
+              label:          d.promo_label || d.promo_code,
+              discount_cents: d.discount_cents || 0,
+            });
+          }
+        } else if (d.error && d.code === 'promo_invalid') {
+          // Server rejected the coupon — strip it and retry without
+          setPromoError(d.error);
+          setAppliedPromo(null);
+          try { localStorage.removeItem('prml_promo_code'); } catch {}
         } else {
           setFetchError('Unable to initialise payment. Please refresh and try again.');
         }
       })
       .catch(() => setFetchError('Network error. Please check your connection.'));
-  }, [cart]);
+  }, [cart, appliedPromo]);
+
+  // ── Apply / remove promo code ────────────────────────────────────────────
+  async function applyPromo() {
+    const code = String(promoCodeInput || '').trim().toUpperCase().replace(/[^A-Z0-9_-]/g, '').slice(0, 40);
+    if (!code) {
+      setPromoError('Enter a promo code first');
+      return;
+    }
+    setPromoLoading(true);
+    setPromoError('');
+
+    // Setting appliedPromo triggers the useEffect above, which calls /api/checkout
+    // and reflects the server's discount calculation back into state.
+    setAppliedPromo({ code, label: code, discount_cents: 0 });
+    try { localStorage.setItem('prml_promo_code', code); } catch {}
+    setPromoLoading(false);
+  }
+
+  function removePromo() {
+    setAppliedPromo(null);
+    setPromoCodeInput('');
+    setPromoError('');
+    try { localStorage.removeItem('prml_promo_code'); } catch {}
+  }
 
   // ── Derived totals ────────────────────────────────────────────────────────
-  const subtotal = cart.reduce((s, i) => s + (parseFloat(i.price) || 0), 0);
-  const tax      = subtotal * GA_TAX_RATE;
-  const total    = subtotal + tax + FLAT_FEE;
-  const delivery = getDeliveryWindow(cart);
+  const subtotal       = cart.reduce((s, i) => s + (parseFloat(i.price) || 0), 0);
+  const tax            = subtotal * GA_TAX_RATE;
+  const totalBefore    = subtotal + tax + FLAT_FEE;
+  const discountAmount = appliedPromo ? (appliedPromo.discount_cents || 0) / 100 : 0;
+  const total          = Math.max(1, totalBefore - discountAmount);
+  const delivery       = getDeliveryWindow(cart);
 
   // ── Success state ─────────────────────────────────────────────────────────
   if (orderId) {
@@ -371,10 +435,57 @@ export default function CheckoutPage() {
                   <span>Shipping &amp; Handling</span>
                   <span>${FLAT_FEE.toFixed(2)}</span>
                 </div>
+                {appliedPromo && discountAmount > 0 && (
+                  <div className="flex justify-between text-red font-bold">
+                    <span>
+                      Promo: {appliedPromo.label}
+                      <button
+                        type="button"
+                        onClick={removePromo}
+                        className="ml-2 text-charcoal/50 underline text-xs font-normal hover:text-red"
+                      >
+                        remove
+                      </button>
+                    </span>
+                    <span>−${discountAmount.toFixed(2)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-charcoal font-bold border-t border-charcoal/20 pt-2 mt-2">
                   <span className="font-label text-[10px] tracking-[3px] uppercase">Total</span>
                   <span className="font-mono text-base">${total.toFixed(2)}</span>
                 </div>
+              </div>
+
+              {/* Promo code entry */}
+              <div className="mt-4 border-t border-charcoal/10 pt-4">
+                {!appliedPromo || discountAmount === 0 ? (
+                  <div>
+                    <label className="font-label text-[9px] tracking-[3px] uppercase text-charcoal/70 block mb-2">
+                      Promo Code
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={promoCodeInput}
+                        onChange={(e) => setPromoCodeInput(e.target.value.toUpperCase())}
+                        placeholder="PRML10"
+                        className="flex-1 border border-charcoal/20 bg-cream px-3 py-2 font-mono text-sm text-charcoal uppercase focus:border-red focus:outline-none"
+                        maxLength={40}
+                      />
+                      <button
+                        type="button"
+                        onClick={applyPromo}
+                        disabled={promoLoading || !promoCodeInput}
+                        className="bg-charcoal text-cream font-label text-[10px] tracking-[3px] uppercase px-4 py-2 hover:bg-red transition-colors disabled:opacity-50"
+                      >
+                        {promoLoading ? '...' : 'Apply'}
+                      </button>
+                    </div>
+                    {promoError && (
+                      <p className="font-body text-xs text-red mt-2">{promoError}</p>
+                    )}
+                  </div>
+                ) : null}
               </div>
             </div>
 

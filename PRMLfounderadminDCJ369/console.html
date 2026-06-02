@@ -338,34 +338,29 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-                            <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
+                                <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
-      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-05-02</div>
+      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-05-03</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">security: hash-based console auth + noindex on all 22 admin pages</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">125d029</code>
+        <strong style="color:var(--red)">deploy: nav.css single-source-of-truth + site-wide promo system + services redesign</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">fa47ab5</code>
         <ul style='padding-left:20px;margin-top:10px'>
-          <li>Console auth: replaced plain DEFAULT_PW with SHA-256 SECRET_HASH.</li>
-          <li>Hard-fails with &quot;Console offline&quot; if hash placeholder still set.</li>
-          <li>In-app password change now hashes (12-char min) instead of storing</li>
-          <li>plaintext.</li>
-          <li>UI cleanup: removed visible &quot;Default: PRML369!&quot; hint from login screen.</li>
-          <li>Removed &quot;FLY clearance&quot; comment that named the password.</li>
-          <li>Indexing: added &lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow,</li>
-          <li>noarchive,nosnippet&quot;&gt; + &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;</li>
-          <li>to all 22 /admin pages and console.html. Belt-and-suspenders alongside</li>
-          <li>robots.txt.</li>
-          <li>Pre-commit hook: scripts/prml-secret-scan.py now blocks any commit</li>
-          <li>containing PRML369!, sk_live_*, xkeysib-*, sk-ant-*, AKIA*, or the</li>
-          <li>placeholder still set as the live SECRET_HASH assignment.</li>
-          <li>Triggered by 2026-05-02 incident: default password was visible on the</li>
-          <li>live login screen and as a plain literal in source. Lesson logged in</li>
-          <li>memory/feedback_security_lessons.md.</li>
+          <li>New css/nav.css extracts .nav2 base layout (was inlined in 21/32 pages, missing in 11)</li>
+          <li>Linked nav.css across 47 HTML pages -&gt; fixes broken header on services, products, shop,</li>
+          <li>how-it-works, beat-licensing, beltline, seaux9booking, privacypolicy, termsofservice,</li>
+          <li>blog/index, confirm/index</li>
+          <li>New js/promo-banner.js + js/promo-config.json: edit ONE file to launch/pause/change</li>
+          <li>any promo site-wide (3 brand-locked themes, date window, page filter, optional Stripe coupon)</li>
+          <li>services.html redesign: new hero (eyebrow + dual CTA + tier nav), evergreen</li>
+          <li>&quot;30-min consultation&quot; 3-step section, removed 2 duplicate hardcoded promo blocks</li>
+          <li>and 3 emoji icons</li>
+          <li>sw.js cache bump 20260502-201449 -&gt; 20260503-100912</li>
           <li>Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</li>
         </ul>
       </div>
       <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
         <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-05-03 &middot; <code>fa47ab5</code> &middot; deploy: nav.css single-source-of-truth + site-wide promo system + services redesign</div>
         <div>2026-05-02 &middot; <code>125d029</code> &middot; security: hash-based console auth + noindex on all 22 admin pages</div>
         <div>2026-05-02 &middot; <code>afde923</code> &middot; fix: 3740 mojibake replacements across 54 files + reply queue admin</div>
         <div>2026-05-02 &middot; <code>f28b1ea</code> &middot; deploy: booking kit + tassili sms admin pages + today action sheet</div>
@@ -373,7 +368,6 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>2026-04-26 &middot; <code>ebadb8b</code> &middot; campaign + tooling: ATL/Fulton outreach + investor deck v1 + auto-update hook</div>
         <div>2026-04-26 &middot; <code>687a2e8</code> &middot; console: latest deploy panel + brand alignment + 5 new action items</div>
         <div>2026-04-26 &middot; <code>d5fffeb</code> &middot; brand v4.0 alignment + photos: 273 hex fixes, 86 photos integrated</div>
-        <div>2026-04-25 &middot; <code>65c3e46</code> &middot; brochure v6 + media kit + print library hub</div>
         <!-- AUTO-DEPLOY-HISTORY:END -->
       </div>
     </div>
