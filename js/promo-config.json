@@ -2,7 +2,7 @@
   "_doc": "PRML RECORDS — Site-wide promo + discount config. ONE source of truth. Edit this file to launch / pause / change any promo. Stripe coupon IDs (uppercase) MUST exist in Stripe dashboard before they'll work at checkout. See admin/discount-system-guide.html.",
   "version": 2,
   "active_promo": "first-9",
-  "checkout_api_base": "https://checkout.prmlrecords.com",
+  "checkout_api_base": "https://prmlrecords-checkout.onrender.com",
 
   "promos": {
     "first-9": {
