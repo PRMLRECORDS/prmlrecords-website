@@ -7,8 +7,8 @@
   "promos": {
     "first-9": {
       "label": "First 9 Customers",
-      "headline": "Setup Fees Waived + Free 30-Min Consultation",
-      "sub": "Live counter — updates from Stripe in real time",
+      "headline": "First 9 Customers: $15.99 Setup Fee Waived + Free 30-Min Consult",
+      "sub": "Live counter pulled from Stripe — once the 9 spots are filled, full price returns automatically",
       "stripe_coupon_code": "FIRST9_SETUP_FREE",
       "live_counter": true,
       "counter_text": "spots left",

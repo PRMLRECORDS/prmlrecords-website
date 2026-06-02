@@ -338,36 +338,29 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-                                <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
+                                    <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
-      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-05-03</div>
+      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-06-01</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">deploy: nav.css single-source-of-truth + site-wide promo system + services redesign</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">fa47ab5</code>
+        <strong style="color:var(--red)">fix: promo-config checkout_api_base -&gt; prmlrecords-checkout.onrender.com</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">00c9f54</code>
         <ul style='padding-left:20px;margin-top:10px'>
-          <li>New css/nav.css extracts .nav2 base layout (was inlined in 21/32 pages, missing in 11)</li>
-          <li>Linked nav.css across 47 HTML pages -&gt; fixes broken header on services, products, shop,</li>
-          <li>how-it-works, beat-licensing, beltline, seaux9booking, privacypolicy, termsofservice,</li>
-          <li>blog/index, confirm/index</li>
-          <li>New js/promo-banner.js + js/promo-config.json: edit ONE file to launch/pause/change</li>
-          <li>any promo site-wide (3 brand-locked themes, date window, page filter, optional Stripe coupon)</li>
-          <li>services.html redesign: new hero (eyebrow + dual CTA + tier nav), evergreen</li>
-          <li>&quot;30-min consultation&quot; 3-step section, removed 2 duplicate hardcoded promo blocks</li>
-          <li>and 3 emoji icons</li>
-          <li>sw.js cache bump 20260502-201449 -&gt; 20260503-100912</li>
+          <li>The placeholder host (checkout.prmlrecords.com) doesn't resolve.</li>
+          <li>Render service is actually at prmlrecords-checkout.onrender.com.</li>
+          <li>Without this, the live counter can't reach /api/promo-status.</li>
           <li>Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</li>
         </ul>
       </div>
       <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
         <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-06-01 &middot; <code>00c9f54</code> &middot; fix: promo-config checkout_api_base -&gt; prmlrecords-checkout.onrender.com</div>
+        <div>2026-06-01 &middot; <code>0b841e7</code> &middot; deploy: discount system v1 + cache-bust 20260601-212053</div>
         <div>2026-05-03 &middot; <code>fa47ab5</code> &middot; deploy: nav.css single-source-of-truth + site-wide promo system + services redesign</div>
         <div>2026-05-02 &middot; <code>125d029</code> &middot; security: hash-based console auth + noindex on all 22 admin pages</div>
         <div>2026-05-02 &middot; <code>afde923</code> &middot; fix: 3740 mojibake replacements across 54 files + reply queue admin</div>
         <div>2026-05-02 &middot; <code>f28b1ea</code> &middot; deploy: booking kit + tassili sms admin pages + today action sheet</div>
         <div>2026-04-27 &middot; <code>c668889</code> &middot; deploy: console auto-panel + cache-bust 20260426-235653</div>
         <div>2026-04-26 &middot; <code>ebadb8b</code> &middot; campaign + tooling: ATL/Fulton outreach + investor deck v1 + auto-update hook</div>
-        <div>2026-04-26 &middot; <code>687a2e8</code> &middot; console: latest deploy panel + brand alignment + 5 new action items</div>
-        <div>2026-04-26 &middot; <code>d5fffeb</code> &middot; brand v4.0 alignment + photos: 273 hex fixes, 86 photos integrated</div>
         <!-- AUTO-DEPLOY-HISTORY:END -->
       </div>
     </div>

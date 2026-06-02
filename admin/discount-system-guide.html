@@ -61,7 +61,7 @@ The coupon code (uppercase) in the JSON must match the coupon ID in Stripe exact
 
 <table>
 <tr><th>Coupon ID (uppercase)</th><th>Type</th><th>Discount</th><th>Max Redemptions</th><th>Purpose</th></tr>
-<tr><td><code>FIRST9_SETUP_FREE</code></td><td>Amount off</td><td>$150.00</td><td><strong>9</strong></td><td>Waives setup fee on first 9 NFC custom orders. Auto-disables when full.</td></tr>
+<tr><td><code>FIRST9_SETUP_FREE</code></td><td>Amount off</td><td>$15.99</td><td><strong>9</strong></td><td>Waives the $15.99 setup fee on the first 9 custom NFC orders. Auto-disables when full.</td></tr>
 <tr><td><code>PRML5</code></td><td>Percent off</td><td>5%</td><td>Unlimited</td><td>Newsletter / first-time visitor discount</td></tr>
 <tr><td><code>PRML10</code></td><td>Percent off</td><td>10%</td><td>Unlimited</td><td>Email campaigns / IG link-in-bio</td></tr>
 <tr><td><code>PRML20</code></td><td>Percent off</td><td>20%</td><td>Unlimited</td><td>Black Friday / launch events</td></tr>
@@ -113,7 +113,7 @@ Run <code>/prml-cache-bust</code> then <code>/prml-deploy</code>. Banner appears
 <tr><th>Send this URL</th><th>What happens</th></tr>
 <tr><td><code>https://prmlrecords.com/?promo=PRML10</code></td><td>10% off auto-applied at checkout</td></tr>
 <tr><td><code>https://prmlrecords.com/shop.html?promo=PRML20</code></td><td>20% off auto-applied at checkout</td></tr>
-<tr><td><code>https://prmlrecords.com/services.html?promo=FIRST9_SETUP_FREE</code></td><td>$150 setup fee waived (capped at 9)</td></tr>
+<tr><td><code>https://prmlrecords.com/services.html?promo=FIRST9_SETUP_FREE</code></td><td>$15.99 setup fee waived (capped at 9)</td></tr>
 <tr><td><code>https://prmlrecords.com/?promo=FRIEND15</code></td><td>15% friends-and-family</td></tr>
 </table>
 <div class="tip">

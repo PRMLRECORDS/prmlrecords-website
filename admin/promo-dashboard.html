@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<title>Promo Dashboard | PRML RECORDS</title>
+<style>
+:root{
+  --red:#E01010; --cream:#F5E6C8; --cream-dk:#E8D4A8;
+  --charcoal:#2B2B2B; --black:#0D0D0D; --stone:#C4B49A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--charcoal);font-family:'Roboto Slab',Georgia,serif;font-size:14px;line-height:1.65}
+a{color:var(--red)}
+code{font-family:'SF Mono',Menlo,Consolas,monospace;background:rgba(224,16,16,.08);color:var(--red);padding:2px 6px;font-size:12px}
+
+.nav-strip{background:var(--black);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.nav-strip-title{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:14px;color:var(--cream);letter-spacing:.06em}
+.nav-strip-title span{color:var(--red)}
+.nav-strip-right{display:flex;gap:10px;align-items:center}
+.nav-strip a,.nav-strip button{font-family:'Odibee Sans',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--red);background:transparent;padding:6px 12px;border:1px solid var(--red);text-decoration:none;cursor:pointer;transition:.2s}
+.nav-strip a:hover,.nav-strip button:hover{background:var(--red);color:var(--cream)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:36px 24px 80px}
+h1{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:clamp(28px,4.5vw,40px);color:var(--charcoal);letter-spacing:-1px;margin-bottom:8px;line-height:1}
+.sub{font-size:14px;color:var(--charcoal);opacity:.65;margin-bottom:8px}
+.meta{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);opacity:.4;margin-bottom:32px}
+
+/* Auth gate */
+.auth-card{background:var(--cream-dk);border-left:4px solid var(--red);padding:24px 28px;margin:24px 0;max-width:540px}
+.auth-card h2{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--charcoal);margin-bottom:10px;letter-spacing:-.3px}
+.auth-card p{font-size:13px;opacity:.75;margin-bottom:16px;line-height:1.6}
+.auth-card input{width:100%;font-family:'SF Mono',monospace;font-size:14px;padding:10px 12px;border:1px solid rgba(43,43,43,.25);background:var(--cream);color:var(--charcoal);margin-bottom:12px;outline:none}
+.auth-card input:focus{border-color:var(--red)}
+.auth-card button{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:var(--red);color:var(--cream);border:none;padding:11px 22px;cursor:pointer;transition:background .2s}
+.auth-card button:hover{background:var(--charcoal)}
+.auth-error{color:var(--red);font-size:12px;margin-top:8px}
+
+/* Totals strip */
+.totals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:var(--charcoal);margin-bottom:36px}
+.totals-cell{background:var(--cream);padding:24px 22px}
+.totals-cell-label{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.totals-cell-value{font-family:'Rubik Mono One',monospace;font-size:32px;color:var(--charcoal);letter-spacing:-1px;line-height:1}
+.totals-cell-sub{font-size:11px;color:var(--charcoal);opacity:.55;margin-top:6px;font-family:'Roboto Slab',serif}
+
+/* Active promo from config */
+.active-promo{background:var(--charcoal);color:var(--cream);padding:20px 24px;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.active-promo-label{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.active-promo-name{font-family:'Rubik Mono One',monospace;font-size:18px;letter-spacing:-.3px}
+.active-promo-meta{font-family:'Roboto Slab',serif;font-size:12px;opacity:.6;margin-top:4px}
+
+/* Coupon table */
+.section-title{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin:0 0 12px;display:flex;align-items:center;justify-content:space-between}
+.section-title span{font-size:10px;color:var(--charcoal);opacity:.4;letter-spacing:2px}
+
+.coupon-table{width:100%;border-collapse:collapse;background:var(--cream);box-shadow:0 1px 0 rgba(43,43,43,.08)}
+.coupon-table th,.coupon-table td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(43,43,43,.08);vertical-align:middle;font-size:13px}
+.coupon-table th{font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);background:var(--cream-dk);font-weight:normal}
+.coupon-table tr:hover td{background:rgba(224,16,16,.03)}
+
+.coupon-id{font-family:'SF Mono',monospace;font-weight:bold}
+.coupon-discount{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red)}
+.usage-bar-wrap{position:relative;background:rgba(43,43,43,.08);height:8px;width:120px;overflow:hidden}
+.usage-bar-fill{position:absolute;left:0;top:0;bottom:0;background:var(--red);transition:width .3s}
+.usage-num{font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--charcoal);min-width:64px;display:inline-block}
+.revenue-cell{font-family:'SF Mono',monospace}
+.revenue-net{color:var(--charcoal);font-weight:bold}
+.revenue-disc{color:var(--red);font-size:11px;opacity:.75}
+
+.status-pill{display:inline-block;font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px}
+.status-active{background:rgba(224,16,16,.12);color:var(--red)}
+.status-deleted{background:rgba(43,43,43,.12);color:var(--charcoal);opacity:.7}
+.status-empty{background:rgba(196,180,154,.3);color:var(--charcoal);opacity:.7}
+
+/* Recent activity per coupon */
+.recent-row td{background:rgba(245,230,200,.5);padding:0}
+.recent-list{padding:14px 18px;font-size:12px}
+.recent-list-title{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);opacity:.5;margin-bottom:8px}
+.recent-item{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px dotted rgba(43,43,43,.1);font-family:'SF Mono',monospace;font-size:11px}
+.recent-item:last-child{border-bottom:none}
+.recent-empty{font-family:'Roboto Slab',serif;font-size:12px;color:var(--charcoal);opacity:.45;font-style:italic;padding:6px 0}
+
+.expand-btn{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(43,43,43,.25);color:var(--charcoal);padding:4px 10px;cursor:pointer;transition:.2s}
+.expand-btn:hover{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
+
+.loading{text-align:center;padding:60px 0;font-family:'Odibee Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);opacity:.5}
+.err{background:rgba(224,16,16,.08);border-left:4px solid var(--red);padding:14px 18px;margin:18px 0;font-size:13px;color:var(--charcoal)}
+
+footer{margin-top:64px;font-size:11px;color:var(--charcoal);opacity:.4;font-family:'Roboto Slab',serif;text-align:center}
+@media (max-width:680px){
+  .coupon-table th:nth-child(4),.coupon-table td:nth-child(4){display:none}
+  .totals-cell-value{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-strip">
+  <div class="nav-strip-title">PRML <span>RECORDS</span> &middot; Promo Dashboard</div>
+  <div class="nav-strip-right">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="discount-system-guide.html">Guide</a>
+    <a href="https://dashboard.stripe.com/coupons" target="_blank" rel="noopener">Stripe</a>
+    <button id="refresh-btn" type="button">Refresh</button>
+    <button id="logout-btn" type="button">Sign Out</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <h1>Promo Dashboard</h1>
+  <p class="sub">Live view of every Stripe coupon, redemption count, and revenue impact. Data refreshes from Stripe every 60 seconds (cached at the edge).</p>
+  <p class="meta" id="generated-at">&nbsp;</p>
+
+  <!-- Auth gate -->
+  <div id="auth-gate" class="auth-card" style="display:none">
+    <h2>Admin Token Required</h2>
+    <p>This dashboard reads your live Stripe data. Paste the <code>PROMO_ADMIN_TOKEN</code> set in the Render env vars. It's saved to this browser tab only (sessionStorage) and never sent anywhere except your own Render service.</p>
+    <input id="token-input" type="password" placeholder="paste admin token" autocomplete="off">
+    <button id="token-submit" type="button">Unlock Dashboard</button>
+    <div id="auth-error" class="auth-error" style="display:none"></div>
+  </div>
+
+  <!-- Active promo from promo-config.json -->
+  <div id="active-promo" class="active-promo" style="display:none">
+    <div>
+      <div class="active-promo-label">Site-Wide Banner Currently Live</div>
+      <div class="active-promo-name" id="active-promo-name">&mdash;</div>
+      <div class="active-promo-meta" id="active-promo-meta">&mdash;</div>
+    </div>
+    <a href="../js/promo-config.json" target="_blank" rel="noopener" style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);text-decoration:underline;opacity:.7">Edit config &rarr;</a>
+  </div>
+
+  <!-- Totals strip -->
+  <div id="totals" class="totals" style="display:none"></div>
+
+  <!-- Per-coupon table -->
+  <div class="section-title">
+    All Coupons <span id="coupon-count">&nbsp;</span>
+  </div>
+  <div id="status-msg" style="display:none"></div>
+  <table class="coupon-table" id="coupon-table" style="display:none">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Discount</th>
+        <th>Status</th>
+        <th>Usage</th>
+        <th>Gross</th>
+        <th>Discount Given</th>
+        <th>Net Paid</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="coupon-tbody"></tbody>
+  </table>
+
+  <div id="loading" class="loading">Loading promo data&hellip;</div>
+
+  <footer>
+    PRML RECORDS &middot; Promo Dashboard v1 &middot; Reads from <code>/api/promo-analytics</code> &middot; Source of truth: Stripe + <code>js/promo-config.json</code>
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  // â”€â”€ Config â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  var API_BASE = 'https://prmlrecords-checkout.onrender.com';
+  var CONFIG_URL = '../js/promo-config.json';
+  var TOKEN_KEY = 'prml_promo_admin_token';
+
+  // â”€â”€ DOM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  var $ = function(id){ return document.getElementById(id); };
+
+  // â”€â”€ Auth â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  function getToken(){ try { return sessionStorage.getItem(TOKEN_KEY) || ''; } catch(e){ return ''; } }
+  function setToken(t){ try { sessionStorage.setItem(TOKEN_KEY, t); } catch(e){} }
+  function clearToken(){ try { sessionStorage.removeItem(TOKEN_KEY); } catch(e){} }
+
+  $('token-submit').addEventListener('click', function(){
+    var t = $('token-input').value.trim();
+    if(!t){ showAuthError('Enter a token first'); return; }
+    setToken(t);
+    boot();
+  });
+  $('logout-btn').addEventListener('click', function(){
+    clearToken();
+    location.reload();
+  });
+  $('refresh-btn').addEventListener('click', function(){
+    boot();
+  });
+
+  function showAuthError(msg){
+    var el = $('auth-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function hideAuth(){ $('auth-gate').style.display = 'none'; }
+  function showAuth(){
+    $('auth-gate').style.display = 'block';
+    $('totals').style.display = 'none';
+    $('active-promo').style.display = 'none';
+    $('coupon-table').style.display = 'none';
+    $('loading').style.display = 'none';
+  }
+
+  // â”€â”€ Format helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  function money(cents){
+    if (cents == null) return '&mdash;';
+    var dollars = cents / 100;
+    return '$' + dollars.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function pctOrAmt(c){
+    if (c.percent_off != null) return c.percent_off + '% OFF';
+    if (c.amount_off_cents != null) return money(c.amount_off_cents) + ' OFF';
+    return '&mdash;';
+  }
+  function statusPill(c){
+    if (c.deleted) return '<span class="status-pill status-deleted">Capped / Deleted</span>';
+    if (!c.valid) return '<span class="status-pill status-deleted">Inactive</span>';
+    if (c.actual_redemptions === 0) return '<span class="status-pill status-empty">Live, 0 uses</span>';
+    return '<span class="status-pill status-active">Live</span>';
+  }
+  function usageCell(c){
+    if (c.max_redemptions == null){
+      return '<span class="usage-num">' + c.actual_redemptions + ' / &infin;</span>';
+    }
+    var pct = Math.min(100, (c.actual_redemptions / c.max_redemptions) * 100);
+    return '<span class="usage-num">' + c.actual_redemptions + ' / ' + c.max_redemptions + '</span>' +
+      '<div class="usage-bar-wrap" style="display:inline-block;margin-left:8px;vertical-align:middle">' +
+      '<div class="usage-bar-fill" style="width:' + pct + '%"></div></div>';
+  }
+  function fmtDate(epoch){
+    if (!epoch) return '&mdash;';
+    var d = new Date(epoch * 1000);
+    return d.toLocaleDateString('en-US', { month:'short', day:'numeric', hour:'numeric', minute:'2-digit' });
+  }
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  // â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  function renderTotals(totals){
+    var t = $('totals');
+    t.innerHTML =
+      '<div class="totals-cell"><div class="totals-cell-label">Total Redemptions</div>' +
+        '<div class="totals-cell-value">' + totals.redemptions_this_period + '</div>' +
+        '<div class="totals-cell-sub">paid orders with any coupon</div></div>' +
+      '<div class="totals-cell"><div class="totals-cell-label">Discount Given</div>' +
+        '<div class="totals-cell-value">' + money(totals.all_coupons_discount_cents) + '</div>' +
+        '<div class="totals-cell-sub">total $ removed via coupons</div></div>' +
+      '<div class="totals-cell"><div class="totals-cell-label">Gross Revenue</div>' +
+        '<div class="totals-cell-value">' + money(totals.all_coupons_revenue_cents) + '</div>' +
+        '<div class="totals-cell-sub">before discount, on coupon orders</div></div>' +
+      '<div class="totals-cell"><div class="totals-cell-label">Net Collected</div>' +
+        '<div class="totals-cell-value">' + money(totals.all_coupons_revenue_cents - totals.all_coupons_discount_cents) + '</div>' +
+        '<div class="totals-cell-sub">what actually hit Stripe</div></div>';
+    t.style.display = 'grid';
+  }
+
+  function renderCoupons(rows){
+    var tbody = $('coupon-tbody');
+    tbody.innerHTML = '';
+
+    if (rows.length === 0){
+      $('coupon-table').style.display = 'none';
+      var msg = $('status-msg');
+      msg.className = 'err';
+      msg.innerHTML = 'No coupons found in your Stripe account yet. <a href="https://dashboard.stripe.com/coupons" target="_blank">Create some</a>, then refresh.';
+      msg.style.display = 'block';
+      return;
+    }
+
+    // Sort: most-used first
+    rows.sort(function(a,b){ return b.actual_redemptions - a.actual_redemptions; });
+
+    rows.forEach(function(c, i){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><span class="coupon-id">' + esc(c.id) + '</span></td>' +
+        '<td><span class="coupon-discount">' + pctOrAmt(c) + '</span></td>' +
+        '<td>' + statusPill(c) + '</td>' +
+        '<td>' + usageCell(c) + '</td>' +
+        '<td class="revenue-cell">' + money(c.revenue.gross_cents) + '</td>' +
+        '<td class="revenue-cell revenue-disc">' + (c.revenue.discount_cents ? '&minus;' + money(c.revenue.discount_cents) : '&mdash;') + '</td>' +
+        '<td class="revenue-cell revenue-net">' + money(c.revenue.net_cents) + '</td>' +
+        '<td><button class="expand-btn" data-row="' + i + '">Recent</button></td>';
+      tbody.appendChild(tr);
+
+      // Hidden recent-activity row
+      var rr = document.createElement('tr');
+      rr.className = 'recent-row';
+      rr.style.display = 'none';
+      rr.dataset.recentFor = i;
+      var recentHTML = '';
+      if (c.recent && c.recent.length){
+        recentHTML = c.recent.map(function(p){
+          return '<div class="recent-item">' +
+            '<span>' + esc(p.pi_id) + '</span>' +
+            '<span>' + money(p.amount_cents) + '</span>' +
+            '<span>' + esc(p.email || 'no email') + '</span>' +
+            '<span>' + fmtDate(p.created) + '</span></div>';
+        }).join('');
+      } else {
+        recentHTML = '<div class="recent-empty">No paid orders with this coupon yet.</div>';
+      }
+      rr.innerHTML = '<td colspan="8"><div class="recent-list">' +
+        '<div class="recent-list-title">Last 5 Redemptions</div>' +
+        recentHTML + '</div></td>';
+      tbody.appendChild(rr);
+    });
+
+    // Wire expand buttons
+    tbody.querySelectorAll('.expand-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var idx = btn.dataset.row;
+        var row = tbody.querySelector('tr.recent-row[data-recent-for="' + idx + '"]');
+        if (!row) return;
+        row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+        btn.textContent = row.style.display === 'none' ? 'Recent' : 'Hide';
+      });
+    });
+
+    $('coupon-count').textContent = '(' + rows.length + ')';
+    $('coupon-table').style.display = 'table';
+    $('status-msg').style.display = 'none';
+  }
+
+  function renderActivePromo(cfg){
+    if (!cfg || !cfg.active_promo || cfg.active_promo === 'off'){
+      $('active-promo').style.display = 'none';
+      return;
+    }
+    var p = cfg.promos[cfg.active_promo];
+    if (!p) return;
+    $('active-promo-name').textContent = (p.label || cfg.active_promo) + ' / ' + (p.headline || '');
+    var meta = [];
+    if (p.stripe_coupon_code) meta.push('Stripe code: ' + p.stripe_coupon_code);
+    if (p.starts_at) meta.push('starts ' + p.starts_at);
+    if (p.ends_at)   meta.push('ends '   + p.ends_at);
+    if (p.auto_apply_url) meta.push('URL ' + p.auto_apply_url);
+    $('active-promo-meta').textContent = meta.join(' | ');
+    $('active-promo').style.display = 'flex';
+  }
+
+  // â”€â”€ Boot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  function boot(){
+    var token = getToken();
+    if (!token){ showAuth(); return; }
+    hideAuth();
+    $('loading').style.display = 'block';
+
+    // Render the active promo from config (no auth needed)
+    fetch(CONFIG_URL, { cache: 'no-store' })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(renderActivePromo)
+      .catch(function(){});
+
+    // Fetch analytics
+    fetch(API_BASE + '/api/promo-analytics', {
+      method: 'GET',
+      headers: { 'X-PRML-Admin-Token': token },
+      cache: 'no-store',
+    })
+      .then(function(r){
+        if (r.status === 401){
+          clearToken();
+          showAuth();
+          showAuthError('Token rejected. Check it matches PROMO_ADMIN_TOKEN in Render.');
+          throw new Error('unauthorized');
+        }
+        return r.json();
+      })
+      .then(function(data){
+        $('loading').style.display = 'none';
+        if (!data || data.error){
+          $('status-msg').className = 'err';
+          $('status-msg').textContent = data && data.error ? data.error : 'Unknown error';
+          $('status-msg').style.display = 'block';
+          return;
+        }
+        $('generated-at').textContent = 'Generated ' + new Date(data.generated_at).toLocaleString();
+        renderTotals(data.totals);
+        renderCoupons(data.coupons);
+      })
+      .catch(function(err){
+        $('loading').style.display = 'none';
+        if (err.message !== 'unauthorized'){
+          $('status-msg').className = 'err';
+          $('status-msg').textContent = 'Network or server error: ' + err.message;
+          $('status-msg').style.display = 'block';
+        }
+      });
+  }
+
+  boot();
+})();
+</script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>
