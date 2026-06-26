@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<title>Creator Intake — PRML RECORDS (Internal)</title>
+<meta name="description" content="Internal PRML RECORDS creator consultation intake form.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/nav.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',Georgia,serif}
+.intake-banner{background:#E01010;color:#F5E6C8;text-align:center;font-family:'Odibee Sans',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:12px;padding:8px}
+.intake-hero{background:#2B2B2B;padding:56px 5vw;border-bottom:4px solid #E01010}
+.intake-hero h1{font-family:'Rubik Mono One',monospace;font-size:clamp(28px,5vw,44px);color:#F5E6C8;text-transform:uppercase;letter-spacing:.04em}
+.intake-hero h1 span{color:#E01010}
+.intake-hero p{font-family:'Roboto Slab',serif;font-size:15px;color:#C4B49A;margin-top:12px;max-width:620px}
+.intake-wrap{max-width:720px;margin:0 auto;padding:48px 5vw 88px}
+.intake-form{display:grid;gap:16px}
+.intake-form label.fl{font-family:'Odibee Sans',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#2B2B2B;margin-bottom:-8px}
+.intake-form input,.intake-form select,.intake-form textarea{padding:14px;border:1px solid #C4B49A;background:#fff;color:#2B2B2B;font-family:'Roboto Slab',serif;font-size:15px}
+.intake-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.intake-form .row{grid-template-columns:1fr}}
+.intake-form button{background:#E01010;color:#F5E6C8;border:none;padding:16px;font-family:'Odibee Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:14px;cursor:pointer}
+.intake-ok{display:none;font-family:'Roboto Slab',serif;color:#2B2B2B;background:#C4B49A;padding:16px;text-align:center}
+.intake-err{display:none;font-family:'Roboto Slab',serif;color:#E01010}
+</style>
+</head>
+<body>
+
+<div class="intake-banner">PRML Internal &middot; Fill out during the creator consultation</div>
+
+<!-- NAV -->
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html"><img src="assets/logo.svg" alt="PRML RECORDS" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'"><span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span></a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item"><a class="nav2__link" href="media.html">Media</a></div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<header class="intake-hero">
+  <h1>Creator <span>Intake</span></h1>
+  <p>Capture what the creator wants and what they'll need, so we can shape a fair, contract-by-contract deal. You or the artist can fill this out together.</p>
+</header>
+
+<div class="intake-wrap">
+  <form id="intakeForm" class="intake-form" novalidate>
+    <label class="fl">Artist / legal name</label>
+    <input name="artist" required placeholder="Artist or legal name">
+
+    <label class="fl">Contact (email &amp; phone)</label>
+    <input name="contact" required placeholder="email@example.com · (770) 000-0000">
+
+    <label class="fl">Content type(s)</label>
+    <input name="content_types" placeholder="Music, video, photography, art…">
+
+    <div class="row">
+      <div style="display:grid;gap:8px">
+        <label class="fl">Who produces it?</label>
+        <select name="production">
+          <option value="">Select…</option>
+          <option>Creator self-produces</option>
+          <option>PRML shoots it (larger PRML split)</option>
+          <option>A mix of both</option>
+        </select>
+      </div>
+      <div style="display:grid;gap:8px">
+        <label class="fl">Expected volume / frequency</label>
+        <input name="volume" placeholder="e.g. 2 videos / month">
+      </div>
+    </div>
+
+    <label class="fl">Tools / equipment they'll need</label>
+    <textarea name="tools" rows="2" placeholder="Cameras, studio time, editing, lighting, distribution…"></textarea>
+
+    <label class="fl">Revenue expectations</label>
+    <input name="revenue" placeholder="What are they hoping to earn / goals">
+
+    <label class="fl">Proposed split notes</label>
+    <textarea name="split_notes" rows="2" placeholder="Draft terms discussed — to formalize in a contract"></textarea>
+
+    <label class="fl">Content-approval notes</label>
+    <textarea name="approval_notes" rows="2" placeholder="What they'll submit for PRML approval, cadence, standards…"></textarea>
+
+    <label class="fl">Timeline</label>
+    <input name="timeline" placeholder="When do they want to start / key dates">
+
+    <label class="fl">Anything else</label>
+    <textarea name="notes" rows="3" placeholder="Other notes from the consultation"></textarea>
+
+    <button type="submit">Save Intake</button>
+    <p class="intake-ok">&#10003; Saved. Thanks.</p>
+    <p class="intake-err">Something went wrong. Try again.</p>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#2B2B2B;color:#F5E6C8;padding:40px 32px;text-align:center">
+  <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:#C4B49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Freedom &middot; Justice &middot; Equality</div>
+  <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#C4B49A;opacity:.7">&#169; 2026 PRML RECORDS LLC &middot; Internal tool</div>
+</footer>
+
+<script>
+(function(){
+  const GAS_URL='https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
+  const form=document.getElementById('intakeForm'); if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    const d=Object.fromEntries(new FormData(form).entries());
+    const payload=Object.assign({type:'CONSULTATION_INTAKE',ts:new Date().toISOString(),source:location.pathname},d);
+    const btn=form.querySelector('button'); btn.disabled=true; btn.textContent='SAVING…';
+    fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(){ form.querySelectorAll('input,select,textarea,button,label').forEach(function(x){ x.style.display='none'; }); document.querySelector('.intake-ok').style.display='block'; })
+      .catch(function(){ btn.disabled=false; btn.textContent='Save Intake'; document.querySelector('.intake-err').style.display='block'; });
+  });
+})();
+</script>
+<script src="js/cookie-consent.js" defer></script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>
