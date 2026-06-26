@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6350346617000948" crossorigin="anonymous"></script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -238,6 +239,7 @@ function postBooking(type){
   add('_form','Consultation'); add('name',src.name); add('email',src.email);
   add('phone',src.phone); add('topic',src.topic); add('type',type);
   add('nda_signature',src.sign); add('_source',location.href);
+  add('_hp', (document.querySelector('[name="_hp"]') || {}).value || '');
   document.body.appendChild(f);
   document.getElementById('cSink').addEventListener('load',()=>{ if(f.dataset.sent){ showDone(type); } }, {once:true});
   f.dataset.sent='1'; f.submit();
