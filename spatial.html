@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="description" content="PRML SPATIAL — step inside before you step in. Drone aerial footage, LiDAR interior scans, and explorable 3D walkthrough tours for Atlanta real estate. Plus product scanning and digitization.">
+<meta property="og:title" content="PRML SPATIAL — Step inside before you step in">
+<meta property="og:description" content="Drone + LiDAR + interactive 3D tours for Atlanta real estate, from PRML RECORDS.">
+<meta property="og:image" content="https://www.prmlrecords.com/assets/og-image.jpg">
+<title>PRML SPATIAL — 3D Tours, Drone &amp; LiDAR — PRML RECORDS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nabla&family=Odibee+Sans&family=Roboto+Slab:wght@300;400;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/nav.css">
+<style>
+/* PRML SPATIAL — page-specific (zero-radius, brand tokens from brand.css) */
+.sp-hero{background:var(--black);color:var(--cream);padding:96px 5vw 104px;position:relative;overflow:hidden}
+.sp-hero::after{content:'SPATIAL';position:absolute;font-family:'Rubik Mono One',monospace;font-size:clamp(120px,22vw,260px);color:rgba(245,230,200,.045);bottom:-40px;right:-20px;letter-spacing:-10px;line-height:1;pointer-events:none;white-space:nowrap}
+.sp-hero__eyebrow{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:18px;position:relative}
+.sp-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(42px,6.5vw,84px);color:var(--cream);letter-spacing:-2px;line-height:.92;margin-bottom:20px;position:relative}
+.sp-hero__title span{color:var(--red)}
+.sp-hero__sub{font-family:'Roboto Slab',serif;font-weight:300;font-size:clamp(15px,1.6vw,18px);color:var(--cream);opacity:.78;max-width:600px;line-height:1.7;border-left:3px solid var(--red);padding-left:18px;position:relative}
+.sp-hero__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;position:relative}
+.sp-sec{padding:72px 5vw;border-bottom:1px solid rgba(43,43,43,.12)}
+.sp-sec:nth-of-type(even){background:var(--cream)}
+.sp-kicker{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.sp-h2{font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,44px);color:var(--charcoal);letter-spacing:-1px;line-height:1;margin-bottom:14px}
+.sp-lead{font-family:'Roboto Slab',serif;font-weight:300;font-size:16px;color:var(--charcoal);opacity:.8;max-width:640px;line-height:1.7;margin-bottom:36px}
+.sp-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(43,43,43,.1)}
+@media(max-width:820px){.sp-grid3{grid-template-columns:1fr}}
+.sp-card{background:var(--cream);padding:28px 24px}
+.sp-card .n{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+.sp-card h3{font-family:'Rubik Mono One',monospace;font-size:20px;color:var(--charcoal);letter-spacing:-.5px;margin:8px 0 10px;line-height:1.1}
+.sp-card p{font-family:'Roboto Slab',serif;font-weight:300;font-size:14px;color:var(--charcoal);opacity:.7;line-height:1.65}
+.sp-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+@media(max-width:820px){.sp-steps{grid-template-columns:1fr 1fr}}
+.sp-step .num{font-family:'Rubik Mono One',monospace;font-size:36px;color:var(--red);opacity:.25;line-height:1}
+.sp-step h3{font-family:'Odibee Sans',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin:10px 0 6px}
+.sp-step p{font-family:'Roboto Slab',serif;font-weight:300;font-size:14px;color:var(--charcoal);opacity:.7;line-height:1.6}
+.sp-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(43,43,43,.1)}
+@media(max-width:820px){.sp-tiers{grid-template-columns:1fr}}
+.sp-tier{background:var(--cream);padding:30px 26px;display:flex;flex-direction:column}
+.sp-tier.feat{background:var(--charcoal);color:var(--cream)}
+.sp-tier .t-name{font-family:'Odibee Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:var(--red)}
+.sp-tier .price{font-family:'Rubik Mono One',monospace;font-size:38px;margin:8px 0 2px;letter-spacing:-1px}
+.sp-tier .size{font-family:'Roboto Slab',serif;font-weight:300;font-size:13px;opacity:.65;margin-bottom:18px}
+.sp-tier ul{list-style:none;font-family:'Roboto Slab',serif;font-weight:300;font-size:14px;margin:0;padding:0}
+.sp-tier li{padding:7px 0;border-bottom:1px dashed rgba(196,180,154,.5)}
+.sp-tier.feat li{border-bottom-color:rgba(245,230,200,.2)}
+.sp-tier li::before{content:'+ ';color:var(--red);font-weight:700}
+.sp-addon{font-family:'Roboto Slab',serif;font-weight:300;font-size:14px;color:var(--charcoal);opacity:.8;margin-top:24px}
+.sp-addon b{color:var(--red)}
+.sp-why{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 34px;max-width:780px}
+@media(max-width:820px){.sp-why{grid-template-columns:1fr}}
+.sp-why div{border-left:3px solid var(--red);padding-left:16px}
+.sp-why b{font-family:'Odibee Sans',sans-serif;letter-spacing:1px;font-weight:400;display:block;text-transform:uppercase;font-size:12px;color:var(--red);margin-bottom:4px}
+.sp-why span{font-family:'Roboto Slab',serif;font-weight:300;font-size:15px;color:var(--charcoal);opacity:.8;line-height:1.6}
+.sp-cta{background:var(--red);color:var(--cream);text-align:center;padding:80px 5vw}
+.sp-cta h2{font-family:'Rubik Mono One',monospace;font-size:clamp(32px,5vw,52px);color:var(--cream);letter-spacing:-1px;margin-bottom:14px}
+.sp-cta p{font-family:'Roboto Slab',serif;font-weight:300;font-size:16px;color:var(--cream);opacity:.92;max-width:520px;margin:0 auto 30px}
+</style>
+<!-- GA4 — PRML RECORDS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2PNH2XTRDK', { page_title: document.title, page_location: window.location.href });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href], button');
+      if (!el) return;
+      gtag('event', 'button_click', { element_text: (el.textContent||'').trim().substring(0,100), element_href: el.getAttribute('href')||'', page_location: window.location.href });
+    });
+    document.addEventListener('submit', function(e) {
+      gtag('event', 'form_submit', { form_id: e.target.id||'unknown', page_location: window.location.href });
+    });
+  });
+</script>
+<!-- Meta Pixel Code -->
+<script>
+setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1244730814514395');fbq('track','PageView');},3000);
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+<script defer src="js/promo-banner.js"></script>
+</head>
+<body>
+<!-- Top promo banner is rendered by /js/promo-banner.js (config: /js/promo-config.json) -->
+
+<nav class="nav2" id="nav2">
+  <div class="nav2__inner">
+    <a class="nav2__brand" href="index.html">
+      <img src="assets/logo.svg" alt="PRML RECORDS logo mark" class="nav2__logo-mark" width="32" height="32" onerror="this.style.display='none'">
+      <span class="nav2__brand-name">PRML <span class="nrec">RECORDS</span></span>
+    </a>
+    <div class="nav2__links">
+      <div class="nav2__item"><a class="nav2__link" href="index.html">Home</a></div>
+      <div class="nav2__item"><a class="nav2__link" href="about.html">About</a></div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="shop.html">Shop <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="shop.html#products">All Products</a>
+          <a class="nav2__drop-link" href="shop.html#custom">Custom &middot; Your Logo</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link active" href="services.html">Services <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="spatial.html">PRML SPATIAL &middot; 3D</a>
+          <a class="nav2__drop-link" href="contact.html?service=consultation">Book a Consultation</a>
+          <a class="nav2__drop-link" href="contact.html?utm_source=spatial-page&utm_medium=cta&utm_campaign=quote-request">Request a Quote</a>
+          <a class="nav2__drop-link" href="services.html">View Services</a>
+          <a class="nav2__drop-link" href="how-it-works.html">How It Works</a>
+        </div>
+      </div>
+      <div class="nav2__item">
+        <a class="nav2__link" href="#">More <span class="nav2__caret">&#9662;</span></a>
+        <div class="nav2__dropdown">
+          <a class="nav2__drop-link" href="blog/">Blog</a>
+          <a class="nav2__drop-link" href="media.html">Media</a>
+          <a class="nav2__drop-link" href="affiliate.html">Affiliate</a>
+          <a class="nav2__drop-link" href="press.html">Press</a>
+          <a class="nav2__drop-link" href="support.html">Support</a>
+          <a class="nav2__drop-link" href="privacypolicy.html">Policies &amp; Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2__burger" onclick="document.getElementById('nav2').classList.toggle('mob-open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="sp-hero reveal">
+  <div class="sp-hero__eyebrow">3D &middot; Drone &middot; LiDAR &middot; Atlanta</div>
+  <div class="sp-hero__title">Step inside<br>before you <span>step in.</span></div>
+  <div class="sp-hero__sub">We fly the home, scan the inside, and turn it into an interactive 3D walkthrough buyers can tour from anywhere. Drone footage, LiDAR detail, one hosted link.</div>
+  <div class="sp-hero__ctas">
+    <a href="3d-scan-inquiry.html" class="btn btn--primary">Book a Scan &rarr;</a>
+    <a href="#packages" class="btn btn--ghost">See Packages &darr;</a>
+  </div>
+</header>
+
+<!-- WHAT WE CAPTURE -->
+<section class="sp-sec reveal">
+  <div class="sp-kicker">What we capture</div>
+  <h2 class="sp-h2">Three ways to use the rig.</h2>
+  <p class="sp-lead">Built for real estate first &mdash; but the same gear scans products and archives physical items in full 3D.</p>
+  <div class="sp-grid3">
+    <div class="sp-card"><div class="n">01 &middot; Real Estate</div><h3>Listing 3D Tours</h3><p>Drone aerial video + stills, a LiDAR scan of the interior, and a hosted interactive walkthrough with a floor plan. The listing that sells itself.</p></div>
+    <div class="sp-card"><div class="n">02 &middot; Product</div><h3>Prototype Scanning</h3><p>High-resolution 3D scans of physical objects for product development, CAD, and manufacturing &mdash; straight into your design pipeline.</p></div>
+    <div class="sp-card"><div class="n">03 &middot; Digitization</div><h3>Archive in 3D</h3><p>Turn physical items, art, or whole spaces into accurate 3D assets you can keep, share, and display forever.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sp-sec reveal">
+  <div class="sp-kicker">How it works</div>
+  <h2 class="sp-h2">Booked to hosted in days.</h2>
+  <div class="sp-steps" style="margin-top:30px">
+    <div class="sp-step"><div class="num">1</div><h3>Book</h3><p>Tell us the property and pick a time. We confirm scope and price.</p></div>
+    <div class="sp-step"><div class="num">2</div><h3>Scan Day</h3><p>We fly the exterior and LiDAR-scan every room. Usually under two hours on site.</p></div>
+    <div class="sp-step"><div class="num">3</div><h3>Delivery</h3><p>Tour, drone reel, photos, and floor plan back in 24 to 72 hours.</p></div>
+    <div class="sp-step"><div class="num">4</div><h3>Hosted Tour</h3><p>One link buyers can walk through on any phone. Branded to you.</p></div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="sp-sec reveal" id="packages">
+  <div class="sp-kicker">Packages</div>
+  <h2 class="sp-h2">Real-estate pricing.</h2>
+  <p class="sp-lead">Flat rates by home size. Every tier bundles drone, LiDAR scan, hosted 3D tour, and a floor plan.</p>
+  <div class="sp-tiers">
+    <div class="sp-tier">
+      <span class="t-name">Spatial 1</span>
+      <div class="price">$549</div>
+      <div class="size">Homes under 2,000 sq ft</div>
+      <ul><li>Drone photo + video</li><li>LiDAR interior scan</li><li>Hosted 3D tour</li><li>2D floor plan</li></ul>
+    </div>
+    <div class="sp-tier feat">
+      <span class="t-name">Spatial 2</span>
+      <div class="price">$849</div>
+      <div class="size">2,000 &ndash; 4,000 sq ft</div>
+      <ul><li>Everything in Spatial 1</li><li>Cinematic listing video</li><li>3D floor plan</li><li>Branded tour page</li><li>1 twilight photo</li></ul>
+    </div>
+    <div class="sp-tier">
+      <span class="t-name">Spatial 3</span>
+      <div class="price">$1,249<span style="font-size:16px">+</span></div>
+      <div class="size">4,000+ sq ft / estates</div>
+      <ul><li>Estate-scale everything</li><li>Extended drone reel</li><li>Priority 24-hr delivery</li></ul>
+    </div>
+  </div>
+  <p class="sp-addon">Also: product scans from <b>$195/object</b> &middot; digitization from <b>$450/piece</b> &middot; add-ons &mdash; twilight, extra floor plans, rush turnaround.</p>
+</section>
+
+<!-- WHY PRML -->
+<section class="sp-sec reveal">
+  <div class="sp-kicker">Why PRML</div>
+  <h2 class="sp-h2">Local. Hands-on. Fast.</h2>
+  <div class="sp-why" style="margin-top:26px">
+    <div><b>Atlanta-based</b><span>We're here. Same-week scans across the metro, no out-of-town crew.</span></div>
+    <div><b>We own the gear</b><span>Drone and LiDAR in-house, flown by a Part 107 pilot. You deal with us, start to finish.</span></div>
+    <div><b>A real creative brand</b><span>Part of PRML RECORDS &mdash; we make music, film, and product, not just scans.</span></div>
+    <div><b>Fast turnaround</b><span>Most tours delivered in 24 to 72 hours, so the listing goes live on time.</span></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sp-cta reveal">
+  <h2>Book a Scan.</h2>
+  <p>Tell us about the property. We'll send a link to book your scan.</p>
+  <a href="3d-scan-inquiry.html" class="btn btn--cream btn--lg">Request My Scan &rarr;</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer2">
+<style>
+.footer2{background:#2B2B2B;color:#F5E6C8;padding:64px 32px 32px}
+.footer2__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1280px;margin:0 auto;padding-bottom:48px;border-bottom:1px solid rgba(99,93,82,.4)}
+@media(max-width:900px){.footer2__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer2__grid{grid-template-columns:1fr}}
+.footer2__brand{display:flex;flex-direction:column;gap:12px}
+.footer2__brand-name{font-family:'Rubik Mono One',monospace;font-size:22px;color:#F5E6C8;letter-spacing:.06em}
+.footer2__brand-name span{color:#E01010}
+.footer2__tagline{font-family:'Roboto Slab',serif;font-size:14px;color:#C4B49A;font-style:italic}
+.footer2__contact{font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;line-height:1.8;opacity:.85}
+.footer2__contact a{color:#F5E6C8;text-decoration:none}
+.footer2__contact a:hover{color:#E01010}
+.footer2__social{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.footer2__social a{font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;text-decoration:none;border:1px solid #C4B49A;padding:5px 10px;transition:all .2s;white-space:nowrap}
+.footer2__social a:hover{background:#C4B49A;color:#F5E6C8}
+.footer2__col h4{font-family:'Rubik Mono One',monospace;font-size:11px;color:#E01010;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+.footer2__col a{display:block;font-family:'Roboto Slab',serif;font-size:13px;color:#F5E6C8;text-decoration:none;margin-bottom:8px;opacity:.8;transition:opacity .2s,color .2s}
+.footer2__col a:hover{opacity:1;color:#E01010}
+.footer2__bottom{max-width:1280px;margin:0 auto;padding-top:32px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.footer2__values{font-family:'Rubik Mono One',monospace;font-size:12px;color:#C4B49A;letter-spacing:.1em;text-transform:uppercase}
+.footer2__values span{color:#E01010}
+.footer2__copy{font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;opacity:.7}
+.footer2__tagline-bottom{font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;font-style:italic}
+</style>
+<div class="footer2__grid">
+  <div class="footer2__brand">
+    <div class="footer2__brand-name">PRML <span>RECORDS</span></div>
+    <div class="footer2__tagline">Primal Energy. Primal Sound.</div>
+    <div class="footer2__contact">
+      <a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a><br>
+      <a href="tel:7706867726">(770) 686-7726</a><br>
+      4485 Fulton Industrial Blvd. SW<br>Ste A1 PMB 1167<br>Atlanta, GA 30336
+    </div>
+    <div class="footer2__social">
+      <a href="https://instagram.com/prmlrecords" target="_blank">Instagram</a>
+      <a href="https://facebook.com/prmlrecords" target="_blank">Facebook</a>
+      <a href="https://twitter.com/prmlrecords" target="_blank">Twitter/X</a>
+      <a href="https://youtube.com/@prmlrecords" target="_blank">YouTube</a>
+      <a href="https://tiktok.com/@prmlrecords" target="_blank">TikTok</a>
+    </div>
+  </div>
+  <div class="footer2__col">
+    <h4>Explore</h4>
+    <a href="index.html">Home</a><a href="blog/">Blog</a><a href="media.html">Media</a>
+    <a href="shop.html">Shop</a><a href="services.html">Services</a>
+  </div>
+  <div class="footer2__col">
+    <h4>Services</h4>
+    <a href="spatial.html">PRML SPATIAL &middot; 3D</a>
+    <a href="contact.html?service=consultation">Book a Consultation</a>
+    <a href="services.html">View Services</a><a href="how-it-works.html">How It Works</a>
+    <a href="shop.html">Shop All Products</a>
+  </div>
+  <div class="footer2__col">
+    <h4>Company</h4>
+    <a href="affiliate.html">Affiliate Program</a><a href="press.html">Press</a>
+    <a href="support.html">Support</a>
+    <a href="privacypolicy.html">Privacy Policy</a><a href="termsofservice.html">Terms of Service</a>
+  </div>
+</div>
+<div class="footer2__bottom">
+  <div class="footer2__values">Freedom <span>&#183;</span> Justice <span>&#183;</span> Equality</div>
+  <div class="footer2__tagline-bottom">Primal Energy. Primal Sound.</div>
+  <div class="footer2__copy">&#169; 2026 PRML RECORDS LLC. All rights reserved. &#183; Atlanta, GA &#183; @PRMLRECORDS</div>
+</div>
+</footer>
+
+<button class="cart-btn" onclick="openCart()">&#128722;<span class="cart-count">0</span></button>
+<div class="cart-panel">
+  <div class="cart-header"><div class="cart-header-title">Cart</div><div class="cart-close" onclick="closeCart()">&#215;</div></div>
+  <div class="cart-items"><div class="cart-empty">Your cart is empty.</div></div>
+  <div class="cart-footer">
+    <div style="display:flex;justify-content:space-between;font-size:12px;opacity:.5;margin-bottom:4px"><span>Subtotal</span><span class="cart-subtotal">$0.00</span></div>
+    <div class="cart-fee" style="display:none;justify-content:space-between;font-size:12px;opacity:.4;margin-bottom:8px"></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:14px"><span style="font-family:'Odibee Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.5">Total</span><span class="cart-total" style="font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--red)">$0.00</span></div>
+    <button class="cart-checkout" onclick="collectAndCheckout()" disabled>Checkout &#8594;</button>
+    <button class="cart-deposit" onclick="collectAndCheckout(true)" disabled style="margin-top:8px">Pay 50% Deposit</button>
+  </div>
+</div>
+
+<script src="js/main.js" defer></script>
+<script src="js/cookie-consent.js" defer></script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>
