@@ -271,13 +271,13 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 </section>
 <script>
 (function(){
-  const GAS_URL='https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';
+  const GAS_URL='https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
   const form=document.getElementById('creatorForm'); if(!form) return;
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
     const d=Object.fromEntries(new FormData(form).entries());
-    const payload=Object.assign({action:'creator_application',ts:new Date().toISOString(),source:location.pathname},d);
+    const payload=Object.assign({type:'CREATOR_APPLICATION',ts:new Date().toISOString(),source:location.pathname},d);
     const btn=form.querySelector('button'); btn.disabled=true; btn.textContent='SENDING…';
     if(window.gtag) gtag('event','creator_application',{content_type:d.content_type||''});
     fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
