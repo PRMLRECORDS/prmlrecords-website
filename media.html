@@ -377,6 +377,52 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   if(window.PRML_MEDIA && PRML_MEDIA.length){ loadIntoPlayer(PRML_MEDIA[0]); }
 })();
 </script>
+<!-- MEDIA HUB — gallery (tabs + cards) -->
+<script>
+(function(){
+  const gallery = document.getElementById('gallery');
+  const CATS = [["video","Video"],["audio","Audio"],["photo","Photos"]];
+  gallery.innerHTML =
+    '<div class="section-label"><span>Library</span><span class="num">::</span></div>' +
+    '<div class="gal-tabs">' + CATS.map(function(c,i){
+      return '<button class="gal-tab'+(i===0?' active':'')+'" data-cat="'+c[0]+'">'+c[1]+'</button>'; }).join('') +
+    '</div><div class="gal-grid" id="galGrid"></div>';
+  const grid = document.getElementById('galGrid');
+
+  function thumb(item){
+    if(item.thumbnail){ return '<img src="'+item.thumbnail+'" alt="'+item.title+'">'; }
+    if(item.type==='photo'){ return '<img src="'+item.src+'" alt="'+item.title+'">'; }
+    return '<div class="ph" data-auto-thumb="'+item.id+'">PRML</div>';
+  }
+  function render(cat){
+    const items = PRML_MEDIA.filter(function(m){ return m.type===cat; });
+    if(!items.length){ grid.innerHTML = '<div class="gal-empty">More '+cat+' coming soon.</div>'; return; }
+    grid.innerHTML = items.map(function(m){
+      return '<div class="gal-card" data-id="'+m.id+'">'+thumb(m)+
+        '<div class="cap"><div class="t">'+m.title+'</div><div class="a">'+m.artist+'</div></div></div>'; }).join('');
+    if(window.PRML_paintThumbs){ window.PRML_paintThumbs(); }
+  }
+  function openLightbox(src,alt){
+    let lb=document.getElementById('lb');
+    if(!lb){ lb=document.createElement('div'); lb.id='lb'; lb.className='lightbox';
+      lb.innerHTML='<button aria-label="Close">&times;</button><img alt="">';
+      lb.addEventListener('click',function(){ lb.classList.remove('open'); }); document.body.appendChild(lb); }
+    lb.querySelector('img').src=src; lb.querySelector('img').alt=alt; lb.classList.add('open');
+  }
+  gallery.addEventListener('click', function(e){
+    const tab = e.target.closest('.gal-tab');
+    if(tab){ document.querySelectorAll('.gal-tab').forEach(function(t){ t.classList.remove('active'); }); tab.classList.add('active'); render(tab.dataset.cat); return; }
+    const card = e.target.closest('.gal-card');
+    if(card){
+      const item = PRML_MEDIA.find(function(m){ return m.id===card.dataset.id; });
+      if(!item) return;
+      if(item.type==='photo'){ openLightbox(item.src, item.title); }
+      else { loadIntoPlayer(item); document.getElementById('player').scrollIntoView({behavior:'smooth'}); }
+    }
+  });
+  render('video');
+})();
+</script>
 <script src="js/main.js" defer></script>
 <script src="js/notify.js" defer></script>
 <script src="js/cookie-consent.js" defer></script>
