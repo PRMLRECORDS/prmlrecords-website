@@ -15,5 +15,9 @@
 /*.html
   Cache-Control: public, max-age=3600
 
+/media/*
+  Cache-Control: public, max-age=2592000
+  Access-Control-Allow-Origin: *
+
 /manifest.json
   Cache-Control: public, max-age=86400

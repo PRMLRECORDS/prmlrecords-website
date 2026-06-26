@@ -38,6 +38,14 @@ services:
         name: Cache-Control
         value: "public, max-age=2592000"
 
+      # Media (video/audio) — long cache + CORS so Chromecast's receiver can fetch
+      - path: /media/*
+        name: Cache-Control
+        value: "public, max-age=2592000"
+      - path: /media/*
+        name: Access-Control-Allow-Origin
+        value: "*"
+
       # Security headers — apply to everything
       - path: /*
         name: X-Frame-Options
