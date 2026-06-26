@@ -423,6 +423,29 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   render('video');
 })();
 </script>
+<!-- MEDIA HUB — auto thumbnails (video first-frame; audio keeps branded art) -->
+<script>
+(function(){
+  function paint(){
+    document.querySelectorAll('[data-auto-thumb]').forEach(function(ph){
+      const item = (window.PRML_MEDIA||[]).find(function(m){ return m.id===ph.dataset.autoThumb; });
+      if(!item || item.type!=='video') return;     // audio: keep the on-brand "PRML" art block
+      if(ph.dataset.painting) return; ph.dataset.painting='1';
+      const v=document.createElement('video'); v.src=item.src; v.muted=true; v.crossOrigin='anonymous'; v.preload='metadata';
+      v.addEventListener('loadeddata',function(){ try{ v.currentTime=Math.min(1,(v.duration||2)/2); }catch(e){} });
+      v.addEventListener('seeked',function(){
+        try{ const c=document.createElement('canvas'); c.width=320; c.height=180;
+          c.getContext('2d').drawImage(v,0,0,320,180);
+          const img=document.createElement('img'); img.src=c.toDataURL('image/jpeg',0.8); img.alt=item.title;
+          ph.replaceWith(img);
+        }catch(e){ ph.removeAttribute('data-painting'); }   // leave PRML placeholder on failure
+      });
+    });
+  }
+  window.PRML_paintThumbs = paint;
+  paint();   // initial paint for the already-rendered video tab
+})();
+</script>
 <script src="js/main.js" defer></script>
 <script src="js/notify.js" defer></script>
 <script src="js/cookie-consent.js" defer></script>
