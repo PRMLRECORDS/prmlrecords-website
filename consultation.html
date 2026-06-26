@@ -238,6 +238,7 @@ function postBooking(type){
   add('_form','Consultation'); add('name',src.name); add('email',src.email);
   add('phone',src.phone); add('topic',src.topic); add('type',type);
   add('nda_signature',src.sign); add('_source',location.href);
+  add('_hp', (document.querySelector('[name="_hp"]') || {}).value || '');
   document.body.appendChild(f);
   document.getElementById('cSink').addEventListener('load',()=>{ if(f.dataset.sent){ showDone(type); } }, {once:true});
   f.dataset.sent='1'; f.submit();
