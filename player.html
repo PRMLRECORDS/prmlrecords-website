@@ -40,12 +40,13 @@
 #player-app .surface{background:var(--black);border:1px solid var(--stone);border-radius:0;overflow:hidden}
 #player-app video{display:block;width:100%;background:var(--black);aspect-ratio:16/9}
 #player-app .controls{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--charcoal);flex-wrap:wrap}
-#player-app button.ctl{appearance:none;border:2px solid var(--stone);background:transparent;color:var(--cream);width:44px;height:44px;min-width:44px;border-radius:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
-#player-app button.ctl:hover{border-color:var(--cream)}
-#player-app button.ctl:focus-visible{outline:3px solid var(--red);outline-offset:2px}
-#player-app button.ctl svg{width:20px;height:20px;display:block}
-#player-app button.ctl.primary{background:var(--red);border-color:var(--red);color:var(--cream)}
-#player-app button.ctl.primary:hover{background:#b50d0d;border-color:#b50d0d}
+#player-app button.ctl{appearance:none;border:0;background:var(--cream);color:var(--charcoal);width:48px;height:48px;min-width:48px;border-radius:12px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:inset 0 2px 0 #ffffff,inset 0 -3px 0 #c9b890,0 3px 6px rgba(0,0,0,.4);transition:filter .18s,transform .08s}
+#player-app button.ctl:hover{filter:brightness(1.05)}
+#player-app button.ctl:active{transform:translateY(1px)}
+#player-app button.ctl:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+#player-app button.ctl svg{width:22px;height:22px;display:block}
+#player-app button.ctl.primary{background:var(--red);color:var(--cream);box-shadow:inset 0 2px 0 #ff5a5a,inset 0 -3px 0 #9c0000,0 3px 8px rgba(0,0,0,.45)}
+#player-app button.ctl.primary:hover{filter:brightness(1.06)}
 #player-app .time{font-family:'Odibee Sans',sans-serif;letter-spacing:1px;font-size:16px;color:var(--cream);white-space:nowrap;min-width:96px;text-align:center}
 #player-app input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:0;background:var(--stone);cursor:pointer;outline:none}
 #player-app input.scrub{flex:1 1 140px;min-width:120px}
@@ -152,6 +153,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
       <video id="video" playsinline preload="metadata" x-webkit-airplay="allow" crossorigin="anonymous"></video>
       <div class="controls">
         <button class="ctl primary" id="vPlay" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <button class="ctl" id="vStop" aria-label="Stop video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg></button>
         <span class="time" id="vTime">0:00 / 0:00</span>
         <input class="scrub" type="range" id="vScrub" min="0" max="1000" value="0" step="1" aria-label="Video seek">
         <button class="ctl" id="vMute" aria-label="Mute video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg></button>
@@ -164,7 +166,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
     </div>
     <div class="caption">
       <div class="ct">Phenomenal</div>
-      <p>Straight from the PRML car show &mdash; September 2025. Engines, energy, and the culture in one place.</p>
+      <p>Straight from the Droptop Motors Car &amp; Bike Show &mdash; September 2025. Engines, energy, and the culture in one place. Shot by PRML RECORDS in conjunction with Drums Drones &amp; Dreams, who captured the drone footage for the event.</p>
       <div class="event">Next Show &middot; Sept 27 &middot; 10AM&ndash;3PM &middot; Central United Methodist Church, Atlanta <span class="soon">&mdash; details coming soon</span></div>
     </div>
   </section>
@@ -181,6 +183,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
       <audio id="audio" preload="metadata" x-webkit-airplay="allow" crossorigin="anonymous"></audio>
       <div class="audio-controls">
         <button class="ctl primary" id="aPlay" aria-label="Play song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <button class="ctl" id="aStop" aria-label="Stop song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg></button>
         <span class="time" id="aTime">0:00 / 0:00</span>
         <input class="scrub" type="range" id="aScrub" min="0" max="1000" value="0" step="1" aria-label="Song seek">
         <button class="ctl cast" id="aCast" hidden aria-label="Cast song to Chromecast"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1 18v3h3a3 3 0 0 0-3-3zm0-4v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7zm0-4v2a9 9 0 0 1 9 9h2A11 11 0 0 0 1 10zM21 3H3a2 2 0 0 0-2 2v3h2V5h18v14h-7v2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></button>
@@ -310,6 +313,11 @@ const AUDIO_ARTIST = "SEAUX9 × KING JU";
   }
   bind(video, { play:'vPlay', scrub:'vScrub', time:'vTime', playLabel:'Play video', pauseLabel:'Pause video' });
   bind(audio, { play:'aPlay', scrub:'aScrub', time:'aTime', playLabel:'Play song',  pauseLabel:'Pause song' });
+
+  /* Stop = pause + return to start */
+  function stopMedia(el){ el.pause(); el.currentTime = 0; }
+  document.getElementById('vStop').addEventListener('click', () => stopMedia(video));
+  document.getElementById('aStop').addEventListener('click', () => stopMedia(audio));
 
   const vMute = document.getElementById('vMute');
   const vVol  = document.getElementById('vVol');
