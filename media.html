@@ -239,6 +239,54 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   <section aria-label="Media library" id="gallery"></section>
 </main>
 
+<!-- HOST YOUR CONTENT — public creator sign-up -->
+<section id="create" style="background:#2B2B2B;color:#F5E6C8;padding:72px 5vw">
+  <div style="max-width:820px;margin:0 auto">
+    <div style="font-family:'Odibee Sans',sans-serif;letter-spacing:5px;text-transform:uppercase;color:#E01010;font-size:11px;margin-bottom:14px">&mdash; Host Your Content With PRML &mdash;</div>
+    <h2 style="font-family:'Rubik Mono One',monospace;font-size:clamp(26px,4vw,40px);color:#F5E6C8;line-height:1.05;margin-bottom:20px">Get your work in front of the room.</h2>
+    <p style="font-family:'Roboto Slab',serif;font-weight:300;font-size:16px;line-height:1.7;color:#F5E6C8;opacity:.9;margin-bottom:16px">Our platform is already monetized &mdash; every view here earns. If you make your own content, bring it: you create it, and PRML reviews and approves everything we host so the room stays quality. We can also shoot it with you &mdash; when our cameras and crew make it, PRML takes a larger share of what it earns. Either way, pay is set <strong>contract by contract</strong>, and we keep it fair and equitable. Serious about it? Sign up and we'll sit down, talk business, and figure out exactly what you need.</p>
+    <ul style="font-family:'Roboto Slab',serif;font-size:15px;color:#C4B49A;line-height:1.9;margin:0 0 28px 18px">
+      <li>You make it &rarr; we approve it &rarr; it goes live and earns.</li>
+      <li>We shoot it &rarr; larger PRML split, full production behind you.</li>
+      <li>Every deal is its own contract &mdash; fair, clear, equitable.</li>
+    </ul>
+    <form id="creatorForm" novalidate style="display:grid;gap:14px;max-width:560px">
+      <input name="name" required placeholder="Your name" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif">
+      <input name="email" type="email" required placeholder="your@email.com" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif">
+      <input name="phone" placeholder="Phone (optional)" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif">
+      <input name="link" placeholder="Link to your work (IG, YouTube, portfolio…)" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif">
+      <select name="content_type" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif">
+        <option value="">What do you make?</option><option>Music</option><option>Video</option><option>Photography</option><option>Art</option><option>Mixed</option><option>Other</option>
+      </select>
+      <select name="production" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif">
+        <option value="">Do you make your own content, or need us to shoot it?</option><option>I make my own</option><option>I need PRML to shoot it</option><option>A mix of both</option>
+      </select>
+      <textarea name="goals" rows="3" placeholder="Tell us what you want to do" style="padding:14px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif"></textarea>
+      <label style="font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" required> I agree PRML may contact me about hosting my content.</label>
+      <button type="submit" style="background:#E01010;color:#F5E6C8;border:none;padding:16px;font-family:'Odibee Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:14px;cursor:pointer">Apply To Create With PRML</button>
+      <p class="cf-success" style="display:none;font-family:'Roboto Slab',serif;color:#F5E6C8">&#10003; Thanks &mdash; we'll reach out to set up your consultation.</p>
+      <p class="cf-error" style="display:none;font-family:'Roboto Slab',serif;color:#E01010">Something went wrong. Try again.</p>
+    </form>
+  </div>
+</section>
+<script>
+(function(){
+  const GAS_URL='https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';
+  const form=document.getElementById('creatorForm'); if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    const d=Object.fromEntries(new FormData(form).entries());
+    const payload=Object.assign({action:'creator_application',ts:new Date().toISOString(),source:location.pathname},d);
+    const btn=form.querySelector('button'); btn.disabled=true; btn.textContent='SENDING…';
+    if(window.gtag) gtag('event','creator_application',{content_type:d.content_type||''});
+    fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(){ form.querySelectorAll('input,select,textarea,button').forEach(function(x){ x.style.display='none'; }); form.querySelector('.cf-success').style.display='block'; })
+      .catch(function(){ btn.disabled=false; btn.textContent='Apply To Create With PRML'; form.querySelector('.cf-error').style.display='block'; });
+  });
+})();
+</script>
+
 <!-- FOOTER — PRML RECORDS v3 2026 -->
 <footer style="background:#2B2B2B;color:#F5E6C8;padding:40px 32px;text-align:center">
   <div style="font-family:'Rubik Mono One',monospace;font-size:12px;color:#C4B49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Freedom Â· Justice Â· Equality</div>
