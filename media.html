@@ -22,6 +22,67 @@
 <link rel="stylesheet" href="css/notify.css">
 <link rel="stylesheet" href="css/brand.css">
 <link rel="stylesheet" href="css/nav.css">
+<!-- Google Cast SDK sender (Chromecast) -->
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+<style>
+/* Player intro */
+.pl-hero{background:var(--black);color:var(--cream);padding:72px 5vw 60px}
+.pl-hero__eyebrow{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.pl-hero__title{font-family:'Rubik Mono One',monospace;font-size:clamp(32px,5vw,56px);color:var(--cream);letter-spacing:-1px;line-height:1;margin-bottom:16px}
+.pl-hero__sub{font-family:'Roboto Slab',serif;font-weight:300;font-size:16px;color:var(--cream);opacity:.75;max-width:560px;line-height:1.7;border-left:3px solid var(--red);padding-left:18px}
+
+/* Player app — scoped so generic selectors don't leak into the site */
+#player-app{max-width:960px;margin:0 auto;padding:56px 5vw 88px;background:var(--cream)}
+#player-app section{margin-bottom:72px}
+#player-app .section-label{font-family:'Odibee Sans',sans-serif;text-transform:uppercase;letter-spacing:3px;font-size:20px;color:var(--charcoal);border-bottom:2px solid var(--stone);padding-bottom:12px;margin-bottom:24px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+#player-app .section-label .num{font-family:'Rubik Mono One',monospace;font-size:14px;color:var(--red);letter-spacing:0}
+#player-app .surface{background:var(--black);border:1px solid var(--stone);border-radius:0;overflow:hidden}
+#player-app video{display:block;width:100%;background:var(--black);aspect-ratio:16/9}
+#player-app .controls{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--charcoal);flex-wrap:wrap}
+#player-app button.ctl{appearance:none;border:0;background:var(--cream);color:var(--charcoal);width:48px;height:48px;min-width:48px;border-radius:12px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:inset 0 2px 0 #ffffff,inset 0 -3px 0 #c9b890,0 3px 6px rgba(0,0,0,.4);transition:filter .18s,transform .08s}
+#player-app button.ctl:hover{filter:brightness(1.05)}
+#player-app button.ctl:active{transform:translateY(1px)}
+#player-app button.ctl:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+#player-app button.ctl svg{width:22px;height:22px;display:block}
+#player-app button.ctl.primary{background:var(--red);color:var(--cream);box-shadow:inset 0 2px 0 #ff5a5a,inset 0 -3px 0 #9c0000,0 3px 8px rgba(0,0,0,.45)}
+#player-app button.ctl.primary:hover{filter:brightness(1.06)}
+#player-app .time{font-family:'Odibee Sans',sans-serif;letter-spacing:1px;font-size:16px;color:var(--cream);white-space:nowrap;min-width:96px;text-align:center}
+#player-app input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:0;background:var(--stone);cursor:pointer;outline:none}
+#player-app input.scrub{flex:1 1 140px;min-width:120px}
+#player-app input.vol{flex:0 0 88px;width:88px}
+#player-app input[type=range]:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+#player-app input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:0;background:var(--red);border:2px solid var(--cream)}
+#player-app input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:0;background:var(--red);border:2px solid var(--cream)}
+#player-app button.cast[hidden]{display:none}
+#player-app .spacer{flex:1 1 auto}
+#player-app .song{display:flex;gap:24px;align-items:center;padding:28px;background:var(--charcoal);border:1px solid var(--stone);border-radius:0;flex-wrap:wrap}
+#player-app .art{flex:0 0 96px;width:96px;height:96px;border-radius:0;background:var(--black);border:1px solid var(--stone);display:flex;align-items:center;justify-content:center}
+#player-app .art .mono{font-family:'Rubik Mono One',monospace;font-size:13px;color:var(--red);letter-spacing:1px}
+#player-app .song .meta{flex:1 1 200px;min-width:180px}
+#player-app .song .title{font-family:'Rubik Mono One',monospace;font-size:22px;color:var(--cream);letter-spacing:-.5px;line-height:1.2}
+#player-app .song .artist{font-family:'Odibee Sans',sans-serif;text-transform:uppercase;letter-spacing:3px;font-size:15px;color:var(--stone);margin-top:6px}
+#player-app .song .audio-controls{flex:1 1 100%;display:flex;align-items:center;gap:14px;margin-top:6px;flex-wrap:wrap}
+#player-app .caption{margin-top:20px;padding-left:18px;border-left:3px solid var(--red)}
+#player-app .caption .ct{font-family:'Rubik Mono One',monospace;font-size:18px;color:var(--charcoal);letter-spacing:-.5px;line-height:1.2}
+#player-app .caption p{font-family:'Roboto Slab',serif;font-weight:300;font-size:16px;color:var(--charcoal);margin-top:8px;max-width:640px;line-height:1.65}
+#player-app .caption .credit{font-family:'Odibee Sans',sans-serif;text-transform:uppercase;letter-spacing:2px;font-size:13px;color:var(--charcoal);opacity:.7;margin-top:10px}
+/* Gallery */
+.gal-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.gal-tab{font-family:'Odibee Sans',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:14px;padding:10px 18px;background:transparent;color:#2B2B2B;border:1px solid #C4B49A;cursor:pointer}
+.gal-tab.active{background:#E01010;color:#F5E6C8;border-color:#E01010}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.gal-card{background:#2B2B2B;border:1px solid #C4B49A;cursor:pointer;overflow:hidden}
+.gal-card img,.gal-card .ph{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#2B2B2B}
+.gal-card .ph{display:flex;align-items:center;justify-content:center;font-family:'Rubik Mono One',monospace;color:#E01010;font-size:14px;letter-spacing:1px}
+.gal-card .cap{padding:12px 14px}
+.gal-card .cap .t{font-family:'Rubik Mono One',monospace;font-size:14px;color:#F5E6C8;line-height:1.2}
+.gal-card .cap .a{font-family:'Odibee Sans',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#C4B49A;margin-top:4px}
+.gal-empty{font-family:'Roboto Slab',serif;color:#C4B49A;padding:40px;text-align:center;border:1px dashed #C4B49A}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh}
+.lightbox button{position:absolute;top:20px;right:24px;background:none;border:none;color:#F5E6C8;font-size:32px;cursor:pointer}
+</style>
 <!-- GA4 — PRML RECORDS. Replace G-2PNH2XTRDK with your real G-XXXXXXXXXX ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PNH2XTRDK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2PNH2XTRDK');</script>
@@ -120,18 +181,63 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 <div onclick="closeCart()" style="display:none" id="cart-overlay"></div>
 <style>
 .cart-panel.open ~ #cart-overlay{display:block !important;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998}
-</style><div class="page-hero">
-  <h1>PRML <span>RECORDS</span><br>Media</h1>
-  <p>Music videos, press photos, brand assets, and coverage. Coming soon.</p>
-</div>
+</style><header class="pl-hero">
+  <div class="pl-hero__eyebrow">Media &middot; Now Live</div>
+  <div class="pl-hero__title">The PRML Media Hub.</div>
+  <div class="pl-hero__sub">Watch, listen, and throw it to the big screen &mdash; wirelessly. New drops, press, and creator work, all in one place.</div>
+</header>
 
-<div class="coming-soon">
-  <h2>Coming Soon</h2>
-  <p>The PRML RECORDS media hub is being built. Music videos, press photos, brand assets, and coverage — all in one place. Drop your email and we'll notify you when it goes live.</p>
-  <div data-notify-form data-page="Media Hub"></div>
-  <p style="margin-top:36px">In the meantime, watch a featured cut and hear a featured song &mdash; play it here or cast it to the room.</p>
-  <a href="player.html" style="display:inline-block;margin-top:8px;font-family:'Odibee Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;background:#E01010;color:#F5E6C8;text-decoration:none;padding:14px 28px">Open the Player &rarr;</a>
-</div>
+<main id="player-app">
+
+  <!-- FEATURED PLAYER STAGE -->
+  <section aria-label="Now playing" id="player">
+    <div class="section-label"><span id="stageLabel">Now Playing</span><span class="num">&#9654;</span></div>
+
+    <!-- VIDEO surface -->
+    <div class="surface" id="videoSurface">
+      <video id="video" playsinline preload="metadata" x-webkit-airplay="allow" crossorigin="anonymous"></video>
+      <div class="controls">
+        <button class="ctl primary" id="vPlay" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <button class="ctl" id="vStop" aria-label="Stop video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg></button>
+        <span class="time" id="vTime">0:00 / 0:00</span>
+        <input class="scrub" type="range" id="vScrub" min="0" max="1000" value="0" step="1" aria-label="Video seek">
+        <button class="ctl" id="vMute" aria-label="Mute video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg></button>
+        <input class="vol" type="range" id="vVol" min="0" max="1" value="1" step="0.01" aria-label="Video volume">
+        <span class="spacer"></span>
+        <button class="ctl cast" id="vCast" hidden aria-label="Cast video to Chromecast"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1 18v3h3a3 3 0 0 0-3-3zm0-4v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7zm0-4v2a9 9 0 0 1 9 9h2A11 11 0 0 0 1 10zM21 3H3a2 2 0 0 0-2 2v3h2V5h18v14h-7v2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></button>
+        <button class="ctl cast" id="vAir" hidden aria-label="AirPlay video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 22h12l-6-6-6 6zM21 3H3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3l2-2H3V5h18v11h-5l2 2h3a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></button>
+        <button class="ctl" id="vFull" aria-label="Fullscreen video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- AUDIO surface -->
+    <div class="song" id="audioSurface" style="display:none">
+      <div class="art"><span class="mono">PRML</span></div>
+      <div class="meta">
+        <div class="title" id="aTitle">Track Title</div>
+        <div class="artist" id="aArtist">Artist</div>
+      </div>
+      <audio id="audio" preload="metadata" x-webkit-airplay="allow" crossorigin="anonymous"></audio>
+      <div class="audio-controls">
+        <button class="ctl primary" id="aPlay" aria-label="Play song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <button class="ctl" id="aStop" aria-label="Stop song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg></button>
+        <span class="time" id="aTime">0:00 / 0:00</span>
+        <input class="scrub" type="range" id="aScrub" min="0" max="1000" value="0" step="1" aria-label="Song seek">
+        <button class="ctl cast" id="aCast" hidden aria-label="Cast song to Chromecast"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1 18v3h3a3 3 0 0 0-3-3zm0-4v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7zm0-4v2a9 9 0 0 1 9 9h2A11 11 0 0 0 1 10zM21 3H3a2 2 0 0 0-2 2v3h2V5h18v14h-7v2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></button>
+        <button class="ctl cast" id="aAir" hidden aria-label="AirPlay song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 22h12l-6-6-6 6zM21 3H3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3l2-2H3V5h18v11h-5l2 2h3a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></button>
+      </div>
+    </div>
+
+    <div class="caption" id="stageCaption">
+      <div class="ct" id="stageTitle"></div>
+      <p id="stageDesc"></p>
+      <div class="credit" id="stageCredit"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY mounts here -->
+  <section aria-label="Media library" id="gallery"></section>
+</main>
 
 <!-- FOOTER — PRML RECORDS v3 2026 -->
 <footer style="background:#2B2B2B;color:#F5E6C8;padding:40px 32px;text-align:center">
@@ -139,6 +245,138 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   <div style="font-family:'Roboto Slab',serif;font-size:12px;color:#C4B49A;font-style:italic;margin-bottom:8px">Primal Energy. Primal Sound.</div>
   <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#C4B49A;opacity:.7">Â© 2026 PRML RECORDS LLC. All rights reserved. Â· Atlanta, GA Â· @PRMLRECORDS</div>
 </footer>
+<!-- MEDIA HUB — playlist data + player engine (casting lifted from former player.html) -->
+<script src="js/media-data.js"></script>
+<script>
+(function(){
+  "use strict";
+  const video = document.getElementById('video');
+  const audio = document.getElementById('audio');
+
+  /* Drive the stage from PRML_MEDIA */
+  function loadIntoPlayer(item){
+    const vS = document.getElementById('videoSurface');
+    const aS = document.getElementById('audioSurface');
+    document.getElementById('stageTitle').textContent  = item.title;
+    document.getElementById('stageDesc').textContent   = item.caption || '';
+    document.getElementById('stageCredit').textContent = item.credit || '';
+    if(item.type === 'video'){
+      vS.style.display=''; aS.style.display='none';
+      audio.pause(); video.src = item.src; video.load();
+    } else {
+      vS.style.display='none'; aS.style.display='';
+      video.pause();
+      document.getElementById('aTitle').textContent  = item.title;
+      document.getElementById('aArtist').textContent = item.artist;
+      audio.src = item.src; audio.load();
+    }
+  }
+  window.loadIntoPlayer = loadIntoPlayer;
+
+  const ICON_PLAY  = 'M8 5v14l11-7z';
+  const ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  function fmt(t){
+    if(!isFinite(t)||isNaN(t)) return '0:00';
+    t = Math.floor(t);
+    const m = Math.floor(t/60), s = t%60;
+    return m + ':' + (s<10?'0':'') + s;
+  }
+
+  function bind(el, ids){
+    const playBtn = document.getElementById(ids.play);
+    const scrub   = document.getElementById(ids.scrub);
+    const timeEl  = document.getElementById(ids.time);
+    const playPath = playBtn.querySelector('path');
+    let seeking = false;
+    playBtn.addEventListener('click', () => { if(el.paused){ el.play(); } else { el.pause(); } });
+    el.addEventListener('play',  () => { playPath.setAttribute('d', ICON_PAUSE); playBtn.setAttribute('aria-label', ids.pauseLabel); });
+    el.addEventListener('pause', () => { playPath.setAttribute('d', ICON_PLAY);  playBtn.setAttribute('aria-label', ids.playLabel); });
+    function paintTime(){
+      timeEl.textContent = fmt(el.currentTime) + ' / ' + fmt(el.duration);
+      if(!seeking && el.duration){ scrub.value = Math.round((el.currentTime / el.duration) * 1000); }
+    }
+    el.addEventListener('loadedmetadata', paintTime);
+    el.addEventListener('timeupdate', paintTime);
+    scrub.addEventListener('input', () => { seeking = true; });
+    scrub.addEventListener('change', () => { if(el.duration){ el.currentTime = (scrub.value / 1000) * el.duration; } seeking = false; });
+  }
+  bind(video, { play:'vPlay', scrub:'vScrub', time:'vTime', playLabel:'Play video', pauseLabel:'Pause video' });
+  bind(audio, { play:'aPlay', scrub:'aScrub', time:'aTime', playLabel:'Play song',  pauseLabel:'Pause song' });
+
+  /* Stop = pause + return to start */
+  function stopMedia(el){ el.pause(); el.currentTime = 0; }
+  document.getElementById('vStop').addEventListener('click', () => stopMedia(video));
+  document.getElementById('aStop').addEventListener('click', () => stopMedia(audio));
+
+  const vMute = document.getElementById('vMute');
+  const vVol  = document.getElementById('vVol');
+  const vFull = document.getElementById('vFull');
+  const muteIcon = vMute.querySelector('path');
+  const ICON_VOL  = 'M3 9v6h4l5 5V4L7 9H3z';
+  const ICON_MUTE = 'M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z';
+  let seekingVol = false;
+  vMute.addEventListener('click', () => { video.muted = !video.muted; });
+  video.addEventListener('volumechange', () => {
+    const off = video.muted || video.volume === 0;
+    muteIcon.setAttribute('d', off ? ICON_MUTE : ICON_VOL);
+    vMute.setAttribute('aria-label', off ? 'Unmute video' : 'Mute video');
+    if(!seekingVol){ vVol.value = video.muted ? 0 : video.volume; }
+  });
+  vVol.addEventListener('input', () => { seekingVol = true; video.volume = parseFloat(vVol.value); video.muted = (video.volume === 0); });
+  vVol.addEventListener('change', () => { seekingVol = false; });
+  vFull.addEventListener('click', () => {
+    const surface = video.closest('.surface');
+    if(document.fullscreenElement){ document.exitFullscreen(); }
+    else if(surface.requestFullscreen){ surface.requestFullscreen(); }
+    else if(video.webkitEnterFullscreen){ video.webkitEnterFullscreen(); }
+  });
+
+  /* CHROMECAST via Remote Playback API */
+  function setupRemotePlayback(el, btnId){
+    const btn = document.getElementById(btnId);
+    if(!('remote' in el) || typeof el.remote.prompt !== 'function'){ return; }
+    const reveal = (available) => { btn.hidden = !available; };
+    if(typeof el.remote.watchAvailability === 'function'){
+      el.remote.watchAvailability(reveal).catch(() => { btn.hidden = false; });
+    } else { btn.hidden = false; }
+    btn.addEventListener('click', () => { el.remote.prompt().catch(() => {}); });
+  }
+  setupRemotePlayback(video, 'vCast');
+  setupRemotePlayback(audio, 'aCast');
+
+  /* Google Cast SDK framework (richer Chromecast control) */
+  window['__onGCastApiAvailable'] = function(isAvailable){
+    if(!isAvailable || !window.cast || !cast.framework) return;
+    try{
+      cast.framework.CastContext.getInstance().setOptions({
+        receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
+        autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+      });
+      ['vCast','aCast'].forEach((id) => {
+        const b = document.getElementById(id);
+        if(b && b.hidden){
+          b.hidden = false;
+          b.addEventListener('click', () => { cast.framework.CastContext.getInstance().requestSession().catch(() => {}); });
+        }
+      });
+    }catch(e){}
+  };
+
+  /* AIRPLAY via WebKit APIs (Safari) */
+  function setupAirPlay(el, btnId){
+    const btn = document.getElementById(btnId);
+    if(typeof el.webkitShowPlaybackTargetPicker !== 'function'){ return; }
+    el.addEventListener('webkitplaybacktargetavailabilitychanged', (ev) => { btn.hidden = (ev.availability !== 'available'); });
+    btn.addEventListener('click', () => { el.webkitShowPlaybackTargetPicker(); });
+  }
+  setupAirPlay(video, 'vAir');
+  setupAirPlay(audio, 'aAir');
+
+  /* Load the first item on page load */
+  if(window.PRML_MEDIA && PRML_MEDIA.length){ loadIntoPlayer(PRML_MEDIA[0]); }
+})();
+</script>
 <script src="js/main.js" defer></script>
 <script src="js/notify.js" defer></script>
 <script src="js/cookie-consent.js" defer></script>
