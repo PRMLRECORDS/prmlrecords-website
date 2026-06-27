@@ -58,8 +58,6 @@ function doPost(e) {
       case 'SHORTCUT':     handleShortcut(ss, data); break;
       case 'BOOKING':      handleBooking(ss, data); break;
       case 'AFFILIATE':    handleAffiliate(ss, data); break;
-      case 'CREATOR_APPLICATION': handleCreatorApplication(ss, data); break;
-      case 'CONSULTATION_INTAKE': handleConsultationIntake(ss, data); break;
     }
 
     return ContentService
@@ -317,87 +315,6 @@ function handleAffiliate(ss, data) {
     'Submitted: ' + formatDate(data.ts);
 
   MailApp.sendEmail({ to: ALERT_EMAIL, subject: subject, body: body });
-}
-
-/* ── CREATOR APPLICATION (public media-page sign-up) ── */
-function handleCreatorApplication(ss, data) {
-  var sh = getOrCreateSheet(ss, 'Creator Applications', [
-    'Date','Name','Email','Phone','Link','Content Type','Production','Goals','Consent','Source','Status'
-  ]);
-
-  sh.appendRow([
-    formatDate(data.ts),
-    data.name         || '',
-    data.email        || '',
-    data.phone        || '',
-    data.link         || '',
-    data.content_type || '',
-    data.production   || '',
-    data.goals        || '',
-    data.consent ? 'Yes' : '',
-    data.source       || '',
-    'New'
-  ]);
-
-  var subject = 'New Creator Application: ' + (data.name || 'Unknown') + ' — ' + (data.content_type || 'Content');
-  var body =
-    'Creator application from prmlrecords.com/media\n' +
-    '==============================================\n\n' +
-    'Name:        ' + (data.name         || '—') + '\n' +
-    'Email:       ' + (data.email        || '—') + '\n' +
-    'Phone:       ' + (data.phone        || '—') + '\n' +
-    'Work link:   ' + (data.link         || '—') + '\n' +
-    'Makes:       ' + (data.content_type || '—') + '\n' +
-    'Production:  ' + (data.production    || '—') + '\n\n' +
-    'Goals:\n' + (data.goals || '—') + '\n\n' +
-    'Submitted: ' + formatDate(data.ts) + '\n\n' +
-    'Next step: reach out to set up a consultation.';
-
-  MailApp.sendEmail({ to: ALERT_EMAIL, subject: subject, body: body });
-}
-
-/* ── CONSULTATION INTAKE (internal — Quo fills during consult) ── */
-function handleConsultationIntake(ss, data) {
-  var sh = getOrCreateSheet(ss, 'Consultation Intake', [
-    'Date','Artist','Contact','Content Types','Production','Tools Needed',
-    'Volume','Revenue Expectations','Split Notes','Approval Notes','Timeline','Notes','Source'
-  ]);
-
-  sh.appendRow([
-    formatDate(data.ts),
-    data.artist         || '',
-    data.contact        || '',
-    data.content_types  || '',
-    data.production      || '',
-    data.tools          || '',
-    data.volume         || '',
-    data.revenue        || '',
-    data.split_notes    || '',
-    data.approval_notes || '',
-    data.timeline       || '',
-    data.notes          || '',
-    data.source         || ''
-  ]);
-
-  MailApp.sendEmail({
-    to: ALERT_EMAIL,
-    subject: 'Consultation Intake: ' + (data.artist || 'Unknown'),
-    body:
-      'Internal consultation intake (creator-intake.html)\n' +
-      '==================================================\n\n' +
-      'Artist:      ' + (data.artist        || '—') + '\n' +
-      'Contact:     ' + (data.contact       || '—') + '\n' +
-      'Content:     ' + (data.content_types || '—') + '\n' +
-      'Production:  ' + (data.production     || '—') + '\n' +
-      'Tools:       ' + (data.tools         || '—') + '\n' +
-      'Volume:      ' + (data.volume        || '—') + '\n' +
-      'Revenue:     ' + (data.revenue       || '—') + '\n' +
-      'Split notes: ' + (data.split_notes   || '—') + '\n' +
-      'Approval:    ' + (data.approval_notes|| '—') + '\n' +
-      'Timeline:    ' + (data.timeline      || '—') + '\n\n' +
-      'Notes:\n' + (data.notes || '—') + '\n\n' +
-      'Submitted: ' + formatDate(data.ts)
-  });
 }
 
 /* ── INVOICE ─────────────────────────────────── */

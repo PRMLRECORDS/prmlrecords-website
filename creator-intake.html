@@ -53,12 +53,18 @@ body{background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',Georgia,serif}
 </header>
 
 <div class="intake-wrap">
-  <form id="intakeForm" class="intake-form" novalidate>
+  <form id="intakeForm" class="intake-form" method="POST" target="prmlSink">
+    <div aria-hidden="true" style="position:absolute;left:-9999px"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+    <input type="hidden" name="_form" value="Creator Intake">
+    <input type="hidden" name="_source" id="intakeSource" value="">
     <label class="fl">Artist / legal name</label>
-    <input name="artist" required placeholder="Artist or legal name">
+    <input name="name" required placeholder="Artist or legal name">
 
-    <label class="fl">Contact (email &amp; phone)</label>
-    <input name="contact" required placeholder="email@example.com · (770) 000-0000">
+    <label class="fl">Email</label>
+    <input name="email" type="email" required placeholder="email@example.com">
+
+    <label class="fl">Phone</label>
+    <input name="phone" placeholder="(770) 000-0000">
 
     <label class="fl">Content type(s)</label>
     <input name="content_types" placeholder="Music, video, photography, art…">
@@ -97,7 +103,7 @@ body{background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',Georgia,serif}
     <label class="fl">Anything else</label>
     <textarea name="notes" rows="3" placeholder="Other notes from the consultation"></textarea>
 
-    <button type="submit">Save Intake</button>
+    <button type="submit" id="intakeBtn">Save Intake</button>
     <p class="intake-ok">&#10003; Saved. Thanks.</p>
     <p class="intake-err">Something went wrong. Try again.</p>
   </form>
@@ -109,19 +115,22 @@ body{background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',Georgia,serif}
   <div style="font-family:'Roboto Slab',serif;font-size:11px;color:#C4B49A;opacity:.7">&#169; 2026 PRML RECORDS LLC &middot; Internal tool</div>
 </footer>
 
+<!-- Forms Kit submission target (hidden iframe; form posts here, no CORS) -->
+<iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
 <script>
 (function(){
-  const GAS_URL='https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';
-  const form=document.getElementById('intakeForm'); if(!form) return;
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!form.checkValidity()){ form.reportValidity(); return; }
-    const d=Object.fromEntries(new FormData(form).entries());
-    const payload=Object.assign({type:'CONSULTATION_INTAKE',ts:new Date().toISOString(),source:location.pathname},d);
-    const btn=form.querySelector('button'); btn.disabled=true; btn.textContent='SAVING…';
-    fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-      .then(function(){ form.querySelectorAll('input,select,textarea,button,label').forEach(function(x){ x.style.display='none'; }); document.querySelector('.intake-ok').style.display='block'; })
-      .catch(function(){ btn.disabled=false; btn.textContent='Save Intake'; document.querySelector('.intake-err').style.display='block'; });
+  var ENDPOINT='https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec';
+  var form=document.getElementById('intakeForm'); if(!form) return;
+  form.action=ENDPOINT;
+  document.getElementById('intakeSource').value=location.href;
+  form.addEventListener('submit',function(){
+    form.dataset.submitted='1';
+    var b=document.getElementById('intakeBtn'); b.disabled=true; b.textContent='SAVING…';
+  });
+  document.getElementById('prmlSink').addEventListener('load',function(){
+    if(!form.dataset.submitted) return;
+    form.querySelectorAll('input,select,textarea,button,label').forEach(function(x){ x.style.display='none'; });
+    document.querySelector('.intake-ok').style.display='block';
   });
 })();
 </script>
