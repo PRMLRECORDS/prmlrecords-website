@@ -567,7 +567,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 (function(){
   var GAS='https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec';
   var current=(window.PRML_MEDIA&&PRML_MEDIA[0])?PRML_MEDIA[0].id:'';
-  var viewed={}, VIEWS={};
+  var VIEWS={};
   function post(p){ try{ fetch(GAS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(p)}); }catch(e){} }
   function num(n){ return Number(n).toLocaleString('en-US'); }
   function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
@@ -598,21 +598,38 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
     window.PRML_updateViews(); loadComments(current);
   };
 
-  // Count a play/stream only after 9 seconds of actual playback (industry-standard threshold).
-  var playTimer=null;
-  function armCount(){
-    clearTimeout(playTimer);
-    var id=current;
-    playTimer=setTimeout(function(){
-      if(!id||viewed[id]) return;
-      viewed[id]=1; VIEWS[id]=(VIEWS[id]||0)+1;
-      post({type:'VIEW',mediaId:id,ts:new Date().toISOString()});
-      window.PRML_updateViews();
-    },9000);
+  // Count a play/stream every time an item accumulates 9 seconds of ACTUAL playback.
+  // Uses real played time (timeupdate deltas), NOT wall-clock — so buffering, stalls, and
+  // scrubbing never inflate the count. Every replay (stop -> play) counts again; a single
+  // continuous play counts exactly once; the on-screen count updates in real time.
+  var acc=0, accId=null, lastT=0, counted=false;
+  function resetAccrual(id, startT){ accId=id; acc=0; counted=false; lastT=startT||0; }
+  function onPlay(e){
+    var el=e.target;
+    // Fresh start (from a stop/ended, i.e. near the beginning) OR a different item -> allow a NEW count.
+    // Resume mid-track keeps accruing toward the same play (won't double-count once counted).
+    if(accId!==current || el.currentTime < 1){ resetAccrual(current, el.currentTime); }
+    else { lastT = el.currentTime; }
   }
-  function disarm(){ clearTimeout(playTimer); }
+  function onTime(e){
+    var el=e.target;
+    if(el.paused || el.seeking || el.readyState < 3){ lastT = el.currentTime; return; }  // not really playing
+    if(accId!==current){ resetAccrual(current, el.currentTime); return; }
+    var d = el.currentTime - lastT;
+    lastT = el.currentTime;
+    if(d > 0 && d < 1.5){ acc += d; }          // ignore seeks/jumps (large) and rewinds (negative)
+    if(!counted && acc >= 9 && current){
+      counted = true;
+      VIEWS[current] = (VIEWS[current]||0) + 1;   // +1 for THIS play
+      window.PRML_updateViews();                  // real-time on-screen update
+      post({type:'VIEW', mediaId:current, ts:new Date().toISOString()});  // persist to backend
+    }
+  }
   var v=document.getElementById('video'), a=document.getElementById('audio');
-  [v,a].forEach(function(el){ if(!el) return; el.addEventListener('play',armCount); el.addEventListener('pause',disarm); el.addEventListener('ended',disarm); });
+  [v,a].forEach(function(el){ if(!el) return;
+    el.addEventListener('play', onPlay);
+    el.addEventListener('timeupdate', onTime);
+  });
 
   var form=document.getElementById('cm-form');
   if(form) form.addEventListener('submit',function(e){ e.preventDefault();
