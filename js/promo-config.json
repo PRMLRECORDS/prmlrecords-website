@@ -41,6 +41,24 @@
       "hide_on": ["confirm/index.html"]
     },
 
+    "westview-market": {
+      "label": "Westview Makers Market",
+      "headline": "Westview Makers Community Market — Sat July 12, West End Atlanta",
+      "sub": "RSVP, become a vendor or performer, and get all the event info",
+      "stripe_coupon_code": null,
+      "live_counter": false,
+      "counter_text": null,
+      "counter_value_fallback": null,
+      "cta_text": "Sign Up / RSVP →",
+      "cta_href": "westview-market.html?utm_source=prmlrecords&utm_medium=promo-banner&utm_campaign=westview-market",
+      "auto_apply_url": null,
+      "theme": "charcoal-on-cream",
+      "starts_at": "2026-06-30",
+      "ends_at": "2026-07-12",
+      "show_on": ["all"],
+      "hide_on": ["confirm/index.html"]
+    },
+
     "off": {
       "_doc": "Set active_promo to 'off' to suppress all banners site-wide without deleting configs."
     }

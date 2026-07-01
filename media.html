@@ -108,6 +108,8 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244730814514395&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 <script defer src="js/promo-banner.js"></script>
+<!-- Google AdSense (account approved). TODO: replace ca-pub-6350346617000948 with PRML's real publisher ID. -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6350346617000948" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -234,12 +236,59 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
       <div class="ct" id="stageTitle"></div>
       <p id="stageDesc"></p>
       <div class="credit" id="stageCredit"></div>
+      <div class="credit" id="player-views" style="color:#E01010;font-weight:700;margin-top:4px"></div>
     </div>
   </section>
 
   <!-- GALLERY mounts here -->
   <section aria-label="Media library" id="gallery"></section>
 </main>
+
+<!-- MEDIA HUB — feed / view-count / comment styles -->
+<style>
+  .gal-grid--feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .gal-card--big .cap .t{font-size:17px}
+  .gal-card{position:relative}
+  .vc{font-family:'Odibee Sans',sans-serif;letter-spacing:1px;font-size:12px;color:#E01010;margin-top:4px}
+  /* comments */
+  #comments-wrap{background:#211f1c;color:#F5E6C8;padding:56px 5vw}
+  .cm-inner{max-width:820px;margin:0 auto}
+  .cm-head{font-family:'Rubik Mono One',monospace;font-size:20px;color:#F5E6C8;margin-bottom:6px}
+  .cm-head span{color:#E01010}
+  .cm-sub{font-family:'Roboto Slab',serif;font-size:13px;color:#C4B49A;margin-bottom:22px}
+  .cm-list{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+  .cm-item{background:#2B2B2B;border-left:3px solid #E01010;padding:12px 16px}
+  .cm-who{font-family:'Odibee Sans',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#E01010;margin-bottom:4px}
+  .cm-body{font-family:'Roboto Slab',serif;font-size:14px;line-height:1.55;color:#F5E6C8}
+  .cm-empty{font-family:'Roboto Slab',serif;font-size:14px;color:#8C8C7A;font-style:italic}
+  .cm-form{display:grid;gap:12px;max-width:560px}
+  .cm-form input,.cm-form textarea{padding:12px;border:1px solid #C4B49A;background:#F5E6C8;color:#2B2B2B;font-family:'Roboto Slab',serif}
+  .cm-form button{background:#E01010;color:#F5E6C8;border:0;padding:14px;font-family:'Odibee Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;cursor:pointer}
+  .cm-note{font-family:'Roboto Slab',serif;font-size:12px;color:#8C8C7A}
+  .cm-success{font-family:'Roboto Slab',serif;color:#F5E6C8}
+</style>
+
+<!-- Google AdSense — in-content unit. TODO: set data-ad-slot to a real PRML ad unit ID. -->
+<div style="max-width:900px;margin:0 auto;padding:26px 5vw;text-align:center">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6350346617000948" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- COMMENTS (public, no account, moderated before display) -->
+<section id="comments-wrap">
+  <div class="cm-inner">
+    <div class="cm-head">Comments on <span id="cm-on">this piece</span></div>
+    <div class="cm-sub">No account needed. Comments are reviewed before they appear.</div>
+    <div class="cm-list" id="cm-list"></div>
+    <form class="cm-form" id="cm-form">
+      <input id="cm-name" maxlength="60" placeholder="Your name (optional)">
+      <textarea id="cm-body" rows="3" maxlength="800" placeholder="Leave a comment…" required></textarea>
+      <button type="submit">Post Comment</button>
+      <div class="cm-note">We review every comment to keep the room clean.</div>
+      <p class="cm-success" style="display:none">&#10003; Thanks — your comment is in review.</p>
+    </form>
+  </div>
+</section>
 
 <!-- HOST YOUR CONTENT — public creator sign-up -->
 <section id="create" style="background:#2B2B2B;color:#F5E6C8;padding:72px 5vw">
@@ -437,7 +486,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
 <script>
 (function(){
   const gallery = document.getElementById('gallery');
-  const CATS = [["video","Video"],["audio","Audio"],["photo","Photos"]];
+  const CATS = [["feed","Feed"],["video","Video"],["audio","Audio"],["photo","Photos"]];
   gallery.innerHTML =
     '<div class="section-label"><span>Library</span><span class="num">::</span></div>' +
     '<div class="gal-tabs">' + CATS.map(function(c,i){
@@ -451,13 +500,23 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
     return '<div class="ph" data-auto-thumb="'+item.id+'">PRML</div>';
   }
   function render(cat){
-    const items = PRML_MEDIA.filter(function(m){ return m.type===cat; });
+    var items;
+    if(cat==='feed'){
+      items = PRML_MEDIA.filter(function(m){ return m.featured; });
+      if(!items.length) items = PRML_MEDIA.slice();   // fallback: show everything
+    } else {
+      items = PRML_MEDIA.filter(function(m){ return m.type===cat; });
+    }
+    grid.className = 'gal-grid' + (cat==='feed' ? ' gal-grid--feed' : '');
     if(!items.length){ grid.innerHTML = '<div class="gal-empty">More '+cat+' coming soon.</div>'; return; }
     grid.innerHTML = items.map(function(m){
-      return '<div class="gal-card" data-id="'+m.id+'">'+thumb(m)+
-        '<div class="cap"><div class="t">'+m.title+'</div><div class="a">'+m.artist+'</div></div></div>'; }).join('');
+      return '<div class="gal-card'+(cat==='feed'?' gal-card--big':'')+'" data-id="'+m.id+'">'+thumb(m)+
+        '<div class="cap"><div class="t">'+m.title+'</div><div class="a">'+m.artist+'</div>'+
+        '<div class="vc" data-vc="'+m.id+'">&#9654; &mdash;</div></div></div>'; }).join('');
     if(window.PRML_paintThumbs){ window.PRML_paintThumbs(); }
+    if(window.PRML_updateViews){ window.PRML_updateViews(); }
   }
+  window.PRML_renderGallery = render;
   function openLightbox(src,alt){
     let lb=document.getElementById('lb');
     if(!lb){ lb=document.createElement('div'); lb.id='lb'; lb.className='lightbox';
@@ -476,7 +535,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
       else { loadIntoPlayer(item); document.getElementById('player').scrollIntoView({behavior:'smooth'}); }
     }
   });
-  render('video');
+  render('feed');
 })();
 </script>
 <!-- MEDIA HUB — auto thumbnails (video first-frame; audio keeps branded art) -->
@@ -500,6 +559,58 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   }
   window.PRML_paintThumbs = paint;
   paint();   // initial paint for the already-rendered video tab
+})();
+</script>
+<!-- MEDIA HUB — view counts + moderated comments (talks to the GAS backend) -->
+<script>
+(function(){
+  var GAS='https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec';
+  var current=(window.PRML_MEDIA&&PRML_MEDIA[0])?PRML_MEDIA[0].id:'';
+  var viewed={}, VIEWS={};
+  function post(p){ try{ fetch(GAS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(p)}); }catch(e){} }
+  function num(n){ return Number(n).toLocaleString('en-US'); }
+  function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  window.PRML_updateViews=function(){
+    document.querySelectorAll('[data-vc]').forEach(function(el){
+      var n=VIEWS[el.dataset.vc]; el.innerHTML='&#9654; '+(n==null?'&mdash;':num(n)+(n===1?' play':' plays'));
+    });
+    var pv=document.getElementById('player-views'); if(pv){var n=VIEWS[current]; pv.textContent=(n==null||!n)?'':('▶ '+num(n)+(n===1?' play':' plays'));}
+  };
+  function loadViews(){ fetch(GAS+'?action=getViews').then(function(r){return r.json();}).then(function(d){ VIEWS=(d&&d.views)||{}; window.PRML_updateViews(); }).catch(function(){}); }
+
+  function loadComments(id){
+    var list=document.getElementById('cm-list'); if(!list) return;
+    list.innerHTML='<div class="cm-empty">Loading…</div>';
+    fetch(GAS+'?action=getComments&mediaId='+encodeURIComponent(id)).then(function(r){return r.json();}).then(function(d){
+      var cs=(d&&d.comments)||[];
+      list.innerHTML=cs.length? cs.map(function(c){return '<div class="cm-item"><div class="cm-who">'+esc(c.name||'Guest')+'</div><div class="cm-body">'+esc(c.comment)+'</div></div>';}).join('')
+        : '<div class="cm-empty">Be the first to comment.</div>';
+    }).catch(function(){ list.innerHTML='<div class="cm-empty">Be the first to comment.</div>'; });
+  }
+
+  // wrap the player loader so view + comments follow the current item
+  var origLoad=window.loadIntoPlayer;
+  window.loadIntoPlayer=function(item){ current=item.id;
+    var on=document.getElementById('cm-on'); if(on) on.textContent=item.title;
+    if(origLoad) origLoad(item);
+    window.PRML_updateViews(); loadComments(current);
+  };
+
+  function countPlay(){ if(!current||viewed[current]) return; viewed[current]=1; VIEWS[current]=(VIEWS[current]||0)+1; post({type:'VIEW',mediaId:current,ts:new Date().toISOString()}); window.PRML_updateViews(); }
+  var v=document.getElementById('video'), a=document.getElementById('audio');
+  if(v) v.addEventListener('play',countPlay); if(a) a.addEventListener('play',countPlay);
+
+  var form=document.getElementById('cm-form');
+  if(form) form.addEventListener('submit',function(e){ e.preventDefault();
+    var body=(document.getElementById('cm-body').value||'').trim(); if(!body) return;
+    var name=(document.getElementById('cm-name').value||'').trim()||'Guest';
+    post({type:'COMMENT',mediaId:current,name:name,comment:body,source:location.href,ts:new Date().toISOString()});
+    form.reset(); var ok=document.querySelector('.cm-success'); ok.style.display='block';
+    setTimeout(function(){ ok.style.display='none'; },4000);
+  });
+
+  loadViews(); loadComments(current);
 })();
 </script>
 <script src="js/main.js" defer></script>
