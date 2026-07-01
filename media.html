@@ -598,9 +598,21 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
     window.PRML_updateViews(); loadComments(current);
   };
 
-  function countPlay(){ if(!current||viewed[current]) return; viewed[current]=1; VIEWS[current]=(VIEWS[current]||0)+1; post({type:'VIEW',mediaId:current,ts:new Date().toISOString()}); window.PRML_updateViews(); }
+  // Count a play/stream only after 9 seconds of actual playback (industry-standard threshold).
+  var playTimer=null;
+  function armCount(){
+    clearTimeout(playTimer);
+    var id=current;
+    playTimer=setTimeout(function(){
+      if(!id||viewed[id]) return;
+      viewed[id]=1; VIEWS[id]=(VIEWS[id]||0)+1;
+      post({type:'VIEW',mediaId:id,ts:new Date().toISOString()});
+      window.PRML_updateViews();
+    },9000);
+  }
+  function disarm(){ clearTimeout(playTimer); }
   var v=document.getElementById('video'), a=document.getElementById('audio');
-  if(v) v.addEventListener('play',countPlay); if(a) a.addEventListener('play',countPlay);
+  [v,a].forEach(function(el){ if(!el) return; el.addEventListener('play',armCount); el.addEventListener('pause',disarm); el.addEventListener('ended',disarm); });
 
   var form=document.getElementById('cm-form');
   if(form) form.addEventListener('submit',function(e){ e.preventDefault();
