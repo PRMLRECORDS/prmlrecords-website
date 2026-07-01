@@ -338,20 +338,26 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-                                                                <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
+                                                                    <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
       <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-07-01</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">media: count a play/stream only after 9 seconds of playback</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">141aec0</code>
+        <strong style="color:var(--red)">media: count every replay via real playback-time accumulator (9s of actual play)</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">b21b0b0</code>
         <ul style='padding-left:20px;margin-top:10px'>
-          <li>media.html: view fires after 9s of actual playback (timer armed on play, cleared on pause/end)</li>
-          <li>sw.js: cache-bust 20260701-012115; console Latest Deploy updated</li>
+          <li>Replaces the wall-clock 9s timer with a timeupdate-driven accumulator:</li>
+          <li>every stop-&gt;play that reaches 9s of REAL playback counts again (no session lock)</li>
+          <li>a single continuous play counts exactly once; count updates on screen in real time</li>
+          <li>buffering/stalls/scrubbing no longer inflate counts (real played time only)</li>
+          <li>fixes audio-&gt;audio mid-play switch mis-credit (no stale timer; accrual keyed to current item)</li>
+          <li>Verified by adversarial multi-agent review across playback edge cases.</li>
+          <li>sw.js: cache-bust 20260701-015834; console Latest Deploy updated.</li>
           <li>Co-Authored-By: Claude Opus 4.8 (1M context) &lt;noreply@anthropic.com&gt;</li>
         </ul>
       </div>
       <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
         <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-07-01 &middot; <code>b21b0b0</code> &middot; media: count every replay via real playback-time accumulator (9s of actual play)</div>
         <div>2026-07-01 &middot; <code>141aec0</code> &middot; media: count a play/stream only after 9 seconds of playback</div>
         <div>2026-07-01 &middot; <code>1b2c08a</code> &middot; deploy: AdSense Auto Ads mode + backend deploy guide</div>
         <div>2026-07-01 &middot; <code>4780f40</code> &middot; deploy: Westview market event page + vendor/artist forms + media upgrades</div>
@@ -359,7 +365,6 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>2026-06-26 &middot; <code>d6c77e9</code> &middot; deploy: cache-bust 20260626-235104</div>
         <div>2026-06-26 &middot; <code>21a3df7</code> &middot; fix(media): route both forms to Forms Kit (form-encoded _form, no redeploy needed); fix invisible play icon (beige, min-width guard); revert wrong main-backend handlers</div>
         <div>2026-06-26 &middot; <code>84885a6</code> &middot; deploy: cache-bust 20260626-153146</div>
-        <div>2026-06-26 &middot; <code>8c7604b</code> &middot; Merge media-hub: media hub rebuild, two forms, AdSense Phase 1</div>
         <!-- AUTO-DEPLOY-HISTORY:END -->
       </div>
     </div>

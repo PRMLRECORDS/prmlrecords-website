@@ -602,22 +602,24 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   // Uses real played time (timeupdate deltas), NOT wall-clock — so buffering, stalls, and
   // scrubbing never inflate the count. Every replay (stop -> play) counts again; a single
   // continuous play counts exactly once; the on-screen count updates in real time.
-  var acc=0, accId=null, lastT=0, counted=false;
-  function resetAccrual(id, startT){ accId=id; acc=0; counted=false; lastT=startT||0; }
+  var acc=0, accId=null, lastT=0, counted=false, maxT=0;
+  function resetAccrual(id, startT){ accId=id; acc=0; counted=false; lastT=startT||0; maxT=startT||0; }
   function onPlay(e){
     var el=e.target;
-    // Fresh start (from a stop/ended, i.e. near the beginning) OR a different item -> allow a NEW count.
-    // Resume mid-track keeps accruing toward the same play (won't double-count once counted).
+    // Fresh start from the top (stop->play, ended->play) OR a different item -> allow a NEW count.
     if(accId!==current || el.currentTime < 1){ resetAccrual(current, el.currentTime); }
-    else { lastT = el.currentTime; }
+    else { lastT = el.currentTime; }              // resume mid-track: keep accruing toward the same play
   }
   function onTime(e){
     var el=e.target;
-    if(el.paused || el.seeking || el.readyState < 3){ lastT = el.currentTime; return; }  // not really playing
     if(accId!==current){ resetAccrual(current, el.currentTime); return; }
+    // Restarted from the beginning (loop, replay, or scrubbed back to the start) -> count as a NEW play.
+    if(el.currentTime < 1 && maxT >= 2){ resetAccrual(current, el.currentTime); return; }
+    if(el.paused || el.seeking || el.readyState < 3){ lastT = el.currentTime; return; }  // not really playing
     var d = el.currentTime - lastT;
     lastT = el.currentTime;
-    if(d > 0 && d < 1.5){ acc += d; }          // ignore seeks/jumps (large) and rewinds (negative)
+    if(el.currentTime > maxT){ maxT = el.currentTime; }
+    if(d > 0 && d < 1.5){ acc += d; }             // ignore seeks/jumps (large) and rewinds (negative)
     if(!counted && acc >= 9 && current){
       counted = true;
       VIEWS[current] = (VIEWS[current]||0) + 1;   // +1 for THIS play
@@ -629,6 +631,7 @@ setTimeout(function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(
   [v,a].forEach(function(el){ if(!el) return;
     el.addEventListener('play', onPlay);
     el.addEventListener('timeupdate', onTime);
+    el.addEventListener('ended', function(){ resetAccrual(current, 0); });   // end -> the next play counts again
   });
 
   var form=document.getElementById('cm-form');
