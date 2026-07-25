@@ -27,6 +27,7 @@
 .trend-flat{color:var(--cream);opacity:.4}
 .add-form{background:var(--charcoal);padding:24px;margin-bottom:20px}
 </style>
+<script src="../js/admin-auth.js" defer></script>
 </head>
 <body>
 <div class="login-screen" id="login-screen">
@@ -108,7 +109,7 @@
 
 <script src="js/claude-admin.js"></script>
 <script>
-const PASS = 'PRMLp369!';
+const PASS = '__PRML_AUTH_V2_REQUIRED__';
 function tryLogin() {
   if (document.getElementById('pw').value === PASS) {
     document.getElementById('login-screen').style.display = 'none';

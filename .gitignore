@@ -1,7 +1,7 @@
 # PRML RECORDS — .gitignore
 # Do not commit these files to GitHub
 
-js/admin-auth.js
+# (js/admin-auth.js is now committable — v2 contains only SHA-256 hash, no plaintext password)
 
 # Deployment utility scripts — not part of the live site
 apply-changes.js
@@ -23,3 +23,4 @@ pages/
 
 # Node
 node_modules/
+checkout-app/.next/

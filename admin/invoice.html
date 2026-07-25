@@ -121,6 +121,7 @@ select option{background:var(--charcoal);color:var(--cream)}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:900px){.app{grid-template-columns:1fr}.right{border-top:2px solid rgba(245,230,200,.1)}}
 </style>
+<script src="../js/admin-auth.js" defer></script>
 </head>
 <body>
 
@@ -284,7 +285,7 @@ select option{background:var(--charcoal);color:var(--cream)}
 
 <script>
 /* â”€â”€ CONFIG â”€â”€ */
-const ADMIN_PW  = 'PRMLp369!';  // change to match your dashboard password
+const ADMIN_PW  = '__PRML_AUTH_V2_REQUIRED__';  // change to match your dashboard password
 const GAS_URL   = 'https://script.google.com/macros/s/AKfycbzlXsUJFb36zh58jc2-N54Cmfhgh4EC478OzKehJG56qeNcZRSzFmOAU4PBHEgVdzsLyQ/exec';
 const STRIPE_URL= 'PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE';
 const SHEET_ID  = '10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA';

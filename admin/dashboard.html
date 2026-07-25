@@ -39,6 +39,7 @@ body{background:var(--black)}
 .sheet-map td{font-family:'Roboto Slab',serif;font-size:12px;font-weight:300;color:var(--cream);opacity:.7;padding:10px 12px;border-bottom:1px solid rgba(245,230,200,.05);vertical-align:top}
 .sheet-map code{font-family:monospace;font-size:11px;background:rgba(224,16,16,.15);color:var(--red);padding:2px 6px}
 </style>
+<script src="../js/admin-auth.js" defer></script>
 </head>
 <body>
 
@@ -53,7 +54,7 @@ body{background:var(--black)}
     </div>
     <button class="f-submit" onclick="tryLogin()">Enter Dashboard â†’</button>
     <div id="pw-err" style="display:none;margin-top:12px;font-family:'Roboto Slab',serif;font-size:13px;color:var(--red)">Incorrect password. Try again or call 770-686-7726.</div>
-    <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.3;margin-top:16px;line-height:1.6">Default password: PRMLp369! — Change this in admin/dashboard.html line ~120 before going live.</p>
+    <p style="font-family:'Roboto Slab',serif;font-size:11px;font-weight:300;color:var(--cream);opacity:.3;margin-top:16px;line-height:1.6">Admin auth now uses SHA-256. The starter password was delivered out of band. Rotate via the browser console: <code>await PRMLAdmin.rotatePassword('newPw')</code>.</p>
   </div>
 </div>
 
@@ -102,7 +103,34 @@ body{background:var(--black)}
       Repo: PRMLRECORDS/prmlrecords-website
     </div>
     </div>
-  
+
+    <div class="dash-card" id="session-card">
+      <div class="dash-card__title">Admin Session</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Roboto Slab',serif;font-size:12px;color:var(--cream);opacity:.7">
+          Idle timeout in
+          <strong style="color:var(--red)" id="session-remain">--</strong> minutes
+        </div>
+        <div style="font-family:'Roboto Slab',serif;font-size:11px;color:var(--cream);opacity:.4" id="session-abs">Session ends &mdash;</div>
+        <button type="button" id="btn-rotate-pw" class="btn btn--red btn--sm" style="justify-content:center">Change Password</button>
+        <button type="button" id="btn-signout" class="btn btn--out-cream btn--sm" style="justify-content:center">Sign Out</button>
+      </div>
+      <div id="rotate-pw-modal" style="display:none;position:fixed;inset:0;background:rgba(13,13,13,.85);z-index:99998;align-items:center;justify-content:center;padding:20px">
+        <div style="background:var(--cream);color:var(--charcoal);max-width:460px;width:100%;padding:32px;border-top:6px solid var(--red)">
+          <div style="font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px">PRML RECORDS ADMIN</div>
+          <h2 style="font-family:'Rubik Mono One',monospace;font-size:22px;letter-spacing:-.5px;margin:0 0 8px">Rotate Password</h2>
+          <p style="font-family:'Roboto Slab',serif;font-size:13px;line-height:1.6;opacity:.7;margin-bottom:16px">Enter a new password (min 10 chars). Effective immediately on this browser. For permanence across devices, paste the returned hash into <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">SECRET_HASH</code> in <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">js/admin-auth.js</code> then redeploy.</p>
+          <input type="password" id="rotate-new-pw" placeholder="new password (10+ chars)" style="width:100%;padding:12px 14px;font-family:'SF Mono',monospace;font-size:15px;border:1px solid rgba(43,43,43,.25);background:#FAF7F0;color:var(--charcoal);outline:none;margin-bottom:10px;box-sizing:border-box">
+          <input type="password" id="rotate-confirm-pw" placeholder="confirm new password" style="width:100%;padding:12px 14px;font-family:'SF Mono',monospace;font-size:15px;border:1px solid rgba(43,43,43,.25);background:#FAF7F0;color:var(--charcoal);outline:none;margin-bottom:14px;box-sizing:border-box">
+          <div style="display:flex;gap:10px">
+            <button type="button" id="rotate-cancel" style="flex:1;padding:13px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:transparent;color:var(--charcoal);border:1px solid rgba(43,43,43,.3);cursor:pointer">Cancel</button>
+            <button type="button" id="rotate-submit" style="flex:1;padding:13px;font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;background:var(--red);color:var(--cream);border:none;cursor:pointer">Rotate</button>
+          </div>
+          <div id="rotate-result" style="margin-top:14px;font-size:12px;line-height:1.6"></div>
+        </div>
+      </div>
+    </div>
+
   <!-- METRICS -->
   <div class="dash-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:2px">
     <div class="dash-card">
@@ -270,7 +298,7 @@ body{background:var(--black)}
 
 <script>
 // â”€â”€ CHANGE THIS PASSWORD before going live â”€â”€
-const ADMIN_PW = 'PRMLp369!';
+const ADMIN_PW = '__PRML_AUTH_V2_REQUIRED__';
 
 function tryLogin() {
   const pw = document.getElementById('pw-input').value;
@@ -287,9 +315,94 @@ function tryLogin() {
 }
 
 function logout() {
-  sessionStorage.removeItem('prml_admin');
-  location.reload();
+  // Delegate to admin-auth v2
+  if (window.PRMLAdmin && typeof window.PRMLAdmin.signOut === 'function') {
+    window.PRMLAdmin.signOut();
+  } else {
+    sessionStorage.removeItem('prml_admin');
+    location.reload();
+  }
 }
+
+// -- Session indicator + rotation UI (admin-auth v2) ----------------------
+(function () {
+  function refreshSession() {
+    if (!window.PRMLAdmin) return;
+    var info = window.PRMLAdmin.sessionInfo();
+    var remainEl = document.getElementById('session-remain');
+    var absEl = document.getElementById('session-abs');
+    if (!info) {
+      if (remainEl) remainEl.textContent = '--';
+      if (absEl) absEl.textContent = 'Not signed in';
+      return;
+    }
+    if (remainEl) remainEl.textContent = info.remaining_minutes;
+    if (absEl) {
+      var abs = new Date(info.absolute_expires_at);
+      absEl.textContent = 'Session hard-ends ' + abs.toLocaleString();
+    }
+  }
+  refreshSession();
+  setInterval(refreshSession, 60 * 1000);
+
+  var signOutBtn = document.getElementById('btn-signout');
+  if (signOutBtn) signOutBtn.addEventListener('click', logout);
+
+  var rotateBtn = document.getElementById('btn-rotate-pw');
+  var modal = document.getElementById('rotate-pw-modal');
+  var newPw = document.getElementById('rotate-new-pw');
+  var confirmPw = document.getElementById('rotate-confirm-pw');
+  var resultEl = document.getElementById('rotate-result');
+  var cancelBtn = document.getElementById('rotate-cancel');
+  var submitBtn = document.getElementById('rotate-submit');
+
+  function openModal() {
+    if (!modal) return;
+    modal.style.display = 'flex';
+    if (newPw) newPw.value = '';
+    if (confirmPw) confirmPw.value = '';
+    if (resultEl) resultEl.innerHTML = '';
+    setTimeout(function () { if (newPw) newPw.focus(); }, 30);
+  }
+  function closeModal() { if (modal) modal.style.display = 'none'; }
+
+  if (rotateBtn) rotateBtn.addEventListener('click', openModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', async function () {
+      var pw = newPw ? newPw.value : '';
+      var pw2 = confirmPw ? confirmPw.value : '';
+      if (!pw || pw.length < 10) {
+        resultEl.innerHTML = '<span style="color:var(--red)">Password must be at least 10 characters.</span>';
+        return;
+      }
+      if (pw !== pw2) {
+        resultEl.innerHTML = '<span style="color:var(--red)">Passwords do not match.</span>';
+        return;
+      }
+      if (!window.PRMLAdmin || typeof window.PRMLAdmin.rotatePassword !== 'function') {
+        resultEl.innerHTML = '<span style="color:var(--red)">Admin auth library not loaded.</span>';
+        return;
+      }
+      var result = await window.PRMLAdmin.rotatePassword(pw);
+      if (!result.ok) {
+        resultEl.innerHTML = '<span style="color:var(--red)">' + (result.error || 'Rotation failed') + '</span>';
+        return;
+      }
+      resultEl.innerHTML =
+        '<div style="color:var(--charcoal);opacity:.8;margin-bottom:8px"><strong>Password rotated.</strong> Active in this browser now.</div>' +
+        '<div style="font-family:\'SF Mono\',monospace;font-size:11px;background:rgba(43,43,43,.08);padding:10px;word-break:break-all;color:var(--charcoal);margin-bottom:6px">' + result.hash + '</div>' +
+        '<div style="font-size:11px;opacity:.65">Paste this hash into <code style="background:rgba(224,16,16,.1);color:var(--red);padding:1px 4px">SECRET_HASH</code> in <code style="background:rgba(224,16,16,.1);color:var(--red);padding:1px 4px">js/admin-auth.js</code> + redeploy to lock in across all devices.</div>';
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+  }
+})();
 
 function checkStatus() {
   // Check if Apps Script URL is configured (loaded from main.js on same page)

@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<title>Admin Auth Guide | PRML RECORDS</title>
+<script src="../js/admin-auth.js" defer></script>
+<style>
+:root{--red:#E01010;--cream:#F5E6C8;--cream-dk:#E8D4A8;--charcoal:#2B2B2B;--black:#0D0D0D;--stone:#C4B49A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--charcoal);font-family:'Roboto Slab',Georgia,serif;font-size:15px;line-height:1.75}
+a{color:var(--red);text-decoration:underline}
+code{font-family:'SF Mono',Menlo,monospace;background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px;font-size:13px}
+pre{background:var(--charcoal);color:var(--cream);padding:20px;overflow-x:auto;font-family:'SF Mono',Menlo,monospace;font-size:13px;line-height:1.65;margin:16px 0;border-left:4px solid var(--red)}
+.wrap{max-width:920px;margin:0 auto;padding:40px 28px 80px}
+h1{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:clamp(28px,4.5vw,44px);color:var(--red);letter-spacing:-1px;margin-bottom:8px;line-height:1}
+h2{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:22px;color:var(--charcoal);margin:48px 0 14px;padding-top:36px;border-top:3px solid var(--red);letter-spacing:-.5px}
+h3{font-family:'Odibee Sans',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin:24px 0 10px}
+p{margin-bottom:14px;opacity:.85}
+ul,ol{margin:12px 0 18px 22px}
+li{margin-bottom:8px;opacity:.85}
+.tip{background:rgba(224,16,16,.07);border-left:4px solid var(--red);padding:14px 18px;margin:18px 0;font-size:14px}
+.warn{background:rgba(43,43,43,.06);border-left:4px solid var(--charcoal);padding:14px 18px;margin:18px 0;font-size:14px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(43,43,43,.15);vertical-align:top}
+th{font-family:'Odibee Sans',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--red);background:var(--cream-dk)}
+.nav-strip{background:var(--black);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.nav-strip-title{font-family:'Rubik Mono One',Arial Black,sans-serif;font-size:14px;color:var(--cream);letter-spacing:.06em}
+.nav-strip-title span{color:var(--red)}
+.nav-strip a{font-family:'Odibee Sans',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--red);padding:6px 12px;border:1px solid var(--red);text-decoration:none;transition:.2s}
+.nav-strip a:hover{background:var(--red);color:var(--cream)}
+</style>
+</head>
+<body>
+<div class="nav-strip">
+  <div class="nav-strip-title">PRML <span>RECORDS</span> &middot; Admin Auth Guide</div>
+  <div style="display:flex;gap:10px">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="../index.html" target="_blank">View Site</a>
+  </div>
+</div>
+
+<div class="wrap">
+<h1>Admin Auth Guide</h1>
+<p style="font-size:16px;opacity:.65">How PRML's admin authentication works, how to sign in, how to rotate the password, and what triggers a sign-out.</p>
+
+<div class="tip">
+<strong>Quick start:</strong>
+<ol style="margin:8px 0 0 20px">
+<li>Go to any <code>/admin/</code> page.</li>
+<li>The Sign In overlay appears. Type your starter password.</li>
+<li>You stay signed in for up to 8 hours. Idle 30+ minutes &rarr; signed out.</li>
+<li>Rotate the password from <a href="dashboard.html">admin/dashboard.html</a> &rarr; <strong>Admin Session</strong> card &rarr; <strong>Change Password</strong>.</li>
+</ol>
+</div>
+
+<h2 id="how-it-works">1. How the auth works</h2>
+<p>The auth system is client-side only (no backend session server) but designed so the password never appears in the source code or on disk:</p>
+<ul>
+<li><strong>SHA-256 hash:</strong> the only thing in <code>js/admin-auth.js</code> is a hash of the password. Even with full source access, the password cannot be read.</li>
+<li><strong>Session token:</strong> when you sign in, your browser stores a session object in <code>localStorage</code> with three timestamps: <em>created</em>, <em>idle expires</em>, <em>absolute expires</em>.</li>
+<li><strong>Activity tracking:</strong> mouse, keyboard, touch, and scroll events each bump the idle timer forward (throttled to once per minute to avoid storage churn).</li>
+<li><strong>Two timeouts:</strong>
+  <ul>
+    <li><strong>Idle:</strong> 30 minutes with no activity &rarr; sign-out overlay.</li>
+    <li><strong>Absolute:</strong> 8 hours from sign-in regardless of activity &rarr; sign-out overlay.</li>
+  </ul>
+</li>
+<li><strong>Cross-tab:</strong> open as many admin tabs as you want, one sign-in covers all of them.</li>
+</ul>
+
+<h2 id="signing-in">2. Signing in</h2>
+<ol>
+<li>Visit any admin URL, e.g. <code>https://prmlrecords.com/admin/dashboard.html</code>.</li>
+<li>The page blurs and a dark overlay appears with a single password field.</li>
+<li>Type the password and press Enter (or click <strong>Unlock Admin</strong>).</li>
+<li>If correct, the overlay disappears and you have admin access for the next 30+ minutes.</li>
+<li>If incorrect, you see "Incorrect password" and the field clears. Try again.</li>
+</ol>
+
+<h2 id="rotating">3. Rotating the password</h2>
+
+<h3>Option A &mdash; from the Admin Session card (recommended)</h3>
+<ol>
+<li>Open <a href="dashboard.html">admin/dashboard.html</a>.</li>
+<li>Find the <strong>Admin Session</strong> card.</li>
+<li>Click <strong>Change Password</strong>.</li>
+<li>Enter a new password (minimum 10 characters), confirm it, click <strong>Rotate</strong>.</li>
+<li>The dialog shows a SHA-256 hash. The new password works <em>immediately</em> on this browser.</li>
+<li>To lock the new password in for every device + browser: paste the hash into <code>js/admin-auth.js</code> at the <code>SECRET_HASH</code> constant, commit, then <code>/prml-deploy</code>.</li>
+</ol>
+
+<h3>Option B &mdash; from the browser console (power user)</h3>
+<pre>// On any admin page, open DevTools (F12) &gt; Console:
+await PRMLAdmin.rotatePassword('newPasswordHere')
+// Returns { ok: true, hash: '...', note: '...' }
+// Paste the hash into SECRET_HASH in js/admin-auth.js and redeploy.</pre>
+
+<div class="warn">
+<strong>Why the two-step process?</strong> The browser-side change is instant for you but only persists on this device until you close the tab. To make a new password permanent for the team, the hash must be in the source code.
+</div>
+
+<h2 id="signing-out">4. Signing out</h2>
+<p>Three ways:</p>
+<ul>
+<li><strong>Manual:</strong> click <strong>Sign Out</strong> in the Admin Session card (or <strong>Log Out</strong> in the header).</li>
+<li><strong>Idle:</strong> walk away for 30+ minutes &rarr; on return, you see the sign-in overlay.</li>
+<li><strong>Hard expiry:</strong> after 8 hours from sign-in &rarr; overlay appears even if you were active the whole time.</li>
+</ul>
+
+<h2 id="what-protects">5. What does <em>not</em> protect</h2>
+<p>This auth model has known limits because the site is fully static:</p>
+<ul>
+<li>The page HTML and data files are still served by the CDN unauthenticated &mdash; auth happens in the browser, not at the network layer.</li>
+<li>A determined attacker could disable JS or read network responses directly. For high-sensitivity data (Stripe keys, real customer records), use server-side endpoints with their own auth (e.g. <code>/api/promo-analytics</code> uses a separate <code>PROMO_ADMIN_TOKEN</code>).</li>
+<li>Anyone with the password can sign in. There is no MFA. Rotate immediately if you suspect a leak.</li>
+<li><code>noindex</code> + <code>no-referrer</code> meta tags are on every admin page, so search engines should skip them.</li>
+</ul>
+
+<h2 id="files">6. Where the code lives</h2>
+<table>
+<tr><th>File</th><th>Role</th></tr>
+<tr><td><code>js/admin-auth.js</code></td><td>The auth library. Contains <code>SECRET_HASH</code> and the overlay UI. ~280 lines.</td></tr>
+<tr><td><code>admin/dashboard.html</code></td><td>Admin Session card + rotate-password modal.</td></tr>
+<tr><td>Every other <code>admin/*.html</code></td><td>Single line: <code>&lt;script src="../js/admin-auth.js" defer&gt;&lt;/script&gt;</code> in the head.</td></tr>
+</table>
+
+<h2 id="troubleshoot">7. Troubleshooting</h2>
+<table>
+<tr><th>Symptom</th><th>Fix</th></tr>
+<tr><td>Overlay never disappears after correct password</td><td>Check browser console for SHA-256 errors. Crypto.subtle requires HTTPS (live site is fine, localhost may not be).</td></tr>
+<tr><td>Signed out immediately on every page load</td><td><code>SECRET_HASH</code> may be wrong. Recompute from your password: <code>await PRMLAdmin.sha256Hex('yourpassword')</code> &mdash; if the result does not match what's in <code>js/admin-auth.js</code>, redeploy with the correct hash.</td></tr>
+<tr><td>I forgot the password and don't have a hash</td><td>Generate a new one locally: <code>python3 -c "import hashlib; print(hashlib.sha256('newpw'.encode()).hexdigest())"</code>, paste the hash into <code>js/admin-auth.js</code>, redeploy. The new password is the one you hashed.</td></tr>
+<tr><td>Want a different timeout</td><td>Edit <code>IDLE_TIMEOUT_MIN</code> and <code>SESSION_TTL_MIN</code> at the top of <code>js/admin-auth.js</code>.</td></tr>
+</table>
+
+<p style="margin-top:48px;font-size:13px;opacity:.5">PRML RECORDS &middot; Admin Auth Guide v1 &middot; 2026-06-04 &middot; With Gratitude.</p>
+</div>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

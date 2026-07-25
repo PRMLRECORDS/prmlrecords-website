@@ -29,6 +29,7 @@
 .source-tag{font-family:'Odibee Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;background:var(--surface);border:1px solid var(--border);color:var(--cream);opacity:.5;cursor:pointer;transition:.15s}
 .source-tag.active,.source-tag:hover{opacity:1;border-color:var(--red);color:var(--red)}
 </style>
+<script src="../js/admin-auth.js" defer></script>
 </head>
 <body>
 <div class="login-screen" id="login-screen">
@@ -104,7 +105,7 @@
 
 <script src="js/claude-admin.js"></script>
 <script>
-const PASS = 'PRMLp369!';
+const PASS = '__PRML_AUTH_V2_REQUIRED__';
 function tryLogin() {
   if (document.getElementById('pw').value === PASS) {
     document.getElementById('login-screen').style.display = 'none';

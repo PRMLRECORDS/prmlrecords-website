@@ -34,10 +34,35 @@ var SHEET_ID     = '10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA';
 var ALERT_EMAIL  = 'info@prmlrecords.com';
 var SITE_NAME    = 'PRML Records LLC';
 
+// ── SECURITY (added 2026-07-23) ───────────────────────────────────────────
+// These privileged actions can email arbitrary recipients or write/delete
+// business data, so they require a shared secret (the ADMIN_TOKEN Script
+// Property). Public site forms (INQUIRY/SUPPORT/EMAIL/ORDER/BOOKING/AFFILIATE)
+// are intentionally NOT gated so the website keeps working with no changes.
+// SETUP: Apps Script editor ▸ Project Settings ▸ Script Properties ▸ add
+// key ADMIN_TOKEN = a long random string. Then have the admin console include
+// { token: "<that string>" } in every privileged POST body.
+var PRIVILEGED_ACTIONS = {
+  INVOICE:1, PRODUCT:1, GOAL:1, GRANT:1, CREATE_POST:1, DELETE_POST:1,
+  UPDATE_GOAL:1, UPDATE_GRANT:1, SOCIAL_QUEUE:1, SOCIAL_QUICK:1, SHORTCUT:1
+};
+
 /* ── MAIN POST HANDLER ────────────────────────── */
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
+
+    // Block the open relay + unauthenticated data tampering: privileged
+    // actions must carry the correct ADMIN_TOKEN. Public forms are unaffected.
+    if (PRIVILEGED_ACTIONS[data.type]) {
+      var ADMIN_TOKEN = PropertiesService.getScriptProperties().getProperty('ADMIN_TOKEN');
+      if (!ADMIN_TOKEN || data.token !== ADMIN_TOKEN) {
+        return ContentService
+          .createTextOutput(JSON.stringify({ status: 'error', message: 'unauthorized' }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
     var ss   = SpreadsheetApp.openById(SHEET_ID);
 
     switch (data.type) {

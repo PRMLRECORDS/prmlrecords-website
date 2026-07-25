@@ -38,6 +38,7 @@ li{margin-bottom:8px;opacity:.85}
 .nav-strip a{font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--red);padding:6px 14px;border:1px solid var(--red);transition:.2s}
 .nav-strip a:hover{background:var(--red);color:var(--cream)}
 </style>
+<script src="../js/admin-auth.js" defer></script>
 </head>
 <body>
 <div class="nav-strip">
@@ -205,8 +206,8 @@ const API_KEY  = 'PASTE_YOUR_API_KEY_HERE';</pre></div></div>
 <h2 id="admin">6. Admin Dashboard Guide</h2>
 <p>The admin dashboard is at: <strong>yoursite.com/admin/dashboard.html</strong> — it is NOT linked from any public page.</p>
 <ul>
-  <li>Default password: <code>PRMLp369!</code> — change this before going live</li>
-  <li>To change the password: Open admin/dashboard.html in a text editor â†’ Find the line <code>const ADMIN_PW = 'PRMLp369!'</code> â†’ Change the text inside the quotes</li>
+  <li>Admin auth is SHA-256 hash-based. The starter password was delivered out of band on rollout.</li>
+  <li>To change the password: Open admin/dashboard.html in a text editor â†’ Find the line <code>const ADMIN_PW = '__PRML_AUTH_V2_REQUIRED__'</code> â†’ Change the text inside the quotes</li>
   <li>The dashboard shows you the Google Sheet column map so you know which columns do what</li>
   <li>The dashboard has quick links to all documentation and your live site</li>
   <li>Keep the admin URL private — do not link to it anywhere public</li>

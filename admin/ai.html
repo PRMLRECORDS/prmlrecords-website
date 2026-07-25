@@ -25,6 +25,7 @@
 .brief-text{font-family:'Roboto Slab',serif;font-size:14px;font-weight:300;color:var(--cream);line-height:1.85;white-space:pre-wrap}
 .brief-meta{font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.3;margin-bottom:16px}
 </style>
+<script src="../js/admin-auth.js" defer></script>
 </head>
 <body>
 <div class="login-screen" id="login-screen">
@@ -162,7 +163,7 @@
 
 <script src="js/claude-admin.js"></script>
 <script>
-const PASS = 'PRMLp369!';
+const PASS = '__PRML_AUTH_V2_REQUIRED__';
 function tryLogin() {
   if (document.getElementById('pw').value === PASS) {
     document.getElementById('login-screen').style.display = 'none';
