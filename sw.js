@@ -5,7 +5,7 @@
    CACHE_VERSION is auto-bumped on every deploy by
    scripts/prml-deploy-prep.ps1
    ================================================================ */
-const CACHE_VERSION = '20260724-113725'; // replaced at deploy time
+const CACHE_VERSION = '20260725-043159'; // replaced at deploy time
 const CACHE_NAME = `prml-${CACHE_VERSION}`;
 
 const PRECACHE_ASSETS = [

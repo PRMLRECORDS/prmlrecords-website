@@ -1,25 +1,25 @@
 /**
- * PRML Records LLC — Google Apps Script
- * ─────────────────────────────────────────────────────────────────────────
+ * PRML Records LLC - Google Apps Script
+ * -------------------------------------------------------------------------
  * This handles all form submissions from prmlrecords.com:
- *   • Contact / quote inquiries  → "Leads" sheet + email alert
- *   • Support tickets            → "Support" sheet + email alert
- *   • Email list signups         → "Email List" sheet
- *   • Cart order notifications   → "Orders" sheet
- *   • Booking requests           → "Bookings" sheet + email alert
- *   • Affiliate applications     → "Affiliates" sheet + email alert
+ *   * Contact / quote inquiries  -> "Leads" sheet + email alert
+ *   * Support tickets            -> "Support" sheet + email alert
+ *   * Email list signups         -> "Email List" sheet
+ *   * Cart order notifications   -> "Orders" sheet
+ *   * Booking requests           -> "Bookings" sheet + email alert
+ *   * Affiliate applications     -> "Affiliates" sheet + email alert
  *
  * HOW TO DEPLOY:
  *   1. Go to script.google.com
  *   2. Open your existing project (or create new one)
  *   3. Replace ALL the code with this file's contents
- *   4. Click Deploy → New Deployment
+ *   4. Click Deploy -> New Deployment
  *      - Type: Web app
  *      - Execute as: Me
  *      - Who has access: Anyone
- *   5. Click Deploy → copy the Web App URL (ends in /exec)
+ *   5. Click Deploy -> copy the Web App URL (ends in /exec)
  *   6. Paste that URL into js/main.js on the GAS_URL line
- *   7. Commit and push to GitHub — done.
+ *   7. Commit and push to GitHub - done.
  *
  * Sheet ID (already set): 10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA
  * Alert email: info@prmlrecords.com
@@ -27,19 +27,19 @@
  * FIXED 2026-03-26: Removed duplicate BOOKING handler blocks that were
  * pasted into doGet() and doPost() catch block, causing script crash (503).
  * Added BOOKING and AFFILIATE to doPost switch. Cleaned up doGet().
- * ─────────────────────────────────────────────────────────────────────────
+ * -------------------------------------------------------------------------
  */
 
 var SHEET_ID     = '10hOO67uBb5rPpoFrXaW9sLm04hJSY_8yTwDb3XgUlMA';
 var ALERT_EMAIL  = 'info@prmlrecords.com';
 var SITE_NAME    = 'PRML Records LLC';
 
-// ── SECURITY (added 2026-07-23) ───────────────────────────────────────────
+// -- SECURITY (added 2026-07-23) -------------------------------------------
 // These privileged actions can email arbitrary recipients or write/delete
 // business data, so they require a shared secret (the ADMIN_TOKEN Script
 // Property). Public site forms (INQUIRY/SUPPORT/EMAIL/ORDER/BOOKING/AFFILIATE)
 // are intentionally NOT gated so the website keeps working with no changes.
-// SETUP: Apps Script editor ▸ Project Settings ▸ Script Properties ▸ add
+// SETUP: Apps Script editor > Project Settings > Script Properties > add
 // key ADMIN_TOKEN = a long random string. Then have the admin console include
 // { token: "<that string>" } in every privileged POST body.
 var PRIVILEGED_ACTIONS = {
@@ -47,7 +47,7 @@ var PRIVILEGED_ACTIONS = {
   UPDATE_GOAL:1, UPDATE_GRANT:1, SOCIAL_QUEUE:1, SOCIAL_QUICK:1, SHORTCUT:1
 };
 
-/* ── MAIN POST HANDLER ────────────────────────── */
+/* -- MAIN POST HANDLER -------------------------- */
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
@@ -97,7 +97,7 @@ function doPost(e) {
   }
 }
 
-/* ── GET ENDPOINTS ──────────────────────────────── */
+/* -- GET ENDPOINTS -------------------------------- */
 function doGet(e) {
   var action = (e && e.parameter && e.parameter.action) ? e.parameter.action : '';
   var ss = SpreadsheetApp.openById(SHEET_ID);
@@ -135,7 +135,7 @@ function doGet(e) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-/* ── INQUIRY / QUOTE FORM ────────────────────── */
+/* -- INQUIRY / QUOTE FORM ---------------------- */
 function handleInquiry(ss, data) {
   var sh = getOrCreateSheet(ss, 'Leads', [
     'Date','Name','Email','Phone','Business Name',
@@ -156,19 +156,19 @@ function handleInquiry(ss, data) {
     'New'
   ]);
 
-  var subject = 'New Lead: ' + (data.service || 'General Inquiry') + ' — ' + (data.name || 'Unknown');
+  var subject = 'New Lead: ' + (data.service || 'General Inquiry') + ' - ' + (data.name || 'Unknown');
   var body =
     'New inquiry from prmlrecords.com\n' +
     '===============================\n\n' +
-    'Name:     ' + (data.name    || '—') + '\n' +
-    'Email:    ' + (data.email   || '—') + '\n' +
-    'Phone:    ' + (data.phone   || '—') + '\n' +
-    'Business: ' + (data.business|| '—') + '\n\n' +
-    'Service:  ' + (data.service || '—') + '\n' +
-    'Budget:   ' + (data.budget  || '—') + '\n' +
-    'Timeline: ' + (data.timeline|| '—') + '\n\n' +
-    'Details:\n' + (data.details || '—') + '\n\n' +
-    'Source:   ' + (data.source  || '—') + '\n' +
+    'Name:     ' + (data.name    || '-') + '\n' +
+    'Email:    ' + (data.email   || '-') + '\n' +
+    'Phone:    ' + (data.phone   || '-') + '\n' +
+    'Business: ' + (data.business|| '-') + '\n\n' +
+    'Service:  ' + (data.service || '-') + '\n' +
+    'Budget:   ' + (data.budget  || '-') + '\n' +
+    'Timeline: ' + (data.timeline|| '-') + '\n\n' +
+    'Details:\n' + (data.details || '-') + '\n\n' +
+    'Source:   ' + (data.source  || '-') + '\n' +
     'Submitted: ' + formatDate(data.ts) + '\n\n' +
     '---------------------------------\n' +
     'View sheet: https://docs.google.com/spreadsheets/d/' + SHEET_ID;
@@ -176,7 +176,7 @@ function handleInquiry(ss, data) {
   MailApp.sendEmail({ to: ALERT_EMAIL, subject: subject, body: body });
 }
 
-/* ── SUPPORT TICKET ──────────────────────────── */
+/* -- SUPPORT TICKET ---------------------------- */
 function handleSupport(ss, data) {
   var sh = getOrCreateSheet(ss, 'Support', [
     'Date','Name','Email','Phone','Order #','Issue Type','Details','Status'
@@ -193,22 +193,22 @@ function handleSupport(ss, data) {
     'Open'
   ]);
 
-  var subject = 'Support Ticket: ' + (data.issue || 'General') + ' — ' + (data.name || 'Unknown');
+  var subject = 'Support Ticket: ' + (data.issue || 'General') + ' - ' + (data.name || 'Unknown');
   var body =
     'Support ticket from prmlrecords.com\n' +
     '===================================\n\n' +
-    'Name:     ' + (data.name   || '—') + '\n' +
-    'Email:    ' + (data.email  || '—') + '\n' +
-    'Phone:    ' + (data.phone  || '—') + '\n' +
-    'Order #:  ' + (data.order  || '—') + '\n\n' +
-    'Issue:    ' + (data.issue  || '—') + '\n\n' +
-    'Details:\n' + (data.details|| '—') + '\n\n' +
+    'Name:     ' + (data.name   || '-') + '\n' +
+    'Email:    ' + (data.email  || '-') + '\n' +
+    'Phone:    ' + (data.phone  || '-') + '\n' +
+    'Order #:  ' + (data.order  || '-') + '\n\n' +
+    'Issue:    ' + (data.issue  || '-') + '\n\n' +
+    'Details:\n' + (data.details|| '-') + '\n\n' +
     'Submitted: ' + formatDate(data.ts);
 
   MailApp.sendEmail({ to: ALERT_EMAIL, subject: subject, body: body });
 }
 
-/* ── EMAIL LIST SIGNUP ───────────────────────── */
+/* -- EMAIL LIST SIGNUP ------------------------- */
 function handleEmailSignup(ss, data) {
   var sh = getOrCreateSheet(ss, 'Email List', ['Date Joined','Email']);
 
@@ -219,7 +219,7 @@ function handleEmailSignup(ss, data) {
   }
 }
 
-/* ── ORDER NOTIFICATION ──────────────────────── */
+/* -- ORDER NOTIFICATION ------------------------ */
 function handleOrder(ss, data) {
   var sh = getOrCreateSheet(ss, 'Orders', [
     'Date','Items','Total','Amount Charged','Payment Type','Status'
@@ -234,11 +234,11 @@ function handleOrder(ss, data) {
     'Pending'
   ]);
 
-  var subject = 'Order Intent: $' + (data.amount || '0') + ' — ' + (data.label || 'Payment');
+  var subject = 'Order Intent: $' + (data.amount || '0') + ' - ' + (data.label || 'Payment');
   var body =
     'Cart checkout initiated on prmlrecords.com\n' +
     '==========================================\n\n' +
-    'Items:\n' + (data.items || '—') + '\n\n' +
+    'Items:\n' + (data.items || '-') + '\n\n' +
     'Cart Total: $' + (data.total  || '0') + '\n' +
     'Charged:    $' + (data.amount || '0') + ' (' + (data.label || 'Payment') + ')\n\n' +
     'Date: ' + formatDate(data.ts) + '\n\n' +
@@ -247,7 +247,7 @@ function handleOrder(ss, data) {
   MailApp.sendEmail({ to: ALERT_EMAIL, subject: subject, body: body });
 }
 
-/* ── BOOKING REQUEST ─────────────────────────── */
+/* -- BOOKING REQUEST --------------------------- */
 function handleBooking(ss, data) {
   var sh = getOrCreateSheet(ss, 'Bookings', [
     'Date','Artist','Status','ClientName','Email','Phone',
@@ -279,7 +279,7 @@ function handleBooking(ss, data) {
     try {
       MailApp.sendEmail({
         to: data.email,
-        subject: 'Booking Request Received — PRML Records',
+        subject: 'Booking Request Received - PRML Records',
         body: 'Hi ' + (data.name || '') + ',\n\n' +
               'We received your booking request for ' + (data.artist || 'your event') +
               ' on ' + (data.event_date || 'TBD') + '. We will confirm availability and reach out within 24 hours.\n\n' +
@@ -294,20 +294,20 @@ function handleBooking(ss, data) {
   // Alert to owner
   MailApp.sendEmail({
     to: ALERT_EMAIL,
-    subject: 'New Booking Request: ' + (data.artist || 'Unknown') + ' — ' + (data.event_date || 'TBD'),
-    body: 'Artist: ' + (data.artist || '—') + '\n' +
-          'Client: ' + (data.name || '—') + '\n' +
-          'Email: '  + (data.email || '—') + '\n' +
-          'Phone: '  + (data.phone || '—') + '\n' +
-          'Date: '   + (data.event_date || '—') + '\n' +
-          'Venue: '  + (data.venue || '—') + '\n' +
-          'Type: '   + (data.event_type || '—') + '\n' +
-          'Budget: ' + (data.budget || '—') + '\n\n' +
-          'Details: ' + (data.details || '—')
+    subject: 'New Booking Request: ' + (data.artist || 'Unknown') + ' - ' + (data.event_date || 'TBD'),
+    body: 'Artist: ' + (data.artist || '-') + '\n' +
+          'Client: ' + (data.name || '-') + '\n' +
+          'Email: '  + (data.email || '-') + '\n' +
+          'Phone: '  + (data.phone || '-') + '\n' +
+          'Date: '   + (data.event_date || '-') + '\n' +
+          'Venue: '  + (data.venue || '-') + '\n' +
+          'Type: '   + (data.event_type || '-') + '\n' +
+          'Budget: ' + (data.budget || '-') + '\n\n' +
+          'Details: ' + (data.details || '-')
   });
 }
 
-/* ── AFFILIATE APPLICATION ───────────────────── */
+/* -- AFFILIATE APPLICATION --------------------- */
 function handleAffiliate(ss, data) {
   var sh = getOrCreateSheet(ss, 'Affiliates', [
     'Date','Name','Email','Phone','Instagram','Platform',
@@ -331,18 +331,18 @@ function handleAffiliate(ss, data) {
   var body =
     'Affiliate application from prmlrecords.com\n' +
     '==========================================\n\n' +
-    'Name:      ' + (data.name      || '—') + '\n' +
-    'Email:     ' + (data.email     || '—') + '\n' +
-    'Platform:  ' + (data.platform  || '—') + '\n' +
-    'Audience:  ' + (data.audience  || '—') + '\n' +
-    'Tier:      ' + (data.tier      || '—') + '\n\n' +
-    'How they will promote:\n' + (data.promo_plan || '—') + '\n\n' +
+    'Name:      ' + (data.name      || '-') + '\n' +
+    'Email:     ' + (data.email     || '-') + '\n' +
+    'Platform:  ' + (data.platform  || '-') + '\n' +
+    'Audience:  ' + (data.audience  || '-') + '\n' +
+    'Tier:      ' + (data.tier      || '-') + '\n\n' +
+    'How they will promote:\n' + (data.promo_plan || '-') + '\n\n' +
     'Submitted: ' + formatDate(data.ts);
 
   MailApp.sendEmail({ to: ALERT_EMAIL, subject: subject, body: body });
 }
 
-/* ── INVOICE ─────────────────────────────────── */
+/* -- INVOICE ----------------------------------- */
 function handleInvoice(ss, data) {
   var sh = getOrCreateSheet(ss, 'Invoices', [
     'Date','Invoice #','Customer','Email','Phone','Business',
@@ -373,8 +373,9 @@ function handleInvoice(ss, data) {
     try {
       MailApp.sendEmail({
         to: data.customer_email,
+        cc: 'quo@prmlrecords.com',
         bcc: ALERT_EMAIL,
-        subject: 'Invoice ' + (data.invoice_num||'') + ' from PRML Records LLC — $' + (data.amount_due||data.total||'0'),
+        subject: 'Invoice ' + (data.invoice_num||'') + ' from PRML Records LLC - $' + (data.amount_due||data.total||'0'),
         htmlBody: data.invoice_html + '<br><br>' + (data.stripe_url
           ? '<p style="text-align:center"><a href="' + data.stripe_url + '" style="background:#E01010;color:white;padding:14px 28px;font-family:Arial,sans-serif;font-size:14px;text-decoration:none;display:inline-block">Pay Invoice</a></p>'
           : '<p style="font-family:Arial,sans-serif;font-size:13px;color:#555">To pay, call or text us: <strong>770-686-7726</strong> or email <a href="mailto:info@prmlrecords.com">info@prmlrecords.com</a></p>'),
@@ -388,17 +389,17 @@ function handleInvoice(ss, data) {
   // Alert to owner
   MailApp.sendEmail({
     to: ALERT_EMAIL,
-    subject: 'Invoice Sent: ' + (data.invoice_num||'') + ' — ' + (data.customer_name||'Unknown') + ' — $' + (data.total||'0'),
-    body: 'Invoice sent to ' + (data.customer_email||'—') + '\n' +
-          'Invoice #: ' + (data.invoice_num||'—') + '\n' +
+    subject: 'Invoice Sent: ' + (data.invoice_num||'') + ' - ' + (data.customer_name||'Unknown') + ' - $' + (data.total||'0'),
+    body: 'Invoice sent to ' + (data.customer_email||'-') + '\n' +
+          'Invoice #: ' + (data.invoice_num||'-') + '\n' +
           'Total: $' + (data.total||'0') + '\n' +
           'Amount Due: $' + (data.amount_due||'0') + ' (' + (data.pay_type||'full') + ')\n' +
-          'Due: ' + (data.due_date||'—') + '\n\n' +
-          'Items:\n' + (data.items||'—')
+          'Due: ' + (data.due_date||'-') + '\n\n' +
+          'Items:\n' + (data.items||'-')
   });
 }
 
-/* ── PRODUCT FROM SCANNER ────────────────────── */
+/* -- PRODUCT FROM SCANNER ---------------------- */
 function handleProduct(ss, data) {
   var sh = getOrCreateSheet(ss, 'Products', [
     'Date Added','name','category','price','description','imageurl','active'
@@ -414,7 +415,7 @@ function handleProduct(ss, data) {
   ]);
 }
 
-/* ── BLOG / SOCIAL / GOALS / GRANTS ──────────── */
+/* -- BLOG / SOCIAL / GOALS / GRANTS ------------ */
 function handleBlogDraft(ss, data) {
   var sh = getOrCreateSheet(ss, 'Posts', ['id','title','slug','excerpt','content','image','date','author','category','published']);
   var slug = (data.title||'post').toLowerCase().replace(/[^a-z0-9]+/g,'-');
@@ -471,7 +472,7 @@ function deletePost(ss, data) {
   }
 }
 
-/* ── SHORTCUT WEBHOOK ───────────────────────────── */
+/* -- SHORTCUT WEBHOOK ----------------------------- */
 function handleShortcut(ss, data) {
   var subtype = data.subtype || data.content_type || '';
   if (subtype === 'blog' || data.title) handleBlogDraft(ss, data);
@@ -480,7 +481,7 @@ function handleShortcut(ss, data) {
   else if (subtype === 'grant') handleGrant(ss, data);
 }
 
-/* ── GET DATA FUNCTIONS ─────────────────────────── */
+/* -- GET DATA FUNCTIONS --------------------------- */
 function getPosts(ss, params) {
   var sh = ss.getSheetByName('Posts');
   if (!sh) return { posts: [] };
@@ -555,7 +556,7 @@ function getSocialQueue(ss) {
   return { queue: queue };
 }
 
-/* ── HELPERS ─────────────────────────────────── */
+/* -- HELPERS ----------------------------------- */
 function getOrCreateSheet(ss, name, headers) {
   var sh = ss.getSheetByName(name);
   if (!sh) {

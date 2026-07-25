@@ -338,21 +338,17 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
       </div>
     </div>
 
-                                                                        <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
+                                                                            <!-- AUTO-DEPLOY-PANEL:START â€” auto-rewritten by scripts/prml-deploy-prep.ps1 on every push. Do not edit by hand; edit the script template instead. -->
     <div style="background:var(--charcoal);padding:20px;border-top:3px solid var(--red);margin-bottom:20px">
-      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-07-01</div>
+      <div class="section-title" style="color:var(--red)">Latest Deploy &mdash; 2026-07-24</div>
       <div style="font-size:13px;font-weight:300;line-height:1.85;opacity:.9">
-        <strong style="color:var(--red)">media: also count a play when the track restarts from the beginning</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">9957b5b</code>
-        <ul style='padding-left:20px;margin-top:10px'>
-          <li>Adds restart detection (loop / ended-replay / scrub-to-start) via a high-water-mark:</li>
-          <li>when position returns below 1s after passing 2s, accrual resets so a new 9s of real</li>
-          <li>playback counts again. Never false-triggers during normal forward play. 'ended' also resets.</li>
-          <li>Co-Authored-By: Claude Opus 4.8 (1M context) &lt;noreply@anthropic.com&gt;</li>
-        </ul>
+        <strong style="color:var(--red)">deploy: rate card update (eng $75/hr, beats 159.99/639.99/6399.99/135K) + apps-script ADMIN_TOKEN gate + admin-auth v2 + cache-bust 20260724-113725</strong> &middot; commit <code style="background:rgba(224,16,16,.1);color:var(--red);padding:2px 6px">c310926</code>
+        
       </div>
       <div id="auto-deploy-history" style="margin-top:18px;padding-top:14px;border-top:1px dashed rgba(245,230,200,.15);font-size:11px;font-weight:300;line-height:1.7;opacity:.7">
         <div style="font-family:'Odibee Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700">Recent commits</div>
         <!-- AUTO-DEPLOY-HISTORY:START -->
+        <div>2026-07-24 &middot; <code>c310926</code> &middot; deploy: rate card update (eng $75/hr, beats 159.99/639.99/6399.99/135K) + apps-script ADMIN_TOKEN gate + admin-auth v2 + cache-bust 20260724-113725</div>
         <div>2026-07-01 &middot; <code>9957b5b</code> &middot; media: also count a play when the track restarts from the beginning</div>
         <div>2026-07-01 &middot; <code>b21b0b0</code> &middot; media: count every replay via real playback-time accumulator (9s of actual play)</div>
         <div>2026-07-01 &middot; <code>141aec0</code> &middot; media: count a play/stream only after 9 seconds of playback</div>
@@ -360,7 +356,6 @@ input:checked+.toggle-slider:before{transform:translateX(20px)}
         <div>2026-07-01 &middot; <code>4780f40</code> &middot; deploy: Westview market event page + vendor/artist forms + media upgrades</div>
         <div>2026-06-27 &middot; <code>941c62b</code> &middot; deploy: cache-bust 20260626-235910 for consultation pipeline</div>
         <div>2026-06-26 &middot; <code>d6c77e9</code> &middot; deploy: cache-bust 20260626-235104</div>
-        <div>2026-06-26 &middot; <code>21a3df7</code> &middot; fix(media): route both forms to Forms Kit (form-encoded _form, no redeploy needed); fix invisible play icon (beige, min-width guard); revert wrong main-backend handlers</div>
         <!-- AUTO-DEPLOY-HISTORY:END -->
       </div>
     </div>
