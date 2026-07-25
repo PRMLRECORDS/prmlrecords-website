@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creator Program â€” PRML RECORDS</title>
+<meta name="description" content="Bring your content, series, and ideas to PRML RECORDS â€” a platform that's already monetized. Get pushed to our audience and earn from what you build.">
+<meta property="og:title" content="PRML RECORDS â€” Creator Program">
+<meta property="og:description" content="Get paid to create. Bring your series, build with us.">
+<link rel="stylesheet" href="../brand/prml-forms.css">
+</head>
+<body class="prml-form">
+  <main class="prml-wrap">
+    <div class="prml-top">
+      <span class="prml-mark">PRML&nbsp;<span class="rec">RECORDS</span></span>
+      <span class="prml-kicker">Creator Program</span>
+    </div>
+    <div class="prml-rule"></div>
+
+    <p class="prml-eyebrow">Get Paid to Create</p>
+    <h1>Build With Us.</h1>
+    <p class="prml-lede">Bring your content, series, and ideas to a platform that's already monetized â€” get pushed to our audience and earn from what you build. Tell us what you make and what you want to build; every creator's deal is different.</p>
+
+    <form id="prmlForm" class="prml" method="POST" target="prmlSink">
+      <div class="prml-hp" aria-hidden="true"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_form" value="Creator Program">
+      <input type="hidden" name="_source" id="prmlSource" value="">
+
+      <div class="prml-field">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+      <div class="prml-field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="prml-field">
+        <label>Instagram / handle</label>
+        <input type="text" name="instagram" placeholder="@yourhandle">
+      </div>
+      <div class="prml-field">
+        <label>Phone (optional)</label>
+        <input type="tel" name="phone" placeholder="(770) 000-0000">
+      </div>
+      <div class="prml-field">
+        <label>What do you create? <span class="req">*</span></label>
+        <select name="creator_type" required>
+          <option value="" disabled selected>Choose oneâ€¦</option>
+          <option>Video creator</option>
+          <option>Series creator</option>
+          <option>Editor</option>
+          <option>Videographer</option>
+          <option>Host</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>Link to your work</label>
+        <input type="url" name="portfolio" placeholder="https:// â€” channel, reel, or portfolio">
+      </div>
+      <div class="prml-field">
+        <label>What do you make &amp; what do you want to build? <span class="req">*</span></label>
+        <textarea name="details" placeholder="Tell us about your content, your audience, and the series or idea you'd bring to PRML." required></textarea>
+      </div>
+
+      <div class="prml-field prml-check">
+        <input type="checkbox" id="ml" name="_mailing" value="yes">
+        <label for="ml">Add me to the PRML RECORDS mailing list</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="prml-submit">Apply to Build</button>
+    </form>
+
+    <div class="prml-thanks" id="thanks">
+      <h2>You're in.</h2>
+      <p>Thanks for reaching out â€” we'll review what you make and follow up about your deal. Follow <a href="https://instagram.com/prmlrecords">@prmlrecords</a> for what's next.</p>
+    </div>
+
+    <footer class="prml-foot">
+      <p class="line">Powered by <b>PRML RECORDS</b></p>
+      <p class="sub">Freedom Â· Justice Â· Equality Â· <a href="https://prmlrecords.com">prmlrecords.com</a></p>
+    </footer>
+  </main>
+
+  <iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
+  <script>
+    // Paste your deployed Apps Script Web App URL here:
+    const PRML_ENDPOINT = "https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec";
+
+    const form = document.getElementById('prmlForm');
+    document.getElementById('prmlSource').value = location.href;
+    form.action = PRML_ENDPOINT;
+
+    form.addEventListener('submit', function(){
+      form.dataset.submitted = '1';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Sendingâ€¦';
+    });
+    document.getElementById('prmlSink').addEventListener('load', function(){
+      if (!form.dataset.submitted) return;
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  </script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artist Sign-Up â€” Westview Market Nov 8 â€” PRML RECORDS</title>
+<meta name="description" content="Perform at the Westview Makers Community Market, Sunday November 8 in Atlanta. Musicians, DJs, producers, drummers & dancers. Presented by PRML RECORDS.">
+<link rel="stylesheet" href="../brand/prml-forms.css">
+</head>
+<body class="prml-form">
+  <main class="prml-wrap">
+    <div class="prml-top">
+      <span class="prml-mark">PRML&nbsp;<span class="rec">RECORDS</span></span>
+      <span class="prml-kicker">Westview Market Â· Nov 8</span>
+    </div>
+    <div class="prml-rule"></div>
+
+    <p class="prml-eyebrow">Call for Artists</p>
+    <h1>Perform With Us</h1>
+    <p class="prml-lede">Live music, a Producer Beat Battle, African drums &amp; dancing â€” Sunday, November 8 Â· 10AMâ€“5PM at the <b>Westview Makers Community Market</b>, 1554 Ralph David Abernathy Blvd, Atlanta. Tell us what you do and we'll be in touch about your slot.</p>
+
+    <form id="prmlForm" class="prml" method="POST" target="prmlSink">
+      <div class="prml-hp" aria-hidden="true"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_form" value="Artist Signup â€” Westview Market Nov 8">
+      <input type="hidden" name="_source" id="prmlSource" value="">
+
+      <div class="prml-field">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+      <div class="prml-field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="prml-field">
+        <label>Artist / stage name <span class="req">*</span></label>
+        <input type="text" name="artist" placeholder="How you're billed" required>
+      </div>
+      <div class="prml-field">
+        <label>Phone <span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="(404) 555-0123" required>
+      </div>
+      <div class="prml-field">
+        <label>Link to your music / IG <span class="req">*</span></label>
+        <input type="text" name="link" placeholder="Spotify, YouTube, SoundCloud, or @handle" required>
+      </div>
+      <div class="prml-field">
+        <label>What do you do? <span class="req">*</span></label>
+        <select name="discipline" required>
+          <option value="" disabled selected>Choose your lane</option>
+          <option>Musician / band</option>
+          <option>Singer / rapper</option>
+          <option>DJ</option>
+          <option>Producer (Beat Battle)</option>
+          <option>Drummer / percussion</option>
+          <option>Dancer</option>
+          <option>Spoken word / poet</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>Preferred set length</label>
+        <select name="set_length">
+          <option value="" disabled selected>Select one</option>
+          <option>15 minutes</option>
+          <option>30 minutes</option>
+          <option>45 minutes</option>
+          <option>Flexible</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>What do you need from us?</label>
+        <textarea name="tech" placeholder="Mic, DI, CDJs/decks, drum space, backline, nothing â€” let us know"></textarea>
+      </div>
+      <div class="prml-field">
+        <label>Short bio / anything else</label>
+        <textarea name="bio" placeholder="A couple lines about your sound and any links"></textarea>
+      </div>
+
+      <div class="prml-field prml-check">
+        <input type="checkbox" id="ml" name="_mailing" value="yes">
+        <label for="ml">Add me to the PRML RECORDS mailing list</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="prml-submit">Submit my set</button>
+    </form>
+
+    <div class="prml-thanks" id="thanks">
+      <h2>We got it.</h2>
+      <p>Thanks â€” your set request for November 8 is in. We'll reach out about slots and load-in. Follow <a href="https://instagram.com/prmlrecords">@prmlrecords</a> for the lineup.</p>
+    </div>
+
+    <footer class="prml-foot">
+      <p class="line">Powered by <b>PRML RECORDS</b> Ã— Westview Makers</p>
+      <p class="sub">Primal Sound Â· Primal Energy Â· <a href="https://prmlrecords.com">prmlrecords.com</a></p>
+    </footer>
+  </main>
+
+  <iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
+  <script>
+    const PRML_ENDPOINT = "https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec";
+    const form = document.getElementById('prmlForm');
+    document.getElementById('prmlSource').value = location.href;
+    form.action = PRML_ENDPOINT;
+    form.addEventListener('submit', function(){
+      form.dataset.submitted = '1';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Sendingâ€¦';
+    });
+    document.getElementById('prmlSink').addEventListener('load', function(){
+      if (!form.dataset.submitted) return;
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  </script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

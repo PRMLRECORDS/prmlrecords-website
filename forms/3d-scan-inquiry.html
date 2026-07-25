@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a 3D Scan â€” PRML SPATIAL</title>
+<meta name="description" content="Drone aerial footage + LiDAR interior scans turned into an explorable 3D walkthrough of your listing. Atlanta-based. Tell us about the property and we'll send you a booking link.">
+<meta property="og:title" content="PRML SPATIAL â€” Book a 3D Scan">
+<meta property="og:description" content="Step inside before you step in. 3D tours, drone, and LiDAR for Atlanta real estate.">
+<link rel="stylesheet" href="../brand/prml-forms.css">
+</head>
+<body class="prml-form">
+  <main class="prml-wrap">
+    <div class="prml-top">
+      <span class="prml-mark">PRML&nbsp;<span class="rec">SPATIAL</span></span>
+      <span class="prml-kicker">3D Â· Drone Â· LiDAR</span>
+    </div>
+    <div class="prml-rule"></div>
+
+    <p class="prml-eyebrow">Step Inside Before You Step In</p>
+    <h1>Book a 3D Scan.</h1>
+    <p class="prml-lede">Drone aerial footage over the property plus a LiDAR scan of the interior, turned into an explorable 3D walkthrough buyers can tour from anywhere. Tell us about the space and we'll email you a link to book your scan.</p>
+
+    <form id="prmlForm" class="prml" method="POST" target="prmlSink">
+      <!-- honeypot: keep hidden, do not remove -->
+      <div class="prml-hp" aria-hidden="true"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_form" value="3D Scan Inquiry">
+      <input type="hidden" name="_source" id="prmlSource" value="">
+
+      <div class="prml-field">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+      <div class="prml-field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="prml-field">
+        <label>Phone <span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="(770) 000-0000" required>
+      </div>
+      <div class="prml-field">
+        <label>What do you need? <span class="req">*</span></label>
+        <select name="service_interest" required>
+          <option value="" disabled selected>Choose oneâ€¦</option>
+          <option>Real estate â€” 3D tour + drone + LiDAR</option>
+          <option>Real estate â€” drone photo/video only</option>
+          <option>Real estate â€” interior 3D scan only</option>
+          <option>Product / prototype scanning</option>
+          <option>Digitization of an item or space</option>
+          <option>Not sure yet â€” advise me</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>Property address or city</label>
+        <input type="text" name="property_address" placeholder="Street, neighborhood, or city">
+      </div>
+      <div class="prml-field">
+        <label>Property type</label>
+        <select name="property_type">
+          <option value="" disabled selected>Choose oneâ€¦</option>
+          <option>Single-family home</option>
+          <option>Condo / townhome</option>
+          <option>Apartment / multi-unit</option>
+          <option>Commercial / retail space</option>
+          <option>Land / lot</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>Approx. size (sq ft)</label>
+        <input type="text" name="square_footage" placeholder="e.g. 2,400">
+      </div>
+      <div class="prml-field">
+        <label>Timeline</label>
+        <select name="timeline">
+          <option value="" disabled selected>Choose oneâ€¦</option>
+          <option>ASAP â€” listing is live / about to be</option>
+          <option>Within 2 weeks</option>
+          <option>This month</option>
+          <option>Just exploring</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>Anything else we should know?</label>
+        <textarea name="details" placeholder="Listing details, access notes, special requests, or questions."></textarea>
+      </div>
+
+      <div class="prml-field prml-check">
+        <input type="checkbox" id="ml" name="_mailing" value="yes">
+        <label for="ml">Add me to the PRML SPATIAL list for updates</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="prml-submit">Request My Scan</button>
+    </form>
+
+    <div class="prml-thanks" id="thanks">
+      <h2>Got it.</h2>
+      <p>Check your email â€” we just sent you a link to book your scan. Talk soon. Follow <a href="https://instagram.com/prmlrecords">@prmlrecords</a> for our latest work.</p>
+    </div>
+
+    <footer class="prml-foot">
+      <p class="line">Powered by <b>PRML SPATIAL</b> â€” a PRML RECORDS service</p>
+      <p class="sub">Atlanta, GA Â· <a href="https://prmlrecords.com">prmlrecords.com</a></p>
+    </footer>
+  </main>
+
+  <iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
+  <script>
+    // Paste your deployed Apps Script Web App URL here (same backend as the other PRML forms):
+    const PRML_ENDPOINT = "https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec";
+
+    const form = document.getElementById('prmlForm');
+    document.getElementById('prmlSource').value = location.href;
+    form.action = PRML_ENDPOINT;
+
+    form.addEventListener('submit', function(){
+      form.dataset.submitted = '1';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Sendingâ€¦';
+    });
+    document.getElementById('prmlSink').addEventListener('load', function(){
+      if (!form.dataset.submitted) return;          // ignore the initial blank load
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  </script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

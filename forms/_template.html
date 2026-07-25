@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{FORM_TITLE}} â€” PRML RECORDS</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<link rel="stylesheet" href="../brand/prml-forms.css">
+</head>
+<!--
+  PRML Forms Kit â€” base template. Copy this file, fill the {{PLACEHOLDERS}},
+  add/remove .prml-field blocks, and paste your deployed Apps Script URL into
+  PRML_ENDPOINT below. Keep _hp (honeypot), _form, and _source. Never use white;
+  the stylesheet carries the brand. See README.md.
+-->
+<body class="prml-form">
+  <main class="prml-wrap">
+    <div class="prml-top">
+      <span class="prml-mark">PRML&nbsp;<span class="rec">RECORDS</span></span>
+      <span class="prml-kicker">{{KICKER}}</span>
+    </div>
+    <div class="prml-rule"></div>
+
+    <p class="prml-eyebrow">{{EYEBROW}}</p>
+    <h1>{{HEADLINE}}</h1>
+    <p class="prml-lede">{{LEDE}}</p>
+
+    <form id="prmlForm" class="prml" method="POST" target="prmlSink">
+      <!-- honeypot: keep hidden, do not remove -->
+      <div class="prml-hp" aria-hidden="true"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_form" value="{{FORM_NAME}}">
+      <input type="hidden" name="_source" id="prmlSource" value="">
+
+      <div class="prml-field">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+      <div class="prml-field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+
+      <!-- {{ADD FIELDS HERE}} -->
+
+      <div class="prml-field prml-check">
+        <input type="checkbox" id="ml" name="_mailing" value="yes">
+        <label for="ml">Add me to the PRML RECORDS mailing list</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="prml-submit">{{SUBMIT_LABEL}}</button>
+    </form>
+
+    <div class="prml-thanks" id="thanks">
+      <h2>You're in.</h2>
+      <p>Thanks â€” we got it and we'll be in touch. Follow <a href="https://instagram.com/prmlrecords">@prmlrecords</a> for what's next.</p>
+    </div>
+
+    <footer class="prml-foot">
+      <p class="line">Powered by <b>PRML RECORDS</b></p>
+      <p class="sub">Primal Sound Â· Primal Energy Â· <a href="https://prmlrecords.com">prmlrecords.com</a></p>
+    </footer>
+  </main>
+
+  <iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
+  <script>
+    // 1) Paste your deployed Apps Script Web App URL here:
+    const PRML_ENDPOINT = "https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec";
+
+    const form = document.getElementById('prmlForm');
+    document.getElementById('prmlSource').value = location.href;
+    form.action = PRML_ENDPOINT;
+
+    form.addEventListener('submit', function(){
+      form.dataset.submitted = '1';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Sendingâ€¦';
+    });
+    document.getElementById('prmlSink').addEventListener('load', function(){
+      if (!form.dataset.submitted) return;          // ignore the initial blank load
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  </script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

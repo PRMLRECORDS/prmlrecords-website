@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book PRML RECORDS â€” Sessions, Media &amp; More</title>
+<meta name="description" content="Book PRML RECORDS: recording, production, live engineering, mixing/mastering, photo & video. Come to our studio or we travel to you. Pay a deposit to lock your date.">
+<link rel="stylesheet" href="../brand/prml-forms.css">
+</head>
+<body class="prml-form">
+  <main class="prml-wrap">
+    <div class="prml-top">
+      <span class="prml-mark">PRML&nbsp;<span class="rec">RECORDS</span></span>
+      <span class="prml-kicker">Book a Session</span>
+    </div>
+    <div class="prml-rule"></div>
+
+    <p class="prml-eyebrow">Studio &amp; On-Location</p>
+    <h1>Book Us</h1>
+    <p class="prml-lede">Tell us what you need and when â€” come to a PRML studio, or we'll travel to you (travel fee quoted separately). A <b>$159.99 deposit locks your date</b> and applies to your balance; the rest (your remaining session hours at $75/hr) is due by 24 hours before you start. Studio sessions add a <b>$35.99</b> space-use fee.</p>
+
+    <form id="prmlForm" class="prml" method="POST" target="prmlSink">
+      <div class="prml-hp" aria-hidden="true"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_form" value="Booking Request â€” PRML RECORDS">
+      <input type="hidden" name="_source" id="prmlSource" value="">
+
+      <div class="prml-field">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+      <div class="prml-field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="prml-field">
+        <label>Phone <span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="(404) 555-0123" required>
+      </div>
+
+      <div class="prml-field">
+        <label>What are you booking? <span class="req">*</span></label>
+        <select name="service" required>
+          <option value="" disabled selected>Choose a service</option>
+          <option>Recording / Production Session ($75/hr, 2-hr min)</option>
+          <option>Live / Audio Engineering ($75/hr)</option>
+          <option>Mixing</option>
+          <option>Mastering</option>
+          <option>Beat / Custom Production</option>
+          <option>Photography</option>
+          <option>Videography</option>
+          <option>Live-Streaming</option>
+          <option>Podcast Production</option>
+          <option>Event Sound / AV</option>
+          <option>Other (tell us below)</option>
+        </select>
+      </div>
+
+      <div class="prml-field">
+        <label>Where? <span class="req">*</span></label>
+        <select name="location_type" id="locType" required>
+          <option value="" disabled selected>Studio or on-location?</option>
+          <option value="Studio">I'll come to a PRML studio</option>
+          <option value="Travel">Travel to me (travel fee applies)</option>
+        </select>
+      </div>
+
+      <div class="prml-field" id="travelBlock" style="display:none;">
+        <label>Your address / area (for travel)</label>
+        <input type="text" name="travel_address" placeholder="Street, city, or area â€” we'll quote the travel fee">
+      </div>
+
+      <div class="prml-field">
+        <label>Preferred date <span class="req">*</span></label>
+        <input type="date" name="preferred_date" required>
+      </div>
+      <div class="prml-field">
+        <label>Backup date</label>
+        <input type="date" name="backup_date">
+      </div>
+      <div class="prml-field">
+        <label>Preferred time of day</label>
+        <select name="preferred_time">
+          <option value="" disabled selected>Select</option>
+          <option>Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+          <option>Flexible</option>
+        </select>
+      </div>
+
+      <div class="prml-field">
+        <label>Project details</label>
+        <textarea name="details" placeholder="What are we creating? How many hours, people, songs, or the scope â€” anything that helps us prep."></textarea>
+      </div>
+      <div class="prml-field">
+        <label>How'd you hear about us?</label>
+        <input type="text" name="referral" placeholder="Instagram, a friend, an eventâ€¦">
+      </div>
+
+      <div class="prml-field prml-check">
+        <input type="checkbox" id="ml" name="_mailing" value="yes">
+        <label for="ml">Add me to the PRML RECORDS mailing list</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="prml-submit">Request my booking</button>
+    </form>
+
+    <div class="prml-thanks" id="thanks">
+      <h2>Request received.</h2>
+      <p>Lock your date now with your <b>$159.99 deposit</b> (applies to your balance). We'll confirm your slot and follow up with the rest. Studio sessions add $35.99 for space; travel is quoted separately. Follow <a href="https://instagram.com/prmlrecords">@prmlrecords</a>.</p>
+      <p style="margin-top:18px;"><a href="https://buy.stripe.com/3cI6oI16t7FA9Hocb01ZS17" style="display:inline-block;background:var(--red);color:var(--cream);font-family:'Rubik Mono One',monospace;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;padding:15px 32px;border-radius:8px;text-decoration:none;">Lock my date Â· Pay $159.99</a></p>
+    </div>
+
+    <footer class="prml-foot">
+      <p class="line">Powered by <b>PRML RECORDS</b></p>
+      <p class="sub">Primal Sound Â· Primal Energy Â· <a href="https://prmlrecords.com">prmlrecords.com</a></p>
+    </footer>
+  </main>
+
+  <iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
+  <script>
+    const PRML_ENDPOINT = "https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec";
+    const form = document.getElementById('prmlForm');
+    document.getElementById('prmlSource').value = location.href;
+    form.action = PRML_ENDPOINT;
+
+    // show the travel address only when "Travel to me" is chosen
+    document.getElementById('locType').addEventListener('change', function(){
+      document.getElementById('travelBlock').style.display = (this.value === 'Travel') ? 'block' : 'none';
+    });
+
+    form.addEventListener('submit', function(){
+      form.dataset.submitted = '1';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Sendingâ€¦';
+    });
+    document.getElementById('prmlSink').addEventListener('load', function(){
+      if (!form.dataset.submitted) return;
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  </script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>

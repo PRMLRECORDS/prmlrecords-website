@@ -1,0 +1,77 @@
+/* ============================================================
+   PRML RECORDS — Forms Kit base stylesheet
+   One source of truth for on-brand forms. Change tokens here,
+   every form updates. Pairs with the brand identity guide.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Odibee+Sans&family=Roboto+Slab:wght@400;700&display=swap');
+
+:root{
+  /* 4-color palette — no others */
+  --red:#E01010;        /* headline + the ONE CTA + accents */
+  --charcoal:#2B2B2B;   /* body text, structure, dark blocks */
+  --cream:#F5E6C8;      /* primary background (never white) */
+  --stone:#C4B49A;      /* detail/labels/borders only */
+  --offwhite:#FAF7F0;   /* input fields */
+  --darkred:#A00000;    /* button hover */
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+body.prml-form{ background:var(--cream); color:var(--charcoal); font-family:'Roboto Slab',serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+.prml-wrap{ max-width:640px; margin:0 auto; padding:48px 24px 72px; }
+
+/* header lockup */
+.prml-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.prml-mark{ font-family:'Rubik Mono One',monospace; font-size:24px; color:var(--charcoal); }
+.prml-mark .rec{ color:var(--red); }
+.prml-kicker{ font-family:'Odibee Sans',sans-serif; font-size:18px; letter-spacing:0.26em; color:var(--stone); margin-left:auto; text-transform:uppercase; }
+.prml-rule{ height:4px; background:var(--charcoal); margin:20px 0 0; }
+
+/* hero */
+.prml-eyebrow{ font-family:'Odibee Sans',sans-serif; font-size:20px; letter-spacing:0.28em; text-transform:uppercase; color:var(--charcoal); margin-top:40px; }
+.prml-form h1{ font-family:'Rubik Mono One',monospace; font-size:clamp(34px,6vw,58px); line-height:1.0; text-transform:uppercase; color:var(--red); margin-top:12px; }
+.prml-lede{ font-size:19px; margin-top:20px; max-width:560px; }
+
+/* fields */
+form.prml{ margin-top:36px; }
+.prml-field{ margin-bottom:24px; }
+.prml-field label{ display:block; font-family:'Odibee Sans',sans-serif; font-size:18px; letter-spacing:0.08em; text-transform:uppercase; color:var(--charcoal); margin-bottom:8px; }
+.prml-field .req{ color:var(--red); }
+.prml-field input, .prml-field select, .prml-field textarea{
+  width:100%; font-family:'Roboto Slab',serif; font-size:17px; color:var(--charcoal);
+  background:var(--offwhite); border:2px solid var(--stone); border-radius:8px;
+  padding:13px 15px; transition:border-color .15s ease;
+}
+.prml-field textarea{ min-height:120px; resize:vertical; }
+.prml-field input:focus, .prml-field select:focus, .prml-field textarea:focus{ outline:none; border-color:var(--red); }
+.prml-field input::placeholder, .prml-field textarea::placeholder{ color:var(--stone); }
+
+/* checkbox / consent row */
+.prml-check{ display:flex; align-items:flex-start; gap:12px; }
+.prml-check input{ width:22px; height:22px; margin-top:3px; flex:0 0 auto; accent-color:var(--red); }
+.prml-check label{ text-transform:none; font-family:'Roboto Slab',serif; letter-spacing:0; font-size:16px; }
+
+/* honeypot — visually hidden, bots fill it */
+.prml-hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+/* submit */
+.prml-submit{
+  font-family:'Rubik Mono One',monospace; font-size:18px; text-transform:uppercase; letter-spacing:0.02em;
+  color:var(--cream); background:var(--red); border:0; border-radius:8px;
+  padding:16px 34px; cursor:pointer; transition:background .15s ease;
+}
+.prml-submit:hover{ background:var(--darkred); }
+.prml-submit:disabled{ opacity:.6; cursor:default; }
+
+/* thank-you state */
+.prml-thanks{ display:none; margin-top:36px; padding:28px; background:var(--charcoal); color:var(--cream); border-radius:12px; }
+.prml-thanks h2{ font-family:'Rubik Mono One',monospace; font-size:26px; text-transform:uppercase; }
+.prml-thanks p{ margin-top:10px; font-size:17px; }
+.prml-thanks a{ color:var(--red); }
+
+/* footer */
+.prml-foot{ margin-top:48px; border-top:2px solid var(--stone); padding-top:20px; }
+.prml-foot .line{ font-family:'Odibee Sans',sans-serif; font-size:17px; letter-spacing:0.12em; text-transform:uppercase; }
+.prml-foot .line b{ color:var(--red); }
+.prml-foot .sub{ font-size:15px; color:var(--stone); margin-top:6px; }
+.prml-foot a{ color:var(--red); text-decoration:none; }
+.prml-foot a:hover{ text-decoration:underline; }

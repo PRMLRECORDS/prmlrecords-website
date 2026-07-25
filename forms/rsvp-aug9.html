@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP â€” Westview Market Aug 9 â€” PRML RECORDS</title>
+<meta name="description" content="RSVP for the Westview Makers Community Market, Sunday August 9 in Atlanta. Free & open to the community. Presented by PRML RECORDS.">
+<link rel="stylesheet" href="../brand/prml-forms.css">
+</head>
+<body class="prml-form">
+  <main class="prml-wrap">
+    <div class="prml-top">
+      <span class="prml-mark">PRML&nbsp;<span class="rec">RECORDS</span></span>
+      <span class="prml-kicker">Westview Market Â· Aug 9</span>
+    </div>
+    <div class="prml-rule"></div>
+
+    <p class="prml-eyebrow">Free &amp; open to the community</p>
+    <h1>RSVP</h1>
+    <p class="prml-lede">Come out to the <b>Westview Makers Community Market</b> â€” Sunday, August 9 Â· 10AMâ€“5PM at 1554 Ralph David Abernathy Blvd, Atlanta. Shop, eat, connect, create. Free to attend â€” RSVP so we can plan for you.</p>
+
+    <form id="prmlForm" class="prml" method="POST" target="prmlSink">
+      <div class="prml-hp" aria-hidden="true"><label>Leave blank<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_form" value="RSVP â€” Westview Market Aug 9">
+      <input type="hidden" name="_source" id="prmlSource" value="">
+
+      <div class="prml-field">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+      <div class="prml-field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="prml-field">
+        <label>How many in your party? <span class="req">*</span></label>
+        <select name="party_size" required>
+          <option value="" disabled selected>Select</option>
+          <option>Just me</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5+</option>
+        </select>
+      </div>
+      <div class="prml-field">
+        <label>Phone (optional)</label>
+        <input type="tel" name="phone" placeholder="(404) 555-0123">
+      </div>
+      <div class="prml-field">
+        <label>What are you most excited for?</label>
+        <select name="excited_for">
+          <option value="" disabled selected>Pick one (optional)</option>
+          <option>Live music</option>
+          <option>Producer Beat Battle</option>
+          <option>African drums &amp; dancing</option>
+          <option>Local vendors &amp; food</option>
+          <option>Kids activities</option>
+          <option>All of it</option>
+        </select>
+      </div>
+
+      <div class="prml-field prml-check">
+        <input type="checkbox" id="ml" name="_mailing" value="yes">
+        <label for="ml">Add me to the PRML RECORDS mailing list</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="prml-submit">Count me in</button>
+    </form>
+
+    <div class="prml-thanks" id="thanks">
+      <h2>See you there.</h2>
+      <p>You're RSVP'd for August 9. We'll send a reminder as it gets close. Follow <a href="https://instagram.com/prmlrecords">@prmlrecords</a> for the lineup and updates.</p>
+    </div>
+
+    <footer class="prml-foot">
+      <p class="line">Powered by <b>PRML RECORDS</b> Ã— Westview Makers</p>
+      <p class="sub">Primal Sound Â· Primal Energy Â· <a href="https://prmlrecords.com">prmlrecords.com</a></p>
+    </footer>
+  </main>
+
+  <iframe name="prmlSink" id="prmlSink" style="display:none" title="submission target"></iframe>
+  <script>
+    const PRML_ENDPOINT = "https://script.google.com/macros/s/AKfycbz-O80GpfLcNtXRRD-mRrihSDHYwwCO7Fulb5ABEg2xzEVQP7gcIMtUnWh8xGs0D8gZrg/exec";
+    const form = document.getElementById('prmlForm');
+    document.getElementById('prmlSource').value = location.href;
+    form.action = PRML_ENDPOINT;
+    form.addEventListener('submit', function(){
+      form.dataset.submitted = '1';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Sendingâ€¦';
+    });
+    document.getElementById('prmlSink').addEventListener('load', function(){
+      if (!form.dataset.submitted) return;
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  </script>
+<script src="/js/cache-bust.js" defer></script>
+</body>
+</html>
