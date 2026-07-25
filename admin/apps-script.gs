@@ -43,7 +43,7 @@ var SITE_NAME    = 'PRML Records LLC';
 // key ADMIN_TOKEN = a long random string. Then have the admin console include
 // { token: "<that string>" } in every privileged POST body.
 var PRIVILEGED_ACTIONS = {
-  INVOICE:1, PRODUCT:1, GOAL:1, GRANT:1, CREATE_POST:1, DELETE_POST:1,
+  INVOICE:1, CLEANUP:1, PRODUCT:1, GOAL:1, GRANT:1, CREATE_POST:1, DELETE_POST:1,
   UPDATE_GOAL:1, UPDATE_GRANT:1, SOCIAL_QUEUE:1, SOCIAL_QUICK:1, SHORTCUT:1
 };
 
@@ -66,6 +66,7 @@ function doPost(e) {
     var ss   = SpreadsheetApp.openById(SHEET_ID);
 
     switch (data.type) {
+      case 'CLEANUP':      return handleCleanup(ss, data);
       case 'INQUIRY':      handleInquiry(ss, data); break;
       case 'SUPPORT':      handleSupport(ss, data); break;
       case 'EMAIL':        handleEmailSignup(ss, data); break;
@@ -137,6 +138,7 @@ function doGet(e) {
 
 /* -- INQUIRY / QUOTE FORM ---------------------- */
 function handleInquiry(ss, data) {
+  if (isBot_(data)) return; // silent drop
   var sh = getOrCreateSheet(ss, 'Leads', [
     'Date','Name','Email','Phone','Business Name',
     'Service','Budget','Timeline','Details','Source','Status'
@@ -210,6 +212,7 @@ function handleSupport(ss, data) {
 
 /* -- EMAIL LIST SIGNUP ------------------------- */
 function handleEmailSignup(ss, data) {
+  if (isBot_(data)) return; // silent drop
   var sh = getOrCreateSheet(ss, 'Email List', ['Date Joined','Email']);
 
   // Prevent duplicate emails
@@ -249,6 +252,7 @@ function handleOrder(ss, data) {
 
 /* -- BOOKING REQUEST --------------------------- */
 function handleBooking(ss, data) {
+  if (isBot_(data)) return; // silent drop
   var sh = getOrCreateSheet(ss, 'Bookings', [
     'Date','Artist','Status','ClientName','Email','Phone',
     'Organization','EventDate','EventTime','EventType',
@@ -577,4 +581,42 @@ function formatDate(isoString) {
   } catch(e) {
     return isoString || new Date().toString();
   }
+}
+
+
+/* -- BOT FILTER (added 2026-07-25) ------------------------------------- */
+// Drops: filled honeypot, dot-permutation gmail bots, sub-2.5s submits.
+function isBot_(data) {
+  if (data._hp) return true;
+  var em = String(data.email || '');
+  if (/^([a-z0-9]+\.){3,}[a-z0-9]+@gmail\.com$/i.test(em)) return true;
+  if (data._t !== undefined && Number(data._t) >= 0 && Number(data._t) < 2500) return true;
+  return false;
+}
+
+/* -- CLEANUP (privileged; requires ADMIN_TOKEN) ------------------------- */
+// Deletes test rows + dot-gmail bot rows. POST {type:'CLEANUP', token:...}
+function handleCleanup(ss, data) {
+  var botRe = /^([a-z0-9]+\.){3,}[a-z0-9]+@gmail\.com$/i;
+  var junk = ['TOKEN-PROBE-DELETE-ME', 'GATE-OK-DELETE-ME', 'GATE-TEST',
+              'gate-test-delete@prmlrecords.com', 'TEST Ignore Me', 'TEST Ignore'];
+  var report = {};
+  ['Invoices', 'Email List', 'Leads'].forEach(function(name) {
+    var sh = ss.getSheetByName(name);
+    if (!sh || sh.getLastRow() < 2) { report[name] = 0; return; }
+    var vals = sh.getDataRange().getValues();
+    var del = [];
+    for (var r = 1; r < vals.length; r++) {
+      var hit = false;
+      for (var c = 0; c < vals[r].length; c++) {
+        var v = String(vals[r][c]);
+        if (junk.indexOf(v) !== -1 || botRe.test(v)) { hit = true; break; }
+      }
+      if (hit) del.push(r + 1);
+    }
+    for (var i = del.length - 1; i >= 0; i--) sh.deleteRow(del[i]);
+    report[name] = del.length;
+  });
+  return ContentService.createTextOutput(JSON.stringify({ status: 'ok', deleted: report }))
+    .setMimeType(ContentService.MimeType.JSON);
 }

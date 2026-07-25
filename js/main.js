@@ -8,7 +8,8 @@
 const GAS_URL    = 'https://script.google.com/macros/s/AKfycbwdCUavnXyvWFRmtVQWoW9JTbGnKIOIdgEyP8Rt_m-V5buMEixkSOcGVgHjmE5OG1_7/exec';        // Apps Script /exec URL
 const STRIPE_PK  = 'pk_live_51IJPNBIEvKUNtDqenm2BfJJxvZKp5gcSpzilQq1AtgC9likIp8XJFsSZzjmo0z8M9IvwduJg34Op8D0jst1EmnjA00C3wRPaUv'; // pk_live_... or pk_test_...
 const STRIPE_URL = 'https://prml-checkout.vercel.app/checkout';  // Vercel checkout app (Airtable + Brevo emails)
-const STRIPE_FEE = 6.00;                                      // flat $6 transaction fee
+const STRIPE_FEE = 6.00;
+const PRML_T0 = Date.now();  // bot time-trap baseline                                      // flat $6 transaction fee
 
 /* ── Stripe Payment Link Map (loaded from products.json at init) ── */
 let _productCatalog = [];
@@ -684,7 +685,7 @@ async function submitForm(formId, btnId, okId, errId) {
   if (err) err.style.display = 'none';
 
   const fd   = new FormData(form);
-  const data = { type: 'INQUIRY', ts: new Date().toISOString() };
+  const data = { type: 'INQUIRY', ts: new Date().toISOString(), _t: Date.now() - PRML_T0 };
   fd.forEach((v, k) => data[k] = v);
 
   if (!GAS_URL || GAS_URL.includes('PASTE_YOUR')) {
@@ -717,7 +718,7 @@ async function submitEmail(e) {
   const inp = document.getElementById('email-in');
   const btn = document.getElementById('email-btn');
   if (!inp || !btn) return;
-  const data = { type: 'EMAIL', email: inp.value.trim(), ts: new Date().toISOString() };
+  const data = { type: 'EMAIL', email: inp.value.trim(), ts: new Date().toISOString(), _t: Date.now() - PRML_T0 };
   btn.textContent = '...'; btn.disabled = true;
   if (GAS_URL && !GAS_URL.includes('PASTE_YOUR')) {
     try { await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch(e) {}
